@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1107/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1107 [BJWC2008] 雷涛的小猫</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1107 [BJWC2008] 雷涛的小猫</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <article lang="zh-CN">
+<h1>P1107 [BJWC2008] 雷涛的小猫</h1>
+<section>
+<h2>题目背景</h2>
+<div>
+                原最大整数参见 P1012
+            </div>
+</section>
+<section>
+<h2>题目描述</h2>
+<div>
+                                    雷涛同学非常的有爱心，在他的宿舍里，养着一只因为受伤被救助的小猫（当然，这样的行为是违反学生宿舍管理条例的）。在他的照顾下，小猫很快恢复了健康，并且愈发的活泼可爱了。
+
+可是有一天，雷涛下课回到寝室，却发现小猫不见了！经过一番寻找，才发现她正趴在阳台上对窗外的柿子树发呆…
+
+在北京大学的校园里，有许多柿子树，在雷涛所在的宿舍楼前，就有 $N$ 棵。并且这 $N$ 棵柿子树每棵的高度都是 $H$。冬天的寒冷渐渐笼罩了大地，树上的叶子渐渐掉光了，只剩下一个个黄澄澄的柿子，看着非常喜人。而雷涛的小猫恰好非常的爱吃柿子，看着窗外树上的柿子，她十分眼馋，于是决定利用自己敏捷的跳跃能力跳到树上去吃柿子。
+
+小猫可以从宿舍的阳台上跳到窗外任意一棵柿子树的树顶。之后，她每次都可以在当前位置沿着当前所在的柿子树向下跳 $1$ 单位距离。当然，小猫的能力远不止如此，她还可以在树之间跳跃。每次她都可以从当前这棵树跳到另外的任意一棵，在这个过程中，她的高度会下降 `Delta` 单位距离。每个时刻，只要她所在的位置有柿子，她就可以吃掉。整个“吃柿子行动”一直到小猫落到地面上为止。
+
+雷涛调查了所有柿子树上柿子的生长情况。他很想知道，小猫从阳台出发，最多能吃到多少柿子？他知道写一个程序可以很容易的解决这个问题，但是他现在懒于写任何代码。于是，现在你的任务就是帮助雷涛写一个这样的程序。
+
+图为 $N=3, H=10, Delta=2$ 的一个例子。小猫按照图示路线进行跳跃，可以吃到最多的 $8$ 个柿子。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/69gyw9xt.png)
+                            </div>
+</section>
+<section>
+<h2>输入格式</h2>
+<div>
+                                    第一行有三个以空格分隔的整数，分别代表 $N,H,Delta$。
+
+接下来的 $N$ 行，每行第一个整数为 $N_i$，代表第 $i$ 棵树上的柿子数量。
+
+接下来是 $N_i$ 个整数，每个整数 $T_{i,j}$ 代表第 $i$ 棵柿子树的 $T_{i,j}$ 高度上长有一个柿子。
+                            </div>
+</section>
+<section>
+<h2>输出格式</h2>
+<div>
+                                    一个整数，即小猫最多吃到的柿子数。
+                            </div>
+</section>
+<section>
+<h2>说明/提示</h2>
+<div>
+                ### 数据范围及约定
+
+对于全部数据，$1 \leq N, H ≤ 2000$，$0 \leq N_i ≤ 5000$，$1 ≤ Delta ≤ H,1 ≤ T_{i,j} ≤ H$。
+
+输入文件大小不大于 40MB。注意输入输出效率。
+
+来源 Excalibur, 2008。
+            </div>
+</section> </article>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+  </body>
+</html>

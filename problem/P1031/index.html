@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1031/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1031 [NOIP 2002 提高组] 均分纸牌</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1031 [NOIP 2002 提高组] 均分纸牌</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <article lang="zh-CN">
+<h1>P1031 [NOIP 2002 提高组] 均分纸牌</h1>
+<section>
+<h2>题目描述</h2>
+<div>
+                                    有 $N$ 堆纸牌，编号分别为 $1,2,\ldots,N$。每堆上有若干张，但纸牌总数必为 $N$ 的倍数。可以在任一堆上取若干张纸牌，然后移动。
+
+移牌规则为：在编号为 $1$ 堆上取的纸牌，只能移到编号为 $2$ 的堆上；在编号为 $N$ 的堆上取的纸牌，只能移到编号为 $N-1$ 的堆上；其他堆上取的纸牌，可以移到相邻左边或右边的堆上。
+
+现在要求找出一种移动方法，用最少的移动次数使每堆上纸牌数都一样多。
+
+例如 $N=4$ 时，$4$ 堆纸牌数分别为 $9,8,17,6$。
+
+移动 $3$ 次可达到目的：
+
+- 从第三堆取 $4$ 张牌放到第四堆，此时每堆纸牌数分别为 $9,8,13,10$。
+- 从第三堆取 $3$ 张牌放到第二堆，此时每堆纸牌数分别为 $9,11,10,10$。
+- 从第二堆取 $1$ 张牌放到第一堆，此时每堆纸牌数分别为  $10,10,10,10$。
+
+                            </div>
+</section>
+<section>
+<h2>输入格式</h2>
+<div>
+                                    第一行共一个整数 $N$，表示纸牌堆数。  
+第二行共 $N$ 个整数 $A_1,A_2,\ldots,A_N$，表示每堆纸牌初始时的纸牌数。
+
+                            </div>
+</section>
+<section>
+<h2>输出格式</h2>
+<div>
+                                    共一行，即所有堆均达到相等时的最少移动次数。
+
+                            </div>
+</section>
+<section>
+<h2>说明/提示</h2>
+<div>
+                对于 $100\%$ 的数据，$1  \le  N  \le  100$，$1 \le  A_i  \le 10000$。
+
+**【题目来源】**
+
+NOIP 2002 提高组第一题
+            </div>
+</section> </article>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+  </body>
+</html>

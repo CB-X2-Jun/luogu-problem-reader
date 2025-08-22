@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1066/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1066 [NOIP 2006 提高组] 2^k进制数</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1066 [NOIP 2006 提高组] 2^k进制数</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <article lang="zh-CN">
+<h1>P1066 [NOIP 2006 提高组] 2^k进制数</h1>
+<section>
+<h2>题目描述</h2>
+<div>
+                                    设 $r$ 是个 $2^k$ 进制数，并满足以下条件：
+
+- $r$ 至少是个 $2$ 位的 $2^k$ 进制数。
+
+- 作为 $2^k$ 进制数，除最后一位外，$r$ 的每一位严格小于它右边相邻的那一位。
+
+- 将 $r$ 转换为二进制数 $q$ 后，则 $q$ 的总位数不超过 $w$。
+
+在这里，正整数 $k,w$ 是事先给定的。
+
+问：满足上述条件的不同的 $r$ 共有多少个？
+
+我们再从另一角度作些解释：设 $S$ 是长度为 $w$ 的 $01$ 字符串（即字符串 $S$ 由 $w$ 个 $0$ 或 $1$ 组成），$S$ 对应于上述条件三中的 $q$。将 $S$ 从右起划分为若干个长度为 $k$ 的段，每段对应一位 $2^k$ 进制的数，如果 $S$ 至少可分成 $2$ 段，则 $S$ 所对应的二进制数又可以转换为上述的 $2^k$ 进制数 $r$。
+
+例：设 $k=3,w=7$。则 $r$ 是个八进制数（ $2^3=8$ ）。由于 $w=7$，长度为 $7$ 的 $01$ 字符串按 $3$ 位一段分，可分为 $3$ 段（即 $1,3,3$，左边第一段只有一个二进制位），则满足条件的八进制数有：
+
+$2$ 位数：  
+高位为 $1$：$6$ 个（即 $12,13,14,15,16,17$ ）,   
+高位为 $2$：$5$ 个，  
+…，  
+高位为 $6$：$1$ 个（即 $67$ ）。  
+共 $6+5+…+1=21$ 个。
+
+$3$ 位数：  
+高位只能是 $1$，  
+第 $2$ 位为 $2$：$5$ 个（即 $123,124,125,126,127$ ），  
+第 $2$ 位为 $3$：$4$ 个，  
+…，    
+第 $2$ 位为 $6$：$1$ 个（即 $167$ ）。  
+共 $5+4+…+1=15$ 个。
+
+所以，满足要求的 $r$ 共有 $36$ 个。
+
+                            </div>
+</section>
+<section>
+<h2>输入格式</h2>
+<div>
+                                    一行两个正整数 $k,w$ 用一个空格隔开：
+
+                            </div>
+</section>
+<section>
+<h2>输出格式</h2>
+<div>
+                                    一行一个个正整数，为所求的计算结果。  
+即满足条件的不同的 $r$ 的个数（用十进制数表示），要求不得有前导零，各数字之间不得插入数字以外的其他字符（例如空格、换行符、逗号等）。
+
+（提示：作为结果的正整数可能很大，但不会超过 $200$ 位）
+
+                            </div>
+</section>
+<section>
+<h2>说明/提示</h2>
+<div>
+                【数据范围】  
+$1\le k \le 9$    
+$1\le w \le 3\times 10^4$
+
+NOIP 2006 提高组 第四题
+
+            </div>
+</section> </article>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+  </body>
+</html>

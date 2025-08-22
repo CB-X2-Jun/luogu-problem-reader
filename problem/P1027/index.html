@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1027/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1027 [NOIP 2001 提高组] Car 的旅行路线</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1027 [NOIP 2001 提高组] Car 的旅行路线</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <article lang="zh-CN">
+<h1>P1027 [NOIP 2001 提高组] Car 的旅行路线</h1>
+<section>
+<h2>题目描述</h2>
+<div>
+                                    又到暑假了，住在城市 A 的 Car 想和朋友一起去城市旅游。  
+她知道每个城市都有 $4$ 个飞机场，分别位于一个矩形的 $4$ 个顶点上，同一个城市中两个机场之间有一条笔直的高速铁路，第 $i$ 个城市中高速铁路的单位里程价格为 $T_i$，任意两个不同城市的机场之间均有航线，所有航线单位里程的价格均为 $t$。
+
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/odqxn9sz.png)
+
+**注意**：图中并没有标出所有的铁路与航线。
+
+
+那么 Car 应如何安排到城市 B 的路线才能尽可能的节省花费呢？她发现这并不是一个简单的问题，于是她来向你请教。
+
+
+找出一条从城市 A 到 B 的旅游路线，出发和到达城市中的机场可以任意选取，要求总的花费最少。
+                            </div>
+</section>
+<section>
+<h2>输入格式</h2>
+<div>
+                                    第一行为一个正整数 $n$，表示有 $n$ 组测试数据。
+
+每组的第一行有 $4$ 个正整数 $S,t,A,B$。
+
+$S$ 表示城市的个数，$t$ 表示飞机单位里程的价格，$A$，$B$ 分别为城市A，B 的序号。
+
+接下来有 $S$ 行，其中第 $i$ 行均有 $7$ 个正整数$x_{i1},y_{i1},x_{i2},y_{i2},x_{i3},y_{i3},T_i$，这当中的 $(x_{i1},y_{i1}), (x_{i2},y_{i2}), (x_{i3},y_{i3})$，分别是第 $i$ 个城市中任意 $3$ 个机场的坐标，$T_i$ 为第 $i$ 个城市高速铁路单位里程的价格。
+                            </div>
+</section>
+<section>
+<h2>输出格式</h2>
+<div>
+                                    共有 $n$ 行，每行 $1$ 个数据对应测试数据。  
+保留一位小数。
+                            </div>
+</section>
+<section>
+<h2>说明/提示</h2>
+<div>
+                【数据范围】  
+对于 $100\%$ 的数据，$1\le n \le 10$，$1\le S \le 100$，$1\le A,B \le S$，$0\leq t,x_{i1},y_{i1},x_{i2},y_{i2},x_{i3},y_{i3},T_i\leq 500$。
+
+**【题目来源】**
+
+NOIP 2001 提高组第四题
+            </div>
+</section> </article>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+  </body>
+</html>
