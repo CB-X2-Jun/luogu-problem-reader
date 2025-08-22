@@ -16,8 +16,11 @@ plugins:
 
 # 排除文件和目录（防止Jekyll处理）
 exclude:
+  - venv/**
   - venv/
+  - env/**
   - env/
+  - __pycache__/**
   - __pycache__/
   - "*.py"
   - "*.pyc"
@@ -29,15 +32,21 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - node_modules/**
   - node_modules/
+  - vendor/**
   - vendor/
+  - .sass-cache/**
   - .sass-cache/
+  - .jekyll-cache/**
   - .jekyll-cache/
   - .jekyll-metadata
+  - .git/**
   - .git/
   - .gitignore
   - .DS_Store
   - Thumbs.db
+  - "fetch_luogu_problems_html2md.py"
 
 # 包含文件
 include:
