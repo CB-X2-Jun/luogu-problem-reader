@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1167/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1167 刷题</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1167 刷题</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>NOIP 临近了，小 A 却发现他已经不会写题了。好在现在离竞赛还有一段时间，小 A 决定从现在开始夜以继日地刷题。也就是说小 A 废寝忘食，一天二十四小时地刷题。</p>
+<p>今天的日期（时间）是 yyyy 年 mm 月 dd 日 hh 时 MM 分，考试的时间是 yyyy2 年 mm2 月 dd2 日 hh2 时 MM2 分。这之间的所有时间小 A 都用来刷题了，那么考试之前他最多能刷多少题呢？注意哦，考虑闰年。</p>
+<p>时间紧张小 A 只管数量不管质量。当然有的题目容易一些，有的题目难一些。根据小 A 的经验，他能一眼看出写出某一个题目需要的时间，以分钟记。</p>
+<p>现在给出洛谷 Online Judge 的题目列表，请你挑出最多的题目使小A能在竞赛前写出来。</p>
+<p>我们假设从远古到未来，历法的表示与现在一样。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行一个整数 $N$，表示洛谷 Online Judge 的题目数，$N≤5000$。</p>
+<p>接下来$N$行，每行一个整数表示刷该题需要用的时间，以分钟记（$ \le 10000$）。（这个题本身是什么并不重要，不是么？<code class="hljs inline">小A</code>已经写过题目数为 $0$ 个）。</p>
+<p>接下来两行依次是当前时间和竞赛时间。时间给出的格式是：<code class="hljs inline">yyyy-mm-dd-hh:MM</code>，例如：<code class="hljs inline">2007-06-23-02:00</code>，采用 $24$ 小时制，每天从 00:00 到 23:59，年份从 $0000$ 到 $9999$。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行，一个整数，NOIP 前最多刷的题目数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2
+1
+1
+2007-06-23-11:59
+2007-06-23-12:00</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
