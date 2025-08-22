@@ -46,6 +46,30 @@ $$
 
 如果你的程序能确定谁是罪犯，则输出他的名字；如果程序判断出不止一个人可能是罪犯，则输出 `Cannot Determine`；如果程序判断出没有人可能成为罪犯，则输出 `Impossible`。
 
+## 输入输出样例
+
+### 样例 #1
+
+#### 样例输入 #1
+
+```
+3 1 5
+MIKE
+CHARLES
+KATE
+MIKE: I am guilty.
+MIKE: Today is Sunday.
+CHARLES: MIKE is guilty.
+KATE: I am guilty.
+KATE: How are you??
+```
+
+#### 样例输出 #1
+
+```
+MIKE
+```
+
 ## 说明/提示
 
 对于 $100\%$ 数据，满足 $1\le M\le 20$，$0\le N\le M$，$1\le P\le 100$。

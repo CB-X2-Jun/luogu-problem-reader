@@ -65,6 +65,20 @@ def fetch_problem_html(pid):
                 if content_data.get('formatO'):
                     content_parts.append(f"## 输出格式\n\n{content_data['formatO']}")
                 
+                # 添加样例数据提取
+                samples = problem_data.get('samples', [])
+                if samples:
+                    content_parts.append("## 输入输出样例")
+                    for i, sample in enumerate(samples):
+                        sample_input = sample[0] if len(sample) > 0 else ""
+                        sample_output = sample[1] if len(sample) > 1 else ""
+                        
+                        content_parts.append(f"### 样例 #{i+1}")
+                        content_parts.append(f"#### 样例输入 #{i+1}")
+                        content_parts.append(f"```\n{sample_input.rstrip()}\n```")
+                        content_parts.append(f"#### 样例输出 #{i+1}")
+                        content_parts.append(f"```\n{sample_output.rstrip()}\n```")
+                
                 if content_data.get('hint'):
                     content_parts.append(f"## 说明/提示\n\n{content_data['hint']}")
                 

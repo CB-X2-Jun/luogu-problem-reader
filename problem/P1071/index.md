@@ -45,6 +45,56 @@ R 国和 S 国正陷入战火之中，双方都互派间谍，潜入对方内部
 否则请输出利用密码翻译电报中加密信息后得到的原信息。
 
 
+## 输入输出样例
+
+### 样例 #1
+
+#### 样例输入 #1
+
+```
+AA 
+AB 
+EOWIE
+```
+
+#### 样例输出 #1
+
+```
+Failed
+```
+
+### 样例 #2
+
+#### 样例输入 #2
+
+```
+QWERTYUIOPLKJHGFDSAZXCVBN 
+ABCDEFGHIJKLMNOPQRSTUVWXY 
+DSLIEWO
+```
+
+#### 样例输出 #2
+
+```
+Failed
+```
+
+### 样例 #3
+
+#### 样例输入 #3
+
+```
+MSRTZCJKPFLQYVAWBINXUEDGHOOILSMIJFRCOPPQCEUNYDUMPP
+YIZSDWAHLNOVFUCERKJXQMGTBPPKOIYKANZWPLLVWMQJFGQYLL
+FLSO
+```
+
+#### 样例输出 #3
+
+```
+NOIP
+```
+
 ## 说明/提示
 
 【输入输出样例一说明】
