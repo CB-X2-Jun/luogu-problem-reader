@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1148/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1148 拱猪计分</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1148 拱猪计分</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>「拱猪」是一种很有趣的扑克牌游戏。即使你不知道它的玩法，你也可以由它的计分方式来了解它的趣味性。假设在此我们仅考虑四个人的拱猪牌局，本题要求你根据下面的计分规则，在牌局结束时计算四位玩家所得分数。</p>
+<ol>
+<li>我们分别以 $\texttt S, \texttt H, \texttt D, \texttt C$ 来代表黑桃、红心、方块及梅花，并以数字 $1$ 至 $13$ 来代表 $\texttt A, \texttt 2, \dots, \texttt Q, \texttt K$ 等牌点，例如：$H_1$ 为红心 $\texttt A$，$S_{13}$ 为黑桃 $\texttt K$；</li>
+<li>牌局结束时，由各玩家持有的有关计分的牌（计分牌）仅有「猪」$S_{12}$，所有红心牌，「羊」$D_{11}$ 及「加倍」$C_{10}$ 等 $16$ 张牌，其它牌均弃置不计（也就是在下面的算分过程中不再考虑这些牌），若一位玩家未持有这 $16$ 张牌中任意一张，则以得零分计算；</li>
+<li>若持有 $C_{10}$ 牌的玩家只有该张牌而没有任何其它牌则得 $+50$ 分，否则将其它计分牌所得分数加倍计算；</li>
+<li>若红心牌不在同一家，则 $H_1$ 至 $H_{13}$ 等 $13$ 张牌均以负分计，其数值依次为 $-50, -2, -3, -4, -5, -6, -7, -8, -9, -10, -20, -30, -40$，且 $S_{12}$ 与 $D_{11}$ 的分值分别以 $-100$ 及 $+100$ 分计算；</li>
+<li>若红心牌 $H_1$ 至 $H_{13}$ 均在同一家，则有下列情形：</li>
+</ol>
+<ul>
+<li>所有红心牌以 $+200$ 分计算。<strong>不是每一张牌都以 $+200$ 分计算，而是所有红心牌。</strong></li>
+<li>若 $S_{12}, D_{11}$ 皆在吃下所有红心牌之一家，则此玩家得 $+500$ 分，<strong>这个分不与红心牌的 $+200$ 分叠加。</strong> 否则这两张牌的分值以前文所述原则计算。</li>
+<li>$C_{10}$ 牌依旧以前文所述原则计算。</li>
+</ul>
+<p>例一：若各玩家持有计分牌如下：</p>
+<ol>
+<li><code class="hljs inline">S12 H3 H5 H13</code></li>
+<li><code class="hljs inline">D11 H8 H9</code></li>
+<li><code class="hljs inline">C10 H1 H2 H4 H6 H7</code></li>
+<li><code class="hljs inline">H10 H11 H12</code></li>
+</ol>
+<p>则各家之得分依序为：$-148, +83, -138$ 及 $-60$。</p>
+<p>例二：若各玩家持有计分牌如下：</p>
+<ol>
+<li><code class="hljs inline">H1 H2 H3 H4 H5 H6 H7 H8 H9 H10 H11 H12 H13</code></li>
+<li><code class="hljs inline">S12 C10</code></li>
+<li><code class="hljs inline">D11</code></li>
+<li>无</li>
+</ol>
+<p>则各家之得分依序为：$+200, -200, +100$ 及 $0$。</p>
+<h2 id="_2">输入格式</h2>
+<p><strong>每个输入文件包含多组数据。</strong></p>
+<p>每组数据有四行，分别描述一个玩家。</p>
+<p>每一行，第一个数为该玩家所持有计分牌总数，随后若干个符合题意的字符串描述其所持有之所有计分牌，牌数与各计分牌均以一个以上的空格分开。</p>
+<p>相邻两组测试数据之间不包含空白行。若四家持牌数均为 $0$，表示输入文件结束，不应处理这个测试数据。</p>
+<h2 id="_3">输出格式</h2>
+<p>每一行表示一组数据对应的结果，依次输出各家所得分数，共 $4$ 个整数，若非 $0$ 则包含正负号；相邻两个整数之间以一个空格分开。</p>
+<p>符号和数字间不带空格。每组数据的输出间不带空白行。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4&nbsp;&nbsp;S12&nbsp;&nbsp;H3&nbsp;&nbsp;H5&nbsp;&nbsp;H13
+3&nbsp;&nbsp;D11&nbsp;&nbsp;H8&nbsp;&nbsp;H9
+6&nbsp;&nbsp;C10&nbsp;&nbsp;H1&nbsp;&nbsp;H2&nbsp;&nbsp;H4&nbsp;&nbsp;H6&nbsp;&nbsp;H7
+3&nbsp;&nbsp;H10&nbsp;&nbsp;H11 H12
+13 H1&nbsp;&nbsp;H2&nbsp;&nbsp;H3&nbsp;&nbsp;H4&nbsp;&nbsp;H5&nbsp;&nbsp;H6&nbsp;&nbsp;H7&nbsp;&nbsp;H8&nbsp;&nbsp;H9&nbsp;&nbsp;H10&nbsp;&nbsp;H11&nbsp;&nbsp;H12&nbsp;&nbsp;H13&nbsp;&nbsp;
+2&nbsp;&nbsp;S12&nbsp;&nbsp;C10
+1&nbsp;&nbsp;D11
+0
+0
+0
+0
+0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">-148 +83 -138 -60
++200 -200 +100 0</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>样例中两组数据为题面中的例子。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
