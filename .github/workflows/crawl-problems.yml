@@ -124,11 +124,13 @@ jobs:
           # 生成提交信息
           COMMIT_MSG="🤖 自动爬取洛谷题目"
           
-          if [ -n "${{ steps.config.outputs.start_from }}" ]; then
-            COMMIT_MSG="$COMMIT_MSG (从P${{ steps.config.outputs.start_from }}开始)"
+          if [ "${{ steps.config.outputs.from_head }}" = "true" ]; then
+            COMMIT_MSG="$COMMIT_MSG (从P1000开始)"
+          else
+            COMMIT_MSG="$COMMIT_MSG (继续爬取)"
           fi
           
-          COMMIT_MSG="$COMMIT_MSG - $(date '+%Y-%m-%d %H:%M:%S')"
+          COMMIT_MSG="$COMMIT_MSG - 数量:${{ steps.config.outputs.batch_size }} - $(date '+%Y-%m-%d %H:%M:%S')"
           
           git commit -m "$COMMIT_MSG"
           
@@ -165,5 +167,4 @@ jobs:
           echo "📊 网站地址: ${{ steps.deployment.outputs.page_url }}"
           echo "📝 本次爬取参数:"
           echo "   - 批量数量: ${{ steps.config.outputs.batch_size }}"
-          echo "   - 起始题号: ${{ steps.config.outputs.start_from }}"
-          echo "   - 强制重爬: ${{ steps.config.outputs.force_recrawl }}"
+          echo "   - 从头开始: ${{ steps.config.outputs.from_head }}"
