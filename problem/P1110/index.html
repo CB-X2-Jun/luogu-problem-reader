@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1110/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1110 [ZJOI2007] 报表统计</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1110 [ZJOI2007] 报表统计</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Q 的妈妈是一个出纳，经常需要做一些统计报表的工作。今天是妈妈的生日，小 Q 希望可以帮妈妈分担一些工作，作为她的生日礼物之一。</p>
+<p>经过仔细观察，小 Q 发现统计一张报表实际上是维护一个非负整数数列，并且进行一些查询操作。</p>
+<p>在最开始的时候，有一个长度为 $n$ 的整数序列 $a$，并且有以下三种操作：</p>
+<ul>
+<li><code class="hljs inline">INSERT i k</code>：在原数列的第 $i$ 个元素后面添加一个新元素 $k$；如果原数列的第 $i$ 个元素已经添加了若干元素，则添加在这些元素的最后（见样例说明）。</li>
+<li><code class="hljs inline">MIN_GAP</code>：查询相邻两个元素的之间差值（绝对值）的最小值。</li>
+<li><code class="hljs inline">MIN_SORT_GAP</code>：查询所有元素中最接近的两个元素的差值（绝对值）。</li>
+</ul>
+<p>于是小 Q 写了一个程序，使得程序可以自动完成这些操作，但是他发现对于一些大的报表他的程序运行得很慢，你能帮助他改进程序么？</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个整数，分别表示原数列的长度 $n$ 以及操作的次数 $m$。</p>
+<p>第二行为 $n$ 个整数，为初始序列，第 $i$ 个整数表示 $a_i$。</p>
+<p>接下来的 $m$ 行，每行一个操作，即<code class="hljs inline">INSERT i k</code>，<code class="hljs inline">MIN_GAP</code>，<code class="hljs inline">MIN_SORT_GAP</code> 中的一种（无多余空格或者空行）。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每一个 <code class="hljs inline">MIN_GAP</code> 和 <code class="hljs inline">MIN_SORT_GAP</code> 命令，输出一行答案即可。</p>
+<h2 id="_4">说明/提示</h2>
+<h4 id="1">样例输入输出 1 解释</h4>
+<p>一开始的序列为 ${5,3,1}$。</p>
+<p>执行操作 <code class="hljs inline">INSERT 2  9</code> 将得到 ${5,3,9,1}$，此时 <code class="hljs inline">MIN_GAP</code> 为 $2$，<code class="hljs inline">MIN_SORT_GAP</code> 为 $2$。</p>
+<p>再执行操作 <code class="hljs inline">INSERT 2  6</code> 将得到：${5,3, 9, 6, 1}$。</p>
+<p>注意这个时候原序列的第 $2$ 个元素后面已经添加了一个 $9$，此时添加的 $6$ 应加在 $9$ 的后面。这个时候 <code class="hljs inline">MIN_GAP</code> 为 $2$，<code class="hljs inline">MIN_SORT_GAP</code> 为 $1$。</p>
+<hr />
+<h4 id="_5">数据规模与约定</h4>
+<p>对于全部的测试点，保证 $2 \le n, m \le 5\times10^5$，$1 \leq i \leq n$，$0 \leq a_i, k \leq 5 \times 10^8$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
