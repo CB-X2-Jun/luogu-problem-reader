@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1094/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1094 [NOIP 2007 普及组] 纪念品分组</title>
+    <title>P1094 P1094 [NOIP 2007 普及组] 纪念品分组</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1094 [NOIP 2007 普及组] 纪念品分组</span>
+              <span class="md-ellipsis">P1094 P1094 [NOIP 2007 普及组] 纪念品分组</span>
             </div>
           </div>
         </div>
@@ -39,51 +39,22 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1094 [NOIP 2007 普及组] 纪念品分组</h1>
-<section>
-<h2>题目背景</h2>
-<div>
-                NOIP2007 普及组 T2
-            </div>
-</section>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    元旦快到了，校学生会让乐乐负责新年晚会的纪念品发放工作。为使得参加晚会的同学所获得 的纪念品价值相对均衡，他要把购来的纪念品根据价格进行分组，但每组最多只能包括两件纪念品， 并且每组纪念品的价格之和不能超过一个给定的整数。为了保证在尽量短的时间内发完所有纪念品，乐乐希望分组的数目最少。
-
-你的任务是写一个程序，找出所有分组方案中分组数最少的一种，输出最少的分组数目。
-
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    共 $n+2$ 行：
-
+              <h1 id="p1094-noip-2007">P1094 [NOIP 2007 普及组] 纪念品分组</h1>
+<h2 id="_1">题目背景</h2>
+<p>NOIP2007 普及组 T2</p>
+<h2 id="_2">题目描述</h2>
+<p>元旦快到了，校学生会让乐乐负责新年晚会的纪念品发放工作。为使得参加晚会的同学所获得 的纪念品价值相对均衡，他要把购来的纪念品根据价格进行分组，但每组最多只能包括两件纪念品， 并且每组纪念品的价格之和不能超过一个给定的整数。为了保证在尽量短的时间内发完所有纪念品，乐乐希望分组的数目最少。
+你的任务是写一个程序，找出所有分组方案中分组数最少的一种，输出最少的分组数目。</p>
+<h2 id="_3">输入格式</h2>
+<p>共 $n+2$ 行：
 第一行包括一个整数 $w$，为每组纪念品价格之和的上限。
-
 第二行为一个整数 $n$，表示购来的纪念品的总件数 $G$。
-
-第 $3\sim n+2$ 行每行包含一个正整数 $P_i$ 表示所对应纪念品的价格。
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    一个整数，即最少的分组数目。
-
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                $50\%$ 的数据满足：$1\le n\le15$。
-
-$100\%$ 的数据满足：$1\le n\le3\times10^4$，$80\le w\le200$，$5 \le  P_i  \le  w$。
-            </div>
-</section> </article>
+第 $3\sim n+2$ 行每行包含一个正整数 $P_i$ 表示所对应纪念品的价格。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个整数，即最少的分组数目。</p>
+<h2 id="_5">说明/提示</h2>
+<p>$50\%$ 的数据满足：$1\le n\le15$。
+$100\%$ 的数据满足：$1\le n\le3\times10^4$，$80\le w\le200$，$5 \le P_i \le w$。</p>
             </article>
           </div>
         </div>
@@ -100,8 +71,18 @@ $100\%$ 的数据满足：$1\le n\le3\times10^4$，$80\le w\le200$，$5 \le  P_i
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

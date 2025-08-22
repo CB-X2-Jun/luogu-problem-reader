@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1040/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1040 [NOIP 2003 提高组] 加分二叉树</title>
+    <title>P1040 P1040 [NOIP 2003 提高组] 加分二叉树</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1040 [NOIP 2003 提高组] 加分二叉树</span>
+              <span class="md-ellipsis">P1040 P1040 [NOIP 2003 提高组] 加分二叉树</span>
             </div>
           </div>
         </div>
@@ -39,52 +39,23 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1040 [NOIP 2003 提高组] 加分二叉树</h1>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    设一个 $n$ 个节点的二叉树 $\text{tree}$ 的中序遍历为$(1,2,3,\ldots,n)$，其中数字 $1,2,3,\ldots,n$ 为节点编号。每个节点都有一个分数（均为正整数），记第 $i$ 个节点的分数为 $d_i$，$\text{tree}$ 及它的每个子树都有一个加分，任一棵子树 $\text{subtree}$（也包含 $\text{tree}$ 本身）的加分计算方法如下：
-
-
+              <h1 id="p1040-noip-2003">P1040 [NOIP 2003 提高组] 加分二叉树</h1>
+<h2 id="_1">题目描述</h2>
+<p>设一个 $n$ 个节点的二叉树 $\text{tree}$ 的中序遍历为$(1,2,3,\ldots,n)$，其中数字 $1,2,3,\ldots,n$ 为节点编号。每个节点都有一个分数（均为正整数），记第 $i$ 个节点的分数为 $d_i$，$\text{tree}$ 及它的每个子树都有一个加分，任一棵子树 $\text{subtree}$（也包含 $\text{tree}$ 本身）的加分计算方法如下：
 $\text{subtree}$ 的左子树的加分 $\times$ $\text{subtree}$ 的右子树的加分 $+$ $\text{subtree}$ 的根的分数。
-
 若某个子树为空，规定其加分为 $1$，叶子的加分就是叶节点本身的分数。不考虑它的空子树。
-
 试求一棵符合中序遍历为 $(1,2,3,\ldots,n)$ 且加分最高的二叉树 $\text{tree}$。要求输出
-
 1. $\text{tree}$ 的最高加分。
-
-2. $\text{tree}$ 的前序遍历。
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    第 $1$ 行 $1$ 个整数 $n$，为节点个数。
-
-第 $2$ 行 $n$ 个用空格隔开的整数，为每个节点的分数
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    第 $1$ 行 $1$ 个整数，为最高加分（$ Ans \le 4,000,000,000$）。
-
-第 $2$ 行 $n$ 个用空格隔开的整数，为该树的前序遍历。
-
-
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                ### 数据规模与约定
-
-对于全部的测试点，保证 $1 \leq n&lt; 30$，节点的分数是小于 $100$ 的正整数，答案不超过 $4 \times 10^9$。
-            </div>
-</section> </article>
+2. $\text{tree}$ 的前序遍历。</p>
+<h2 id="_2">输入格式</h2>
+<p>第 $1$ 行 $1$ 个整数 $n$，为节点个数。
+第 $2$ 行 $n$ 个用空格隔开的整数，为每个节点的分数</p>
+<h2 id="_3">输出格式</h2>
+<p>第 $1$ 行 $1$ 个整数，为最高加分（$ Ans \le 4,000,000,000$）。
+第 $2$ 行 $n$ 个用空格隔开的整数，为该树的前序遍历。</p>
+<h2 id="_4">说明/提示</h2>
+<h3 id="_5">数据规模与约定</h3>
+<p>对于全部的测试点，保证 $1 \leq n&lt; 30$，节点的分数是小于 $100$ 的正整数，答案不超过 $4 \times 10^9$。</p>
             </article>
           </div>
         </div>
@@ -101,8 +72,18 @@ $\text{subtree}$ 的左子树的加分 $\times$ $\text{subtree}$ 的右子树的
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -39,46 +39,19 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1004 [NOIP 2000 提高组] 方格取数</h1>
-<section>
-<h2>题目背景</h2>
-<div>
-                NOIP 2000 提高组 T4
-            </div>
-</section>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    设有 $N \times N$ 的方格图 $(N \le 9)$，我们将其中的某些方格中填入正整数，而其他的方格中则放入数字 $0$。如下图所示（见样例）:
-
-![](https://cdn.luogu.com.cn/upload/image_hosting/0bpummja.png)
-
-某人从图的左上角的 $A$ 点出发，可以向下行走，也可以向右走，直到到达右下角的 $B$ 点。在走过的路上，他可以取走方格中的数（取走后的方格中将变为数字 $0$）。  
-此人从 $A$ 点到 $B$ 点共走两次，试找出 $2$ 条这样的路径，使得取得的数之和为最大。
-
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    输入的第一行为一个整数 $N$（表示 $N \times N$ 的方格图），接下来的每行有三个整数，前两个表示位置，第三个数为该位置上所放的数。一行单独的 $0$ 表示输入结束。
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    只需输出一个整数，表示 $2$ 条路径上取得的最大的和。
-
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                数据范围：$1\le N\le 9$。
-            </div>
-</section> </article>
+              <h2 id="_1">题目背景</h2>
+<p>NOIP 2000 提高组 T4</p>
+<h2 id="_2">题目描述</h2>
+<p>设有 $N \times N$ 的方格图 $(N \le 9)$，我们将其中的某些方格中填入正整数，而其他的方格中则放入数字 $0$。如下图所示（见样例）:</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0bpummja.png" /></p>
+<p>某人从图的左上角的 $A$ 点出发，可以向下行走，也可以向右走，直到到达右下角的 $B$ 点。在走过的路上，他可以取走方格中的数（取走后的方格中将变为数字 $0$）。<br />
+此人从 $A$ 点到 $B$ 点共走两次，试找出 $2$ 条这样的路径，使得取得的数之和为最大。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入的第一行为一个整数 $N$（表示 $N \times N$ 的方格图），接下来的每行有三个整数，前两个表示位置，第三个数为该位置上所放的数。一行单独的 $0$ 表示输入结束。</p>
+<h2 id="_4">输出格式</h2>
+<p>只需输出一个整数，表示 $2$ 条路径上取得的最大的和。</p>
+<h2 id="_5">说明/提示</h2>
+<p>数据范围：$1\le N\le 9$。</p>
             </article>
           </div>
         </div>
@@ -95,8 +68,18 @@
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

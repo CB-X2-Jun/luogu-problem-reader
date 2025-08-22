@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1061/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1061 [NOIP 2006 普及组] Jam 的计数法</title>
+    <title>P1061 P1061 [NOIP 2006 普及组] Jam 的计数法</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1061 [NOIP 2006 普及组] Jam 的计数法</span>
+              <span class="md-ellipsis">P1061 P1061 [NOIP 2006 普及组] Jam 的计数法</span>
             </div>
           </div>
         </div>
@@ -39,39 +39,18 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1061 [NOIP 2006 普及组] Jam 的计数法</h1>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    Jam 是个喜欢标新立异的科学怪人。他不使用阿拉伯数字计数，而是使用小写英文字母计数，他觉得这样做，会使世界更加丰富多彩。
-
-在他的计数法中，每个数字的位数都是相同的（使用相同个数的字母），英文字母按原先的顺序，排在前面的字母小于排在它后面的字母。我们把这样的“数字”称为 Jam 数字。在 Jam 数字中，每个字母互不相同，而且从左到右是严格递增的。每次，Jam 还指定使用字母的范围，例如，从 $2\sim 10$，表示只能使用 ${b,c,d,e,f,g,h,i,j}$ 这些字母。如果再规定位数为 $5$，那么，紧接在 Jam 数字 $\texttt{bdfij}$ 之后的数字应该是 $\texttt{bdghi}$。（如果我们用 $U$、$V$ 依次表示 Jam 数字 $\texttt{bdfij}$ 与 $\texttt{bdghi}$，则 $U
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    共 $2$ 行。
-
+              <h1 id="p1061-noip-2006-jam">P1061 [NOIP 2006 普及组] Jam 的计数法</h1>
+<h2 id="_1">题目描述</h2>
+<p>Jam 是个喜欢标新立异的科学怪人。他不使用阿拉伯数字计数，而是使用小写英文字母计数，他觉得这样做，会使世界更加丰富多彩。
+在他的计数法中，每个数字的位数都是相同的（使用相同个数的字母），英文字母按原先的顺序，排在前面的字母小于排在它后面的字母。我们把这样的“数字”称为 Jam 数字。在 Jam 数字中，每个字母互不相同，而且从左到右是严格递增的。每次，Jam 还指定使用字母的范围，例如，从 $2\sim 10$，表示只能使用 ${b,c,d,e,f,g,h,i,j}$ 这些字母。如果再规定位数为 $5$，那么，紧接在 Jam 数字 $\texttt{bdfij}$ 之后的数字应该是 $\texttt{bdghi}$。（如果我们用 $U$、$V$ 依次表示 Jam 数字 $\texttt{bdfij}$ 与 $\texttt{bdghi}$，则 $U</p>
+<h2 id="_2">输入格式</h2>
+<p>共 $2$ 行。
 第 $1$ 行为 $3$ 个正整数 $s, t, w$，用一个空格隔开。
-
-（其中 $s$ 为所使用的最小的字母的序号，$t$ 为所使用的最大的字母的序号。$w$ 为数字的位数，这 $3$ 个数满足：$1\le s
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    最多为 $5$ 行，为紧接在输入的 Jam 数字后面的 $5$ 个 Jam 数字，如果后面没有那么多 Jam 数字，那么有几个就输出几个。每行只输出一个 Jam 数字，是由 $w$ 个小写字母组成的字符串，不要有多余的空格。
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                NOIP 2006 普及组 第三题
-
-            </div>
-</section> </article>
+（其中 $s$ 为所使用的最小的字母的序号，$t$ 为所使用的最大的字母的序号。$w$ 为数字的位数，这 $3$ 个数满足：$1\le s</p>
+<h2 id="_3">输出格式</h2>
+<p>最多为 $5$ 行，为紧接在输入的 Jam 数字后面的 $5$ 个 Jam 数字，如果后面没有那么多 Jam 数字，那么有几个就输出几个。每行只输出一个 Jam 数字，是由 $w$ 个小写字母组成的字符串，不要有多余的空格。</p>
+<h2 id="_4">说明/提示</h2>
+<p>NOIP 2006 普及组 第三题</p>
             </article>
           </div>
         </div>
@@ -88,8 +67,18 @@
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

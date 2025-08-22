@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1085/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1085 [NOIP 2004 普及组] 不高兴的津津</title>
+    <title>P1085 P1085 [NOIP 2004 普及组] 不高兴的津津</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1085 [NOIP 2004 普及组] 不高兴的津津</span>
+              <span class="md-ellipsis">P1085 P1085 [NOIP 2004 普及组] 不高兴的津津</span>
             </div>
           </div>
         </div>
@@ -39,38 +39,17 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1085 [NOIP 2004 普及组] 不高兴的津津</h1>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    津津上初中了。妈妈认为津津应该更加用功学习，所以津津除了上学之外，还要参加妈妈为她报名的各科复习班。另外每周妈妈还会送她去学习朗诵、舞蹈和钢琴。但是津津如果一天上课超过八个小时就会不高兴，而且上得越久就会越不高兴。假设津津不会因为其它事不高兴，并且她的不高兴不会持续到第二天。请你帮忙检查一下津津下周的日程安排，看看下周她会不会不高兴；如果会的话，哪天最不高兴。
-
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    输入包括 $7$ 行数据，分别表示周一到周日的日程安排。每行包括两个小于 $10$ 的非负整数，用空格隔开，分别表示津津在学校上课的时间和妈妈安排她上课的时间。
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    一个数字。如果不会不高兴则输出 $0$，如果会则输出最不高兴的是周几（用 $1, 2, 3, 4, 5, 6, 7$ 分别表示周一，周二，周三，周四，周五，周六，周日）。如果有两天或两天以上不高兴的程度相当，则输出时间最靠前的一天。
-
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                NOIP2004 普及组第 1 题
-
+              <h1 id="p1085-noip-2004">P1085 [NOIP 2004 普及组] 不高兴的津津</h1>
+<h2 id="_1">题目描述</h2>
+<p>津津上初中了。妈妈认为津津应该更加用功学习，所以津津除了上学之外，还要参加妈妈为她报名的各科复习班。另外每周妈妈还会送她去学习朗诵、舞蹈和钢琴。但是津津如果一天上课超过八个小时就会不高兴，而且上得越久就会越不高兴。假设津津不会因为其它事不高兴，并且她的不高兴不会持续到第二天。请你帮忙检查一下津津下周的日程安排，看看下周她会不会不高兴；如果会的话，哪天最不高兴。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入包括 $7$ 行数据，分别表示周一到周日的日程安排。每行包括两个小于 $10$ 的非负整数，用空格隔开，分别表示津津在学校上课的时间和妈妈安排她上课的时间。</p>
+<h2 id="_3">输出格式</h2>
+<p>一个数字。如果不会不高兴则输出 $0$，如果会则输出最不高兴的是周几（用 $1, 2, 3, 4, 5, 6, 7$ 分别表示周一，周二，周三，周四，周五，周六，周日）。如果有两天或两天以上不高兴的程度相当，则输出时间最靠前的一天。</p>
+<h2 id="_4">说明/提示</h2>
+<p>NOIP2004 普及组第 1 题
 - 2021-10-27：增加一组 hack 数据
-- 2022-06-05：又增加一组 hack 数据
-            </div>
-</section> </article>
+- 2022-06-05：又增加一组 hack 数据</p>
             </article>
           </div>
         </div>
@@ -87,8 +66,18 @@
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

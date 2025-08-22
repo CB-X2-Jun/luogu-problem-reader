@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1109/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1109 学生分组</title>
+    <title>P1109 P1109 学生分组</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1109 学生分组</span>
+              <span class="md-ellipsis">P1109 P1109 学生分组</span>
             </div>
           </div>
         </div>
@@ -39,40 +39,18 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1109 学生分组</h1>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    有 $n$ 组学生，给出初始时每组中的学生个数，再给出每组学生人数的上界 $R$ 和下界 $L\ (L \le R)$，每次你可以在某组中选出一个学生把他安排到另外一组中，问最少要多少次才可以使 $N$ 组学生的人数都在 $[L,R]$ 中。
-
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    第一行一个整数 $n$，表示学生组数；
-
+              <h1 id="p1109">P1109 学生分组</h1>
+<h2 id="_1">题目描述</h2>
+<p>有 $n$ 组学生，给出初始时每组中的学生个数，再给出每组学生人数的上界 $R$ 和下界 $L\ (L \le R)$，每次你可以在某组中选出一个学生把他安排到另外一组中，问最少要多少次才可以使 $N$ 组学生的人数都在 $[L,R]$ 中。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行一个整数 $n$，表示学生组数；
 第二行 $n$ 个整数，表示每组的学生个数；
-
-第三行两个整数 $L,R$，表示下界和上界。
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    一个数，表示最少的交换次数，如果不能满足题目条件输出 $-1$。
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                ### 数据范围及约定
-
-对于全部数据，保证 $1\le n \le 50$。
-            </div>
-</section> </article>
+第三行两个整数 $L,R$，表示下界和上界。</p>
+<h2 id="_3">输出格式</h2>
+<p>一个数，表示最少的交换次数，如果不能满足题目条件输出 $-1$。</p>
+<h2 id="_4">说明/提示</h2>
+<h3 id="_5">数据范围及约定</h3>
+<p>对于全部数据，保证 $1\le n \le 50$。</p>
             </article>
           </div>
         </div>
@@ -89,8 +67,18 @@
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

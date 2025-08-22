@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1057/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1057 [NOIP 2008 普及组] 传球游戏</title>
+    <title>P1057 P1057 [NOIP 2008 普及组] 传球游戏</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1057 [NOIP 2008 普及组] 传球游戏</span>
+              <span class="md-ellipsis">P1057 P1057 [NOIP 2008 普及组] 传球游戏</span>
             </div>
           </div>
         </div>
@@ -39,45 +39,22 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1057 [NOIP 2008 普及组] 传球游戏</h1>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    上体育课的时候，小蛮的老师经常带着同学们一起做游戏。这次，老师带着同学们一起做传球游戏。
-
+              <h1 id="p1057-noip-2008">P1057 [NOIP 2008 普及组] 传球游戏</h1>
+<h2 id="_1">题目描述</h2>
+<p>上体育课的时候，小蛮的老师经常带着同学们一起做游戏。这次，老师带着同学们一起做传球游戏。
 游戏规则是这样的：$n$ 个同学站成一个圆圈，其中的一个同学手里拿着一个球，当老师吹哨子时开始传球，每个同学可以把球传给自己左右的两个同学中的一个（左右任意），当老师再次吹哨子时，传球停止，此时，拿着球没有传出去的那个同学就是败者，要给大家表演一个节目。
-
-聪明的小蛮提出一个有趣的问题：有多少种不同的传球方法可以使得从小蛮手里开始传的球，传了 $m$ 次以后，又回到小蛮手里。两种传球方法被视作不同的方法，当且仅当这两种方法中，接到球的同学按接球顺序组成的序列是不同的。比如有三个同学 $1$ 号、$2$ 号、$3$ 号，并假设小蛮为 $1$ 号，球传了 $3$ 次回到小蛮手里的方式有 $1 \rightarrow 2 \rightarrow 3 \rightarrow 1$ 和 $1 \rightarrow 3 \rightarrow 2 \rightarrow 1$，共 $2$ 种。
-
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    一行，有两个用空格隔开的整数 $n,m(3 \le n \le 30,1 \le m \le 30)$。
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    $1$ 个整数，表示符合题意的方法数。
-
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                ### 数据范围及约定
-
-- 对于 $40\%$ 的数据，满足：$3 \le n \le 30,1 \le m \le 20$；
-- 对于 $100\%$ 的数据，满足：$3 \le n \le 30,1 \le m \le 30$。
-
-2008普及组第三题
-
-            </div>
-</section> </article>
+聪明的小蛮提出一个有趣的问题：有多少种不同的传球方法可以使得从小蛮手里开始传的球，传了 $m$ 次以后，又回到小蛮手里。两种传球方法被视作不同的方法，当且仅当这两种方法中，接到球的同学按接球顺序组成的序列是不同的。比如有三个同学 $1$ 号、$2$ 号、$3$ 号，并假设小蛮为 $1$ 号，球传了 $3$ 次回到小蛮手里的方式有 $1 \rightarrow 2 \rightarrow 3 \rightarrow 1$ 和 $1 \rightarrow 3 \rightarrow 2 \rightarrow 1$，共 $2$ 种。</p>
+<h2 id="_2">输入格式</h2>
+<p>一行，有两个用空格隔开的整数 $n,m(3 \le n \le 30,1 \le m \le 30)$。</p>
+<h2 id="_3">输出格式</h2>
+<p>$1$ 个整数，表示符合题意的方法数。</p>
+<h2 id="_4">说明/提示</h2>
+<h3 id="_5">数据范围及约定</h3>
+<ul>
+<li>对于 $40\%$ 的数据，满足：$3 \le n \le 30,1 \le m \le 20$；</li>
+<li>对于 $100\%$ 的数据，满足：$3 \le n \le 30,1 \le m \le 30$。
+2008普及组第三题</li>
+</ul>
             </article>
           </div>
         </div>
@@ -94,8 +71,18 @@
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

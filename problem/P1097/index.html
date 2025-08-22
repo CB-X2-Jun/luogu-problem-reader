@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1097/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1097 [NOIP 2007 提高组] 统计数字</title>
+    <title>P1097 P1097 [NOIP 2007 提高组] 统计数字</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1097 [NOIP 2007 提高组] 统计数字</span>
+              <span class="md-ellipsis">P1097 P1097 [NOIP 2007 提高组] 统计数字</span>
             </div>
           </div>
         </div>
@@ -39,46 +39,23 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1097 [NOIP 2007 提高组] 统计数字</h1>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    某次科研调查时得到了 $n$ 个自然数，每个数均不超过 $1.5 \times 10^9$。已知不相同的数不超过 $10^4$ 个，现在需要统计这些自然数各自出现的次数，并按照自然数从小到大的顺序输出统计结果。
-
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    共 $n+1$ 行。
-
+              <h1 id="p1097-noip-2007">P1097 [NOIP 2007 提高组] 统计数字</h1>
+<h2 id="_1">题目描述</h2>
+<p>某次科研调查时得到了 $n$ 个自然数，每个数均不超过 $1.5 \times 10^9$。已知不相同的数不超过 $10^4$ 个，现在需要统计这些自然数各自出现的次数，并按照自然数从小到大的顺序输出统计结果。</p>
+<h2 id="_2">输入格式</h2>
+<p>共 $n+1$ 行。
 第一行是整数 $n$，表示自然数的个数；
-
-第 $2$ 至 $n+1$ 每行一个自然数。
-
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    共 $m$ 行（$m$ 为 $n$ 个自然数中不相同数的个数），按照自然数从小到大的顺序输出。  
-
-每行输出 $2$ 个整数，分别是自然数和该数出现的次数，其间用一个空格隔开。
-
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                - $30\%$ 的数据满足：$1  \le  n  \le  1000$；
-- $60\%$ 的数据满足：$1  \le  n  \le  50000$；
-- $100\%$ 的数据满足：$1  \le  n  \le  200000$，每个数均不超过 $1.5 \times 10^9$。
-
-NOIP 2007 提高第一题
-
-            </div>
-</section> </article>
+第 $2$ 至 $n+1$ 每行一个自然数。</p>
+<h2 id="_3">输出格式</h2>
+<p>共 $m$ 行（$m$ 为 $n$ 个自然数中不相同数的个数），按照自然数从小到大的顺序输出。
+每行输出 $2$ 个整数，分别是自然数和该数出现的次数，其间用一个空格隔开。</p>
+<h2 id="_4">说明/提示</h2>
+<ul>
+<li>$30\%$ 的数据满足：$1 \le n \le 1000$；</li>
+<li>$60\%$ 的数据满足：$1 \le n \le 50000$；</li>
+<li>$100\%$ 的数据满足：$1 \le n \le 200000$，每个数均不超过 $1.5 \times 10^9$。
+NOIP 2007 提高第一题</li>
+</ul>
             </article>
           </div>
         </div>
@@ -95,8 +72,18 @@ NOIP 2007 提高第一题
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

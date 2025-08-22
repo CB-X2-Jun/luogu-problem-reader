@@ -8,13 +8,13 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1019/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）</title>
+    <title>P1019 P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）</span>
+              <span class="md-ellipsis">P1019 P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）</span>
             </div>
           </div>
         </div>
@@ -39,44 +39,20 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）</h1>
-<section>
-<h2>题目背景</h2>
-<div>
-                注意：本题为上古 NOIP 原题，不保证存在靠谱的做法能通过该数据范围下的所有数据。本题的难度仅代表设计算法可以通过本题原始数据的难度。
-
-本题为搜索题，本题不接受 hack 数据。[关于此类题目的详细内容](https://www.luogu.com.cn/paste/pf94n89x)
-
-NOIP2000 提高组 T3
-            </div>
-</section>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 `beast` 和 `astonish`，如果接成一条龙则变为 `beastonish`，另外相邻的两部分不能存在包含关系，例如 `at` 和 `atide` 间不能相连。
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    输入的第一行为一个单独的整数 $n$ 表示单词数，以下 $n$ 行每行有一个单词，输入的最后一行为一个单个字符，表示“龙”开头的字母。你可以假定以此字母开头的“龙”一定存在。
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    只需输出以此字母开头的最长的“龙”的长度。
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                样例解释：连成的“龙”为 `atoucheatactactouchoose`。
-
-$n \le 20$。
-            </div>
-</section> </article>
+              <h1 id="p1019-noip-2000">P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）</h1>
+<h2 id="_1">题目背景</h2>
+<p>注意：本题为上古 NOIP 原题，不保证存在靠谱的做法能通过该数据范围下的所有数据。本题的难度仅代表设计算法可以通过本题原始数据的难度。
+本题为搜索题，本题不接受 hack 数据。<a href="https://www.luogu.com.cn/paste/pf94n89x">关于此类题目的详细内容</a>
+NOIP2000 提高组 T3</p>
+<h2 id="_2">题目描述</h2>
+<p>单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 <code class="hljs inline">beast</code> 和 <code class="hljs inline">astonish</code>，如果接成一条龙则变为 <code class="hljs inline">beastonish</code>，另外相邻的两部分不能存在包含关系，例如 <code class="hljs inline">at</code> 和 <code class="hljs inline">atide</code> 间不能相连。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入的第一行为一个单独的整数 $n$ 表示单词数，以下 $n$ 行每行有一个单词，输入的最后一行为一个单个字符，表示“龙”开头的字母。你可以假定以此字母开头的“龙”一定存在。</p>
+<h2 id="_4">输出格式</h2>
+<p>只需输出以此字母开头的最长的“龙”的长度。</p>
+<h2 id="_5">说明/提示</h2>
+<p>样例解释：连成的“龙”为 <code class="hljs inline">atoucheatactactouchoose</code>。
+$n \le 20$。</p>
             </article>
           </div>
         </div>
@@ -93,8 +69,18 @@ $n \le 20$。
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>

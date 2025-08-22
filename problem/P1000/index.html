@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
     <header class="md-header md-header--shadow" data-md-component="header">
@@ -39,71 +39,43 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <article lang="zh-CN">
-<h1>P1000 超级玛丽游戏</h1>
-<section>
-<h2>题目背景</h2>
-<div>
-                本题是洛谷的试机题目，可以帮助了解洛谷的使用。
-
-建议完成本题目后继续尝试 [P1001](/problem/P1001)、[P1008](/problem/P1008)。  
-
-另外强烈推荐[新用户必读帖](/discuss/show/241461)。
-            </div>
-</section>
-<section>
-<h2>题目描述</h2>
-<div>
-                                    超级玛丽是一个非常经典的游戏。请你用字符画的形式输出超级玛丽中的一个场景：
-
-```plain
-                ********
-               ************
-               ####....#.
-             #..###.....##....
-             ###.......######              ###            ###
-                ...........               #...#          #...#
-               ##*#######                 #.#.#          #.#.#
-            ####*******######             #.#.#          #.#.#
-           ...#***.****.*###....          #...#          #...#
-           ....**********##.....           ###            ###
-           ....****    *****....
-             ####        ####
-           ######        ######
+              <h2 id="_1">题目背景</h2>
+<p>本题是洛谷的试机题目，可以帮助了解洛谷的使用。</p>
+<p>建议完成本题目后继续尝试 <a href="/problem/P1001">P1001</a>、<a href="/problem/P1008">P1008</a>。  </p>
+<p>另外强烈推荐<a href="/discuss/show/241461">新用户必读帖</a>。</p>
+<h2 id="_2">题目描述</h2>
+<p>超级玛丽是一个非常经典的游戏。请你用字符画的形式输出超级玛丽中的一个场景：</p>
+<pre class="hljs"><code class="hljs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;********
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ************
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ####....#.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #..###.....##....
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ###.......######&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;###
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...........&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #...#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#...#
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ##*#######&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #.#.#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#.#.#
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;####*******######&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #.#.#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#.#.#
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...#***.****.*###....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#...#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#...#
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....**********##.....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;###
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....****&nbsp;&nbsp;&nbsp;&nbsp;*****....
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;####
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ######&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;######
 ##############################################################
 #...#......#.##...#......#.##...#......#.##------------------#
 ###########################################------------------#
 #..#....#....##..#....#....##..#....#....#####################
-##########################################    #----------#
-#.....#......##.....#......##.....#......#    #----------#
-##########################################    #----------#
-#.#..#....#..##.#..#....#..##.#..#....#..#    #----------#
-##########################################    ############
-```
-                            </div>
-</section>
-<section>
-<h2>输入格式</h2>
-<div>
-                                    无
-                            </div>
-</section>
-<section>
-<h2>输出格式</h2>
-<div>
-                                    如描述。
-                            </div>
-</section>
-<section>
-<h2>说明/提示</h2>
-<div>
-                **广告**
+##########################################&nbsp;&nbsp;&nbsp;&nbsp;#----------#
+#.....#......##.....#......##.....#......#&nbsp;&nbsp;&nbsp;&nbsp;#----------#
+##########################################&nbsp;&nbsp;&nbsp;&nbsp;#----------#
+#.#..#....#..##.#..#....#..##.#..#....#..#&nbsp;&nbsp;&nbsp;&nbsp;#----------#
+##########################################&nbsp;&nbsp;&nbsp;&nbsp;############</code></pre>
 
-洛谷出品的算法教材，帮助您更简单的学习基础算法。[【官方网店绝赞热卖中！】&gt;&gt;&gt;](https://item.taobao.com/item.htm?id=637730514783)
-
-[![](https://cdn.luogu.com.cn/upload/image_hosting/njc7dlng.png)](https://item.taobao.com/item.htm?id=637730514783)
-            </div>
-</section> </article>
+<h2 id="_3">输入格式</h2>
+<p>无</p>
+<h2 id="_4">输出格式</h2>
+<p>如描述。</p>
+<h2 id="_5">说明/提示</h2>
+<p><strong>广告</strong></p>
+<p>洛谷出品的算法教材，帮助您更简单的学习基础算法。<a href="https://item.taobao.com/item.htm?id=637730514783">【官方网店绝赞热卖中！】&gt;&gt;&gt;</a></p>
+<p><a href="https://item.taobao.com/item.htm?id=637730514783"><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/njc7dlng.png" /></a></p>
             </article>
           </div>
         </div>
@@ -120,8 +92,18 @@
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="/javascripts/katex.js"></script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
   </body>
 </html>
