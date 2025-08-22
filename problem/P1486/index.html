@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1486/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1486 [NOI2004] 郁闷的出纳员</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1486 [NOI2004] 郁闷的出纳员</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>OIER 公司是一家大型专业化软件公司，有着数以万计的员工。作为一名出纳员，我的任务之一便是统计每位员工的工资。这本来是一份不错的工作，但是令人郁闷的是，我们的老板反复无常，经常调整员工的工资。如果他心情好，就可能把每位员工的工资加上一个相同的量。反之，如果心情不好，就可能把当前在公司的所有员工的工资扣除一个相同的量。我真不知道除了调工资他还做什么其它事情。</p>
+<p>工资的频繁调整很让员工反感，尤其是集体扣除工资的时候，一旦某位员工发现自己的工资已经低于了合同规定的工资下界，他就会立刻气愤地离开公司，并且再也不会回来了。每位员工的工资下界都是统一规定的。每当一个人离开公司，我就要从电脑中把他的工资档案删去，同样，每当公司招聘了一位新员工，我就得为他新建一个工资档案。</p>
+<p>老板经常到我这边来询问工资情况，他并不问具体某位员工的工资情况，而是问现在工资第 $k$ 多的员工拿多少工资。每当这时，我就不得不对数万个员工进行一次漫长的排序，然后告诉他答案。</p>
+<p>好了，现在你已经对我的工作了解不少了。正如你猜的那样，我想请你编一个工资统计程序。怎么样，不是很困难吧？</p>
+<p>如果某个员工的初始工资低于最低工资标准，那么将不计入最后的答案内。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行有两个整数 $n$ 和 $\min$。$n$ 表示下面有多少条命令，$\min$ 表示工资下界。</p>
+<p>接下来的 $n$ 行，每行一个字符 $x$ 和一个整数 $k$，表示一条命令。命令可以是以下四种之一：</p>
+<ul>
+<li><code class="hljs inline">I k</code>  新建一个工资档案，初始工资为 $k$。如果某员工的初始工资低于工资下界，他将立刻离开公司。</li>
+<li><code class="hljs inline">A k</code>   把每位员工的工资加上 $k$。</li>
+<li><code class="hljs inline">S k</code>   把每位员工的工资扣除 $k$。</li>
+<li><code class="hljs inline">F k</code>    查询第 $k$ 多的工资。</li>
+</ul>
+<p>在初始时，可以认为公司里一个员工也没有。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每条 <code class="hljs inline">F</code> 命令，你的程序要输出一行，仅包含一个整数，为当前工资第  $k$ 多的员工所拿的工资数，如果 $k$ 大于目前员工的数目，则输出 $-1$。</p>
+<p>输出的最后一行包含一个整数，为离开公司的员工的总数。</p>
+<p>请注意，初始工资低于工资下界的员工不算做离开公司的员工。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">9 10
+I 60
+I 70
+S 50
+F 2
+I 30
+S 15
+A 5
+F 1
+F 2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">10
+20
+-1
+2</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="_6">数据规模与约定</h4>
+<p>对于全部的测试点，保证：</p>
+<ul>
+<li><code class="hljs inline">I</code> 命令的条数不超过 $10^5$；</li>
+<li><code class="hljs inline">A</code> 和 <code class="hljs inline">S</code> 命令的总条数不超过 $100$；</li>
+<li><code class="hljs inline">F</code> 命令的条数不超过 $10^5$；</li>
+<li>每次工资调整的调整量不超过 $10^3$；</li>
+<li>新员工的工资不超过 $10^5$。</li>
+<li>$0 \leq n \leq 3 \times 10^5$，$0 \leq \text{min} \leq 10^9$，输入的所有数字均在 $32$ 位带符号整形范围内。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

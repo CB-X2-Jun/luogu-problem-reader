@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1724/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1724 东风谷早苗</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1724 东风谷早苗</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在幻想乡，东风谷早苗是以高达控闻名的高中生宅巫女。某一天，早苗终于入手了最新款的钢达姆模型。作为最新的钢达姆，当然有了与以往不同的功能了，那就是它能够自动行走，厉害吧（好吧，我自重）。早苗的新模型可以按照输入的命令进行移动，命令包含 $\verb|E|$、$\verb|S|$、$\verb|W|$、$\verb|N|$ 四种，分别对应四个不同的方向，依次为东、南、西、北。执行某个命令时，它会向着对应方向移动一个单位。作为新型机器人，自然不会只单单执行一个命令，它可以执行命令串。对于输入的命令串，每一秒它会按照命令行动一次。而执行完命令串最后一个命令后，会自动从头开始循环。在 $0$ 时刻时早苗将钢达姆放置在了 $(0,0)$ 的位置，并且输入了命令串。她想要知道 $T$ 秒后钢达姆所在的位置坐标。</p>
+<p>假设当前钢达姆的位置是 $(x,y)$。那么对于四种方向的移动，它坐标的改变分别为：</p>
+<ul>
+<li>向东移动，坐标改变改变为 $(x+1,y)$；</li>
+<li>向南移动，坐标改变改变为 $(x,y-1)$；</li>
+<li>向西移动，坐标改变改变为 $(x-1,y)$；</li>
+<li>向北移动，坐标改变改变为 $(x,y+1)$。</li>
+</ul>
+<h2 id="_2">输入格式</h2>
+<p>第一行共一个字符串 $S$，表示早苗输入的命令串，保证至少有 $1$ 个命令。</p>
+<p>第二行共一个正整数 $T$。</p>
+<h2 id="_3">输出格式</h2>
+<p>第一行有两个整数，表示 $T$ 秒时，钢达姆的坐标。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">NSWWNSNEEWN
+12</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">-1 3</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>用 $|S|$ 表示早苗输入的命令串的长度。</p>
+<ul>
+<li>对于 $60\%$ 的数据，$T\le 5\times 10^5$，$|S|\le 5\times 10^3$。</li>
+<li>对于 $100\%$ 的数据，$T \le 2\times 10^9$，$|S|\le  5\times 10^3$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

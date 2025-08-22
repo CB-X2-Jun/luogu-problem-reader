@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1256/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1256 显示图像</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1256 显示图像</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>古老的显示屏是由 $N \times M$ 个像素（Pixel）点组成的。一个像素点的位置是根据所在行数和列数决定的。例如 $P(2,1)$ 表示第 $2$ 行第 $1$ 列的像素点。那时候，屏幕只能显示黑与白两种颜色，人们用二进制 $0$ 和 $1$ 来表示。$0$ 表示黑色，$1$ 表示白色。当计算机发出一个指令：$P(x,y)=1$，则屏幕上的第 $x$ 行第 $y$ 列的阴极射线管就开始工作，使该像素点显示白色，若 $P(x,y)=0$，则对应位置的阴极射线管不工作，像素点保持黑色。在某一单位时刻，计算机以 $N \times M$ 二维 $01$ 矩阵的方式发出显示整个屏幕图像的命令。</p>
+<p>例如，屏幕是由 $3 \times 4$ 的像素点组成，在某单位时刻，计算机发出如下命令：</p>
+<p>$$\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 1 \
+0 &amp; 0 &amp; 1 &amp; 1 \
+0 &amp; 1 &amp; 1 &amp; 0 \
+\end{pmatrix}$$</p>
+<p>对应屏幕显示应为：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cwg2di9s.png" /></p>
+<p>假设放大后，一个格子表示一个像素点。</p>
+<p>由于未知的原因，显示黑色的像素点总是受显示白色的像素点的影响——可能是阴极射线管工作的作用。并且，距离越近，影响越大。这里的距离定义如下：</p>
+<p>设有像素点 $P_1(x_1,y_1)$ 和像素点 $P_2(x_2,y_2)$，则它们之间的距离 $D(P_1,P_2)=|x_1-x_2|+|y_1-y_2|$。</p>
+<p>在某一时刻，计算机发出显示命令后，科学家们期望知道，每个像素点和其最近的显示白色的像素点之间的最短距离是多少——科学家们保证屏幕上至少有一个显示白色的像素点。</p>
+<p>上面的例子中，像素 $P(1,1)$ 与最近的白色像素点之间的距离为 $3$，而像素 $P(3,2)$ 本身显示白色，所以最短距离为 $0$。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行有两个数字，$N$ 和 $M\ (1 \le N,M \le 182)$，表示屏幕的规格。</p>
+<p>以下 $N$ 行，每行 $M$ 个数字，$0$ 或 $1$。为计算机发出的显示命令。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出文件有 $N$ 行，每行 $M$ 个数字，中间用 $1$ 个空格分开。第 $i$ 行第 $j$ 列的数字表示距像素点 $P(i,j)$ 最近的白色像素点的最短距离。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 4
+0001
+0011
+0110</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3 2 1 0
+2 1 0 0
+1 0 0 1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<ul>
+<li>对于 $30\%$ 的数据：$N\times M \le 10000$；</li>
+<li>对于 $100\%$ 的数据：$N\times M \le 182^2$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

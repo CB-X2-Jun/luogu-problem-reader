@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1297/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1297 [国家集训队] 单选错位</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1297 [国家集训队] 单选错位</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>gx 和 lc 去参加 noip 初赛，其中有一种题型叫单项选择题，顾名思义，只有一个选项是正确答案。</p>
+<p>试卷上共有 $n$ 道单选题，第 $i$ 道单选题有 $a_i$ 个选项，这 $a_i$ 个选项编号是 $1,2,3,\ldots,a_i$，每个选项成为正确答案的概率都是相等的。</p>
+<p>lc 采取的策略是每道题目随机写上 $1 \sim a_i$ 的某个数作为答案选项，他用不了多少时间就能期望做对 $\sum_{i=1}^n \frac{1}{a_i}$ 道题目。gx 则是认认真真地做完了这 $n$ 道题目，可是等他做完的时候时间也所剩无几了，于是他匆忙地把答案抄到答题纸上，没想到抄错位了：第 $i$ 道题目的答案抄到了答题纸上的第 $i+1$ 道题目的位置上，特别地，第 $n$ 道题目的答案抄到了第 $1$ 道题目的位置上。</p>
+<p>现在 gx 已经走出考场没法改了，不过他还是想知道自己期望能做对几道题目，这样他就知道会不会被 lc 鄙视了。</p>
+<p>我们假设 gx 没有做错任何题目，只是答案抄错位置了。</p>
+<h2 id="_2">输入格式</h2>
+<p>$n$ 很大，为了避免读入耗时太多，输入文件只有 $5$ 个整数参数 $n, A, B, C, a_1$，由上交的程序产生数列 $a$。下面给出 pascal/C/C++ 的读入语句和产生序列的语句（默认从标准输入读入）：</p>
+<pre class="hljs"><code class="hljs">// for pascal
+readln(n,A,B,C,q[1]);
+for i:=2 to n do
+q[i] := (int64(q[i-1]) * A + B) mod 100000001;
+for i:=1 to n do
+q[i] := q[i] mod C + 1;
+
+
+// for C/C++
+scanf(&quot;%d%d%d%d%d&quot;, &amp;n, &amp;A, &amp;B, &amp;C, a + 1);
+for (int i = 2; i &lt;= n; i++)
+    a[i] = ((long long) a[i - 1] * A + B) % 100000001;
+for (int i = 1; i &lt;= n; i++)
+    a[i] = a[i] % C + 1;</code></pre>
+
+<p>选手可以通过以上的程序语句得到 $n$ 和数列 $a$（$a$ 的元素类型是 $32$ 位整数），$n$ 和 $a$ 的含义见题目描述。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一个实数，表示 gx 期望做对的题目个数，保留三位小数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 2 0 4 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1.167</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>【样例说明】</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">正确答案</th>
+<th style="text-align: center;">gx的答案</th>
+<th style="text-align: center;">做对题目</th>
+<th style="text-align: center;">出现概率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">${1,1,1}$</td>
+<td style="text-align: center;">${1,1,1}$</td>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">$\frac16$</td>
+</tr>
+<tr>
+<td style="text-align: center;">${1,2,1}$</td>
+<td style="text-align: center;">$ {1,1,2}$</td>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$\frac16$</td>
+</tr>
+<tr>
+<td style="text-align: center;">${1,3,1}$</td>
+<td style="text-align: center;">$ {1,1,3} $</td>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$\frac16$</td>
+</tr>
+<tr>
+<td style="text-align: center;">${2,1,1}$</td>
+<td style="text-align: center;">$ {1,2,1} $</td>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$\frac16$</td>
+</tr>
+<tr>
+<td style="text-align: center;">${2,2,1}$</td>
+<td style="text-align: center;">$ {1,2,2}$</td>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$\frac16$</td>
+</tr>
+<tr>
+<td style="text-align: center;">${2,3,1}$</td>
+<td style="text-align: center;">${1,2,3} $</td>
+<td style="text-align: center;">$0$</td>
+<td style="text-align: center;">$\frac16$</td>
+</tr>
+</tbody>
+</table>
+<p>$a = {2,3,1}$。</p>
+<p>共有 $6$ 种情况，每种情况出现的概率是 $\frac{1}{6}$，gx 期望做对 $\frac{3+1+1+1+1+0}6 = \frac76$ 题。（相比之下，lc 随机就能期望做对 $\frac{11}6$ 题）</p>
+<p>对于 $30\%$ 的数据，$n\leq 10, C\leq 10$。</p>
+<p>对于 $80\%$ 的数据，$n\leq 10^4, C\leq 10$。</p>
+<p>对于 $90\%$ 的数据，$n\leq 5\times 10^5, C\leq 10^8$。</p>
+<p>对于 $100\%$ 的数据，$2\leq n\leq 10^7, 0\leq A,B,C \leq 10^8$，$1 \leq a_i \leq 10^8$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

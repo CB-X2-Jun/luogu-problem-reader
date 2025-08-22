@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1751/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1751 贪吃虫</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1751 贪吃虫</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>我们都知道一个很著名的游戏——贪吃蛇。它的一大特点是当前一个食物被吃掉后，后一个食物才会出现。今天我们要做的另一个游戏——贪吃虫也很类似。</p>
+<h2 id="_2">题目描述</h2>
+<p>贪吃虫有 $k$ 条，在一棵有 $n$ 个节点的树上，每只虫子都在不同的节点上。第一个食物到来时，所有的 $k$ 只虫会从它们当前的位置出发，前往食物的位置。它们的移动遵循如下规则：</p>
+<ul>
+<li>这棵树上的任何两个节点之间有且仅有一条路，所有的贪吃虫沿着唯一的路径前往食物所在的位置；</li>
+<li>如果有一只贪吃虫到达了食物所在的位置，食物马上就被吃掉了；</li>
+<li>如果有另外一只贪吃虫在某一只贪吃虫通往食物的道路上，那么距离食物较远的那只虫子会停止移动，停留在当前的节点上；</li>
+<li>如果有多只虫子尝试进入同一个节点，只有编号最小的虫子能够到达，其它的贪吃虫停留在它们当前的位置上；</li>
+<li>吃掉食物的那只虫子会停留在食物的位置上；</li>
+<li>食物被吃掉之后会出现在树上的另外一个节点上。这时所有的贪吃虫会重新出发，尝试再一次吃掉食物。为了简化过程，我们假设从一个节点移动到相邻的节点需要花费一个单位时间。</li>
+</ul>
+<h2 id="_3">输入格式</h2>
+<p>第 $1$ 行一个整数 $n$，表示树上的节点个数。</p>
+<p>第 $2$ 至 $N$ 行，第 $i+1$ 行包含了一个两个整数 $:A_i,B_i$，表示从节点 $A_i$ 到节点 $B_i$ 有一条边直接相连。</p>
+<p>第 $N+1$ 行有一个整数 $k$，表示树上贪吃虫的个数。</p>
+<p>第 $N+2$ 至 $N+1+k$ 行，第 $N+1+i$ 行有一个整数 $P_i$，表示第 $i$ 只贪吃虫开始时的位置，任何两只贪吃虫的初始位置不相同。</p>
+<p>第 $N+2+k$ 行：有一个整数 $h$，表示食物一共在树上出现了多少次。</p>
+<p>接下来的 $h$ 行，每行一个整数，表示食物依次出现的位置。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出一共包含 $k$ 行，第 $i$ 行有两个整数 $C_i$ 和 $D_i$。分别表示第 $i$ 只贪吃虫最终停留的位置和这只贪吃虫吃到食物的次数。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+1 2
+1 3
+2 4
+2
+1
+2
+2
+2
+4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1 0
+4 2</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h3 id="_7">数据范围及约定</h3>
+<p>对于全部数据，$1 \le n \le 5000$，$1 \le k \le 1000$，$k \le n$，$1 \le h \le 500$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

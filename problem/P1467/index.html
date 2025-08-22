@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1467/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1467 [USACO2.2] 循环数 Runaround Numbers</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1467 [USACO2.2] 循环数 Runaround Numbers</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>循环数是那些不包括 $0$ 且没有重复数字的正整数（比如 $81362$），并且还应同时具有一个有趣的性质——</p>
+<p>如果你从最左边的数字开始（在 $\color{red}{8}\color{black}1362$ 中是 $8$）向右数这个数字对应都次数（如果数到了最右边就回到最左边；在 $\color{red}{8}\color{black}1362$ 中是 $8$ 次），你会停止在另一个新的数字（在 $\color{red}{8}\color{black}1362$ 中是 $\color{red}8\color{black}\to 1\to 3\to 6\to 2\to 8\to 1\to 3\to \color{red}6$；如果停在一个相同的数字上，这个数就不是循环数）。</p>
+<p>重复这样做，如果能在经过每个数位恰好一次后回到最左边，那么这个正整数就是循环数。</p>
+<p>仍然以 $81362$ 为例，以下模拟过程证明了 $81362$ 是循环数：</p>
+<p>$$\color{red}8\color{black}\to 1\to 3\to 6\to 2\to 8\to 1\to 3\to \color{red}6$$<br />
+$$\color{red}6\color{black}\to 2\to 8\to 1\to 3\to 6\to \color{red}2$$ <br />
+$$\color{red}2\color{black}\to 8\to \color{red}1$$<br />
+$$\color{red}1\color{black}\to \color{red}3$$<br />
+$$\color{red}3\color{black}\to 6\to 2\to  \color{red}8$$  </p>
+<p><strong>任务：</strong></p>
+<p>给你一个正整数 $m$，找出最小的比 $m$ 大的循环数 $m'$。</p>
+<p>数据保证 $m' \le 2^{32}-1$。</p>
+<h2 id="_2">输入格式</h2>
+<p>仅仅一行, 包括 $m$。</p>
+<h2 id="_3">输出格式</h2>
+<p>仅仅一行，输出小的比 $m$ 大的循环数 $m'$。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">81361</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">81362</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于 $100\%$ 的数据，$1\le m \le 10^9$。</p>
+<p>USACO 2.2</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

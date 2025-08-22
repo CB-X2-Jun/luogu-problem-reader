@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1247/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1247 取火柴游戏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1247 取火柴游戏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>输入 $k$ 及 $k$ 个整数 $n_1,n_2,\cdots,n_k$，表示有 $k$ 堆火柴棒，第 $i$ 堆火柴棒的根数为 $n_i$；接着便是你和计算机取火柴棒的对弈游戏。取的规则如下：每次可以从一堆中取走若干根火柴，也可以一堆全部取走，但不允许跨堆取，也不允许不取。</p>
+<p>谁取走最后一根火柴为胜利者。</p>
+<p>例如：$k=2$，$n_1=n_2=2$，A 代表你，P 代表计算机，若决定 A 先取：</p>
+<ul>
+<li>A：$(2,2) \rightarrow (1,2)$，即从第一堆中取一根。</li>
+<li>P：$(1,2) \rightarrow (1,1)$，即从第二堆中取一根。</li>
+<li>A：$(1,1) \rightarrow (1,0)$。</li>
+<li>P：$(1,0) \rightarrow (0,0)$。P 胜利。</li>
+</ul>
+<p>如果决定 $A$ 后取：</p>
+<ul>
+<li>P：$(2,2) \rightarrow (2,0)$。</li>
+<li>A：$(2,0) \rightarrow (0,0)$。A 胜利。</li>
+</ul>
+<p>又如 $k=3$，$n_1=1$，$n_2=2$，$n_3=3$，$A$ 决定后取：</p>
+<ul>
+<li>P：$(1,2,3) \rightarrow (0,2,3)$。</li>
+<li>A：$(0,2,3) \rightarrow (0,2,2)$。</li>
+<li>A 已将游戏归结为 $(2,2)$ 的情况，不管 P 如何取 A 都必胜。</li>
+</ul>
+<p>编一个程序，在给出初始状态之后，判断是先取必胜还是先取必败，如果是先取必胜，请输出第一次该如何取。如果是先取必败，则输出 <code class="hljs inline">lose</code>。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行，一个正整数 $k$。</p>
+<p>第二行，$k$ 个整数 $n_1,n_2,\cdots,n_k$。</p>
+<h2 id="_3">输出格式</h2>
+<p>如果是先取必胜，请在第一行输出两个整数 $a,b$，表示第一次从第 $b$ 堆取出 $a$ 个。第二行为第一次取火柴后的状态。如果有多种答案，则输出 $\lang b,a\rang$ 字典序最小的答案（ 即 $b$ 最小的前提下，使 $a$ 最小）。</p>
+<p>如果是先取必败，则输出 <code class="hljs inline">lose</code>。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+3 6 9</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4 3
+3 6 5</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">4
+15 22 19 10</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">lose</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">数据范围及约定</h3>
+<p>对于全部数据，$k \le 500000$，$n_i \le 10^9$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1542/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1542 包裹快递</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1542 包裹快递</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 K 成功地破解了密文。但是乘车到 X 国的时候，发现钱包被偷了，于是无奈之下只好作快递员来攒足路费去 Orz 教主……</p>
+<p>一个快递公司要将 $n$ 个包裹分别送到 $n$ 个地方，并分配给邮递员小 K 一个事先设定好的路线，小 K 需要开车按照路线给的地点顺序相继送达，且不能遗漏一个地点。小 K 得到每个地方可以签收的时间段，并且也知道路线中一个地方到下一个地方的距离。若到达某一个地方的时间早于可以签收的时间段，则必须在这个地方停留至可以签收，但不能晚于签收的时间段，可以认为签收的过程是瞬间完成的。</p>
+<p>为了节省燃料，小 K 希望在全部送达的情况下，车的最大速度越小越好，就找到了你给他设计一种方案，并求出车的最大速度最小是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>第 1 行为一个正整数 $n$，表示需要运送包裹的地点数。</p>
+<p>下面 $n$ 行，第 $i+1$ 行有 3 个正整数 $x _ i, y _ i, s _ i$，表示按路线顺序给出第 $i$ 个地点签收包裹的时间段为 $[x _ i, y _ i]$，即最早为距出发时刻 $x _ i$，最晚为距出发时刻 $y _ i$，从前一个地点到达第 $i$ 个地点距离为 $s _ i$，且保证路线中 $x _ i$ 递增。</p>
+<p>可以认为 $s _ 1$ 为出发的地方到第 $1$ 个地点的距离，且出发时刻为 $0$。</p>
+<h2 id="_3">输出格式</h2>
+<p>仅包括一个正数，为车的最大速度最小值，结果保留两位小数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+1 2 2
+6 6 2
+7 8 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2.00</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="_6">数据范围</h4>
+<ul>
+<li>对于 $20\%$ 的数据，$0 &lt; n \le 10$。   </li>
+<li>对于 $30\%$ 的数据，$0&lt;x_i,y_i,s_i \le 1000$。   </li>
+<li>对于 $50\%$ 的数据，$0&lt;n \le 1000$。   </li>
+<li>对于 $100\%$ 的数据，$0&lt;n \le 2\times10^5$，$x_i \le y_i \le 10^8$，$s_i \le10^7$。</li>
+</ul>
+<hr />
+<h4 id="_7">样例解释</h4>
+<p>第一段用 $1$ 的速度在时间 $2$ 到达第 $1$ 个地点，第二段用 $0.5$ 的速度在时间 $6$ 到达第 $2$ 个地点，第三段用 $2$ 的速度在时间 $8$ 到达第 $3$ 个地点。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

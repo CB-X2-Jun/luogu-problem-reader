@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1619/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1619 解一元二次方程的烦恼</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1619 解一元二次方程的烦恼</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>JosephZheng 在写数学作业的预习。他往往使用 Casio 来帮忙解一元二次方程。但是 Casio 有一个问题，就是当 $\Delta=b^2-4ac$ 为一个大素数或大合数时，其开平方的结果会以小数显示，而不是老师要求的二次根式形式。JosephZheng 很是苦恼，一遇到这种情况就要手动解方程。一天他再也忍不住了，于是打开了电脑，编了一个 prime 程序……于是悲剧的 OIer 们就要跟着疯狂的 JosephZheng 一起编这个程序，呵呵……</p>
+<h2 id="_2">题目描述</h2>
+<p>废话少说，给你一个大数 $N$（可能大于 $4 \times 10^7$），让你进行素性判断，然后分解质因数。当然，初中数学题不可能有大于 $4 \times 10^7$ 的数让你判断素性，因此超过范围的数可以忽略不计。为了让程序更加贴心，JosephZheng 多了一些要求，会在输入输出中给出具体情况。</p>
+<h2 id="_3">输入格式</h2>
+<p>一个大数 $N$（$N$ 为非负整数），其中这个数的各个数位之间可以插入各种符号（包括负号和小数点等，它们也需要被忽略），例如 $1234$ 可以为 <code class="hljs inline">1 - 2alsdkjf3！@￥%！@@@##￥……！￥#-4</code> 等。你需要在这一长串乱码中找出这个要判断的数。</p>
+<p><strong>输入数据可能有多组，如果读到一行没有数字的字串即结束。</strong></p>
+<p>保证输入数据不超过 $100$ 组，字符串长度不超过 $1000$。</p>
+<h2 id="_4">输出格式</h2>
+<p>在读入数据之前先输出 <code class="hljs inline">Enter the number=</code>，需要换行。</p>
+<p>然后输出 <code class="hljs inline">Prime?</code>，问号后有一个空格，但不要换行。</p>
+<p>如果是质数则输出 <code class="hljs inline">Yes!</code> 否则输出 <code class="hljs inline">No!</code>。此时换行。</p>
+<p>若果是质数就 halt，若是小于 $2$ 的数则在输出 <code class="hljs inline">No!</code> 后也 halt。</p>
+<p>若是合数则分解质因数。如果该数大于 $4 \times 10^7$ 则输出 <code class="hljs inline">The number is too large!</code>，然后 halt。</p>
+<p>否则分解质因数。</p>
+<p>输出结果的方式在输出样例中会详细给出。</p>
+<p>每组数据之间空一行。</p>
+<p>（halt：停止处理本组数据）</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+eed</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">Enter the number=
+Prime? No!
+4=2^2
+
+Enter the number=</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">2
+end</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">Enter the number=
+Prime? Yes!
+
+Enter the number=</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="hljs"><code class="hljs">-1
+adfs</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="hljs"><code class="hljs">Enter the number=
+Prime? No!
+
+Enter the number=</code></pre>
+
+<h3 id="4">样例 #4</h3>
+<h4 id="4_1">样例输入 #4</h4>
+<pre class="hljs"><code class="hljs">1234###24#@13#@￥！1
+hehe</code></pre>
+
+<h4 id="4_2">样例输出 #4</h4>
+<pre class="hljs"><code class="hljs">Enter the number=
+Prime? No!
+The number is too large!
+
+Enter the number=</code></pre>
+
+<h3 id="5">样例 #5</h3>
+<h4 id="5_1">样例输入 #5</h4>
+<pre class="hljs"><code class="hljs">1.5
+1
+1234324123512343123
+@~@~@~@</code></pre>
+
+<h4 id="5_2">样例输出 #5</h4>
+<pre class="hljs"><code class="hljs">Enter the number=
+Prime? No!
+15=3^1*5^1
+
+Enter the number=
+Prime? No!
+
+Enter the number=
+Prime? No!
+The number is too large!
+
+Enter the number=</code></pre>
+
+<h3 id="6">样例 #6</h3>
+<h4 id="6_1">样例输入 #6</h4>
+<pre class="hljs"><code class="hljs">12
+halt@@</code></pre>
+
+<h4 id="6_2">样例输出 #6</h4>
+<pre class="hljs"><code class="hljs">Enter the number=
+Prime? No!
+12=2^2*3^1
+
+Enter the number=</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>编这道题的 JosephZheng 有些无聊，但是很考验基本功哦！仔细审题！</p>
+<p>水题一道。。。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

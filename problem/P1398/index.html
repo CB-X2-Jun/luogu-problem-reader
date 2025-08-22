@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1398/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1398 [NOI2013] 书法家</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1398 [NOI2013] 书法家</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 E 同学非常喜欢书法，他听说 NOI2013 已经开始了，想题一幅 “NOI” 的字送给大家。</p>
+<p>小 E 有一张非常神奇的纸，纸可以用一个 $n$ 行 $m$ 列的二维方格矩阵来表示，为了描述方便，我们定义矩阵左下角方格坐标为 $(1,1)$，右上角方格坐标为 $(m, n)$。</p>
+<p>矩阵的每个方格有一个整数的幸运值。在格子上面写字可以增加大家的幸运度，幸运度的大小恰好是所有被笔写到的方格的幸运值之和。现在你要在上面写
+上 <code class="hljs inline">N</code>，<code class="hljs inline">O</code>，<code class="hljs inline">I</code> 三个字母。</p>
+<p>下面给出 $3$ 个书法字的定义:
+- <code class="hljs inline">N</code> 由若干（$\ge 3$）个边平行于坐标轴的矩形组成，设由 $K$ 个矩形组成（标号 $1 \ldots K$），第 $i$ 个矩形的左下角方格坐标设为 $(L_i, B_i)$，右上角坐标设为 $(R_i, T_i )$，要求满足：
+  1. $L_i \le R_i, B_i \le T_i$；
+  2. 对任意 $1 &lt; i \le K$，有 $L_i = R_{i-1} + 1$；
+  3. 对任意 $3 \le i &lt; K$，有 $B_{i−1} − 1 \le T_i \le T_{i-1}$，$B_i \le B_{i-1}$；
+  4. $B_2 &gt; B_1$，$T_2 = T_1$，$B_{K-1} = B_K$，$T_{K-1} &lt; T_K$；
+- <code class="hljs inline">O</code> 由一个大矩形 $A$，挖去一个小矩形 $B$ 得到，这两个矩形的边都平行于坐标轴。设大矩形 $A$ 左下角的方格坐标为 $(u, v)$，长为 $W$，宽为 $H$，则小矩形 $B$ 满足左下角方格坐标为 $(u + 1, v + 1)$，长 $W - 2$，宽 $H - 2$。要求满足：
+  1. $W \ge 3$，$H \ge 3$；
+  2. $u &gt; R_K + 1$；
+- <code class="hljs inline">I</code> 为 $3$ 个边平行于坐标轴的从下到上的实心矩形组成，从下到上依次标号为 $1,2,3$，第 $i$ 个矩形的左下角格子坐标设为 $(P_i , Q_i )$，右上角格子坐标设为 $(G_i , H_i )$，要求满足：
+  1. $P_i \le G_i , Q_i \le H_i$；
+  2. $P_1 = P_3 &gt; u + W$，$G_1 = G_3$；
+  3. $Q_1 = H_1 = Q_2 - 1, H_2 + 1 = Q_3 = H_3$；
+  4. $P_1 &lt; P_2 \le G_2 &lt; G_1$。</p>
+<p>下图是一个 <code class="hljs inline">N</code>,<code class="hljs inline">O</code>,<code class="hljs inline">I</code> 的例子：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/g7t4tquv.png" /></p>
+<p>另外，所有画的图形均不允许超过纸张的边界。现在小 E 想要知道,他能画出的最大幸运度是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个正整数 $n$ 和 $m$ ,分别表示矩阵的行数和列数。</p>
+<p>接下来 $n$ 行，每行有 $m$ 个整数，第 $i + 1$ 行的第 $j$ 个数表示格子 $(j, n - i + 1)$ 的幸运值。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一个整数 $T$，表示小 E 能够获得的最大幸运度。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 13 
+1 1 -1 -1 1 -1 1 1 1 -1 1 1 1 
+1 -1 1 -1 1 -1 1 -1 1 -1 -1 1 -1 
+1 -1 -1 1 1 -1 1 1 1 -1 1 1 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">24</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">3 13
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">-20</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="1_3">样例解释 1</h3>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/vq7asar5.png" /></p>
+<h3 id="2_3">样例解释 2</h3>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1ojygumc.png" /></p>
+<h3 id="_6">数据范围</h3>
+<p>::cute-table{tuack}</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;">$n$</th>
+<th style="text-align: center;">$m$</th>
+<th style="text-align: center;">幸运值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$=3$</td>
+<td style="text-align: center;">$=12$</td>
+<td style="text-align: center;">$[-50,50]$</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">$\le10$</td>
+<td style="text-align: center;">$\le20$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">$\le150$</td>
+<td style="text-align: center;">$\le500$</td>
+<td style="text-align: center;">$=1$</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">$\le80$</td>
+<td style="text-align: center;">$\le80$</td>
+<td style="text-align: center;">$[-200,200]$</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">$\le150$</td>
+<td style="text-align: center;">$\le500$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+</tbody>
+</table>
+<p>对于所有的测试数据，保证 $n \ge 3,m \ge 12$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

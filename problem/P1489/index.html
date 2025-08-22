@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1489/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1489 猫狗大战</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1489 猫狗大战</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>新一年度的猫狗大战通过 SC（星际争霸）这款经典的游戏来较量，野猫和飞狗这对冤家为此已经准备好久了，为了使战争更有难度和戏剧性，双方约定只能选择 Terran（人族）并且只能造机枪兵。</p>
+<p>比赛开始了，很快，野猫已经攒足几队机枪兵，试探性的发动进攻；然而，飞狗的机枪兵个数也已经不少了。野猫和飞狗的兵在飞狗的家门口相遇了，于是，便有一场腥风血雨和阵阵惨叫声。由于是在飞狗的家门口，飞狗的兵补给会很快，野猫看敌不过，决定撤退。这时飞狗的兵力也不足够多，所以没追出来。</p>
+<p>由于不允许造医生，机枪兵没办法补血。受伤的兵只好忍了。</p>
+<p>现在，野猫又攒足了足够的兵力，决定发起第二次进攻。为了使这次进攻给狗狗造成更大的打击，野猫决定把现有的兵分成两部分，从两路进攻。由于有些兵在第一次战斗中受伤了，为了使两部分的兵实力平均些，分的规则是这样的：</p>
+<ol>
+<li>两部分兵的个数最多只能差一个；</li>
+<li>每部分兵的血值总和必须要尽可能接近。</li>
+</ol>
+<p>现在请你编写一个程序，给定野猫现在有的兵的个数以及每个兵的血格值，求出野猫按上述规则分成两部分后每部分兵的血值总和。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行为一个整数 $n\ (1 \le n \le 200)$，表示野猫现在有的机枪兵的个数。以下的 $n$ 行每行一个整数，表示每个机枪兵的血格 $(1 \le a_i \le 40)$。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行，为两个整数，表示分成两部分后每部分兵的血值总和。要求输出的第一部分兵的血量总和不大于第二部分兵的血量总和。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+35
+20
+32</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">35 52</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>TO 狗狗：这道题的数据范围我已经尽量按星际的游戏规则来了，如果你再固执于由于机枪兵的攻击力一定使不能达到某些血格值或者游戏中一定要造农民不能使机枪兵的人数达到 $200$ 的话，我只能决定将那场猫狗大战的录像公开于世人了！！！</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

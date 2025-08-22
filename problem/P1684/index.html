@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1684/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1684 考验</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1684 考验</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>大家知道，黄药师不仅武功高超，而且酷爱音乐和诗歌。看到桃花岛来了个新客人，而且不是靠真武功进来的，就准备为难为难你。</p>
+<p>他写了一首 $N$ 行诗句的诗歌，美中不足的是这些诗句并不押韵，黄药师非常想遵循古诗的押韵。诗歌被分为若干段，每段都是四行诗。每一句诗都有一个韵脚，假如 $A$ 和 $B$ 表示两种不同的韵脚，每段四行诗的韵脚只可能是 <code class="hljs inline">AABB</code>，<code class="hljs inline">ABAB</code>，<code class="hljs inline">ABBA</code> 和 <code class="hljs inline">AAAA</code> 中的一种。</p>
+<p>黄药师将诗句的韵脚都编了号，具有相同编号的句子代表有相同的韵脚。现在，黄药师想删掉一些句子，使得剩下的都是遵循押韵规则的四行诗，而且不允许改变诗句的顺序。</p>
+<p>现在就问你：如何找出满足条件最长的诗歌？</p>
+<h2 id="_2">输入格式</h2>
+<p>第 $1$ 行为一个整数 $N\ (1 \le N \le 4000)$，代表黄药师写的诗歌的句子数。</p>
+<p>第 $2$ 行为 $N$ 个整数，分别表示每一行诗的韵脚，这些数字都是不超过 $10^9$ 的正数，每个数之间用 $1$ 个空格隔开。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行一个整数 $k$，为黄药师最多能够得到的四行诗个数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">15
+1 2 3 1 2 1 2 3 3 2 1 1 3 2 2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>提示：</p>
+<p>删除第 $3$、$6$、$13$ 句诗，就可以分成 $3$ 个四行诗，分别为：</p>
+<ul>
+<li>$1,2,4,5$；</li>
+<li>$7,8,9,10$；</li>
+<li>$11,12,14,15$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

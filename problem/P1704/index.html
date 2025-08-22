@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1704/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1704 寻找最优美做题曲线</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1704 寻找最优美做题曲线</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>nodgd 是一个喜欢写程序的同学，前不久（好像还是有点久了）洛谷 OJ 横空出世，nodgd 同学当然第一时间来到洛谷 OJ 刷题。于是发生了一系列有趣的事情，他就打算用这些事情来出题恶心大家……</p>
+<h2 id="_2">题目描述</h2>
+<p>洛谷 OJ 刷题有个有趣的评测功能，就是系统自动绘制出用户的“做题曲线”。所谓做题曲线就是一条曲线，或者说是折线，是这样定义的：假设某用户在第 $b_i$ 天 AC 了 $c_i$ 道题，并且 $b_i$ 严格递增，那么该用户的做题曲线就是平面上点 $(i,c_i)$ 依次连出的一条折线。比如你在第 $1$ 天做了 $3$ 道题，第 $3$ 天做了 $4$ 道题，第 $6$ 天做了 $1$ 道题，那么你在前 $6$ 天的做题曲线就是从点 $(1,3)$ 到点 $(2,4)$ 到点 $(3,1)$ 的连续折线。</p>
+<p>nodgd 同学可以预测出自己未来 $N$ 天每条能够 $AC$ 题目的数量，同时有一个很无趣的爱好，就是单调递增，nodgd 强迫自己的做题曲线保持严格的单调递增。但是出于某些原因，nodgd 在某些日子（共有 $K$ 天）必须刷题，而且刷题数量一定是预计的数量（体现 nodgd 的神预测）。nodgd 同学想知道，在这样的情况下，自己最多有多少天可以刷题，不过 nodgd 同学还有大量的数学竞赛题、物理竞赛题、英语竞赛题、美术竞赛题、体育竞赛题……要做，就拜托你来帮他算算了。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行两个正整数，$N$ 和 $K$，表示 nodgd 预测了未来 $N$ 天每天做题的数量，其中 $K$ 天必须刷题。</p>
+<p>第二行 $K$ 个正整数 $p_i$，表示第 $p_i$ 天必须刷题 $(1 \le p_i\le N$，保证每个 $p_i$ 不同）。</p>
+<p>第三行 $N$ 个正整数 $c_i$，表示在第 $i$ 天 nodgd 可以 $AC$ 的题目数量必须是 $c_i$。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出共一行。</p>
+<p>如果能找到严格递增的做题曲线：一个正整数，表示 nodgd 最多有多少天可以刷题。</p>
+<p>如果找不到严格递增的做题曲线：直接输出 <code class="hljs inline">impossible</code>（不加引号，全是小写字母）。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">13 4
+2 13 8 7
+6 10 9 8 9 10 11 16 14 12 13 14 18</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">5</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h3 id="_7">数据范围及约定</h3>
+<p>对于全部数据，</p>
+<ul>
+<li>$1 \le N \le 500000$，$1 \le K \le N/2$；</li>
+<li>$1 \le p[i] \le N$，保证每个 $p[i]$ 不同，不保证 $p[i]$ 按大小顺序输入；</li>
+<li>$1 \le c[i] \le 10^9$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

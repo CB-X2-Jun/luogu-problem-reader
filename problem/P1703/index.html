@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1703/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1703 那个什么密码 2</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1703 那个什么密码 2</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p><em>本题改编自 <a href="https://www.luogu.com.cn/problem/P1079">https://www.luogu.com.cn/problem/P1079</a>。</em></p>
+<h2 id="_2">题目描述</h2>
+<p>16 世纪法国外交家 Blaise de Vigenère 设计了一种多表密码加密算法 Vigenère 密码。Vigenère 密码的加密解密算法简单易用，且破译难度比较高，曾在美国南北战争中为南军所广泛使用。</p>
+<p>在密码学中，我们称需要加密的信息为明文，用 $M$ 表示；称加密后的信息为密文，用 $C$ 表示；而密钥是一种参数，是将明文转换为密文或将密文转换为明文的算法中输入的数据，记为 $k$。在 Vigenère 密码中，密钥 $k$ 是一个字母串，$k=k_1,k_2,…,k_n$。当明文 $M=m_1,m_2,…,m_n$ 时，得到的密文 $C=c_1,c_2,…,c_n$，其中 $c_i$=$m_i \operatorname{\circledR} k_i$，运算 $\circledR$ 的规则如下表所示：</p>
+<p>$$
+\gdef \a{\kern{-5pt}}
+\begin{array}{c|cccccccccccccccccccccccccc}
+\circledR &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a  \\hline
+\tt A &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a  \
+\tt B &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a  \
+\tt C &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a  \
+\tt D &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a  \
+\tt E &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a  \
+\tt F &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a  \
+\tt G &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a  \
+\tt H &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a  \
+\tt I &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a  \
+\tt J &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a  \
+\tt K &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a  \
+\tt L &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a  \
+\tt M &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a  \
+\tt N &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a  \
+\tt O &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a  \
+\tt P &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a  \
+\tt Q &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a  \
+\tt R &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a  \
+\tt S &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a  \
+\tt T &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a  \
+\tt U &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a  \
+\tt V &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a  \
+\tt W &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a  \
+\tt X &amp;\tt X \a &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a  \
+\tt Y &amp;\tt Y \a &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a  \
+\tt Z &amp;\tt Z \a &amp;\tt A \a &amp;\tt B \a &amp;\tt C \a &amp;\tt D \a &amp;\tt E \a &amp;\tt F \a &amp;\tt G \a &amp;\tt H \a &amp;\tt I \a &amp;\tt J \a &amp;\tt K \a &amp;\tt L \a &amp;\tt M \a &amp;\tt N \a &amp;\tt O \a &amp;\tt P \a &amp;\tt Q \a &amp;\tt R \a &amp;\tt S \a &amp;\tt T \a &amp;\tt U \a &amp;\tt V \a &amp;\tt W \a &amp;\tt X \a &amp;\tt Y \a  \</p>
+<p>\end{array}</p>
+<p>$$</p>
+<p>Vigenère 加密在操作时需要注意：</p>
+<ol>
+<li>$\circledR$ 运算忽略参与运算的字母的大小写，并保持字母在明文 $M$ 中的大小写形式；</li>
+<li>当明文 $M$ 的长度大于密钥 $k$ 的长度时，将密钥 $k$ 重复使用。</li>
+</ol>
+<p><strong>任务：</strong></p>
+<p>给定一串明文和一串密钥，请对明文进行两次加密：</p>
+<ul>
+<li>一次加密：依次输入 $n$ 条形如 $(l,r)$ 的指令，翻转明文中的第 $l$ 到 $r$ 个字符。</li>
+<li>二次加密：按照上面的规则，对一次加密后的一级密文再施加一次 Vigenère 密码加密，得到最终的二级密文。</li>
+</ul>
+<p>例如，明文 $M=\texttt{Helloworld}$，密钥 $k=\texttt{abc}$，$n=1$，指令为 $(4,9)$ 时，一级密文 $C_1=\texttt{Hellrowold}$，二级密文 $C_2=\texttt{Hfnlsqwpnd}$。</p>
+<p>$$
+\def\arraystretch{1.5}
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|} \hline
+\textsf{明文} &amp; \tt H &amp; \tt e &amp; \tt l &amp; \tt l &amp; \tt o &amp; \tt w &amp; \tt o &amp; \tt r &amp; \tt l &amp; \tt d \  \hline
+\textsf{一级密文} &amp; \tt H &amp; \tt e &amp; \tt l &amp; \tt l &amp; \tt r &amp; \tt o &amp; \tt w &amp; \tt o &amp; \tt l &amp; \tt d \  \hline
+\textsf{密钥} &amp; \tt a &amp; \tt b &amp; \tt c &amp; \tt a &amp; \tt b &amp; \tt c &amp; \tt a &amp; \tt b &amp; \tt c &amp; \tt a \  \hline
+\textsf{二级密文} &amp; \tt H &amp; \tt f &amp; \tt n &amp; \tt l &amp; \tt s &amp; \tt q &amp; \tt w &amp; \tt p &amp; \tt n &amp; \tt d \  \hline
+\end{array}
+$$</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行为一个字符串，表示密钥 $k$，长度不超过 $1000$，其中仅包含大小写字母。  </p>
+<p>第二行为一个字符串，表示加密前的明文，长度不超过 $1000$，其中仅包含大小写字母。</p>
+<p>第三行为一个非负整数 $n\ (0 \le n \le 10^5)$，表示一次加密中的指令个数。</p>
+<p>下面 $n$ 行，每行两个正整数 $l,r\ (1 \le l \le r \le m)$，表示一个指令，其中 $m$ 是明文的长度。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个字符串，表示输入密钥和明文所对应的二级密文。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">CompleteVictory
+Wherethereisawillthereisaway
+0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">Yvqgpxaimmklongnzfwpvxmniytm</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

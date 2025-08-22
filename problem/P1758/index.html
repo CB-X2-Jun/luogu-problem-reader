@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1758/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1758 [NOI2009] 管道取珠</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1758 [NOI2009] 管道取珠</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>管道取珠是小 X 很喜欢的一款游戏。在本题中，我们将考虑该游戏的一个简单改版。游戏画面如图 1 所示：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7p4r2ip9.png" /></p>
+<p>游戏初始时，左侧上下两个管道分别有一定数量的小球（有深色球和浅色球两种类型），而右侧输出管道为空。每一次操作，可以从左侧选择一个管道，并将该管道中最右侧的球推入右边输出管道。</p>
+<p>例如：我们首先从下管道中移一个球到输出管道中，将得到图 2 所示的情况。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xj1kay44.png" /></p>
+<p>假设上管道中有 $n$ 个球, 下管道中有 $m$ 个球，则整个游戏过程需要进行 $n+m$ 次操作，即将所有左侧管道中的球移入输出管道。最终 $n+m$ 个球在输出管道中从右到左形成输出序列。</p>
+<p>爱好数学的小 X 知道，他共有 $\dbinom{n+m}{m}$ 种不同的操作方式，而不同的操作方式可能导致相同的输出序列。举个例子，对于图 3 所示的游戏情形：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0m1t5d3h.png" /></p>
+<p>我们用 A 表示浅色球，B 表示深色球。并设移动上管道右侧球的操作为 U，移动下管道右侧球的操作为 D，则共有 $\binom{2+1}{1}=3$ 种不同的操作方式，分别为 UUD，UDU，DUU；最终在输出管道中形成的输出序列（从右到左）分别为 BAB，BBA，BBA。可以发现后两种操作方式将得到同样的输出序列。</p>
+<p>假设最终可能产生的不同种类的输出序列共有 $K$ 种，其中：第 $i$ 种输出序列的产生方式（即不同的操作方式数目）有 $a_i$ 个。聪明的小 X 早已知道，</p>
+<p>$$
+\sum a_i=\binom{n+m}{m}
+$$</p>
+<p>因此，小 X 希望计算得到：</p>
+<p>$$
+\sum a_i^2
+$$</p>
+<p>你能帮助他计算这个值么？由于这个值可能很大，因此只需要输出该值对 $1024523$ 取模后的结果。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件中的第一行为两个整数 $n,m$，分别表示上下两个管道中球的数目。</p>
+<p>第二行中为一个长度为 $n$ 的字符串，表示上管道中从左到右球的类型。其中：A 表示浅色球，B 表示深色球。</p>
+<p>第三行中为一个长度为 $m$ 的字符串，表示下管道中从左到右球的类型。</p>
+<p>保证两个字符串都只包含 A,B 两个字母。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一个整数，即为 $\sum a_i^2$ 对 $1024523$ 取模的结果。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2 1
+AB
+B</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">5</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>样例对应图 3。</p>
+<p>共有两种不同的输出序列形式，序列 BAB 有 $1$ 种产生方式，而序列 BBA 有 $2$ 种产生方式，因此答案为 $5$。</p>
+<h3 id="_7">数据范围</h3>
+<ul>
+<li>对于 $30\%$ 的数据，满足 $m,n \leq 12$；</li>
+<li>对于 $100\%$ 的数据，满足 $1 \leq m,n \leq 500$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

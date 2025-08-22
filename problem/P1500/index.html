@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1500/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1500 [集训队互测 2000] 丘比特的烦恼</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1500 [集训队互测 2000] 丘比特的烦恼</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>随着社会的不断发展，人与人之间的感情越来越功利化。最近，爱神丘比特发现，爱情也已不再是完全纯洁的了。这使得丘比特很是苦恼，他越来越难找到合适的男女，并向他们射去丘比特之箭。于是丘比特千里迢迢远赴中国，找到了掌管东方人爱情的神——月下老人，向他求教。</p>
+<p>月下老人告诉丘比特，纯洁的爱情并不是不存在，而是他没有找到。在东方，人们讲究的是缘分。月下老人只要做一男一女两个泥人，在他们之间连上一条红线，那么它们所代表的人就会相爱——无论他们身处何地。而丘比特的爱情之箭只能射中两个距离相当近的人，选择的范围自然就小了很多，不能找到真正的有缘人。</p>
+<h2 id="_2">题目描述</h2>
+<p>情人节（Valentine's day）的午夜零时，丘比特开始了自己的工作。他选择了一组数目相等的男女，感应到他们互相之间的缘分大小，并依此射出了神箭，使他们产生爱意。他希望能选择最好的方法，使被他选择的每一个人被射中一次，且每一对被射中的人之间的缘分的和最大。</p>
+<p>当然，无论丘比特怎么改造自己的弓箭，总还是存在缺陷的。首先，弓箭的射程尽管增大了，但毕竟还是有限的，不能像月下老人那样，做到“千里姻缘一线牵”。其次，无论怎么改造，箭的轨迹终归只能是一条直线，也就是说，如果两个人之间的连线段上有别人，那么莫不可向他们射出丘比特之箭，否则，按月下老人的话，就是“乱点鸳鸯谱”了。</p>
+<p>作为一个凡人，你的任务是运用先进的计算机为丘比特找到最佳的方案。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入第一行为正整数 $k$，表示丘比特之箭的射程。</p>
+<p>第二行为正整数 $n$。</p>
+<p>随后有 $2 \times n$ 行，表示丘比特选中的人的信息，其中前 $n$ 行为男子，后 $n$ 行为女子。</p>
+<p>每个人的信息由两部分组成：他的姓名和他的位置。姓名是长度小于 $20$ 且仅包含字母的字符串，忽略大小写的区别，位置是由一对整数表示的坐标，它们之间用空格分隔。格式为 <code>&lt;code class="hljs inline"&gt;x y Name&lt;/code&gt;</code>。</p>
+<p>输入文件剩下的部分描述了这些人的缘分。每一行的格式为 <code>&lt;code class="hljs inline"&gt;Name1 Name2 p&lt;/code&gt;</code>。</p>
+<p><code class="hljs inline">Name1</code> 和 <code class="hljs inline">Name2</code> 为有缘人的姓名，$p$ 是他们之间的缘分值（$p$ 为小于等于 $255$ 的正整数）。</p>
+<p>以一个 <code>&lt;code class="hljs inline"&gt;End&lt;/code&gt;</code> 作为文件结束标志。</p>
+<p>每两个人之间的缘分至多只被描述一次。如果没有被描述，则说明他们缘分值为 $1$。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出仅一个正整数，表示每一对被射中的人之间的缘分的总和。这个和应当是最大的。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2
+3
+0 0 Adam
+1 1 Jack
+0 2 George
+1 0 Victoria
+0 1 Susan
+1 2 Cathy
+Adam Cathy 100
+Susan George 20
+George Cathy 40
+Jack Susan 5
+Cathy Jack 30
+Victoria Jack 20
+Adam Victoria 15
+End</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">65</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>$1\le n\le 30$。</p>
+<p>CTSC2000 第二试</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1560/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1560 [USACO5.2] 蜗牛的旅行Snail Trails</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1560 [USACO5.2] 蜗牛的旅行Snail Trails</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>萨丽·斯内尔（Sally Snail，蜗牛）喜欢在 $N\times N$ 的棋盘上闲逛（$1&lt;n \le 120$）。</p>
+<p>她总是从棋盘的左上角出发。棋盘上有空的格子（用 $\verb!.!$ 来表示）和 $B$ 个路障（用 $\verb!#!$ 来表示）。</p>
+<p>下面是这种表示法的示例棋盘：</p>
+<p>$$
+\boxed{\quad\begin{aligned}
+\verb!   A  B  C  D  E  F  G  H! \
+\verb!1  S  .  .  .  .  .  #  .! \
+\verb!2  .  .  .  .  #  .  .  .! \
+\verb!3  .  .  .  .  .  .  .  .! \
+\verb!4  .  .  .  .  .  .  .  .! \
+\verb!5  .  .  .  .  .  #  .  .! \
+\verb!6  #  .  .  .  .  .  .  .! \
+\verb!7  .  .  .  .  .  .  .  .! \
+\verb!8  .  .  .  .  .  .  .  .! \
+\end{aligned}\quad}$$</p>
+<p>萨丽总是垂直（向上或者向下）或水平（向左或者向右）地走。她可以从出发地（总是记作 $\tt A1$）向下或者向右走。一旦萨丽选定了一个方向，她就会一直走下去。如果她遇到棋盘边缘或者路障，她就停下来，并且转过 $90$ 度。她不可能离开棋盘，或者走进路障当中。并且，萨丽从不跨过她已经经过的格子。当她再也不能走的时候，她就停止散步。</p>
+<p>这里是上面的棋盘上的一次散步路线图示：</p>
+<p>$$
+\boxed{\quad\begin{aligned}
+\verb!   A  B  C  D  E  F  G  H! \
+\verb!1  S--------------+  #  .! \
+\verb!2  .  .  .  .  #  |  .  .! \
+\verb!3  .  .  .  .  .  |  .  .! \
+\verb!4  .  .  .  .  .  +-----+! \
+\verb!5  .  .  .  .  .  #  .  |! \
+\verb!6  #  .  .  .  .  .  .  |! \
+\verb!7  +-----------------+  |! \
+\verb!8  +--------------------+! \
+\end{aligned}\quad}$$</p>
+<p>萨丽向右走，再向下，向右，向下，然后向左，再向上，最后向右走。这时她遇到了一个她已经走过的格子，她就停下来了。但是，如果她在 $\tt F5$ 格遇到路障后选择另外一条路——向我们看来是左边的方向转弯，情况就不一样了。</p>
+<p>你的任务是计算并输出，如果萨丽聪明地选择她的路线的话，她所能够经过的最多格子数。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入的第一行包括 $N$ —棋盘的大小，和 $B$ —路障的数量（$1 \le B \le 200$）。接下来的 $B$ 行包含着路障的位置信息。下面的样例输入对应着上面的示例棋盘。下面的输出文件表示问题的解答。注意，当 $N&gt;26$ 时，输入文件就不能表示 $\tt Z$ 列以后的路障了。（这句话不用专门理他。其实就是从 $A$ 的 ASCII 码开始向后顺延，不管是什么字母就行了）</p>
+<h2 id="_3">输出格式</h2>
+<p>输出文件应该只由一行组成，即萨丽能够经过的最多格子数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">8 4
+E2
+A6
+G1
+F5</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">33</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>$$
+\boxed{\quad\begin{aligned}
+\verb!   A  B  C  D  E  F  G  H! \
+\verb!1  S  .  .  .  .  .  #  .! \
+\verb!2  |  .  .  .  #  .  .  .! \
+\verb!3  |  .  .  .  +--------+! \
+\verb!4  |  .  .  .  |  .  .  |! \
+\verb!5  +-----------+  #  .  |! \
+\verb!6  #  .  .  .  .  .  .  |! \
+\verb!7  +------------------  |! \
+\verb!8  +--------------------+! \
+\end{aligned}\quad}$$</p>
+<p>题目翻译来自NOCOW。</p>
+<p>USACO Training Section 5.2</p>
+<p><a href="https://www.luogu.com.cn/discuss/1072919">本题疑似有误，不保证存在可以通过任意符合要求的输入数据的程序</a>。如果您认为您的做法可以通过任意符合要求的输入数据，欢迎联系管理员。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

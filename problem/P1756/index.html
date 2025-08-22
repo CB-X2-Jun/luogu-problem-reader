@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1756/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1756 [NOI2009] 描边</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1756 [NOI2009] 描边</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Z 是一位杰出的数学家。聪明的他特别喜欢研究一些数学小问题。</p>
+<p>有一天，他在一张纸上选择了 $n$ 个点，并用铅笔将它们两两连接起来，构成 $\dfrac{n(n-1)}{2}$ 条线段。由于铅笔很细，可以认为这些线段的宽度为 $0$。</p>
+<p>望着这些线段，小 Z 陷入了冥想中。他认为这些线段中的一部分比较重要，需要进行强调。因此小 Z 拿出了毛笔，将它们重新进行了描边。毛笔画在纸上，会形成一个半径为 $r$ 的圆。在对一条线段进行描边时，毛笔的中心（即圆心）将从线段的一个端点开始，沿着该线段描向另一个端点。下图即为在一张 $4$ 个点的图中，对其中一条线段进行描边强调后的情况。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/h92i5d69.png" /></p>
+<p>现在，小 Z 非常想知道在描边之后纸面上共有多大面积的区域被强调，你能帮助他解答这个问题么？</p>
+<h2 id="_2">输入格式</h2>
+<p>本题是一道提交答案型试题，所有的输入文件 <code class="hljs inline">path1.in</code> $\sim$ <code class="hljs inline">path10.in</code> 已在相应目录下。</p>
+<p>输入文件请点击 <a href="http://pan.baidu.com/s/1gfeLZqz">这里</a> 下载。</p>
+<p>输入文件的第一行为一个正整数 $n$，表示选择的点的数目。</p>
+<p>第二行至第 $n+1$ 行，其中：第 $i+1$ 行中为两个实数 $x_i,y_i$，表示点 $i$ 的坐标为 $(x_i,y_i)$。</p>
+<p>第 $n+2$ 行为一个正整数 $m$，表示小 Z 认为比较重要的线段的条数。</p>
+<p>第 $n+3$ 行至第 $n+m+2$ 行，每行有两个正整数 $a,b$，表示一条线段。其中 $a,b$ 两个数分别表示该线段的两个端点的编号。</p>
+<p>第 $n+m+3$ 行中为一个实数 $r$，表示毛笔在纸上形成的圆的半径。</p>
+<p>第 $n+m+4$ 行中为四个实数 $p_1,p_2,p_3,p_4$，即评分使用的参数。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出文件 <code class="hljs inline">path*.out</code> 仅一行一个数，即为描边后被强调区域的总面积。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2
+1 1
+1 2
+1
+1 2
+1
+0.00001 0.001 0.1 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">5.1415927</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>每个测试点单独评分。</p>
+<p>本题设有 $4$ 个评分参数 $p_1,p_2,p_3,p_4$（$p_1 \lt p_2 \lt p_3 \lt p_4$），已在输入文件中给出。</p>
+<p>你的得分将按照如下规则给出：</p>
+<ul>
+<li>若你的答案与标准答案相差不超过 $p_1$，则该测试点你将得到满分；</li>
+<li>否则，若你的答案与标准答案相差不超过 $p_2$，则你将得到该测试点 $70\%$ 的分数；</li>
+<li>否则，若你的答案与标准答案相差不超过 $p_3$，则你将得到该测试点 $40\%$ 的分数；</li>
+<li>否则，若你的答案与标准答案相差不超过 $p_4$，则你将得到该测试点 $10\%$ 的分数；</li>
+<li>否则，该测试点你的得分为 $0$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1768/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1768 天路</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1768 天路</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>“那是一条神奇的天路诶 ~~~，把第一个神犇送上天堂 ~~~ ”，XDM 先生唱着这首“亲切”的歌曲，一道猥琐题目的灵感在脑中出现了。</p>
+<p>和 C_SUNSHINE 大神商量后，这道猥琐的题目终于出现在本次试题上了，旨在难到一帮大脑不够灵活的 OIer 们（JOHNKRAM 真的不是说你……）。</p>
+<h2 id="_2">题目描述</h2>
+<p>言归正传，小 X 的梦中，他在西藏开了一家大型旅游公司，现在，他要为西藏的各个景点设计一组铁路线。但是，小 X 发现，来旅游的游客都很挑剔，他们乘火车在各个景点间游览，景点的趣味当然是不用说啦，关键是路上。试想，若是乘火车一圈转悠，却发现回到了游玩过的某个景点，花了一大堆钱却在路上看不到好的风景，那是有多么的恼火啊。</p>
+<p>所以，小 X 为所有的路径定义了两个值，$V_i$ 和 $P_i$，分别表示火车线路的风景趣味度和乘坐一次的价格。现在小 X 想知道，乘客从任意一个景点开始坐火车走过的一条回路上所有的 $V$ 之和与 $P$ 之和的比值的最大值。以便为顾客们推荐一条环绕旅游路线（路线不一定包含所有的景点，但是不可以存在重复的火车路线）。</p>
+<p>于是，小 X 梦醒之后找到了你……</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行两个正整数 $N,M$，表示有 $N$ 个景点，$M$ 条火车路线，火车路线是单向的。</p>
+<p>以下 $M$ 行，每行 $4$ 个正整数，分别表示一条路线的起点，终点，$V$ 值和 $P$ 值。</p>
+<p>注意，两个顶点间可能有多条轨道，但一次只能走其中的一条。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个实数，表示一条回路上最大的比值，保留 $1$ 位小数。</p>
+<p>若没有回路，输出 $-1$。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 6
+1 2 1 1
+4 1 6 2
+5 4 8 1
+2 3 2 2
+5 2 4 1
+3 5 6 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2.3</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>对于 $30\%$ 的数据，$1 \le N \le 100$，$1 \le M \le 20$；</p>
+<p>对于 $60\%$ 的数据，$1 \le N \le 3{,}000$，$1 \le M \le 2{,}000$；</p>
+<p>对于 $100\%$ 的数据，$1 \le N \le 7{,}000$，$1 \le M \le 20{,}000$，$1 \le V_i,P_i \le 1{,}000$。</p>
+<p>保证答案在 $200$ 以内。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/e1ywdkfs.png" /></p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

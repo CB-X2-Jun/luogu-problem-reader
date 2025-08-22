@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1231/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1231 教辅的组成</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1231 教辅的组成</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>滚粗了的 HansBug 在收拾旧语文书，然而他发现了什么奇妙的东西。</p>
+<h2 id="_2">题目描述</h2>
+<p>蒟蒻 HansBug 在一本语文书里面发现了一本答案，然而他却明明记得这书应该还包含一份练习题。然而出现在他眼前的书多得数不胜数，其中有书，有答案，有练习册。已知一个完整的书册均应该包含且仅包含一本书、一本练习册和一份答案，然而现在全都乱做了一团。许多书上面的字迹都已经模糊了，然而 HansBug 还是可以大致判断这是一本书还是练习册或答案，并且能够大致知道一本书和答案以及一本书和练习册的对应关系（即仅仅知道某书和某答案、某书和某练习册有可能相对应，除此以外的均不可能对应）。既然如此，HansBug 想知道在这样的情况下，最多可能同时组合成多少个完整的书册。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行包含三个正整数 $N_1,N_2,N_3$，分别表示书的个数、练习册的个数和答案的个数。</p>
+<p>第二行包含一个正整数 $M_1$，表示书和练习册可能的对应关系个数。</p>
+<p>接下来 $M_1$ 行每行包含两个正整数 $x,y$，表示第 $x$ 本书和第 $y$ 本练习册可能对应。（$1\leq x \leq N_1$，$1 \leq y \leq N_2$）</p>
+<p>第 $M_{1}+3$ 行包含一个正整数 $M_2$，表述书和答案可能的对应关系个数。</p>
+<p>接下来 $M_2$ 行每行包含两个正整数 $x,y$，表示第 $x$ 本书和第 $y$ 本答案可能对应。（$1 \leq x \leq N_1$，$1 \leq y \leq N_3$）</p>
+<h2 id="_4">输出格式</h2>
+<p>输出包含一个正整数，表示最多可能组成完整书册的数目。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 3 4
+5
+4 3
+2 2
+5 2
+5 1
+5 3
+5
+1 3
+3 1
+2 2
+3 3
+4 3</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>样例说明：</p>
+<p>如题，$N_1=5$，$N_2=3$，$N_3=4$，表示书有 $5$ 本、练习册有 $3$ 本、答案有 $4$ 本。</p>
+<p>$M_1=5$，表示书和练习册共有 $5$ 个可能的对应关系，分别为：书 $4$ 和练习册 $3$ 、书 $2$ 和练习册 $2$ 、书 $5$ 和练习册 $2$ 、书 $5$ 和练习册 $1$ 以及书 $5$ 和练习册 $3$。</p>
+<p>$M_2=5$，表示数和答案共有 $5$ 个可能的对应关系，分别为：书 $1$ 和答案 $3$、书 $3$ 和答案 $1$、书 $2$ 和答案 $2$、书 $3$ 和答案 $3$ 以及书 $4$ 和答案 $3$。</p>
+<p>所以，以上情况的话最多可以同时配成两个书册，分别为：书 $2$ 练习册 $2$ 答案 $2$、书 $4$ 练习册 $3$ 答案 $3$。</p>
+<p>数据规模：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/srj2v9um.png" /></p>
+<p>对于数据点 $1,2,3$，$1\le M_1,M_2\leq 20$。</p>
+<p>对于数据点 $4\sim 10$，$1\le M_1,M_2 \leq 20000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

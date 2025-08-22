@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1740/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1740 Diamond A&B(1)</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1740 Diamond A&B(1)</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>由于本题较难，将本题拆做两题，分别为 diamond A 以及 diamond B。本题为 Diamond A。</p>
+<h2 id="_2">题目描述</h2>
+<p>教主上电视了！这个消息绝对是一个爆炸性的新闻。一经传开，大街上瞬间就没人了（都回家看电视去了），商店打烊，工厂停业。大家都把电视机的音量开到最大，教主的声音回响在大街小巷。</p>
+<p>小 L 给小 X 慌乱地打开自己家的电视机，发现所有频道都播放的是教主的采访节目（-_-bbb）。只见电视屏幕上的教主笑意吟吟，给大家出了一道难题：</p>
+<p>一个边长为 $n$ 的大菱形被均匀地划分成了 $n\times n$ 个边长为 $1$ 的小菱形组成的网格，但是网格中部分边被抹去了，小 $L$ 想知道，大菱形内有多少个平行四边形，这些平行四边形内不存在边（平行四边形内是空的）。</p>
+<p>教主说，如果谁写出了程序，移动用户请将程序发送到 xxxx，联通用户请将程序发送到 xxxx……如果答对这个题，将有机会参加抽奖，大奖将是教主签名的 Orz 教主 T-Shirt 一件！这个奖品太具有诱惑力了。于是你需要编一个程序完成这么一道题。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入的第一行为一个正整数 $n$，为大菱形的边长。</p>
+<p>以下 $2n$ 行，每行 $2n$ 个字符，字符为空格，$\verb!/!$，$\verb!!$ 中的一个。</p>
+<p>前 $n$ 行，第 $i$ 行中居中有 $2i$ 个字符，这 $2i$ 个字符中位置为奇数的字符只可能为 $\verb!/!$ 或者空格，位置为偶数的字符只可能为 $\verb!!$ 或空格，若为空格表示这样一条边不存在，其余字符均为空格，描述了大菱形的上半部分。</p>
+<p>后 $n$ 行，第 $i$ 行居中有有 $2(n-i+1)$ 个字符，与上半部分类似地描述了菱形的下半部分。</p>
+<p>输入文件保证大菱形的轮廓上没有边被抹去。</p>
+<h2 id="_4">输出格式</h2>
+<p>第一行一个整数 $n$。</p>
+<p>以下 $2\times n+1$ 行，改为矩形后各边的输出，$1$ 表示有边，$0$ 表示无边。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+&nbsp;&nbsp; /\&nbsp;&nbsp; 
+&nbsp;&nbsp;/\/\&nbsp;&nbsp;
+ /\&nbsp;&nbsp;/\ 
+/&nbsp;&nbsp;\/&nbsp;&nbsp;\
+\/\/ / /
+ \/\&nbsp;&nbsp;/ 
+&nbsp;&nbsp;\ \/&nbsp;&nbsp;
+&nbsp;&nbsp; \/</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4
+1111
+11101
+1000
+10111
+1100
+10101
+0111
+11101
+1111</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h3 id="_7">数据范围及约定</h3>
+<ul>
+<li>对于 $20\%$ 的数据，$n \le 10$；</li>
+<li>对于 $40\%$ 的数据，$n \le 60$；</li>
+<li>对于 $60\%$ 的数据，$n \le 200$；</li>
+<li>对于 $100\%$ 的数据，$n \le 888$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

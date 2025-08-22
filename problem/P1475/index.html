@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1475/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1475 [USACO2.3] 控制公司 Controlling Companies</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1475 [USACO2.3] 控制公司 Controlling Companies</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>有些公司是其他公司的部分拥有者，因为他们获得了其他公司发行的股票的一部分。</p>
+<p>据说，如果至少满足了以下三个条件之一，公司 $A$ 就可以控制公司 $B$ 了：</p>
+<ul>
+<li>公司 $A$ = 公司 $B$。</li>
+<li>公司 $A$ 拥有大于 $50\%$ 的公司 $B$ 的股票。</li>
+<li>公司 $A$ 控制 $K$（$K \geq 1$）个公司，记为 $C_1, \ldots, C_K$，每个公司 $C_i$ 拥有 $x_i\%$ 的公司 $B$ 的股票，并且 $x_1+ \ldots + x_K \gt 50\%$。</li>
+</ul>
+<p>给你一个表，每行包括三个数 $i,j,p$：表明公司 $i$ 享有公司 $j$ 的 $p\%$ 的股票。计算所有的数对 $(h,s)$，表明公司 $h$ 控制公司 $s$。至多有 $100$ 个公司。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行一个整数 $N$，表明表格的行数。</p>
+<p>接下来 $N$ 行，每行三个整数 $i,j,p$，表示 $i$ 公司拥有 $j$ 公司 $p\%$ 的股份。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出零个或更多个的控制其他公司的公司。每行包括两个整数 $A,B$，表示 $A$ 公司控制了 $B$ 公司。将输出的数对以 $A$ 为第一关键字，$B$ 为第二关键字升序排列。</p>
+<p>请不要输出控制自己的公司（即你输出的数对均要满足 $A \neq B$）。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+1 2 80
+2 3 80
+3 1 20</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1 2
+1 3
+2 3</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>翻译来自NOCOW</p>
+<p>USACO 2.3</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

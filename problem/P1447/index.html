@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1447/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1447 [NOI2010] 能量采集</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1447 [NOI2010] 能量采集</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>栋栋有一块长方形的地，他在地上种了一种能量植物，这种植物可以采集太阳光的能量。在这些植物采集能量后，栋栋再使用一个能量汇集机器把这些植物采集到的能量汇集到一起。</p>
+<p>栋栋的植物种得非常整齐，一共有 $n$ 列，每列有 $m$ 棵，植物的横竖间距都一样，因此对于每一棵植物，栋栋可以用一个坐标 $(x, y)$ 来表示，其中 $x$ 的范围是 $1$ 至 $n$，$y$ 的范围是 $1$ 至 $m$，表示是在第 $x$ 列的第 $y$ 棵。</p>
+<p>由于能量汇集机器较大，不便移动，栋栋将它放在了一个角上，坐标正好是 $(0, 0)$。</p>
+<p>能量汇集机器在汇集的过程中有一定的能量损失。如果一棵植物与能量汇集机器连接而成的线段上有 $k$ 棵植物，则能量的损失为 $2k + 1$。例如，当能量汇集机器收集坐标为 $(2, 4)$ 的植物时，由于连接线段上存在一棵植物 $(1, 2)$，会产生 $3$ 的能量损失。注意，如果一棵植物与能量汇集机器连接的线段上没有植物，则能量损失为 $1$。现在要计算总的能量损失。</p>
+<p>下面给出了一个能量采集的例子，其中 $n = 5$，$m = 4$，一共有 $20$ 棵植物，在每棵植物上标明了能量汇集机器收集它的能量时产生的能量损失。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/fhzpmm7b.png" /></p>
+<p>在这个例子中，总共产生了 $36$ 的能量损失。</p>
+<h2 id="_2">输入格式</h2>
+<p>一行两个整数 $n,m$。</p>
+<h2 id="_3">输出格式</h2>
+<p>仅包含一个整数，表示总共产生的能量损失。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">36</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">3 4</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">20</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<ul>
+<li>对于 $10\%$ 的数据：$n, m \leq 10$；</li>
+<li>对于 $50\%$ 的数据：$n, m \leq 100$；</li>
+<li>对于 $80\%$ 的数据：$n, m \leq 10^3$；</li>
+<li>对于 $90\%$ 的数据：$n, m \leq 10^4$；</li>
+<li>对于 $100\%$ 的数据：$1 \leq n, m \leq 10^5$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

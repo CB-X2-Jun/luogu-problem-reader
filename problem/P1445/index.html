@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1445/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1445 [Violet] 樱花</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1445 [Violet] 樱花</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>又到了一年樱花盛开的时节。Vani 和妹子一起去看樱花的时候，找到了一棵大大的樱花树，上面开满了粉红色的樱花。Vani 粗略估计了一下，一共有足足 $n!$ 片花瓣。</p>
+<p>Vani 轻柔地对她说：“你知道吗？这里面的一片花瓣代表着你，我从里面随机摘一片，能和你相遇的概率只有 $1/n!$ 那么小。我该是多么的幸运，才让你今天这么近地站在我面前。相信我，我一定会把这亿万分之一的缘分变为永远。”</p>
+<p>粉红的樱花漫天飞舞，妹子瞬间被 Vani 感动了。她轻轻地牵起了他的手，和他相依而坐。这时，她突然看到田野的尽头也长着两棵樱花树，于是慢慢地把头靠在 Vani 的肩上，在他耳边低语：“看到夕阳里的那两棵樱花树了吗？其中一棵树上的一片花瓣是你，另一棵树上的一片花瓣是我，如果有人从这棵摘下一片，从那棵采下一瓣，我们相遇的概率会不会正好是 $1/n!$ 呢？”</p>
+<p>Vani 的大脑飞速运作了一下，立即算出了答案。正要告诉妹子，她突然又轻轻地说：“以前你总是说我数学不好，但是这种简单的题我还是会算的。你看假如左边那棵树上有 $x$ 片花瓣，右边那个有 $y$ 片花瓣，那么我们相遇的概率不就是 $1/x+1/y$ 么，不过有多少种情况能使它正好可以等于 $1/n!$ 呢？这个你就帮我算一下吧～”</p>
+<p>显然，面对天然呆的可爱妹子，Vani 不但不能吐槽她的渣数学，而且还要老老实实地 帮她算出答案哦。</p>
+<h2 id="_2">题目描述</h2>
+<p>求方程：</p>
+<p>$$\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{n!}$$ </p>
+<p>的正整数解的组数，答案对 $10^9+7$ 取模。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入只有一行一个整数，表示 $n$。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出一行一个整数表示正整数解的组数模 $10^9+7$ 的值。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">1439</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">102426508</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h4 id="1_3">样例 1 解释</h4>
+<p>共有三个数对 $(x,y)$ 满足条件，分别是 $(3,6),(4,4)$ 和 $(6,3)$。</p>
+<h4 id="_7">数据规模与约定</h4>
+<ul>
+<li>对于 $30\%$ 的数据，保证 $n\le 100$ 。</li>
+<li>对于 $100\%$ 的数据，保证 $1 \le n\le 10^6$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

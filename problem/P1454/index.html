@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1454/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1454 圣诞夜的极光</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1454 圣诞夜的极光</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>圣诞夜系列~~</p>
+<h2 id="_2">题目描述</h2>
+<p>圣诞老人回到了北极圣诞区，已经快到 12 点了。也就是说极光表演要开始了。这里的极光不是极地特有的自然极光景象。而是圣诞老人主持的人造极光。</p>
+<p>轰隆隆 …… 烟花响起（来自中国的浏阳花炮之乡）。接下来就是极光表演了。</p>
+<p>人造极光其实就是空中的一幅幅 $n\times m$ 的点阵图像。只是因为特别明亮而吸引了很多很多小精灵的目光，也成为了圣诞夜最美丽的一刻。</p>
+<p>然而在每幅 $n \times m$ 的点阵图像中，每一个点只有发光和不发光两种状态。对于所有的发光的点，在空中就形成了美丽的图画。而这个图画是以若干个（$s$ 个）图案组成的。对于图案，圣诞老人有着严格的定义：对于两个发光的点，如果他们的曼哈顿距离（对于 $A(x_1, y_1)$ 和 $B(x_2, y_2)$ ，$A$ 和 $B$ 之间的曼哈顿距离为 $|x_1-x_2|+|y_1-y_2|$ ）小于等于 $2$。那么这两个点就属于一个图案 …… 小精灵们一边欣赏着极光，一边数着每一幅极光图像中的图案数。伴着歌声和舞蹈，度过了美丽的圣诞之夜。^_^</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行，两个数 $n$ 和 $m$ 。</p>
+<p>接下来一共 $n$ 行，每行 $m$ 个字符。对于第 $i$ 行第 $j$ 个字符，如果其为 <code class="hljs inline">-</code>
+ ，那么表示该点不发光，如果其为 <code class="hljs inline">#</code> ，那么表示该点发光。不可能出现其他的字符。</p>
+<h2 id="_4">输出格式</h2>
+<p>第一行，一个数 $s$。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">19 48
+------------------------------------------------
+---####-----#-----#----------------------####---
+--######----#-----#---------------------######--
+-########--#-#---#-#####--#-##-##---#--########-
+-###--###--#-#---#-#----#-##-##--#--#--###--###-
+-###--###--#--#-#--######-#--#---#-#---###--###-
+-########--#--#-#--#------#--#----##---########-
+--######---#---#---######-#--#-----#----######--
+---####----------------------------#-----####---
+----------------------------------#-------------
+------------------------------------------------
+---###--#--------#------#-----------------------
+--#---#-#---------------#-----------------------
+-#------#-##--#-##--##-###-#-##-###--###-#--##--
+-#------##--#-##-#-#----#--##--#---##---##-#----
+-#------#---#-#--#--#---#--#---#---##----#--#---
+--#---#-#---#-#--#---#--#--#---#---##---##---#--
+---###--#---#-#--#-##---#--#---#---#-###-#-##---
+------------------------------------------------</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>$1 \le n,m \le 100$。</p>
+<p>DFS~~</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

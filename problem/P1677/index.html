@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1677/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1677 [USACO18FEB] Hoofball B</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1677 [USACO18FEB] Hoofball B</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>为了准备即将到来的蹄球锦标赛，Farmer John 正在训练他的 $N$ 头奶牛（方便起见，编号为 $1\ldots N$，其中 $1\le N\le 100$）进行传球。这些奶牛在牛棚一侧沿直线排列，第 $i$ 号奶牛位于距离牛棚 $x_i$ 的地方（$1\le x_i\le 1000$）。每头奶牛都在不同的位置上。</p>
+<p>在训练开始的时候，Farmer John 会将若干个球传给不同的奶牛。当第 $i$ 号奶牛接到球时，无论是从 Farmer John 或是从另一头奶牛传来的，她会将球传给最近的奶牛（如果有多头奶牛与她距离相同，她会传给其中 $x_i$ 更小的那头）。为了使所有奶牛都有机会练习到传球，Farmer John 想要确保每头奶牛都持球至少一次。帮助他求出为了达到这一目的他开始时至少要传出的球的数量。假设他在开始的时候能将球传给最适当的一组奶牛。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入的第一行包含 $N$。第二行包含 $N$ 个用空格分隔的整数，其中第 $i$ 个整数为 $x_i$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出 Farmer John 开始的时候最少需要传出的球的数量，使得所有奶牛至少持球一次。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5
+7 1 3 11 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>在上面的样例中，Farmer John 应该将球传给位于 $x=1$ 的奶牛和位于 $x=11$ 的奶牛。位于 $x=1$ 的奶牛会将她的球传给位于 $x=3$ 的奶牛，在此之后这个球会在位于 $x=3$ 的奶牛和位于 $x=4$ 的奶牛之间来回传递。位于 $x=11$ 的奶牛会将她的球传给位于 $x=7$ 的奶牛，然后球会被传给位于 $x=4$ 的奶牛，在此之后这个球也会在位于 $x=3$ 的奶牛和位于 $x=4$ 的奶牛之间来回传递。这样的话，所有的奶牛都会至少一次接到球（可能从 Farmer John，也可能从另一头奶牛）。</p>
+<p>可以看出，不存在这样一头奶牛，Farmer John 可以将球传给她之后所有奶牛最终都能被传到球。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

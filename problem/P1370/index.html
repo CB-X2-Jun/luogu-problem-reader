@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1370/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1370 Charlie的云笔记序列</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1370 Charlie的云笔记序列</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>Charlie 是 oiinhand 的忠实粉丝。他有使用 oih 云笔记记录自己的题解的习惯。只有一点一滴的积累才能留下自己的足迹。</p>
+<p>oih 云笔记有什么特点吗？</p>
+<p>oih 的站长 soha 表示，目前 oih2 的云笔记功能比较简陋，但是正在开发 oih3 中的新版云笔记功能将是世界上最适合 oier 的储藏笔记的工具。</p>
+<p>首先，新版云笔记支持 markdown 功能，并且可以实时预览，插入公式图片都不是问题。实时自动保存，不用担心突然断电啊文档消失，而且不管在哪里都可以看！</p>
+<p>其次，可以一键生成题解模板摘要，不用各种复制粘贴了，超省事！</p>
+<p>再者，云笔记可以给其他同学分享自己的笔记，共同进步。写完了笔记，还可以一键向洛谷投稿呢！</p>
+<p>然而 Charlie 最喜欢的功能是 oih 的题目收藏。现在他收藏了一系列题目，但是觉得不过瘾所以正在玩弄这个功能。</p>
+<h2 id="_2">题目描述</h2>
+<p>某天，Charlie 将收藏的题目抽象为一个序列。$a=[a_1,a_2,a_3,\cdots,a_{n-1},a_n]$。</p>
+<p>设 $a[l:r]$ 表示序列 ${a_i}$ 第 $l$ 个数到第 $r$ 个数之间的子串，其中 $1 \le l \le r \le n$。形式化地，$a[l:r]={a_l,a_{l+1},a_{l+2},\cdots,a_{r-1},a_r}$。比如说，$a=[9,8,0,3,2,1]$，那么 $a[2:5]=[8,0,3,2]$。</p>
+<p>Charlie 对序列 $[a_i]$ 定义了一个函数 $F(l,r)$，表示序列 $a[l:r]$ 的本质不同的子序列个数。特别地，一个空序列也被当作一个本质不同的子序列。</p>
+<p>序列 $a[l:r]$ 的子序列定义为 $[a_{i_1},a_{i_2},a_{i_3},\cdots,a_{i_{k-1}},a_{i_k}]$，其中 $l \le i_1&lt;i_2&lt;i3&lt;\cdots&lt;i_{k-1}&lt;i_k \le r$。比如说，$a=[9,8,0,3,2,1]$，那么 $[8,3,2]$ 是 $a[2:5]=[8,0,3,2]$ 的一个子序列。</p>
+<p>长度为 $n$ 的序列 $a$ 和长度为 $m$ 的序列 $b$ 被称作本质不同的，当且仅当 $n\neq m$，或存在 $i$，使得 $a_i \neq b_i$。反之，则称这 $2$ 个序列是本质相同的。比如说，$[9,8]$ 和 $[9,7]$ 是本质不同的，$[9,8]$ 和 $[9,8,7]$ 也是本质不同的，而 $[9,8]$ 和 $[9,8]$ 是本质相同的。</p>
+<p>举个例子，设 $a=[1,9,9,8,0,3,2,1]$，那么 $F(1,3)=6$，因为 $a[1:3]=[1,9,9]$ 有 $6$ 个子序列：$[],[1],[9],[1,9],[9,9],[1,9,9]$。</p>
+<p>现在 Charlie 想知道，$\sum _{1\le l\le r\le n} F(l,r)$ 的值是多少。由于这个数可能很大，请输出它对 $998244353$（$7\times 17\times 2^{23}+1$，一个质数）取模后的结果。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行一个整数 $n$，表示序列 $a$ 的长度。</p>
+<p>第二行包括 $n$ 个整数，表示 $a_1,a_2,a_3,\cdots a_{n-1},a_n$。</p>
+<h2 id="_4">输出格式</h2>
+<p>一行，一个整数表示 $\sum _{1\le l\le r\le n} F(l,r)$ 的值对 $998244353$ 取模后的结果。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<p><pre class="hljs"><code class="hljs">8
+1 9 9 8 0 3 2 1</code></pre></p>
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">814</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<ul>
+<li>对于 $10\%$ 的数据，$1\le n \le 10$；</li>
+<li>对于 $30\%$ 的数据，$1 \le n \le 100$；</li>
+<li>对于 $50\%$ 的数据，$1\le n \le 1000$，$0 \le a_i \le 10^5$；</li>
+<li>对于 $100\%$ 的数据，$1 \le n \le 10^5$，$|a_i| \le 10^9$。</li>
+</ul>
+<p>oiinhand 3.0 正在开发中。</p>
+<p>这将是 oiers 都需要的工具，它不仅集合了全网所有大型 OJ 的资源（题目、题解）而且针对用户还可以将自己在其他 OJ 评测过的代码储存下来，并且有超贴心的云笔记功能，帮助大家最大效率练习。</p>
+<p>soha 借此地征求意见，有奖哦！<a href="http://www.wenjuan.com/s/M7fqIv/">http://www.wenjuan.com/s/M7fqIv/</a></p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

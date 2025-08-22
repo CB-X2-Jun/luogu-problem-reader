@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1682/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1682 过家家</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1682 过家家</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>有 $2n$ 个小学生来玩过家家游戏，其中有 $n$ 个男生，编号为 $1$ 到 $n$，另外 $n$ 个女生，编号也是 $1$ 到 $n$。每一个女生可以选择一个和她不吵嘴的男生来玩，除此之外，如果编号为 $X$ 的女生的朋友（也是女生，且编号为 $Y$）不和编号为 $Z$ 的男生吵嘴，那么 $X$ 也可以选择 $Z$。此外，朋友关系是可以传递的，比如 $a$ 和 $b$ 是朋友，$b$ 和 $c$ 是朋友，那么我们可以认为 $a$ 和 $c$ 也是朋友。注意，一个男生可以被多个女生选择为玩伴。</p>
+<p>当每一位女生都选择了玩伴，那么他们会开始新一轮游戏。在每一轮后，每个女生都会开始去找一个新的男生做玩伴（以前没选过）。而且每一个女生最多能强制 $k$ 个男生接受，无论他们以前是否吵嘴。</p>
+<p>现在你的任务就是确定这 $2n$ 个小学生最多能玩几轮游戏。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行有四个整数 $n,m,k,f$（$3 \le n \le 250$，$0 &lt; m &lt; n^{2}$，$0 \le f &lt; n$）。</p>
+<p>$n$ 表示有 $2n$ 个小学生，其中 $n$ 个男生 $n$ 个女生。</p>
+<p>接下来 $m$ 行，每行包含两个数字 $a,b$ 表示编号为 $a$ 的女生和编号为 $b$ 的男生从没吵嘴过。</p>
+<p>再接下来 $f$ 行，每行包含两个数字 $c,d$ 表示编号为 $c$ 的女生和编号为 $d$ 的女生是朋友。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每组数据，输出一个整数，表示 $2n$ 个小学生最多能玩几轮。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 5 1 2
+1 1
+2 3
+3 2
+4 2
+4 4
+1 4
+2 3</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

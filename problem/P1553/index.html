@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1553/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1553 数字反转（升级版）</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1553 数字反转（升级版）</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p><strong>以下为原题面，仅供参考:</strong></p>
+<p>给定一个数，请将该数各个位上数字反转得到一个新数。</p>
+<p>这次与 NOIp2011 普及组第一题不同的是：这个数可以是小数，分数，百分数，整数。整数反转是将所有数位对调；小数反转是把整数部分的数反转，再将小数部分的数反转，不交换整数部分与小数部分；分数反转是把分母的数反转，再把分子的数反转，不交换分子与分母；百分数的分子一定是整数，百分数只改变数字部分。整数新数也应满足整数的常见形式，即除非给定的原数为零，否则反转后得到的新数的最高位数字不应为零；小数新数的末尾不为 $0$（除非小数部分除了 $0$ 没有别的数，那么只保留1个 $0$）；分数不约分，分子和分母都不是小数（约分滴童鞋抱歉了，不能过哦。输入数据保证分母不为 $0$），本次没有负数。</p>
+<h2 id="_2">题目描述</h2>
+<p>给定一个数，请将该数各个位上数字反转得到一个新数。</p>
+<p>这次与 NOIp2011 普及组第一题不同的是：这个数可以是小数，分数，百分数，整数。</p>
+<ul>
+<li>
+<p>整数反转是将所有数位对调。</p>
+</li>
+<li>
+<p>小数反转是把整数部分的数反转，再将小数部分的数反转，不交换整数部分与小数部分。</p>
+</li>
+<li>
+<p>分数反转是把分母的数反转，再把分子的数反转，不交换分子与分母。</p>
+</li>
+<li>
+<p>百分数的分子一定是整数，百分数只改变数字部分。</p>
+</li>
+</ul>
+<h2 id="_3">输入格式</h2>
+<p>一个实数 $s$</p>
+<h2 id="_4">输出格式</h2>
+<p>一个实数，即 $s$ 的反转数</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5087462</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2647805</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">600.084</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">6.48</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="hljs"><code class="hljs">700/27</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="hljs"><code class="hljs">7/72</code></pre>
+
+<h3 id="4">样例 #4</h3>
+<h4 id="4_1">样例输入 #4</h4>
+<pre class="hljs"><code class="hljs">8670%</code></pre>
+
+<h4 id="4_2">样例输出 #4</h4>
+<pre class="hljs"><code class="hljs">768%</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p><strong>【数据范围】</strong></p>
+<ul>
+<li>对于 $25\%$ 的数据，$s$ 是整数，不大于 $20$ 位；</li>
+<li>对于 $25\%$ 的数据，$s$ 是小数，整数部分和小数部分均不大于 $10$ 位；</li>
+<li>对于 $25\%$ 的数据，$s$ 是分数，分子和分母均不大于 $10$ 位；</li>
+<li>对于 $25\%$ 的数据，$s$ 是百分数，分子不大于 $19$ 位。</li>
+</ul>
+<p><strong>【数据保证】</strong></p>
+<ul>
+<li>
+<p>对于整数翻转而言，整数原数和整数新数满足整数的常见形式，即除非给定的原数为零，否则反转后得到的新数和原来的数字的最高位数字不应为零。</p>
+</li>
+<li>
+<p>对于小数翻转而言，其小数点前面部分同上，小数点后面部分的形式，保证满足小数的常见形式，也就是末尾没有多余的 $0$（小数部分除了 $0$ 没有别的数，那么只保留 $1$ 个 $0$。若反转之后末尾数字出现 $0$，请省略多余的 $0$）</p>
+</li>
+<li>
+<p>对于分数翻转而言，分数不约分，分子和分母都不是小数。输入的分母不为 $0$。与整数翻转相关规定见上。</p>
+</li>
+<li>
+<p>对于百分数翻转而言，见与整数翻转相关内容。</p>
+</li>
+</ul>
+<p>数据不存在负数。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

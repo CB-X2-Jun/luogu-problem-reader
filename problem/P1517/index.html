@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1517/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1517 高精求小数幂</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1517 高精求小数幂</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>计算量非常大、精度要求非常高的问题是很常见的。举个例子，计算国家债务就是这么一项对于许多计算机系统来说非常繁重的工作。</p>
+<p>现在有这么一个任务要求编写一个程序来计算 $R^n$ 的精确值，其中 $R$ 是一个实数 $(0 &lt; R \le 9999.9)$ 而 $n$ 是一个整数 $(1 \le n \le 250)$。</p>
+<h2 id="_2">输入格式</h2>
+<p><strong>本题有多组数据。</strong></p>
+<p>对于每组数据，一行两个数字 $R,n$，中间有至少一个空格。</p>
+<p>保证每行包括空格在内恰好有 $9$ 个字符，且 $n$ 后面没有空格。</p>
+<p><strong>请读入到输入文件末尾：</strong></p>
+<ul>
+<li>对于 C++ 的 <code class="hljs inline">std::cin</code>，可以使用 <code class="hljs inline">while (std::cin &gt;&gt; s &gt;&gt; n) {/<em> ... </em>/}</code> 来实现这一功能，其中 <code class="hljs inline">s</code> 是 <code class="hljs inline">std::string</code> 类型的变量。</li>
+<li>对于 C/C++ 的 <code class="hljs inline">scanf</code>，可以使用 <code class="hljs inline">while (scanf("%s%d", s, &amp;n) == 2) {/<em> ... </em>/}</code> 来实现这一功能，其中 <code class="hljs inline">s</code> 是 <code class="hljs inline">char*</code> 类型的变量。</li>
+<li>对于其他输入函数实现这一功能的方式，请自行查阅文档。</li>
+</ul>
+<p>保证数据组数不超过 $11$ 组。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每组数据，输出一行一个实数，表示 $R^n$ 的<strong>精确值</strong>。</p>
+<p>输出有三点要求：</p>
+<ol>
+<li>输出不允许有前导 $0$。</li>
+<li>小数部分末尾不能有 $0$。</li>
+<li>如果结果是整数，不应该输出小数点。</li>
+</ol>
+<p><strong>特别地，当答案小于 $\bm 1$ 时，你需要省略整数部分的 $\bm 0$，输出形如 <code class="hljs inline">.25</code> 的答案。</strong></p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">95.123&nbsp;&nbsp;2
+0.4321&nbsp;&nbsp;5
+5.1234&nbsp;&nbsp;7
+6.7592&nbsp;&nbsp;3
+98.999&nbsp;&nbsp;5
+1.0100 10</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">9048.385129
+.01506334182914325601
+92663.3181348508776705891407804544
+308.806114738688
+9509420210.697891990494999
+1.10462212541120451001</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

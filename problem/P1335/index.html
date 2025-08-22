@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1335/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1335 [NOI2013] 小 Q 的修炼</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1335 [NOI2013] 小 Q 的修炼</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Q 最近发现了一款新游戏，游戏的目标是从一个新手修炼成为武功高强的大侠。面对错综复杂的游戏世界，小 Q 要对他面临的每件事情做出谨慎的选择。例如，是否参加一个陌生人邀请的比武；同意或是拒绝用宝剑交换他人的武功秘籍......而小 Q 做出的每一个选择都有可能影响到他以后的发展：面对一个高手，若主动与之比武，很可能会损失惨重；但若不去比武，也许今后就再也见不到这个高手了。</p>
+<p>对着这个游戏，小 Q 玩了很多次仍然玩不出他想要的结局，于是他费尽千辛万苦找到了游戏的剧本。令人惊讶的是,游戏的剧本并不像我们平时见到的剧本，反而很像代码。这个剧本是这样描述的：
+- 量：有 $2$ 种量，常数和变量。
+- 常数：一个整数。
+- 变量：初始值为 $0$ 的可变整数，不同变量用不同正整数编号区分。
+- 事件：整个剧本由若干个事件构成。所有的事件按照给定的顺序从 $1$ 开始依次编号。事件共有 $3$ 种：普通事件、选择跳转和条件跳转。
+- 执行位置：一个整数，表示接下来将会执行的事件编号，如果不存在这个编号的事件则停止，即游戏到了一个结局。最初的时候执行位置为 $1$。
+- 普通事件：一个变量增加或减少一个量的值。之后执行位置增加 $1$。
+- 选择跳转：两个整数。执行到这里时玩家需要在这两个整数中选择一个，之后执行位置将被修改为这个整数。
+- 条件跳转：两个量和两个整数。执行到这里时，若第一个量小于第二个量，则执行位置将被修改为第一个整数，否则将被修改为第二个整数。</p>
+<p>小 Q 认为，整个游戏是希望一个叫做「成就值」的变量（编号为 $1$）最大。</p>
+<h2 id="_2">输入格式</h2>
+<p>该题为提交答案型试题，所有输入数据 <code class="hljs inline">train1.in</code>~<code class="hljs inline">train10.in</code> 已在附加文件中。</p>
+<p>输入的第一行包含两个正整数 $n, m$，表示事件的个数和变量的个数。</p>
+<p>接下来有 $n$ 行，每行描述一个事件。这些事件按照给出的顺序依次编号为 $1$ 到 $n$。</p>
+<p>描述量和事件的格式如下（格式中 <code class="hljs inline">#</code>表示空格）</p>
+<p>::cute-table{tuack}</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">格式</th>
+<th style="text-align: center;">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">常数</td>
+<td style="text-align: center;"><code class="hljs inline">c#整数</code></td>
+<td style="text-align: center;"><code class="hljs inline">c -2</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">变量</td>
+<td style="text-align: center;"><code class="hljs inline">v#正整数</code></td>
+<td style="text-align: center;"><code class="hljs inline">v 5</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">普通事件</td>
+<td style="text-align: center;"><code class="hljs inline">变量#+#量</code></td>
+<td style="text-align: center;"><code class="hljs inline">v 1 + c 1</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">普通事件</td>
+<td style="text-align: center;"><code class="hljs inline">变量#-#量</code></td>
+<td style="text-align: center;"><code class="hljs inline">v 2 - c 2</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">选择跳转</td>
+<td style="text-align: center;"><code class="hljs inline">s#整数 1#整数 2</code></td>
+<td style="text-align: center;"><code class="hljs inline">s 10 20</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">条件跳转</td>
+<td style="text-align: center;"><code class="hljs inline">i#量 1#量 2#整数 1#整数 2</code></td>
+<td style="text-align: center;"><code class="hljs inline">i c 99 v 2 0 1</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">输出格式</h2>
+<p>针对给定的 $10$ 个输入文件 <code class="hljs inline">train1.in</code> ~ <code class="hljs inline">train10.in</code>，你需要分别提交你的输出文件 <code class="hljs inline">train1.out</code> ~ <code class="hljs inline">train10.out</code>。</p>
+<p>每个文件需要输出若干行，每行输出一个字符 <code class="hljs inline">1</code> 或 <code class="hljs inline">2</code>，表示执行过程中遇到的每个选择跳转所作的选择。输出的行数需要严格等于此次游戏执行过程中遇到的选择跳转的个数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">11 2
+v 2 + c 19
+i v 2 c 3 7 3
+s 4 7
+v 1 + c 13
+v 2 - c 3
+i c 0 c 1 2 0
+i v 2 c 5 12 8
+s 9 12
+v 1 + c 23
+v 2 - c 5
+i c 0 c 1 7 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1
+1
+1
+2
+1
+1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">评分标准</h3>
+<p>对于每组数据，我们采用如下方式评分：
+- 如果你的输出不合法,得 $0$ 分。
+- 如果你的输出执行了超过 $10^6$ 行剧本,得 $0$ 分。
+- 如果你的输出能让剧本正常结束，得 $1$ 分。
+- 如果你的输出能让剧本正常结束，且结束时成就值为正数，得 $2$ 分。</p>
+<p>我们设置了 $8$ 个评分参数 $a_3 , a_4 , \ldots , a_{10}$。</p>
+<p>如果你的输出能让剧本正常结束，且结束时成就值不小于 $a_s$，得 $s$ 分。</p>
+<p>如果以上条目有多项满足，则取满足条件中的最高得分。</p>
+<h3 id="_7">如何测试你的输出</h3>
+<p>我们提供 <code class="hljs inline">checker</code> 这个工具来测试你的输出文件是否是可接受的。使用这个工具的方法是，首先进入终端，在终端中运行下面的命令进入本题的文件夹：</p>
+<p><code class="hljs inline">cd train</code></p>
+<p>然后运行：</p>
+<p><code class="hljs inline">./checker <case_no></code></p>
+<p>其中 <code class="hljs inline">case_no</code> 是测试数据的编号。例如</p>
+<p><code class="hljs inline">./checker 3</code></p>
+<p>将测试 <code class="hljs inline">train3.out</code> 是否可以接受。</p>
+<p>在你调用这个程序后，<code class="hljs inline">checker</code> 将根据你给出的输出文件给出测试的结果，其中包括：
+- 非法退出：未知错误。
+- <code class="hljs inline">Input/Output file does not exist.</code>：输入/输出文件不存在。
+- <code class="hljs inline">Output invalid.</code>：输出文件有误,此时可能包含具体错误信息。
+- <code class="hljs inline">Correct! Your answer is x.</code>：输出可接受,最后的成就值为 $x$。</p>
+<h3 id="_8">更多功能</h3>
+<p><code class="hljs inline">checker</code> 还可以检查任意输入输出文件的测试结果，方法是在终端中运行：</p>
+<p><code class="hljs inline">cd train</code></p>
+<p><code class="hljs inline">./checker <input_file_name> <output_file_name></code></p>
+<p>其中 <code class="hljs inline">input_file_name</code> 和 <code class="hljs inline">output_file_name</code> 分别是输入输出文件的名称。例如</p>
+<p><code class="hljs inline">./checker train3.in train3.out</code></p>
+<p>将测试 <code class="hljs inline">train3.out</code> 是否可以接受。</p>
+<p>使用 <code class="hljs inline">-w</code> 可以输出每步运行的结果。用法是</p>
+<p><code class="hljs inline">./checker -w <input_file_name> <output_file_name></code></p>
+<p>或者</p>
+<p><code class="hljs inline">./checker -w <case_no></code></p>
+<p>例如</p>
+<p><code class="hljs inline">./checker -w train3.in train3.out</code></p>
+<h3 id="_9">特别提示</h3>
+<p>如果选手使用自己生成输入文件进行调试，有可能因规模过大造成 checker 出错。若发生这类情况，请尝试较小规模的数据。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1568/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1568 赛跑</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1568 赛跑</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>SH 的跑步成绩一直不太理想。</p>
+<p>为了帮助 SH 提高成绩，KC 决定和他进行一次赛跑。</p>
+<p>比赛的起点设在农场主的屋前，他们同时出发，沿着同一方向，直到跑到终点——农场远处的一棵树下。</p>
+<p>他们的跑步速度在一些时间段内是恒定的。比如：SH 在前 $3$ 个时间段速度是 $5$，接着 $6$ 个时间段内速度是 $10$。</p>
+<p>他们的比赛总时间相同。</p>
+<p>他们希望能统计出在整个比赛过程中领先顺序的变化次数。</p>
+<p>举个例子，某个时刻 SH 领先，下个时刻 KC 领先，这就是一次领先顺序的变化；如果某个时刻 SH 领先，接下来一段时间 KC 赶上来并和 SH 齐头并进，但最终还是超过了 SH，这也是一次领先顺序的变化。</p>
+<h2 id="_2">输入格式</h2>
+<p>第 $1$ 行：两个整数 $N,M$。</p>
+<p>接下来的 $N$ 行：每行两个整数，描述 SH 跑步的一段，分别表示该段 SH 跑步的速度和持续这种速度的时间。</p>
+<p>再接下来的 $M$ 行：每行两个整数，描述 KC 跑步的一段，分别表示该段 KC 跑步的速度和持续这种速度的时间。</p>
+<p>保证输入的所有数字均为不大于 $1000$ 的正整数。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行：整个比赛过程中领先顺序的变化次数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 3
+1 2
+4 1
+1 1
+2 10
+2 3
+1 2
+3 9</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>样例解释：</p>
+<p>SH 在前 $2$ 个单位时间内速度是 $1$，接着 $1$ 个单位时间内速度是 $4$，接着 $1$ 个单位时间内速度是 $1$，最后 $10$ 个单位时间内速度是 $2$。KC 在前 $3$ 个个单位时间内速度是 $2$，接着 $2$ 个单位时间内速度是 $2$，最后 $9$ 个单位时间内速度是 $3$。</p>
+<p>输比赛开始后 KC 领先，直到第 $5$ 个单位时间 SH 超过 KC（第一次领先顺序变化），接着第 $7$ 个单位时间时，KC 又反超 SH，变成领先（第二次领先顺序变化）。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

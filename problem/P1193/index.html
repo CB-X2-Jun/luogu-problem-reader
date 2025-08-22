@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1193/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1193 洛谷团队训练 VS 传统团队训练</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1193 洛谷团队训练 VS 传统团队训练</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>“在中学的信息学教育领域，<a href="/">洛谷</a>无疑是一个相当受欢迎的辅助网站。同时有百余所学校正在通过洛谷进行信息学竞赛（以后简称 OI）的教育。洛谷之所以如此受欢迎，是因为洛谷创新的将 OI 教育的几乎每一个环节都搬到了线上，无论是学校的竞赛教练还是学生，均可以仅仅使用这一个网站来进行练习，提升自己的能力。”</p>
+<p>——摘自《厦门中小学教育科学研究》，2015 年 2 月号。</p>
+<h2 id="_2">题目描述</h2>
+<p>XX 中学的两位信息组的教练正在为学校信息组是否应当将洛谷作为主要的训练工具而争论不休，最后决定采取一个量化的办法来决定是否迁移。</p>
+<p>该中学的原来训练方法是，在机房的教师机里面用 cena 装载好测试数据，装载数据所需要 $T_a$ 时间，每一道题目都要装载。学生写好代码后，可以跑到教师机上收取程序并进行评测。但由于需要往返的路程，因此每跑一次就要浪费 $T_b$ 时间。所以也允许学生在自己的机子上装载好测试数据，可以根据自己的需要选择装载的题目，这需要花费和在教师机装载数据一样的时间 $T_a$，但是每次评测花费的时间就减少为 $T_c$。此外，该中学可能会用 Excel 记录各位同学的训练情况，如果某位同学的某道题的得分高于表格里的记录，那就会花费 $T_d$ 时间将这个成绩更新，否则就不必费那个事了，如果之前没有提交过这道题视为表格记录的程序为 $0$ 分。</p>
+<p>而在洛谷中，只需要将题目和测试数据上传到洛谷，花费 $T_a$ 时间。每次评测学生只需花费 $T_c$ 时间即可。记录成绩？那是洛谷的事儿，一提交完就帮你整理好了表格根本不费时间。</p>
+<p>看起来可以省下不少时间吧。。然而，支持传统训练方法的教练认为，洛谷并非 $100 \%$ 的稳定，在有的情况会无法提供服务，因此首先要将洛谷的耗时除以它的可用度（一个小于 $100\%$ 的数字 $A\%$）并去掉小数点。又因为传统观念不易纠正，总是有不信任将题目数据交给洛谷这样的想法（kkksc03：怪我咯？），因此使用洛谷的耗时还要再加上一个罚时 $H$ 以做公平比较。</p>
+<p>现在给出该中学的训练情况，希望你帮两位教练分析一下到底该如何选择。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行，两个整数 $N, M$，代表题目数量与学生数量。</p>
+<p>第二行，$N$ 个整数 $P_1, P_2, \ldots, P_N$，为涉及的题目编号。</p>
+<p>第三行，$M$ 个整数 $S_1, S_2, \ldots, S_M$，为学生的学号。</p>
+<p>第四行，七个整数 $T_a, T_b, T_c, T_d, A, H, E$，前六个数字的意义见题目描述，$E$ 如果是 $1$ 那么在 Excel 中记录成绩，如果是 $0$ 则不记录。</p>
+<p>第五行，一个整数 $R$，代表评测数量。</p>
+<p>接下来 $R$ 行，评测记录，每行是 $\mathit{Pr}_i, \mathit{Sr}_i, \mathit{Sc}_i$，分别为该次评测的题目号、学号以及成绩。</p>
+<h2 id="_4">输出格式</h2>
+<p>三行。</p>
+<p>第一行为传统方法的的耗时。</p>
+<p>第二行为使用洛谷包括罚时在内的耗时。</p>
+<p>第三行是结论，如果使用洛谷的时间小于传统方法的时间，那么输出 <code class="hljs inline">Use Luogu!</code>。否则输出 <code class="hljs inline">Forget it...</code>。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 4
+501 502 503 504
+2 3 5 7
+50 30 10 5 93 50 1
+10
+501 2 10
+501 2 80
+501 2 70
+502 3 0
+502 3 0
+504 5 100
+503 7 0
+503 7 0
+503 7 0
+503 7 10</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">480
+372
+Use Luogu!</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">2 3
+101 102
+1 2 3
+70 60 50 1 80 100 0
+6
+101 1 100
+101 2 100
+101 3 100
+102 1 100
+102 2 100
+102 3 100</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">500
+650
+Forget it...</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p><strong>【样例解释 #1】</strong></p>
+<p>使用传统方法的话，装载 $4$ 道题目需要 $4 \times 50=200$，$2$ 号同学和 $7$ 号同学使用教师机所需要的时间分别为 $30 \times 3=90$、$30 \times 4 = 120$，但是明显自己装载 cena 只需要 $50+10 \times 3=80$、$50+10 \times 4=90$ 更优。而 $3,5$ 同学则使用教师机就好，耗时 $60,30$。$2$ 号同学的前两次评测单调递增，所以额外花费 $2 \times 5=10$ 时间记录，$3$ 号同学太弱了都是 $0$ 分所以没必要记录了，$5$ 与 $7$ 各耗费 $5$ 时间。所以这种情况总时间耗时为 $200+80+90+60+30+10+5+5=480$。</p>
+<p>使用洛谷的话，装载题目耗费 $200$，$10$ 次评测共耗费 $10 \times10=100$，考虑稳定性时间为 $(200+100) / 93\% = 322$，所以最后总耗时为 $322+50=372$，所以决定使用洛谷。</p>
+<p><strong>【数据范围】</strong></p>
+<p>其中 $50\%$ 数据中，不需要进行成绩的 Excel 记录。</p>
+<p>其中 $50\%$ 数据中，题目编号和学号均大于等于 $0$，小于等于 $1000$。</p>
+<p>（这两种情况，可能会重叠）</p>
+<p>对于 $100\%$ 的数据，保证 $1 \le n,m \le 1000$，$1 \le T_a, T_b, T_c,T_d,H \le 10000$，$1 \le R &lt; 100000$，$0 \le \mathit{Sc}_i \le 100$，$1 \le A \le 100$，学号和题目号在 ${10}^8$ 之内。</p>
+<p>实际上，根据超级监控颁发的证书，洛谷 2015 年第一季度可靠性（SLA）为 $99.36 \%$。同时观念也是可以改变的。</p>
+<p>洛谷的优点很多都是不能量化的，其精华在于社区。和全国的 OIer 一起学习交流，不很好吗？</p>
+<p>最后插一句，去年的【榨取 kkksc03】的布告依然有效，详情。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
