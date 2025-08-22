@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1132/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1132 数字生成游戏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1132 数字生成游戏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小明完成了这样一个数字生成游戏，对于一个不包含 $0$ 的数字 $s$ 来说，有以下 $3$ 种生成新的数的规则：</p>
+<ol>
+<li>
+<p>将 $s$ 的任意两位对换生成新的数字，例如 $143$ 可以生成 $341,413,134$；</p>
+</li>
+<li>
+<p>将 $s$ 的任意一位删除生成新的数字，例如 $143$ 可以生成 $14,13,43$；</p>
+</li>
+<li>
+<p>在 $s$ 的相邻两位之间 $s_i,s_{i + 1}$ 之间插入一个数字 $x$，$x$ 需要满足 $s_i&lt;x&lt;s_{i + 1}$。例如 $143$ 可以生成 $1243,1343$，但是不能生成 $1143,1543$ 等。</p>
+</li>
+</ol>
+<p>现在小明想知道，在这个生成法则下，从 $s$ 开始，每次生成一个数，可以用然后用新生成的数生成另外一个数，不断生成直到生成 $t$ 至少需要多少次生成操作。</p>
+<p>另外，小明给规则 $3$ 又加了一个限制，即生成数的位数不能超过初始数 $s$ 的位数。若 $s$ 是 $143$，那么 $1243$ 与 $1343$ 都是无法生成的；若 $s$ 为 $1443$，那么可以将 $s$ 删除变为 $143$，再生成 $1243$ 或 $1343$。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含 $1$ 个正整数，为初始数字 $s$。</p>
+<p>第二行包含一个正整数 $m$，为询问个数。  </p>
+<p>接下来 $m$ 行，每行一个整数 $t$（$t$ 不包含 $0$），表示询问从 $s$ 开始不断生成数字到 $t$ 最少要进行多少次操作。任两个询问独立，即上一个询问生成过的数到下一个询问都不存在，只剩下初始数字 $s$。</p>
+<h2 id="_3">输出格式</h2>
+<p>共 $m$ 行，每行一个正整数，对每个询问输出最少操作数，如果无论如果无论也变换不成，则输出 $-1$。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<p><pre class="hljs"><code class="hljs">143
+3
+134
+133
+32</code></pre></p>
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1
+-1
+4</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><strong>样例解释</strong></p>
+<p>$143\to 134$</p>
+<p>$133$ 无法得到</p>
+<p>$143\to13\to123\to23\to32$</p>
+<p><strong>数据范围</strong></p>
+<p>对于 $20\%$ 的数据，$s &lt; 100$；<br />
+对于 $40\%$ 的数据，$s &lt; 1000$；<br />
+对于 $40\%$ 的数据，$m &lt; 10$；<br />
+对于 $60\%$ 的数据，$s &lt; 10000$；<br />
+对于 $100\%$ 的数据，$s &lt; 100000,m \leq 50000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
