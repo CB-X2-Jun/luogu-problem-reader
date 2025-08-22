@@ -147,31 +147,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           
-      - name: 清理部署文件
+      - name: 爬取完成通知
         run: |
-          # 删除Python相关文件，避免Jekyll处理问题
-          rm -rf __pycache__/ *.py *.pyc
-          rm -f requirements.txt
-          # 保留.nojekyll文件确保禁用Jekyll
-          echo "清理完成，保留静态文件"
-          ls -la
-          
-      - name: 配置GitHub Pages
-        uses: actions/configure-pages@v5
-        
-      - name: 上传静态文件
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-          
-      - name: 部署到GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        
-      - name: 部署完成通知
-        run: |
-          echo "🎉 洛谷题目爬取和部署完成!"
-          echo "📊 网站地址: ${{ steps.deployment.outputs.page_url }}"
+          echo "🎉 洛谷题目爬取完成!"
           echo "📝 本次爬取参数:"
           echo "   - 批量数量: ${{ steps.config.outputs.batch_size }}"
           echo "   - 从头开始: ${{ steps.config.outputs.from_head }}"
+          echo "💡 提示: 更改已提交到仓库，其他工作流将自动处理部署"
