@@ -23,11 +23,9 @@ on:
 # 权限设置
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  crawl-and-deploy:
+  crawl-and-commit:
     runs-on: ubuntu-latest
     
     steps:
