@@ -6,11 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="一个用于浏览洛谷题目的静态网站">
+        <meta name="description" content="A static site for browsing Luogu problems">
       
       
         <meta name="author" content="CB_X2_Jun">
       
+      
+        <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/en/problem/">
       
       
         <link rel="prev" href="../">
@@ -24,7 +26,7 @@
     
     
       
-        <title>Problem list - 洛谷题目浏览站</title>
+        <title>Problem List - Luogu Problem Browser</title>
       
     
     
@@ -46,6 +48,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -82,7 +86,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+    <a href="../" title="Luogu Problem Browser" class="md-header__button md-logo" aria-label="Luogu Problem Browser" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,13 +100,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            洛谷题目浏览站
+            Luogu Problem Browser
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Problem list
+              Problem List
             
           </span>
         </div>
@@ -131,6 +135,12 @@
           <li class="md-select__item">
             <a href="./" hreflang="en" class="md-select__link">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/problem/" hreflang="ja" class="md-select__link">
+              日本語
             </a>
           </li>
         
@@ -218,13 +228,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+    <a href="../" title="Luogu Problem Browser" class="md-nav__button md-logo" aria-label="Luogu Problem Browser" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    洛谷题目浏览站
+    Luogu Problem Browser
   </label>
   
     <div class="md-nav__source">
@@ -284,7 +294,7 @@
   
   
   <span class="md-ellipsis">
-    Problem list
+    Problem List
     
   </span>
   
@@ -354,13 +364,14 @@
   
 
 
-<h1 id="problem-list">Problem List<a class="headerlink" href="#problem-list" title="Permanent link">&para;</a></h1>
+<h1 id="problem-list">Problem List</h1>
+<p>The problem tags and difficulty levels are kept in their original Simplified Chinese here.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: center;">PID</th>
 <th style="text-align: center;">Title</th>
-<th style="text-align: center;">Labels</th>
+<th style="text-align: center;">Tags</th>
 <th style="text-align: center;">Difficulty</th>
 </tr>
 </thead>
@@ -369,6 +380,12 @@
 <td style="text-align: center;"><a href="/en/problem/P1000">P1000</a></td>
 <td style="text-align: center;"><a href="/en/problem/P1000">Super Mario Game</a></td>
 <td style="text-align: center;">字符串,O2优化</td>
+<td style="text-align: center;">入门</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="/en/problem/P1001">P1001</a></td>
+<td style="text-align: center;"><a href="/en/problem/P1001">A+B Problem</a></td>
+<td style="text-align: center;">模拟</td>
 <td style="text-align: center;">入门</td>
 </tr>
 </tbody>
@@ -390,6 +407,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -425,10 +444,16 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
