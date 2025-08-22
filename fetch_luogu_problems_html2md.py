@@ -43,7 +43,12 @@ def fetch_problem_html(pid):
                 problem_data = json_data.get('data', {}).get('problem', {})
                 content_data = problem_data.get('content', {}) or problem_data.get('contenu', {})
                 
-                title = f"P{pid} {content_data.get('name', f'P{pid}')}"
+                # 获取题目名称，避免重复P编号
+                problem_name = content_data.get('name', f'P{pid}')
+                if problem_name.startswith(f'P{pid}'):
+                    title = problem_name  # 如果名称已包含P编号，直接使用
+                else:
+                    title = f"P{pid} {problem_name}"  # 否则添加P编号
                 
                 # 构建完整的Markdown内容
                 content_parts = []
