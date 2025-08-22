@@ -96,15 +96,24 @@ jobs:
       - name: 统计爬取结果
         run: |
           echo "=== 爬取统计 ==="
-          PROBLEM_COUNT=$(find problem -name "P*" -type d | wc -l)
+          PROBLEM_COUNT=$(find problem -name "P*" -type d 2>/dev/null | wc -l)
           echo "总题目数量: $PROBLEM_COUNT"
           
           # 检查最新题目
-          LATEST_PROBLEM=$(find problem -name "P*" -type d | sort -V | tail -1 | basename)
-          echo "最新题目: $LATEST_PROBLEM"
+          if [ "$PROBLEM_COUNT" -gt 0 ]; then
+            LATEST_PROBLEM=$(find problem -name "P*" -type d 2>/dev/null | sort -V | tail -1)
+            if [ -n "$LATEST_PROBLEM" ]; then
+              LATEST_PROBLEM=$(basename "$LATEST_PROBLEM")
+              echo "最新题目: $LATEST_PROBLEM"
+            else
+              echo "最新题目: 无"
+            fi
+          else
+            echo "最新题目: 无"
+          fi
           
           # 检查样例数据
-          SAMPLE_COUNT=$(find problem -name "index.md" -exec grep -l "输入输出样例" {} \; | wc -l)
+          SAMPLE_COUNT=$(find problem -name "index.md" -exec grep -l "输入输出样例" {} \; 2>/dev/null | wc -l)
           echo "包含样例的题目: $SAMPLE_COUNT"
           
       - name: 提交更改
