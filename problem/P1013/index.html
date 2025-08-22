@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1013/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1013 P1013 [NOIP 1998 提高组] 进制位</title>
+    <title>P1013 [NOIP 1998 提高组] 进制位</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1013 P1013 [NOIP 1998 提高组] 进制位</span>
+              <span class="md-ellipsis">P1013 [NOIP 1998 提高组] 进制位</span>
             </div>
           </div>
         </div>
@@ -39,34 +39,33 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1013-noip-1998">P1013 [NOIP 1998 提高组] 进制位</h1>
-<h2 id="_1">题目描述</h2>
-<p>著名科学家卢斯为了检查学生对进位制的理解，他给出了如下的一张加法表，表中的字母代表数字。 例如：
-$$
+              <h2 id="_1">题目描述</h2>
+<p>著名科学家卢斯为了检查学生对进位制的理解，他给出了如下的一张加法表，表中的字母代表数字。 例如：</p>
+<p>$$
 \def\arraystretch{2}
 \begin{array}{c||c|c|c|c}
-\rm + &amp; \kern{.5cm} \rm \mathclap{L} \kern{.5cm} &amp; \kern{.5cm} \rm \mathclap{K} \kern{.5cm} &amp; \kern{.5cm} \rm \mathclap{V} \kern{.5cm} &amp; \kern{.5cm} \rm \mathclap{E} \kern{.5cm} \ \hline\hline
-\rm L &amp; \rm L &amp; \rm K &amp; \rm V &amp; \rm E \ \hline
-\rm K &amp; \rm K &amp; \rm V &amp; \rm E &amp; \rm \mathclap{KL} \ \hline
-\rm V &amp; \rm V &amp; \rm E &amp; \rm \mathclap{KL} &amp; \rm \mathclap{KK} \ \hline
-\rm E &amp; \rm E &amp; \rm \mathclap{KL} &amp; \rm \mathclap{KK} &amp; \rm \mathclap{KV} \
-\end{array}$$
-其含义为：
-$L+L=L$，$L+K=K$，$L+V=V$，$L+E=E$
-$K+L=K$，$K+K=V$，$K+V=E$，$K+E=KL$
-$\cdots$
-$E+E=KV$
-根据这些规则可推导出：$L=0$，$K=1$，$V=2$，$E=3$。
-同时可以确定该表表示的是 $4$ 进制加法。</p>
+\rm +  &amp; \kern{.5cm} \rm \mathclap{L} \kern{.5cm}  &amp;  \kern{.5cm} \rm \mathclap{K} \kern{.5cm} &amp;  \kern{.5cm} \rm \mathclap{V} \kern{.5cm} &amp; \kern{.5cm} \rm \mathclap{E} \kern{.5cm} \ \hline\hline
+\rm L  &amp;  \rm L  &amp;  \rm K  &amp;  \rm V  &amp; \rm E  \ \hline
+\rm K  &amp;  \rm K  &amp;  \rm V  &amp;  \rm E  &amp; \rm \mathclap{KL} \ \hline
+\rm V  &amp;  \rm V  &amp;  \rm E  &amp;  \rm \mathclap{KL} &amp; \rm \mathclap{KK} \ \hline
+\rm E  &amp;  \rm E  &amp;  \rm \mathclap{KL} &amp;  \rm \mathclap{KK} &amp; \rm \mathclap{KV} \
+\end{array}$$</p>
+<p>其含义为：</p>
+<p>$L+L=L$，$L+K=K$，$L+V=V$，$L+E=E$</p>
+<p>$K+L=K$，$K+K=V$，$K+V=E$，$K+E=KL$    </p>
+<p>$\cdots$</p>
+<p>$E+E=KV$    </p>
+<p>根据这些规则可推导出：$L=0$，$K=1$，$V=2$，$E=3$。</p>
+<p>同时可以确定该表表示的是 $4$ 进制加法。</p>
 <h2 id="_2">输入格式</h2>
-<p>第一行一个整数 $n$（$3\le n\le9$）表示行数。
-以下 $n$ 行，每行包括 $n$ 个字符串，每个字符串间用空格隔开。
-若记 $s_{i,j}$ 表示第 $i$ 行第 $j$ 个字符串，数据保证 $s_{1,1}=\texttt +$，$s_{i,1}=s_{1,i}$，$|s_{i,1}|=1$，$s_{i,1}\ne s_{j,1}$ （$i\ne j$）。
-保证至多有一组解。</p>
+<p>第一行一个整数 $n$（$3\le n\le9$）表示行数。</p>
+<p>以下 $n$ 行，每行包括 $n$ 个字符串，每个字符串间用空格隔开。</p>
+<p>若记 $s_{i,j}$ 表示第 $i$ 行第 $j$ 个字符串，数据保证 $s_{1,1}=\texttt +$，$s_{i,1}=s_{1,i}$，$|s_{i,1}|=1$，$s_{i,1}\ne s_{j,1}$ （$i\ne j$）。</p>
+<p>保证至多有一组解。</p>
 <h2 id="_3">输出格式</h2>
-<p>第一行输出各个字母表示什么数，格式如：<code class="hljs inline">L=0 K=1</code> $\cdots$ 按给出的字母顺序排序。不同字母必须代表不同数字。
-第二行输出加法运算是几进制的。
-若不可能组成加法表，则应输出 <code class="hljs inline">ERROR!</code>。</p>
+<p>第一行输出各个字母表示什么数，格式如：<code class="hljs inline">L=0 K=1</code> $\cdots$ 按给出的字母顺序排序。不同字母必须代表不同数字。</p>
+<p>第二行输出加法运算是几进制的。</p>
+<p>若不可能组成加法表，则应输出 <code class="hljs inline">ERROR!</code>。</p>
 <h2 id="_4">说明/提示</h2>
 <p>NOIP1998 提高组 第三题</p>
             </article>

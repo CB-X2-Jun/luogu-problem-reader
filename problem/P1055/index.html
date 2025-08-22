@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1055/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1055 P1055 [NOIP 2008 普及组] ISBN 号码</title>
+    <title>P1055 [NOIP 2008 普及组] ISBN 号码</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1055 P1055 [NOIP 2008 普及组] ISBN 号码</span>
+              <span class="md-ellipsis">P1055 [NOIP 2008 普及组] ISBN 号码</span>
             </div>
           </div>
         </div>
@@ -39,12 +39,11 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1055-noip-2008-isbn">P1055 [NOIP 2008 普及组] ISBN 号码</h1>
-<h2 id="_1">题目描述</h2>
-<p>每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 $9$ 位数字、$1$ 位识别码和 $3$ 位分隔符，其规定格式如 <code class="hljs inline">x-xxx-xxxxx-x</code>，其中符号 <code class="hljs inline">-</code> 就是分隔符（键盘上的减号），最后一位是识别码，例如 <code class="hljs inline">0-670-82162-4</code>就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 $0$ 代表英语；第一个分隔符 <code class="hljs inline">-</code> 之后的三位数字代表出版社，例如 $670$ 代表维京出版社；第二个分隔符后的五位数字代表该书在该出版社的编号；最后一位为识别码。
-识别码的计算方法如下：
-首位数字乘以 $1$ 加上次位数字乘以 $2$ ……以此类推，用所得的结果 $ \bmod 11$，所得的余数即为识别码，如果余数为 $10$，则识别码为大写字母 $X$。例如 ISBN 号码 <code class="hljs inline">0-670-82162-4</code> 中的识别码 $4$ 是这样得到的：对 <code class="hljs inline">067082162</code> 这 $9$ 个数字，从左至右，分别乘以 $1,2,\dots,9$ 再求和，即 $0\times 1+6\times 2+……+2\times 9=158$，然后取 $158 \bmod 11$ 的结果 $4$ 作为识别码。
-你的任务是编写程序判断输入的 ISBN 号码中识别码是否正确，如果正确，则仅输出 <code class="hljs inline">Right</code>；如果错误，则输出你认为是正确的 ISBN 号码。</p>
+              <h2 id="_1">题目描述</h2>
+<p>每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 $9$ 位数字、$1$ 位识别码和 $3$ 位分隔符，其规定格式如 <code class="hljs inline">x-xxx-xxxxx-x</code>，其中符号 <code class="hljs inline">-</code> 就是分隔符（键盘上的减号），最后一位是识别码，例如 <code class="hljs inline">0-670-82162-4</code>就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 $0$ 代表英语；第一个分隔符 <code class="hljs inline">-</code> 之后的三位数字代表出版社，例如 $670$ 代表维京出版社；第二个分隔符后的五位数字代表该书在该出版社的编号；最后一位为识别码。</p>
+<p>识别码的计算方法如下：</p>
+<p>首位数字乘以 $1$ 加上次位数字乘以 $2$ ……以此类推，用所得的结果 $ \bmod 11$，所得的余数即为识别码，如果余数为 $10$，则识别码为大写字母 $X$。例如 ISBN 号码 <code class="hljs inline">0-670-82162-4</code> 中的识别码 $4$ 是这样得到的：对 <code class="hljs inline">067082162</code> 这 $9$ 个数字，从左至右，分别乘以 $1,2,\dots,9$ 再求和，即 $0\times 1+6\times 2+……+2\times 9=158$，然后取 $158 \bmod 11$ 的结果 $4$ 作为识别码。</p>
+<p>你的任务是编写程序判断输入的 ISBN 号码中识别码是否正确，如果正确，则仅输出 <code class="hljs inline">Right</code>；如果错误，则输出你认为是正确的 ISBN 号码。</p>
 <h2 id="_2">输入格式</h2>
 <p>一个字符序列，表示一本书的 ISBN 号码（保证输入符合 ISBN 号码的格式要求）。</p>
 <h2 id="_3">输出格式</h2>

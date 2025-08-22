@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1043/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1043 P1043 [NOIP 2003 普及组] 数字游戏</title>
+    <title>P1043 [NOIP 2003 普及组] 数字游戏</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1043 P1043 [NOIP 2003 普及组] 数字游戏</span>
+              <span class="md-ellipsis">P1043 [NOIP 2003 普及组] 数字游戏</span>
             </div>
           </div>
         </div>
@@ -39,20 +39,19 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1043-noip-2003">P1043 [NOIP 2003 普及组] 数字游戏</h1>
-<h2 id="_1">题目描述</h2>
-<p>丁丁最近沉迷于一个数字游戏之中。这个游戏看似简单，但丁丁在研究了许多天之后却发觉原来在简单的规则下想要赢得这个游戏并不那么容易。游戏是这样的，在你面前有一圈整数（一共 $n$ 个），你要按顺序将其分为 $m$ 个部分，各部分内的数字相加，相加所得的 $m$ 个结果对 $10$ 取模后再相乘，最终得到一个数 $k$。游戏的要求是使你所得的 $k$ 最大或者最小。
-例如，对于下面这圈数字（$n=4$，$m=2$）：
-<img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/gy407k49.png" />
-要求最小值时，$((2-1)\bmod10)\times ((4+3)\bmod10)=1\times 7=7$，要求最大值时，为 $((2+4+3)\bmod10)\times (-1\bmod10)=9\times 9=81$。特别值得注意的是，无论是负数还是正数，对 $10$ 取模的结果均为非负值。
-丁丁请你编写程序帮他赢得这个游戏。</p>
+              <h2 id="_1">题目描述</h2>
+<p>丁丁最近沉迷于一个数字游戏之中。这个游戏看似简单，但丁丁在研究了许多天之后却发觉原来在简单的规则下想要赢得这个游戏并不那么容易。游戏是这样的，在你面前有一圈整数（一共 $n$ 个），你要按顺序将其分为 $m$ 个部分，各部分内的数字相加，相加所得的 $m$ 个结果对 $10$ 取模后再相乘，最终得到一个数 $k$。游戏的要求是使你所得的 $k$ 最大或者最小。</p>
+<p>例如，对于下面这圈数字（$n=4$，$m=2$）：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/gy407k49.png" /></p>
+<p>要求最小值时，$((2-1)\bmod10)\times ((4+3)\bmod10)=1\times 7=7$，要求最大值时，为 $((2+4+3)\bmod10)\times (-1\bmod10)=9\times 9=81$。特别值得注意的是，无论是负数还是正数，对 $10$ 取模的结果均为非负值。</p>
+<p>丁丁请你编写程序帮他赢得这个游戏。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件第一行有两个整数，$n$ （$1\le n\le 50$） 和 $m$ （$1\le m\le 9$）。以下 $n$ 行每行有个整数，其绝对值 $\le10^4$，按顺序给出圈中的数字，首尾相接。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出文件有 $2$ 行，各包含 $1$ 个非负整数。第 $1$ 行是你程序得到的最小值，第 $2$ 行是最大值。</p>
 <h2 id="_4">说明/提示</h2>
-<p>**【题目来源】**
-NOIP 2003 普及组第二题</p>
+<p><strong>【题目来源】</strong></p>
+<p>NOIP 2003 普及组第二题</p>
             </article>
           </div>
         </div>

@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1032/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1032 P1032 [NOIP 2002 提高组] 字串变换（疑似错题）</title>
+    <title>P1032 [NOIP 2002 提高组] 字串变换（疑似错题）</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -28,7 +28,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1032 P1032 [NOIP 2002 提高组] 字串变换（疑似错题）</span>
+              <span class="md-ellipsis">P1032 [NOIP 2002 提高组] 字串变换（疑似错题）</span>
             </div>
           </div>
         </div>
@@ -39,30 +39,35 @@
         <div class="md-main__inner md-grid">
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1032-noip-2002">P1032 [NOIP 2002 提高组] 字串变换（疑似错题）</h1>
-<h2 id="_1">题目背景</h2>
-<p>本题不保证存在靠谱的多项式复杂度的做法。测试数据非常的水，各种做法都可以通过，不代表算法正确。因此本题题目和数据仅供参考。
-本题为搜索题，本题不接受 hack 数据。<a href="https://www.luogu.com.cn/paste/pf94n89x">关于此类题目的详细内容</a></p>
+              <h2 id="_1">题目背景</h2>
+<p>本题不保证存在靠谱的多项式复杂度的做法。测试数据非常的水，各种做法都可以通过，不代表算法正确。因此本题题目和数据仅供参考。</p>
+<p>本题为搜索题，本题不接受 hack 数据。<a href="https://www.luogu.com.cn/paste/pf94n89x">关于此类题目的详细内容</a></p>
 <h2 id="_2">题目描述</h2>
-<p>已知有两个字串 $A,B$ 及一组字串变换的规则（至多 $6$ 个规则），形如：
-- $A_1\to B_1$。
-- $A_2\to B_2$。
-规则的含义为：在 $A$ 中的子串 $A_1$ 可以变换为 $ B_1$，$A_2$ 可以变换为 $B_2\cdots$。
-例如：$A=\texttt{abcd}$，$B＝\texttt{xyz}$，
-变换规则为：
-- $\texttt{abc}\rightarrow\texttt{xu}$，$\texttt{ud}\rightarrow\texttt{y}$，$\texttt{y}\rightarrow\texttt{yz}$。
-则此时，$A$ 可以经过一系列的变换变为 $B$，其变换的过程为：
-- $\texttt{abcd}\rightarrow\texttt{xud}\rightarrow\texttt{xy}\rightarrow\texttt{xyz}$。
-共进行了 $3$ 次变换，使得 $A$ 变换为 $B$。</p>
+<p>已知有两个字串 $A,B$ 及一组字串变换的规则（至多 $6$ 个规则），形如：</p>
+<ul>
+<li>$A_1\to B_1$。</li>
+<li>$A_2\to B_2$。</li>
+</ul>
+<p>规则的含义为：在 $A$ 中的子串 $A_1$ 可以变换为 $ B_1$，$A_2$ 可以变换为 $B_2\cdots$。</p>
+<p>例如：$A=\texttt{abcd}$，$B＝\texttt{xyz}$，</p>
+<p>变换规则为：</p>
+<ul>
+<li>$\texttt{abc}\rightarrow\texttt{xu}$，$\texttt{ud}\rightarrow\texttt{y}$，$\texttt{y}\rightarrow\texttt{yz}$。</li>
+</ul>
+<p>则此时，$A$ 可以经过一系列的变换变为 $B$，其变换的过程为：</p>
+<ul>
+<li>$\texttt{abcd}\rightarrow\texttt{xud}\rightarrow\texttt{xy}\rightarrow\texttt{xyz}$。</li>
+</ul>
+<p>共进行了 $3$ 次变换，使得 $A$ 变换为 $B$。</p>
 <h2 id="_3">输入格式</h2>
-<p>第一行有两个字符串 $A,B$。
-接下来若干行，每行有两个字符串 $A_i,B_i$，表示一条变换规则。</p>
+<p>第一行有两个字符串 $A,B$。</p>
+<p>接下来若干行，每行有两个字符串 $A_i,B_i$，表示一条变换规则。</p>
 <h2 id="_4">输出格式</h2>
 <p>若在 $10$ 步（包含 $10$ 步）以内能将 $A$ 变换为 $B$，则输出最少的变换步数；否则输出 <code class="hljs inline">NO ANSWER!</code>。</p>
 <h2 id="_5">说明/提示</h2>
-<p>对于 $100\%$ 数据，保证所有字符串长度的上限为 $20$。
-**【题目来源】**
-NOIP 2002 提高组第二题</p>
+<p>对于 $100\%$ 数据，保证所有字符串长度的上限为 $20$。</p>
+<p><strong>【题目来源】</strong></p>
+<p>NOIP 2002 提高组第二题</p>
             </article>
           </div>
         </div>
