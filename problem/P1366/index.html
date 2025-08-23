@@ -285,6 +285,7 @@ T getXorSum(T *begin, T *end) {
 &nbsp;&nbsp;for (T *it = begin; it != end; ++it) ret ^= *it;
 &nbsp;&nbsp;return ret;
 }</code></pre>
+
 <p>这一函数的作用是计算传入数组（包括 <code class="hljs inline">std::vector</code>）某一左闭右开区间的按位异或和，返回值类型与传入数组的类型相同，调用方法与 <code class="hljs inline">std::sort</code> 类似，例如，要求数组 $a$ 的 $a_1 \sim a_n$ 的按位异或和，则调用 <code class="hljs inline">getXorSum(a + 1, a + 1 + n)</code>，求 $a_0 \sim a_{n - 1}$ 的按位异或和，则调用 <code class="hljs inline">getXorSum(a, a + n)</code>。如果 $a$ 是 <code class="hljs inline">std::vector</code>，则将上述调用代码里的 <code class="hljs inline">a</code> 均改为 <code class="hljs inline">a.begin()</code> 即可。</p>
             </article>
           </div>

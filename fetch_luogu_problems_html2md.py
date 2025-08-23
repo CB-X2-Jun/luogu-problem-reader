@@ -123,7 +123,9 @@ def fetch_problem_html(pid):
             for line in lines:
                 if line.strip().startswith('```'):
                     if not in_code_block:
-                        # 开始代码块
+                        # 开始代码块 - 添加空行确保与前面内容分离
+                        if result_lines and result_lines[-1].strip():
+                            result_lines.append('')
                         in_code_block = True
                         code_block_content = []
                     else:
@@ -142,6 +144,8 @@ def fetch_problem_html(pid):
                         # 保持连续空格格式
                         escaped_code = escaped_code.replace('  ', '&nbsp;&nbsp;')
                         result_lines.append(f'<pre class="hljs"><code class="hljs">{escaped_code}</code></pre>')
+                        # 代码块结束后添加空行确保与后面内容分离
+                        result_lines.append('')
                 elif in_code_block:
                     code_block_content.append(line)
                 else:
@@ -262,7 +266,9 @@ def refresh_html_files():
                         for line in lines:
                             if line.strip().startswith('```'):
                                 if not in_code_block:
-                                    # 开始代码块
+                                    # 开始代码块 - 添加空行确保与前面内容分离
+                                    if result_lines and result_lines[-1].strip():
+                                        result_lines.append('')
                                     in_code_block = True
                                     code_block_content = []
                                 else:
@@ -281,6 +287,8 @@ def refresh_html_files():
                                     # 保持连续空格格式
                                     escaped_code = escaped_code.replace('  ', '&nbsp;&nbsp;')
                                     result_lines.append(f'<pre class="hljs"><code class="hljs">{escaped_code}</code></pre>')
+                                    # 代码块结束后添加空行确保与后面内容分离
+                                    result_lines.append('')
                             elif in_code_block:
                                 code_block_content.append(line)
                             else:
