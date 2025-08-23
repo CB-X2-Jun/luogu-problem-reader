@@ -8,11 +8,124 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1439/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1439 【模板】最长公共子序列</title>
+    <title>P1439 P1439 【模板】最长公共子序列</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 16px rgba(240, 147, 251, 0.3);
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner code {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.3);
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #333;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s;
+      }
+      
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
@@ -28,7 +141,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1439 【模板】最长公共子序列</span>
+              <span class="md-ellipsis">P1439 P1439 【模板】最长公共子序列</span>
             </div>
           </div>
         </div>
