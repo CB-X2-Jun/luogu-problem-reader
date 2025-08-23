@@ -14,17 +14,17 @@
 
     <rect x="65.0" y="100.0" width="160.0" height="240.0" class="bar"/>
     <text x="145.0" y="355" class="label">有样例</text>
-    <text x="145.0" y="95.0" class="label">1380</text>
+    <text x="145.0" y="95.0" class="label">1400</text>
 
-    <rect x="235.0" y="103.30434782608697" width="160.0" height="236.69565217391303" class="bar"/>
+    <rect x="235.0" y="103.77142857142857" width="160.0" height="236.22857142857143" class="bar"/>
     <text x="315.0" y="355" class="label">数学题</text>
-    <text x="315.0" y="98.30434782608697" class="label">1361</text>
+    <text x="315.0" y="98.77142857142857" class="label">1378</text>
 
-    <rect x="405.0" y="339.6521739130435" width="160.0" height="0.34782608695652173" class="bar"/>
+    <rect x="405.0" y="339.65714285714284" width="160.0" height="0.34285714285714286" class="bar"/>
     <text x="485.0" y="355" class="label">交互题</text>
-    <text x="485.0" y="334.6521739130435" class="label">2</text>
+    <text x="485.0" y="334.65714285714284" class="label">2</text>
 
-    <rect x="575.0" y="336.5217391304348" width="160.0" height="3.4782608695652173" class="bar"/>
+    <rect x="575.0" y="336.0571428571429" width="160.0" height="3.9428571428571426" class="bar"/>
     <text x="655.0" y="355" class="label">普通题</text>
-    <text x="655.0" y="331.5217391304348" class="label">20</text>
+    <text x="655.0" y="331.0571428571429" class="label">23</text>
 </svg>
