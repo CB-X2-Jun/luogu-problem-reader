@@ -50,7 +50,7 @@ exports.handler = async (event, context) => {
 
   // GitHub API配置
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  const REPO_OWNER = 'CB-X2-Jun';
+  const REPO_OWNER = 'Eternity-Sky';
   const REPO_NAME = 'luogu-problem-reader';
 
   if (!GITHUB_TOKEN) {

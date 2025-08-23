@@ -14,7 +14,7 @@
 #### 方式一：通过Netlify Web界面部署
 1. 登录 [Netlify](https://netlify.com)
 2. 点击 "New site from Git"
-3. 选择你的GitHub仓库 `CB-X2-Jun/luogu-problem-reader`
+3. 选择你的GitHub仓库 `Eternity-Sky/luogu-problem-reader`
 4. 配置构建设置：
    - **Build command**: `echo 'No build step required'`
    - **Publish directory**: `.` (根目录)

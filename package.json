@@ -16,7 +16,7 @@
     "netlify",
     "github-actions"
   ],
-  "author": "CB_X2_Jun",
+  "author": "Eternity-Sky",
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.7"
