@@ -94,10 +94,6 @@ jobs:
       run: |
         python scripts/create_dashboard.py
     
-    - name: Generate Analytics Report
-      run: |
-        python scripts/analytics_report.py
-    
     - name: Commit and Push Changes
       run: |
         git config --local user.email "action@github.com"
@@ -133,19 +129,11 @@ jobs:
       run: |
         python scripts/update_meta_tags.py
     
-    - name: Update Robots.txt
-      run: |
-        python scripts/update_robots.py
-    
-    - name: Generate Search Index
-      run: |
-        python scripts/generate_search_index.py
-    
     - name: Commit and Push Changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add sitemap.xml robots.txt search/
+        git add sitemap.xml
         git diff --staged --quiet || git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')"
         git push
 
@@ -180,14 +168,12 @@ jobs:
       run: |
         python scripts/update_css_variables.py
     
-    - name: Generate Theme Info
-      run: |
-        python scripts/generate_theme_info.py
+
     
     - name: Commit and Push Changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add css/ stats/theme_info.json
+        git add css/
         git diff --staged --quiet || git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')"
         git push
