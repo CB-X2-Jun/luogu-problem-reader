@@ -192,10 +192,19 @@ class CommentBot:
             print(f"获取评论失败: {e}")
             return []
     
-    def analyze_comment(self, comment_body):
-        """分析评论内容，对所有评论都进行自动回复"""
-        # 对任何评论都回复
-        return "🤖 这是自动回复！感谢你在洛谷题目浏览站的参与和讨论！\n\n如果你遇到任何问题或需要帮助，请随时告诉我们。我们会尽快为你提供人工支持。"
+    def analyze_comment(self, comment_body, user_login=None):
+        """分析评论内容，对所有评论都进行自动回复，支持@和引用格式"""
+        # 自动回复格式
+        if user_login:
+            quote = f"> @{user_login}\n> {comment_body.strip().replace('\n', '\n> ')}\n\n"
+        else:
+            quote = f"> {comment_body.strip().replace('\n', '\n> ')}\n\n"
+        reply = (
+            f"{quote}"
+            "🤖 这是自动回复！感谢你的参与！\n\n"
+            "---\n如需人工帮助请 @Eternity-Sky"
+        )
+        return reply
     
     def should_reply(self, comment):
         """判断是否应该回复这个评论"""
@@ -264,7 +273,7 @@ class CommentBot:
             for comment in comments:
                 if not self.should_reply(comment):
                     continue
-                reply_text = self.analyze_comment(comment['body'])
+                reply_text = self.analyze_comment(comment['body'], user_login=comment['user']['login'])
                 if reply_text:
                     print(f"💬 发现需要回复的评论: {comment['body'][:50]}...")
                     bot_reply = f"{reply_text}\n\n---\n🤖 *这是自动回复，如需人工帮助请 @Eternity-Sky*"
