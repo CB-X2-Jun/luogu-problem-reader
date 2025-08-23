@@ -193,15 +193,9 @@ class CommentBot:
             return []
     
     def analyze_comment(self, comment_body):
-        """分析评论内容，匹配回复规则"""
-        comment_lower = comment_body.lower()
-        
-        for rule_name, rule_config in self.reply_rules.items():
-            for keyword in rule_config['keywords']:
-                if keyword.lower() in comment_lower:
-                    return rule_config['reply']
-        
-        return None
+        """分析评论内容，对所有评论都进行自动回复"""
+        # 对任何评论都回复
+        return "🤖 这是自动回复！感谢你在洛谷题目浏览站的参与和讨论！\n\n如果你遇到任何问题或需要帮助，请随时告诉我们。我们会尽快为你提供人工支持。"
     
     def should_reply(self, comment):
         """判断是否应该回复这个评论"""
