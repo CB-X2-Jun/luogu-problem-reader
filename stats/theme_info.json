@@ -1,0 +1,13 @@
+{
+  "recommended_theme": "summer",
+  "current_season": "summer",
+  "current_holidays": [],
+  "theme_colors": {
+    "primary": "#3498db",
+    "secondary": "#2980b9",
+    "accent": "#e74c3c",
+    "background": "#ecf0f1",
+    "text": "#2c3e50"
+  },
+  "detection_date": "2025-08-23 13:57:22"
+}

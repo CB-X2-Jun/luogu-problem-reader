@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 16px sans-serif; text-anchor: middle; }
+        .label { font: 12px sans-serif; text-anchor: middle; }
+        .bar { fill: #3498db; }
+        .bar:hover { fill: #2980b9; }
+    </style>
+    
+    <!-- 标题 -->
+    <text x="400.0" y="30" class="title">题目长度分布</text>
+    
+    <!-- 条形图 -->
+
+    <rect x="65.0" y="266.70103092783506" width="87.14285714285714" height="73.29896907216495" class="bar"/>
+    <text x="108.57142857142857" y="355" class="label"><500</text>
+    <text x="108.57142857142857" y="261.70103092783506" class="label">237</text>
+
+    <rect x="162.14285714285714" y="100.0" width="87.14285714285714" height="240.0" class="bar"/>
+    <text x="205.71428571428572" y="355" class="label">500-1K</text>
+    <text x="205.71428571428572" y="95.0" class="label">776</text>
+
+    <rect x="259.2857142857143" y="260.5154639175258" width="87.14285714285714" height="79.48453608247422" class="bar"/>
+    <text x="302.85714285714283" y="355" class="label">1K-1.5K</text>
+    <text x="302.85714285714283" y="255.51546391752578" class="label">257</text>
+
+    <rect x="356.42857142857144" y="319.2783505154639" width="87.14285714285714" height="20.721649484536083" class="bar"/>
+    <text x="400.0" y="355" class="label">1.5K-2K</text>
+    <text x="400.0" y="314.2783505154639" class="label">67</text>
+
+    <rect x="453.57142857142856" y="330.7216494845361" width="87.14285714285714" height="9.278350515463918" class="bar"/>
+    <text x="497.1428571428571" y="355" class="label">2K-3K</text>
+    <text x="497.1428571428571" y="325.7216494845361" class="label">30</text>
+
+    <rect x="550.7142857142857" y="336.9072164948454" width="87.14285714285714" height="3.092783505154639" class="bar"/>
+    <text x="594.2857142857142" y="355" class="label">3K-5K</text>
+    <text x="594.2857142857142" y="331.9072164948454" class="label">10</text>
+
+    <rect x="647.8571428571429" y="338.7628865979381" width="87.14285714285714" height="1.2371134020618557" class="bar"/>
+    <text x="691.4285714285714" y="355" class="label">>5K</text>
+    <text x="691.4285714285714" y="333.7628865979381" class="label">4</text>
+</svg>

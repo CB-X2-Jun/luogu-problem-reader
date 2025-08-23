@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://luogu.cb-x2-jun.run.place/sitemap.xml
+
+# 优化爬虫行为
+Crawl-delay: 1
+
+# 允许访问所有题目
+Allow: /problem/
+Allow: /problem/list/
+
+# 统计文件可以被索引
+Allow: /stats/

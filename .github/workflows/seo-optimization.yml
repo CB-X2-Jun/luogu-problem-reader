@@ -1,0 +1,77 @@
+name: SEO & Website Optimization
+
+on:
+  schedule:
+    # 每周优化一次SEO (周三UTC 03:00)
+    - cron: '0 3 * * 3'
+  workflow_dispatch: # 手动触发
+    inputs:
+      optimization_level:
+        description: 'SEO优化级别'
+        required: false
+        default: 'standard'
+        type: choice
+        options:
+        - 'basic'
+        - 'standard'
+        - 'advanced'
+      generate_sitemap:
+        description: '生成sitemap.xml'
+        required: false
+        default: true
+        type: boolean
+      update_meta_tags:
+        description: '更新meta标签'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  seo-optimization:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 lxml xmltodict
+    
+    - name: Generate Sitemap
+      if: ${{ github.event.inputs.generate_sitemap != 'false' }}
+      run: |
+        python scripts/generate_sitemap.py
+    
+    - name: Update Meta Tags
+      if: ${{ github.event.inputs.update_meta_tags != 'false' }}
+      env:
+        OPTIMIZATION_LEVEL: ${{ github.event.inputs.optimization_level || 'standard' }}
+      run: |
+        python scripts/update_meta_tags.py
+    
+    - name: Generate robots.txt
+      run: |
+        python scripts/generate_robots.py
+    
+    - name: Optimize Images
+      run: |
+        python scripts/optimize_images.py
+    
+    - name: Performance Analysis
+      run: |
+        python scripts/performance_analyzer.py
+    
+    - name: Commit SEO improvements
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git diff --staged --quiet || git commit -m "🚀 SEO optimization: $(date '+%Y-%m-%d')"
+        git push

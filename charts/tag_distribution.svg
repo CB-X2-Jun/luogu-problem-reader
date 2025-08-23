@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 16px sans-serif; text-anchor: middle; }
+        .label { font: 12px sans-serif; text-anchor: middle; }
+        .bar { fill: #3498db; }
+        .bar:hover { fill: #2980b9; }
+    </style>
+    
+    <!-- 标题 -->
+    <text x="400.0" y="30" class="title">题目标签分布 (Top 10)</text>
+    
+    <!-- 条形图 -->
+
+    <rect x="65.0" y="100.0" width="75.0" height="240.0" class="bar"/>
+    <text x="102.5" y="355" class="label">字符串</text>
+    <text x="102.5" y="95.0" class="label">131</text>
+
+    <rect x="150.0" y="241.06870229007632" width="75.0" height="98.93129770992367" class="bar"/>
+    <text x="187.5" y="355" class="label">数学</text>
+    <text x="187.5" y="236.06870229007632" class="label">54</text>
+
+    <rect x="235.0" y="261.22137404580155" width="75.0" height="78.77862595419847" class="bar"/>
+    <text x="272.5" y="355" class="label">排序</text>
+    <text x="272.5" y="256.22137404580155" class="label">43</text>
+
+    <rect x="320.0" y="296.03053435114504" width="75.0" height="43.969465648854964" class="bar"/>
+    <text x="357.5" y="355" class="label">图论</text>
+    <text x="357.5" y="291.03053435114504" class="label">24</text>
+
+    <rect x="405.0" y="308.85496183206106" width="75.0" height="31.145038167938928" class="bar"/>
+    <text x="442.5" y="355" class="label">模拟</text>
+    <text x="442.5" y="303.85496183206106" class="label">17</text>
+
+    <rect x="490.0" y="323.51145038167937" width="75.0" height="16.48854961832061" class="bar"/>
+    <text x="527.5" y="355" class="label">搜索</text>
+    <text x="527.5" y="318.51145038167937" class="label">9</text>
+
+    <rect x="575.0" y="338.1679389312977" width="75.0" height="1.83206106870229" class="bar"/>
+    <text x="612.5" y="355" class="label">动态规划</text>
+    <text x="612.5" y="333.1679389312977" class="label">1</text>
+
+    <rect x="660.0" y="338.1679389312977" width="75.0" height="1.83206106870229" class="bar"/>
+    <text x="697.5" y="355" class="label">贪心</text>
+    <text x="697.5" y="333.1679389312977" class="label">1</text>
+</svg>
