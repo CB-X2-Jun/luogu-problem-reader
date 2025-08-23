@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P2395/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2395 BBCode转换Markdown</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2395 BBCode转换Markdown</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>BBCode 和 Markdown 是两种常用的格式语言。所谓格式语言指，例如在某些网站评论区发表评论时，可以使用其对你的评论进行修饰，使文字可以有颜色、粗体等各种样式。</p>
+<h2 id="_2">题目描述</h2>
+<h4 id="pdf-httppanbaiducoms1i3mxk4t-hayc">~~PDF版题目: http://pan.baidu.com/s/1i3mxk4t 提取密码 hayc~~</h4>
+<h3 id="2025-7-17">2025-7-17：链接炸了</h3>
+<p>BBCode的语法如下所示：</p>
+<pre class="codehilite"><code class="language-plain">[h1]Hello World![/h1]
+[h2][i]This is a BBCode[/i][/h2]
+[b][i]I love[/i] Olympic [i]Informatics[/i][/b]
+</code></pre>
+
+<p>例如，在标签 <code>[h1]</code> 中，在 <code>[h1]</code> 和 <code>[/h1]</code> 之间包裹的内容属于一级标题，对于这之间的文字要按照一级标题的样式渲染。</p>
+<p>请注意 BBCode 要求标签的开闭必须<strong>完整且且嵌套无误</strong>，也就是说，如下列的例子都是不合法的 BBCode：</p>
+<pre class="codehilite"><code class="language-plain">[h1]Hello World! //标签未闭合
+[h1]Hello World![/h2] //两个标签不匹配
+[h1][i]Hello World![/h1][/i] //嵌套次序错误
+</code></pre>
+
+<p>另外，极其重要的一点是，BBCode有一个特殊的标签[quote][/quote]，在其中的任意文字都不应被解析为BBCode代码，而应该对其进行Markdown化处理后被原样输出。</p>
+<p>现在介绍Markdown。其语法如下所示：</p>
+<pre class="codehilite"><code class="language-cpp"># Hello World! #
+## *This is a Markdown* ##
+__*I love* Olympic *Informatics*__
+</code></pre>
+
+<p>你的任务就是将给定的一串 BBCode 转换成 Markdown，并对不合法的输入报错。</p>
+<p>题目数据中会出现的所有 BBCode 的标签与其对应 Markdown 对应关系如下，保证不出现除此之外的对应：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1493.png" /> </p>
+<p>对于 <code>[quote]</code> 标签的附加说明：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1494.png" /></p>
+<h2 id="_3">输入格式</h2>
+<p>所需转换的 BBCode。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>[h1]Hello World![/h1]
+[h2]How are [i]you[/i]?[/h2]
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code># Hello World! #
+## How are *you*? ##
+</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="codehilite"><code>[h1]Introducing Swift.[/h1][quote]
+import SpriteKit
+let object = SKSpriteNode(imageNamed: “[L2/Ascention]”
+[/quote]
+</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="codehilite"><code># Introducing Swift. #
+&gt; import SpriteKit
+&gt; let object = SKSpriteNode(imageNamed: “[L2/Ascention]”
+</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="codehilite"><code>[h1]I knew you were
+trouble when you walked in[/h1]
+[url=http://www.example.com]By Taylor Swift[/url]
+</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="codehilite"><code># I knew you were
+trouble when you walked in #
+[By Taylor Swift](http://www.example.com)
+</code></pre>
+
+<h3 id="4">样例 #4</h3>
+<h4 id="4_1">样例输入 #4</h4>
+<pre class="codehilite"><code>[h1]Thanks for [i]inviting[/h1] me.[/i]
+</code></pre>
+
+<h4 id="4_2">样例输出 #4</h4>
+<pre class="codehilite"><code>Match Error
+</code></pre>
+
+<h3 id="5">样例 #5</h3>
+<h4 id="5_1">样例输入 #5</h4>
+<pre class="codehilite"><code>[h2]Your gift is awesome!
+</code></pre>
+
+<h4 id="5_2">样例输出 #5</h4>
+<pre class="codehilite"><code>Unclosed Mark
+</code></pre>
+
+<h3 id="6">样例 #6</h3>
+<h4 id="6_1">样例输入 #6</h4>
+<pre class="codehilite"><code>[quote][/quote][/quote]
+</code></pre>
+
+<h4 id="6_2">样例输出 #6</h4>
+<pre class="codehilite"><code>Match Error
+(对该数据的解释: 匹配到第一个关闭标签后即不认为后面的内容仍是代码段)
+</code></pre>
+
+<h3 id="7">样例 #7</h3>
+<h4 id="7_1">样例输入 #7</h4>
+<pre class="codehilite"><code>[quote][quote][/quote]
+</code></pre>
+
+<h4 id="7_2">样例输出 #7</h4>
+<pre class="codehilite"><code>&gt; [quote]
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>为保证评测顺利不被误判，请注意下列要求：</p>
+<p>尊重原输入输出的换行，不自行添删。</p>
+<p>对于第一条的例外是， 遇到 <code>[quote]</code> 标签不在新的一行时，Markdown 中请另起一行。另外 <code>[quote]</code> 标签中的代码段头尾空行请去除，不会出现空白的 quote。</p>
+<p>请注意上表中的空格。</p>
+<p>对于不合法的 BBCode 输入，你的程序必须报错：</p>
+<ul>
+<li>对于匹配错误的标签输出 <code>Match Error</code>；</li>
+<li>对于未闭合的标签输出 <code>Unclosed Mark</code>，请参考样例。</li>
+</ul>
+<p>两种情况同时出现的时候（即同时有匹配错误和未闭合的标签时），按照匹配错误处理，输出 <code>Match Error</code>。</p>
+<p>由于 quote 标签的特殊性，为保证不出现歧义，数据保证 quote 标签不会出现错误。</p>
+<p>例如：对于出现如 <code>[i][h1]Text[/i]</code> 这样的情况，按照 <code>Match Error</code> 处理，对于 <code>[i][h1]Text[/h1]</code> 这样的情况，按照 <code>Unclosed Mark</code> 处理。</p>
+<p>由于洛谷限制，请大家在输出 <code>Unclosed Mark</code> 的时候在 <code>close</code> 中间切开分为两段字符串输出，否则会被吞记录。</p>
+<p>保证以下三种字符不出现在除quote标签包裹的段落中的文字中：<code>[</code> <code>]</code> <code>/</code> <code>*</code> <code>_</code> <code>#</code> <code>&gt;</code>，但地址中可能会出现/字符。</p>
+<p>保证输入不会出现标签不完整的情况，例如 <code>[h1]Text[/h</code>。</p>
+<p>对于曾经在其他地方使用过 Markdown 与 BBCode 的同学：题中的格式不是严格的 BBCode 与 Markdown 格式，请勿被经验迷惑。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>
