@@ -1,0 +1,33 @@
+{
+  "bot_info": {
+    "name": "洛谷题目浏览站助手",
+    "version": "1.0.0",
+    "description": "自动回复常见问题的智能助手"
+  },
+  "settings": {
+    "check_interval_hours": 2,
+    "max_comment_age_hours": 24,
+    "reply_delay_seconds": 2,
+    "max_replies_per_run": 10
+  },
+  "reply_templates": {
+    "bot_signature": "\n\n---\n🤖 *这是自动回复，如需人工帮助请 @Eternity-Sky*",
+    "greeting": "👋 你好！",
+    "thanks": "感谢你的反馈！🙏"
+  },
+  "keywords_blacklist": [
+    "垃圾",
+    "spam",
+    "广告",
+    "刷屏"
+  ],
+  "auto_reactions": {
+    "helpful_keywords": ["谢谢", "有用", "解决了", "好的"],
+    "reaction_emoji": "+1"
+  },
+  "statistics": {
+    "track_replies": true,
+    "track_keywords": true,
+    "generate_reports": true
+  }
+}

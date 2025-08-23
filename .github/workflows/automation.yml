@@ -21,6 +21,7 @@ on:
         - 'data-visualization'
         - 'seo-optimization'
         - 'theme-automation'
+        - 'comment-bot'
       force_update:
         description: '强制更新所有数据'
         required: false
