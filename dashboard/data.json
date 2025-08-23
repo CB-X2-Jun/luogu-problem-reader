@@ -1,28 +1,28 @@
 {
   "overview": {
-    "total_problems": 1401,
-    "problems_with_samples": 1400,
+    "total_problems": 1989,
+    "problems_with_samples": 1988,
     "sample_coverage": 99.9,
-    "math_problems": 1378,
+    "math_problems": 1856,
     "interactive_problems": 2,
-    "regular_problems": 21
+    "regular_problems": 131
   },
   "difficulty_distribution": {
-    "其他": 978,
-    "USACO": 133,
-    "NOI": 130,
-    "NOIP提高": 80,
-    "NOIP普及": 71,
-    "NOIP": 9
+    "其他": 1316,
+    "USACO": 350,
+    "NOI": 148,
+    "NOIP提高": 90,
+    "NOIP普及": 75,
+    "NOIP": 10
   },
   "length_distribution": {
-    "<500": 241,
-    "500-1K": 784,
-    "1K-1.5K": 264,
-    "1.5K-2K": 67,
-    "2K-3K": 31,
-    "3K-5K": 10,
-    ">5K": 4
+    "<500": 300,
+    "500-1K": 1056,
+    "1K-1.5K": 381,
+    "1.5K-2K": 123,
+    "2K-3K": 92,
+    "3K-5K": 32,
+    ">5K": 5
   },
-  "last_updated": "2025-08-23 07:24:48"
+  "last_updated": "2025-08-23 09:37:51"
 }

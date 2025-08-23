@@ -2,36 +2,32 @@
   "date": "2025-08-23",
   "problems": [
     {
-      "id": "P1307",
-      "title": "P1307 P1307 [NOIP 2011 普及组] 数字反转",
+      "id": "P1442",
+      "title": "P1442 P1442 铁球落地",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 404,
-      "difficulty_hints": [
-        "NOIP"
-      ]
-    },
-    {
-      "id": "P2378",
-      "title": "P2378 P2378 因式分解II",
-      "has_samples": true,
-      "has_math": false,
-      "is_interactive": false,
-      "length": 1214,
+      "length": 1112,
       "difficulty_hints": []
     },
     {
-      "id": "P1471",
-      "title": "P1471 P1471 方差",
+      "id": "P2172",
+      "title": "P2172 P2172 [国家集训队] 部落战争",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 1954,
-      "difficulty_hints": [
-        "数学"
-      ]
+      "length": 860,
+      "difficulty_hints": []
+    },
+    {
+      "id": "P1840",
+      "title": "P1840 P1840 Color the Axis",
+      "has_samples": true,
+      "has_math": true,
+      "is_interactive": false,
+      "length": 477,
+      "difficulty_hints": []
     }
   ],
-  "generated_at": "2025-08-23 09:37:34"
+  "generated_at": "2025-08-23 08:03:47"
 }

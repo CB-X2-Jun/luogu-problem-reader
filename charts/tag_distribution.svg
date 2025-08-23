@@ -14,33 +14,33 @@
 
     <rect x="65.0" y="100.0" width="75.0" height="240.0" class="bar"/>
     <text x="102.5" y="355" class="label">字符串</text>
-    <text x="102.5" y="95.0" class="label">138</text>
+    <text x="102.5" y="95.0" class="label">192</text>
 
-    <rect x="150.0" y="242.6086956521739" width="75.0" height="97.3913043478261" class="bar"/>
+    <rect x="150.0" y="253.75" width="75.0" height="86.25" class="bar"/>
     <text x="187.5" y="355" class="label">数学</text>
-    <text x="187.5" y="237.6086956521739" class="label">56</text>
+    <text x="187.5" y="248.75" class="label">69</text>
 
-    <rect x="235.0" y="263.47826086956525" width="75.0" height="76.52173913043478" class="bar"/>
+    <rect x="235.0" y="262.5" width="75.0" height="77.5" class="bar"/>
     <text x="272.5" y="355" class="label">排序</text>
-    <text x="272.5" y="258.47826086956525" class="label">44</text>
+    <text x="272.5" y="257.5" class="label">62</text>
 
-    <rect x="320.0" y="298.2608695652174" width="75.0" height="41.73913043478261" class="bar"/>
+    <rect x="320.0" y="293.75" width="75.0" height="46.25" class="bar"/>
     <text x="357.5" y="355" class="label">图论</text>
-    <text x="357.5" y="293.2608695652174" class="label">24</text>
+    <text x="357.5" y="288.75" class="label">37</text>
 
-    <rect x="405.0" y="310.4347826086956" width="75.0" height="29.565217391304348" class="bar"/>
+    <rect x="405.0" y="313.75" width="75.0" height="26.25" class="bar"/>
     <text x="442.5" y="355" class="label">模拟</text>
-    <text x="442.5" y="305.4347826086956" class="label">17</text>
+    <text x="442.5" y="308.75" class="label">21</text>
 
-    <rect x="490.0" y="324.3478260869565" width="75.0" height="15.652173913043478" class="bar"/>
+    <rect x="490.0" y="328.75" width="75.0" height="11.25" class="bar"/>
     <text x="527.5" y="355" class="label">搜索</text>
-    <text x="527.5" y="319.3478260869565" class="label">9</text>
+    <text x="527.5" y="323.75" class="label">9</text>
 
-    <rect x="575.0" y="338.2608695652174" width="75.0" height="1.7391304347826086" class="bar"/>
+    <rect x="575.0" y="336.25" width="75.0" height="3.75" class="bar"/>
     <text x="612.5" y="355" class="label">动态规划</text>
-    <text x="612.5" y="333.2608695652174" class="label">1</text>
+    <text x="612.5" y="331.25" class="label">3</text>
 
-    <rect x="660.0" y="338.2608695652174" width="75.0" height="1.7391304347826086" class="bar"/>
+    <rect x="660.0" y="337.5" width="75.0" height="2.5" class="bar"/>
     <text x="697.5" y="355" class="label">贪心</text>
-    <text x="697.5" y="333.2608695652174" class="label">1</text>
+    <text x="697.5" y="332.5" class="label">2</text>
 </svg>
