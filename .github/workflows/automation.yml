@@ -64,14 +64,13 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add stats/ README.md
-        git diff --staged --quiet || {
-          git stash push -m "temp stash before pull" || true
-          git pull --rebase origin main || true
-          git stash pop || true
+        if ! git diff --staged --quiet; then
+          git fetch origin main
+          git reset --soft origin/main
           git add stats/ README.md
-          git commit -m "📊 Daily stats update - $(date +'%Y-%m-%d')"
-          git push
-        }
+          git commit -m "📊 Daily stats update - $(date +'%Y-%m-%d')" || true
+          git push origin main
+        fi
 
   # 数据可视化
   data-visualization:
@@ -105,14 +104,13 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add charts/ dashboard/
-        git diff --staged --quiet || {
-          git stash push -m "temp stash before pull" || true
-          git pull --rebase origin main || true
-          git stash pop || true
+        if ! git diff --staged --quiet; then
+          git fetch origin main
+          git reset --soft origin/main
           git add charts/ dashboard/
-          git commit -m "📊 Data visualization update - $(date +'%Y-%m-%d')"
-          git push
-        }
+          git commit -m "📊 Data visualization update - $(date +'%Y-%m-%d')" || true
+          git push origin main
+        fi
 
   # SEO优化
   seo-optimization:
@@ -146,14 +144,13 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add sitemap.xml
-        git diff --staged --quiet || {
-          git stash push -m "temp stash before pull" || true
-          git pull --rebase origin main || true
-          git stash pop || true
+        if ! git diff --staged --quiet; then
+          git fetch origin main
+          git reset --soft origin/main
           git add sitemap.xml
-          git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')"
-          git push
-        }
+          git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')" || true
+          git push origin main
+        fi
 
   # 主题自动化
   theme-automation:
@@ -193,11 +190,10 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add css/
-        git diff --staged --quiet || {
-          git stash push -m "temp stash before pull" || true
-          git pull --rebase origin main || true
-          git stash pop || true
+        if ! git diff --staged --quiet; then
+          git fetch origin main
+          git reset --soft origin/main
           git add css/
-          git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')"
-          git push
-        }
+          git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')" || true
+          git push origin main
+        fi
