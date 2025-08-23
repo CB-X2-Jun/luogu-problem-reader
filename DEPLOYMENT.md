@@ -16,7 +16,7 @@
 2. 点击 "New site from Git"
 3. 选择你的GitHub仓库 `Eternity-Sky/luogu-problem-reader`
 4. 配置构建设置：
-   - **Build command**: `echo 'No build step required'`
+   - **Build command**: 留空（不填写）
    - **Publish directory**: `.` (根目录)
    - **Functions directory**: `netlify/functions`
 
