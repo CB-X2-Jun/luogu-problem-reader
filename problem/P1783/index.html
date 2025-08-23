@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1783/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1783 海滩防御</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1783 海滩防御</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>WLP 同学最近迷上了一款网络联机对战游戏（终于知道为毛 JOHNKRAM 每天刷洛谷效率那么低了），但是他却为了这个游戏很苦恼，因为他在海边的造船厂和仓库总是被敌方派人偷袭。于是，WLP 动用了他那丰满且充实的大脑（或许更偏向前者），想出了一个好主意，他把海滩分成垂直于海岸线的若干列，在其中的几列上放置几个信号塔，试图来监视整个海滩。然而，WLP 是一个非常心急的人，他把信号塔建好后才发现还需给信号塔供能，它们才能投入使用（这不是废话么），它们都有一个工作半径，一个圆形区域里的所有敌人都逃不过它们的监视，不过，WLP 发现，敌人们非常狡猾，除非他将道路完全封死，否则 WLP 的敌人可以走过一条任意弯曲的路（不一定走整点，但是不会出第 $0$ 列和第 $N$ 列构成的边界）来偷他的东西。</p>
+<p>于是，WLP 就思考了：到底需要给每个信号塔多大的工作半径，才能将从海滩到内地的路径完全封死呢？他再次动用了他那丰满且充实的大脑，想了一堂数学课，终于，还是没想出来。于是，他向 LZZ 神犇求助（额…… CSUNSHINE 的身份是不是暴露了）。</p>
+<p>终于，在 WLP：“ %^!*@#!*(*^!*#@\$^&amp;（此处省略无数卖萌场景）”的哀求下，LZZ 神犇写了一个程序，在一秒内就解决了问题。但是，邪恶的 LZZ 神犇决定要将这个难题共享给无数无辜的 OIer，所以，现在轮到你了。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行两个整数 $N$ 和 $M$，表示海滩被 WLP 分成的列数 $0,1,2,\cdots,N$ 和信号塔个数。</p>
+<p>第 $2$ 至第 $M+1$ 行，每行两个数 $X_i$，$Y_i$ 表示 $1,2,3,\cdots,M$ 号信号塔所在的列数和离开海滩的距离。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行一个实数，表示最小的工作半径，保留两位小数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5
+1 5
+3 5
+5 5
+4 30
+2 15</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1.00</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">100 2
+30 50
+90 100</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">39.05</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">数据范围及约定</h3>
+<ul>
+<li>对于 $10\%$ 的数据：$1 \le M \le 10$，$1 \le Y_i \le 100$；</li>
+<li>对于 $30\%$ 的数据：$1 \le M \le 50$，$1 \le Y_i \le 1,000$；</li>
+<li>对于 $80\%$ 的数据：$1 \le M \le 500$，$1 \le Y_i \le 1,000$；</li>
+<li>对于 $100\%$ 的数据：$1 \le M \le 800$，$1 \le N \le 1000$，$1 \le X_i \le N$，$1 \le Y_i \le 100,000$。</li>
+</ul>
+<h3 id="_7">提示</h3>
+<p>注意，封锁海滩是指，敌人的深入程度是有限制的，若敌人绕过了所有的信号塔，并且可以长驱直入，那么就说明道路没有完全封锁。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

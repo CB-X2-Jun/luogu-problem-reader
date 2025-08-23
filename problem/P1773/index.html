@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1773/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1773 符文之语</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1773 符文之语</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>传说中珠穆朗玛峰下有座古代人修建的神庙，神庙的地下室里有古代王室的遗产，但数千年来从未有人到达过……探险者小 FF 一直梦想成为世界上最富有的人和最杰出的探险家并被永载史册。在证明了这个洞确实存在后，小 FF 做好了充足准备，来到了神庙。</p>
+<h2 id="_2">题目描述</h2>
+<p>当小 FF 来到神庙时，神庙已经破败不堪了。但神庙的中央有一个光亮如新的石台。小 FF 走近石台，发现石台上有一个数串，而数串的上方刻着一串古老的符文之语。精通古符文之语的小 FF 不费吹灰之力就读懂了文章的意思，其大意是：</p>
+<p>对于石台上的一串数字，你可以在适当的位置加入乘号（设加了 $k$ 个，当然也可不加，即分成 $k+1$ 个部分），设这 $k+1$ 个部分的乘积（如果 $k=0$，则乘积即为原数串的值）对 $m$ 的余数（即 $\bmod\ m$）为 $x$；</p>
+<p>现求 $x$ 能达到的最小值及该情况下 $k$ 的最小值，以及 $x$ 能达到的最大值及该情况下的 $k$ 的最小值（可以存在 $x$ 的最小值与最大值相同的情况）。</p>
+<p>小 FF 还知道，如果他找到了正确的答案，那么就可以通往神庙的下层了。但这个问题似乎不太好解决，小 FF 就找到了你，并答应找到财宝以后和你二八分（当然你拿二……）。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行为数串，且数串中不存在 $0$；</p>
+<p>第二行为 $m$。</p>
+<h2 id="_4">输出格式</h2>
+<p>四个数，分别为 $x$ 的最小值和该情况下的 $k$，以及 $x$ 的最大值和该情况下的 $k$，相邻两个数之间用一个空格隔开。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4421
+22</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">0 1 21 0</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>记 $L$ 表示字符串的长度。</p>
+<ul>
+<li>对于 $30\%$ 的数据：$2 \le L \le 50$；</li>
+<li>对于 $100\%$ 的数据：$2 \le L \le 1000$，$2 \le m \le 50$。</li>
+</ul>
+<p>NOI 导刊 $2010$ 提高（$02$）</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

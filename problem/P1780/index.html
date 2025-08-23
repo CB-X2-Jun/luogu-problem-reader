@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1780/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1780 染色的立方体</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1780 染色的立方体</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小胖最近迷上了3D物体，尤其是立方体。他手里有很多个立方体，他想让所有的立方体全都长得一样，所以他决定给某些立方体的表面重涂颜色，使得所有的立方体完全相同。但是小胖是很懒的，他想知道最少涂多少次颜色，可以让所有立方体完全相同。</p>
+<h2 id="_2">输入格式</h2>
+<p>每个测试点包含至多 $200$ 组数据。</p>
+<p>每组数据第一行 $n\ (1≤n≤4)$，表示立方体的数量，接下来 $n$ 行，每行 $6$ 个字符串 $\mathit{color}_1,\allowbreak\mathit{color}_2,\allowbreak\mathit{color}_3,\allowbreak\mathit{color}_4,\allowbreak\mathit{color}_5,\allowbreak\mathit{color}_6$，表示立方体 $6$ 个面的颜色。</p>
+<p>其中，面的标号如下：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xlfu6oe0.png" /></p>
+<p>两个立方体被视为相同，当且仅当它们可以在某种摆放方式下，每个面的颜色都对应相同。</p>
+<p>如下图所示的两个立方体是相同的。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/equmi6mp.png" /></p>
+<p>如下图所示的两个立方体是不同的。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/jqp05oyq.png" /></p>
+<p>一种涂色的方案如下：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mewvgalo.png" /></p>
+<h2 id="_3">输出格式</h2>
+<p>每组数据，输出一行一个整数，表示最少的涂色数。（涂一个面算一次涂色）</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+scarlet green blue yellow magenta cyan
+blue pink green magenta cyan lemon
+purple red blue yellow cyan green
+2
+red green blue yellow magenta cyan
+cyan green blue yellow magenta red
+2
+red green gray gray magenta cyan
+cyan green gray gray magenta red
+2
+red green blue yellow magenta cyan
+magenta red blue yellow cyan green
+3
+red green blue yellow magenta cyan
+cyan green hlue yellow magenta red
+magenta red blue yellow cyan green
+3
+blue green green green green blue
+green blue blue green green green
+green green green green green sea-green
+3
+red yellow red yellow red yellow
+red red yellow yellow red yellow
+red red red red red red
+4
+violet violet salmon salmon salmon salmon
+violet salmon salmon salmon salmon violet
+violet violet salmon salmon violet violet
+violet violet violet violet salmon salmon
+1
+red green hlue yellow magenta cyan
+4
+magenta pink red scarlet vermilion wine-red
+aquamarine blue cyan indigo sky-blue turciuoise-blue
+blond cream chrome-yellow lemon olive yellow
+chrome-green emerald-green green olive vilidian sky-blue
+0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4
+2
+0
+0
+2
+3
+4
+4
+0
+16</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

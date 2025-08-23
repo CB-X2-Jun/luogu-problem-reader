@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1778/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1778 万圣节后的早晨</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1778 万圣节后的早晨</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>要求你写一个程序，在一个地图中，找到最小步数将每个鬼移动到他们指定的位置。地图包含一些小方格。每格要么是墙（鬼不能进入），要么是走廊（鬼能进入）。</p>
+<p>每一步里，你可以同时移动任意数量的鬼。每个鬼要么待在原地不动，要么移动到相邻的格子里（相邻的格子有公共边），如果移动满足下列条件，则移动是可行的。</p>
+<ol>
+<li>没有一个以上的鬼在同一个格子里；</li>
+<li>没有一对鬼在一步里交换了位置。</li>
+</ol>
+<p>例如，假设鬼的位置是如右上图所示的，其中sharp(#)表示墙，空格表示走廊，a,b,c表示鬼：</p>
+<pre class="hljs"><code class="hljs">####
+ ab#
+#c##
+####</code></pre>
+<p>经过一步移动后，地图可以变成如下的样子：</p>
+<pre class="hljs"><code class="hljs">####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ####
+ ab#&nbsp;&nbsp;&nbsp;&nbsp; a b#&nbsp;&nbsp;&nbsp;&nbsp; acb#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ab #
+#c##&nbsp;&nbsp;&nbsp;&nbsp; #c##&nbsp;&nbsp;&nbsp;&nbsp; # ##&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #c##&nbsp;&nbsp; 
+####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ####</code></pre>
+
+<h2 id="_2">输入格式</h2>
+<p>输入包括最多 $10$ 组数据，每组数据包含一幅地图。输入格式如下：</p>
+<p>$$\begin{matrix}
+w &amp; h &amp; n \
+c_{1,1} &amp; c_{1,2} &amp; \cdots &amp; c_{1,w} \
+c_{2,1} &amp; c_{2,2} &amp; \cdots &amp; c_{2,w} \
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+c_{h,1} &amp; c_{h,2} &amp; \cdots &amp; c_{h,w} \
+\end{matrix}$$</p>
+<p>第一行的 $w，h$ 和 $n$ 表示地图的宽度和高度，$n$ 表示鬼的数目，他们满足 $4 \le w \le 16$，$4 \le h \le 16$，$1 \le n \le 3$。</p>
+<p>接下来 $h$ 行，每行 $w$ 个字符：</p>
+<ul>
+<li>一个 <code class="hljs inline">#</code> 表示墙。</li>
+<li>一个小写字母表示鬼的初始位置（该位置也是走廊）。</li>
+<li>一个大写字母表示鬼的目标位置（该位置也是走廊）。</li>
+<li>一个空格表示空的走廊。</li>
+</ul>
+<p>在每幅地图里，前 $n$ 个小写字母和前 $n$ 个大写字母表示鬼的初始位置及鬼的目标位置。我们需要将小写字母表示的鬼移动到对应的大写字母的位置里。</p>
+<p>最后一组数据后一行有三个 $0$。</p>
+<h2 id="_3">输出格式</h2>
+<p>对每组数据输出一行一个整数，表示最小的移动步数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5 2
+#####
+#A#B#
+#&nbsp;&nbsp; #
+#b#a#
+#####
+16 4 3
+################
+## ########## ##
+#&nbsp;&nbsp;&nbsp;&nbsp;ABCcba&nbsp;&nbsp;&nbsp;&nbsp;#
+################
+16 16 3
+################
+### ##&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp; ##
+##&nbsp;&nbsp;#&nbsp;&nbsp;##&nbsp;&nbsp; # c#
+#&nbsp;&nbsp;## ########b#
+# ##&nbsp;&nbsp;# #&nbsp;&nbsp; #&nbsp;&nbsp;#
+#&nbsp;&nbsp;# ##&nbsp;&nbsp; # # ##
+##&nbsp;&nbsp;a#&nbsp;&nbsp;# # #&nbsp;&nbsp;#
+### ## #### ## #
+##&nbsp;&nbsp; #&nbsp;&nbsp; #&nbsp;&nbsp;#&nbsp;&nbsp;#
+#&nbsp;&nbsp;##### # ## ##
+####&nbsp;&nbsp; #B# #&nbsp;&nbsp; #
+##&nbsp;&nbsp;C#&nbsp;&nbsp; #&nbsp;&nbsp; ###
+#&nbsp;&nbsp;# # ####### #
+# ######&nbsp;&nbsp;A##&nbsp;&nbsp;#
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; #
+################
+0 0 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">7
+36
+77</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
