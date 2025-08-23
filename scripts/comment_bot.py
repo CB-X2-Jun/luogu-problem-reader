@@ -227,20 +227,58 @@ class CommentBot:
     def reply_to_comment(self, discussion_number, comment_id, reply_text):
         """回复评论"""
         try:
-            url = f'{self.base_url}/repos/{self.repo_owner}/{self.repo_name}/discussions/{discussion_number}/comments'
+            # 使用GraphQL API进行回复
+            url = 'https://api.github.com/graphql'
             
-            data = {
-                'body': reply_text
+            # GraphQL mutation
+            query = """
+            mutation ($discussionId: ID!, $body: String!, $replyToId: ID) {
+                addDiscussionComment(input: {
+                    discussionId: $discussionId,
+                    body: $body,
+                    replyToId: $replyToId
+                }) {
+                    comment {
+                        id
+                        body
+                    }
+                }
+            }
+            """
+            
+            variables = {
+                "discussionId": f"D_kwDOA6p0v84AByhA",  # 需要替换为实际的discussion node_id
+                "body": reply_text,
+                "replyToId": f"DC_kwDOA6p0v84AByhA"    # 需要替换为实际的comment node_id
             }
             
-            response = requests.post(url, headers=self.headers, json=data)
-            response.raise_for_status()
+            # 更新headers以支持GraphQL
+            headers = self.headers.copy()
+            headers['Content-Type'] = 'application/json'
             
+            response = requests.post(
+                url,
+                headers=headers,
+                json={
+                    'query': query,
+                    'variables': variables
+                }
+            )
+            
+            response.raise_for_status()
+            result = response.json()
+            
+            if 'errors' in result:
+                print(f"❌ GraphQL错误: {result['errors']}")
+                return False
+                
             print(f"✅ 成功回复讨论 #{discussion_number}")
             return True
             
         except Exception as e:
             print(f"❌ 回复失败: {e}")
+            if hasattr(e, 'response') and hasattr(e.response, 'text'):
+                print(f"响应内容: {e.response.text}")
             return False
     
     def process_discussions(self):
