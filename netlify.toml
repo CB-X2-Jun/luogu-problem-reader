@@ -1,7 +1,4 @@
 [build]
-  # 构建命令 - 如果你有构建步骤的话
-  # command = "npm run build"
-  
   # 发布目录 - Netlify将从这个目录部署文件
   publish = "."
   
