@@ -1,0 +1,30 @@
+{
+  "name": "luogu-problem-reader",
+  "version": "1.0.0",
+  "description": "洛谷题目浏览站 - 自动化爬取和展示洛谷题目",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "luogu",
+    "algorithm",
+    "programming",
+    "contest",
+    "netlify",
+    "github-actions"
+  ],
+  "author": "CB_X2_Jun",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

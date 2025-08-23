@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式数据仪表板 - 洛谷题目浏览站</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: #7f8c8d;
+            margin: 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .chart-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .chart-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-link">← 返回主页</a>
+        
+        <div class="header">
+            <h1>📊 交互式数据仪表板</h1>
+            <p>洛谷题目浏览站 - 实时数据分析与可视化</p>
+        </div>
+
+        <!-- 统计概览 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1381</div>
+                <div class="stat-label">题目总数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">样例覆盖率</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1361</div>
+                <div class="stat-label">数学题目</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">交互题目</div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>题目特征分布</h3>
+                <div class="chart-container">
+                    <canvas id="featuresChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>难度分布</h3>
+                <div class="chart-container">
+                    <canvas id="difficultyChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>题目长度分布</h3>
+                <div class="chart-container">
+                    <canvas id="lengthChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>样例覆盖情况</h3>
+                <div class="chart-container">
+                    <canvas id="samplesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>最后更新: 2025-08-23 14:04:21 | 数据来源: 洛谷题目浏览站</p>
+        </div>
+    </div>
+
+    <script>
+        // 图表配置
+        Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        Chart.defaults.color = '#2c3e50';
+
+        // 题目特征分布饼图
+        const featuresCtx = document.getElementById('featuresChart').getContext('2d');
+        new Chart(featuresCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['数学题', '交互题', '普通题'],
+                datasets: [{
+                    data: [1361, 2, 18],
+                    backgroundColor: ['#3498db', '#e74c3c', '#2ecc71'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // 难度分布柱状图
+        const difficultyCtx = document.getElementById('difficultyChart').getContext('2d');
+        new Chart(difficultyCtx, {
+            type: 'bar',
+            data: {
+                labels: ["\u5176\u4ed6", "USACO", "NOI", "NOIP\u63d0\u9ad8", "NOIP\u666e\u53ca", "NOIP"],
+                datasets: [{
+                    label: '题目数量',
+                    data: [961, 132, 128, 80, 71, 9],
+                    backgroundColor: '#3498db',
+                    borderColor: '#2980b9',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // 题目长度分布柱状图
+        const lengthCtx = document.getElementById('lengthChart').getContext('2d');
+        new Chart(lengthCtx, {
+            type: 'bar',
+            data: {
+                labels: ["<500", "500-1K", "1K-1.5K", "1.5K-2K", "2K-3K", "3K-5K", ">5K"],
+                datasets: [{
+                    label: '题目数量',
+                    data: [237, 776, 257, 67, 30, 10, 4],
+                    backgroundColor: '#2ecc71',
+                    borderColor: '#27ae60',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // 样例覆盖情况饼图
+        const samplesCtx = document.getElementById('samplesChart').getContext('2d');
+        new Chart(samplesCtx, {
+            type: 'pie',
+            data: {
+                labels: ['有样例', '无样例'],
+                datasets: [{
+                    data: [1380, 1],
+                    backgroundColor: ['#2ecc71', '#e74c3c'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

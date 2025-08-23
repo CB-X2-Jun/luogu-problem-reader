@@ -6,13 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="一个用于浏览洛谷题目的静态网站">
+        <meta name="description" content="洛谷题目浏览站 - 收录1381道洛谷题目，99.9%样例覆盖率，包含1361道数学题和2道交互题。支持代码高亮、数学公式渲染，提供智能推荐和数据可视化。">
+      <meta name="keywords" content="洛谷, luogu, 题目, 算法, 编程, 竞赛, NOIP, NOI, USACO, 数学, 交互题, 代码高亮, 数学公式, KaTeX, 题目浏览, 编程学习, 算法练习, 竞赛编程, OI, 1381道题目, 样例完整, 自动化更新">
       
       
-        <meta name="author" content="CB_X2_Jun">
+        <meta name="author" content="CB_X2_Jun - 洛谷题目浏览站">
       
       
         <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/">
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://luogu.cb-x2-jun.run.place/">
+      <meta property="og:title" content="洛谷题目浏览站 - 1381道题目在线浏览">
+      <meta property="og:description" content="洛谷题目浏览站 - 收录1381道洛谷题目，99.9%样例覆盖率，包含1361道数学题和2道交互题。支持代码高亮、数学公式渲染，提供智能推荐和数据可视化。">
+      <meta property="og:image" content="https://luogu.cb-x2-jun.run.place/assets/images/og-image.png">
+
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://luogu.cb-x2-jun.run.place/">
+      <meta property="twitter:title" content="洛谷题目浏览站 - 1381道题目在线浏览">
+      <meta property="twitter:description" content="洛谷题目浏览站 - 收录1381道洛谷题目，99.9%样例覆盖率，包含1361道数学题和2道交互题。支持代码高亮、数学公式渲染，提供智能推荐和数据可视化。">
+      <meta property="twitter:image" content="https://luogu.cb-x2-jun.run.place/assets/images/og-image.png">
+
+      <!-- 其他SEO标签 -->
+      <meta name="robots" content="index, follow">
+      <meta name="googlebot" content="index, follow">
+      <meta name="revisit-after" content="1 days">
+      <meta name="last-modified" content="2025-08-23">
       
       
       
@@ -417,6 +437,207 @@
 </div>
 
 <!-- 每日推荐题目结束 -->
+
+  <!-- 自动化控制面板 -->
+  <div id="automation-panel" style="margin: 3rem 0;">
+    <h2 style="color: #2c3e50; text-align: center; margin-bottom: 2rem; font-weight: 300;">🤖 自动化控制面板</h2>
+    
+    <!-- 实时统计 -->
+    <div style="background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="margin: 0; color: #2c3e50;">📊 实时统计</h3>
+        <button onclick="triggerWorkflow('daily-stats')" style="background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">🔄 立即更新</button>
+      </div>
+      <div id="stats-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;">
+        <div>
+          <div id="total-problems" style="font-size: 1.8rem; font-weight: bold; color: #3498db;">加载中...</div>
+          <div style="color: #7f8c8d; font-size: 0.9rem;">题目总数</div>
+        </div>
+        <div>
+          <div id="sample-coverage" style="font-size: 1.8rem; font-weight: bold; color: #2ecc71;">加载中...</div>
+          <div style="color: #7f8c8d; font-size: 0.9rem;">样例覆盖率</div>
+        </div>
+        <div>
+          <div id="math-problems" style="font-size: 1.8rem; font-weight: bold; color: #e74c3c;">加载中...</div>
+          <div style="color: #7f8c8d; font-size: 0.9rem;">数学题目</div>
+        </div>
+        <div>
+          <div id="interactive-problems" style="font-size: 1.8rem; font-weight: bold; color: #9b59b6;">加载中...</div>
+          <div style="color: #7f8c8d; font-size: 0.9rem;">交互题目</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 工作流控制 -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      
+      <!-- 主题控制 -->
+      <div style="background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h4 style="margin: 0; color: #2c3e50;">🎨 主题控制</h4>
+          <span id="current-theme" style="background: #3498db; color: white; padding: 0.2rem 0.8rem; border-radius: 12px; font-size: 0.8rem;">夏季 🌞</span>
+        </div>
+        <button onclick="triggerWorkflow('theme-automation')" style="background: #3498db; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 0.5rem;">🎨 检测并应用主题</button>
+        <div style="font-size: 0.8rem; color: #6c757d; text-align: center;">根据季节和节日自动切换主题</div>
+      </div>
+
+      <!-- SEO优化 -->
+      <div style="background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h4 style="margin: 0; color: #2c3e50;">🔍 SEO优化</h4>
+          <span id="indexed-urls" style="background: #28a745; color: white; padding: 0.2rem 0.8rem; border-radius: 12px; font-size: 0.8rem;">1383</span>
+        </div>
+        <button onclick="triggerWorkflow('seo-optimization')" style="background: #28a745; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 0.5rem;">🔍 优化SEO</button>
+        <div style="font-size: 0.8rem; color: #6c757d; text-align: center;">更新sitemap、meta标签和robots.txt</div>
+      </div>
+
+      <!-- 数据可视化 -->
+      <div style="background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h4 style="margin: 0; color: #2c3e50;">📊 数据可视化</h4>
+          <a href="charts/" style="color: #6f42c1; text-decoration: none; font-size: 0.8rem;">查看图表 →</a>
+        </div>
+        <button onclick="triggerWorkflow('data-visualization')" style="background: #6f42c1; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 0.5rem;">📊 生成图表</button>
+        <div style="font-size: 0.8rem; color: #6c757d; text-align: center;">生成统计图表和交互式仪表板</div>
+      </div>
+
+    </div>
+
+    <!-- 工作流状态 -->
+    <div id="workflow-status" style="background: #f8f9fa; border-radius: 8px; padding: 1rem; margin-top: 2rem; display: none;">
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="width: 20px; height: 20px; border: 2px solid #3498db; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 0.5rem;"></div>
+        <span id="status-text">正在执行工作流...</span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    // 加载实时统计数据
+    async function loadStats() {
+      try {
+        // 尝试从stats目录加载数据
+        const response = await fetch('stats/daily_stats.json');
+        if (response.ok) {
+          const stats = await response.json();
+          document.getElementById('total-problems').textContent = stats.total_problems || '1381';
+          document.getElementById('sample-coverage').textContent = (stats.sample_coverage_percent || stats.sample_coverage || 99.9) + '%';
+          document.getElementById('math-problems').textContent = stats.math_problems || '1361';
+          document.getElementById('interactive-problems').textContent = stats.interactive_problems || '2';
+        } else {
+          // 使用默认值
+          setDefaultStats();
+        }
+      } catch (error) {
+        console.log('使用默认统计数据');
+        setDefaultStats();
+      }
+    }
+
+    function setDefaultStats() {
+      document.getElementById('total-problems').textContent = '1381';
+      document.getElementById('sample-coverage').textContent = '99.9%';
+      document.getElementById('math-problems').textContent = '1361';
+      document.getElementById('interactive-problems').textContent = '2';
+    }
+
+    // 加载主题信息
+    async function loadThemeInfo() {
+      try {
+        const response = await fetch('stats/theme_info.json');
+        if (response.ok) {
+          const themeInfo = await response.json();
+          const themeMap = {
+            'spring': '春季 🌸',
+            'summer': '夏季 🌞',
+            'autumn': '秋季 🍂',
+            'winter': '冬季 ❄️',
+            'chinese_new_year': '春节 🧧',
+            'christmas': '圣诞 🎄',
+            'halloween': '万圣节 🎃'
+          };
+          const themeDisplay = themeMap[themeInfo.recommended_theme] || '夏季 🌞';
+          document.getElementById('current-theme').textContent = themeDisplay;
+        }
+      } catch (error) {
+        console.log('使用默认主题信息');
+      }
+    }
+
+    // 触发GitHub Actions工作流
+    async function triggerWorkflow(workflowName) {
+      const statusEl = document.getElementById('workflow-status');
+      const statusText = document.getElementById('status-text');
+      
+      statusEl.style.display = 'block';
+      statusText.textContent = `正在触发 ${workflowName} 工作流...`;
+
+      try {
+        // 调用Netlify Functions触发工作流
+        const response = await fetch('/.netlify/functions/trigger-workflow', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            workflow: workflowName
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          statusText.textContent = `✅ ${result.message}`;
+          setTimeout(() => {
+            statusEl.style.display = 'none';
+            // 刷新统计数据
+            if (workflowName === 'daily-stats') {
+              setTimeout(() => loadStats(), 5000); // 5秒后刷新统计数据
+            }
+            if (workflowName === 'theme-automation') {
+              setTimeout(() => loadThemeInfo(), 5000); // 5秒后刷新主题信息
+            }
+          }, 3000);
+        } else {
+          throw new Error(result.error || '触发失败');
+        }
+
+      } catch (error) {
+        console.error('工作流触发失败:', error);
+        statusText.textContent = `❌ 触发失败: ${error.message}`;
+        
+        // 显示备用选项
+        setTimeout(() => {
+          statusText.innerHTML = `触发失败，<a href="https://github.com/CB-X2-Jun/luogu-problem-reader/actions" target="_blank" style="color: #3498db;">手动访问GitHub Actions</a>`;
+          setTimeout(() => {
+            statusEl.style.display = 'none';
+          }, 5000);
+        }, 2000);
+      }
+    }
+
+    // 页面加载时初始化数据
+    document.addEventListener('DOMContentLoaded', function() {
+      loadStats();
+      loadThemeInfo();
+    });
+  </script>
 
 <!-- 操作按钮 -->
   <div style="text-align: center; margin-bottom: 3rem;">
