@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P2403/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2403 [SDOI2010] 所驼门王的宝藏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2403 [SDOI2010] 所驼门王的宝藏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在宽广的非洲荒漠中，生活着一群勤劳勇敢的羊驼家族。被族人恭称为“先知”的 AlpacaL.Sotomon 是这个家族的领袖，外人也称其为“所驼门王”。所驼门王毕生致力于维护家族的安定与和谐，他曾亲自率军粉碎河蟹帝国主义的野蛮侵略，为族人立下赫赫战功。所驼门王一生财宝无数，但因其生性节俭低调，他将财宝埋藏在自己设计的地下宫殿里，这也是今天 Henry Curtis 故事的起点。Henry 是一个爱财如命的贪婪家伙，而又非常聪明，他费尽心机谋划了这次盗窃行动，破解重重机关后来到这座地下宫殿前。</p>
+<p>整座宫殿呈矩阵状，由 $R \times C$ 间矩形宫室组成，其中有 $N$ 间宫室里埋藏着宝藏，称作藏宝宫室。宫殿里外、相邻宫室间都由坚硬的实体墙阻隔，由一间宫室到达另一间只能通过所驼门王独创的移动方式——传送门。所驼门王为这 $N$ 间藏宝宫室每间都架设了一扇传送门，没有宝藏的宫室不设传送门，所有的宫室传送门分为三种：</p>
+<ol>
+<li>“横天门”：由该门可以传送到同行的任一宫室；</li>
+<li>“纵寰门”：由该门可以传送到同列的任一宫室；</li>
+<li>“任意门”：由该门可以传送到以该门所在宫室为中心周围 $8$ 格中任一宫室（如果目标宫室存在的话）。</li>
+</ol>
+<p>深谋远虑的 Henry 当然事先就搞到了所驼门王当年的宫殿招标册，书册上详细记录了每扇传送门所属宫室及类型。而且，虽然宫殿内外相隔，但他自行准备了一种便携式传送门，可将自己传送到殿内任意一间宫室开始寻宝，并在任意一间宫室结束后传送出宫。整座宫殿只许进出一次，且便携门无法进行宫室之间的传送。不过好在宫室内传送门的使用没有次数限制，每间宫室也可以多次出入。</p>
+<p>现在 Henry 已经打开了便携门，即将选择一间宫室进入。为得到尽多宝藏，他希望安排一条路线，使走过的不同藏宝宫室尽可能多。请你告诉 Henry 这条路线最多行经不同藏宝宫室的数目。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行给出三个正整数 $N,R,C$。</p>
+<p>以下 $N$ 行，每行给出一扇传送门的信息，包含三个正整数 $x_i,y_i,T_i$，表示该传送门设在位于第 $x_i$ 行第 $y_i$ 列的藏宝宫室，类型为 $T_i$。$T_i$ 是一个 $1 \sim 3$ 间的整数，$1$ 表示可以传送到第 $x_i$ 行任意一列的“横天门”，$2$ 表示可以传送到任意一行第 $y_i$ 列的“纵寰门”，$3$ 表示可以传送到周围 $8$ 格宫室的“任意门”。</p>
+<p>保证 $1 \le x_i \le R$，$1 \le y_i \le C$，所有的传送门位置互不相同。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出只有一个正整数，表示你确定的路线所经过不同藏宝宫室的最大数目。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>10 7 7
+2 2 1
+2 4 2
+1 7 2
+2 7 3
+4 2 2
+4 4 1
+6 7 3
+7 7 1
+7 5 2
+5 2 1
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>9
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>数据规模和约定：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1594.png" /></p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>
