@@ -1,0 +1,20 @@
+[build]
+  # 静态网站，无需构建命令
+  command = ""
+  # 发布根目录
+  publish = "."
+
+# 安全头部设置
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# 重定向设置（可选）
+[[redirects]]
+  from = "/problem"
+  to = "/problem/list/"
+  status = 301
