@@ -2,32 +2,34 @@
   "date": "2025-08-23",
   "problems": [
     {
-      "id": "P1805",
-      "title": "P1805 P1805 关灯",
+      "id": "P2104",
+      "title": "P2104 P2104 二进制",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 753,
+      "length": 637,
       "difficulty_hints": []
     },
     {
-      "id": "P2203",
-      "title": "P2203 P2203 [USACO13OPEN] Blink B",
+      "id": "P1025",
+      "title": "P1025 P1025 [NOIP 2001 提高组] 数的划分",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 833,
-      "difficulty_hints": []
+      "length": 412,
+      "difficulty_hints": [
+        "NOIP"
+      ]
     },
     {
-      "id": "P1591",
-      "title": "P1591 P1591 阶乘数码",
+      "id": "P2061",
+      "title": "P2061 P2061 [USACO07OPEN] City Horizon S",
       "has_samples": true,
-      "has_math": true,
+      "has_math": false,
       "is_interactive": false,
-      "length": 259,
+      "length": 949,
       "difficulty_hints": []
     }
   ],
-  "generated_at": "2025-08-23 13:52:20"
+  "generated_at": "2025-08-23 05:56:10"
 }
