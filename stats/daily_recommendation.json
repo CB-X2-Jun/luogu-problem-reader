@@ -2,34 +2,32 @@
   "date": "2025-08-23",
   "problems": [
     {
-      "id": "P2104",
-      "title": "P2104 P2104 二进制",
+      "id": "P1442",
+      "title": "P1442 P1442 铁球落地",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 637,
+      "length": 1112,
       "difficulty_hints": []
     },
     {
-      "id": "P1025",
-      "title": "P1025 P1025 [NOIP 2001 提高组] 数的划分",
+      "id": "P2172",
+      "title": "P2172 P2172 [国家集训队] 部落战争",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 412,
-      "difficulty_hints": [
-        "NOIP"
-      ]
+      "length": 860,
+      "difficulty_hints": []
     },
     {
-      "id": "P2061",
-      "title": "P2061 P2061 [USACO07OPEN] City Horizon S",
+      "id": "P1840",
+      "title": "P1840 P1840 Color the Axis",
       "has_samples": true,
-      "has_math": false,
+      "has_math": true,
       "is_interactive": false,
-      "length": 949,
+      "length": 477,
       "difficulty_hints": []
     }
   ],
-  "generated_at": "2025-08-23 07:13:14"
+  "generated_at": "2025-08-23 07:24:28"
 }
