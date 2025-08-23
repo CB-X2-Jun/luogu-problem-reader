@@ -224,9 +224,79 @@ class CommentBot:
         
         return True
     
+    def get_node_ids(self, discussion_number, comment_id):
+        """获取discussion和comment的node_id"""
+        try:
+            # 查询discussion的node_id
+            query = """
+            query ($owner: String!, $repo: String!, $number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                    discussion(number: $number) {
+                        id
+                        comments(first: 20) {
+                            nodes {
+                                id
+                                databaseId
+                            }
+                        }
+                    }
+                }
+            }
+            """
+            
+            variables = {
+                "owner": self.repo_owner,
+                "repo": self.repo_name,
+                "number": discussion_number
+            }
+            
+            response = requests.post(
+                'https://api.github.com/graphql',
+                headers={
+                    'Authorization': f'token {self.github_token}',
+                    'Content-Type': 'application/json'
+                },
+                json={'query': query, 'variables': variables}
+            )
+            response.raise_for_status()
+            
+            result = response.json()
+            if 'errors' in result:
+                print(f"❌ 获取node_id失败: {result['errors']}")
+                return None, None
+                
+            discussion_data = result.get('data', {}).get('repository', {}).get('discussion')
+            if not discussion_data:
+                print("❌ 未找到discussion")
+                return None, None
+                
+            discussion_node_id = discussion_data['id']
+            comment_node_id = None
+            
+            # 查找对应的comment node_id
+            for comment in discussion_data.get('comments', {}).get('nodes', []):
+                if str(comment.get('databaseId')) == str(comment_id):
+                    comment_node_id = comment['id']
+                    break
+                    
+            if not comment_node_id:
+                print(f"⚠️ 未找到评论 {comment_id} 的node_id，将仅回复到讨论")
+                
+            return discussion_node_id, comment_node_id
+            
+        except Exception as e:
+            print(f"❌ 获取node_id时出错: {e}")
+            return None, None
+    
     def reply_to_comment(self, discussion_number, comment_id, reply_text):
         """回复评论"""
         try:
+            # 获取node_ids
+            discussion_node_id, comment_node_id = self.get_node_ids(discussion_number, comment_id)
+            if not discussion_node_id:
+                print("❌ 无法获取discussion的node_id")
+                return False
+                
             # 使用GraphQL API进行回复
             url = 'https://api.github.com/graphql'
             
@@ -247,9 +317,9 @@ class CommentBot:
             """
             
             variables = {
-                "discussionId": f"D_kwDOA6p0v84AByhA",  # 需要替换为实际的discussion node_id
+                "discussionId": discussion_node_id,
                 "body": reply_text,
-                "replyToId": f"DC_kwDOA6p0v84AByhA"    # 需要替换为实际的comment node_id
+                "replyToId": comment_node_id  # 可能为None，表示回复到讨论
             }
             
             # 更新headers以支持GraphQL
