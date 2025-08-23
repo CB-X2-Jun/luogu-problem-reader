@@ -63,10 +63,15 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git pull --rebase origin main || true
         git add stats/ README.md
-        git diff --staged --quiet || git commit -m "📊 Daily stats update - $(date +'%Y-%m-%d')"
-        git push
+        git diff --staged --quiet || {
+          git stash push -m "temp stash before pull" || true
+          git pull --rebase origin main || true
+          git stash pop || true
+          git add stats/ README.md
+          git commit -m "📊 Daily stats update - $(date +'%Y-%m-%d')"
+          git push
+        }
 
   # 数据可视化
   data-visualization:
@@ -99,10 +104,15 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git pull --rebase origin main || true
         git add charts/ dashboard/
-        git diff --staged --quiet || git commit -m "📊 Data visualization update - $(date +'%Y-%m-%d')"
-        git push
+        git diff --staged --quiet || {
+          git stash push -m "temp stash before pull" || true
+          git pull --rebase origin main || true
+          git stash pop || true
+          git add charts/ dashboard/
+          git commit -m "📊 Data visualization update - $(date +'%Y-%m-%d')"
+          git push
+        }
 
   # SEO优化
   seo-optimization:
@@ -135,10 +145,15 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git pull --rebase origin main || true
         git add sitemap.xml
-        git diff --staged --quiet || git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')"
-        git push
+        git diff --staged --quiet || {
+          git stash push -m "temp stash before pull" || true
+          git pull --rebase origin main || true
+          git stash pop || true
+          git add sitemap.xml
+          git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')"
+          git push
+        }
 
   # 主题自动化
   theme-automation:
@@ -177,7 +192,12 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git pull --rebase origin main || true
         git add css/
-        git diff --staged --quiet || git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')"
-        git push
+        git diff --staged --quiet || {
+          git stash push -m "temp stash before pull" || true
+          git pull --rebase origin main || true
+          git stash pop || true
+          git add css/
+          git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')"
+          git push
+        }
