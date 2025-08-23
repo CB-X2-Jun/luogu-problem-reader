@@ -1,3 +1,291 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/about/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/about/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1000/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1000/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1000/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1000/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1001/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1001/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1001/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1001/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1002/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1002/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1002/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1002/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1003/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1003/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1003/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1003/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1004/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1004/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1004/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1004/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1005/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1005/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1005/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1005/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1006/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1006/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1006/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1006/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1007/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1007/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1007/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1007/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/problem/P1008/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1008/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1008/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1008/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/about/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/about/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/about/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1000/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1000/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1000/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1000/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1001/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1001/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1001/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1001/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1002/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1002/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1002/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1002/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1003/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1003/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1003/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1003/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1004/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1004/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1004/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1004/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1005/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1005/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1005/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1005/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1006/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1006/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1006/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1006/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1007/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1007/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1007/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1007/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/en/problem/P1008/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1008/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1008/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1008/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/about/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/about/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1000/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1000/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1000/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1000/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1001/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1001/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1001/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1001/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1002/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1002/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1002/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1002/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1003/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1003/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1003/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1003/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1004/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1004/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1004/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1004/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1005/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1005/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1005/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1005/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1006/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1006/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1006/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1006/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1007/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1007/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1007/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1007/"/>
+    </url>
+    <url>
+        <loc>https://luogu.cb-x2-jun.run.place/ja/problem/P1008/</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://luogu.cb-x2-jun.run.place/ja/problem/P1008/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luogu.cb-x2-jun.run.place/en/problem/P1008/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luogu.cb-x2-jun.run.place/problem/P1008/"/>
+    </url>
 </urlset>
