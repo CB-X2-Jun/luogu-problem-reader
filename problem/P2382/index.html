@@ -23,37 +23,35 @@
       
       /* 题目标题美化 */
       .md-content__inner h1 {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #2c3e50;
         font-size: 2.5rem;
         font-weight: bold;
         margin-bottom: 2rem;
         text-align: center;
         padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
       }
       
       /* 题目内容区块美化 */
       .md-content__inner h2 {
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        background: #f8f9fa;
         color: #2c3e50;
         padding: 1rem 1.5rem;
         border-radius: 8px;
-        border: 2px solid #667eea;
+        border-left: 4px solid #3498db;
         margin: 2rem 0 1rem 0;
         font-size: 1.3rem;
-        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         font-weight: 600;
       }
       
       /* 代码块美化 */
       .md-content__inner pre {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border: 2px solid #dee2e6;
-        border-radius: 12px;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
         padding: 1.5rem;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         margin: 1.5rem 0;
       }
       
@@ -66,8 +64,8 @@
       }
       
       .md-content__inner code {
-        background: rgba(102, 126, 234, 0.1);
-        color: #667eea;
+        background: #e9ecef;
+        color: #495057;
         padding: 0.2rem 0.5rem;
         border-radius: 4px;
         font-weight: 500;
@@ -75,14 +73,14 @@
       
       /* 样例区块特殊美化 */
       .md-content__inner h3:contains("样例") {
-        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        background: #f0f8ff;
         color: #2c3e50;
         padding: 0.8rem 1.2rem;
         border-radius: 6px;
-        border: 2px solid #4facfe;
+        border-left: 4px solid #17a2b8;
         margin: 1.5rem 0 0.8rem 0;
         font-size: 1.1rem;
-        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         font-weight: 600;
       }
       
@@ -113,28 +111,29 @@
       }
       
       .md-content__inner th {
-        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-        color: #333;
+        background: #e9ecef;
+        color: #495057;
         font-weight: 600;
       }
       
       /* 返回按钮美化 */
       .back-button {
         display: inline-block;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #3498db;
         color: white;
         padding: 0.8rem 1.5rem;
         border-radius: 8px;
         text-decoration: none;
         font-weight: bold;
         margin: 2rem 0;
-        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
-        transition: all 0.3s;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       
       .back-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         color: white;
         text-decoration: none;
       }
