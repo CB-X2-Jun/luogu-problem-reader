@@ -1,0 +1,33 @@
+{
+  "date": "2025-08-23",
+  "problems": [
+    {
+      "id": "P1805",
+      "title": "P1805 P1805 关灯",
+      "has_samples": true,
+      "has_math": true,
+      "is_interactive": false,
+      "length": 753,
+      "difficulty_hints": []
+    },
+    {
+      "id": "P2203",
+      "title": "P2203 P2203 [USACO13OPEN] Blink B",
+      "has_samples": true,
+      "has_math": true,
+      "is_interactive": false,
+      "length": 833,
+      "difficulty_hints": []
+    },
+    {
+      "id": "P1591",
+      "title": "P1591 P1591 阶乘数码",
+      "has_samples": true,
+      "has_math": true,
+      "is_interactive": false,
+      "length": 259,
+      "difficulty_hints": []
+    }
+  ],
+  "generated_at": "2025-08-23 13:52:20"
+}
