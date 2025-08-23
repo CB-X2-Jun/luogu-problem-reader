@@ -233,38 +233,44 @@ class CommentBot:
             return False
     
     def process_discussions(self):
-        """处理最近的讨论"""
-        print("🤖 开始检查最近的讨论...")
+        """遍历所有Discussions，遍历所有评论，对每条评论都自动回复（除自己外）"""
+        print("🤖 开始检查所有讨论...")
         
-        discussions = self.get_recent_discussions(hours=2)
-        print(f"📋 找到 {len(discussions)} 个最近更新的讨论")
+        # 获取所有Discussions（分页，每页最多100条）
+        discussions = []
+        page = 1
+        while True:
+            url = f'{self.base_url}/repos/{self.repo_owner}/{self.repo_name}/discussions'
+            params = {'per_page': 100, 'page': page, 'sort': 'updated', 'direction': 'desc', 'category': 'Announcements'}
+            resp = requests.get(url, headers=self.headers, params=params)
+            if resp.status_code != 200:
+                print(f"❌ 获取Discussions失败: {resp.status_code}")
+                break
+            page_discussions = resp.json()
+            if not page_discussions:
+                break
+            discussions.extend(page_discussions)
+            if len(page_discussions) < 100:
+                break
+            page += 1
+        print(f"📋 共找到 {len(discussions)} 个讨论主题")
         
         reply_count = 0
-        
         for discussion in discussions:
             discussion_number = discussion['number']
             print(f"🔍 检查讨论 #{discussion_number}: {discussion['title']}")
-            
-            # 获取讨论的评论
+            # 获取该讨论下所有评论
             comments = self.get_discussion_comments(discussion_number)
-            
             for comment in comments:
                 if not self.should_reply(comment):
                     continue
-                
-                # 分析评论内容
                 reply_text = self.analyze_comment(comment['body'])
-                
                 if reply_text:
                     print(f"💬 发现需要回复的评论: {comment['body'][:50]}...")
-                    
-                    # 添加Bot标识
                     bot_reply = f"{reply_text}\n\n---\n🤖 *这是自动回复，如需人工帮助请 @Eternity-Sky*"
-                    
                     if self.reply_to_comment(discussion_number, comment['id'], bot_reply):
                         reply_count += 1
-                        time.sleep(2)  # 避免API限制
-        
+                        time.sleep(2)
         print(f"✨ 处理完成，共回复了 {reply_count} 条评论")
         return reply_count
 
