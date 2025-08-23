@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1875/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1875 佳佳的魔法药水【数据有误】</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1875 佳佳的魔法药水【数据有误】</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p><strong>存在 ab 相同 c 不同的情况，与题意相悖。题还是可以做，但数据待修正。</strong></p>
+<p>发完了 $k$ 张照片，佳佳却得到了一个坏消息：他的 MM 得病了！佳佳和大家一样焦急万分！治好 MM 的病只有一种办法，那就是传说中的 $0$ 号药水……怎么样才能得到 $0$ 号药水呢？你要知道佳佳的家境也不是很好，成本得足够低才行……</p>
+<h2 id="_2">题目描述</h2>
+<p>得到一种药水有两种方法：可以按照魔法书上的指导自己配置，也可以到魔法商店里去买——那里对于每种药水都有供应，虽然有可能价格很贵。在魔法书上有很多这样的记载：</p>
+<p>$1$ 份 A 药水混合 $1$ 份 B 药水就可以得到 $1$ 份 C 药水。（至于为什么 $1 + 1 = 1$，因为……这是魔法世界）好了，现在你知道了需要得到某种药水，还知道所有可能涉及到的药水的价格以及魔法书上所有的配置方法，现在要问的就是：</p>
+<ol>
+<li>最少花多少钱可以配制成功这种珍贵的药水；</li>
+<li>共有多少种不同的花费最少的方案（两种可行的配置方案如果有任何一个步骤不同则视为不同的）。假定初始时你手中并没有任何可以用的药水。</li>
+</ol>
+<h2 id="_3">输入格式</h2>
+<p>第一行有一个整数 $N$（$1 \le N \le 1000$），表示一共涉及到的药水总数。药水从 $0 \sim N-1$ 顺序编号，$0$ 号药水就是最终要配制的药水。</p>
+<p>第二行有 $N$ 个整数，分别表示从 $0 \sim N-1$ 顺序编号的所有药水在魔法商店的价格（都表示 $1$ 份的价格）。</p>
+<p>第三行开始，每行有三个整数 A、B、C，表示 $1$ 份 A 药水混合 $1$ 份 B 药水就可以得到 $1$ 份 C 药水。注意，某两种特定的药水搭配如果能配成新药水的话，那么结果是唯一的。也就是说不会出现某两行的 A、B 相同但 C 不同的情况。</p>
+<p>输入以一个空行结束。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出两个用空格隔开的整数，分别表示得到 $0$ 号药水的最小花费以及花费最少的方案的个数。</p>
+<p>保证方案数不超过 $2^{63} - 1$。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">7 
+10 5 6 3 2 2 3 
+1 2 0 
+4 5 1 
+3 6 2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">10 3</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>数据范围：</p>
+<p>每一种药水的价格均在 $[1, 2.8\times 10^4]$ 范围内。</p>
+<p>样例说明：</p>
+<p>最优方案有 $3$ 种，分别是：</p>
+<ul>
+<li>直接买 $0$ 号药水；</li>
+<li>买 $4$ 号药水、$5$ 号药水配制成 $1$ 号药水，直接买 $2$ 号药水，然后配制成 $0$ 号药水；</li>
+<li>买 $4$ 号药水、$5$ 号药水配制成 $1$ 号药水，买 $3$ 号药水、$6$ 号药水配制成 $2$ 号药水，然后配制成 $0$ 号药水。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

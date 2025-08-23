@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2113/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2113 看球泡妹子</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2113 看球泡妹子</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>2014 年巴西世界杯开幕了，现在满城皆是世界杯，商家们利用它大赚一笔，小明和小红也借此机会增进感情。</p>
+<h2 id="_2">题目描述</h2>
+<p>本届世界杯共有 $n$ 支球队，$m$ 场比赛。男球迷小明喜欢看比赛，女球迷小红喜欢看帅哥。每支球队在小明眼里的实力值为 $a_i$，在小红眼里的帅哥数量为 $b_i$。</p>
+<p>每场比赛有两个球队对抗，它们的编号分别是 $p_i$ 和 $q_i$。小明认为一场比赛的精彩度等于两队实力的乘积，小红则认为是两队帅哥数量之和。</p>
+<p>由于体力的限制，他们最多只能看 $k$ 场比赛。当然，只要看比赛，两个人一定会一起看。小明作为男生，理应迁就一下女生，所以，请你写一个程序，求出小红看到比赛的精彩度总和不小于 $c$ 的情况下，小明看到比赛的精彩度的最大总和。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行包含四个正整数 $n,m,k,c$。</p>
+<p>第二行有 $n$ 个用空格隔开的正整数 $a_i$。</p>
+<p>第三行有 $n$ 个用空格隔开的正整数 $b_i$。</p>
+<p>接下来 $m$ 行，每行两个正整数 $p_i,q_i$。</p>
+<h2 id="_4">输出格式</h2>
+<p>一行，一个正整数表示小明看到比赛的精彩度的最大总和。如果无论如何都无法满足小红的要求，输出 <code class="hljs inline">-1</code>。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 3 2 5
+2 2 1 3
+1 1 1 2
+1 2
+2 3
+3 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">7</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h4 id="_7">数据范围与约定</h4>
+<ul>
+<li>对于 $20\%$ 数据，$1 \le n,m,k \le 5$。</li>
+<li>对于 $100\%$ 数据，$1 \le n \le 100$，$1 \le k \le m \le 100$，$1 \le a_i,b_i \le 10$，$1 \le c \le 10^3$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

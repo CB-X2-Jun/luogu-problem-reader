@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1844/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1844 阅览室</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1844 阅览室</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>一个阅览室每天都要接待大批读者。阅览室开门时间是 $O$，关门时间是 $T$。每位读者的到达时间都不一样，并且想要阅读的刊物不超过 $5$ 本。</p>
+<p>每位读者心里对自己想看的刊物都有一个排位，到达之后他会先去找自己最想看的刊物，如果找不到则去找其次想看的刊物。如果找不到任何他想看的刊物，他会开始等待，直到有一本以上的他想看的刊物被人放回原处。当然，他会先去拿其中自己最想看的刊物。当他看完某一本刊物后，就把它放回原处，接着去找自己没看过的最想看的刊物。如此下去，直到看完所有他想看的刊物为止。</p>
+<p>矛盾出现在两个人同时想要拿同一本刊物的时候。阅览室为了避免读者之间出现争执，作了一个规定，读者每次在开始等待时先去服务台做一次登记。如果两个人都同时想要一本刊物，那么先登记的读者将得到这本刊物。如果两个人同时登记，那么先到达阅览室的读者将得到刊物。没得到的人就只能去找其他的刊物看。</p>
+<p>阅览室关门时，所有读者都将被强迫离开阅览室，不再允许继续阅读。</p>
+<p>现在阅览室想做一个统计调查，你被要求写一个程序来模拟这个过程计算出所有刊物被阅读的总次数。当某个读者开始阅读某本刊物时，该刊物的被阅读次数就加 $1$，无论这本刊物最后有没有被读完。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入包含多组测试数据。</p>
+<p>每个测试数据开头是两个整数 $T$ 和 $n\ (1 \le n \le 100)$，分别表示图书馆关门时间和读者总数。接下来按照读者的到达时间先后依次给出了每位读者的具体描述。</p>
+<p>每个读者描述开头是一个整数 $t\ (0 \le t&lt;T)$，表示该读者到达时间。接下来一行开头是一个整数 $k\ (1 \le k \le 5)$，表示该读者想要看的刊物数目。之后跟着 $2k$ 个整数按照读者想要阅读的刊物的顺序依次给出了刊物的描述。其中第 $2i-1$ 个整数表示刊物的编号 $s\ (0 \le s&lt;1000)$，第 $2i$ 个整数表示该读者读完这本刊物所需的时间。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每个测试数据，在单独一行里输出所有刊物被阅读的总次数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<p><pre class="hljs"><code class="hljs">10 4 
+1
+2 1 4 2 5 
+3 
+1 2 4 
+7 
+3 2 2 1 3 3 2 
+9 
+1 4 2</code></pre></p>
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">5</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

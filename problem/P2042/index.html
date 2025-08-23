@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2042/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2042 [NOI2005] 维护数列</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2042 [NOI2005] 维护数列</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>请写一个程序，要求维护一个数列，支持以下 $6$ 种操作：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">编号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">格式</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">插入</td>
+<td style="text-align: center;">$\operatorname{INSERT}\ posi \ tot \ c_1 \ c_2 \cdots c_{tot}$</td>
+<td style="text-align: left;">在当前数列的第 $posi$ 个数字后插入 $tot$ 个数字：$c_1, c_2 \cdots c_{tot}$；若在数列首插入，则 $posi$ 为 $0$</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">删除</td>
+<td style="text-align: center;">$\operatorname{DELETE} \ posi \ tot$</td>
+<td style="text-align: left;">从当前数列的第 $posi$ 个数字开始连续删除 $tot$ 个数字</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">修改</td>
+<td style="text-align: center;">$\operatorname{MAKE-SAME} \ posi \ tot \ c$</td>
+<td style="text-align: left;">从当前数列的第 $posi$ 个数字开始的连续 $tot$ 个数字统一修改为 $c$</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">翻转</td>
+<td style="text-align: center;">$\operatorname{REVERSE} \ posi \ tot$</td>
+<td style="text-align: left;">取出从当前数列的第 $posi$ 个数字开始的 $tot$ 个数字，翻转后放入原来的位置</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">求和</td>
+<td style="text-align: center;">$\operatorname{GET-SUM} \ posi \ tot$</td>
+<td style="text-align: left;">计算从当前数列的第 $posi$ 个数字开始的 $tot$ 个数字的和并输出</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">求最大子列和</td>
+<td style="text-align: center;">$\operatorname{MAX-SUM}$</td>
+<td style="text-align: left;">求出当前数列中和最大的一段子列，并输出最大和</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个整数 $N$ 和 $M$，$N$ 表示初始时数列中数的个数，$M$ 表示要进行的操作数目。</p>
+<p>第二行包含 $N$ 个数字，描述初始时的数列。以下 $M$ 行，每行一条命令，格式参见问题描述中的表格。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于输入数据中的 $\operatorname{GET-SUM}$ 和 $\operatorname{MAX-SUM}$ 操作，向输出文件依次打印结果，每个答案（数字）占一行。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">9 8 
+2 -6 3 5 1 -5 -3 6 3 
+GET-SUM 5 4
+MAX-SUM
+INSERT 8 3 -5 7 2
+DELETE 12 1
+MAKE-SAME 3 3 2
+REVERSE 3 6
+GET-SUM 5 4
+MAX-SUM</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">-1
+10
+1
+10</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="_6">数据规模与约定</h4>
+<ul>
+<li>你可以认为在任何时刻，数列中至少有 $1$ 个数。</li>
+<li>输入数据一定是正确的，即指定位置的数在数列中一定存在。</li>
+<li>对于 $50\%$ 的数据，任何时刻数列中最多含有 $3 \times 10^4$ 个数。</li>
+<li>对于 $100\%$ 的数据，任何时刻数列中最多含有 $5 \times 10^5$ 个数，任何时刻数列中任何一个数字均在 $[-10^3, 10^3]$ 内，$1 \le M \le 2 \times 10^4$，插入的数字总数不超过 $4 \times 10^6$。</li>
+</ul>
+<p>题面由 @syksykCCC 提供。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

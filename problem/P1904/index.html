@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1904/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1904 天际线</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1904 天际线</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>Latium 省的 Genoa 是亚平宁半岛西海岸北端的一片土地，自然资源丰富，却无人居住。你受到罗马执政官 Caesar 的委任，前往 Genoa 建立新的城市。Caesar 对这次任务的要求是在 Genoa 这片土地上建立起一座繁荣的城市，他将以此作为衡量你的表现的标准。</p>
+<p>正在你大刀阔斧地进行城市建设的时候，Caesar 突然写信给你，说他要检查 Genoa 的建设情况。Caesar 希望知道你的城市是什么样子，但是他又非常的忙，所以他只要你描述一下城市的轮廓就可以了，他将依照城市的轮廓决定你的薪水。</p>
+<p>怎样描述一个城市的轮廓呢？我们知道 Genoa 所有的建筑共享一个地面，你可以认为它是水平的。所有的建筑用一个三元组 $(L_i,H_i,R_i)$，其中 $L_i$ 和 $R_i$ 分别是建筑的左坐标和右坐标，$H_i$ 就是建筑的高度。在下方所示的图表中左边建筑物描述如下 $(1,11,5)$，$(2,6,7)$，$(3,13,9)$，$(12,7,16)$，$(14,3,25)$，$(19,18,22)$，$(23,13,29)$，$(24,4,28)$，右边用轮廓线的顺序$(1,11,3,13,9,0,12,7,16,3,19,18,22,3,23,13,29,0)$ 表示：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/oe7wpwsi.png" /></p>
+<h2 id="_2">输入格式</h2>
+<p>在输入数据中，你将得到一系列表示建筑的三元组。在输入数据中所有建筑的坐标中的数值都是小于 $10000$ 的正整数，且至少有 $1$ 幢建筑，最多有 $5000$ 幢建筑。在输入输入中每幢建筑的三元组各占一行。三元组中的所有整数应由一个或多个空格分开。</p>
+<h2 id="_3">输出格式</h2>
+<p>在输出数据中，你被要求给出城市的轮廓线。你可以这样来描述：对于所有轮廓线上的折点，按顺序排好，第奇数个点输出 $x$ 坐标，第偶数个点输出 $y$ 坐标，两个数之间用空格分开。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">1 11 5
+2 6 7
+3 13 9
+12 7 16
+14 3 25
+19 18 22
+23 13 29
+24 4 28</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1 11 3 13 9 0 12 7 16 3 19 18 22 3 23 13 29 0</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

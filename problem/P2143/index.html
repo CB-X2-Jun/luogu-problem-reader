@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2143/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2143 [JSOI2010] 巨额奖金</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2143 [JSOI2010] 巨额奖金</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>NJ 市的快速发展得益于其便捷的交通。可是，随着经济的发展，大量的人进入 NJ 市， NJ 市的交通也承受着巨大的压力。现在， NJ 市正在筹划建设一个新型的交通枢纽，从而减轻交通的压力。</p>
+<p>NJ 市包含 $n$ 个区，有些区之间有双向的干道存在。新型交通枢纽建设在这些干道的基础上，将其中的部分干道改进为新型干道。改进后，干道能承受的压力可以比原来增加几十倍。为了和谐发展，在新型的交通枢纽建成后，要求任何两个区之间都可以只通过新型干道（直接或间接地）连接。政府已经预测出每条干道改进为新型干道的费用。政府希望建设新型交通枢纽的总费用最小，并以巨额奖金向市民征集方案。政府很快发现费用最小的方案不一定唯一，所以决定将奖金平分给每一种方案的第一个设计者，即如果一个人设计的费用是最小的而且前面没人和他设计出一模一样的方案，则他可获奖。</p>
+<p>Js08 被奖金深深的吸引，准备设计一种方案。可是，他发现方案可能会很多，如果最后获奖者太多，巨额的资金分到每个人头上的也不会太多。所以他决定先算一下可行的方案数是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入共 $m + 1$ 行。</p>
+<p>输入的第一行包含两个数 $n, m$，分别表示该市有多少个区和有多少条干道。</p>
+<p>接下来 $m$ 行，每行三个数 $a_i$、$b_i$、$c_i$，表示 $a_i$ 区和 $b_i$ 区之间有一条干道，如果改进需要 $c_i$ 的费用。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出费用最小的方案有多少种。由于答案可能很大，你只要输出方案数除以 $31011$ 的模即可。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 6
+1 2 1
+1 3 1
+1 4 1
+2 3 2
+2 4 1
+3 4 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">8</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">数据规模与约定</h3>
+<p>对于 $100\%$ 的数据，保证 $1 \leq n \leq 100$，$1 \leq m \leq 1000$，$1 \leq a _ i, b _ i \leq n$，$1 \leq c _ i \leq 10 ^ 9$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

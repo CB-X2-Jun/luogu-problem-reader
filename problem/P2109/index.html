@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2109/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2109 [NOI2007] 生成树计数</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2109 [NOI2007] 生成树计数</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>最近，小栋在无向连通图的生成树个数计算方面有了惊人的进展，他发现：</p>
+<ul>
+<li>$n$ 个结点的环的生成树个数为 $n$。</li>
+<li>$n$ 个结点的完全图的生成树个数为 $n^{n-2}$ 。</li>
+</ul>
+<p>这两个发现让小栋欣喜若狂，由此更加坚定了他继续计算生成树个数的想法，他要计算出各种各样图的生成树数目。</p>
+<p>一天，小栋和同学聚会，大家围坐在一张大圆桌周围。小栋看了看，马上想到了生成树问题。如果把每个同学看成一个结点，邻座（结点间距离为 $1$）的同学间连一条边，就变成了一个环。可是，小栋对环的计数已经十分娴熟且不再感兴趣。于是，小栋又把图变了一下：不仅把邻座的同学之间连一条边，还把相隔一个座位（结点间距离为 $2$）的同学之间也连一条边，将结点间有边直接相连的这两种情况统称为 有边相连，如图 $1$ 所示。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5lvvgbor.png" /> </p>
+<p>小栋以前没有计算过这类图的生成树个数，但是，他想起了老师讲过的计算任意图的生成树个数的一种通用方法：构造一个 $n\times n$ 的矩阵 $A={ a_{i,j}}$，其中：</p>
+<p>$$a_{i,j}=\begin{cases}
+d_i &amp; i=j \
+-1 &amp; \text{$i, j$ 之间有边直接相连} \
+0 &amp; \text{其他情况}
+\end{cases}$$</p>
+<p>与图 1 相应的 $A$ 矩阵如下所示。为了计算图 1 所对应的生成数的个数，只要去掉矩阵 $A$ 的最后一行和最后一列，得到一个 $(n-1)\times(n-1)$ 的矩阵 $B$，计算出矩阵 $B$ 的行列式的值便可得到图 1 的生成树的个数。</p>
+<p>$$
+A=\begin{bmatrix}
+4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 \
+-1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 \
+-1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 \
+0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 \
+0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 \
+0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 \
+-1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 \
+-1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 \
+\end{bmatrix},\
+B=\begin{bmatrix}
+4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; -1  \
+-1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 0  \
+-1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 &amp; 0 \
+0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 &amp; 0 \
+0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 \
+0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 &amp; -1 \
+-1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; 4 \
+\end{bmatrix},
+$$</p>
+<p>所以生成树的个数为 $\det B =3528$。小栋发现利用通用方法，因计算过于复杂而很难算出来，而且用其他方法也难以找到更简便的公式进行计算。于是，他将图做了简化，从一个地方将圆桌断开，这样所有的同学形成了一条链，连接距离为 1 和距离为 2 的点。例如八个点的情形如下：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cfo7z7yu.png" /> </p>
+<p>这样生成树的总数就减少了很多。小栋不停的思考，一直到聚会结束，终于找到了一种快捷的方法计算出这个图的生成树个数。可是，如果把距离为 $3$ 的点也连起来，小栋就不知道如何快捷计算了。现在，请你帮助小栋计算这类图的生成树的数目。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件中包含两个整数 $k,n$，由一个空格分隔。$k$ 表示要将所有距离不超过 $k$（含 $k$）的结点连接起来，$n$ 表示有 $n$ 个结点。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出文件输出一个整数，表示生成树的个数。由于答案可能比较大，所以你只要输出答案除 $65521$ 的余数即可。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 5</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">75</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>样例对应的图如下：</p>
+<p>$$
+A = \begin{bmatrix}
+3 &amp; -1 &amp; -1 &amp; -1 &amp; 0 \
+-1 &amp; 4 &amp; -1 &amp; -1 &amp; -1 \
+-1 &amp; -1 &amp; 4 &amp; -1 &amp; -1 \
+-1 &amp; -1 &amp; -1 &amp; 4 &amp; -1 \
+0 &amp; -1 &amp; -1 &amp; -1 &amp; 3 \
+\end{bmatrix},
+B = \begin{bmatrix}
+3 &amp; -1 &amp; -1 &amp; -1 \
+-1 &amp; 4 &amp; -1 &amp; -1  \
+-1 &amp; -1 &amp; 4 &amp; -1  \
+-1 &amp; -1 &amp; -1 &amp; 4  \
+\end{bmatrix}, \det B = 75
+$$</p>
+<h3 id="_6">数据规模和约定</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;">$k$</th>
+<th style="text-align: center;">$n$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$=2$</td>
+<td style="text-align: center;">$\le 10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">$=3$</td>
+<td style="text-align: center;">$=5$</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">$=4$</td>
+<td style="text-align: center;">$\le 10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">$=5$</td>
+<td style="text-align: center;">$=10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">$\le 3$</td>
+<td style="text-align: center;">$\le 100$</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">$\le 5$</td>
+<td style="text-align: center;">$\le 100$</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">$\le 3$</td>
+<td style="text-align: center;">$\le 2000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">$\le 5$</td>
+<td style="text-align: center;">$\le 10000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">$\le 3$</td>
+<td style="text-align: center;">$\le 10^{15}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">$\le 5$</td>
+<td style="text-align: center;">$\le 10^{15}$</td>
+</tr>
+</tbody>
+</table>
+<p>此外，对于所有数据，$2\le k\le n$。</p>
+<h3 id="_7">提示</h3>
+<p>以下为行列式的一种计算方法。记 $\sigma(\bm P)$ 表示排列 $\bm P$ 中逆序对的数量，那么可以求得矩阵 $B$ 的行列式如下：</p>
+<p>$$\det B=\sum_{\bm P=[p_1,p_2,\cdots,p_n]} (-1)^{\sigma(\bm P)} \prod_{i=1}^n b_{i,p_i}$$</p>
+<p>例如，对于 $B=\begin{bmatrix}1 &amp; 2 &amp; 3 \ 4 &amp; 5 &amp; 6 \ 7 &amp; 8 &amp; 0\end{bmatrix}$，其行列式计算如下：</p>
+<p>$$
+\def\arraystretch{1.5}
+\begin{array}{|c|c|c|c|c|c|}\hline
+\bm P &amp; \sigma(\bm P) &amp; b_{1,p_1} &amp; b_{2,p_2} &amp; b_{3,p_3} &amp; (-1)^{\sigma(\bm P)}\prod_{i=1}^n b_{i,p_i} \ \hline
+[1, 2, 3] &amp; 0 &amp; 1 &amp; 5 &amp; 0 &amp; 0 \ \hline
+[1, 3, 2] &amp; 1 &amp; 1 &amp; 6 &amp; 8 &amp; -48 \\hline
+[2, 1, 3] &amp; 1 &amp; 2 &amp; 4 &amp; 0 &amp; 0 \\hline
+[2, 3, 1] &amp; 2 &amp; 2 &amp; 6 &amp; 7 &amp; 84 \\hline
+[3, 1, 2] &amp; 2 &amp; 3 &amp; 4 &amp; 8 &amp; 96 \\hline
+[3, 2, 1] &amp; 3 &amp; 3 &amp; 5 &amp; 7 &amp; -105 \\hline
+\end{array}
+$$</p>
+<p>所以 $B$ 的行列式值为 $0-48+0+84+96-105=27$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

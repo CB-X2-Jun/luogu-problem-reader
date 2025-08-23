@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1870/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1870 公交车</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1870 公交车</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>某城市有个能容纳 $n$ 辆公交车的停车场。每一天，这些公交车都要依次有序离开停车库去另一个终点站。这终点站距离停车场有 $d$ 米的路程。当然第 $i$ 辆公交车离开停车场的时间是 $t_i$ 秒，并以最大速度不超过 $v_i$ 米/秒行驶，加速度最大值为 $a$。一辆公交车能瞬间减速，也能瞬间改变它的加速度。当然每辆车的最大加速度都一样为 $a$。</p>
+<p>不管有多大的马力，一辆公交车都不能超过其他另外的公交车，如果一辆公交车追上另一辆公交车，那么后面追上的车跟前面被追的车一起并排行驶同时到达终点站。当然司机都是尽可能快的驾车到达终点站的。</p>
+<p>作为公交公司老板的你，希望每辆公交车都尽可能快的到达终点站。当然，公交车到达终点站时，速度可以没必要达到 $0$。当一辆公交车离开停车场时，它的起始速度等于 $0$。通过物理的观点解释的话，公交车可以看成是抽象的一个物体而已，除了能加速和减速，其他对速度的影响都可以忽略掉。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行三个空格隔开的整数 $n, a, d$（$1 \leq n \leq 10^5$，$1 \leq a, d \leq 10^6$），分别表示公交车的数量，最大加速度。离终点站的距离。</p>
+<p>接下来 $n$ 行，每行有一对整数 $t_i, v_i$（$0 \leq t_1 &lt; t_2 &lt; \cdots &lt; t_{n-1} &lt; tn \leq 10^6$，$1 \leq v_i \leq 10^6$），分别表示每辆车离开停车场的时刻和能够行驶的最大速度。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出每辆公交车到达终点站的时刻。一行表示一辆公交车的到达时刻，输出时刻的公交车顺序按照输入的公交车顺序。输出答案的相对或绝对误差不能超过 $10^{-4}$（即末尾保留 $4$ 位小数）。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 10 10000
+0 10
+5 11
+1000 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1000.5000
+1000.5000
+11000.0500</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>【样例解释】</p>
+<p>第二辆公交车能追上第一辆公交车，在行驶到距离终点 $510.5$ 公里处。然后还剩 $9489.5$ 公里的路程，两辆车都以 $10$ km/h 的速度，一起到达终点的，它们到达终点的时刻是 $1000.5$ 秒，第三辆公交车不能赶上其他的公交车，他到达终点的时刻是 $11000.05$ 秒。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

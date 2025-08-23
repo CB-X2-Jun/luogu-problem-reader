@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1954/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1954 [NOI2010] 航空管制</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1954 [NOI2010] 航空管制</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>世博期间，上海的航空客运量大大超过了平时，随之而来的航空管制也频频发生。最近，小 X 就因为航空管制，连续两次在机场被延误超过了两小时。对此，小 X 表示很不满意。</p>
+<p>在这次来烟台的路上，小 X 不幸又一次碰上了航空管制。于是小 X 开始思考关于航空管制的问题。</p>
+<p>假设目前被延误航班共有 $n$ 个，编号为 $1$ 至 $n$。机场只有一条起飞跑道，所有的航班需按某个顺序依次起飞（称这个顺序为起飞序列）。定义一个航班的起飞序号为该航班在起飞序列中的位置，即是第几个起飞的航班。</p>
+<p>起飞序列还存在两类限制条件：</p>
+<ul>
+<li>
+<p>第一类（最晚起飞时间限制）：编号为 $i$ 的航班起飞序号不得超过 $k_i$。</p>
+</li>
+<li>
+<p>第二类（相对起飞顺序限制）：存在一些相对起飞顺序限制 $(a,b)$，表示航班 $a$ 的起飞时间必须早于航班 $b$，即航班 $a$ 的起飞序号必须小于航班 $b$ 的起飞序号。</p>
+</li>
+</ul>
+<p>小 X 思考的第一个问题是，若给定以上两类限制条件，是否可以计算出一个可行的起飞序列。第二个问题则是，在考虑两类限制条件的情况下，如何求出每个航班在所有可行的起飞序列中的最小起飞序号。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个正整数 $n$ 和 $m$，$n$ 表示航班数目，$m$ 表示第二类限制条件（相对起飞顺序限制）的数目。</p>
+<p>第二行包含 $n$ 个正整数 $k_1,k_2,\cdots,k_n$。</p>
+<p>接下来 $m$ 行，每行两个正整数 $a$ 和 $b$，表示一对相对起飞顺序限制 $(a,b)$，其中 $1\leq a,b\leq n$，表示航班 $a$ 必须先于航班 $b$ 起飞。</p>
+<h2 id="_3">输出格式</h2>
+<p>第一行包含 $n$ 个整数，表示一个可行的起飞序列，相邻两个整数用空格分隔。输入数据保证至少存在一个可行的起飞序列。如果存在多个可行的方案，输出任意一个即可。</p>
+<p>第二行包含 $n$ 个整数 $t_1,t_2,\cdots,t_n$，其中 $t_i$ 表示航班 $i$ 可能的最小起飞序号，相邻两个整数用空格分隔。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5
+4 5 2 5 4
+1 2
+3 2
+5 1
+3 4
+3 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3 5 1 4 2
+3 4 1 2 1</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">5 0
+3 3 3 5 5</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">3 2 1 5 4
+1 1 1 4 4</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>在样例 $1$ 中：</p>
+<p>起飞序列 $3\ 5\ 1\ 4\ 2$ 满足了所有的限制条件，所有满足条件的起飞序列有：</p>
+<p>$$
+\begin{aligned}
+3\ 4\ 5\ 1\ 2\
+3\ 5\ 1\ 2\ 4\
+3\ 5\ 1\ 4\ 2\
+3\ 5\ 4\ 1\ 2\
+5\ 3\ 1\ 2\ 4\
+5\ 3\ 1\ 4\ 2\
+5\ 3\ 4\ 1\ 2
+\end{aligned}
+$$</p>
+<p>由于存在 $(5,1)$ 和 $(3,1)$ 两个限制，航班 $1$ 只能安排在航班 $5$ 和 $3$ 之后，故最早起飞时间为 $3$，其他航班类似。</p>
+<p>在样例 $2$ 中：</p>
+<p>虽然航班 $4,5$ 没有相对起飞顺序限制，但是由于航班 $1,2,3$ 都必须安排在前 $3$ 个起飞，所以 $4,5$ 最早只能安排在第 $4$ 个起飞。</p>
+<h3 id="_7">数据范围</h3>
+<p>对于 $30\%$ 数据：$n\leq 10$。</p>
+<p>对于 $60\%$ 数据：$n\leq 500$。</p>
+<p>对于 $100\%$ 数据：$n\leq 2\times 10^3,m\leq 10^4$。</p>
+<p>感谢 @FlierKing 提供 spj</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1930/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1930 [USACO3.3] 亚瑟王的宫殿</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1930 [USACO3.3] 亚瑟王的宫殿</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>很久以前，亚瑟王和他的骑士习惯每年元旦去庆祝他们的友谊。为了纪念上述事件， 我们把这些故事看作是一个棋盘游戏。有一个国王和若干个骑士被放置在一个由许多方格 组成的棋盘上，没有两个骑士在同一个方格内。</p>
+<p>这个例子是标准的 $8\times 8$ 棋盘。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/bvjh9o2q.png" /></p>
+<p>国王可以移动到任何一个相邻的方格，从下图中黑子位置到下图中白子位置前提是他 不掉出棋盘之外。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/joj1exif.png" /></p>
+<p>一个骑士可以从下图中黑子位置移动到下图中白子位置(走“日”字形） 但前提是他 不掉出棋盘之外。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/vf9vuque.png" /></p>
+<p>在游戏中，玩家可在每个方格上放不止一个棋子，假定方格足够大，任何棋子都不会 阻碍到其他棋子正常行动。</p>
+<p>玩家的任务就是把所有的棋子移动到同一个方格里——用最小的步数。为了完成这个 任务，他必须按照上面所说的规则去移动棋子。另外，玩家可以选择一个骑士跟国王从他们两个相遇的那个点开始一起行动，这时他们按照骑士的行动规则行动，其他的单独骑士则自己一直走到集中点。骑士和国王一起走的时候，只算一个人走的步数。</p>
+<p>请计算他们集中在一起的最小步数，而且玩家必须自己找出这个集中点。当然，这些 棋子可以在棋盘的任何地方集合。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行：两个用空格隔开的整数：$R,C$ 分别为棋盘行和列的长。不超过 $26$ 列，$40$ 行。</p>
+<p>第二行到结尾：输入文件包含了一些有空格隔开的字母 / 数字对，一行有一个或以上。第一对为国王的位置，接下来是骑士的位置。可能没有骑士，也可能整个棋盘都是骑士。行从 $1$ 开始，列从大写字母 $A$ 开始。</p>
+<h2 id="_3">输出格式</h2>
+<p>单独一行表示棋子集中在一个方格的最小步数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">8 8
+D 4 
+A 3 A 8 
+H 1 H 8</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">10</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>他们集中在 $\tt B5$。</p>
+<ul>
+<li>骑士 $1$：$\tt A3\to B5$（$1$ 步）。</li>
+<li>骑士 $2$：$\tt A8\to C7\to B5$（$2$ 步）。</li>
+<li>骑士 $3$：$\tt H1\to G3\to F5\to D4$，此时国王开始与这个骑士一起走，$\to \tt B5$（$4$ 步）</li>
+<li>骑士 $4$：$\tt H8\to F7\to D6\to B5$（$3$ 步）。</li>
+</ul>
+<p>$1+2+4+3=10$ 步。</p>
+<p>题目翻译来自 NOCOW。</p>
+<p>USACO Training Section 3.3</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2294/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2294 [HNOI2005] 狡猾的商人</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2294 [HNOI2005] 狡猾的商人</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>刁姹接到一个任务，为税务部门调查一位商人的账本，看看账本是不是伪造的。账本上记录了 $n$ 个月以来的收入情况，其中第 $i$ 个月的收入额为 $a_i$，$i=1,2,\ldots,n-1,n$。当 $a_i&gt;0$ 时表示这个月盈利 $a_i$ 元，当 $a_i&lt;0$ 时表示这个月亏损 $|a_i|$ 元。所谓一段时间内的总收入，就是这段时间内每个月的收入额的总和。</p>
+<p>刁姹的任务是秘密进行的，为了调查商人的账本，她只好跑到商人那里打工。她趁商人不在时去偷看账本，可是她无法将账本偷出来，每次偷看账本时她都只能看某段时间内账本上记录的收入情况，并且她只能记住这段时间内的总收入。</p>
+<p>现在，姹总共偷看了 $m$ 次账本，当然也就记住了 $m$ 段时间内的总收入，你的任务是根据记住的这些信息来判断账本是不是假的。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行为一个正整数 $w$，其中 $w&lt;100$，表示有 $w$ 组数据，即 $w$ 个账本，需要你判断。</p>
+<p>每组数据的第一行为两个正整数 $n$ 和 $m$，其中 $n&lt;100,m&lt;1000$，分别表示对应的账本记录了多少个月的收入情况以及偷看了多少次账本。</p>
+<p>接下来的 $m$ 行表示刁姹偷看 $m$ 次账本后记住的 $m$ 条信息，每条信息占一行，有三个整数 $s,t$ 和 $v$，表示从第 $s$ 个月到第 $t$ 个月（包含第 $t$ 个月）的总收入为 $v$，这里假设 $s$ 总是小于等于 $t$。</p>
+<h2 id="_3">输出格式</h2>
+<p>包含 $w$ 行，每行是 <code class="hljs inline">true</code> 或 <code class="hljs inline">false</code>，其中第 $i$ 行为 <code class="hljs inline">true</code> 当且仅当第 $i$ 组数据，即第 $i$ 个账本不是假的；第 $i$ 行为 <code class="hljs inline">false</code> 当且仅当第 $i$ 组数据，即第 $i$ 个账本是假的。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2
+3 3
+1 2 10
+1 3 -5
+3 3 -15
+5 3
+1 5 100
+3 5 50
+1 2 51</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">true
+false</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

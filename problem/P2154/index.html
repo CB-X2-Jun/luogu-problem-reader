@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2154/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2154 [SDOI2009] 虔诚的墓主人</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2154 [SDOI2009] 虔诚的墓主人</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小W是一片新造公墓的管理人。公墓可以看成一块 $N×M$ 的矩形，矩形的每个格点，要么种着一棵常青树，要么是一块还没有归属的墓地。</p>
+<p>当地的居民都是非常虔诚的基督徒，他们愿意提前为自己找一块合适墓地。为了体现自己对主的真诚，他们希望自己的墓地拥有着较高的虔诚度。</p>
+<p>一块墓地的虔诚度是指以这块墓地为中心的十字架的数目。一个十字架可以看成中间是墓地，墓地的正上、正下、正左、正右都有恰好 $k$ 棵常青树。</p>
+<p>形式化地，对于一个坐标为 $(x, y)$ 的墓地，以其为中心的十字架个数是这样的长度为 $4k$ 的二元组序列 $[(x_{1,1},y_{1,1}),\allowbreak(x_{1,2},y_{1,2}),\allowbreak\cdots,(x_{1,k},y_{1,k}),\allowbreak(x_{2,1},y_{2,1}),\allowbreak(x_{2,2},y_{2,2}),\allowbreak\cdots,(x_{2,k},y_{2,k}),\allowbreak(x_{3,1},y_{3,1}),\allowbreak(x_{3,2},y_{3,2}),\allowbreak\cdots,(x_{3,k},y_{3,k}),\allowbreak(x_{4,1},y_{4,1}),\allowbreak(x_{4,2},y_{4,2}),\allowbreak\cdots,(x_{4,k},y_{4,k})]$ 的方案数：</p>
+<ul>
+<li>每一个二元组对应着一棵常青树的坐标；</li>
+<li>$x_{1,1}&lt;x_{1,2}&lt;\cdots&lt; x_{1,k}&lt;x$ 且 $y_{1,1}=y_{1,2}=\cdots=y_{1,k}=y$；</li>
+<li>$x&lt;x_{2,1}&lt;x_{2,2}&lt;\cdots&lt; x_{2,k}$ 且 $y_{2,1}=y_{2,2}=\cdots=y_{2,k}=y$；</li>
+<li>$y_{3,1}&lt;y_{3,2}&lt;\cdots&lt; y_{3,k}&lt;y$ 且 $x_{3,1}=x_{3,2}=\cdots=x_{3,k}=x$；</li>
+<li>$y&lt;y_{4,1}&lt;y_{4,2}&lt;\cdots&lt; y_{4,k}$ 且 $x_{4,1}=x_{4,2}=\cdots=x_{4,k}=x$。</li>
+</ul>
+<p>小W希望知道他所管理的这片公墓中所有墓地的虔诚度总和是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个用空格分隔的正整数 $N$ 和 $M$，表示公墓的宽和长，因此这个矩形公墓共有 $(N+1) ×(M+1)$ 个格点，左下角的坐标为 $(0, 0)$，右上角的坐标为 $(N, M)$。</p>
+<p>第二行包含一个正整数 $W$，表示公墓中常青树的个数。</p>
+<p>第三行起共 $W$ 行，每行包含两个用空格分隔的非负整数 $x_i$ 和 $y_i$，表示一棵常青树的坐标。输入保证没有两棵常青树拥有相同的坐标。</p>
+<p>最后一行包含一个正整数 $k$，意义如题目所示。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出仅包含一个非负整数，表示这片公墓中所有墓地的虔诚度总和。为了方便起见，答案对 $2{,}147{,}483{,}648$ 取模。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<p><pre class="hljs"><code class="hljs">5 6
+13
+0 2
+0 3
+1 2
+1 3
+2 0
+2 1
+2 4
+2 5
+2 6
+3 2
+3 3
+4 3
+5 2
+2</code></pre></p>
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">6</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>图中，以墓地 $(2, 2)$ 和 $(2, 3)$ 为中心的十字架各有 $3$ 个，即它们的虔诚度均为 $3$。其他墓地的虔诚度为 $0$。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1589.png" /> </p>
+<p>对于 $30\%$ 的数据，满足 $1 ≤ N, M ≤ 10^3$。</p>
+<p>对于 $60\%$ 的数据，满足 $1 ≤ N, M ≤ 10^6$。</p>
+<p>对于 $100\%$ 的数据，满足 $1 ≤ N, M ≤ 10^9$，$0 ≤ x_i ≤ N$，$0 ≤ y_i ≤ M$，$1 ≤ W ≤ 10^5$，$1 ≤ k ≤ 10$。</p>
+<p>存在 $50\%$ 的数据，满足 $1 ≤ k ≤ 2$。</p>
+<p>存在 $25\%$ 的数据，满足 $1 ≤ W ≤ 10^4$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

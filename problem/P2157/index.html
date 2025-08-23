@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2157/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2157 [SDOI2009] 学校食堂</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2157 [SDOI2009] 学校食堂</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 F 的学校在城市的一个偏僻角落，所有学生都只好在学校吃饭。学校有一个食堂，虽然简陋，但食堂大厨总能做出让同学们满意的菜肴。当然，不同的人口味也不一定相同，但每个人的口味都可以用一个非负整数表示。 由于人手不够，食堂每次只能为一个人做菜。做每道菜所需的时间是和前一道菜有关的，若前一道菜的对应的口味是 $a$，这一道为 $b$，则做这道菜所需的时间为 $(a\operatorname{or}b)-(a\operatorname{and}b)$，而做第一道菜是不需要计算时间的。其中，$\operatorname{or}$ 和 $\operatorname{and}$ 表示整数逐位或运算及逐位与运算，C 语言中对应的运算符为 <code class="hljs inline">|</code> 和 <code class="hljs inline">&amp;</code>。</p>
+<p>学生数目相对于这个学校还是比较多的，吃饭做菜往往就会花去不少时间。因此，学校食堂偶尔会不按照大家的排队顺序做菜，以缩短总的进餐时间。</p>
+<p>虽然同学们能够理解学校食堂的这种做法，不过每个同学还是有一定容忍度的。也就是说，队伍中的第 $i$ 个同学，最多允许紧跟他身后的 $B_i$ 个人先拿到饭菜。一旦在此之后的任意同学比当前同学先拿到饭，当前同学将会十分愤怒。因此，食堂做菜还得照顾到同学们的情绪。 现在，小 F 想知道在满足所有人的容忍度这一前提下，自己的学校食堂做完这些菜最少需要多少时间。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含一个正整数 $C$，表示测试点的数据组数。 每组数据的第一行包含一个正整数 $N$，表示同学数。 每组数据的第二行起共 $N$ 行，每行包含两个用空格分隔的非负整数 $T_i$ 和 $B_i$，表示按队伍顺序从前往后的每个同学所需的菜的口味和这个同学的忍受度。 每组数据之间没有多余空行。</p>
+<h2 id="_3">输出格式</h2>
+<p>包含 $C$ 行，每行一个整数，表示对应数据中食堂完成所有菜所需的最少时间。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2
+5
+5 2
+4 1
+12 0
+3 3
+2 2
+2
+5 0
+4 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">16
+1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于第一组数据：</p>
+<p>同学 1 允许同学 2 或同学 3 在他之前拿到菜；同学 2 允许同学 3 在他之前拿到菜；同学 3 比较小气，他必须比他后面的同学先拿菜。</p>
+<p>一种最优的方案是按同学 3、同学 2、同学 1、同学 4、同学 5 做菜，每道菜所需的时间分别是 0、8、1、6 及 1。</p>
+<p><strong>数据规模和约定</strong></p>
+<ul>
+<li>
+<p>对于 $30\%$ 的数据，满足 $1 \le N \le 20$。</p>
+</li>
+<li>
+<p>对于 $ 100\% $ 的数据，满足 $1 \le N \le 1000,0 \le T_i \le 1000,0 \le B_i \le 7，1 \le C \le 5$。</p>
+</li>
+<li>
+<p>存在 $30\%$ 的数据，满足 $0 \le B_i \le 1$。</p>
+</li>
+<li>
+<p>存在 $65\%$ 的数据，满足 $0 \le B_i \le 5$。</p>
+</li>
+<li>
+<p>存在 $45\%$ 的数据，满足 $0 \le T_i \le 130$。</p>
+</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

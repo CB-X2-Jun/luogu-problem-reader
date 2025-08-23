@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2302/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2302 loidc，跑起来</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2302 loidc，跑起来</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>loidc 在路上诱拐了一个幼女。（他不是哲学家么！？）</p>
+<h2 id="_2">题目描述</h2>
+<p>现在他已经被 cony 追杀。loidc 逃到一个迷宫中，cony 也追到了这儿。迷宫由编号由 $1$ 到 $n$ 的方块组成。每两个不同的方块将被得知它们是否与另一个相邻。现在已知 loidc 和 cony 所处迷宫的位置。在迷宫中的人可以选择留在原地不动，还是移到相邻的方格中。</p>
+<p>迷宫具有如下性质：</p>
+<p>它不包括三角形，也就是没有任意三个不同的方块，它们两两相邻，</p>
+<p>每一个人到达都能到达任意一个方块。</p>
+<p>一次追杀由许多回合组成。在一个回合内，每一个人移一步。每一个回合由 loidc 开始。如果 loidc 与 cony 在同一个方格中相遇，那么我们就可能永远见不到 loidc 了。</p>
+<p>loidc 非常害怕，他请求你告诉他是否会被 cony 抓住，多少回合 cony 赶上他。（假设两个人都足够聪明）</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行有 $4$ 个整数 $n,m,a,b$，它们用单个空格分隔，（$2 \leq n \leq 3000, n-1 \leq m \leq 15000,1 \leq a,b \leq n$）。它们分别表示迷宫中的方块数目，相邻的一对方块（双向）数目，相邻两个方格中有且仅有一条边，loidc、cony 所处的位置。下面 $m$ 行，一行包含两个用一个空格分开的整数，表示每一对相邻的方块编号。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个单词 <code class="hljs inline">NO</code>，如果 cony 不能赶上 loidc；或者一个整数，如果 cony 能赶上 loidc 的最少游戏轮数。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">9 11 9 4
+1 2
+3 2
+1 4
+4 7
+7 5
+5 1
+6 9
+8 5
+9 8
+5 3
+4 8</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

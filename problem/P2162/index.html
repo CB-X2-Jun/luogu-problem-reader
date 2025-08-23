@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2162/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2162 [SHOI2007] 宝石纪念币</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2162 [SHOI2007] 宝石纪念币</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>Constantine 刚结束在 MySky Island 的度假，正准备离开的时候，他想送给她的好朋友 YY 一份特别的礼物——MySky Island 上特别的手工艺品宝石纪念币。</p>
+<p>宝石纪念币的一面上刻着小岛的名字 <code class="hljs inline">MySky</code>，或者收礼物的人，比如 <code class="hljs inline">to YY</code>。不过特别的是，每枚纪念币的反面，依次均匀的镶着一圈共 $n$ 颗彩色的宝石。</p>
+<p>例如，下面是一个 $n=7$ 时的简单例子：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/l936rcm4.png" /></p>
+<p>因为纪念币是圆的，所以如果两种“宝石颜色的排布”经过旋转后对应位置的颜色相重合，就认为它们是相同的排布方式。</p>
+<p>（请注意：纪念币只有一面镶宝石，所以两种排布若经过翻转以后是可以重合的，但只经过旋转无法使两者重合，则认为他们是不同的排布。）</p>
+<p>例如下面的两种排布方式就是相同的：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/o7uxs4ti.png" /></p>
+<p>另外，由于 MySky Island 当地的习俗，每枚钱币上都只能嵌奇数颗宝石，不然就认为是不吉利的。</p>
+<p>宝石纪念币是现场制作的，游客可以选择自己喜欢的颜色的宝石。所以 Constantine 选出了他最喜欢的 $17$ 种颜色（你如果要问为什么选这么多的话，只能告诉你因为 $17$ 是他的幸运数字）。他想知道，如果按他要求把这 ${17}$ 种颜色的宝石都用上的话，可以制作出多少枚不同的纪念币。</p>
+<p>由于答案可能很大，你只需要计算答案的最后 $120$ 位（十进制）就可以了。</p>
+<h2 id="_2">输入格式</h2>
+<p>一行一个正奇数 $n\ (1 \le n \le 10^9-1)$。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行 $120$ 个数字字符，表示不同纪念币的枚数的最后 $120$ 位。这 $120$ 位从高位到低位依次输出，位数不足的用 $0$ 在高位补足。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">17</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020922789888000</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

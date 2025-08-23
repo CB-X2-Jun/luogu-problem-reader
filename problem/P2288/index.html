@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2288/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2288 [HNOI2005] 纸片覆盖</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2288 [HNOI2005] 纸片覆盖</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>喜欢几何的小付遇到了这样一个问题：一天他在一张白纸上画了 $n$ 条直线，然后剪了一张 $m$ 边形（简单多边形）的小纸片。</p>
+<p>他想把这张小纸片放在白纸上，使它盖住的线段的总长度最长。并且这张多边形纸片不能翻转或旋转，只能平移，如果直线的某一段刚好与多边形纸片的边重合，那么，这条线段算作是被覆盖。</p>
+<p>你能帮他解决这个问题吗？</p>
+<h2 id="_2">输入格式</h2>
+<p>从文件 <code class="hljs inline">input.txt</code> 中读入数据，文件第一行为两个数 $n$ 和 $m$，其中 $1\leq n,m\leq10$，分别表示直线的数目和多边形的边数。</p>
+<p>接下来的 $n$ 行分别表示各条直线，每行有 $4$ 个实数 $x_1,y_1,x_2,y_2$，表示一条经过 $\left(x_1,y_1\right)$ 和 $\left(x_2,y_2\right)$ 的直线。</p>
+<p>接下来的 $m$ 行按顺时针或逆时针的顺序输入多边形的各个顶点，每行有 $2$ 个实数 $x,y$，表示一个顶点的坐标。</p>
+<p>这里假设所有输入的实数都在 $-10000$ 到 $10000$ 之间，且不会超过 $2$ 位小数，输入的多边形保证不自交，且连续的 $3$ 点不共线。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出文件 <code class="hljs inline">output.txt</code> 中仅包含一个数 $L$，表示输入的多边形能盖住的最大的线段总长度，精确到小数点后 $3$ 位。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 5
+6 1 2 5
+1 2 8 4
+4 -1 5 6
+1 0
+5 -1
+4 2
+7 3
+4 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">11.933</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

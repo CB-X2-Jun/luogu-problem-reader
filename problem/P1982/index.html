@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1982/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1982 [NOIP 2013 普及组] 小朋友的数字</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1982 [NOIP 2013 普及组] 小朋友的数字</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>NOIP2013 普及组 T3</p>
+<h2 id="_2">题目描述</h2>
+<p>有 $n$ 个小朋友排成一列。每个小朋友手上都有一个数字，这个数字可正可负。规定每个小朋友的特征值等于排在他前面（包括他本人）的小朋友中连续若干个（最少有一个）小朋友手上的数字之和的最大值。</p>
+<p>作为这些小朋友的老师，你需要给每个小朋友一个分数，分数是这样规定的：第一个小朋友的分数是他的特征值，其它小朋友的分数为排在他前面的所有小朋友中（不包括他本人），小朋友分数加上其特征值的最大值。</p>
+<p>请计算所有小朋友分数的最大值，输出时保持最大值的符号，将其绝对值对 $p$ 取模后输出。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行包含两个正整数 $n,p$，之间用一个空格隔开。</p>
+<p>第二行包含 $n$ 个数，每两个整数之间用一个空格隔开，表示每个小朋友手上的数字。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个整数，表示最大分数对 $p$ 取模的结果。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 997
+1 2 3 4 5</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">21</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">5 7
+-1 -1 -1 -1 -1</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">-1</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p><strong>样例解释 1</strong></p>
+<p>小朋友的特征值分别为 $1,3,6,10,15$，分数分别为 $ 1,2,5,11,21$，最大值 $21$ 对 $997$ 的模是 $21$。</p>
+<p><strong>样例解释 2</strong></p>
+<p>小朋友的特征值分别为 $-1,-1,-1,-1,-1$，分数分别为$-1,-2,-2,-2,-2$，最大值 $-1$ 对 $7$ 的模为 $-1$，输出 $-1$。</p>
+<p><strong>【数据范围】</strong></p>
+<p>对于 $50\%$ 的数据，$1 \le n \le 1000$，$1 \le p \le 1000$，所有数字的绝对值不超过 $1000$；</p>
+<p>对于 $100\%$ 的数据，$1 \le n \le {10}^6$，$1 \le p \le {10}^9$，其他数字的绝对值均不超过 ${10}^9$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

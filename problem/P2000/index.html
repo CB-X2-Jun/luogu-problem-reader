@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2000/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2000 拯救世界</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2000 拯救世界</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>公元 2000 年，根据预言家诺查丹玛斯的预言，世界就要毁灭了！！！</p>
+<h2 id="_2">题目描述</h2>
+<p>为了拯救世界，小 a 和 uim 决定召唤出 kkksc03 大神和 lzn 大神。根据古籍记载，召唤出任何一位大神，都需要使用金木水火土五种五行神石来摆一个特定的大阵。而在古籍中，记载是这样的：</p>
+<p>kkksc03 大神召唤方法：</p>
+<ul>
+<li>金神石的块数必须是 $6$ 的倍数；</li>
+<li>木神石最多用 $9$ 块；</li>
+<li>水神石最多用 $5$ 块；</li>
+<li>火神石的块数必须是 $4$ 的倍数；</li>
+<li>土神石最多用 $7$ 块。</li>
+</ul>
+<p>lzn 大神召唤方法:</p>
+<ul>
+<li>金神石的块数必须是 $2$ 的倍数；</li>
+<li>木神石最多用 $1$ 块；</li>
+<li>水神石的块数必须是 $8$ 的倍数；</li>
+<li>火神石的块数必须是 $10$ 的倍数；</li>
+<li>土神石最多用 $3$ 块。</li>
+</ul>
+<p>现在是公元 $1999$ 年 $12$ 月 $31$ 日，小 a 和 uim 从 $00{:}00{:}00$ 开始找，一直找到 $23{:}00{:}00$，终于，还是没找到神石。</p>
+<p>不过，他们在回到家后在自家地窖里发现了一些奇怪的东西，一查古籍，哎呦妈呀，怎么不早点来呢？这里有一些混沌之石，可以通过敲击而衰变成五行神石。于是，他们拼命地敲，终于敲出了 $n$ 块神石，在 $23{:}59{:}59$ 完成了两座大阵。</p>
+<p>然而，kkksc03 大神和 lzn 大神确实出现了，但是由于能量不够，无法发挥神力。只有把所有用 $n$ 块神石可能摆出的大阵都摆出来，才能给他们充满能量。这下小 a 和 uim 傻了眼了，赶快联系上了你，让你帮忙算一下，一共有多少种大阵。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入一个正整数 $n$。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出用 $n$ 块混沌之石能摆出的大阵的种数。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">15</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h3 id="_7">数据范围及约定</h3>
+<p>对于全部数据，$10^{99999}\leq n\lt 10^{100000}$。</p>
+<h3 id="_8">提示</h3>
+<p>由于现在已经是 $23{:}59{:}59$，所以你只有 $0.5$ 秒时间。（小 a 与 uim 需要 $0.5\texttt s$ 排出所有阵法）。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

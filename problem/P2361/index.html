@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2361/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2361 yyy 棋</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2361 yyy 棋</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>uim 最近在研究一种游戏，叫做“ yyy 棋”。</p>
+<p>这种游戏的规则很简单，就是有一个 $A \times B$ 的棋盘和黑白两色的棋子，两个人轮流在下在格子里面。你可以下黑棋或者白棋，中途可以更换颜色，可以下在任何你喜欢的地方，但是要符合以下条件：</p>
+<ol>
+<li>
+<p>这个位置不能已经被别的棋子占用。</p>
+</li>
+<li>
+<p>你准备下的地方，上下左右一格范围中不能有和你准备下的颜色一样的棋子。</p>
+</li>
+<li>
+<p>第一个下的人必须出黑子。</p>
+</li>
+</ol>
+<p>当谁没有地方可以放子，谁就输了。</p>
+<p>uim 把你拉了出来，希望你好好地陪他玩。</p>
+<p>由于你很忙不太情愿，uim 就让步了，允许你选择先手或者后手。</p>
+<p>你突然灵光一现，想到了你小学奥数做到的一个问题：两个人坐在一张桌子的两边，轮流往桌子上放硬币，硬币不能重叠，谁放不下谁就输了。感觉有点类似，所以，你打算借鉴这个办法。</p>
+<p>你知道，通过某种策略，你一定是 $100\%$ 赢的。</p>
+<p>既然如此，就让 uim 输个痛快吧。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行，$A, B$，两个整数，表示棋盘大小</p>
+<p>接下来若干行为 uim 依次下的顺序，每行三个整数 $x_i, y_i, c_i$，分别表示位置和颜色，颜色 $1$ 为黑，$0$ 为白。位置 $1 \le x_i \le A$，$  1 \le y _ i \le B$。</p>
+<p>如果 uim 发现没地方可走，就可能会耍赖，将棋子下在了不合法的地方。遇到这种情况，你也要指出。当然 uim 也有可能知道自己输了后就不下了。不存在游戏胜负还没定 uim 就投降的情况。</p>
+<h2 id="_3">输出格式</h2>
+<p>第一行，选择先手还是后手，先手请输出 <code class="hljs inline">First</code>，后手输出 <code class="hljs inline">Second</code>。</p>
+<p>接下来几行，如果你是第一个下子的，请输出你的第一步下法。然后对 uim 的下的每一个子做出回应。输出 $x _ i \ y _ i \ c _ i$，意思和上面相同。</p>
+<p><strong>你必须输出必胜的下法，否则你将 <code class="hljs inline">WA</code> 这个点。</strong></p>
+<p>如果多个下法都是必胜点，请输出个能够尽早结束游戏的下法。</p>
+<p><strong>在你下完这个子之前，请假装你不知道uim的下一步走法。</strong></p>
+<p>如果 uim 耍赖，那么这一行输出 <code class="hljs inline">Buwanle</code> 并结束程序，多余的输入就不管它了。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2 2
+1 2 1
+1 1 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">Second
+2 1 0
+Buwanle</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>$40\%$ 数据，$2 \le A, B \le 3$。</p>
+<p>$100\%$ 数据，$2 \le A, B \le 9$。</p>
+<p>然而作为月赛的第一题，自然是简单的。因为标程的核心代码只有 $6$ 行。并不需要使用什么复杂算法就可以得到答案。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

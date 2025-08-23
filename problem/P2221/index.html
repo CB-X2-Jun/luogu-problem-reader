@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2221/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2221 [HAOI2012] 高速公路</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2221 [HAOI2012] 高速公路</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>Y901 高速公路是一条重要的交通纽带，政府部门建设初期的投入以及使用期间的养护费用都不低，因此政府在这条高速公路上设立了许多收费站。</p>
+<h2 id="_2">题目描述</h2>
+<p>Y901 高速公路是一条由 $n-1$ 段路以及 $n$ 个收费站组成的东西向的链，我们按照由西向东的顺序将收费站依次编号为 $1 \sim n$，从收费站 $i$ 行驶到 $i+1$（或从 $i+1$ 行驶到 $i$）需要收取 $v_i$ 的费用。高速路刚建成时所有的路段都是免费的，即所有 $v_i = 0$。</p>
+<p>政府部门根据实际情况，会不定期地对连续路段的收费标准进行调整，根据政策涨价或降价。</p>
+<p>无聊的小 A 同学总喜欢研究一些稀奇古怪的问题，他开车在这条高速路上行驶时想到了这样一个问题：对于给定的 $l,r$，在第 $l$ 个到第 $r$ 个收费站里等概率随机取出两个不同的收费站 $a$ 和 $b$，那么从 $a$ 行驶到 $b$ 将期望花费多少费用呢?</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行有两个整数，分别表示收费站个数 $n$，和询问与调整费用的总数 $m$。</p>
+<p>接下来 $m$ 行，每行表示一次调整或询问，首先有一个字符 $op$。</p>
+<ul>
+<li>若 $op$ 为 <code class="hljs inline">C</code>，则后面有三个整数 $l, r, v$，表示将第 $l$ 个收费站到第 $r$ 个收费站之间所有<strong>道路</strong>的通行费用增加 $v$。</li>
+<li>若 $op$ 为 <code class="hljs inline">Q</code>，则后面有两个整数 $l, r$，对于给定的 $l, r$，请回答小 A 的问题。</li>
+</ul>
+<h2 id="_4">输出格式</h2>
+<p>对于每次询问，输出一行一个既约分数表示答案。</p>
+<p>若答案为一个整数 $a$，请输出 <code class="hljs inline">a/1</code>。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 5
+C 1 4 2
+C 1 2 -1
+Q 1 2
+Q 2 4
+Q 1 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1/1
+8/3
+17/6</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h4 id="_7">数据规模与约定</h4>
+<p>本题共 $10$ 个测试点，各测试点数据规模如下表所示</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;">$n=$</th>
+<th style="text-align: center;">$m=$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$10$</td>
+<td style="text-align: center;">$10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$2$</td>
+<td style="text-align: center;">$100$</td>
+<td style="text-align: center;">$100$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">$1000$</td>
+<td style="text-align: center;">$1000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$10000$</td>
+<td style="text-align: center;">$10000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$5$</td>
+<td style="text-align: center;">$50000$</td>
+<td style="text-align: center;">$50000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$6$</td>
+<td style="text-align: center;">$60000$</td>
+<td style="text-align: center;">$60000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$7$</td>
+<td style="text-align: center;">$70000$</td>
+<td style="text-align: center;">$70000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$8$</td>
+<td style="text-align: center;">$80000$</td>
+<td style="text-align: center;">$80000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$9$</td>
+<td style="text-align: center;">$90000$</td>
+<td style="text-align: center;">$90000$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$10$</td>
+<td style="text-align: center;">$100000$</td>
+<td style="text-align: center;">$100000$</td>
+</tr>
+</tbody>
+</table>
+<p>对于全部的测试点，保证 $1 \leq n, m \leq 10^5$，$op \in {\texttt C, \texttt Q}$，$1 \leq l \leq r \leq n$，$-10^4 \leq v \leq 10^4$，在任何时刻，$0\leq v_i \leq 10^4$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

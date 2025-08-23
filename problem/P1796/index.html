@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1796/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1796 汤姆斯的天堂梦</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1796 汤姆斯的天堂梦</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>汤姆斯生活在一个等级为 $0$ 的星球上。那里的环境极其恶劣，每天 $12$ 小时的工作和成堆的垃圾让人忍无可忍。他向往着等级为 $N$ 的星球上天堂般的生活。</p>
+<p>有一些航班将人从低等级的星球送上高一级的星球，有时需要向驾驶员支付一定金额的费用，有时却又可以得到一定的金钱。</p>
+<p>汤姆斯预先知道了从 $0$ 等级星球去 $N$ 等级星球所有的航线和需要支付（或者可以得到）的金钱，他想寻找一条价格最低（甚至获得金钱最多）的航线。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行一个正整数 $N$（$N \le 100$），接下来的数据可分为 $N$ 个段落，每段的第一行一个整数 $K_i$（$K_i \le 100$），表示等级为 $i$ 的星球有 $K_i$ 个。</p>
+<p>接下来的 $K_i$ 行中第 $j$ 行依次表示与等级为 $i$，编号为 $j$ 的星球相连的等级为 $i - 1$ 的星球的编号和此航线需要的费用（正数表示支出，负数表示收益，费用的绝对值不超过 $1000$）。</p>
+<p>每行以 $0$ 结束，每行的航线数 $\le 100$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出所需（或所得）费用。正数表示支出，负数表示收益。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+2
+1 15 0
+1 5 0
+3
+1 -5 2 10 0
+1 3 0
+2 40 0
+2
+1 1 2 5 3 -5 0
+2 -19 3 -20 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">-1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于 $100 \%$ 的数据，$1 \le N \le 100$，$1 \le K_i \le 100$。</p>
+<p>样例解释：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/x085ukra.png" /></p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

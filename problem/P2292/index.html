@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2292/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2292 [HNOI2004] L 语言</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2292 [HNOI2004] L 语言</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章。  </p>
+<p>一段文章 $T$ 是由若干小写字母构成。一个单词 $W$ 也是由若干小写字母构成。一个字典 $D$ 是若干个单词的集合。我们称一段文章 $T$ 在某个字典 $D$ 下是可以被理解的，是指如果文章 $T$ 可以被分成若干部分，且每一个部分都是字典 $D$ 中的单词。  </p>
+<p>例如字典 $D$ 中包括单词 $\texttt{is},\texttt{name},\texttt{what},\texttt{your}$，则文章 $\texttt{whatisyourname}$ 是在字典 $D$ 下可以被理解的，因为它可以分成 $4$ 个单词：$\texttt{what},\texttt{is},\texttt{your},\texttt{name}$，且每个单词都属于字典 $D$，而文章 $\texttt{whatisyouname}$ 在字典 $D$ 下不能被理解，但可以在字典 $D'=D\cup{\texttt{you}}$ 下被理解。这段文章的一个前缀 $\texttt{whatis}$，也可以在字典 $D$ 下被理解，而且是在字典 $D$ 下能够被理解的最长的前缀。  </p>
+<p>给定一个字典 $D$，你的程序需要判断若干段文章在字典 $D$ 下是否能够被理解。并给出其在字典 $D$ 下能够被理解的最长前缀的位置。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行两个整数 $n$ 和 $m$，表示字典 $D$ 中有 $n$ 个单词，且有 $m$ 段文章需要被处理。</p>
+<p>接下来 $n$ 行，每行一个字符串 $s$，表示字典 $D$ 中的一个单词。</p>
+<p>接下来 $m$ 行，每行一个字符串 $t$，表示一篇文章。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于输入的每一篇文章，你需要输出一行一个整数，表示这段文章在字典 $D$ 可以被理解的最长前缀的位置。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 3 
+is
+name
+what
+your
+whatisyourname
+whatisyouname
+whaisyourname</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">14
+6
+0</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="1_3">样例 1 解释</h4>
+<ul>
+<li>对于第一个询问，整段文章 <code class="hljs inline">whatisyourname</code> 都能被理解。</li>
+<li>对于第二个询问，前缀 <code class="hljs inline">whatis</code> 能够被理解。</li>
+<li>对于第三个询问，没有任何前缀能够被理解。</li>
+</ul>
+<h4 id="_6">数据规模与约定</h4>
+<ul>
+<li>对于 $80\%$ 的数据，保证 $m \leq 20$，$|t| \leq 10^6$。</li>
+<li>对于 $100\%$ 的数据，保证 $1 \leq n \leq 20$，$1 \leq m \leq 50$，$1 \leq |s| \leq 20$，$1 \leq |t| \leq 2 \times 10^6$，$s$ 与 $t$ 中均只含小写英文字母。</li>
+</ul>
+<h4 id="_7">提示</h4>
+<ul>
+<li>请注意数据读入对程序效率造成的影响。</li>
+<li>请注意【数据规模与约定】中标注的串长是单串长度，并不是字符串长度和。</li>
+</ul>
+<h4 id="_8">说明</h4>
+<p>本题数据有加强，其中前 $80\%$ 的数据为原测试数据。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

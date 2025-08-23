@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2196/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2196 [NOIP 1996 提高组] 挖地雷</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2196 [NOIP 1996 提高组] 挖地雷</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在一个地图上有 $N\ (N \le 20)$ 个地窖，每个地窖中埋有一定数量的地雷。同时，给出地窖之间的连接路径。当地窖及其连接的数据给出之后，某人可以从任一处开始挖地雷，然后每次可以移动到一个编号比当前节点大且联通的节点去挖地雷，当无满足条件的节点时挖地雷工作结束。设计一个挖地雷的方案，使某人能挖到最多的地雷。</p>
+<h2 id="_2">输入格式</h2>
+<p>有若干行。</p>
+<p>第 $1$ 行只有一个数字，表示地窖的个数 $N$。</p>
+<p>第 $2$ 行有 $N$ 个数，分别表示每个地窖中的地雷个数。</p>
+<p>第 $3$ 行至第 $N+1$ 行表示地窖之间的连接情况：</p>
+<p>第 $3$ 行有 $n-1$ 个数（$0$ 或 $1$），表示第一个地窖至第 $2$ 个、第 $3$ 个 $\dots$ 第 $n$ 个地窖有否路径连接。如第 $3$ 行为 $1\space 1\space 0\space 0\space 0\cdots 0$，则表示第 $1$ 个地窖至第 $2$ 个地窖有路径，至第 $3$ 个地窖有路径，至第 $4$ 个地窖、第 $5$ 个 $\dots$ 第 $n$ 个地窖没有路径。</p>
+<p>第 $4$ 行有 $n-2$ 个数，表示第二个地窖至第 $3$ 个、第 $4$ 个 $\dots$ 第 $n$ 个地窖有否路径连接。</p>
+<p>……</p>
+<p>第 $n+1$ 行有 $1$ 个数，表示第 $n-1$ 个地窖至第 $n$ 个地窖有否路径连接。（为 $0$ 表示没有路径，为 $1$ 表示有路径）。</p>
+<h2 id="_3">输出格式</h2>
+<p>第一行表示挖得最多地雷时的挖地雷的顺序，各地窖序号间以一个空格分隔，不得有多余的空格。</p>
+<p>第二行只有一个数，表示能挖到的最多地雷数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5
+10 8 4 7 6
+1 1 1 0
+0 0 0
+1 1
+1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1 3 4 5
+27</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><strong>【样例解释】</strong>
+<img alt="" src="https://img.picui.cn/free/2025/05/15/6825a221c60ba.png" />
+最优路径为 $1 \to 3 \to 4 \to 5$，结果为 $27$。</p>
+<p><strong>【题目来源】</strong></p>
+<p>NOIP 1996 提高组第三题。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

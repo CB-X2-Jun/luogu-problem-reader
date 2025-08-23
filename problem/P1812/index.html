@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1812/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1812 区间运算</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1812 区间运算</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>区间运算是数学的一个领域。在区间运算中，常量和变量并不表示为一个单独、精确的值，而是表示为一个有着上界和下界的区间或范围。在普通的运算中，一个数量可以表示为数轴上的一个点；而在区间运算中，一个数量表示数轴上的一段，例如 $[3,5]$ 表示数轴上从 $3$ 到 $5$ 的一段。当精确的数值表示为区间时，上界与下界是相同的，如 $5$ 表示为区间即为 $[5,5]$。</p>
+<p>两个区间的运算，是指一个区间中的每个点与另一个区间中的每个点所做的运算，通过运算所得的所有点的集合即为运算的结果。例如，$[3,5]+[-10,1]=[-7,6]$。你的任务是写一个可以根据单行表达式进行取相反数、加、减、乘、除等基本的区间运算的程序。下面是一些运算的例子：</p>
+<ul>
+<li>取相反数：$-[-3,5]=[-5,3]$；</li>
+<li>加法：$[3,5]+[-10,1]=[-7,6]$；</li>
+<li>减法：$[3,5]-[-10,1]=[2,15]$；</li>
+<li>乘法：$[3,5]\times [-10,1]=[-50,5]$；</li>
+<li>除法：$[3,5]\div [-10,-0.1]=[-50,-0.3]$。</li>
+</ul>
+<h2 id="_2">输入格式</h2>
+<p>程序的输入包含一行或多行区间运算的中缀表达式，每个区间都表示为 $[\min,\max]$，表达式中包括括号、负号（$\verb!-!$）、加号（$\verb!+!$）、减号（$\verb!-!$）、乘号（$\verb!*!$）和除号（$\verb!/!$），括号可能是嵌套的。每一行中都有可能有空格，但空格不会在表示区间的括号 $[\min,\max]$ 中间或负号后出现。程序不需要处理科学记数法，如 $\verb!2E6!=2\times 10^6$。每一行都不超过 $80$ 个字符。运算采用标准的优先级规则。下面按优先级递减的顺序给出各个算符：</p>
+<ul>
+<li>$\verb!(!,\verb!)!$ 括号；</li>
+<li>$\verb!-!$ 取相反数；</li>
+<li>$\verb!*!,\verb!/!$，乘法和除法，同级运算按从左到右的顺序；</li>
+<li>$\verb!+!,\verb!-!$，加法和减法，同级运算按从左到右的顺序。</li>
+</ul>
+<h2 id="_3">输出格式</h2>
+<p>对于输入文件中每一行的表达式，以 $[\min,\max]$（均保留 $3$ 位小数）的形式输出运算结果。每个结果占一行。结果中不应有空格。在运算中，如果将一个包含 $0$ 的区间用作除数，则输出 <code class="hljs inline">Division by zero</code>。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">-[-3,5] 
+[3,5]+[-10,1] 
+[3,5]-[-10,1] 
+[3,5]*[-10,1] 
+(([3,5]/[-10,-0.1])/-[2,2])</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">[-5.000,3.000] 
+[-7.000,6.000] 
+[2.000,15.000] 
+[-50.000,5.000] 
+[0.150,25.000]</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

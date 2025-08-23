@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2191/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2191 小Z的情书</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2191 小Z的情书</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>众所周知，小 Z 是高富帅的典范和代表，所以他很很多很多的妹纸。小 Z 要写情书给他的妹纸了，作为一个谨慎的人，他当然不会直白的写在纸上（否则被那群损友发现岂不糟了？）。</p>
+<h2 id="_2">题目描述</h2>
+<p>虽然小 Z 谨小慎微，但是还是被狡猾的小 D 给发现了其中的玄机。作为一个大方的人，小 D 自然要把这个秘密拿出来给大家共享啦~小 Z 开始有两张 $N \times N$ 大小的纸一张是透明的、一张是有字的。然后小 Z 把透明的纸上有些格子涂黑了。接着把这两张纸一起给他的妹纸，妹纸事先和小 Z 约定好了，按照如下方法阅读：首先先把透明的纸盖在另一张纸上，然后把露出来的字母从上到下从左到右写下来，然后转个 $90$ 度，再读一遍……这样子一共读四遍……详见样例。</p>
+<p>小 D 不知从哪把情书弄来了，请大家一起来欣赏，顺便请大家把内容打出来看看。</p>
+<h2 id="_3">输入格式</h2>
+<p>第 $1$ 行，一个整数 $N$；</p>
+<p>第 $2$ 到第 $N+1$ 行，每行 $N$ 个字符，代表 skj 的透明纸，<code class="hljs inline">O</code> 没有涂黑的地方，<code class="hljs inline">#</code> 代表被涂黑的地方；</p>
+<p>第 $N+2$ 到第 $2N+1$ 行，每行 $N$ 个字符，仅包含大写字母，如描述中所示，是另一张纸。</p>
+<h2 id="_4">输出格式</h2>
+<p>一行，情书的内容。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+##O#
+#O#O
+####
+###O
+ARAO
+PCEM
+LEEN
+TURC</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">ACMCENTRALEUROPE</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>$1 \leq N \leq 1000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

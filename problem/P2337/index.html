@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2337/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2337 [SCOI2012] 喵星人的入侵</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2337 [SCOI2012] 喵星人的入侵</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>a180285 幸运地被选作了地球到喵星球的留学生，其实是作为特工去调查，喵星人是否有侵略地球的企图。喵星人果然打算入侵地球！从 a180285 口中得到确切消息之后，地球小组成员决定制定反侵略计划。</p>
+<p>喵星到地球的一段必经之路可以看作 $n\times m$ 的格点，喵星人将会从地图上的 $S$ 位置出发，目的地是地球的入口 $T$。为了抵抗喵星人的入侵，地球防御小组打算在地图上的格点上放置一些炮塔（最多放置 $K$ 个），炮塔攻击周围的 $8$ 个方向（$8$ 个方向分别是：东、南、西、北、东北、西北、东南、西南）（如下图所示，中间格子的炮塔可以攻击周围的八个格子）。此外地球防御小组还可以在地图上放置无限多个障碍，使得喵星人无法从有障碍的格子经过。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/l6ezyb3h.png" /></p>
+<p>右图是 $3\times 3$ 地图的一个示例，其中 $\tt X$ 表示炮塔，$\tt #$ 表示障碍，有炮塔或者障碍的格子，喵星人都无法经过。在这张地图中喵星人从 $S$ 走到 $T$ 受到的伤害如下：</p>
+<ul>
+<li>在 $S(1, 0)$ 处受到伤害为 $2$（炮塔 $(0,0)$ 和 $(2, 1)$ 能攻击到 $S$）；</li>
+<li>在空地 $(1,1)$ 处受到伤害为 $3$（同时被炮塔 $(0,0),(0,2)$ 和 $(2, 1)$ 攻击）；</li>
+<li>在 $T(1,2)$ 处受到伤害为 $2$（炮塔 $(0,2)$ 和 $(2, 1)$ 能攻击到 $T$）。</li>
+</ul>
+<p>于是受到的总伤害为 $2+3+2=7$。</p>
+<p>作为地球防御小组的成员，请你为喵星人布阵，使得喵星人受到的伤害最大。注意如果有多条从 $S$ 到 $T$ 的路径，喵星人会选择伤害最小的一条。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行为三个整数 $n,m,K$，分别表示地图的长和宽，以及最多能放置的炮塔数量。</p>
+<p>接下来的 $n$ 行，每行包含 $m$ 个字符，$\tt #$ 表示地图上原有的障碍，$\tt .$ 表示该处为空地，数据保证在原地图上存在 $S$ 到 $T$ 的路径。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出在合理布阵下，喵星人采取最优策略后，会受到的最大伤害。</p>
+<p>注意必须保证在布阵结束后喵星人仍然可以沿一条或以上的路径从起点 $S$ 到达终点 $T$，否则他们组织更大规模的侵略。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 3 1
+S.T
+...
+...</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">7</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>样例的一种最优布局方案如下：</p>
+<pre class="hljs"><code class="hljs">S#T
+.X.
+...</code></pre>
+
+<h3 id="_7">数据范围及约定</h3>
+<ul>
+<li>对于 $30\%$ 的数据，保证 $1\le n,m\leq 6$；</li>
+<li>对于 $100\%$ 的数据，保证 $\min(n,m)\le 6$，$\max(n,m)\le 20$，$1\le K\le 15$ 且从 $S$ 到 $T$ 的路径必定存在。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

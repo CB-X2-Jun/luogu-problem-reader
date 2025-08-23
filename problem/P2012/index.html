@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2012/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2012 拯救世界2</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2012 拯救世界2</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>前三题太弱了嘛，在看看最后一道渣题。</p>
+<h2 id="_2">题目描述</h2>
+<p>经过 12 年的韬光养晦，世界末日再次来临（众人：什么鬼逻辑......）。</p>
+<p>这次，小a 和 uim 已经做好了一切准备，顺利召唤出了 kkksc03 大神和 lzn 大神。然而，kkksc03 和 lzn 告诉他们，这次世界末日太过强大，他们已无法挽回，只有创世神 JOHNKRAM 能拯救这个世界。</p>
+<p>然而，创世神 JOHNKRAM 是无法召唤的，除非把整个宇宙按照 $E=mc^2$ 全部转化成能量。因为根据 C_SUNSHINE 大神随手推算出的召唤定律，至少需要被召唤者百万亿分之一的能量才能召唤（众人：什么鬼定律......）。</p>
+<hr />
+<p>当然，还有一种方法，那就是找出创世神 JOHNKRAM 的基因序列。普通人基因序列由 A、C、G、T 构成，创世神 JOHNKRAM 不是普通人（是个胖纸），基因序列也不一样。除了这四种普通的，还有乾、兑、离、震、巽、坎、艮、坤八种特殊基因。其中乾、坎、艮、震属阳，只能出现奇数次；坤、兑、离、巽属阴，只能出现偶数次。</p>
+<p>现在只知道创世神 JOHNKRAM 的基因序列共有 $n$ 位，其他一概不知。小a 和 uim 想知道他们最多要试多少次，才能召唤出创世神 JOHNKRAM 。这个数字有可能很大，所以输出答案模 $10^9$ 即可（C_SUNSHINE 的忠告：远离八卦，远离肥胖）。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入由多组数据组成，每组数据一行，输入一个数 $n$，输入以 $0$ 结束。</p>
+<h2 id="_4">输出格式</h2>
+<p>对于每组数据，输出一行一个整数，表示答案对 $10^9$ 取模的结果。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+10
+20
+6
+0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">0
+225116160
+53238784
+7680</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>【数据范围】   <br />
+对于 $10\%$ 的数据：$1\le n &lt; 25$，数据不超过 $10$ 组；<br />
+对于 $50\%$ 的数据：$1\le n &lt; 2^{31}$，数据不超过 $10^3$ 组； <br />
+对于 $100\%$ 的数据：$1\le n &lt; 2^{63}$，数据不超过 $2\times 10^5$ 组。</p>
+<p>【样例解释】<br />
+第一个数据解释：<br />
+只有 $3$ 位，没有合法方案，故答案为 $0$。</p>
+<p>【备注】</p>
+<p>附件：聊天记录（纯粹扯淡）</p>
+<p>JOHNKRAM 8:50:33</p>
+<p>喂喂，坑神之赛2可以开始了吧</p>
+<p>C_SUNSHINE 8:50:34</p>
+<p>[自动回复]恩！</p>
+<p>JOHNKRAM 8:51:12</p>
+<p>我准备把最后一题数据从 $50$ 放到 $2^{63}$。</p>
+<p>C_SUNSHINE 8:51:12</p>
+<p>[自动回复]恩！</p>
+<p>JOHNKRAM 8:51:45</p>
+<p>你同意喽？</p>
+<p>C_SUNSHINE 8:51:46</p>
+<p>[自动回复]恩！</p>
+<p>C_SUNSHINE 11:58:50</p>
+<p>你疯了吗？！</p>
+<p>JOHNKRAM 11:58:52</p>
+<p>[自动回复]您好，我现在有事不在，一会再和您联系。 不再提醒</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

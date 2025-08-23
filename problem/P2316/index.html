@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2316/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2316 [HNOI2005] 分形</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2316 [HNOI2005] 分形</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>$%<img alt="" src="https://cdn.luogu.com.cn/upload/pic/1357.png" />$</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ueifmd4d.png" /></p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7pwzb01g.png" /></p>
+<p>分形是分数维的，介于 $2$ 维与 $3$ 维之间。完整的分形图往往具有有界的面积和无限的周长。为了探寻分形的奥秘，King 执着地进行着与众不同的研究。</p>
+<p>首先他研究简单分形：平面上有一个半径为 $R_0$（$R_0 = 10^5$）的圆，圆心处于坐标原点，它与若干个半径为 $R_1$ 的圆外切，每个半径为 $R_1$ 的圆与若干个半径为 $R_2$ 的圆外切，……，每个半径为 $R_i$ 的圆与若干个半径为 $R_{i+1}$ 的圆外切。任意两圆不相交、不重叠、不内含、不内切。半径为 $R_i$ 的圆只可能与半径为 $R_{i-1}$ 或 $R_{i+1}$ 的圆外切，$i &gt; 0$ 时恰与 1 个半径为 $R_{i-1}$ 的圆外切。</p>
+<p>作为基础，他先研究有限层的简单分形，即只由半径为 $R_0 \sim R_n$ 的圆构成的 $n + 1$ 层分形。图 $1$ 是一个 $5$ 层简单分形。由于只有有限层，所以此图的边界为有限长。</p>
+<p>King 在边界上找出了与分形图的性质有关的若干个点对（$P_i, Q_i$），从 $P_i$ 到 $Q_i$，最短的光滑路径的长度是多少（如图 $1$ 中的加粗曲线）。</p>
+<p>光滑路径是指：路径在两圆公切点拐弯时切线方向保持不变。图 $2$ 中左边两段（加粗）路径是光滑的，而右边的（加粗）路径不光滑。</p>
+<h2 id="_2">输入格式</h2>
+<p>$%<img alt="" src="https://cdn.luogu.com.cn/upload/pic/1358.png" />$</p>
+<p>第一行为 $3$ 个整数 $n, m, t$。其中 $m$ 表示圆的个数（并且圆的编号为 $1 \sim m$），$t$ 为特殊点对数。</p>
+<p>第二行为 $n$ 个正整数 $R_1 \sim R_n$。</p>
+<p>接下来的 $m$ 行表示各个圆，每行有 $4$ 个数 $X_i, Y_i, S_i, F_i$, $(X_i, Y_i)$ 是圆 $i$ 的圆心位置，圆 $i$ 的半径是 $R_{S_i}$，与圆 $i$ 相切的尺寸更大的圆的编号是 $F_i$，$X_i$ 和 $Y_i$ 可能是实数。</p>
+<p>再接下来的 $t$ 行表示各个特殊点对，每行有 $4$ 个数 $P_{i,tW}, P_{i,tA}, Q_{i,tW},Q_{i,tA}$，用于描述一个特殊点对 $(P_i, Q_i)$ 的位置：</p>
+<ul>
+<li>$P_{i,tW}$ 表示点 $P_i$ 处于 $P_{i,tW}$ 这个圆上，并且以此圆圆心为原点的幅角为 $P_{i,tA}$。</li>
+<li>$Q_{i,tW}$ 表示点 $Q_i$ 处于 $Q_{i,tW}$ 这个圆上，并且以此圆圆心为原点的幅角为 $Q_{i,tA}$。</li>
+</ul>
+<h2 id="_3">输出格式</h2>
+<p>$%<img alt="" src="https://cdn.luogu.com.cn/upload/pic/1359.png" />$</p>
+<p>对于每个特殊点对，输出一行一个整数，表示最短长度除以 $\pi$ 后四舍五入保留整数的结果。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">1 3 3
+50000
+0 0 0 0
+150000 0 1 1
+0 150000 1 1
+3 5.497787  &nbsp;&nbsp;2 2.356194
+3 1.570796  &nbsp;&nbsp;2 0.0
+3 0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 1.570796</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">175000
+150000
+200000</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1360.png" /></p>
+<p>对于 $50\%$ 的数据：</p>
+<ul>
+<li>$m \le 300$。</li>
+<li>$t \le 1000$。</li>
+</ul>
+<p>对于 $100\%$ 的数据：</p>
+<ul>
+<li>$1 \le n &lt; m \le 3000$。</li>
+<li>$1 \le t \le 10^5$。</li>
+<li>$2 \le R_n &lt; R_{n-1} &lt; \ldots &lt; R_1 &lt; R_0$。</li>
+<li>$R_{i-1} - R_i \ge 2$。</li>
+<li>$R_0 = 10^5$。</li>
+<li>$S_0 = -1$。</li>
+<li>$X_1 = Y_1 = F_1 = S_1 = 0$。</li>
+<li>$-3 \times 10^8 \le X_i, Y_i \le 3 \times 10^8$。</li>
+<li>$0 \le S_i \le n$。</li>
+<li>$1 \le F_i \le m$。</li>
+<li>$F_i \ne i$。</li>
+<li>$S_{F_i} = S_i-1$。</li>
+<li>$1 \le P_{i,tW},Q_{i,tW} \le m$。</li>
+<li>$P_{i,tW} \ne Q_{i,tW}$。</li>
+<li>$0 \le  P_{i,tA},Q_{i,tA} &lt; 2\pi$。</li>
+<li>所有的圆之间要么外切要么相离。</li>
+<li>所有特殊点都不是切点。</li>
+<li>一个圆最多与 $10$ 个圆外切。</li>
+<li>所有实数最多保留 $6$ 位小数。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

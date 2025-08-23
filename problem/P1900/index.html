@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1900/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1900 自我数</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1900 自我数</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<h1 id="_2">题目有加强</h1>
+<h2 id="_3">题目描述</h2>
+<p>在 1949 年印度数学家 D. R. Daprekar 发现了一类称作 Self-Numbers 的数。对于每一个正整数 $n$，我们定义 $d(n)$ 为 $n$ 加上它每一位数字的和。例如， $d(75) = 75 + 7 + 5 = 87$。给定任意正整数 $n$ 作为一个起点，都能构造出一个无限递增的序列：$n, d(n), d(d(n)), d(d(d(n))), \ldots$ 例如，如果你从 $33$ 开始，下一个数是 $33 + 3 + 3 = 39$，再下一个为 $39 + 3 + 9 = 51$，再再下一个为 $51 + 5 + 1 = 57$，因此你所产生的序列就像这样：$33, 39, 51, 57, 69, 84, 96, 111, 114, 120, 123, 129, 141, \ldots$。数字 $n$ 被称作 $d(n)$ 的发生器。在上面的这个序列中，$33$ 是 $39$ 的发生器，$39$ 是 $51$ 的发生器，$51$ 是 $57$ 的发生器等等。有一些数有超过一个发生器，如 $101$ 的发生器可以是 $91$ 和 $100$。一个没有发生器的数被称作 Self-Number。如前 $13$ 个 Self-Number 为 $1, 3, 5, 7, 9, 20, 31, 42, 53, 64, 75, 86, 97$。我们将第 $i$ 个 Self-Number 表示为 $a_i$，所以 $a_1 = 1, a_2 = 3, a_3 = 5, \ldots$。</p>
+<h2 id="_4">输入格式</h2>
+<p>输入包含整数 $N, K, s_1, \ldots, s_K$，其中 $1 \le N \le {10}^7$、$1 \le K \le 5000$，以空格和换行分割。</p>
+<h2 id="_5">输出格式</h2>
+<p>在第一行你需要输出一个数，这个数表示在闭区间 $[1, N]$ 中 Self-Number 的数量。第二行必须包含以空格划分的 $K$ 个数，表示 $a_{s_1}, \ldots, a_{s_K}$，这里保证所有的 $a_{s_1}, \ldots, a_{s_K}$ 都小于 $N$。（例如，如果 $N = 100$，$s_k$ 可以为 $1 \sim 13$，但不能为 $14$，因为 $a_{14} = 108 &gt; 100$）</p>
+<h2 id="_6">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">100 10
+1 2 3 4 5 6 7 11 12 13</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">13
+1 3 5 7 9 20 31 75 86 97</code></pre>
+
+<h2 id="_7">说明/提示</h2>
+<p>对于 $100 \%$ 的数据，$1 \le N \le {10}^7$，$1 \le K \le 5000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

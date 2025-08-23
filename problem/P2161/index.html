@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2161/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2161 [SHOI2009] 会场预约</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2161 [SHOI2009] 会场预约</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p><strong>形式化题意：</strong></p>
+<p>你需要维护一个在数轴上的线段的集合 $S$，支持两种操作：</p>
+<p><code class="hljs inline">A l r</code> 表示将 $S$ 中所有与线段 $[l,r]$ 相交的线段删去，并将 $[l,r]$ 加入 $S$ 中。</p>
+<p><code class="hljs inline">B</code> 查询 $S$ 中的元素数量。</p>
+<p>对于 <code class="hljs inline">A</code> 操作，每次还需输出删掉的元素个数。</p>
+<h2 id="_2">题目描述</h2>
+<p>PP 大厦有一间空的礼堂，可以为企业或者单位提供会议场地。</p>
+<p>这些会议中的大多数都需要连续几天的时间（个别的可能只需要一天），不过场地只有一个，所以不同的会议的时间申请不能够冲突。也就是说，前一个会议的结束日期必须在后一个会议的开始日期之前。所以，如果要接受一个新的场地预约申请，就必须拒绝掉与这个申请相冲突的预约。</p>
+<p>一般来说，如果 PP 大厦方面事先已经接受了一个会场预约（例如从 $10$ 日到 $15$ 日），就不会再接受与之相冲突的预约（例如从 $12$ 日到 $17$ 日）。</p>
+<p>不过，有时出于经济利益，PP 大厦方面有时会为了接受一个新的会场预约，而拒绝掉一个甚至几个之前预订的预约。 于是，礼堂管理员 QQ 的笔记本上经常记录着这样的信息：（本题中为方便起见，所有的日期都用一个整数表示）例如，如果一个为期 $10$ 天的会议从 $90$ 日开始到 $99$ 日，那么下一个会议最早只能在 $100$ 日开始。（此处前后矛盾，若无法理解请参考形式化描述。）</p>
+<p>最近，这个业务的工作量与日俱增，礼堂的管理员 QQ 希望参加 SHTSC 的你替他设计一套计算机系统，方便他的工作。这个系统应当能执行下面两个操作：</p>
+<p><code class="hljs inline">A</code> 操作：有一个新的预约是从 $start$ 日到 $end$ 日，并且拒绝掉所有与它相冲突的预约。执行这个操作的时候，你的系统应当返回为了这个新预约而拒绝掉的预约个数，以方便 QQ 与自己的记录相校对。</p>
+<p><code class="hljs inline">B</code> 操作：请你的系统返回当前的仍然有效的预约的总数。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行一个正整数 $n$，表示操作个数。<br />
+接下来 $n$ 行，每行表示一个操作，都是上面两种中的一个。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出 $n$ 行，每行一个整数，表示对应操作的答案。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">6
+A 10 15
+A 17 19
+A 12 17
+A 90 99
+A 11 12
+B</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">0
+0
+2
+0
+1
+2</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>【数据范围】<br />
+对于 $100\%$ 的数据，$1\le n \le 2\times 10^5$，$1\le l \le r \le 10^5$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

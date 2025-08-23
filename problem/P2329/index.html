@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2329/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2329 [SCOI2005] 栅栏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2329 [SCOI2005] 栅栏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>农夫约翰打算建立一个栅栏将他的牧场给围起来，因此他需要一些特定规格的木材。于是农夫约翰到木材店购买木材。可是木材店老板说他这里只剩下少部分大规格的木板了。不过约翰可以购买这些木板，然后切割成他所需要的规格。而且约翰有一把神奇的锯子，用它来锯木板，不会产生任何损失，也就是说长度为 $10$ 的木板可以切成长度为 $8$ 和 $2$ 的两个木板。</p>
+<p>你的任务：给你约翰所需要的木板的规格，还有木材店老板能够给出的木材的规格，求约翰最多能够得到多少他所需要的木板。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行为整数 $m(m\leq50)$ 表示木材店老板可以提供多少块木材给约翰。紧跟着 $m$ 行为老板提供的每一块木板的长度。</p>
+<p>接下来一行（即第 $m+2$ 行）为整数 $n(n\leq1000)$，表示约翰需要多少木材。</p>
+<p>接下来 $n$ 行表示他所需要的每一块木板的长度。木材的规格小于 $32767$。（对于店老板提供的和约翰需要的每块木板，你只能使用一次）。</p>
+<h2 id="_3">输出格式</h2>
+<p>只有一行，为约翰最多能够得到的符合条件的木板的个数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+30
+40
+50
+25
+10
+15
+16
+17
+18
+19
+20
+21
+25
+24
+30</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">7</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">3
+20
+10
+10
+9
+3
+3
+3
+5
+5
+7
+8
+8
+9</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">7</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1933/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1933 [NOI2010] 旅行路线</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1933 [NOI2010] 旅行路线</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>2010 年，世博会在中国上海举办，吸引了数以千万计的中外游客前来参观。暑假期间小 Z 也来到了上海世博园， 她对世博园的拥挤早有所闻，对有的展馆甚至要排上好几个小时的队才能进入也做好了充分准备，但为了使得自己的世博之旅更加顺利舒畅，小 Z 决定在游玩之前先制定一份详细的旅行路线。</p>
+<p>小 Z 搜集到了世博园的地图，她发现从整体上看世博园是一块非常狭长的区域，而每一个展馆占用了其中一个几乎相同大小的方块。因此可以将整个园区看成一个 $n \times m$ 的矩阵（$n \leq 3$），其中每一个格子为一个主题展馆。</p>
+<p>由于不同展馆受到的关注度会有一些差别，因此排队时间的长短也不尽相同。小 Z 根据统计信息给每一个展馆 $(x, y)$ 标记了 $T_{x,y} = 0$ 或 $1$，如果 $T_{x,y} = 1$，表示这个展馆非常热门，需要排很长时间的队；如果 $T_{x,y} = 0$，表示这个展馆相对比较普通，几乎不需要排队即可进入参观。小 Z 希望能够制定一份合理的路线，使得能交替参观热门馆和普通馆，既不会因为总是参观热门馆而长时间在排队，也不会因为总是参观普通馆而使得游览过于平淡。同时，小 Z 办事很讲究效率，她希望在游遍所有展馆的同时，又不会走冤枉路浪费体力。因此她希望旅行路线满足以下几个限制：</p>
+<ol>
+<li>在参观完位于 $(x, y)$ 的展馆后，下一个参观的是一个相邻的且未被参观过的展馆 $(x^\prime, y^\prime)$，即 $|x-x^\prime|+|y-y^\prime|=1$；</li>
+<li>路线的起点位于整个矩阵的边界上，即 $x = 1$ 或 $x = n$ 或 $y = 1$ 或 $y = m$；</li>
+</ol>
+<p>她制定了一个长度为 $n \times m$ 的 01 序列 $L$，她希望第 $i$ 个参观的展馆 $(x,y)$ 满足 $T_{x,y}=L_i$。</p>
+<p>小 Z 想知道有多少条不同的旅行路线能够满足她的要求。由于最终的结果可能很大，小 Z 只想知道可行的旅行路线总数 $\bmod\space 11\,192\,869$ 的值。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个正整数 $n, m$。</p>
+<p>第 2 行至第 $n+1$ 行，每行有 $m$ 个 01 整数，其中第 $i+1$ 行第 $j$ 个数表示 $T_{i,j}$。</p>
+<p>第 $n+2$ 行有 $n \times m$ 个 01 整数，其中第 $i$ 个数表示 $L_i$ 的值。</p>
+<h2 id="_3">输出格式</h2>
+<p>仅包含一个整数，表示可行的旅行路线总数 $\bmod \space 11\,192\,869$ 的值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2 2
+1 0
+0 1
+1 0 1 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>【样例说明】</p>
+<p>这四条可行的旅行路线分别为：</p>
+<p>$$
+\begin{aligned}
+(1,1) \to (1,2) \to (2,2) \to (2,1)\
+(1,1) \to (2,1) \to (2,2) \to (1,2)\
+(2,2) \to (1,2) \to (1,1) \to (2,1)\
+(2,2) \to (2,1) \to (1,1) \to (1,2)
+\end{aligned}
+$$</p>
+<p>【数据规模和约定】</p>
+<ul>
+<li>对于 $10\%$ 的数据：$n=1$；</li>
+<li>对于 $30\%$ 的数据：$n=2$；</li>
+<li>对于 $60\%$ 的数据：$n=3$，其中 $20\%$ 的数据 $T_{i,j}$ 全为 $0$；</li>
+<li>对于 $100\%$ 的数据：$m \leq 50$，$L_i,T_{i,j} = 0$ 或 $1$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

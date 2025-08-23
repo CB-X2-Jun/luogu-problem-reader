@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2310/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2310 loidc，看看海</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2310 loidc，看看海</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>loidc 喜欢大海。在他放假的时候他经常一个人跑到海边独自玩耍。</p>
+<p>在浪花的冲击下，他可以忘记打代码的烦躁，真是惬意极了。</p>
+<p>虽然今天是周六，但今天可是 $2014$ 年 $11$ 月 $8$ 日，NOIP 2014 复赛 Day 1。在早晨放松之余他可不能忘掉 OI 知识。</p>
+<h2 id="_2">题目描述</h2>
+<p>loidc 准备带着 LOI 的队员们考完试后到海边玩耍。所以他想写一个程序让队员们了解在一段时间内海浪的情况。</p>
+<p>他的命令是这样输入的：</p>
+<p>$$\texttt{x y k}$$</p>
+<p>这是要询问在时间 $[x,y]$ 内海浪高度第 $k$ 小的单位时刻是那个时刻。</p>
+<p>但是在他刚准备打开 Dev-pas++ 的时候，loidc 发现他的电脑坏掉了。于是一向喜欢偷懒的他就向你求助。他希望你能在 $1$ 秒内完成程序的运行。</p>
+<p>当然 loidc 会提前告诉你所有时段海浪的高度，这点你放心。至于他是如何得到的，这就不得而知了。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行一个整数 $n$，表示总时间段。</p>
+<p>第二行 $n$ 个数 ${a_n}$，依次表示 $n$ 个单位时刻内海浪的高度。（数据保证各个时刻海浪高度均不相同）</p>
+<p>第三行一个整数 $m$，表示有 $m$ 个询问。</p>
+<p>接下来 $m$ 行，每行 $3$ 个整数 $x,y,k$，表示一个询问。</p>
+<h2 id="_4">输出格式</h2>
+<p>一共 $m$ 行，是每个询问的回答。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5
+1 2 3 4 5
+3
+2 4 2
+1 5 1
+3 3 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3
+1
+3</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>对于 $30\%$ 的数据，$n,m \le 200$。</p>
+<p>对于 $100\%$ 的数据，$1 \le n,m \le 4000$，$1 \le a_i \le 10^5$ 且 $a_i$ 两两不等，$1 \le x \le y \le n$，$1 \le k \le y-x+1$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

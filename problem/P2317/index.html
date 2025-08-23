@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2317/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2317 [HNOI2005] 星际贸易</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2317 [HNOI2005] 星际贸易</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>$\text{Coke}$ 是一个精明的小商人。这次他想大胆地做一次星际贸易。于是他选定了银河贸易交通局所给定的一条贸易路线，从地球出发，依次经过 $Star_1,Star_2,\cdots,Star_N$ 。贸易路线在 $Star_N$ 结束（$\text{Coke}$ 最后要在 $Star_N$ 上观光旅游）。</p>
+<p>银河系中各个星球实行计划经济。在一个星球上出售商品，必须获得那个星球的许可证。$\text{Coke}$ 手中的许可证允许他在 $Star_i$ 上出售指定配额量 $A_i (1\leq A_i\leq100)$ 吨的商品(而且既不多也不能少，当然他可以不在 $Star_i$；上出售任何商品)，出售后能够获得 $B_i(0 \leq B_i \leq 50000)$ 的收入。由于 $\text{Coke}$ 的私人飞船载重有限，这个精明的小商人不得不好好计划一下他应该向哪些星球出售商品。</p>
+<p>飞船采用反物质推进系统行驶，需要反物质燃料。反物质燃料不是用来维持平常飞行的(宇宙间没有阻力)，而是用于飞船从星球出发时加速以及飞船到达星球时减速所需的消耗。每次加速和减速各消耗一个单位的反物质燃料。</p>
+<p>另外，作如此长距离的飞行，飞船显然要在中途停靠并在某些星球上补充反物质燃料以及对飞船定期进行一些维护(维护只能在星球上进行)。由于各星球之间科技发展水平不等，在各个星球上反物质燃料的售价以及维护飞船的费用是不同的。</p>
+<p>此外，银河贸易交通局正在举办小商人贸易竞赛，对于贸易额(即总贸易收入)得到冠军的商人有丰厚的奖赏，因此 $\text{Coke}$ 决定不惜血本，要使自己的贸易额达到最大。当然，在贸易额最大的同时，作为一个商人，他还是希望净利润尽可能大(净利润=贸易额-燃料费用-维护费用)。</p>
+<p>假设从地球出发时飞船刚刚维护过并装满了燃料，并且飞船每次停靠一个星球出售商品或补充反物质燃料或在终点站观光旅游时就会在那里做一次维护。$\text{Coke}$ 希望你给他制定一个方案满足他的要求。</p>
+<h2 id="_2">输入格式</h2>
+<p>从文件 input.txt 中读入数据，文件的第 $1$ 行为 $4$ 个正整数 $N,M,R,L_0$。</p>
+<p>$N(1 \le N \le 2000)$ 表示 Coke 这次要行经的星球数。$M(1 \le M \le 2000)$ 表示飞船最大的载重量，$R(0 \le R \le 10000000)$ 表示飞船最多能携带的燃料数。$L_0(1 \le L_0 \le 100)$ 表示飞船不做维护所能飞行的最大距离。</p>
+<p>文件的第 $2 \cdots N+1$ 行是对每个星球的描述。其中第 $i+1$ 行有 $5$ 个非负整数 $A_i,B_i,L_i,P_i,F_i$，$L_i(1 \le L_i \le 100)$ 表示从地球依次经 $Star_1,Star_2,\cdots,Star_{i-1}$ 最后到达 $Star_i$ 的距离。$P_i(0 \le P_i \le 1000)$ 为星球 $Star_i$ 上一个单位反物质的价格，若 $P_i$ 为 $0$ ，则说明这个星球还没有制造反物质的技术。$F_i(0 \le F_i \le 10000)$ 表示飞船在 $Star_i$ 上做维护所需要的费用。</p>
+<p>假设输入数据满足：对于 $i &lt; j$ 一定有 $L_i &lt; L_j$，并使得只有一种获得最大贸易额的方法。</p>
+<h2 id="_3">输出格式</h2>
+<p>如果可以找到这样的方案，那么输出文件 output.txt 中包含两个整数 $X$ 和 $Y$。$X$ 表示贸易额，$Y$ 表示净利润并且两个数字之间用一个空格隔开。如果不能完成这次星际贸易，那么输出文件 output.txt 中包含 “Poor Coke!”（不包括引号）。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">6 3 10 4
+1 2 1 1 1
+1 2 2 2 1
+1 2 3 9 1
+1 1 4 0 1
+1 1 5 0 1
+1 1 6 1 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">6 2</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">6 3 2 4
+1 2 1 1 1
+1 2 2 2 1
+1 2 3 0 1
+1 1 4 0 1
+1 1 5 0 1
+1 1 6 1 1</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">Poor Coke!</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

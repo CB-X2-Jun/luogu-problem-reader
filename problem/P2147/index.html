@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2147/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2147 [SDOI2008] 洞穴勘测</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2147 [SDOI2008] 洞穴勘测</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>辉辉热衷于洞穴勘测。</p>
+<p>某天，他按照地图来到了一片被标记为 JSZX 的洞穴群地区。经过初步勘测，辉辉发现这片区域由 $n$ 个洞穴（分别编号为 $1$ 到 $n$）以及若干通道组成，并且每条通道连接了恰好两个洞穴。假如两个洞穴可以通过一条或者多条通道按一定顺序连接起来，那么这两个洞穴就是连通的，按顺序连接在一起的这些通道则被称之为这两个洞穴之间的一条路径。洞穴都十分坚固无法破坏，然而通道不太稳定，时常因为外界影响而发生改变，比如，根据有关仪器的监测结果，$123$ 号洞穴和 $127$ 号洞穴之间有时会出现一条通道，有时这条通道又会因为某种稀奇古怪的原因被毁。</p>
+<p>辉辉有一台监测仪器可以实时将通道的每一次改变状况在辉辉手边的终端机上显示：</p>
+<ul>
+<li>如果监测到洞穴 $u$ 和洞穴 $v$ 之间出现了一条通道（<strong>保证原来没有</strong>），终端机上会显示一条指令 <code class="hljs inline">Connect u v</code>。</li>
+<li>如果监测到洞穴 $u$ 和洞穴 $v$ 之间的通道被毁（<strong>保证原来存在</strong>），终端机上会显示一条指令 <code class="hljs inline">Destroy u v</code>。</li>
+</ul>
+<p>经过长期的艰苦卓绝的手工推算，辉辉发现一个奇怪的现象：无论通道怎么改变，任意时刻任意两个洞穴之间至多只有一条路径。</p>
+<p>因而，辉辉坚信这是由于某种本质规律的支配导致的。因而，辉辉更加夜以继日地坚守在终端机之前，试图通过通道的改变情况来研究这条本质规律。然而，终于有一天，辉辉在堆积成山的演算纸中崩溃了……他把终端机往地面一砸（终端机也足够坚固无法破坏），转而求助于你，说道：“你老兄把这程序写写吧。”</p>
+<p>辉辉希望能随时通过终端机发出指令 <code class="hljs inline">Query u v</code>，向监测仪询问此时洞穴 $u$ 和洞穴 $v$ 是否连通。现在你要为他编写程序回答每一次询问。已知在第一条指令显示之前，JSZX 洞穴群中没有任何通道存在。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行为两个正整数 $n$ 和 $m$，分别表示洞穴的个数和终端机上出现过的指令的个数。</p>
+<p>以下 $m$ 行，依次表示终端机上出现的各条指令：</p>
+<ul>
+<li>每行开头是一个表示指令种类的字符串 $S$。</li>
+<li>之后有两个整数 $u,v$，分别表示两个洞穴的编号。</li>
+</ul>
+<h2 id="_3">输出格式</h2>
+<p>对每个 <code class="hljs inline">Query</code> 指令，输出洞穴 $u$ 和洞穴 $v$ 是否互相连通：连通输出 <code class="hljs inline">Yes</code>，不连通输出 <code class="hljs inline">No</code>。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">200 5
+Query 123 127
+Connect 123 127
+Query 123 127
+Destroy 127 123
+Query 123 127</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">No
+Yes
+No</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">3 5
+Connect 1 2
+Connect 3 1
+Query 2 3
+Destroy 1 3
+Query 2 3</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">Yes
+No</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于 $(i \times 10)\%$ 的数据，$n \le i \times 10^3$，$m \le 2i \times 10^4$。</p>
+<p>对于 $100\%$ 的数据，$1 \le n \le 10^4$，$1 \le m \le 2 \times 10^5$，$1 \le u,v \le n$，所有指令都是合法的。</p>
+<p>本题 I/O 规模比较大，建议 C/C++ 选手使用 <code class="hljs inline">scanf</code> 和 <code class="hljs inline">printf</code> 进行 I/O 操作以免超时。</p>
+<hr />
+<p>@namespace_std 于 2019.12.1 添加一组 Hack 数据</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2237/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2237 [USACO14FEB] Auto-complete S</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2237 [USACO14FEB] Auto-complete S</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>Bessie the cow has a new cell phone and enjoys sending text messages, although she keeps making spelling errors since she has trouble typing on such a small screen with her large hooves.  Farmer John has agreed to help her by writing an auto-completion app that takes a partial word and suggests how to complete it.</p>
+<p>The auto-completion app has access to a dictionary of W words, each consisting of lowercase letters in the range a..z, where the total number of letters among all words is at most 1,000,000.  The app is given as input a list of N partial words (1 &lt;= N &lt;= 1000), each containing at most 1000 lowercase letters.  Along with each partial word i, an integer K_i is also provided, such that the app must find the (K_i)th word in alphabetical order that has partial word i as a prefix.  That is, if one ordered all of the valid completions of the ith partial word, the app should output the completion that is (K_i)th in this sequence.</p>
+<h2 id="_2">输入格式</h2>
+<p>* Line 1: Two integers: W and N.</p>
+<p>* Lines 2..W+1: Line i+1: The ith word in the dictionary.</p>
+<p>* Lines W+2..W+N+1: Line W+i+1: A single integer K_i followed by a    partial word.</p>
+<h2 id="_3">输出格式</h2>
+<p>* Lines 1..N: Line i should contain the index within the dictionary</p>
+<p>(an integer in the range 1..W) of the (K_i)th completion (in</p>
+<p>alphabetical order) of the ith partial word, or -1 if there</p>
+<p>are less than K_i completions.</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">10 3
+dab
+ba
+ab
+daa
+aa
+aaa
+aab
+abc
+ac
+dadba
+4 a
+2 da
+4 da</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3
+1
+-1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>OUTPUT DETAILS:</p>
+<p>The completions of a are {aa,aaa,aab,ab,abc,ac}. The 4th is ab, which</p>
+<p>is listed on line 3 of the dictionary.  The completions of da are</p>
+<p>{daa,dab,dadba}. The 2nd is dab, listed on line 1 of the dictionary.</p>
+<p>There is no 4th completion of da.</p>
+<p>Source: USACO 2014 Feburary Contest, Silver</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2208/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2208 [USACO13OPEN] What's Up With Gravity S</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2208 [USACO13OPEN] What's Up With Gravity S</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>Bovidian 船长正在拯救她的船员，Beefalo 博士。</p>
+<p>和所有伟大的冒险故事一样，这个故事也是发生在一个 2D 平面上的。</p>
+<p>这个平面是 $M\times N$（$1\le N,M \le500$）的格子组成的网格，代表着船长的世界的一个侧视图。</p>
+<p>有些格子是空的，另一些则是实心的，并且不能直接通过。</p>
+<p>很不幸的是，船长跳不起来。她必须遵守这个世界的特殊物理法则。</p>
+<ol>
+<li>如果船长的正下方没有方块（换句话说，即使她正在网格的边缘），那么她就会掉入宇宙中，同时意味着冒险失败。</li>
+<li>如果船长的正下方的方块是空的，那么她就会掉到这个方块。</li>
+<li>在不满足 1. 与 2. 的情况下，船长可以做以下的事情：<ol>
+<li>如果左边（或右边）的方格是空的，那么她可以走到那个格子。</li>
+<li>船长可以翻转重力的方向。</li>
+</ol>
+</li>
+</ol>
+<p>当船长改变翻转重力的方向时，我们就改变船长“下方”的定义。</p>
+<p>“下方”的定义只能是两种：</p>
+<ol>
+<li>比船长位置所在的方格的列编号更大的格子。</li>
+<li>比船长位置所在的方格的列编号更小的格子。</li>
+</ol>
+<p>一开始的时候，“下方”的定义是比船长位置所在方格的列编号更大的格子。</p>
+<p>Beefalo 博士正迷失在这个世界中的某一处，请帮助船长从起点到达博士的地方。</p>
+<p>如果可以到达，请输出最少需要的翻转重力的次数。</p>
+<p>如果不可以到达，请输出 $-1$。</p>
+<h2 id="_2">输入格式</h2>
+<p>第 $1$ 行输入两个整数 $N,M$。</p>
+<p>第 $2$ 行到 $N+1$ 行中，第 $i+1$ 行则是代表船长世界的第 $i$ 行。每行有 $M$ 个字符。</p>
+<p>其中 <code class="hljs inline">,</code> 代表着一个空的格子，<code class="hljs inline">#</code> 代表着一个实心的格子，<code class="hljs inline">C</code> 代表着船长的位置，<code class="hljs inline">D</code> 代表着博士的位置。</p>
+<h2 id="_3">输出格式</h2>
+<p>一行，输出一个整数。</p>
+<p>如果船长可以到达，请输出最少需要的翻转重力的次数。</p>
+<p>如果不可以到达，请输出 $-1$。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5
+#####
+#...#
+#...D
+#C...
+##.##</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>输出解释：</p>
+<p>首先，船长在 $(4,2)$，接着她翻转重力，到达 $(2,2)$。</p>
+<p>接着她向右走走到 $(2,4)$，接着她第二次翻转重力，到达 $(4,4)$。</p>
+<p>然后她继续向右走到 $(4,5)$，最后在翻转一次重力，到达博士所在的 $(3,5)$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

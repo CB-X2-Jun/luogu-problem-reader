@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1909/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1909 [NOIP 2016 普及组] 买铅笔</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1909 [NOIP 2016 普及组] 买铅笔</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>NOIP2016 普及组 T1</p>
+<h2 id="_2">题目描述</h2>
+<p>P 老师需要去商店买 $n$ 支铅笔作为小朋友们参加 NOIP 的礼物。她发现商店一共有 $3$ 种包装的铅笔，不同包装内的铅笔数量有可能不同，价格也有可能不同。为了公平起见，P 老师决定只买同一种包装的铅笔。</p>
+<p>商店不允许将铅笔的包装拆开，因此 P 老师可能需要购买超过 $n$ 支铅笔才够给小朋友们发礼物。</p>
+<p>现在 P 老师想知道，在商店每种包装的数量都足够的情况下，要买够至少 $n$ 支铅笔最少需要花费多少钱。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行包含一个正整数 $n$，表示需要的铅笔数量。</p>
+<p>接下来三行，每行用 $2$ 个正整数描述一种包装的铅笔：其中第 $1$ 个整数表示这种包装内铅笔的数量，第 $2$ 个整数表示这种包装的价格。</p>
+<p>保证所有的 $7$ 个数都是不超过 $10000$ 的正整数。</p>
+<h2 id="_4">输出格式</h2>
+<p>$1$ 个整数，表示 P 老师最少需要花费的钱。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">57
+2 2
+50 30
+30 27</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">54</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">9998
+128 233
+128 2333
+128 666</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">18407</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="hljs"><code class="hljs">9999
+101 1111
+1 9999
+1111 9999</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="hljs"><code class="hljs">89991</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>铅笔的三种包装分别是：</p>
+<ul>
+<li>$2$ 支装，价格为 $2$;</li>
+<li>$50$ 支装，价格为 $30$;</li>
+<li>$30$ 支装，价格为 $27$。</li>
+</ul>
+<p>P 老师需要购买至少 $57$ 支铅笔。</p>
+<p>如果她选择购买第一种包装，那么她需要购买 $29$ 份，共计 $2 \times 29 = 58$ 支，需要花费的钱为 $2 \times 29 = 58$。</p>
+<p>实际上，P 老师会选择购买第三种包装，这样需要买 $2$ 份。虽然最后买到的铅笔数量更多了，为 $30 \times 2 = 60$ 支，但花费却减少为 $27 \times 2 = 54$，比第一种少。</p>
+<p>对于第二种包装，虽然每支铅笔的价格是最低的，但要够发必须买 $2$ 份，实际的花费达到了 $30  \times 2 = 60$，因此 P 老师也不会选择。</p>
+<p>所以最后输出的答案是 $54$。</p>
+<p><strong>数据范围</strong></p>
+<p>保证所有的 $7$ 个数都是不超过 $10000$ 的正整数。</p>
+<p><strong>子任务</strong></p>
+<p>子任务会给出部分测试数据的特点。如果你在解决题目中遇到了困难，可以尝试只解决一部分测试数据。</p>
+<p>每个测试点的数据规模及特点如下表：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/dlgsz3h4.png" /></p>
+<p>上表中“整倍数”的意义为：若为 $K$，表示对应数据所需要的铅笔数量 $n$ —定是每种包装铅笔数量的整倍数（这意味着一定可以不用多买铅笔）。</p>
+<p>于 2022 年 12 月 23 日新加 Hack 数据三组。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

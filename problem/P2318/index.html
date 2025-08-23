@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2318/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2318 [HNOI2005] 虚拟内存</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2318 [HNOI2005] 虚拟内存</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>操作系统中一种重要的存储管理技术就是虚拟内存技术。操作系统中允许进程同时运行，也就是并行。每个进程都有其相对独立的数据块（进程运行的过程中将对其进行读写操作）。理想的情况下，这些数据块都应该存放在内存中，这样才能实现高效的读写操作。但事实上，内存的容量有限，每个进程只能把一部分数据放在内存中，为了解决这个矛盾，提出了虚拟内存技术。</p>
+<p>虚拟内存技术的基本原理是：对进程而言，内存空间是无限大的，进程可以随意地读写数据，而对操作系统内部而言，利用外存来模拟扩充的内存空间，进程要求访问某个内存单元时，交由操作系统处理，操作系统首先在内存中查找该单元是否存在，如果存在，查找成功，否则转入外存查找（一定存在于外存中）。</p>
+<p>就存储介质的物理性质而言，内存的访问速度相对于外存要快得多，因此对于每个进程来说操作系统应该把那些访问次数较多的数据存放在内存中，而把那些访问次数很少的数据放在外存中。如何选择内存中暂留的数据是一个很值得研究的问题，下面介绍一个内存管理中比较常用的算法：</p>
+<p>内存中的数据以页为基本存储单位，进程的读写操作都针对页来进行。实际内存空间被分割成n页，虚拟内存空间的页数往往要多得多。某一时刻，进程需要访问虚存编号为P的页，该算法的执行步骤如下：</p>
+<p>a.    首先在内存中查找，如果该页位于内存中，查找成功，转d，否则继续下面的操作；</p>
+<p>b.    寻找内存中是否存在空页（即没有装载任何数据页的页面），若有，则从外存中读入要查找页，并将该页送至内存中的空页进行存储，然后转d，否则继续下面的操作；</p>
+<p>c.    在内存中寻找一个访问次数最少的页面（如果存在多个页面的访问次数同时为最少，则选取最早读入数据进入内存的那个页面），从外存中读入要查找页，替换该页。</p>
+<p>d.    结束</p>
+<p>所谓访问次数是指从当前页面进入内存到该时刻被访问的次数，如果该页面以前进入过内存并被其它页面替换，那么前面的访问次数不应计入这个时刻的访问次数中。</p>
+<p>你的任务是设计一个程序实现上述算法。</p>
+<p>测试数据将会提供 $m$ 条读写内存的命令，每条命题提供要求访问的虚拟内存页的编号 $P$ 。你的程序要求能够模拟整个 $m$ 条命令的全部执行过程，所有的命令是按照输入的先后执行的，最开始的时候内存中的 $n$ 页全为空。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入共 $m + 1$ 行，第 $1$ 行为 $n (n \le 10000)$ 和 $m (m \le 1000000)$ ，分别表示内存页数和读写内存命令条数。接下来有 $m$ 行，其中第 $i+1$ 行有一个正整数 $P_i (P_i \le 10^9)$ ，表示第i条读写内存命令需要访问的虚拟内存页的编号。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出中仅包含一个正整数，表示在整个模拟过程中，在内存中直接查找成功的次数（即上面的算法只执行步骤 a 的次数）。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 8 
+1
+1
+2
+3
+4
+2
+5
+4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

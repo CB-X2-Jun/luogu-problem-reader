@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2186/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2186 小 Z 的栈函数</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2186 小 Z 的栈函数</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Z 最近发现了一个神奇的机器，这个机器的所有操作都是通过维护一个栈来完成的，它支持如下 11 个操作：</p>
+<ul>
+<li>$\texttt{NUM} ~x$：栈顶放入 $x$。</li>
+<li>$\texttt{POP}$：抛弃栈顶元素。</li>
+<li>$\texttt{INV}$：将栈顶元素取出，然后放入它的相反数。</li>
+<li>$\texttt{DUP}$：再放入一个和栈顶元素相同的数。</li>
+<li>$\texttt{SWP}$：交换栈顶的两个元素。</li>
+<li>$\texttt{ADD}$：取出栈顶的两个元素，两元素相加，所得结果放入栈内。</li>
+<li>$\texttt{SUB}$：取出栈顶的两个元素，第二个元素减去第一个元素，所得结果放入栈内。</li>
+<li>$\texttt{MUL}$：取出栈顶的两个元素，两元素相乘，所得结果放入栈内。</li>
+<li>$\texttt{DIV}$：取出栈顶的两个元素，第二个元素整除以第一个元素，所得结果放入栈内。</li>
+<li>$\texttt{MOD}$：取出栈顶的两个元素，第二个元素取模以第一个元素，所得结果放入栈内。</li>
+<li>$\texttt{END}$：结束这个程序。</li>
+</ul>
+<p>然后，小 Z 用上面的 11 种操作写了一个一元函数 $f(x)$。$x$ 就是放入栈里面第一个初始元素。然后经过这个函数的一系列操作，当函数结束的时候，正常情况下，栈里面会有唯一的一个元素。剩下的这个元素就作为函数 $f(x)$ 的返回值。</p>
+<p>小 Z 有 $n$ 个询问，询问每个值 $x$ 经过上述函数所映射出的 $f(x)$ 是多少。但是这个由于机器太老了，跑起东西来太慢了，小 Z 又是一个急性子，所以请你们写一个程序，来帮助小 Z 计算他查询的 $f(x)$。</p>
+<p>还有，由于这台机器太破了，所以如果运算过程中有数字的绝对值大于 $1000000000$，机器将产生故障。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入首先有若干行，仅包含上述 11 个操作，用来描述函数 $f(x)$ 的操作，函数的结束保证以 $\texttt{END}$ 结尾.</p>
+<p>接下来有一个整数，表示询问的个数 $n$。</p>
+<p>接下来 $n$ 行，每行一个整数 $x$，表示询问 $f(x)$ 的值。</p>
+<p><strong>输入数据不保证合法</strong>。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出 $n$ 行，每行表示一个询问的结果。按如下规则输出：</p>
+<ul>
+<li>如果最后栈内不是一个元素，输出 <code class="hljs inline">ERROR</code>。</li>
+<li>如果运算过程中有数字的绝对值大于 $1000000000$，输出 <code class="hljs inline">ERROR</code>。</li>
+<li>如果输入数据不合法，导致中途退出，输出 <code class="hljs inline">ERROR</code>。</li>
+<li>否则输出对应的 $f(x)$。</li>
+</ul>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">NUM 600000000
+ADD
+END
+3
+0
+600000000
+1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">600000000
+ERROR
+600000001</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">数据规模与约定</h3>
+<p>对于全部测试点，保证函数的操作步数不超过 $2000$，$1 \leq n \leq 2000$，$|x| \leq 10^{9}$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

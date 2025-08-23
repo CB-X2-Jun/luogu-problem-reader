@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2048/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2048 [NOI2010] 超级钢琴</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2048 [NOI2010] 超级钢琴</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Z 是一个小有名气的钢琴家，最近 C 博士送给了小 Z 一架超级钢琴，小 Z 希望能够用这架钢琴创作出世界上最美妙的音乐。</p>
+<p>这架超级钢琴可以弹奏出 $n$ 个音符，编号为 $1$ 至 $n$。第 $i$ 个音符的美妙度为 $A_i$，其中 $A_i$ 可正可负。</p>
+<p>一个“超级和弦”由若干个编号连续的音符组成，包含的音符个数不少于 $L$ 且不多于 $R$。我们定义超级和弦的美妙度为其包含的所有音符的美妙度之和。两个超级和弦被认为是相同的，当且仅当这两个超级和弦所包含的音符集合是相同的。</p>
+<p>小 Z 决定创作一首由 $k$ 个超级和弦组成的乐曲，为了使得乐曲更加动听，小 Z 要求该乐曲由 $k$ 个不同的超级和弦组成。我们定义一首乐曲的美妙度为其所包含的所有超级和弦的美妙度之和。小 Z 想知道他能够创作出来的乐曲美妙度最大值是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入第一行包含四个正整数 $n, k, L, R$。其中 $n$ 为音符的个数，$k$ 为乐曲所包含的超级和弦个数，$L$ 和 $R$ 分别是超级和弦所包含音符个数的下限和上限。</p>
+<p>接下来 $n$ 行，每行包含一个整数 $A_i$，表示按编号从小到大每个音符的美妙度。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出只有一个整数，表示乐曲美妙度的最大值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 3 2 3
+3
+2
+-6
+8</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">11</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>共有 $5$ 种不同的超级和弦：</p>
+<ol>
+<li>音符 $1 \sim 2$，美妙度为 $3+2=5$；</li>
+<li>音符 $2 \sim 3$，美妙度为 $2+(-6)=-4$；</li>
+<li>音符 $3 \sim 4$，美妙度为 $(-6)+8=2$；</li>
+<li>音符 $1 \sim 3$，美妙度为 $3+2+(-6)=-1$；</li>
+<li>音符 $2 \sim 4$，美妙度为 $2+(-6)+8=4$。</li>
+</ol>
+<p>最优方案为：乐曲由和弦 $1,3,5$ 组成，美妙度为 $5+2+4=11$。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2609.png" /> </p>
+<p>所有数据满足：$-1000 \leq A_i \leq 1000$，$1 \leq L \leq R \leq n$ 且保证一定存在满足要求的乐曲。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

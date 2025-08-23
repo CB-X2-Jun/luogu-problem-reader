@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2139/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2139 小Z的掷骰游戏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2139 小Z的掷骰游戏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Z 得到了一种奇特的骰子（如下图所示），想要用它进行掷骰游戏。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1263.png" /></p>
+<p>游戏很简单，小 Z 每次都从同样的位置将一个骰子竖直抛下，当骰子落到平面或另一个骰子上时停下来。然而，由于这是一种奇特的骰子，它还会继续翻滚和下落。这种骰子有以下特性：</p>
+<ul>
+<li>普通骰子可能往四个方向翻滚，而这种骰子只能往 $4,5,6$ 这三个面的方向翻滚。在下图所示的情况中，这种骰子只能往两个方向翻滚；</li>
+</ul>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1264.png" /></p>
+<ul>
+<li>这种骰子只有在翻滚后会导致其下落时才会翻滚（如下图所示），当有多个方向可以翻滚时，它会往数字最大的面的方向翻滚；</li>
+</ul>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1265.png" /></p>
+<ul>
+<li>这种骰子翻滚恰好 $90^\circ$ 后会竖直下落，当落到平面或另一个骰子上时停下来（如下图中的 $B$ 和 $C$ 所示），然后继续翻滚和下落的过程。</li>
+</ul>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1266.png" /></p>
+<p>上图就是将 $4$ 个骰子均以上面是 $6$ 前面是 $4$ 的状态依次抛下的过程。</p>
+<p>现在小 Z 抛了 $n$ 个骰子，他想知道游戏结束后从上面看每个数字分别出现了多少次（如下图所示），希望你帮帮他。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1267.png" /></p>
+<h2 id="_2">输入格式</h2>
+<p>每次多组数据，每组数据格式如下：</p>
+<p>第 $1$ 行，一个整数 $n$，表示抛了 $n$ 个骰子；</p>
+<p>第 $2\sim n+1$ 行，每行包含两个整数 $t,f$，表示一个骰子以上面是 $t$ 前面是 $f$ 的状态抛下。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每组数据，输出一行，每行包含六个整数，表示游戏结束后从上面看每个数字分别出现的次数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+6 4
+6 4
+6 4
+6 4
+1
+2 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">0 1 1 0 0 1
+0 1 0 0 0 0</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>本题有 $4$ 个点，每个点 $25$ 分。</p>
+<p>对于 $25\%$ 的数据，$n=1$。</p>
+<p>对于另外 $25\%$ 的数据，$n=2$。</p>
+<p>对于 $100\%$ 的数据，$1 \leq n \leq 100$，不超过 $30$ 组数据。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

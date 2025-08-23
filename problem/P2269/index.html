@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2269/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2269 [HNOI2002] 高质量的数据传输</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2269 [HNOI2002] 高质量的数据传输</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>$%原题面是：<img alt="" src="https://cdn.luogu.com.cn/upload/pic/1325.png" />$</p>
+<p>目前的网络为了支持各种 QoS 需求，在进行路由选择时所考虑的路由参数主要有网络路径中的参数如时延、网络带宽、时延抖动及丢失率等参数，在某种高质量的数据传输工程中仅考虑网络的时延和丢失率两个参数。</p>
+<p>网络可以用一个简单无向图 $G = (V, E)$ 来表示，$V$ 是网络中结点的集合，$E$ 是两个结点之间的链路，即边。依据工程的要求，每条边上有两个参数：时延和丢失率。</p>
+<ul>
+<li>边上的时延 $t$ 是数据从该边的一个端点传输到另一个端点所需要的时间，取为整数，单位是毫秒，$0 \le t \le 100$。</li>
+<li>一条边的丢失率 $p$ 是数据从该边的一个端点传输到另一个端点后丢失数据的百分比，$0 \le p \le 0.1$。</li>
+</ul>
+<p>所谓网络 $G$ 上的路由选择是：给定 $G$ 中的两个结点 $u$ 和 $v$，找出这两个结点之间的一条路径。</p>
+<hr />
+<p>对于网络 $G$ 的一条路径 $P = v_1, v_2, v_3, \dots, v_n$，假设该路径上各边的时延和丢失率分别是：</p>
+<p>$$
+t_1, t_2, t_3, \dots, t_{n-1}, \quad p_1, p_2, p_3, \dots, p_{n-1}
+$$</p>
+<p>则数据从 $v_1$ 传输到 $v_n$ 的时延是：</p>
+<p>$$
+\sum_{i=1}^{n-1} t_i
+$$</p>
+<p>丢失率是：</p>
+<p>$$
+1 - \prod_{i=1}^{n-1} (1 - p_i)
+$$</p>
+<hr />
+<p>本题的高质量数据传输要求：如果数据要从一个结点 $u$ 传输到另一个结点 $v$，则所传输路径的丢失率是从 $u$ 到 $v$ 的所有路径中最小的，而且在该前提下时延最小。</p>
+<p>请为网络图给定的两个结点，找出满足高质量数据传输要求的路径。</p>
+<h2 id="_2">输入格式</h2>
+<p>共有 $2n+1$ 行。</p>
+<p>第 $1$ 行是网络的节点数 $n\ (1 \le n \le 200)$ 和数据要传输的两个结点的序号 $i,j\ (1 \le i,j \le n, i \ne j)$。</p>
+<p>第 $2$ 行到第 $n+1$ 行是时延 $t$ 的邻接矩阵，其元素 $t_{u,v}\ (-1 \le t_{u,v} \le 100,t_{i,j}=t_{j,i},t_{i,i}=0)$ 的值是第 $u$ 个结点到第 $v$ 个结点的边的时延，当其值为 $-1$ 时表示第 $u$ 个结点到第 $v$ 个结点无边。</p>
+<p>第 $n+2$ 行到第 $2n+1$ 行是丢失率 $p$ 的邻接矩阵，其元素 $p_{u,v}$ 的值是第 $u$ 个结点到第 $v$ 个结点的边的丢失率（最多精确到小数点后 $4$ 位），当其值为 $-1$ 时表示第 $u$ 个结点到第 $v$ 个结点无边。</p>
+<p>保证 $t_{u,v}=-1$ 当且仅当 $p_{u,v}=-1$。</p>
+<p>保证 $p_{u,v} \in {-1} \cup [0,0.1],p_{u,v}=p_{u,v},p_{u,u}=0$。</p>
+<h2 id="_3">输出格式</h2>
+<p>共 $1$ 行，输出所找出的路径的时延和丢失率。（时延是整数，直接输出即可；丢失率是实数，精确到小数点后 $4$ 位）</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 1 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0 1 5
+1 0 2
+5 2 0
+0 0.1 0.05
+0.1 0 0.05
+0.05 0.05 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">5 0.0500</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

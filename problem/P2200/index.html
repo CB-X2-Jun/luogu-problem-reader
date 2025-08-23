@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2200/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2200 炉石collection</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2200 炉石collection</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Z 最近沉迷于一个叫做炉石 collection 的游戏。在游戏中，你需要使用排在 $N \times N$ 的矩阵内的卡牌来击败你的敌人。</p>
+<p>在这个游戏中，排兵布阵是游戏的一个重要内容，例如“日怒保卫者”和“上古看守者”放在一起可以起到更好的效果。为了游戏的平衡性，同样种类的卡牌最多只能出战 $2$ 张。</p>
+<p>在一次激烈的战斗之后，小 Z 想要重新编排他的队伍。在游戏中，小 Z 可以支付 $A$ 枚金币让你任意横向交换卡牌，支付 $B$ 枚金币让你任意纵向交换卡牌。</p>
+<p>你只需要支付一次金币就可以进行某种类型的交换任意次，直到你停下并进行另一种类型的交换，此时需要支付另一种类型交换的费用。例如，“横向交换-横向交换-纵向交换-纵向交换-纵向交换-横向交换-纵向交换”总共要支付 $2A + 2B$ 枚金币。</p>
+<p>小 Z 想要知道，他最少要支付多少金币把他目前的布置变换成他想要的布置。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含三个数字 $N,A,B$，分别表示矩阵的大小，横向交换的费用，纵向交换的费用。</p>
+<p>接下来 $N$ 行每行包含 $N$ 个整数，表示开始交换前矩阵内每个位置卡牌的类型。</p>
+<p>接下来 $N$ 行每行包含 $N$ 个整数，表示目标矩阵内每个位置卡牌的类型。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出最少需要支付多少金币能够把目前的布置变换成他想要的布置。如果不能变换成功，输出 <code class="hljs inline">Fail</code>。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 16 9
+2 5 6
+1 1 3
+7 8 3
+2 5 1
+3 3 6
+7 8 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">34</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">2 193 43
+1 2
+2 1
+1 2
+2 3</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">Fail</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="hljs"><code class="hljs">3 10 20
+1 2 3
+4 5 4
+3 2 1
+2 1 2
+1 5 3
+4 3 4</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="hljs"><code class="hljs">30</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于 $68\%$ 的数据，答案最多只需要支付 $1$ 次费用。</p>
+<p>对于 $86\%$ 的数据，答案最多只需要支付 $2$ 次费用。</p>
+<p>对于 $100\%$ 的数据，$1 \leq n \leq 300,1 \leq A,B \leq 1000000,1 \leq$ 卡牌类型的标号 $\leq 100000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

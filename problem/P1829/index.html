@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1829/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1829 [国家集训队] Crash的数字表格 / JZPTAB</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1829 [国家集训队] Crash的数字表格 / JZPTAB</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>今天的数学课上，Crash 小朋友学习了最小公倍数（Least Common Multiple）。对于两个正整数 $a$ 和 $b$，$\text{lcm}(a,b)$ 表示能同时被 $a$ 和 $b$ 整除的最小正整数。例如，$\text{lcm}(6, 8) = 24$。</p>
+<p>回到家后，Crash 还在想着课上学的东西，为了研究最小公倍数，他画了一张 $ n \times m$ 的表格。每个格子里写了一个数字，其中第 $i$ 行第 $j$ 列的那个格子里写着数为 $\text{lcm}(i, j)$。</p>
+<p>看着这个表格，Crash 想到了很多可以思考的问题。不过他最想解决的问题却是一个十分简单的问题：这个表格中所有数的和是多少。当 $n$ 和 $m$ 很大时，Crash 就束手无策了，因此他找到了聪明的你用程序帮他解决这个问题。由于最终结果可能会很大，Crash 只想知道表格里所有数的和对 $20101009$ 取模后的值。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入包含一行两个整数，分别表示 $n$ 和 $m$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一个正整数，表示表格中所有数的和对 $20101009$ 取模后的值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 5</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">122</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="1_3">样例输入输出 1 解释</h4>
+<p>该表格为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$1$</th>
+<th style="text-align: center;">$2$</th>
+<th style="text-align: center;">$3$</th>
+<th style="text-align: center;">$4$</th>
+<th style="text-align: center;">$5$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$2$</td>
+<td style="text-align: center;">$2$</td>
+<td style="text-align: center;">$6$</td>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">$6$</td>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">$12$</td>
+<td style="text-align: center;">$15$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$12$</td>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$20$</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_6">数据规模与约定</h4>
+<ul>
+<li>对于 $30\%$ 的数据，保证 $n, m \le 10^3$。</li>
+<li>对于 $70\%$ 的数据，保证 $n, m \le 10^5$。</li>
+<li>对于 $100\%$ 的数据，保证 $1\le n,m \le 10^7$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

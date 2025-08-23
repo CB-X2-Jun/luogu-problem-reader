@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1979/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1979 [NOIP 2013 提高组] 华容道</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1979 [NOIP 2013 提高组] 华容道</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>NOIP2013 提高组 D2T3</p>
+<h2 id="_2">题目描述</h2>
+<p><code class="hljs inline">小 B</code> 最近迷上了华容道，可是他总是要花很长的时间才能完成一次。于是，他想到用编程来完成华容道：给定一种局面， 华容道是否根本就无法完成，如果能完成， 最少需要多少时间。</p>
+<p><code class="hljs inline">小 B</code> 玩的华容道与经典的华容道游戏略有不同，游戏规则是这样的：</p>
+<ol>
+<li>在一个 $n \times m$ 棋盘上有 $ n \times m$ 个格子，其中有且只有一个格子是空白的，其余 $ n \times m-1$ 个格子上每个格子上有一个棋子，每个棋子的大小都是 $1 \times 1$ 的；</li>
+<li>有些棋子是固定的，有些棋子则是可以移动的；</li>
+<li>任何与空白的格子相邻（有公共的边）的格子上的棋子都可以移动到空白格子上。   </li>
+</ol>
+<p>游戏的目的是把某个指定位置可以活动的棋子移动到目标位置。</p>
+<p>给定一个棋盘，游戏可以玩 $q$ 次，当然，每次棋盘上固定的格子是不会变的， 但是棋盘上空白的格子的初始位置、 指定的可移动的棋子的初始位置和目标位置却可能不同。第 $i$ 次玩的时候， 空白的格子在第 $EX_i$ 行第 $EY_i$ 列，指定的可移动棋子的初始位置为第 $SX_i$ 行第 $SY_i$列，目标位置为第 $TX_i$ 行第 $TY_i$ 列。</p>
+<p>假设 <code class="hljs inline">小 B</code> 每秒钟能进行一次移动棋子的操作，而其他操作的时间都可以忽略不计。请你告诉 <code class="hljs inline">小 B</code> 每一次游戏所需要的最少时间，或者告诉他不可能完成游戏。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行有 $3$个整数，每两个整数之间用一个空格隔开，依次表示 $ n,m,q$；</p>
+<p>接下来的 $n$ 行描述一个 $ n \times m$ 的棋盘，每行有 $ m $ 个整数，每两个整数之间用一个空格隔开，每个整数描述棋盘上一个格子的状态，$0$ 表示该格子上的棋子是固定的，$1$ 表示该格子上的棋子可以移动或者该格子是空白的。  </p>
+<p>接下来的 $q$ 行，每行包含 $6$ 个整数依次是 $EX_i,EY_i,SX_i,SY_i,TX_i,TY_i$，每两个整数之间用一个空格隔开，表示每次游戏空白格子的位置，指定棋子的初始位置和目标位置。</p>
+<h2 id="_4">输出格式</h2>
+<p>共 $ q$ 行，每行包含 $1$ 个整数，表示每次游戏所需要的最少时间，如果某次游戏无法完成目标则输出 $−1$。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 4 2
+0 1 1 1
+0 1 1 0
+0 1 0 0
+3 2 1 2 2 2
+1 2 2 2 3 2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2
+-1</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p><strong>输入输出样例说明</strong></p>
+<p>棋盘上划叉的格子是固定的，红色格子是目标位置，圆圈表示棋子，其中绿色圆圈表示目标棋子。</p>
+<ol>
+<li>第一次游戏，空白格子的初始位置是 $(3,2)$（图中空白所示），游戏的目标是将初始位置在 $(1, 2)$ 上的棋子（图中绿色圆圈所代表的棋子）移动到目标位置 $(2, 2)$（图中红色的格子）上。</li>
+</ol>
+<p>移动过程如下：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/n0q385tw.png" /></p>
+<ol start="2">
+<li>第二次游戏，空白格子的初始位置是 $(1, 2)$（图中空白所示），游戏的目标是将初始位置在 $(2, 2)$ 上的棋子（图中绿色圆圈所示）移动到目标位置  $(3, 2)$ 上。</li>
+</ol>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/aq9apos0.png" /></p>
+<p>要将指定块移入目标位置，必须先将空白块移入目标位置，空白块要移动到目标位置，必然是从位置 $(2,2)$ 上与当前图中目标位置上的棋子交换位置，之后能与空白块交换位置的只有当前图中目标位置上的那个棋子，因此目标棋子永远无法走到它的目标位置， 游戏无法完成。</p>
+<p><strong>数据范围</strong></p>
+<p>对于 $ 30\%$ 的数据，$1 ≤ n, m ≤ 10,q = 1$；</p>
+<p>对于 $60\%$ 的数据，$1 ≤ n, m ≤ 30,q ≤ 10$；</p>
+<p>对于 $100\%$ 的数据，$1 ≤ n, m ≤ 30,q ≤ 500$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

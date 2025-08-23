@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2096/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2096 最佳旅游线路</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2096 最佳旅游线路</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>某旅游区的街道成网格状。其中东西向的街道都是旅游街，南北向的街道都是林阴道。</p>
+<p>由于游客众多，旅游街被规定为单行道，游客在旅游街上只能从西向东走，在林阴道上则既可从南向北走，也可以从北向南走。</p>
+<p>阿龙想到这个旅游街游玩，他的好友阿福给了他一些建议，用分值表示所有旅游街相邻两个路口之间的街道值得游览的程度，分值是从 $-100$ 到 $100$ 的整数，所有林阴道不打分。所有分值不可能全是负分。</p>
+<p>如图（<strong>格子代表旅游街，竖线代表林阴道</strong>）：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1235.png" /> </p>
+<p>阿龙想知道，如果他从任意一个旅游街开始游览，再在任意一个旅游街结束游览，那么他经过的所有旅游街对的分值之和最大能是多少？</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件的第一行是两个整数 $m$ 和 $n$，之间用一个空格隔开，$m$ 表示有 $m$ 条旅游街（$1 \le m \le 100$），$n$ 表示有 $(n+1)$ 条林阴道（$1 \le n \le 20001$）。接下来的 $m$ 行依次给出了由北向南每条旅游街的分值信息。每行有 $n$ 个整数，依次表示了自西向东旅游街每一小段的分值。同一行相邻两个数之间用一个空格隔开。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出文件只有一行，是一个整数，表示你的程序找到的最佳游览线路的总分值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 5 
+-50 -47 36 -30 -23 
+17 -19 -34 -13 -8 
+-42 -3 -43 34 -45</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">84</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>样例解释：</p>
+<p>如图，阿龙从 $17$ 处开始游览，到 $34$ 处结束，答案为 $17-3+36+34=84$：</p>
+<pre class="hljs"><code class="hljs"> -50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -47&nbsp;&nbsp; +-&gt;[ 36]--+&nbsp;&nbsp; -30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -23
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+[ 17]--+&nbsp;&nbsp; -19&nbsp;&nbsp; |&nbsp;&nbsp; -34&nbsp;&nbsp; |&nbsp;&nbsp; -13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 8
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+ -42&nbsp;&nbsp; +-&gt;[- 3]--+&nbsp;&nbsp; -43&nbsp;&nbsp; +-&gt;[ 34]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-45</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

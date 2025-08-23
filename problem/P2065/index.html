@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2065/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2065 [TJOI2011] 卡片</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2065 [TJOI2011] 卡片</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>桌子上有 $m$ 张蓝色卡片与 $n$ 张红色卡片，每张卡片上有一个大于 $1$ 的整数。现在你要从桌子上拿走一些卡片，分若干次拿。每次只能拿走一组卡片：这组卡片颜色不同，并且两张卡片上面的数字的最大公约数大于 $1$。问：最多可以从桌上拿走多少组卡片。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行读入一个整数 $T$，为数据组数。</p>
+<p>每组数据的格式如下：</p>
+<blockquote>
+<p>$m\ n$<br />
+$b_1\ b_2\ \ldots\ b_m$<br />
+$r_1\ r_2\ \ldots\ r_n$  </p>
+</blockquote>
+<p>第二行给出每张蓝色卡片上面的数字，第三行给出每张红色卡片上的数字。</p>
+<h2 id="_3">输出格式</h2>
+<p>对每组测试数据，输出最多可以拿走多少组卡片。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">7
+4 3
+2 6 6 15
+2 3 5
+2 3
+4 9
+8 16 32
+4 2
+4 9 11 13
+5 7
+5 5
+2 3 5 1001 1001
+7 11 13 30 30
+10 10
+2 3 5 7 9 11 13 15 17 29
+4 6 10 14 18 22 26 30 34 38
+20 20
+195 144 903 63 137 513 44 626 75 473
+876 421 568 519 755 840 374 368 570 872
+363 650 155 265 64 26 426 391 15 421
+373 984 564 54 823 477 565 866 879 638
+100 100
+195 144 903 63 137 513 44 626 75 473
+876 421 568 519 755 840 374 368 570 872
+363 650 155 265 64 26 426 391 15 421
+373 984 564 54 823 477 565 866 879 638
+117 755 835 683 52 369 302 424 513 870
+75 874 299 228 140 361 30 342 750 819
+761 123 804 325 952 405 578 517 49 457
+932 941 988 767 624 41 912 702 241 426
+351 92 300 648 318 216 785 347 556 535
+166 318 434 746 419 386 928 996 680 975
+231 390 916 220 933 319 37 846 797 54
+272 924 145 348 350 239 563 135 362 119
+446 305 213 879 51 631 43 755 405 499
+509 412 887 203 408 821 298 443 445 96
+274 715 796 417 839 147 654 402 280 17
+298 725 98 287 382 923 694 201 679 99
+699 188 288 364 389 694 185 464 138 406
+558 188 897 354 603 737 277 35 139 556
+826 213 59 922 499 217 846 193 416 525
+69 115 489 355 256 654 49 439 118 961</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3
+1
+0
+4
+9
+18
+85</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对 $100 \%$ 的数据：$1 \le T \le 100$，$1 \le m, n \le 500$，卡片上的数字大于 $1$，小于 ${10}^7$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

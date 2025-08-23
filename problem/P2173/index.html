@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2173/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2173 [ZJOI2012] 网络</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2173 [ZJOI2012] 网络</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>有一个无向图 $G$，每个点有个权值，每条边有一个颜色。这个无向图满足以下两个条件：</p>
+<p>1、 对于任意节点连出去的边中，相同颜色的边不超过两条。</p>
+<p>2、图中不存在同色的环，同色的环指相同颜色的边构成的环。</p>
+<p>在这个图上，你要支持以下三种操作：</p>
+<ul>
+<li>
+<p><code class="hljs inline">0 x y</code> 表示把节点 $x$ 的权值改为 $y$</p>
+</li>
+<li>
+<p><code class="hljs inline">1 u v w</code> 表示将边 $(u,v)$ 的颜色改为 $w$。  </p>
+</li>
+<li>
+<p><code class="hljs inline">2 c u v</code> 表示查询由颜色 $c$ 的边构成的图中，所有可能在 $u \to v$ 之间的简单路径上的节点的权值的最大值。</p>
+</li>
+</ul>
+<h2 id="_2">输入格式</h2>
+<p>第一行四个正整数 $n,m,C,k$，分别表示节点数、边数、颜色数和操作数。</p>
+<p>接下来 $n$ 行，每行一个正整数 $v_i$，为节点 $i$ 的权值。</p>
+<p>之后 $m$ 行，每行三个正整数 $u,v,w$，为一条连接 $u,v$ 节点的边，颜色为$w$。</p>
+<p>最后 $k$ 行，每行若干个正整数，表示一次操作。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出若干行，每行输出一个对应的信息。</p>
+<p>1、 对于修改节点权值操作，不需要输出信息。</p>
+<p>2、对于修改边的颜色操作，按以下几类输出：</p>
+<ul>
+<li>
+<p>若不存在连接节点 $u$ 和节点 $v$ 的边，输出 <code class="hljs inline">No such edge.</code>。</p>
+</li>
+<li>
+<p>若修改后不满足条件 $1$，不修改边的颜色，并输出 <code class="hljs inline">Error 1.</code>。</p>
+</li>
+<li>
+<p>若修改后不满足条件 $2$，不修改边的颜色，并输出 <code class="hljs inline">Error 2.</code>。</p>
+</li>
+<li>
+<p>其他情况，成功修改边的颜色，并输出 <code class="hljs inline">Success.</code>。</p>
+</li>
+</ul>
+<p>输出满足条件的第一条信息即可，即若同时不满足条件 $1,2$ ，则只需要输出<code class="hljs inline">Error 1.</code>。</p>
+<p>3、 对于查询操作，输出一个整数表示答案。若 $u,v$ 之间没有颜色 $c$ 构成的路径，则输出 $-1$。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 5 2 7
+1
+2
+3
+4
+1 2 0
+1 3 1
+2 3 0
+2 4 1
+3 4 0
+2 0 1 4
+1 1 2 1
+1 4 3 1
+2 0 1 4
+1 2 3 1
+0 2 5
+2 1 1 4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4
+Success.
+Error 2.
+-1
+Error 1.
+5</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1714.png" /> </p>
+<p>颜色 $0$ 为实线的边，颜色 $1$ 为虚线的边，</p>
+<p>由颜色 $0$ 构成的从节点 $1$ 到节点 $4$ 的路径有 $1 \to 2 \to 4$，故$\max{v_1, v_2, v_4} = \max{ 1, 2, 4 } = 4$。</p>
+<p>将连接节点 $1$ 和节点 $2$ 的边修改为颜色 $1$，修改成功，输出 <code class="hljs inline">Success.</code></p>
+<p>将连接节点 $4$ 和节点 $3$ 的边修改为颜色 $1$，由于修改后会使得存在由颜色 $1$ 构成的环( $1 – 2 – 4 – 3 – 1$ )，不满足条件 $2$，故不修改，并输<code class="hljs inline">Error 2</code>。</p>
+<p>不存在颜色 $0$ 构成的从节点 $1$ 到节点 $4$ 的边，输出 <code class="hljs inline">-1</code>。</p>
+<p>将连接节点 $2$ 和节点 $3$ 的边修改为颜色 $1$，由于修改后节点 $2$ 的连出去的颜色为 $1$ 的边有 $3$ 条，故不满足条件 $1$，故不修改，并输出<code class="hljs inline">Error 1.</code> 。</p>
+<p>将节点 $2$ 的权值修改为 $5$。</p>
+<p>由颜色 $1$ 构成的从节点 $1$ 到节点 $4$ 的路径有 $1 \to 2 \to 4$，故$\max{v_1, v_2, v_4} = \max{ 1, 5, 4 } = 5$。</p>
+<p>【数据范围】</p>
+<p>对于 $30\%$ 的数据：$n ≤ 1000$，$m ≤ 10^4$，$k ≤ 1000$； <br />
+另有 $20\%$ 的数据：$n ≤ 10^4$，$m ≤ 10^5$，$C = 1$，$k ≤ 10^5$； <br />
+对于 $100\%$ 的数据：$n ≤ 10^4$，$m ≤ 10^5$，$C ≤ 10$，$k ≤ 10^5$。  </p>
+<p>$1\le u,v,x \le n$，$0 \le c &lt; C$，保证图中没有重边和自环。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

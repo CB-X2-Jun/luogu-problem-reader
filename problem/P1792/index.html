@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1792/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1792 [国家集训队] 种树</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1792 [国家集训队] 种树</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>A 城市有一个巨大的圆形广场，为了绿化环境和净化空气，市政<img alt="" src="" />府决定沿圆形广场外圈种一圈树。</p>
+<p>园林部门得到指令后，初步规划出 $n$ 个种树的位置，顺时针编号 $1$ 到 $n$。并且每个位置都有一个美观度 $A_i$，如果在这里种树就可以得到这 $A_i$ 的美观度。但由于 A 城市土壤肥力欠佳，两棵树决不能种在相邻的位置（$i$ 号位置和 $i+1$ 号位置叫相邻位置。值得注意的是 $1$ 号和 $n$ 号也算相邻位置）。</p>
+<p>最终市<img alt="" src="" />政<img alt="" src="" />府给园林部门提供了 $m$ 棵树苗并要求全部种上，请你帮忙设计种树方案使得美观度总和最大。如果无法将 $m$ 棵树苗全部种上，给出无解信息。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入的第一行包含两个正整数 $n,m$。</p>
+<p>第二行 $n$ 个整数，第 $i$ 个代表 $A_i$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一个整数，表示最佳植树方案可以得到的美观度。如果无解输出 <code class="hljs inline">Error!</code>。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">7 3
+1 2 3 4 5 6 7</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">15</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">7 4
+1 2 3 4 5 6 7</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">Error!</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<table>
+<thead>
+<tr>
+<th>数据编号</th>
+<th>$n$ 的大小</th>
+<th>数据编号</th>
+<th>$n$ 的大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td>$30$</td>
+<td>$11$</td>
+<td>$200$</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td>$35$</td>
+<td>$12$</td>
+<td>$2007$</td>
+</tr>
+<tr>
+<td>$3$</td>
+<td>$40$</td>
+<td>$13$</td>
+<td>$2008$</td>
+</tr>
+<tr>
+<td>$4$</td>
+<td>$45$</td>
+<td>$14$</td>
+<td>$2009$</td>
+</tr>
+<tr>
+<td>$5$</td>
+<td>$50$</td>
+<td>$15$</td>
+<td>$2010$</td>
+</tr>
+<tr>
+<td>$6$</td>
+<td>$55$</td>
+<td>$16$</td>
+<td>$2011$</td>
+</tr>
+<tr>
+<td>$7$</td>
+<td>$60$</td>
+<td>$17$</td>
+<td>$2012$</td>
+</tr>
+<tr>
+<td>$8$</td>
+<td>$65$</td>
+<td>$18$</td>
+<td>$199999$</td>
+</tr>
+<tr>
+<td>$9$</td>
+<td>$200$</td>
+<td>$19$</td>
+<td>$199999$</td>
+</tr>
+<tr>
+<td>$10$</td>
+<td>$200$</td>
+<td>$20$</td>
+<td>$200000$</td>
+</tr>
+</tbody>
+</table>
+<p>对于全部数据：$m\le n$，$-1000\le A_i\le1000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

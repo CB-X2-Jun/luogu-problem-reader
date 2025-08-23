@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2268/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2268 [HNOI2002] DNA 分子的最佳比对</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2268 [HNOI2002] DNA 分子的最佳比对</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>$\operatorname{DNA}$ 分子是人类遗传信息的载体，它间接地指导蛋白质的合成。$\operatorname{DNA}$ 分子是由四种核苷酸组成的长链，这四种核苷酸分别是腺嘌呤核苷酸（用 $\operatorname{A}$ 代表）、鸟嘌呤核苷酸（用 $\operatorname{G}$ 代表）、胞嘧啶核苷酸（用 $\operatorname{C}$ 代表）和胸腺嘧啶核苷酸（用 $\operatorname{T}$ 代表）。习惯上用一个字符集为 ${\operatorname{A,T,C,G}}$ 的字符串来表示一个 $\operatorname{DNA}$ 分子序列，如 $\operatorname{CGTTAGA}$。</p>
+<p>在生物进化过程中，$\operatorname{DNA}$ 分子可能发生各种各样的突变。这种突变形成了生物遗传信息的改变，从而使生物得以分化，构成了生物的多样性。</p>
+<p>主要的突变有三种：</p>
+<ol>
+<li>在一个 $\operatorname{DNA}$ 序列中插入一个新的核苷酸，</li>
+<li>$\operatorname{DNA}$ 序列中丢失了一个核苷酸，</li>
+<li>$\operatorname{DNA}$ 序列中的某个核苷酸被另一个核苷酸所取代。</li>
+</ol>
+<p>所谓两个 $\operatorname{DNA}$ 序列的一个比对是寻找一种排列方式，使得两个 $\operatorname{DNA}$ 序列在同样的位置上有相同的核苷酸，而若在同样的位置上两个 $\operatorname{DNA}$ 序列的核苷酸不同，则是由三种突变之一得到。例如，对两个 $\operatorname{DNA}$ 序列 $T_1 =\operatorname{ATCAG}$，$T_2 =\operatorname{ACTAG}$，可以按如下方式比对：（$-$ 表示空白）</p>
+<p>比对一：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">$T_1$</th>
+<th style="text-align: left;">$T_2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$\text A$</td>
+<td style="text-align: left;">$\text A$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text T$</td>
+<td style="text-align: left;">$-$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text C$</td>
+<td style="text-align: left;">$\text C$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$-$</td>
+<td style="text-align: left;">$\text T$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text A$</td>
+<td style="text-align: left;">$\text A$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text G$</td>
+<td style="text-align: left;">$\text G$</td>
+</tr>
+</tbody>
+</table>
+<p>也可以按如下方式比对：</p>
+<p>比对二：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">$T_1$</th>
+<th style="text-align: left;">$T_2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$\text A$</td>
+<td style="text-align: left;">$\text A$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text T$</td>
+<td style="text-align: left;">$\text C$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text C$</td>
+<td style="text-align: left;">$\text T$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text A$</td>
+<td style="text-align: left;">$\text A$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\text G$</td>
+<td style="text-align: left;">$\text G$</td>
+</tr>
+</tbody>
+</table>
+<p>如果两个 $\operatorname{DNA}$ 序列在相同的位置上有越多相同的核苷酸对，则表明它们之间越相似，即它们存在功能上的相似性和进化史上的亲缘关系。</p>
+<p>对于两个 $\operatorname{DNA}$ 序列的一个比对，规定如下得分方式：</p>
+<ol>
+<li>一个同样的位置上有相同的核苷酸对，则可得 $1$ 分；</li>
+<li>一个同样的位置上有不同的核苷酸对，则得 $0$ 分；</li>
+<li>如果在某个位置上一个序列有核苷酸，而另一个序列在该位置上为 $-$，则得 $-2$ 分。</li>
+</ol>
+<p>例如，比对一的得分是 $0$ 分，比对二的得分是 $3$ 分。</p>
+<p>问题是：对于两个 $\operatorname{DNA}$ 序列，寻找一种比对方式，使得它们的得分最高。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入数据共有两行。</p>
+<p>第一行为 $\text{DNA}$ 序列 $T _ 1$，第二行为 $\text{DNA}$ 序列 $T _ 2$。序列的长度不大于 $1000$。序列中的字母是英文小写或者大写字母。</p>
+<h2 id="_3">输出格式</h2>
+<p>程序运行结束时，在屏幕上输出所找出的最大的得分。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">Atcag
+Actag</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

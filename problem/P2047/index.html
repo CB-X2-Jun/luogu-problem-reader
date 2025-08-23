@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2047/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2047 [NOI2007] 社交网络</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2047 [NOI2007] 社交网络</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在社交网络（Social Network）的研究中，我们常常使用图论概念去解释一些社会现象。不妨看这样的一个问题：<br />
+在一个社交圈子里有 $n$ 个人，人与人之间有不同程度的关系。我们将这个关系网络对应到一个 $n$ 个结点的无向图上，两个不同的人若互相认识，则在他们对应的结点之间连接一条无向边，并附上一个正数权值 $c$，$c$ 越小，表示两个人之间的关系越密切。我们可以用对应结点之间的最短路长度来衡量两个人 $s$ 和 $t$ 之间的关系密切程度，注意到最短路径上的其他结点为 $s$ 和 $t$ 的联系提供了某种便利，即这些结点对于 $s$ 和 $t$ 之间的联系有一定的重要程度。我们可以通过统计经过一个结点 $v$ 的最短路径的数目来衡量该结点在社交网络中的重要程度。考虑到两个结点 $A$ 和 $B$ 之间可能会有多条最短路径。我们修改重要程度的定义如下：令 $C_{s,t}$ 表示从 $s$ 到 $t$ 的不同的最短路的数目，$C_{s,t}(v)$ 表示经过 $v$ 从 $s$ 到 $t$ 的最短路的数目；则定义：</p>
+<p>$$ I(v)=\sum_{s \ne v,t\ne v} \frac{C_{s,t}(v)}{C_{s,t}}$$</p>
+<p>为结点 $v$ 在社交网络中的重要程度。为了使 $I(v)$ 和 $C_{s,t}(v)$ 有意义，我们规定需要处理的社交网络都是连通的无向图，即任意两个结点之间都有一条有限长度的最短路径。现在给出这样一幅描述社交网络的加权无向图，请你求出每一个结点的重要程度。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入第一行有两个整数 $n$ 和 $m$，表示社交网络中结点和无向边的数目。  <br />
+在无向图中，我们将所有结点从 $1$ 到 $n$ 进行编号。</p>
+<p>接下来 $m$ 行，每行用三个整数 $a,b,c$ 描述一条连接结点 $a$ 和 $b$，权值为 $c$ 的无向边。
+注意任意两个结点之间最多有一条无向边相连，无向图中也不会出现自环（即不存在一条无向边的两个端点是相同的结点）。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出包括 $n$ 行，每行一个实数，精确到小数点后 $3$ 位。第 $i$ 行的实数表示结点 $i$ 在社交网络中的重要程度。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 4
+1 2 1
+2 3 1
+3 4 1
+4 1 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1.000
+1.000
+1.000
+1.000</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1136.png" /> </p>
+<p>对于 $1$ 号结点而言，只有 $2$ 号到 $4$ 号结点和 $4$ 号到 $2$ 号结点的最短路经过 $1$ 号结点，而 $2$号结点和 $4$ 号结点之间的最短路又有 $2$ 条。因而根据定义， $1$ 号结点的重要程度计算为 $\frac{1}{2}+\frac{1}{2}=1$。由于图的对称性，其他三个结点的重要程度也都是 $1$。</p>
+<p>对于 $50\%$ 的数据，$n \le 10,m \le 45$。   <br />
+对于 $100\%$ 的数据，$n \le 100,m \le 4500$，任意一条边的权值 $c$ 是正整数且 $1 \leqslant c \leqslant 1000$。  <br />
+所有数据中保证给出的无向图连通，且任意两个结点之间的最短路径数目不超过 $10^{10}$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1974/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1974 基因聚合</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1974 基因聚合</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>德国科学家总是对非洲野猴的抵抗力感到惊奇，因为他们发现在没有医疗条件的情况下，非洲野猴总是比其他所有野生动物少生病。最近的研究有了新发现，科学家 Dr.Smith 从非洲野猴身上发现了一种罕见的抗体，他猜测可能正是该罕见的抗体在帮助非洲野猴抵抗外来病毒的侵害。</p>
+<p>Dr.Smith 就立刻展开了对该抗体的研究。在初始的观察中 Dr.Smith 发现该抗体没什么特别，而且非常简单，因为抗体的每组基因只有一对基元（Dr.Smith 把一组基因看成由若干对基元组成）。但是当 Dr.Smith 把病毒植入抗体所在的培养液后，奇迹出现了！那些简单的基因组通过不断地聚合（每个基因组两两合并生成新的基因组），最终所有的基因组合并成了一个非常庞大的基因组，而正是这庞大的基因组，因为聚合了所有原始基因组的优点，这庞大的基因组才可以慢慢地、逐个地去吃掉那些植入培养液的病毒。</p>
+<p>下面是 Dr.Smith 在高倍显微镜下看到的抗体基因组基元聚合的大致过程：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/974.png" /></p>
+<p>Dr.Smith 通过进一步观察和研究发现，抗体基因在聚合过程中似乎总是按照某个方法在进行，该方法能保证最终产生的基因组的基元对数量最多（每个基元对的存在能产生 $1$ 单位的生物能量），而在每次两个基因组聚合后所得到的新基因组的总的基元对由下面两部分相加组成：</p>
+<ol>
+<li>每两个基因组一发生聚合，就产生一个额外的、未知的基元对。</li>
+<li>当两个基因组聚合时，每个基因组中的每对基元都会与另一个基因组中的每对基元两两聚合产生一个新的基元对。</li>
+</ol>
+<p>Dr.Smith 还发现，抗体在每个时刻总是只有两个基因组会发生聚合，也就是说，每两个基因组的聚合都是依次进行的，而不是同时进行的。</p>
+<p>虽然观察到聚合原理，但 Dr.Smith 即使在知道一开始基因组个数的前提下，还是无法统计最终聚合产生的那个庞大的基因组所具有的总能量有多大。现在他想请你编程来统计一下。</p>
+<h2 id="_2">题目描述</h2>
+<p>给定 $n$ 张写有数字 $1$ 的卡片和一台机器。</p>
+<p>你需要进行以下操作 $n-1$ 次：将两张卡片放进机器并得到一张写有数字 $xy+1$ 的卡片，其中 $x,y$ 是放进去的两张卡片上所写的数字。</p>
+<p>请问：进行 $n-1$ 次操作后，剩下的那张卡片上的数字最大会是多少？</p>
+<h2 id="_3">输入格式</h2>
+<p>一行一个正整数 $n\ (1 \le n \le 10^4)$。</p>
+<h2 id="_4">输出格式</h2>
+<p>一行一个正整数表示答案。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

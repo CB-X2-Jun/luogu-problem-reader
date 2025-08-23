@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1861/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1861 星之器</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1861 星之器</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>Magic Land 上的时间又过了若干世纪…</p>
+<p>现在，人们谈论着一个传说：从前，他们的祖先来到了一个位于东方的岛屿，那里简直就是另外一个世界。善于分析与构造的 Magic Land 上的人们总是不明白那里的人们是如何不借助精确的实验与计算驱动和操纵魔法。</p>
+<h2 id="_2">题目描述</h2>
+<p>偶然地，一个魔法使（Magician）来到了 Magic Land，在临走的时候留下了一个神奇的盒子，叫做星之器（Casket of star）。</p>
+<p>虽然不知道这个盒子是做什么的，但是经过了大量的实验和计算后，人们已经清楚它的一些事实：</p>
+<ol>
+<li>星之器之中有 $N\times M$ 个区域，可看作分成 $N$ 行和 $M$ 列的格子，每个区域之中有若干单位的称为“星”的对象，这个对象的最小单位已经被确定，所以，这个数量总是整数。</li>
+<li>魔法使可以驱动星之器中位于同一行或同一列的不相邻（有公共边的区域称为相邻的）两个区域中各 $1$ 单位的“星”，使得它们分别向中心移动 $1$ 格。</li>
+<li>每一次使用 2 中的方法驱动“星”，将会产生魔力，魔法使会得到这一部分魔力。魔力的量等于这个两个区域之间所间隔的区域数。</li>
+</ol>
+<p>这样，我们可以用一个 $N\times M$ 的数表来表示星之器的状态，比如 $N=2,M=3$ 时：</p>
+<pre class="hljs"><code class="hljs">2 0 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 0
+5 1 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 1 4</code></pre>
+
+<p>当星之器为左侧的状态时，通过操纵第一行的第 $1$ 和 $3$ 个区域中的“星”，变为右侧所示的状态，同时，将产生 $1$ 单位的魔力（因为这两个区域之间恰好隔了 $1$ 个区域）。</p>
+<p>在经过了进一步的研究之后，人们知道了这个星之器最初的状态（Ini）以及最终被他们得到时的状态（Fin）。</p>
+<p>你希望知道，星之器最多帮助它的拥有者提供了多少的魔力。即：经过一系列上述操作由初态（Ini）变为终态（Fin），至多产生多少魔力。</p>
+<p>需要注意的是，显然操作过程中每个区域内“星”的数量不能是负的，即：如果那个区域已经没有“星”了，当然就不能继续操作了。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行包含两个正整数 $N,M$ 表示星之器的大小。</p>
+<p>接下来的 $N$ 行，每行包含 $M$ 个自然数：$\mathit{Ini}_{i,j}$，描绘了初态（Ini）。</p>
+<p>在一个空行后的 $N$ 行，每行包含 $M$ 个自然数：$\mathit{Fin}_{i,j}$，描绘了终态（Fin）。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出一个正整数，表示至多产生的魔力。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5 
+1 0 0 0 1 
+0 0 0 0 0 
+0 0 0 0 0 
+0 1 0 1 1 
+1 0 0 0 0 
+
+0 0 0 0 0 
+0 0 0 0 1 
+2 0 0 0 1 
+0 0 2 0 0 
+0 0 0 0 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">7</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>对于 $100\%$ 的数据，$1\le N,M\le200$，$\mathit{Ini}<em>{i,j},\mathit{Fin}</em>{i,j}\le1000$。</p>
+<p>所有数据保证了至少存在一个操作方法使得星之器由初态变为终态，同时保证了初态与终态不是完全相同的。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

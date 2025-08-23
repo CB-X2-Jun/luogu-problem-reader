@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2228/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2228 [HNOI2001] 洋洋吃蛋糕</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2228 [HNOI2001] 洋洋吃蛋糕</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>洋洋是有名的“小馋猫”。他爱吃许多东西，但也有一些不爱吃的东西。一天，洋洋发现家中有一块刚烤好的长方形的蛋糕，而且蛋糕里放上了各种各样的东西，有爱吃的草莓，奶酪，也有不爱吃的核桃仁。这使得洋洋有一些为难，到底是吃还是不吃呢？这时，爷爷看出了洋洋的烦恼，然后说：你若能够遵守以下几条规则的话，蛋糕可以随便吃：</p>
+<ol>
+<li>
+<p>蛋糕的尺寸为 $n\times m$，在吃之前，需先把蛋糕划分成 $n\times m$ 个单位蛋糕块，然后对每一个单位蛋糕块按照自己的喜好给其打分，分数越高表示越爱吃，反之则表示越不爱吃。这个分数为这一个单位蛋糕块的好吃程度值。</p>
+</li>
+<li>
+<p>每一个单位蛋糕块要么全部被吃掉，要么不吃。</p>
+</li>
+<li>
+<p>被吃掉的蛋糕块必须成长方形或正方形，是由一些单位蛋糕块组成的，且蛋糕块的两边必须和原来的大蛋糕块的两边平行。一块蛋糕块的好吃程度值就是所有组成这个蛋糕块的单位蛋糕块的分数之和。</p>
+</li>
+<li>
+<p>被吃掉的蛋糕块的尺寸任意，且块数也任意。</p>
+</li>
+<li>
+<p>为了保持蛋糕块的美观，所有被吃掉的蛋糕块在原来的大蛋糕块中的位置不能相邻，且不能重叠。如图 1 和图 2 的吃法是不允许的，而图 3 和图 4 的吃法是允许的。
+<img alt="" src="https://cdn.luogu.com.cn/upload/pic/1295.png" /> </p>
+</li>
+<li>所有被吃掉的蛋糕块的好吃程度值之和最大。</li>
+</ol>
+<p>爷爷的话并没有消去洋洋的烦恼，因为他只能做好第一点，而不知如何选择蛋糕块。于是，洋洋请你帮忙选择蛋糕块，以使得所有被吃掉的蛋糕块的好吃程度值之和最大。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行是两个整数 $n$ 和 $m$。</p>
+<p>以下 $n$ 行是一个 $n$ 行 $m$ 列的矩阵，第 $i$ 行第 $j$ 列的整数表示单位蛋糕块 $(i,j)$ 的好吃程度值 $c$。</p>
+<h2 id="_3">输出格式</h2>
+<p>只有一个数，即为最大的好吃程度值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 5 -2
+-1 2 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">10</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="_6">数据规模与约定</h4>
+<p>对于 $100\%$ 的数据，保证 $1\le n\le 200$，$1\le m\le 10$，$-100\le c\le 100$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

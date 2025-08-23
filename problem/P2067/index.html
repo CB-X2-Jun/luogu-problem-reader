@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2067/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2067 Cytus-Holyknight</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2067 Cytus-Holyknight</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>本人最初作</p>
+<p>以此纪念伟大的 ios、安卓、PSV 平台音乐游戏《Cytus》</p>
+<p>后续将不断更新。</p>
+<p>------------- Chapter V-1 -------------</p>
+<p>话说两位战士整天靠在一起好无聊啊，于是她们打算——玩游戏！（？）</p>
+<p>她们就用剑画了一个十字架，然后开始抛石子，好好玩啊（？？？）</p>
+<p>两个人每人有一个石子，当她们丢完后，正在自学数学的小蓝大叫：把他们连起来不就是一次函数吗！！</p>
+<p>于是乎，她们就连了起来，然后她们开始计算。此时她们发现一个严重的问题——没有草稿纸！（这什么破问题= =）</p>
+<p>由于脑补能力太低，她们只好让你来帮帮忙啦~</p>
+<h2 id="_2">题目描述</h2>
+<p>以图像形式给定一条直线上的若干个点（均为整点且不在坐标轴上），请以以下形式中的一个给出该直线的方程（其中 $k$ 和 $b$ 为常数）：</p>
+<ul>
+<li>$y=kx+b$</li>
+<li>$y=kx$</li>
+<li>$y=b$</li>
+<li>$x=b$</li>
+</ul>
+<h2 id="_3">输入格式</h2>
+<p>第一行，一个正整数 $n$，表示该图形大小是 $n\times n$；</p>
+<p>接下来 $n$ 行，每行 $n$ 个字符，$1$ 表示坐标轴，$x$ 表示该整点在直线上，$0$ 表示该整点不在直线上。</p>
+<p>横行的 $1$ 是 $x$ 轴，竖列的 $1$ 是 $y$ 轴。</p>
+<p>上下两行，左右两列的距离恒为 $1$。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出一行，表示该直线的方程。</p>
+<p>常数始终保留四位小数。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+010
+111
+x1x</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">y=-1.0000</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>数据保证有唯一解。</p>
+<p>对于 $100\%$ 的数据，$3\le n\le16$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

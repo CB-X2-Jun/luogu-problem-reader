@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2114/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2114 [NOI2014] 起床困难综合症</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2114 [NOI2014] 起床困难综合症</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>$21$ 世纪，许多人得了一种奇怪的病：起床困难综合症，其临床表现为：起床难，起床后精神不佳。作为一名青春阳光好少年，atm 一直坚持与起床困难综合症作斗争。通过研究相关文献，他找到了该病的发病原因：在深邃的太平洋海底中，出现了一条名为 drd 的巨龙，它掌握着睡眠之精髓，能随意延长大家的睡眠时间。正是由于 drd 的活动，起床困难综合症愈演愈烈，以惊人的速度在世界上传播。为了彻底消灭这种病，atm 决定前往海底，消灭这条恶龙。历经千辛万苦，atm 终于来到了 drd 所在的地方，准备与其展开艰苦卓绝的战斗。drd 有着十分特殊的技能，他的防御战线能够使用一定的运算来改变他受到的伤害。具体说来，drd 的防御战线由 $n$ 扇防御门组成。每扇防御门包括一个运算 $\text{op}$ 和一个参数 $t$，其中运算一定是 $\texttt{OR},\texttt{XOR},\texttt{AND}$ 中的一种，参数则一定为非负整数。如果还未通过防御门时攻击力为 $x$，则其通过这扇防御门后攻击力将变为 $x\,\text{op}\,t$。最终 drd 受到的伤害为对方初始攻击力 $x$ 依次经过所有 $n$ 扇防御门后转变得到的攻击力。</p>
+<p>由于 atm 水平有限，他的初始攻击力只能为 $0$ 到 $m$ 之间的一个整数（即他的初始攻击力只能在 $0,1,\ldots,m$ 中任选，但在通过防御门之后的攻击力不受 $m$ 的限制）。为了节省体力，他希望通过选择合适的初始攻击力使得他的攻击能让 drd 受到最大的伤害，请你帮他计算一下，他的一次攻击最多能使 drd 受到多少伤害。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件的第 $1$ 行包含 $2$ 个整数，依次为 $n, m$，表示 drd 有 $n$ 扇防御门，atm 的初始攻击力为 $0$ 到 $m$ 之间的整数。</p>
+<p>接下来 $n$ 行，依次表示每一扇防御门。每行包括一个字符串 $\text{op}$ 和一个非负整数 $t$，两者由一个空格隔开，且 $\text{op}$ 在前，$t$ 在后，$\text{op}$ 表示该防御门所对应的操作，$t$ 表示对应的参数。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一行一个整数，表示 atm 的一次攻击最多使 drd 受到多少伤害。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 10
+AND 5
+OR 6
+XOR 7</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><strong>【样例说明】</strong></p>
+<p>atm 可以选择的初始攻击力为 $0,1,\ldots ,10$。</p>
+<p>假设初始攻击力为 $4$，最终攻击力经过了如下计算</p>
+<ul>
+<li>$4 \texttt{ AND } 5 = 4$；</li>
+<li>$4 \texttt{ OR } 6 = 6$；</li>
+<li>$6 \texttt{ XOR } 7 = 1$。</li>
+</ul>
+<p>类似的，我们可以计算出初始攻击力为 $1,3,5,7,9$ 时最终攻击力为 $0$，初始攻击力为 $0,2,4,6,8,10$ 时最终攻击力为 $1$，因此atm的一次攻击最多使drd受到的伤害值为 $1$。</p>
+<p><strong>【数据规模与约定】</strong></p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/29yj7o58.png" /></p>
+<ul>
+<li>特殊性质 $\mathrm A$：存在一扇防御门为 $\texttt{AND}~0$；</li>
+<li>特殊性质 $\mathrm B$：所有防御门的操作均相同。</li>
+</ul>
+<p>对于所有数据，保证 $2\le n\le 10^5$，$0\le m\le 10^9$，$0\le t\le 10^9$，且 $\mathrm{op}$ 一定为 $\verb!AND!,\verb!OR!,\verb!XOR!$ 中的一种。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

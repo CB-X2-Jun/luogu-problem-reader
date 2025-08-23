@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1854/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1854 [IOI 1999] 花店橱窗布置</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1854 [IOI 1999] 花店橱窗布置</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>某花店现有 $F$ 束花，每一束花的品种都不一样。至少有同样数量的花瓶，被按顺序摆成一行。花瓶的位置是固定从左到右按 $1\sim V$ 顺序编号，$V$ 是花瓶的数目。</p>
+<p>花束可以移动，并且每束花用 $1\sim F$ 的整数标识。所有花束在放入花瓶时必须保持其标识数的顺序。例如，假设杜鹃花的标识数为 $1$，秋海棠的标识数为 $2$，康乃馨的标识数为 $3$，即杜鹃花必须放在秋海棠左边的花瓶中，秋海棠必须放在康乃馨左边的花瓶中。每个花瓶只能放一束花。</p>
+<p>每个花瓶的形状和颜色也不相同，因此，当各个花瓶中放入不同的花束时，会产生不同的美学效果，并以美学值（一个整数 $a_{i,j}$）来表示，空置花瓶的美学值为 $0$。在上述的例子中，花瓶与花束的不同搭配所具有的美学值，可以用如下的表格来表示：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>花瓶 1</th>
+<th>花瓶 2</th>
+<th>花瓶 3</th>
+<th>花瓶 4</th>
+<th>花瓶 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>杜鹃花</td>
+<td>$7$</td>
+<td>$23$</td>
+<td>$-5$</td>
+<td>$-24$</td>
+<td>$16$</td>
+</tr>
+<tr>
+<td>秋海棠</td>
+<td>$5$</td>
+<td>$21$</td>
+<td>$-4$</td>
+<td>$10$</td>
+<td>$23$</td>
+</tr>
+<tr>
+<td>康乃馨</td>
+<td>$-21$</td>
+<td>$5$</td>
+<td>$-4$</td>
+<td>$-20$</td>
+<td>$20$</td>
+</tr>
+</tbody>
+</table>
+<p>根据表格，杜鹃花放在花瓶 $2$ 中，会显得非常好看，但若放在花瓶 $4$ 中，则显得很难看。</p>
+<p>为了取得最佳的美学效果，必须在保持花束顺序的前提下，使花的摆放取得最大的美学值。<strong>每个花束都必须被放入花瓶。</strong> 如果具有最大美学值的摆放方式不止一种，则输出任何一种方案即可。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件的第一行是两个整数 $F$ 和 $V$，分别为花束数和花瓶数。</p>
+<p>接下来是矩阵 $a_{i,j}$，共 $F$ 行，每行 $V$ 个整数，$a_{i,j}$ 表示花束 $i$ 摆放在花瓶 $j$ 中的美学值。</p>
+<h2 id="_3">输出格式</h2>
+<p>第一行输出一个整数，表示最大的美学值。<br />
+第二行输出 $F$ 个整数 $p_1, p_2, \dots, p_F$，其中 $p_i$ 表示花束 $i$ 放入的花瓶编号。所有被放入的花束必须满足：若 $i &lt; j$，则 $p_i &lt; p_j$。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 5
+7 23 -5 -24 16
+5 21 -4 10 23
+-21 5 -4 -20 20</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">53
+2 4 5</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<ul>
+<li>花束的标识数顺序必须严格保持  </li>
+</ul>
+<p>对于 $100\%$ 的数据，$1\le F\le V\le 100$。</p>
+<p>感谢 @罗恺 提供 SPJ</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

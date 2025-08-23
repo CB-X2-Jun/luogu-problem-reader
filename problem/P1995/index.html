@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1995/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1995 [NOI2011] 智能车比赛</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1995 [NOI2011] 智能车比赛</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>新一届智能车大赛在 JL 大学开始啦！比赛赛道可以看作是由 $n$ 个矩形区域拼接而成（如下图所示），每个矩形的边都平行于坐标轴，第 $i$ 个矩形区域的左下角和右上角坐标分别为 $(x_{i,1},y_{i,1})$ 和 $(x_{i,2},y_{i,2})$。</p>
+<p>题目保证：$x_{i,1}&lt;x_{i,2}=x_{i+1,1}$，且 $y_{i,1}&lt; y_{i,2}$，相邻两个矩形一定有重叠在一起的边（如图中虚线所示），智能车可以通过这部分穿梭于矩形区域之间。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/hu6cu53o.png" /></p>
+<p>选手们需要在最快的时间内让自己设计的智能车从一个给定的起点 $S$ 点到达一个给定的终点 $T$ 点，且智能车不能跑出赛道。假定智能车的速度恒为 $v$ 且转向不消耗任何时间，你能算出最快需要多少时间完成比赛么？</p>
+<h2 id="_2">输入格式</h2>
+<p>输入的第一行包含一个正整数 $n$，表示组成赛道的矩形个数。</p>
+<p>接下来 $n$ 行描述这些矩形，其中第 $i$ 行包含 $4$ 个整数 $x_{i,1}, y_{i,1}, x_{i,2}, y_{i,2}$，表示第 $i$ 个矩形左下角和右上角坐标分别为 $(x_{i,1}, y_{i,1})$ 和 $(x_{i,2}, y_{i,2})$。</p>
+<p>接下来一行包含两个整数 $x_S, y_S$，表示起点坐标。</p>
+<p>接下来一行包含两个整数 $x_T, y_T$，表示终点坐标。</p>
+<p>接下来一行包含一个实数 $v$，表示智能车的速度。</p>
+<h2 id="_3">输出格式</h2>
+<p>仅输出一个实数，至少精确到小数点后第六位，为智能车完成比赛的最快时间。</p>
+<p>对于每个测试点，如果你的输出结果和参考结果相差不超过 $10^{-6}$，该测试点得满分，否则不得分。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<p><pre class="hljs"><code class="hljs">2&nbsp;&nbsp;
+1 1 2 2&nbsp;&nbsp;
+2 0 3 4&nbsp;&nbsp;
+1 1&nbsp;&nbsp;
+3 0&nbsp;&nbsp;
+1.0</code></pre></p>
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2.41421356</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/m6t1j6pf.png" /></p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

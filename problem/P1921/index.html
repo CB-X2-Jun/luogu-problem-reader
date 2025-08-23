@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1921/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1921 赌博游戏【数据有误】</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1921 赌博游戏【数据有误】</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>赌场是暴利的。大赌场通过游戏规则控制游戏的公平来赚钱。虽然规则看似很公平，但实际上是稍微有点不公平的，而大赌场由于客流量大，资金流量大，这点稍微的不公平就被放大到能让赌场得到很可观的收入。同时，这些个不公平有时并不是规则的不公平，而是道具不公平。比如说灌铅的骰子，它和正常骰子不一样，它投出 $Q$ 种点数的概率并不一样。有时，为了不让顾客察觉，他们每一次游戏结束后都有可能更换骰子。</p>
+<h2 id="_2">题目描述</h2>
+<p>作弊的赌场有 $N$ 个骰子，在这个赌场可能发生了 $M$ 次游戏，每次游戏包括一个骰子投出的点数，我们并不知道这个骰子的编号，但知道第 $i$ 次游戏投出的点数 $O(i)$。</p>
+<p>第 $i$ 个骰子投出点数 $j$ 的概率是 $A(i,j)$，用完第 $i$ 个骰子，下一次用第 $j$ 个骰子的概率为 $B(i,j)$。特别地，对于第一次游戏，用第 $i$ 个骰子的概率为 $\pi(i)$。</p>
+<p>好奇的小 $v$ 来问你，在这个赌场发生这 $M$ 次游戏的概率。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行两个正整数 $N,M,Q$。</p>
+<p>第二行 $N$ 个浮点数，表示 $\pi(i)$。</p>
+<p>第三行至 $2+N$ 行有 $N\times Q$ 个浮点数，第 $i+2$ 行 $j$ 列表示 $A(i,j)$。</p>
+<p>第 $N+3$ 至 $2\times N+2$ 行有 $N\times N$ 个浮点数，第 $N+2+i$ 行 $j$ 列表示 $B(i,j)$。</p>
+<p>第 $2\times N+3$ 行有 $M$ 个正整数，表示 $M$ 次游戏的结果 $O_i$，也就是每次游戏投出的点数。</p>
+<h2 id="_4">输出格式</h2>
+<p>表示所求概率，保留四位位小数。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 10 3
+1 0 0
+0.03 0.03 0.94
+0.02 0.02 0.96
+0.99 0.005 0.005
+0.01 0.99 0
+0.05 0.05 0.90
+0.98 0.002 0.008 
+2 2 0 2 2 0 2 2 0 2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">0.4483</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<h3 id="_7">数据范围及约定</h3>
+<ul>
+<li>对于 $30\%$ 的数据：$M \le 100$，$1 \le N$，$Q \le 10$；</li>
+<li>对于 $100\%$ 的数据：$1 \le M \le 1000$，$1 \le N$，$Q \le 50$。</li>
+</ul>
+<p>对于矩阵 $A,B$，向量 $\pi$ 都具备概率转移的特征条件。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2230/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2230 [HNOI2002] Tinux系统</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2230 [HNOI2002] Tinux系统</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在 dos 系统诞生以前，美国曾研究出一种类似的操作系统，名为 Tinux 系统。但由于硬件设施的制约，Tinux 系统有许多的缺点。下面就对 Tinux 系统作一个简单的介绍：</p>
+<p>Tinux 系统是 Tiger 博士为美国军方研制开发的一种操作系统，该系统对文件的存储方式类似于 dos 系统，像一棵树一样，每一个叶子节点表示一个文件，每一个非叶子节点表示一个目录。其中定义 $i$ 级子目录表示从根目录开始访问，一直访问到该子目录（不包括该子目录）需要访问的目录的个数为 $i$ 的目录，所以根目录下的目录为一级子目录，其他的目录以此类推。但是在同一子目录下，受到硬件的制约 Tinux 系统最多只能够存储 $k$ 个文件或子目录，也就是说这棵树里面的每一个非叶子节点最多只有 $k$ 个子节点。这样就导致在文件数量较多的情况下，访问存储在该系统当中的文件 A，往往要先访问一系列的子目录，我们称这些子目录为文件 A 的上级目录。例如下面这一个例子：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/11pz60gn.png" /></p>
+<p>当我们要访问文件 A4A2A1 时就必须先访问它的上级目录：一级子目录 A4 和二级子目录 A4A2。</p>
+<p>Tinux 系统在存储文件时，给每一个子目录都分配了 $k$ 个指针，分别指向存放在该目录下的每一个文件和每一个目录，因此对文件的访问实质上就是对指针的访问。但是由于硬件原因，这 $k$ 个指针不尽相同，因此访问它们的时间也不同，访问第 $i$ 个指针所耗费的时间为 $P_i$。但是对于两个不同的子目录（不管它们各自属于哪一级目录）而言它们各自所拥有的 $k$ 个指针是相同的。</p>
+<p>Tinux 系统最大的缺点是访问一个目录时，必须把该目录下所有的文件读入到内存当中来，这些文件包括在其各级子目录当中的文件，例如上面那一个例子，访问 A4 那一个目录，就必须把 A4A1，A4A2A1，A4A2A2，A4A3 这四个文件都读入到内存当中来，访问一个目录所需要的时间为 $P_i \times x$（$x$ 表示该目录及其各级子目录下文件的个数，$P_i$ 表示指向该目录的指针的访问时间）。因此根据上面介绍的访问方法，单独访问一个文件所需要的总时间为访问其所有上级目录（不包括根目录）所需要的时间与访问指向该文件的指针所需要的时间的和，例如上面那一个例子，访问文件 A4A2A1 需要的时间 = 访问目录 A4 的时间 + 访问目录 A4A2 的时间 + 访问指向文件 A4A2A1 的指针需要的时间。</p>
+<p>现在，tiger 博士准备将 $n$ 个文件存储到一个空的 Tinux 系统当中，希望你帮助他设计一个程序找到一种最优的存储方法，使得单独访问这 $n$ 个文件所需要的时间总和最小。</p>
+<h2 id="_2">输入格式</h2>
+<p>文件的第一行为两个正整数 $n, k$，接下来的 $k$ 行每行有一个正整数 $P_i$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出仅一个正整数，表示在最优存储方案下，单独访问这 $n$ 个文件所需要的时间总和（结果小于 $2^{31}$）。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4 3
+3
+5
+4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">28</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1296.png" /></p>
+<p><strong>【数据范围】</strong></p>
+<p>$1 \le n \le 1000$，$2 \le k \le 150$，$1 \le P_i \le 150$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2195/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2195 HXY造公园</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2195 HXY造公园</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>现在有一个现成的公园，有 $n$ 个休息点和 $m$ 条双向边连接两个休息点。众所周知，HXY 是一个 SXBK 的强迫症患者，所以她打算施展魔法来改造公园并即时了解改造情况。她可以进行以下两种操作：</p>
+<ol>
+<li>对某个休息点 $x$，查询公园中可以与该点互相到达的休息点组成的路径中的最长路径。</li>
+<li>对于两个休息点 $x,y$，如果 $x,y$ 已经可以互相到达则忽略此次操作。否则，在 $x$ 可到达的所有休息点和 $y$ 可到达的所有休息点（包括 $x,y$ 自身）分别选择一个休息点，然后在这两个休息点之间连一条边，并且这个选择应该满足对于连接后的公园，$x$ 和 $y$ 所在的区域（即 $x,y$ 可达到的所有休息点和边组成的集合）中的最长路径的长度最小。</li>
+</ol>
+<p>HXY打算进行 $q$ 个操作，请你回答她的对于公园情况的询问（操作 1）或者执行她的操作（操作 2）。</p>
+<p>注：所有边的长度皆为 $1$。保证不存在环。最长路径定义为：对于点 $v_1,v_2\cdots v_k$，如果对于其中任意的 $v_i$ 和 $v_{i+1}\quad (1\le i\le k-1)$，都有边相连接，那么 $v_j\quad(1\le j\le k)$ 所在区域的最长路径就是 $k-1$。</p>
+<h2 id="_2">输入格式</h2>
+<ul>
+<li>第一行，三个正整数，分别为 $n,m,q$。</li>
+<li>接下来的 $m$ 行，每一行有两个正整数 $x_i,y_i$，表示 $x_i$ 和 $y_i$ 有一条双向边相连。</li>
+<li>再接下来的 $q$ 行，每一行表示一个操作。</li>
+<li>若该行第一个数为 $1$，则表示操作 1，之后还有一个正整数 $x_i$，表示要查询的休息点。</li>
+<li>若该行第一个数为 $2$，则表示操作 2，之后还有两个正整数 $x_i,y_i$，表示需要执行操作的两个休息点。</li>
+</ul>
+<h2 id="_3">输出格式</h2>
+<p>输出行数为操作 1 的个数。</p>
+<p>每行输出对于操作 1 询问的回答。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">6 0 6
+2 1 2
+2 3 4
+2 5 6
+2 3 2
+2 5 3
+1 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">4</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">数据范围及约定</h3>
+<ul>
+<li>对于 $10\%$ 的数据，只存在操作 1。</li>
+<li>对于 $30\%$ 的数据，$0\le m&lt;n\le 20$，$1\le q\le5$。</li>
+<li>对于 $60\%$ 的数据，$0\le m&lt;n \le 2000$，$1\le q\le 1000$。</li>
+<li>对于 $100\%$ 的数据，$0 \le m&lt;n \le 3\times 10^5$，$1\le q\le 3\times 10^5$。</li>
+</ul>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

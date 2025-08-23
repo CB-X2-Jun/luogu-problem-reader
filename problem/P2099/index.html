@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2099/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2099 [NOI2007] 调兵遣将</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2099 [NOI2007] 调兵遣将</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>我军截获的情报显示，敌军正在集结兵力试图向我军重要的军械研究所发起进攻。由于我军正处于多线作战的状态，无法抽调大批兵力前去支援，指挥部决定通过有效的战前部署来提高胜率，减少伤亡和损失。</p>
+<p>该军械研究所的平面图可以看作是一个 $N\times M$ 的矩阵，每个 $1\times 1$ 的格子都表示一个区域，每个区域只与它上下左右的四个区域相邻。每个区域的用途可分为以下3 种之一：</p>
+<ol>
+<li>该区域被用于军事研究（用字母 <code class="hljs inline">O</code> 表示）；</li>
+<li>该区域内驻扎有一个机械化中队（用 <code class="hljs inline">#</code> 表示）；</li>
+<li>该区域是空地（用 <code class="hljs inline">.</code> 表示）。</li>
+</ol>
+<p>由于空间有限，任一个 $1\times 1$ 的格子内都无法驻扎两队以上的机械化中队（包括两队），否则会大大降低战斗时的机动性。</p>
+<p>遗憾的是，由于战前估计不足，我军的防御部署显得十分分散，这很容易让敌军所擅长的偷袭战术得逞。为了确保万无一失，我军决定利用为数不多的防御部队以最少的移动步骤将所有重要研究区域都包围起来。所谓的“包围”即从该矩阵边界侵入的敌军找不到任意一条路，使得他们不遭受任何机械化中队的反抗就能到达某研究区域。</p>
+<p>由于军队内部的传令权限的限制，每个单位时间指挥部只能向所有中队中的一个中队下达指令（朝上 / 下 / 左 / 右移动 $1$ 格）。由于时间紧迫，指挥部希望能够尽快完成部署，这个任务就交给你来完成。</p>
+<p>注意：在部署的过程中军队可以进入研究区域，而在最终的部署结果中军队不可以在研究区域中。另外，在任何时刻，两个军队都不可以在同一个方格中。</p>
+<h2 id="_2">输入格式</h2>
+<p><strong>该题为提交答案型题目。</strong></p>
+<p>对于每个数据：</p>
+<p>第一行 $2$ 个整数 $N,M$。</p>
+<p>接下来 $N$ 行，每行包括 $M$ 个字符（均为 <code class="hljs inline">.</code>、<code class="hljs inline">O</code>、<code class="hljs inline">#</code> 之一）。</p>
+<h2 id="_3">输出格式</h2>
+<p>每个输出文件的第一行，包括你的答案所花费的时间 $T$。</p>
+<p>接下来 $T$ 行，按顺序输出每条命令，每行包括 $4$ 个整数 $x_1, y_1, x_2, y_2$，表示将位于 $(x_1,y_1)$ 的部队移向 $(x_2,y_2)$。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5
+..##.
+#...#
+#OOO#
+#..O#
+.###.</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1
+2 1 2 2</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>如果选手的输出方案不合法（方案执行过程中出现军队重叠，军队移出矩形边界，最终方案有军队和研究所在同一区域，军队没有包围研究所等），则得零分。</p>
+<p>否则设选手输出的方案耗时为 $ans$，则得分按如下计算：</p>
+<p>$$
+score=
+\begin{cases}
+\ 10&amp;ans \leq A_i\
+\ 1+\left\lfloor\dfrac{ans-B_i}{A_i-B_i}\right\rfloor \times 9&amp;A_i&lt;ans \leq B_i\
+\ 1&amp;B_i&lt;ans\
+\end{cases}
+$$  </p>
+<p>对于每个数据，都有两个评分参数 $A_i$ 与 $B_i$，其中保证 $A_i&lt;B_i$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

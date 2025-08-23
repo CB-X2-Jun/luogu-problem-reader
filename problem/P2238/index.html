@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2238/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2238 逛庙会</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2238 逛庙会</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>本题时限 3s，请考虑常数优化或者读入优化。（std 没有特别进行优化）</p>
+<h2 id="_2">题目描述</h2>
+<p>城市里正在举行庙会。庙会里有很多摊位。庙会的会场是一个南北向 $H$ 个摊位、东西向 $W$ 个摊位组成的大型方阵。从北开始第 $i$ 行、西开始第 $j$ 列的一个摊位，我们表示为 $(i,j)$。</p>
+<p>正妹现在处于庙会的 $(1,1)$ 位置，然后要往东或者往南走，一直走到 $(H,W)$ 跟小 B 汇合。$(1,1)$ 点、$(H,W)$ 点和它们的东西南北邻近一个摊位都没有开张。别的地方也可能有一些摊位没有开张。</p>
+<p>正妹是个吃货。只要到达一个摊位，总是经不起小吃的诱惑。如果这个摊位开张了，而且该摊位小吃还没有买过，就会买下这个摊位的小吃。无论这个摊位是否有开张，其东西南北直接相邻的摊位小吃的香味也很诱人，如果邻近的摊位的小吃没有买过，那么就在这些邻近（上下左右）的且没有买过的摊位（假设有 $r$ 个）中，买其中的 $r-1$ 个摊位的小吃。然后继续往东或者南走。同一家小摊，不会购买多次。</p>
+<p>虽然正妹是个吃货，但是零用钱还是很有限。可是她又是管不住自己，就是要买买买。所以她希望知道自己最少能吃掉多少钱的东西。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行两个整数 $H$ 和 $W$。</p>
+<p>接下来 $H$ 行，每行一个长度为 $W$ 的字符串，<strong>没有空格隔开</strong>，是 $1\sim9$ 或者 <code class="hljs inline">.</code> 中的一个，数字表示价格，<code class="hljs inline">.</code> 表示没有开张。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个整数，表示最少花掉的钱。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 5
+....7
+.21.8
+9346.
+..45.
+.8...</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">9</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<pre class="hljs"><code class="hljs">5 5
+oooo7
+.2xoo
+9346o
+..45o
+.8..o</code></pre>
+
+<p>样例解释：<code class="hljs inline">o</code> 为正妹经过的路线，<code class="hljs inline">x</code> 为她顺便买的小吃。当走到 $(2,4)$ 时，左下右都有开张且没有买过的摊位，于是买左和右，继续沿着路线走。由于之后路线没有经过没有买过摊位，而且上下左右开张且没买过的摊位不超过 $1$，所以一个都不买了。</p>
+<p>对于 $20\%$ 的数据，开张的摊位不超过 $20$；</p>
+<p>对于 $100\%$ 的数据，保证 $3\le H,W\le1000$。</p>
+<p>特别注意：数据是在 Windows 生成，输入数据换行符可能是 <code class="hljs inline">\r\n</code>（两个字符）或者 <code class="hljs inline">\n</code>。而评测机是 Linux。请特别注意。不接受赛后以「本地能过，评测 WA」的理由申诉。</p>
+<p>参考读入方式（节选自 std）：</p>
+<pre class="hljs"><code class="hljs">for (i = 0; i &lt; H; ++i) {
+    scanf(&quot;%s&quot;, in);
+    for (j = 0; j &lt; W; ++j) {
+        shop[i][j] = blabla..
+    }
+}</code></pre>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

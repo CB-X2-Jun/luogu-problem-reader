@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1791/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1791 [国家集训队] 人员雇佣</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1791 [国家集训队] 人员雇佣</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>原《线段覆盖》请做P1803</p>
+<h2 id="_2">题目描述</h2>
+<p>作为一个富有经营头脑的富翁，小 $L$ 决定从本国最优秀的经理中雇佣一些来经营自己的公司。这些经理相互之间合作有一个贡献指数，（我们用 $E_{i,j}$ 表示 $i$ 经理对 $j$ 经理的了解程度），即当经理 $i$ 和经理 $j$ 同时被雇佣时，经理 $i$ 会对经理 $j$ 做出贡献，使得所赚得的利润增加 $E_{i,j}$。</p>
+<p>当然，雇佣每一个经理都需要花费一定的金钱 $A_i$，对于一些经理可能他做出的贡献不值得他的花费，那么作为一个聪明的人，小 $L$ 当然不会雇佣他。然而，那些没有被雇佣的人会被竞争对手所雇佣，这个时候那些人会对你雇佣的经理的工作造成影响，使得所赚得的利润减少 $E_{i,j}$（注意：这里的 $E_{i,j}$ 与上面的 $E_{i,j}$ 是同一个）。</p>
+<p>作为一个效率优先的人，小 $L$ 想雇佣一些人使得净利润最大。你可以帮助小 $L$ 解决这个问题吗？</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行有一个整数，表示经理的个数。</p>
+<p>第二行有 $N$ 个整数 $A_i$ 表示雇佣每个经理需要花费的金钱。</p>
+<p>接下来的 $N$ 行中一行包含 $N$ 个数，表示 $E_{i,j}$，即经理 $i$ 对经理 $j$ 的了解程度。满足 $E_{i,j}=E_{j,i}$。</p>
+<h2 id="_4">输出格式</h2>
+<p>第一行包含一个整数，即所求出的最大值。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3
+3 5 100
+0 6 1
+6 0 2
+1 2 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<ul>
+<li>$20\%$ 的数据中 $N\le 10$；</li>
+<li>$50\%$ 的数据中 $N\le 100$；</li>
+<li>$100\%$ 的数据中 $N\le 1000$，$E_{i,j}&lt;2^{31}$，$A_i&lt;2^{31}$。</li>
+</ul>
+<p>From 林衍凯。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

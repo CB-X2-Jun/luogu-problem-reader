@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1912/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1912 [NOI2009] 诗人小G</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1912 [NOI2009] 诗人小G</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 G 是一个出色的诗人，经常作诗自娱自乐。但是，他一直被一件事情所困扰，那就是诗的排版问题。</p>
+<p>一首诗包含了若干个句子，对于一些连续的短句，可以将它们用空格隔开并放在一行中，注意一行中可以放的句子数目是没有限制的。小 G 给每首诗定义了一个行标准长度（行的长度为一行中符号的总个数），他希望排版后每行的长度都和行标准长度相差不远。显然排版时，不应改变原有的句子顺序，并且小 G 不允许把一个句子分在两行或者更多的行内。在满足上面两个条件的情况下，小 G 对于排版中的每行定义了一个不协调度, 为这行的实际长度与行标准长度差值绝对值的 $P$ 次方，而一个排版的不协调度为所有行不协调度的总和。</p>
+<p>小 G 最近又作了几首诗，现在请你对这首诗进行排版，使得排版后的诗尽量协调（即不协调度尽量小），并把排版的结果告诉他。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件中的第一行为一个整数 $T$，表示诗的数量。</p>
+<p>接下来为 $T$ 首诗，这里一首诗即为一组测试数据。每组测试数据中的第一行为三个由空格分隔的正整数 $N,L,P$，其中：$N$ 表示这首诗句子的数目，$L$ 表示这首诗的行标准长度，$P$ 的含义见问题描述。</p>
+<p>从第二行开始，每行为一个句子，句子由英文字母、数字、标点符号等符号组成（ASCII 码 $33 \sim 127$，但不包含 <code class="hljs inline">-</code>）。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每组测试数据，若最小的不协调度不超过 $10^{18}$，则第一行为一个数，表示不协调度。接下来若干行，表示你排版之后的诗。注意：在同一行的相邻两个句子之间需要用一个空格分开。</p>
+<p>如果有多个可行解，它们的不协调度都是最小值，则输出任意一个解均可。若最小的不协调度超过 $10^{18}$，则输出 <code class="hljs inline">Too hard to arrange</code>。每组测试数据结束后输出 <code class="hljs inline">--------------------</code>，共 20 个 <code class="hljs inline">-</code>，<code class="hljs inline">-</code> 的 ASCII 码为 45，请勿输出多余的空行或者空格。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+4 9 3
+brysj,
+hhrhl.
+yqqlm,
+gsycl.
+4 9 2
+brysj,
+hhrhl.
+yqqlm,
+gsycl.
+1 1005 6
+poet
+1 1004 6
+poet</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">108
+brysj,
+hhrhl.
+yqqlm,
+gsycl.
+--------------------
+32
+brysj, hhrhl.
+yqqlm, gsycl.
+--------------------
+Too hard to arrange
+--------------------
+1000000000000000000
+poet
+--------------------</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="1_3">样例输入输出 1 解释</h4>
+<p>前两组输入数据中每行的实际长度均为 $6$，后两组输入数据每行的实际长度均为 $4$。一个排版方案中每行相邻两个句子之间的空格也算在这行的长度中（可参见样例中第二组数据）。每行末尾没有空格。</p>
+<h4 id="_6">数据规模与约定</h4>
+<p>::cute-table{tuack}</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点</th>
+<th style="text-align: center;">$T$</th>
+<th style="text-align: center;">$N$</th>
+<th style="text-align: center;">$L$</th>
+<th style="text-align: center;">$P$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$\le 10$</td>
+<td style="text-align: center;">$\le18$</td>
+<td style="text-align: center;">$\le 100$</td>
+<td style="text-align: center;">$\le5$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$2$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$\le 2\times 10^3$</td>
+<td style="text-align: center;">$\le 6\times 10^4$</td>
+<td style="text-align: center;">$\le10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$\le 5$</td>
+<td style="text-align: center;">$\le 10^5$</td>
+<td style="text-align: center;">$\le 200$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$5$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$6$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$\le 3\times 10^6$</td>
+<td style="text-align: center;">$2$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$7$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$8$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$\le10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$9$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$10$</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">^</td>
+</tr>
+</tbody>
+</table>
+<p>所有句子的长度不超过 $30$ 。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

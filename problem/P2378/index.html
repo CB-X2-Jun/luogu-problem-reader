@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2378/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2378 因式分解II</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2378 因式分解II</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小玉上了初中，开始学因式分解。可是她怎么都解不出来。所以她求你帮忙。</p>
+<p>她给你看了她的作业，就是因式分解。由于刚开始学，就降低了难度。</p>
+<p>我们假设作业里面的代数只有一个x。最高指数是2，且最高指数的系数是1。当x前的系数是1时，1省去……（反正作业题目符合我们的日常写法）</p>
+<p>我们帮她解决下这个“简单”的问题吧！虽然听起来挺容易，但是编程需要考虑很多情况呢！</p>
+<p>保证作业答案的数字都是整数。</p>
+<p>// 这跟神器有什么关系么？神说，帮助他人，积累善行，神器自然出现。哈哈哈哈好牵强的解释~</p>
+<p>//为了帮助在5月月赛ac这道题目，kkksc03偷偷地进行以下的温馨提示：</p>
+<p>//数据可能会比较刁钻，请考虑到各种情况，包括只有输入一项的情况、中间过程会不会超maxlongint的情况等。</p>
+<p>//lzn：喂！你这是透题行为，是要上法庭的！</p>
+<p>//absi2011:样例输出里的"//"及以后字符只是注解,并不要你输出</p>
+<p>/*
+absi2011:输入规范好不和谐啊...</p>
+<p>我只是来补充一下...</p>
+<p>如果x或者常数项的系数是0 整个省略掉</p>
+<p>哦,x的系数是-1的话 也会把1省去...</p>
+<p>保证输入的那玩意儿可以分解....而且分解出来都是整数...</p>
+<p>*/</p>
+<p>// 原作: 2022.7.24 没想到初中时候贡的题已经~~坑害了~~这么多人ac了.  现在已经大二，时过境迁，已经完全不会了哈哈哈</p>
+<h2 id="_2">输入格式</h2>
+<p>一个多项式，要求前面已述。各个系数&lt;=maxlongint。</p>
+<h2 id="_3">输出格式</h2>
+<p>几个乘积。答案也符合日常写法。为了方便老师批改，若将答案表示成(x+a)(x+b)，则a&gt;b。</p>
+<p>什么是日常写法？</p>
+<p>1、(x+0)写成x</p>
+<p>2、(x+a)(x+a)写成(x+a)^2</p>
+<p>3、有时候可以这样写：(x-3)。但是不能出现类似于(x+-3)这样的写法</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">x^2-4</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">(x+2)(x-2)
+//而不能写成(x-2)(x+2)或者(x+2)(x+-2)</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="hljs"><code class="hljs">x^2+5x+4</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="hljs"><code class="hljs">(x+4)(x+1)
+//不能写成(x+1)(x+4)</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="hljs"><code class="hljs">x^2-2x+1</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="hljs"><code class="hljs">(x-1)^2</code></pre>
+
+<h3 id="4">样例 #4</h3>
+<h4 id="4_1">样例输入 #4</h4>
+<pre class="hljs"><code class="hljs">x^2+x</code></pre>
+
+<h4 id="4_2">样例输出 #4</h4>
+<pre class="hljs"><code class="hljs">(x+1)x
+//反过来是不可以的。</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>x次数不高于2次，项数不高于3项，降幂排列。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

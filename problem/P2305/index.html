@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2305/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2305 [NOI2014] 购票</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2305 [NOI2014] 购票</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>今年夏天，NOI 在 SZ 市迎来了她三十周岁的生日。来自全国 $n$ 个城市的 OIer 们都会从各地出发，到 SZ 市参加这次盛会。</p>
+<p>全国的城市构成了一棵以 SZ 市为根的有根树，每个城市与它的父亲用道路连接。为了方便起见，我们将全国的 $n$ 个城市用 $1\sim n$ 的整数编号。其中 SZ 市的编号为 $1$。对于除 SZ 市之外的任意一个城市 $v$，我们给出了它在这棵树上的父亲城市 $f_v$  以及到父亲城市道路的长度 $s_v$。</p>
+<p>从城市 $v$ 前往 SZ 市的方法为：选择城市 $v$ 的一个祖先 $a$，支付购票的费用，乘坐交通工具到达 $a$。再选择城市 $a$ 的一个祖先 $b$，支付费用并到达 $b$。以此类推，直至到达 SZ 市。</p>
+<p>对于任意一个城市 $v$，我们会给出一个交通工具的距离限制 $l_v$。对于城市 $v$ 的祖先 A，只有当它们之间所有道路的总长度不超过 $l_v$  时，从城市 $v$ 才可以通过一次购票到达城市 A，否则不能通过一次购票到达。  </p>
+<p>对于每个城市 $v$，我们还会给出两个非负整数 $p_v,q_v$  作为票价参数。若城市 $v$ 到城市 A 所有道路的总长度为 $d$，那么从城市 $v$ 到城市 A 购买的票价为 $dp_v+q_v$。</p>
+<p>每个城市的 OIer 都希望自己到达 SZ 市时，用于购票的总资金最少。你的任务就是，告诉每个城市的 OIer 他们所花的最少资金是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含两个非负整数 $n,t$，分别表示城市的个数和数据类型（其意义将在「提示与说明」中提到）。</p>
+<p>接下来 $2 \sim n$ 行，每行描述一个除 SZ 之外的城市。其中第 $v$ 行包含五个非负整数 $f_v,s_v,p_v,q_v,l_v$，分别表示城市 $v$ 的父亲城市，它到父亲城市道路的长度，票价的两个参数和距离限制。</p>
+<p>请注意：输入不包含编号为 1 的 SZ 市，第 $2\sim n$ 行分别描述的是城市 $2$ 到城市 $n$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出包含 $n-1$ 行，每行包含一个整数。</p>
+<p>其中第 $v$ 行表示从城市 $v+1$ 出发，到达 SZ 市最少的购票费用。</p>
+<p>同样请注意：输出不包含编号为 1 的 SZ 市。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">7 3 
+1 2 20 0 3 
+1 5 10 100 5 
+2 4 10 10 10 
+2 9 1 100 10 
+3 5 20 100 10 
+4 4 20 0 10</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">40 
+150 
+70 
+149 
+300 
+150</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>从每个城市出发到达 SZ 的路线如下（其中箭头表示一次直达）：</p>
+<p>城市 $2$：只能选择 $2 \rightarrow 1$，花费为 $2 \times 20 + 0 = 40$。</p>
+<p>城市 $3$：只能选择 $3 \rightarrow 1$，花费为 $5 \times 10 + 100 = 150$。</p>
+<p>城 市 $4$ ： 由于 $4 + 2 =6 \leq l_4 = 10$，故可以选择 $4\rightarrow1$。若选择 $4 \rightarrow 1$，花费为 $(4 +2) \times 10 + 10 = 70$ ； 若选择 $4 \rightarrow 2 \rightarrow 1$，则花费为 $(4\times 10 + 10) + (2 \times  20 + 0) =90$；因此选择 $4 \rightarrow 1$。</p>
+<p>城市 $5$：只能选择 $5\rightarrow 2\rightarrow 1$，花费为 $(9 \times 1 +100) + (2 \times  20 + 0) = 149$；无法选择 $5 \rightarrow 1$，因为 $l_5 =10$，而城市 $5$ 到城市 $1$ 总路程为 $9 + 2 = 11 \gt 5$，城市 $5$ 不能直达城市 $1$。</p>
+<p>城市 $6$：若选择 $6 \rightarrow 1$，花费为 $(5 + 5) \times 20 + 100 = 300$；若选择 $6 \rightarrow 3 \rightarrow 1$，花费为 $(5 \times 20 + 100) + (5 \times 10 + 100) = 350$；因此选择 $6 \rightarrow 1$。</p>
+<p>城市 $7$：选择 $7 \rightarrow 4 \rightarrow 1$，花费为 $(4 \times 20 + 0) + ((4 + 2) \times 10 + 10) = 150$；</p>
+<p>其他方案均比该方案差。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2592.png" /> </p>
+<h3 id="_6">数据范围</h3>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2591.png" /></p>
+<p>对于所有数据，$n\leq 2 \times 10^5, 0 \leq p_v \leq 10^6,\ 0 \leq q_v \leq 10^{12},\ 1\leq f_v&lt;v,\ 0&lt;s_v\leq l_v \leq 2 \times 10^{11}$，且任意城市到 SZ 市的总路程长度不超过 $2 \times 10^{11}$。</p>
+<p>输入的 $t$ 表示数据类型，$0\leq t&lt;4$，其中：
+- 当 $t=0$ 或 $2$ 时，对输入的所有城市 $v$，都有 $f_v=v-1$，即所有城市构成一个以 SZ 市为终点的链；
+- 当 $t=0$ 或 $1$ 时，对输入的所有城市 $v$，都有 $l_v=2 \times 10^{11}$，即没有移动的距离限制，每个城市都能到达它的所有祖先；
+- 当 $t=3$ 时，数据没有特殊性质。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

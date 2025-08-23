@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1872/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1872 回文串计数</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1872 回文串计数</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 $a$ 虽然是一名理科生，但他常常称自己是一名真正的文科生。不知为何，他对于背诵总有一种莫名其妙的热爱，这也促使他走向了以记忆量大而闻名的生物竞赛。然而，他很快发现这并不能满足他热爱背诵的心，但是作为一名强大的 OIER，他找到了这么一个方法——背诵基因序列。然而这实在是太困难了，小 $a$ 感觉有些招架不住。</p>
+<p>不过他发现，如果他能事先知道这个序列里有多少对互不相交的回文串，他或许可以找到记忆的妙法。为了进一步验证这个想法，小 $a$ 决定选取一个由小写字母构成的字符串 $SS$ 来实验。由于互不相关的回文串实在过多，他很快就数晕了。不过他相信，在你的面前这个问题不过是小菜一碟。</p>
+<ol>
+<li>
+<p>对于字符串 $SS$，设其长度为 Len，那么下文用 $S_i$ 表示 $SS$ 中第 $i$ 个字符（$1 \le i \le Le_n$）。</p>
+</li>
+<li>
+<p>$S[i,j]$ 表示 $SS$ 的一个子串，$S[i,j]=S_i S_{i+1}S_{i+2} \cdots S_{j-2}S_{j-1}S_{j}$，比如当 $SS$ 为 <code class="hljs inline">abcgfd</code> 时，$S[2,5]$ 就是 <code class="hljs inline">bcgf</code>，$S[1,5]$ 是 <code class="hljs inline">abcgf</code>。</p>
+</li>
+<li>
+<p>当一个串被称为一个回文串当且仅当将这个串反写后与原串相同，如<code class="hljs inline">abcba</code>。</p>
+</li>
+<li>
+<p>考虑一个四元组 $(l,r,L,R)$，当 $S[l,r]$ 和 $S[L,R]$ 均为回文串时，且满足 $1 \le l \le r&lt;L \le R \le \text{Len}$ 时，我们称 $S[l,r]$ 和 $S[L,R]$ 为一对互不相交的回文串。即本题所求，也即为这种四元组的个数。两个四元组相同当且仅当对应的 $l,r,L,R$ 都相同。</p>
+</li>
+</ol>
+<h2 id="_2">输入格式</h2>
+<p>输入仅一行，为字符串 $SS$，保证全部由小写字母构成，由换行符标志结束。</p>
+<p>$50$ ％的数据满足 $SS$ 的长度不超过 $200$；</p>
+<p>$100$ ％的数据满足 $SS$ 的长度不超过 $2000$。</p>
+<h2 id="_3">输出格式</h2>
+<p>仅一行，为一个整数，表示互不相关的回文串的对数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<p><pre class="hljs"><code class="hljs">aaa</code></pre></p>
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">5</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>【样例数据说明】</p>
+<p>SS="aaa"，SS 的任意一个字符串均为回文串，其中总计有 5 对互不相关的回文串：</p>
+<p>(1,1,2,2)，(1,1,2,3)，(1,1,3,3)，(1,2,3,3)，(2,2,3,3)。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

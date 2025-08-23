@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2101/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2101 命运石之门的选择</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2101 命运石之门的选择</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在某一条不知名世界线的冈伦今天突然接到了一条dmail，上面说世界线将会发生巨大变动，未来的他无论如何都无法扭转这种变动回到原来的世界线。而世界线变动的原因是现在的他不久后错过了与助手的约会。他约好要和助手去约会，但是在去约会之前，由于一直拖欠房租，房东大叔要求他帮忙完成一幅画的上色，然而他没有以最快的速度完成这个任务，导致他错过了与助手的约会，从而导致世界线的剧变。现在到了拯救世界的时候，由于冈伦并不擅长画画，于是他找到了同样不擅长画画的你来帮他解决这个问题（这是命运石之门的选择）。不管怎样现在拯救世界的重任交到了你的手上，而你虽然不擅长画画，但是你可以使用编程来帮助你解决这个问题。</p>
+<p>一幅画由 $N$ 个宽度为 $1$ 高度为 $H_i$ 的矩形组成，矩形并排排列，相邻的矩形间没有空隙，初始情况下每个矩形都是没有颜色的。你有一个宽度为 $1$ 的刷子，可以竖直或水平的刷，每次使用刷子，刷子都必须保证一直全部处于矩形中，即不能刷到矩形以外的地方去，当然每次刷的时候也不能拐弯。每刷一次，要花费 $1$ 的时间，这和刷的长度无关，比如你可以从最左边刷到最右边（当然是不经过矩形以外的部分），这也只花费 $1$ 的时间。你的目的是将全部的矩形都涂满颜色。请你计算并输出这个最短的时间。</p>
+<h2 id="_2">输入格式</h2>
+<p>第 $1$ 行：一个正整数 $N$，表示矩形的个数。</p>
+<p>接下来 $N$ 个正整数 $H_i$，表示第 $i$ 个矩形的高度。</p>
+<h2 id="_3">输出格式</h2>
+<p>一个整数，表示最少花费的时间。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5
+2 2 1 2 1</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">3</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于 $30\%$ 数据，$N\leq20, H_i\leq100$</p>
+<p>对于 $60\%$ 数据，$N\leq100, H_i\leq1000$</p>
+<p>对于 $100\%$ 数据，$N\le5000, H_i\leq10^9$</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1984/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1984 [SDOI2008] 烧水问题</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }</style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1984 [SDOI2008] 烧水问题</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>把总质量为 $1\ \rm kg$ 的水分装在 $n$ 个杯子里，每杯水的质量均为 $(1/n)\ \rm kg$，初始温度均为 $0$ 度。现需要把每一杯水都烧开。我们可以对任意一杯水进行加热。把一杯水的温度升高 $t$ 度所需的能量为 $(4200\times t/n)\rm J$，其中，$\rm J$ 是能量单位“焦耳”。如果一旦某杯水的温度达到 $100$ 度，那么这杯水的温度就不能再继续升高，此时我们认为这杯水已经被烧开。显然地，如果直接把水一杯一杯地烧开，所需的总能量为 $(4200\times 100)\rm J$。</p>
+<p>在烧水的过程中，我们随时可以在两杯温度不同的水之间进行热传递操作。热量只能从温度较高的那杯水传递到温度较低的那杯水。由于两杯水的质量相同，所以进行热传递操作之后，原来温度较高的那杯水所降低的温度总是等于原来温度较低的那杯水所升高的温度。</p>
+<p>一旦两杯水的温度相同，热传递立刻停止。</p>
+<p>为了把问题简化，我们假设：</p>
+<ol>
+<li>没有进行加热或热传递操作时，水的温度不会变化。</li>
+<li>加热时所花费的能量全部被水吸收，杯子不吸收能量。</li>
+<li>热传递总是隔着杯子进行，$n$ 杯水永远不会互相混合。</li>
+<li>热传递符合能量守恒，而且没有任何的热量损耗。</li>
+</ol>
+<p>在这个问题里，只要求把每杯水都至少烧开一遍就可以了，而不要求最终每杯水的温度都是 $100$ 度。我们可以用如下操作把两杯水烧开：先把一杯水加热到 $100$ 度，花费能量 $(4200\times 100/2)\rm J$，然后两杯水进行热传递，直到它们的温度都变成 $50$ 度为止，最后把原来没有加热到 $100$ 度的那杯水加热到 $100$ 度，花费能量 $(4200\times 50/2)\rm J$，此时两杯水都被烧开过了，当前温度一杯 $100$ 度，一杯 $50$ 度，花费的总能量为 $(4200\times 75)\rm J$，比直接烧开所需的 $(4200\times 100)\rm J$ 少花费了 $25\%$ 的能量。</p>
+<p>你的任务是设计一个最佳的操作方案使得 $n$ 杯水都至少被烧开一遍所需的总能量最少。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入数据共一行，一个整数 $n$。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出 $n$ 杯水都至少被烧开一遍所需的最少的总能量，单位为 $J$，四舍五入到小数点后两位。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">2</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">315000.00</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">数据范围及约定</h3>
+<p>对于全部数据，$1 \le n \le 3000000$。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/javascripts/katex.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
