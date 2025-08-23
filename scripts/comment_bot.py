@@ -194,16 +194,18 @@ class CommentBot:
     
     def analyze_comment(self, comment_body, user_login=None):
         """分析评论内容，对所有评论都进行自动回复，支持@和引用格式"""
-        # 自动回复格式
+        # 处理评论内容，确保每行前加 >
+        processed_body = comment_body.strip().replace('\n', '\n> ')
+        
+        # 构建引用块
         if user_login:
-            quote = f"> @{user_login}\n> {comment_body.strip().replace('\n', '\n> ')}\n\n"
+            quote = '> @' + user_login + '\n> ' + processed_body + '\n\n'
         else:
-            quote = f"> {comment_body.strip().replace('\n', '\n> ')}\n\n"
-        reply = (
-            f"{quote}"
-            "🤖 这是自动回复！感谢你的参与！\n\n"
-            "---\n如需人工帮助请 @Eternity-Sky"
-        )
+            quote = '> ' + processed_body + '\n\n'
+        # 构建完整回复
+        reply = (quote +
+                "🤖 这是自动回复！感谢你的参与！\n\n"
+                "---\n如需人工帮助请 @Eternity-Sky")
         return reply
     
     def should_reply(self, comment):
