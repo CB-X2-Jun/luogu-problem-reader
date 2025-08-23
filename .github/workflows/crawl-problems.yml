@@ -76,7 +76,7 @@ jobs:
           echo "执行命令: $CRAWL_CMD"
           
           # 执行爬取，设置超时30分钟
-          timeout 1800 $CRAWL_CMD || {
+          timeout 7200 $CRAWL_CMD || {
             echo "爬取超时或被中断，继续部署已爬取的内容"
           }
 
