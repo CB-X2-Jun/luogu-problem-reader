@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3251/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3251 [JLOI2012] 时间流逝</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3251 [JLOI2012] 时间流逝</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>生活可以很简单。可以探索水底世界的神秘，也可以去发现奇特新生物，亦或踏上一段新生的旅程。在必须要迎接挑战或跟周围的生物进行生存争夺之前，享受自由的飞翔。此时你会觉得生活是如此美好。</p>
+<p>像蛇喜欢吃浮游生物一样（哦，我好像忘记告诉你这个常识），每天，你可以吃一些你周围的基础生物，然后会在你的尾巴上得到一个能量圈。你将会有好多种不同的能量圈，每一个都会被赋予一个能量。你可以拥有多个同种的能量圈，但是对于新得到的相同的能量圈，它的能量不能大于你已拥有的任何一个能量圈。除了前面的规则，获得新的能量圈的种类的概率是一样的。一天天过去，你得到越来越多的能量，开始了进化演变。</p>
+<p>但是你也有自己的问题，有时你会面对邪恶的果冻鱼。它会追着你咬你，你不得不扔出最小能量值的能量圈然后赶忙逃跑。在这种情况下，你不会有任何的胃口了，因此这天你将不再得到任何能量圈。幸好，当你没有任何能量圈的时候，果冻鱼就算看见你也不会追着你，此时你可以好好地享用美食。</p>
+<p>你听说当你的总的能量值超过了某个阈值之后，可以进化成强大模式并能够吃掉果冻鱼。是时候反击了！下面是本题的问题：预计要过多少天你才能进化成强大模式？（第一天默认你没有任何能量圈）</p>
+<h2 id="_2">输入格式</h2>
+<p>输入包含多个测例。对每个测例会有两行。第一行是一个浮点数P，一个整数T和一个整数N。P是每天遇到果冻鱼的概率，T是阈值。第二行是N个不同的正整数，表示每一种能量圈的能量值。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每个测例，输出一行表示预计要过多少天你的能量值能够超过阈值，四舍五入到三位小数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>0.5 0 1
+1
+0.5 1 2
+1 2
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>1.000
+2.000
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>对于所有数据，0.1&lt;=P&lt;=0.9，1&lt;=T&lt;=50，1&lt;=N&lt;=50。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

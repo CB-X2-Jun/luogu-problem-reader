@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3489/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3489 [POI 2009] WIE-Hexer</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3489 [POI 2009] WIE-Hexer</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>Byteasar has become a hexer - a conqueror of monsters.</p>
+<p>Currently he is to return to his hometown Byteburg. The way home, alas, leads through a land full of beasts. Fortunately the habitants, forced to fight the monsters for centuries, have mastered the art of blacksmithery - they are now capable of making special swords that are very efficient against the beasts.</p>
+<p>The land Byteasar wanders through is quite vast: many towns lie there, and many roads connect them.</p>
+<p>These roads do not cross outside the towns (mostly because some of them are underground passages).</p>
+<p>Byteasar has gathered all practical information about the land (all hexers like to know these things).</p>
+<p>He knows what kind of monsters he may come across each of the roads and how much time he needs to walk it down.</p>
+<p>He also knows in which villages there are blacksmiths and against what kinds of monsters the swords that they make work.</p>
+<p>Byteasar wants to get back to Byteburg as soon as possible.</p>
+<p>As a hexer he is quite ashamed that he does not know the best route, and that he has no sword on him at the moment.</p>
+<p>Help him find the shortest path to Byteburg such that whenever he could meet some king of monster, previously he would have a chance to get an appropriate sword to fight the beast.</p>
+<p>You need not worry about the number or weight of the swords - every hexer is as strong as an ox, so he can carry (virtually) unlimited number of equipment, swords in particular.</p>
+<h2 id="_2">输入格式</h2>
+<p>The first line of the standard input holds four integers: $n,m,p,k$ ($1\le n\le 200,0\le m\le 3000,1\le p\le 13,0\le k\le n$),separated by single spaces, that denote respectively:</p>
+<p>the number of towns, the number of roads connecting them,the number of different kinds of monsters and the number of blacksmiths.</p>
+<p>The towns are numbered from $1$ to $n$ in such a way that $n$ is Byteburg's number and $1$ is the number of the village which Byteasar starts in. The monster kinds are numbered from $1$ to $p$.</p>
+<p>In the following $k$ lines the profiles of successive blacksmiths are given,one per line. The $(i+1)$-st line holds the integers $w_i,q_i,r_{i,1}&lt;r_{i,2}&lt;...&lt;r_{i,q_i}$($1\le w_i\le n,1\le q_i\le p,1\le r_{i,j}\le p$),separated by single spaces, that denote respectively: the number of town in which the blacksmith lives, the number of different kinds of monsters against which his swords are efficient, and the kinds of monsters themselves (in increasing order). Note that a town may have more than one blacksmith.</p>
+<p>Then $m$ lines with roads' descriptions follow.The $(k+i+1)$-th line holds the integers$v_i,w_i,t_i,s_i,u_{i,1}&lt;u_{i,2}&lt;...&lt;u_{i,s_i}$($1\le v_i&lt;w_i\le n,1\le t_i\le 500,0\le s_i\le p,1\le u_{i,j}\le p$)separated by single spaces, that denote respectively: the towns that the road connects, the time needed to walk down the road (same in both directions), the number of different kinds of monsters that may appear on that road, and finally the kinds of monsters themselves (in increasing order). No two roads connect the same pair of towns.</p>
+<h2 id="_3">输出格式</h2>
+<p>Your programme is to print out one integer to the standard output -  the minimum summary time required to reach Byteburg.</p>
+<p>Should reaching Byteburg be impossible, the number should be $-1$.</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>6 7 4 2
+2 1 2
+3 2 1 3
+1 2 2 0
+2 3 9 0
+1 4 2 1 2
+2 5 3 0
+4 5 5 2 2 3
+4 6 18 0
+5 6 3 2 1 2
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>24
+</code></pre>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

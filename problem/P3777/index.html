@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3777/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3777 [APIO2017] 考拉的游戏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3777 [APIO2017] 考拉的游戏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<h3 id="_2">特别提示</h3>
+<p><strong>在洛谷提交本题时的一些注意事项（与原题面不同之处请以此处为准）：</strong></p>
+<ol>
+<li>提交时请在程序里加入以下函数声明语句：</li>
+</ol>
+<pre class="codehilite"><code class="language-cpp">void playRound(int*,int*);
+</code></pre>
+
+<ol>
+<li>程序开头不用，也不应该包含 <code>koala.h</code> 头文件。</li>
+<li>仅支持 <code>C++</code>（含 <code>C++</code>，<code>C++11</code>，<code>C++14</code>，<code>C++17</code>）提交。</li>
+</ol>
+<h2 id="_3">题目描述</h2>
+<p>Koala 发明了一个新游戏，来邀请你一起玩！游戏的开始，她会在桌上放 $N$ 个物品，物品从 $0$ 到 $N - 1$ 标号。接着，她会秘密地给每个物品分配一个 $1$ 到 $N$ 之间的整数权值，且任意两个物品不会被分配到相同的权值。其中，第 $i$ 个物品的权值为 $P_i$。她请你来确定由这些权值构成的序列 $P=P_0,P_1,\dots ,P_{N-1}$ 的一些特征。</p>
+<p>为了回答她的问题，你可以请 Koala 玩若干轮游戏。每一轮中，你会得到 $W$ 个蓝色石子，Koala 会得到 $W$ 个红色石子。首先，你可以选择若干个物品，再把你的一些（或全部）石子放在这些物品的旁边。Koala 会观察你的石子分配，然后类似地把她的一些（或全部）石子放在若干个物品旁边。如果一个物品旁边的红色石子数严格大于蓝色石子数，那么，Koala可以获得这个物品。Koala 分配她的石子时，总会选择使她获得的物品的权值和最大的方案，如果有多种方案可以做到这一点，她会选择一种获得的物品数最多的方案，如果仍然有多种方案，她会选择其中任意一种。</p>
+<p>Koala 非常懒，如果你和她玩太多轮游戏，她就会睡着。你的任务是通过尽可能少轮数的游戏，确定 Koala 的序列 $P$ 的相关特征。</p>
+<h3 id="_4">任务</h3>
+<p>在这个任务中，你需要实现 $4$ 个函数：<code>minValue</code>, <code>maxValue</code>, <code>greaterValue</code> 和 <code>allValues</code>。</p>
+<p>每个函数需要你确定序列 $P$ 的不同特征。我们强烈推荐在我们提供的模版的基础上进行作答。注意，即使你只想获得部分子任务的分数，你也必须为四个函数都提供一个实现（尽管一些函数的内部可能为空）。你的程序禁止从标准输入读数据、向标准输出写数据或与任何文件交互。</p>
+<p>在每个函数中，参数 <code>N</code> 表示游戏中物品的个数，参数 <code>W</code> 表示你和 Koala 在每一轮游戏中拥有的石子数。</p>
+<ul>
+<li><code>minValue(N, W)</code> --- 这个函数需要返回权值最小的物品的标号 $i$，即 $P_i=1$</li>
+<li><code>maxValue(N, W)</code> --- 这个函数需要返回权值最大的物品的标号 $i$，即 $P_i=N$</li>
+<li><code>greaterValue(N, W)</code> --- 这个函数需要比较物品 $0$ 和物品 $1$ 的权值，返回权值较大的物品的标号。具体来说，若 $P_0&gt;P_1$​，它应该返回 $0$ ，否则返回 $1$ 。</li>
+<li><code>allValues(N, W, P)</code> --- 这个函数需要确定整个排列，并将其存放在给定的数组 $P$ 中：具体来说，$P[i]$ 应该保存物品 $i$ 的权值 $P_i (0 \leq i \leq N-1)$。</li>
+</ul>
+<p>在每个测试点中，交互库会一次或多次调用这些函数中的一个。每次函数调用代表不同的任务，哪个函数会被调用、以及最多被调用多少次取决于子任务（见下文）。你可以认为 Koala 在每次函数调用前确定了她的序列 $P$，并且序列不会在一次函数的调用过程中改变。一次调用结束后，她可以在下次函数调用之前改变她的序列。</p>
+<p>你实现的四个函数可以通过调用函数 <code>playRound</code> 来获取 Koala 的序列的相关信息。</p>
+<ul>
+<li><code>playRound(B, R)</code>，请 Koala 和你玩一轮游戏。</li>
+</ul>
+<p>数组 <code>B</code> 描述你在每个物品旁边放了多少蓝色石子。具体来说，对任意 $0 \leq i \leq N-1$，$B[i]$ 个蓝色石子将会被放在物品 $i$ 旁边。每个 $B[i]$ 必须是一个非负整数，且 $B[0]+B[1]+\cdots +B[N-1]$ 不能超过 $W$ 。</p>
+<p>交互库会把 Koala 的回应存放在你提供的数组 <code>R</code> 中。具体来说，对任意 $0 \leq i \leq N-1$，Koala 会在物品 $i$ 旁边放 $R[i]$ 个红色石子。</p>
+<p>每个子任务对你在每次游戏中调用 <code>playRound</code> 的次数有所限制。注意，调用次数越少你的得分可能会越高。（具体限制和评分方式参见下文）</p>
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">子任务</h3>
+<h4 id="0">样例数据：$0$ 分</h4>
+<p><strong>因为特殊原因（不支持设置 $0$ 分测试点），评测时将不测样例</strong>。</p>
+<ul>
+<li>有 $5$ 个「样例数据」测试点，每个测试点恰好调用一次 $4$ 个函数中的某一个。请看下文的「样例」获取各测试点的详细信息。</li>
+<li>$N=6$</li>
+<li>$P=5,3,2,1,6,4$</li>
+</ul>
+<p>每次游戏中，你可以调用 <code>playRound</code>至多 $3200$ 次。</p>
+<h4 id="14">子任务 1：$4$ 分</h4>
+<ul>
+<li>在这个子任务中，交互库只会调用函数 <code>minValue</code>，每个测试点中，这个函数最多会被调用 $100$ 次。</li>
+<li>$N=100$</li>
+<li>$W=100$</li>
+<li>每一次游戏中，你可以调用 <code>playRound</code> 至多 $2$ 次。</li>
+</ul>
+<h4 id="215">子任务 2：$15$ 分</h4>
+<ul>
+<li>在这个子任务中，交互库只会调用函数 <code>maxValue</code>。每个测试点中，这个函数最多会被调用 $100$ 次。</li>
+<li>$N=100$</li>
+<li>$W=100$</li>
+<li>每一次游戏中，你可以调用 <code>playRound</code> 至多 $13$ 次。</li>
+<li>这个子任务中，一个测试点的分数取决于每一轮游戏中 <code>playRound</code> 被调用次数的最大值 $C_{max}$，具体来说，你的得分为：</li>
+<li>若 $C_{max}\leq 4$，获得 $15$ 分。</li>
+<li>若 $5 \leq C_{max} \leq 13$，获得 $7$ 分。</li>
+</ul>
+<h4 id="318">子任务 3：$18$ 分</h4>
+<ul>
+<li>在这个子任务中，交互库只会调用函数 <code>greaterValue</code>。每个测试点中，这个函数最多会被调用 $1100$ 次。</li>
+<li>$N=100$</li>
+<li>$W=100$</li>
+<li>每一次游戏中，你可以调用 <code>playRound</code> 至多 $14$ 次。</li>
+<li>这个子任务中，一个测试点的分数取决于每一轮游戏中 <code>playRound</code> 被调用次数的最大值 $C_{max}$，具体来说，你的得分为：</li>
+<li>若 $C_{max}\leq 3$，获得 $18$ 分。</li>
+<li>若 $C_{max}=4$，获得 $14$ 分。</li>
+<li>若 $C_{max}=5$，获得 $11$ 分。</li>
+<li>若 $6 \leq C_{max}\leq 14$，获得 $5$ 分。</li>
+</ul>
+<h4 id="410">子任务 4：$10$ 分</h4>
+<ul>
+<li>在这个子任务中，交互库只会调用函数 <code>allValues</code>，每个测试点中，这个函数会被调用恰好一次。</li>
+<li>$N=100$</li>
+<li>$W=200$</li>
+<li>你可以调用 <code>playRound</code> 至多 $700$ 次。</li>
+</ul>
+<h4 id="553">子任务 5：$53$ 分</h4>
+<ul>
+<li>在这个子任务中，交互库只会调用函数 <code>allValues</code>，每个测试点中，这个函数会被调用恰好一次。</li>
+<li>$N=100$</li>
+<li>$W=100$</li>
+<li>你可以调用 <code>playRound</code> 至多 $3200$ 次。</li>
+<li>这个子任务中，一个测试点的分数取决于 <code>playRound</code> 被调用的次数 $C$ ，具体来说，你的得分为：</li>
+<li>若 $C \leq 100$，获得 $53$ 分。</li>
+<li>若 $101 \leq C \leq 3200$，获得 $\lfloor 53-8 \log_2 (c/100) \rfloor$ 分。其中，$\lfloor x \rfloor$ 为不大于 $x$ 的最大整数。举例来说，若 $C=3200$，那么你的解答将获得 $13$ 分。</li>
+</ul>
+<h3 id="_7">评分方式</h3>
+<ul>
+<li>和传统题一样，你的程序的运行时间和空间不能超过时间和空间限制。<strong>交互库运行的时间和空间也会算入你的程序的总时间和空间当中</strong>。当你估算这一部分的时空消耗时，你可以认为，在评测时使用的交互库与我们提供的样例交互库有<strong>相同的函数</strong>和<strong>相似的实现</strong>。</li>
+<li>在一个测试点中，若你在调用 <code>playRound</code> 时传入了非法的数组 B，或调用 <code>playRound</code> 的总次数超过了上限，那么该测试点记 $0$ 分。</li>
+<li>在一个测试点的任意一次游戏中，若一个函数没有正确地回答所要求的 Koala 的序列的特征，那么该测试点记 $0$ 分。</li>
+<li>子任务 4 和子任务 5 均要求你实现函数 <code>allValues</code>，但在调用时传入了不同的 $W$。你可以利用两个子任务在这个参数上的不同，从而在你的实现中区分两个子任务。你可以参考你的语言的模板实现获取更详细的信息。</li>
+<li>比赛时，你可以提交本题目最多 60 次，连续两次的提交至少间隔 2 分钟。</li>
+<li><strong>你在一个子任务上的得分，等于你在该子任务所有测试点中的最低得分</strong>。</li>
+</ul>
+<h3 id="_8">如何测试你的程序</h3>
+<p>在终端下输入如下命令进行编译：</p>
+<pre class="codehilite"><code class="language-bash">g++ grader.cpp koala.cpp -o grader -g -Wall --std=c++11
+</code></pre>
+
+<p>样例交互库将按如下格式从标准输入读入数据：</p>
+<p>第一行两个整数 $F,G$，其中 $F$ 代表交互库调用的函数类型，$G$ 代表调用函数的次数；</p>
+<p>接下来 $G$ 行，每行开头两个整数 $N,W$，后跟 $N$ 个整数 $P_0,P_1,\ldots,P_{N-1}$。</p>
+<p>$F$ 对应的样例交互库调用的函数类型如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>$F$</th>
+<th>调用的函数类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td><code>minValue</code></td>
+</tr>
+<tr>
+<td>$2$</td>
+<td><code>maxValue</code></td>
+</tr>
+<tr>
+<td>$3$</td>
+<td><code>greaterValue</code></td>
+</tr>
+<tr>
+<td>$4$</td>
+<td><code>allValues</code></td>
+</tr>
+</tbody>
+</table>
+<p>对于每次函数调用，样例交互库将向标准输出输出两行。第一行代表你调用 <code>playRound</code> 的次数，第二行代表函数调用后返回的结构（对于 $F=4$ 的情况，将输出调用 <code>allValues</code> 时返回的数组，对于其他情况，将输出函数的返回值）。</p>
+<h3 id="_9">样例</h3>
+<p>考虑如下的排列：</p>
+<table>
+<thead>
+<tr>
+<th>$i$</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$P_i$</td>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>下表展示了几次调用函数 <code>playRound</code> 的例子，以及交互库对每个调用的有效反馈（注意，一次 <code>playRound</code> 的调用，可能会有多种可能的有效反馈） 。</p>
+<table>
+<thead>
+<tr>
+<th>$W$</th>
+<th>调用</th>
+<th>可能的交互库反馈</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td><code>playRound([0,3,0,2,1,0],R)</code></td>
+<td><code>R=[1,1,1,0,2,1]</code></td>
+<td>Koala 获得了物品 $0,2,4,5$，总权值为 $17$，这是一种可能的权值最大的方案。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>playRound([1,2,3,1,2,0],R)</code></td>
+<td>非法调用</td>
+<td>你总共放了 $9$ 个石子，超过了 $W$ 的限制。</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>playRound([0,3,0,2,1,0],R)</code></td>
+<td><code>R=[2,3,0,2,3,1]</code></td>
+<td>你不用放完 $W$ 个石子，Koala 也不用放完 $W$ 个石子。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>playRound([0,1,0,0,1,0],R)</code></td>
+<td><code>R=[1,0,1,1,2,1]</code></td>
+<td>若 Koala 有多种方案最大化获得物品的权值，她会选择使自己获得物品最多的方案。因此 <code>R=[1,2,0,0,2,1]</code> 不是一个合法的返回值。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是样例数据的返回值，请注意在样例数据中，你可以调用 <code>playRound</code> 至多 $3200$ 次。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>交互库调用</th>
+<th>期望返回值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>minValue(6,6)</code></td>
+<td>3</td>
+<td>$P_3=1$</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>maxValue(6,6)</code></td>
+<td>4</td>
+<td>$P_4=6$</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>greaterValue(6,6)</code></td>
+<td>0</td>
+<td>$P_0=5,P_1=3$</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>allValues(6,12,P)</code></td>
+<td><code>P=[5,3,2,1,6,4]</code></td>
+<td>注意 <code>allValues</code> 无返回值，而是将正确结果放入 P 中。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>allValues(6,12,P)</code></td>
+<td><code>P=[5,3,2,1,6,4]</code></td>
+<td>同上。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">附加文件</h3>
+<p>附加文件包含样例输入输出，C++ 样例交互库和程序模板，我们推荐您在模板的基础上实现您的程序。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

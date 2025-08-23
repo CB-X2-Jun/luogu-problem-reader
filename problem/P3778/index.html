@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3778/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3778 [APIO2017] 商旅</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3778 [APIO2017] 商旅</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>在广阔的澳大利亚内陆地区长途跋涉后，你孤身一人带着一个背包来到了科巴。你被这个城市发达而美丽的市场所深深吸引，决定定居于此，做一个商人。科巴有$N$个集市，集市用从$1$到$N$的整数编号，集市之间通过$M$条单向道路连接，通过每条道路都需要消耗一定的时间。</p>
+<p>在科巴的集市上，有$K$种不同的商品，商品用从$1$到$K$的整数编号。每个集市对每种商品都有自己的定价，买入和卖出商品的价格可以是不同的。并非每个集市都可以买卖所有的商品：一个集市可能只提供部分商品的双向交易服务；对于一种商品，一个集市也可能只收购而不卖出该商品或只卖出而不收购该商品。如果一个集市收购一种商品，它收购这种商品的数量是不限的，同样，一个集市如果卖出一种商品，则它卖出这种商品的数量也是不限的。</p>
+<p>为了更快地获得收益，你决定寻找一条盈利效率最高的环路。环路是指带着空的背包从一个集市出发，沿着道路前进，经过若干个市场并最终回到出发点。在环路中，允许<strong>多次</strong>经过同一个集市或同一条道路。在经过集市时，你可以购买或者卖出商品，一旦你购买了一个商品，你需要把它装在背包里带走。由于你的背包非常小，任何时候你最多只能持有一个商品。在购买一个商品时，你不需要考虑你是否有足够的金钱，但在卖出时，需要注意只能卖出你拥有的商品。</p>
+<p>从环路中得到的收益为在环路中卖出商品得到的金钱减去购买商品花费的金钱，而一条环路上消耗的时间则是依次通过环路上所有道路所需要花费的时间的总和。环路的盈利效率是指从环路中得到的收益除以花费的时间。需要注意的是，一条没有任何交易的环路的盈利效率为$0$。</p>
+<p>你需要求出所有<strong>消耗时间为正数</strong>的环路中，盈利效率<strong>最高</strong>的环路的盈利效率。答案<strong>向下取整</strong>保留到整数。如果没有任何一条环路可以盈利，则输出 0 。</p>
+<h2 id="_2">输入格式</h2>
+<p>从标准输入中读取输入数据。</p>
+<p>第一行包含3个正整数，$N$、$M$和$K$，分别表示集市数量、道路数量和商品种类数量。</p>
+<p>接下来的$N$行，第$i$行中包含$2K$个整数$B_{i,1},S_{i,1},B_{i,2},S_{i,2},\dots B_{i,K},S_{i,K}$描述一个集市。对于任意的$1 \leq j \leq K$, 整数$B_{i,j}$和$S_{i,j}$分别表示在编号为$i$的集市上购买、卖出编号为$j$的商品时的交易价格。如果一个交易价格为$-1$，则表示这个商品在这个集市上不能进行这种交易。</p>
+<p>接下来$M$行，第$p$行包含 3 个整数，$V_p$、$W_p$和$T_p$, 表示存在一条从编号为$V_p$的市场出发前往编号为$W_p$的市场的路径花费$T_p$分钟。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出到标准输出中。</p>
+<p>输出包含一个整数，表示盈利效率最高的环路盈利效率，答案<strong>向下取整</strong>保留到整数。如果没有任何一条环路可以盈利，则输出 0 。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>4 5 2
+10 9 5 2
+6 4 20 15
+9 7 10 9
+-1 -1 16 11
+1 2 3
+2 3 3
+1 4 1
+4 3 1
+3 1 1
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>2
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h2 id="_6">样例解释</h2>
+<p>在样例中，我们考虑下面两条环路，“1 - 2 - 3 - 1” 和 “1 - 4 - 3 - 1”。</p>
+<p>考虑环路 “1 - 2 - 3 - 1” ：这条环路消耗的总时间是$(3+3+1)=7$分钟。在这条环路中，最佳的交易方式是：在编号为 1 的集市中购买编号为 2 的商品（花费的金钱为 5）；在编号为 2 的集市中卖出编号为 2 的商品（得到的金钱为 15），然后立即购买编号为 1 的商品（花费的金钱为 6）；带着编号为 1 的商品经过编号为 3 的集市，在回到编号为 1 的城市后卖出（得到的金钱为 9）。在这个环路中，总盈利为$-5+15-6+9=13$ 。 这个环路的盈利效率为$13/7$ ，向下取整后为 1 。</p>
+<p>考虑环路 “1 - 4 - 3 - 1” ：这条环路消耗的总时间是$(1+1+1)=3$分钟。在这条环路中，最佳的交易方式是：在编号为 1 的集市中购买编号为 2 的商品（花费的金钱为 5）；在编号为 4 的集市中卖出编号为 2 的商品（得到的金钱为 11）；然后经过编号为 3 的集市回到编号为 1 的城市。在这个环路中，总盈利为$-5+11=6$。 这个环路的盈利效率为$6/3$，向下取整后为 2 。</p>
+<p>综上所述，盈利效率最高的环路的盈利效率为 2 。</p>
+<h2 id="_7">子任务</h2>
+<p>在所有的子任务中，保证$1 \leq N \leq 100$，$1 \leq M \leq 9900$，$1 \leq K \leq 1000$, 如果在编号为$i (1 \leq i \leq N)$的集市中，编号为$j (1 \leq j \leq K)$的商品既可以购买又可以卖出，则$0 \leq S_{i,j} \leq B_{i,j} \leq 1000000000$。对于编号为$p (1 \leq p \leq M)$的道路，保证$V_p \not= W_p$且$1 \leq T_p \leq 10000000$。 不存在满足$1 \leq p &lt; q \leq M$的$p$，$q$使得$(V_p, W_p)=(V_q, W_q)$。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5529.png" /></p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

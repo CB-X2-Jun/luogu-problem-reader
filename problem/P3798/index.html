@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3798/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3798 辉夜姬的十道难题</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3798 辉夜姬的十道难题</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>妹红最近玩了一款叫 $2048$ 的小游戏。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5857.png" /></p>
+<p>(图为个人无撤销最高纪录~ 纯手玩)。</p>
+<h2 id="_2">题目描述</h2>
+<p>$2048$ 是一个非常简单的数字游戏，它在 $4\times 4$ 的棋盘上进行，通过移动来合并数字，达到 $2048$ 即算胜利。妹红最近沉迷上了这个游戏，事情传到辉夜那里后，辉夜决定用曾经无人破解的十道难题来考考妹红。</p>
+<p>游戏规则：</p>
+<ol>
+<li>
+<p>游戏在 $n\times m$ 的方格棋盘上进行。</p>
+</li>
+<li>
+<p>两个玩家，其中一个可以移动棋盘上的数字，记做 M，另外一个可以向棋盘上放数字，记做 C。</p>
+</li>
+<li>
+<p>移动数字的规则如下：可以向上/下/左/右四个方向的其中之一移动。选定好方向后，所有数字都会向该方向靠拢，相同的两个数字相撞时会合并成一个新数字，这个数字是它们的和。在一次移动中，每个数字最多只能合并一次，优先合并靠近移动方向棋盘边缘的数字。</p>
+</li>
+</ol>
+<p>以 $n=2,m=4$ 的情况举例如下（$0$ 表示该位置为空）：</p>
+<pre class="codehilite"><code>2 2 2 2
+2 2 0 2
+</code></pre>
+
+<p>向左移动后变为：</p>
+<pre class="codehilite"><code>4 4 0 0
+4 2 0 0
+</code></pre>
+
+<p>每次合并后，将会获得一定的分数，获得的分数等于所有合并后数字相加之和。若无任何合并发生，则不得分。在上例中，得分为 $12$。</p>
+<p>移动前后，若棋盘上的所有数字大小和位置均没有变化，则不算做有效移动，否则即是有效移动。</p>
+<ol>
+<li>
+<p>向棋盘放置数字的规则如下：只能选择棋盘上没有数字的位置放置一个数字，可以放置的数字和放置方法在每个子任务中会具体描述。</p>
+</li>
+<li>
+<p>游戏开始时棋盘为空，分数为 $0$。先由玩家 C 行动两步，接着玩家 M 和 C 轮流行动，中间的每一步都必须是有效的。当轮到玩家 M 时，若不能够进行有效移动，则游戏结束，此时的得分为最终得分。</p>
+</li>
+</ol>
+<p>本题目为提交答案题，共有 $10$ 个子任务需要你来完成。将你的答案写到 $10$ 个文件中，分别命名为 <code>gamex.out</code>，$x$ 表示子任务的编号（$0\ldots 9$）。</p>
+<p>子任务内无部分分，你可以得到该任务的分数当且仅当你的输出和标准答案完全相同。</p>
+<p>十道难题如下:</p>
+<ol>
+<li>
+<p>$n=1,m=2$。玩家 C 行动时可以放置 $2$ 或 $4$。若用 $x$ 表示在一局游戏中玩家 M 最多可以行动 $x$ 次，那么这个 $x$ 的最值是多少？输出两行，第一行一个整数表示 $x$ 的最小值，第二行一个整数表示 $x$ 的最大值。</p>
+</li>
+<li>
+<p>$n=10738029,m=921023$。玩家 C 行动时可以放置 $2$ 或 $4$。若用 $x$ 表示棋盘上所有数字之和，请问 $x$ 的最大值是多少。因为这个值可能过大，只需要输出它除以 $10^9+7$ 的余数即可。</p>
+</li>
+<li>
+<p>$n=2,m=2$。玩家 C 行动时可以放置 $2,4$。用 $x$ 表示目标数字， $x$ 一定为 $2$ 的正整数幂。玩家 M 的目标是使盘面上出现大于等于数字 $x$ 的数，玩家 C 的目标是在盘面上出现数字 $x$ 之前使游戏结束。在两方均最优决策的情况下，求一个最大的 $x$，使得玩家 M 能达到自己的目标。</p>
+</li>
+<li>
+<p>$n=4,m=4$。玩家 C 行动时可以放置 $2,4$。输出两行，每行一个数字。第一行的数字表示能达到的最大分数。第二行的数字表示当数字总和达到最大时，分数的最小值。</p>
+</li>
+<li>
+<p>$n=7393,m=9133$。玩家 C 可以放置数字 $2$ 共 $6144$ 次。棋盘初始为空，初始分数为 $0$。首先由玩家 C 连续行动，直到用完所有放置机会或中途主动放弃。然后连续向上移动直到向上方向不能构成有效移动。输出一行一个整数，表示最大得分。</p>
+</li>
+<li>
+<p>$n=7,m=233$。初始分数为 $0$,玩家 C 可以放置数字 $2$ 共 $233$ 次，数字 $4$ 共 $66$ 次。棋盘第一行一开始有若干数字，第 $i$ 列的数字为 $\text{lowbit}(i)\times 2$，$\text{lowbit}(i)$ 表示数字 $i$ 的二进制形式只取最后一个 $1$ 构成的数字。如 $\text{lowbit}(1\ldots 8)$ 为 $1,2,1,4,1,2,1,8$。棋盘的其他位置均为空。首先由玩家 C 连续行动，直到用完所有放置机会或中途主动放弃。然后连续向上移动直到向上方向不能构成有效移动。输出一行一个整数，表示最大得分。</p>
+</li>
+<li>
+<p>$n=3,m=3$。玩家 C 行动时可以放置 $2,4$。用 $x$ 表示目标数字，$x$ 一定为 $2$ 的正整数幂。玩家 M 的目标是使盘面上出现数字 $x$，玩家 C 的目标是在盘面上出现数字 $x$ 之前使游戏结束。在两方均最优决策的情况下，输出一个最大的 $x$，使得玩家 M 能达到自己的目标。</p>
+</li>
+<li>
+<p>$n=3,m=3$。玩家 C 行动时可以放置 $2,4$。玩家 M 的目标是让得分最大化，玩家 C 的目标是让得分最小化，在两方均最优决策的情况下，输出一个整数，表示最终的分数。</p>
+</li>
+<li>
+<p>$n=3,m=3$。玩家 C 行动时，有 $90\%$ 的几率放置一个 $2$，$10\%$ 的几率放置一个 $4$，放置在各个空位的几率均等。用 $x$ 表示目标数字，玩家 M 的目标是使盘面上出现大于等于数字 $x$ 的数。在玩家 M 最优决策的情况下，输出一行，$9$ 个实数，四舍五入到小数点后 $2$ 位，用空格隔开，分别表示 $x=2,4,8,16,32,64,128,256,512$ 时，达成目标数字的概率。</p>
+</li>
+<li>
+<p>$n=3,m=3$。玩家 C 行动时，有 $90\%$ 的几率放置一个 $2$，$10\%$ 的几率放置一个 $4$，放置在各个空位的几率均等。玩家 M 的目标是让分数最大化。在玩家 M 最优决策的情况下，输出一个实数，四舍五入保留整数，表示分数的期望值。</p>
+</li>
+</ol>
+<p>妹红虽然对 $2048$ 有一定了解，但她并不能解决全部的问题，于是就交给了学 OI 的你。</p>
+<h2 id="_3">输入格式</h2>
+<p>见题目描述</p>
+<h2 id="_4">输出格式</h2>
+<p>见题目描述</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>样例任务（无需提交）:
+ n=2,m=2。 玩家C行动时只可以放置2。请输出一个整数，表示棋盘上可能出现的最大数字。
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>16
+</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>如果对移动规则有疑惑，可以到 $2048$ 网站进行尝试:</p>
+<p>http://gabrielecirulli.github.io/2048/</p>
+<p>by-orangebird</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

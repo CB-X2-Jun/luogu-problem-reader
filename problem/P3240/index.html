@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3240/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3240 [HNOI2015] 实验比较</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3240 [HNOI2015] 实验比较</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 D 被邀请到实验室，做一个跟图片质量评价相关的主观实验。</p>
+<p>实验用到的图片集一共有 $N$ 张图片，编号为 $1$ 到 $N$。实验分若干轮进行，在每轮实验中，小 D 会被要求观看某两张随机选取的图片， 然后小 D 需要根据他自己主观上的判断确定这两张图片谁好谁坏，或者这两张图片质量差不多。 </p>
+<p>用符号 ”$&lt;$”、“$&gt;$” 和 “$=$” 表示图片 $x$ 和 $y$（$x$、$y$ 为图片编号）之间的比较：如果上下文中 $x$ 和 $y$ 是图片编号，则 $x<y$ 表示图片 $x$「质量优于」$y$，$x>y$ 表示图片 $x$「质量差于」$y$，$x=y$ 表示图片 $x$ 和 $y$ 「质量相同」；也就是说，这种上下文中，“$&lt;$”、“$&gt;$”、“$=$” 分别是质量优于、质量差于、质量相同的意思；在其他上下文中，这三个符号分别是小于、大于、等于的含义。</p>
+<p>图片质量比较的推理规则（在 $x$ 和 $y$ 是图片编号的上下文中）：
+1. $x &lt; y$ 等价于 $y &gt; x$。
+2. 若 $x &lt; y$ 且 $y = z$，则 $x &lt; z$。
+3. 若 $x &lt; y$ 且 $x = z$，则 $z &lt; y$。
+4. $x=y$ 等价于 $y=x$。
+5. 若 $x=y$ 且 $y=z$，则 $x=z$。 </p>
+<p>实验中，小 D 需要对一些图片对 $(x, y)$，给出 $x &lt; y$ 或 $x = y$ 或 $x &gt; y$ 的主观判断。小 D 在做完实验后， 忽然对这个基于局部比较的实验的一些全局性质产生了兴趣。</p>
+<p>在主观实验数据给定的情形下，定义这 $N$ 张图片的一个合法质量序列为形如 “$x_1 R_1 x_2 R_2 x_3 R_3 …x_{N-1} R_{N-1} x_N$” 的串，也可看作是集合 ${ x_i R_i x_{i+1}|1 \leq i \leq N-1 }$，其中  $x_i$ 为图片编号，$x_1,x_2, \ldots ,x_N$ 两两互不相同（即不存在重复编号），$R_i$ 为 $&lt;$ 或 $=$，「合法」是指这个图片质量序列与任何一对主观实验给出的判断不冲突。 </p>
+<p>例如： 质量序列 $3 &lt; 1 = 2$ 与主观判断 “$3 &gt; 1$，$3 = 2$” 冲突（因为质量序列中 $3&lt;1$ 且 $1=2$，从而 $3&lt;2$，这与主观判断中的 $3=2$ 冲突；同时质量序列中的 $3&lt;1$ 与主观判断中的 $3&gt;1$ 冲突） ，但与主观判断 “$2 = 1$，$3 &lt; 2$”  不冲突；因此给定主观判断 “$3&gt;1$，$3=2$” 时，$1&lt;3=2$ 和 $1&lt;2=3$ 都是合法的质量序列，$3&lt;1=2$ 和 $1&lt;2&lt;3$ 都是非法的质量序列。</p>
+<p>由于实验已经做完一段时间了，小 D 已经忘了一部分主观实验的数据。对每张图片 $X_i$，小 D 都<strong>最多</strong>只记住了某一张质量不比 $X_i$ 好的另一张图片 $K_{X_i}$。这些小 D 仍然记得的质量判断一共有 $M$ 条（$0 \leq M \leq N$），其中第 $i$ 条涉及的图片对为 $(K_{X_i}, X_i)$，判断要么是 $K_{X_i} &lt; X_i$，要么是 $K_{X_i} = X_i$，而且所有的 $X_i$ 互不相同。小 D 打算就以这 M 条自己还记得的质量判断作为他的所有主观数据。</p>
+<p>现在，基于这些主观数据，我们希望你帮小 D 求出这 $N$ 张图片一共有多少个不同的合法质量序列。我们规定：如果质量序列中出现 “$x = y$”，那么序列中交换 $x$ 和 $y$ 的位置后仍是同一个序列。因此： $1&lt;2=3=4&lt;5$ 和 $1&lt;4=2=3&lt;5$ 是同一个序列， $1 &lt; 2 = 3$ 和 $1 &lt; 3 = 2$ 是同一个序列，而 $1 &lt; 2 &lt; 3$ 与 $1 &lt; 2 = 3$ 是不同的序列，$1&lt;2&lt;3$ 和 $2&lt;1&lt;3$ 是不同的序列。</p>
+<p>由于合法的图片质量序列可能很多， 所以你需要输出答案对 $10^9 + 7$ 取模的结果。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行两个正整数 $N,M$，分别代表图片总数和小 $D$ 仍然记得的判断的条数；</p>
+<p>接下来 $M$ 行，每行一条判断，每条判断形如「$x &lt; y$」或者「$x = y$」。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出仅一行，包含一个正整数，表示合法质量序列的数目对 $10^9+7$ 取模的结果。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>5 4
+1 &lt; 2
+1 &lt; 3
+2 &lt; 4
+1 = 5
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>5
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>不同的合法序列共5个，如下所示：</p>
+<ul>
+<li>$1 = 5 &lt; 2 &lt; 3 &lt; 4$ </li>
+<li>$1 = 5 &lt; 2 &lt; 4 &lt; 3$</li>
+<li>$1 = 5 &lt; 2 &lt; 3 = 4$ </li>
+<li>$1 = 5 &lt; 3 &lt; 2 &lt; 4$ </li>
+<li>$1 = 5 &lt; 2 = 3 &lt; 4$</li>
+</ul>
+<p>$100\%$ 的数据满足 $N \leq 100$。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

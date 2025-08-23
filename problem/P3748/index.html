@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3748/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3748 [六省联考 2017] 摧毁“树状图”</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3748 [六省联考 2017] 摧毁“树状图”</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>自从上次神刀手帮助蚯蚓国增添了上千万人口（蚯口？），蚯蚓国发展得越来越繁荣了！最近，他们在地下发现了一些神奇的纸张，经过仔细研究，居然是 D 国 X 市的超级计算机设计图纸！</p>
+<p>这台计算机叫做 “树状图”，由 $n$ 个计算节点与 $n - 1$ 条可以双向通信的网线连接而成，所有计算节点用不超过 $n$ 的正整数编号。顾名思义，这形成了一棵树的结构。</p>
+<p>蚯蚓国王已在图纸上掌握了这棵树的完整信息，包括 $n$ 的值与 $n - 1$ 条网线的连接信息。于是蚯蚓国王决定，派出蚯蚓国最强大的两个黑客，小 P 和小 H，入侵 “树状图”，尽可能地摧毁它。</p>
+<p>小 P 和小 H 精通世界上最好的编程语言，经过一番商量后，他们决定依次采取如 下的步骤：
+* 小 P 选择某个计算节点，作为他入侵的起始点，并在该节点上添加一个 <strong>P</strong> 标记。
+* 重复以下操作若干次（可以是 $0$ 次）：
+    * 小 P 从他当前所在的计算节点出发，选择一条没有被标记过的网线，入侵到该网线的另一端的计算节点，并在路过的网线与目的计算节点上均添加一个 <strong>P</strong> 标记。
+* 小 H 选择某个计算节点，作为她入侵的起始点，并在该节点上添加一个 <strong>H</strong> 标记。
+* 重复以下操作若干次（可以是 $0$ 次）：
+    * 小 H 从她当前所在的计算节点出发，选择一条没有被标记过的网线，入侵到该网线的另一端的计算节点，并在路过的网线与目的计算节点上均添加一个 <strong>H</strong> 标记。（注意，小 H 不能经过带有 <strong>P</strong> 标记的网线，但是可以经过带有 <strong>P</strong> 标记的计算节点）
+* 删除所有被标记过的计算节点和网线。
+* 对于剩下的每条网线，如果其一端或两端的计算节点在上一步被删除了，则也删除这条网线。</p>
+<p>经过以上操作后，“树状图” 会被断开，剩下若干个（可能是 $0$ 个）连通块。为了达到摧毁的目的，蚯蚓国王希望，连通块的个数越多越好。于是他找到了你，希望你能帮他计算这个最多的个数。</p>
+<p>小 P 和小 H 非常心急，在你计算方案之前，他们可能就已经算好了最优方案或最优方案的一部分。你能得到一个值 $x$：
+* 若 $x = 0$，则说明小 P 和小 H 没有算好最优方案，你需要确定他们两个的入侵路线。
+* 若 $x = 1$，则说明小 P 已经算好了某种两人合作的最优方案中，他的入侵路线。他将选择初始点 $p_0$，并沿着网线一路入侵到了目标点 $p_1$，并且他不会再沿着网线入侵；你只需要确定小 H 的入侵路线。
+* 若 $x = 2$，则说明小 P 和小 H 算好了一种两人合作的最优方案，小 P 从点 $p_0$ 入侵到了 $p_1$ 并停下，小 H 从点 $h_0$ 入侵到了 $h_1$ 并停下。此时你不需要指挥他们入侵了，只需要计算最后两步删除计算节点与网线后，剩下的连通块个数即可。</p>
+<h2 id="_2">输入格式</h2>
+<p>每个输入文件包含多个输入数据。输入文件的第一行为两个整数 $T$ 和 $x$，$T$ 表示该文件包含的输入数据个数，$x$ 的含义见上述。（同一个输入文件的所有数据的 x 都是相同的。）</p>
+<p>接下来依次输入每个数据。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每个数据，输出一行，表示在给定条件下，剩下连通块的最大个数。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>1 0
+13
+1 2
+2 3
+2 4
+4 5
+4 6
+4 7
+7 8
+7 9
+9 10
+10 11
+10 12
+12 13
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>8
+</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="codehilite"><code>8 0
+1
+2
+1 2
+3
+1 2
+2 3
+4
+1 3
+2 3
+2 4
+5
+1 5
+2 5
+3 5
+4 5
+16
+1 2
+1 3
+1 4
+1 5
+5 6
+5 7
+5 8
+5 9
+9 10
+9 11
+9 12
+9 13
+13 14
+13 15
+13 16
+17
+1 2
+1 3
+1 4
+1 5
+5 6
+5 7
+5 8
+5 17
+17 9
+9 10
+9 11
+9 12
+9 13
+13 14
+13 15
+13 16
+17
+8 6
+2 6
+11 6
+4 6
+14 2
+10 2
+5 4
+1 4
+9 8
+17 11
+12 5
+3 6
+13 6
+16 8
+7 11
+15 16
+</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="codehilite"><code>0
+1
+2
+2
+4
+12
+13
+10
+</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="codehilite"><code>8 1
+1 1 1
+2 1 1
+1 2
+3 2 2
+1 2
+2 3
+4 2 2
+1 3
+2 3
+2 4
+5 5 5
+1 5
+2 5
+3 5
+4 5
+16 1 5
+1 2
+1 3
+1 4
+1 5
+5 6
+5 7
+5 8
+5 9
+9 10
+9 11
+9 12
+9 13
+13 14
+13 15
+13 16
+17 1 5
+1 2
+1 3
+1 4
+1 5
+5 6
+5 7
+5 8
+5 17
+17 9
+9 10
+9 11
+9 12
+9 13
+13 14
+13 15
+13 16
+17 2 4
+8 6
+2 6
+11 6
+4 6
+14 2
+10 2
+5 4
+1 4
+9 8
+17 11
+12 5
+3 6
+13 6
+16 8
+7 11
+15 16
+</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="codehilite"><code>0
+1
+2
+2
+4
+12
+13
+10
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<ul>
+<li>若 $x = 0$，则该行只有一个整数 $n$。</li>
+<li>若 $x = 1$，则该行依次有三个整数 $n, p_0, p_1$。</li>
+<li>若 $x = 2$，则该行依次有五个整数 $n, p_0, p_1, h_0, h_1$。</li>
+</ul>
+<p>保证 $p_0, p_1, h_0, h_1$ 均为不超过 $n$ 的正整数。</p>
+<p>每个数据接下来有 $n - 1$ 行，每行有两个不超过 $n$ 的正整数，表示这两个编号的计算节点之间有一条网线将其相连。保证输入的是一棵树。</p>
+<p>同一行相邻的整数之间用恰好一个空格隔开。</p>
+<p><strong>数据文件可能较大，请避免使用过慢的输入输出方法。</strong></p>
+<p>【样例 1 说明】</p>
+<p>这个输入文件只有一个输入数据。一种最优的方案如下：</p>
+<ul>
+<li>
+<p>小 P 从节点 $2$ 开始入侵，节点 $2$ 被小 P 标记。</p>
+</li>
+<li>
+<p>小 P 从节点 $2$ 入侵到节点 $4$，节点 $4$ 和经过的网线被小 P 标记。</p>
+</li>
+<li>
+<p>小 P 从节点 $4$ 入侵到节点 $7$，节点 $7$ 和经过的网线被小 P 标记。</p>
+</li>
+<li>
+<p>小 H 从节点 $10$ 开始入侵，节点 $10$ 被小 H 标记。</p>
+</li>
+<li>
+<p>删除被标记的节点 $2,4,7,10$ 和被标记的网线 $(2,4)$ 和 $(4,7)$。</p>
+</li>
+<li>
+<p>删除任意一端在上一步被删除的网线。</p>
+</li>
+</ul>
+<p>此时还剩下 $8$ 个连通块。其中节点 $1,3,5,6,8,9,11$ 各自形成一个连通块，节点$12,13$形成了一个连通块。</p>
+<p>【样例 2 说明】</p>
+<ul>
+<li>
+<p>数据 1：只有 $1$ 个计算节点，唯一可行的方案是小 P 从节点 $1$ 开始入侵（并马上停止），小 H 也从节点 $1$ 入侵到节点 $1$。所有的节点都被删去，剩下 $0$ 个连通块。</p>
+</li>
+<li>
+<p>数据 2：一种最优方案是，小 P 从节点 $1$ 入侵到节点 $1$，小 H 也从节点 $1$ 入侵到节点 $1$。在删除操作后，剩下 $1$ 个连通块（只有节点 $2$）。</p>
+</li>
+<li>
+<p>数据 3：唯一的最优方案是，小 P 从节点 $2$ 入侵到节点 $2$，小 H 也从节点 $2$ 入侵到节点 $2$，剩下 $2$ 个连通块。</p>
+</li>
+<li>
+<p>数据 4：一种最优方案是，小 P 从节点 $2$ 入侵到节点 $2$，小 H 也从节点 $2$ 入侵到节点 $2$，剩下 $2$ 个连通块。</p>
+</li>
+<li>
+<p>数据 5：唯一的最优方案是，小 P 从节点 $5$ 入侵到节点 $5$，小 H 也从节点 $5$ 入侵到节点 $5$，剩下 $4$ 个连通块。</p>
+</li>
+</ul>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38934.png" /></p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38935.png" /></p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38936.png" /></p>
+<p>对于整数 $k$，设$\sum n^k$ 为某个输入文件中，其$ T$ 个输入数据的 $n^k$ 之和。</p>
+<p>对于所有数据，$T \leq 10^5, \sum n^1 &lt;5 \times 10^5$</p>
+<p>请注意初始化的时间复杂度，避免输入大量小数据时超时。</p>
+<p>每个测试点的详细数据范围见下表。如果表中 “完全二叉” 为 Yes，则该输入文件的每个数据满足：网线信息的第 $j$ 行 $(1 \leq j &lt; n)$ 输入的两个数依次是 $\left\lfloor \frac {j + 1} {2} \right\rfloor$ 和 $j + 1$。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38937.png" /></p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

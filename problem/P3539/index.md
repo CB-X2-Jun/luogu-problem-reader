@@ -1,0 +1,48 @@
+# P3539 P3539 [POI 2012] ROZ-Fibonacci Representation
+
+## 题目描述
+
+The Fibonacci sequence is a sequence of integers, called Fibonacci numbers, defined as follows:
+
+$Fib_{0}=0,Fib_{1}=1,Fib_{n}=Fib_{n-2}+Fib_{n-1}\ for\ n>1$
+
+Its initial elements are: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
+
+Byteasar investigates representations of numbers as sums or differences of Fibonacci numbers. Currently he is wondering what is the minimum representation, i.e., one with the minimum number of (not necessarily different) Fibonacci numbers, for a given positive integer $k$ . For example, the numbers 10, 19, 17, and 1070 can be minimally represented using, respectively, 2, 2, 3, and 4 Fibonacci numbers as follows:
+
+$10=5+5$
+
+$19=21-2$
+
+$17=13+5-1$
+
+$1070=987+89-5-1$
+
+Help Byteasar! Write a program that, for a given positive integer $k$ determines the minimum number of Fibonacci numbers required to represent $k$ as their sum or difference.
+
+## 输入格式
+
+In the first line of the standard input a single positive integer $p$ is given ($1\le p\le 10$) that denotes the number of queries. The following $p$ lines hold a single positive integer $k$ each ($1\le k\le 1\times 10^{17}$).
+
+
+## 输出格式
+
+For each query your program should print on the standard output the minimum number of Fibonacci numbers needed to represent the number $k$ as their sum or difference.
+
+
+## 输入输出样例
+
+### 样例 #1
+
+#### 样例输入 #1
+
+```
+1
+1070
+```
+
+#### 样例输出 #1
+
+```
+4
+```

@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3849/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3849 [TJOI2007] 足彩投注</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3849 [TJOI2007] 足彩投注</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>了解足球彩票的人可能知道，足球彩票中有一种游戏叫做“胜负彩”，意为猜比赛的胜负。下面是一些与胜负彩有关的术语：</p>
+<p>注：<strong>每一</strong>组有效组合数据。</p>
+<p>投注：彩民以现金购买足球彩票的行为。</p>
+<p>单式投注：彩民对于所有球队的比赛成绩均只选择一种预测结果的投注方式。投注的数量（注数）为1。</p>
+<p>复式投注：彩民对于某些场次的比赛成绩选择两种以上的预测结果的投注方式。投注的数量为复式投注的组合数。例如，某彩民对一场比赛预测了两个结果（例如胜平），另一场比赛预测了三个结果（胜负平），其他比赛都只预测了一种结果，那么注数就是 $2\times 3=6$。<strong>这样的一个复式投注，可以看成一个包含六种单式投注的集合。</strong></p>
+<p>胜负彩的玩法一般是这样的。彩票机构指定一轮比赛中的若干场，让彩民去猜每场比赛的结果（胜负平）。根据彩民猜中比赛的场次，来确定中奖的额度</p>
+<h2 id="_2">题目描述</h2>
+<p>我们现在考虑一个简化的模型。对于一轮比赛，彩民需要竞猜其中 $n$ 场比赛的结果，每场比赛的胜负平都有一个概率 $p(i, r)$ 。其中，$i$ 表示第 $i$ 场比赛。$r\in {0,1,2}$，分别表示主队比赛结果的负、平、胜。$p(i, r)$ 则表示第i场比赛、结果为r的概率。此外，还有一个概率 $q(i, r)$，表示第 $i$ 场比赛，投注购买结果为 $r$ 的概率，<strong>即总注数中购买该场次某一比赛结果的概率</strong>。</p>
+<p>例如，如果 $q(1,0) = 0.5$，我们可以知道第一场比赛有 $50\%$ 的投注会买主队输球。我们假设这 $n$ 场比赛互不相关，即 $p(i, r)$ 的结果不会受 $p(j, r’)$ 的影响，$q(i, r)$ 的结果也不会受 $q(j, r’)$ 的影响（$r \ne r’$）。</p>
+<p>在这个模型里，我们规定，必须猜中全部 $n$ 场比赛的结果才能获奖。总奖金为 $M$，由所有获奖的投注平分。因此，对于一个单式投注 $R_i = {r_{i1}, r_{i2}, \ldots ,r_{in}}$，$r_{ij}$ 表示投注 $R_i$对第j场比赛的预测结果，它的中奖概率为：</p>
+<p>$$
+P(R_i)=\prod\limits_{j=1}^np(j,r_{ij})
+$$
+设投注总数为 $N$，那么中奖的投注总数为：</p>
+<p>$$
+N\cdot Q(R_i)=N\cdot\prod\limits_{j=1}^nq(j,r_{ij})
+$$
+于是，投注 $R_i$ 所能得到的奖金的期望（平均意义下能够获得的奖金数）就是：</p>
+<p>$$
+\dfrac{M}{N\cdot Q(R_i)} \cdot P(R_i)
+$$
+以上考虑的仅仅是单式投注的情况，即仅考虑单注 $R_i$ 的中奖情况。对于复式投注，情况要复杂一些。采用复式投注时，投注的是一个集合 $R = {R1, R2, …, Rk}$，其中k是投注的数量。例如，三场比赛，第一场猜“胜负”，第二场猜“平”，第三场猜“负平”，则 $k = 4$，$R$ 集合所包含的四个元素如下如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$r_{i1}$</th>
+<th>$r_{i2}$</th>
+<th>$r_{i3}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$R_1$</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$R_2$</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>$R_3$</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$R_4$</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>复式投注R中，只要有一个 $Ri$ 猜对所有比赛结果，即可中奖。因此，复式投注R所能获得的奖金的期望就是：</p>
+<p>$$
+\sum_{R_i\in R}\dfrac{M}{N\cdot Q(R_i)} \cdot P(R_i)
+$$</p>
+<p>我们的问题是，给定 $n$ 场比赛的信息（胜负平的概率和彩民购买三种结果的概率），以及复式投注中可以购买的最大注数 $U$，要求设计一种复式投注的方案，在不超过最大注数（复式投注的注数 $k \le U$）的前提下，使得获得奖金的期望最大。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行四个正整数 $n, N, M, U$，其中 $n, U \le 10^4, N, M \le 10^9$。</p>
+<p>以下 $n$ 行，每行六个实数。第 $i + 1$ 行的六个实数为 $p(i, 0), p(i, 1), p(i, 2), q(i, 0),q(i, 1),q(i, 2)$，用来描述第 $i$ 场比赛的相关信息。其中，$p(i, 0) + p(i, 1) + p(i, 2) = 1$,，$q(i, 0) + q(i, 1) + q(i, 2) = 1$，$ q(i, j) ≠ 0$。</p>
+<h2 id="_4">输出格式</h2>
+<p>一个实数，表示最大的奖金期望的自然对数。</p>
+<p>$$
+\ln \left( \operatorname{max}<em>{\lvert R \rvert \le U}\left{\sum</em>{R_i\in R}\dfrac{M}{N\cdot Q(R_i)} \cdot P(R_i)\right}\right)
+$$</p>
+<p>输出保留 $3$ 位小数（四舍五入）。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>1 10 10 1
+0.3 0.2 0.5 0.7 0.2 0.1
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>1.609
+</code></pre>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

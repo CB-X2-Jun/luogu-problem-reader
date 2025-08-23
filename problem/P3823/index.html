@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3823/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3823 [NOI2017] 蚯蚓排队</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3823 [NOI2017] 蚯蚓排队</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>蚯蚓幼儿园有 $n$ 只蚯蚓。幼儿园园长神刀手为了管理方便，时常让这些蚯蚓们列队表演。</p>
+<p>所有蚯蚓用从 $1$ 到 $n$ 的连续正整数编号。每只蚯蚓的长度可以用一个正整数表示，根据入园要求，所有蚯蚓的长度都不超过 $6$ 。神刀手希望这些蚯蚓排成若干个队伍，初始时，每只蚯蚓各自排成一个仅有一只蚯蚓的队伍，该蚯蚓既在队首，也在队尾。</p>
+<p>神刀手将会依次进行 $m$ 次操作，每个操作都是以下三种操作中的一种：</p>
+<ol>
+<li>
+<p>给出 $i$ 和 $j$ ，令 $i$ 号蚯蚓与 $j$ 号蚯蚓所在的两个队伍合并为一个队伍，具体来说，令 $j$ 号蚯蚓紧挨在 $i$ 号蚯蚓之后，其余蚯蚓保持队伍的前后关系不变。</p>
+</li>
+<li>
+<p>给出 $i$ ，令 $i$ 号蚯蚓与紧挨其后的一只蚯蚓分离为两个队伍，具体来说，在分离之后， $i$ 号蚯蚓在其中一个队伍的队尾，原本紧挨其后的那一只蚯蚓在另一个队伍的队首，其余蚯蚓保持队伍的前后关系不变。</p>
+</li>
+<li>
+<p>给出一个正整数 $k$ 和一个长度至少为 $k$ 的数字串 $s$ ，对于 $s$ 的每个长度为 $k$ 的连续子串 $t$ （这样的子串共有 $|s|-k+1$ 个，其中 $|s|$ 为 $s$ 的长度），定义函数 $f(t)$，询问所有这些 $f(t)$ 的<strong>乘积</strong>对 $998244353$ 取模后的结果。其中 $f(t)$ 的定义如下：</p>
+</li>
+</ol>
+<p>对于当前的蚯蚓队伍，定义某个蚯蚓的<strong>向后 $k$ 数字串</strong>为：从该蚯蚓出发，沿队伍的向后方向，寻找最近的 $k$ 只蚯蚓（包括其自身），将这些蚯蚓的长度视作字符连接而成的数字串；如果这样找到的蚯蚓不足 $k$ 只，则其没有<strong>向后$k$数字串</strong>。例如蚯蚓的队伍为 $10$ 号蚯蚓在队首，其后是 $22$ 号蚯蚓，其后是 $3$ 号蚯蚓（为队尾），这些蚯蚓的长度分别为 $4$ 、 $5$ 、 $6$ ，则 $10$ 号蚯蚓的<strong>向后 $3$ 数字串</strong>为 <code>456</code>， $22$ 号蚯蚓没有<strong>向后 $3$ 数字串</strong>，但其<strong>向后 $2$ 数字串</strong>为 <code>56</code>，其<strong>向后 $1$ 数字串</strong>为 <code>5</code>。</p>
+<p>而 $f(t)$ 表示所有蚯蚓中，<strong>向后 $k$ 数字串</strong>恰好为 $t$ 的蚯蚓只数。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件的第一行有两个正整数 $n,m$ ，分别表示蚯蚓的只数与操作次数。</p>
+<p>第二行包含 $n$ 个不超过 $6$ 的正整数，依次表示编号为 $1,2,\dots,n$ 的蚯蚓的长度。</p>
+<p>接下来 $m$ 行，每行表示一个操作。每个操作的格式可以为：</p>
+<ul>
+<li>
+<p><code>1</code> $i$ $j$（$1 \leq i, j \leq n$）表示：令 $i$ 号与 $j$ 号蚯蚓<strong>所在</strong>的两个队伍合并为一个队伍，新队伍中， $j$ 号蚯蚓紧挨在 $i$ 号蚯蚓之后。保证在此操作之前， $i$ 号蚯蚓在某个队伍的队尾，$j$ 号蚯蚓在某个队伍的队首，且两只蚯蚓不在同一个队伍中。</p>
+</li>
+<li>
+<p><code>2</code> $i$（$1 \leq i \leq n$）表示：令 $i$ 号蚯蚓与紧挨其后一个蚯蚓分离为两个队伍。保证在此操作之前， $i$ 号蚯蚓不是某个队伍的队尾。</p>
+</li>
+<li>
+<p><code>3</code> $s$ $k$（$k$为正整数，$s$为一个长度至少为$k$的数字串）表示：询问 $s$ 的每个长度为 $k$ 的子串 $t$ 的 $f(t)$ 的乘积，对 998244353 取模的结果。 $f(t)$ 的定义见题目描述。</p>
+</li>
+</ul>
+<p>同一行输入的相邻两个元素之间，用恰好一个空格隔开。</p>
+<p>输入文件可能较大，请不要使用过于缓慢的读入方式。</p>
+<h2 id="_3">输出格式</h2>
+<p>依次对于每个形如 <code>3 s k</code> 的操作，输出一行，仅包含一个整数，表示询问的结果。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>5 9
+3 1 3 5 3
+3 333135 2
+3 333135 1
+1 1 3
+1 2 5
+1 3 2
+1 5 4
+3 333135 2
+3 333135 1
+3 333135 3
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>0
+81
+1
+81
+0
+</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="codehilite"><code>2 10
+6 6
+3 666666 1
+1 1 2
+3 666666 2
+3 666666 4
+3 666666666666666666666666666666 1
+2 1
+1 2 1
+3 666666 2
+3 666666 4
+3 666666666666666666666666666666 1
+</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="codehilite"><code>64
+1
+0
+75497471
+1
+0
+75497471
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>保证 $n \leq 2 \times 10^{5}$，$m \leq 5 \times 10^{5}$，$k \leq 50$ 。</p>
+<p>设 $\sum |s|$ 为某个输入文件中所有询问的 $s$ 的长度总和，则 $\sum |s| \leq 10^{7}$  。</p>
+<p>设 $c$ 为某个输入文件中形如 <code>2 i</code> 的操作的次数，则 $c \leq 10^{3}$ 。</p>
+<p>每个测试点的详细信息见下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;">$n$</th>
+<th style="text-align: center;">$m$</th>
+<th style="text-align: center;">$k$</th>
+<th style="text-align: center;">$\sum |s|$</th>
+<th style="text-align: center;">$c$</th>
+<th style="text-align: center;">全为 $\texttt{1}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$=1$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$=1$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">$\leq 20$</td>
+<td style="text-align: center;">$\leq 40$</td>
+<td style="text-align: center;">$\leq 10$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">$\leq 150$</td>
+<td style="text-align: center;">$\leq 2,000$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">$\leq 500$</td>
+<td style="text-align: center;">$\leq 600$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$\leq 2,000$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 6 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 5$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 6 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 6 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 6 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 8 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 2.5 \times 10^{6}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">$\leq 5 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 8 \times 10^{4}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 2.5 \times 10^{6}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 1.1 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 6$</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 1.1 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 1.1 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 1.1 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 1.5 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{6}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">$\leq 10^{5}$</td>
+<td style="text-align: center;">$\leq 1.5 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{6}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{5}$</td>
+<td style="text-align: center;">$=1$</td>
+<td style="text-align: center;">$\leq 10^{7}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 5 \times 10^{5}$</td>
+<td style="text-align: center;">$=1$</td>
+<td style="text-align: center;">$\leq 10^{7}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 2.5 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 7$</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 2.5 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 2.5 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 2.5 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 3 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{7}$</td>
+<td style="text-align: center;">$=0$</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">$\leq 2 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 3 \times 10^{5}$</td>
+<td style="text-align: center;">$\leq 50$</td>
+<td style="text-align: center;">$\leq 10^{7}$</td>
+<td style="text-align: center;">$\leq 10^{3}$</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<p>如果一个测试点的“全为<code>1</code>”的一列为“Yes”，表示该测试点的所有蚯蚓的长度均为 1，并且所有询问串 $s$ 的每一位也均为<code>1</code>。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

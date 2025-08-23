@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P4010/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P4010 [CTSC2012] 梭哈游戏</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P4010 [CTSC2012] 梭哈游戏</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>小 Y 和小 Z 最近迷上了一种叫梭哈的扑克游戏。梭哈又称沙蟹，是英文 Show Hand 的音译，是一种使用黑桃、红心、梅花、方片的 A 到 K 共 $52$ 张牌(没有大小王）来进行的扑克牌游戏。</p>
+<p>和其他扑克游戏一样，梭哈的目的是得到最大的牌型并赢得牌局：每名玩家首先需要下基本的注额，之后将获得一张底牌，这张牌只有自己知道。普通梭哈游戏的规则是，在发完底牌后的第一轮时，每个玩家都将得到一张明牌（明牌是摆在台面上的，所有人都能看见），拥有最大明牌的玩家首先发言，他可以下注、不下注（让牌）或盖牌（放弃）也可以全压（梭哈），其他玩家可以跟注（有玩家全压时必须全压）、加注或盖牌（放弃），放弃的玩家将无法继续游戏，并且之</p>
+<p>前押的筹码无法取回。而全压之后将直接把每个人的手牌补充至 $5$ 张进行最后的判定；第二圈、第三圈和第四圈的进程与第一圈是类似的。最后，每位玩家要比牌型的大小以确定赢家。牌最大的玩家赢得牌局。</p>
+<p>所有五张牌的组合，按以下秩序， 由大至小 排行分为不同牌型：</p>
+<p>1、同花顺（<code>Straight Flush</code>）：同一花色，顺序的牌。 例： $Q♦ J♦ 10♦ 9♦ 8♦$；</p>
+<p>2、四条（<code>Four of a Kind</code>）：有四张同一点数的牌。 例： $10♣ 10♦ 10♥ 10♠ 9♥$；</p>
+<p>3、满堂红（<code>Full House</code>）：三张同一点数的牌，加一对其他点数的牌。 例： $8♣ 8♦ 8♠ K♥ K♠$；</p>
+<p>4、同花（<code>Flush</code>）：五张同一花色的牌。 例： $A♠ K♠ 10♠ 9♠ 8♠$；</p>
+<p>5、顺子（<code>Straight</code>）：五张顺连的牌。 例： $K♦ Q♥ J♠ 10♦ 9♦$；</p>
+<p>6、三条（<code>Three of a kind</code>）：有三张同一点数的牌。 例： $J♣ J♥ J♠ K♦ 9♠$；</p>
+<p>7、两对（<code>Two Pairs</code>）：两张相同点数的牌，加另外两张相同点数的牌。 例： $A♣ A♦ 8♥ 8♠ Q♠$；</p>
+<p>8、一对（<code>One Pair</code>）：两张相同点数的牌。 例： $9♥ 9♠ A♣ J♠ 8♥$；</p>
+<p>9、无对（<code>Zilch</code>）：不能排成以上组合的牌，以点数决定大小。例： $A♦ Q♦ J♠ 9♣ 8♣$。</p>
+<p>若牌型一样则 利用 点数 和花色决定胜负 。（点数 优先）</p>
+<p>点数 的顺序（ 从 大至小） 为：$A&gt;K&gt;Q&gt;J&gt;10&gt;9&gt;8&gt;7&gt;6&gt;5&gt;4&gt;3&gt;2$。（注：当 $5$ 张手牌是 $5, 4, 3, 2, A$ 的时候，$A$ 可以看作最小的牌，此时的牌型仍然为顺子，是顺子里面最小的一个）。</p>
+<p>花色的顺序（大至小） 为：黑桃(♠)$&gt;$红心(♥)$&gt;$梅花(♣)$&gt;$方块(♦)。</p>
+<p>举例说明：</p>
+<p>1、$Q♦ J♦ 10♦ 9♦ 8♦ &gt; 8♣ 8♥ 8♠ K♥ K♠$ （前者牌型为同花顺，比后者大）；</p>
+<p>2、$9♣ 9♦ 9♠ Q♥ Q♠ &gt; 8♣ 8♦ 8♠ K♥ K♠$ （两者牌型均为满堂红，比较牌型中三张同一点数的牌 $9$ 比 $8$ 大）；</p>
+<p>3、$A♣ A♦ 8♥ 8♠ Q♠ &gt; A♠ A♥ 7♥ 7♠ K♠$ （两者牌型均为两对，且最大的对子相同，此时比较次大的对子，$8$ 比 $7$ 大）；</p>
+<p>4、$A♠ Q♠ J♥ 9♥ 8♥ &gt; A♦ Q♦ J♠ 9♣ 8♣$ （两者牌型均为无对，所有数码均相同，此时比较最大牌的花色，$A♠$ &gt; $A♦$）。</p>
+<p>5、$4♠ 4♥ A♦ Q♦ 5♦ &gt; 4♣ 4♦ A♠ Q♠ 5♠$ （两者牌型均为一对，所有数码均相同，此时对 4 为牌型里最大的部分，因此比较 $4♠ &gt; 4♣$）</p>
+<p>在小 Y 和小 Z 玩梭哈的过程中，小 Y 总希望能够实时了解目前的形势，即根据自己手上的牌算出自己的胜率。但是他的编程能力有限，你能帮他完成这个任务么？</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行包含 $1$ 个正整数 $N$，表示小 Y 自己手上牌的数量。</p>
+<p>接下来 $N$ 行每行用两个整数描述一张小 Y 手上的牌：第一个数表示牌的数码（$1$ 表示 $A$，$13$ 表示 $K$，$12$ 表示 $Q$，$11$ 表示 $J$），第二个数表示牌的花色（$1$ 表示黑桃，$2$ 表示红心，$3$ 表示梅花，$4$ 表示方块）。</p>
+<p>接下来 $N – 1$ 行每行用两个整数描述一张小 Z 手上的明牌：第一个数表示牌的数码（$1$ 表示 $A$，$13$ 表示 $K$，$12$ 表示 $Q$，$11$ 表示 $J$），第二个数表示牌的花色（$1$ 表示黑桃，$2$ 表示红心，$3$ 表示梅花，$4$ 表示方块）。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出仅包含一行，格式为 <code>A/B</code> 形式。$A$, $B$ 为两个互质的自然数，<code>A/B</code> 表示了小 Y 当前局面下的获胜可能性。特别的，若 $A$ 为 $0$，则应输出 <code>0/1</code>。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>5
+2 1
+2 2
+2 3
+2 4
+3 1
+1 1
+1 2
+1 3
+3 2
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>42/43
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>【样例说明】</p>
+<p>小 Y 手上牌的型是 $4$ 条，小 Z 若底牌是方块 $A$ 则也能构成 $4$ 条，并通过数码大获胜 。其他情况下都是小 Y 获胜。</p>
+<p>【数据规模和约定】</p>
+<p>对于 $10\%$ 的数据，$N = 5$;</p>
+<p>对于 $30\%$ 的数据，$3 \leq N \leq 5$;</p>
+<p>对于 $100\%$ 的数据，$1 \leq N \leq 5$。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

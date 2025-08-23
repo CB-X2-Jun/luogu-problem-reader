@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P3934/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P3934 [Ynoi Easy Round 2016] 炸脖龙 I</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P3934 [Ynoi Easy Round 2016] 炸脖龙 I</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>备餐时光，软泞蜥獾</p>
+<p>草地中钻孔，日晷下打转</p>
+<p>波若歌鹦苟延残喘，迷途绿龟嚎哮迷茫</p>
+<p>“当心炸脖龙，我的孩子！</p>
+<p>那锋爪利颚，能挠钩撕咬！</p>
+<p>注意秋布秋布鸟，你需回避，</p>
+<p>那暴躁冒烟恶怪大毛怪！”</p>
+<p>手持宝剑鸣真理之语：寻觅强敌豪壮永不息——于噹噹树下稍事休憩，伫立良久，深陷思绪。</p>
+<p>当思绪纷乱杂绪之际，炸脖龙双目如烔炬，从阴暗密林奔跃闯出，一路悲鸣低吟时啭啼！</p>
+<p>一，二！一，二！一刺再刺，真理之语将敌斩成糜！</p>
+<p>取其首级，置之死地，</p>
+<p>伴随胜利，驰马归疾。</p>
+<p>“真当是你把怪龙斩于马下？</p>
+<p>奋勇吾儿！</p>
+<p>来我怀里！奔走相告！衣锦还乡！</p>
+<p>父喜不自禁窃鸣得意</p>
+<p>波若歌鹦苟延残喘，</p>
+<p>迷途绿龟嚎哮迷茫，</p>
+<p>备餐时光，软泞蜥獾</p>
+<p>草地中钻孔，日晷下打转</p>
+<p>波若歌鹦苟延残喘，</p>
+<p>迷途绿龟嚎哮迷茫”</p>
+<p>——《炸脖龙之诗》</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21111.png" /></p>
+<p>我喊了出来...却不成人话</p>
+<p>只能，像在水中一边融化一边下沉的方糖一样...</p>
+<p>失去自己的轮廓...一直沉向最低处</p>
+<p>想要爬上去的子午</p>
+<p>维持自己是自己的连续体...</p>
+<p>溶解的渐渐七零八落的意识...</p>
+<p>失去了用来挣扎的双手</p>
+<p>失去了用来挣扎的双臂</p>
+<p>向下，</p>
+<p>向下，</p>
+<p>一直沉下去</p>
+<p>向着意识的底层</p>
+<p>沉陷下去的自我...</p>
+<p>逐渐消失的世界...</p>
+<p>我看到了世界</p>
+<p>失落的...世界...</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21112.png" /></p>
+<pre class="codehilite"><code class="language-plain">   回归天空的话我就可以成为      了
+
+  开什么玩笑，你才不是什么      ！
+
+  吵死了！吵死了！我是      ！而且生来就是！
+
+就是因为这个家伙我才失去      的资格的！
+
+ 呜呜呜，由岐姐姐，由岐姐姐！
+
+  ...怎么会...由岐姐...
+
+ 卓司！你这家伙！
+
+        吵死了吵死了！像你这样的普通人懂些什么！
+
+   由岐的血慢慢在冰凉的水泥地上扩散开来
+
+   抱在怀里的      在渐渐地流出来        本应成为      而出生
+
+的我的被      妨碍了！
+
+不出生的话我就没法拯救是这个世界！
+
+            所以预言者说能当世界回归天空的此处就是尽头
+
+   只要      回归天空的话！
+
+ 我有这么可怕吗？
+
+              因为我是要对一切生物下达审判的存在！
+
+       因为哥哥是凡人呢
+
+    凡人与天才
+
+                            救世主
+
+   世界
+
+                    救世主
+
+                回天之门
+
+  要死的是你！
+
+            我不会死               不会死       诅咒你
+
+       要死的是羽咲
+
+         只要羽咲死了
+
+                  间宫              皆
+
+                                    守           由
+
+                         岐
+
+                                间宫羽咲
+
+                          可能性
+
+                                    和镜
+
+                     终
+
+                   终之空
+
+                     空
+</code></pre>
+
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21113.png" /></p>
+<p>一个婴儿出生了</p>
+<p>谁的？</p>
+<p>不知道</p>
+<p>虽然不知道...
+但确实有一个婴儿出生了</p>
+<p>嗯...那个婴儿在哭...</p>
+<p>呜嘎，呜嘎，地哭着...</p>
+<p>听到这个哭声大家都笑了</p>
+<p>大家都在为婴儿祝福</p>
+<p>母亲也是...</p>
+<p>父亲也是...</p>
+<p>并且其他人也是...</p>
+<p>为那个婴儿的出生...</p>
+<p>衷心祝福</p>
+<p>世界充满着生命的祝福</p>
+<p>但是</p>
+<p>但不是这样的</p>
+<p>在那里</p>
+<p>我</p>
+<p>我一个人在那里恐惧着</p>
+<p>非常恐惧...</p>
+<p>要说为什么的话...</p>
+<p>因为那是在对世界进行诅咒</p>
+<p>没错...</p>
+<p>他在诅咒着那个世界，那个刚出生的婴儿</p>
+<p>诅咒着自己的出生</p>
+<p>我</p>
+<p>我当场全身僵硬</p>
+<p>在大家的笑容之中</p>
+<p>在祝福之中</p>
+<p>独自一人...</p>
+<p>我啊...</p>
+<p>我摇摇晃晃地...</p>
+<p>接近那个婴儿</p>
+<p>然后想要让那个婴儿停止哭泣</p>
+<p>我想着必须要那样做才行</p>
+<p>为什么呢？</p>
+<p>我自己也不明白...</p>
+<p>那是</p>
+<p>那是，自从出生以来</p>
+<p>就悲惨地活到今天的我能做到的</p>
+<p>我能做到的</p>
+<p>唯一的</p>
+<p>唯一的赎罪啊。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21114.png" /></p>
+<p>让我在这里了结了你吧…间宫卓司</p>
+<p>这里是终之空的下面吧…这不刚好吗</p>
+<p>跟我们的终结很相称不是吗…</p>
+<p>这里，是只对你而言的，终结的天空…</p>
+<p>这里就是终焉之地…</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21115.png" /></p>
+<p>“不行！绝对不行！”</p>
+<p>…为什么…跟过来了…</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21116.png" /></p>
+<p>预定…调和吗…</p>
+<p>原来如此…看来不管怎样对于你来说…我都已经毫无任何价值了对吧…</p>
+<p>竟然被这家伙打倒了…真是没办法呐…</p>
+<p>这也是现实吗…</p>
+<p>那就接受吧…</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21117.png" /></p>
+<p>不知为何，我好像看到了在夜空中挺立的向日葵…</p>
+<p>只有一瞬间…</p>
+<p>那株向日葵…</p>
+<p>好像在某个地方…</p>
+<p>向日葵…</p>
+<p>跟羽咲一起…</p>
+<p>是啊…</p>
+<p>我是哥哥啊…</p>
+<p>要是…能再多当当她的哥哥就好了……</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21119.png" /></p>
+<p>咦……</p>
+<p>刚才的…</p>
+<p>那个是…那片风景…</p>
+<p>是吗…那片风景…</p>
+<p>我也是知道的啊…</p>
+<p>在坡道途中的向日葵…</p>
+<p>蔚蓝的天空和向日葵。</p>
+<p>漂浮着大大的云朵…</p>
+<p>羽咲戴着大大的帽子…</p>
+<p>然后跟我走在一起…</p>
+<p>走着走着…</p>
+<p>为了…</p>
+<p>两人一起…</p>
+<p>爬上那个坡道…</p>
+<p>因为…那个坡道的前面有很漂亮的景色…</p>
+<h2 id="_2">题目描述</h2>
+<p>您正在打 galgame，然后您觉得这个 gal 不知所云，于是您弃坑了，开始写数据结构题：</p>
+<p>给一个长为 $n$ 的序列，$m$ 次操作，每次操作：</p>
+<ol>
+<li>区间 $[l,r]$ 加 $x$；</li>
+<li>对于区间 $[l,r]$，查询：</li>
+</ol>
+<p>$$a[l]^{a[l+1]^{a[l+2]^{\dots ^{a[r]}}}} \mod p$$</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行两个整数 $n,m$ 表示序列长度和操作数。</p>
+<p>接下来一行，$n$ 个整数表示这个序列。</p>
+<p>接下来 $m$ 行，可能是以下两种操作之一：</p>
+<ul>
+<li>$1\ l\ r\ x$ 表示区间 $[l,r]$ 加上 $x$；</li>
+<li>$2\ l\ r\ p$ 表示对区间 $[l,r]$ 进行一次查询，模数为 $p$。</li>
+</ul>
+<h2 id="_4">输出格式</h2>
+<p>对于每个询问，输出一个数表示答案。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>6 4
+1 2 3 4 5 6
+2 1 2 10000007
+2 2 3 5
+1 1 4 1
+2 2 4 10
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>1
+3
+1
+</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="codehilite"><code>5 5
+2 3 3 3 3
+1 1 1 530739835
+2 1 1 8356089
+2 1 4 5496738
+1 1 2 66050181
+1 2 4 138625417
+</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="codehilite"><code>4306230
+697527
+</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>Idea：nzhtl1477，Solution：nzhtl1477，Code：nzhtl1477，Data：nzhtl1477</p>
+<p>对于100%的数据，$n , m \le 500000$ , 序列中每个数在$[1,2\cdot 10^9]$内，$p \le 2 \cdot 10^7 $, 每次加上的数在$[0,2\cdot 10^9]$内</p>
+<p>共10组数据</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>
