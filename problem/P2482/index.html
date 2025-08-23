@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P2482/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2482 [SDOI2010] 猪国杀</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2482 [SDOI2010] 猪国杀</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<h3 id="_2">游戏背景</h3>
+<p>《猪国杀》是一种多猪牌类回合制游戏，一共有 $3$ 种角色：主猪，忠猪，反猪。每局游戏主猪有且只有 $1$ 只，忠猪和反猪可以有多只，每只猪扮演 $1 $ 种角色。</p>
+<h3 id="_3">游戏目的</h3>
+<p>主猪 / $\texttt{MP}$：自己存活的情况下消灭所有的反猪。<br />
+忠猪 / $\texttt{ZP}$：不惜一切保护主猪，胜利条件与主猪相同。<br />
+反猪 / $\texttt{FP}$：杀死主猪。</p>
+<h3 id="_4">游戏过程</h3>
+<p>游戏开始时，每个玩家手里都会有 $4$ 张牌，且体力上限和初始体力都是 $4$ 。</p>
+<p>开始游戏时，从主猪开始，按照逆时针方向（数据中就是按照编号从 $ 1 , 2, 3 \ldots n , 1 \ldots $ 的顺序）依次行动。</p>
+<p>每个玩家自己的回合可以分为 2 个阶段：</p>
+<ul>
+<li><strong>摸牌阶段</strong>：从牌堆顶部摸 $2$ 张牌，依次放到手牌的最右边；  </li>
+<li><strong>出牌阶段</strong>：你可以使用任意张牌，每次使用牌的时候都使用最靠左的能够使用的牌。当然，要满足如下规则：</li>
+<li>如果没有猪哥连弩，每个出牌阶段只能使用 $1$ 次「杀」来攻击；</li>
+<li>任何牌被使用后被弃置（武器是装备上）；被弃置的牌以后都不能再用，即与游戏无关。</li>
+</ul>
+<h3 id="_5">各种牌介绍</h3>
+<p>每张手牌用 $1$ 个字母表示，字母代表牌的种类。</p>
+<h4 id="_6">基本牌</h4>
+<ul>
+<li>
+<p>『桃 / $\texttt{P}$』在自己的回合内，如果自己的体力值不等于体力上限，那么使用 $1$ 个桃可以为自己补充 $1$ 点体力，否则不能使用桃；桃只能对自己使用；在自己的回合外，如果自己的血变为 $0$ 或者更低，那么也可以使用。</p>
+</li>
+<li>
+<p>『杀 / $\texttt{K}$』在自己的回合内，对攻击范围内除自己以外的 $1$ 名角色使用。如果没有被『闪』抵消，则造成 $1$ 点伤害。无论有无武器，杀的攻击范围都是 $1$。</p>
+</li>
+<li>
+<p>『闪 / $\texttt{D}$』当你受到杀的攻击时，可以弃置 $1$ 张闪来抵消杀的效果。</p>
+</li>
+</ul>
+<h4 id="_7">锦囊牌</h4>
+<ul>
+<li>
+<p>『决斗 / $\texttt{F}$』出牌阶段，对除自己以外任意 $1$ 名角色使用，由目标角色先开始，自己和目标角色轮流弃置 $1$ 张杀，首先没有杀可弃的一方受到 $1$ 点伤害，另一方视为此伤害的来源。</p>
+</li>
+<li>
+<p>『南猪入侵 / $\texttt{N}$』出牌阶段，对除你以外所有角色使用，按逆时针顺序从使用者下家开始依次结算，除非弃置 $1$ 张杀，否则受到 $1$ 点伤害。</p>
+</li>
+<li>
+<p>『万箭齐发 / $\texttt{W}$』和南猪入侵类似，不过要弃置的不是杀而是闪。</p>
+</li>
+<li>
+<p>『无懈可击 / $\texttt{J}$』在目标锦囊生效前抵消其效果。每次有 $1$ 张锦囊即将生效时，从使用这张锦囊的猪开始，按照逆时针顺序，依次得到使用无懈可击的机会；效果：用于决斗时，决斗无效并弃置；用于南猪入侵或万箭齐发时，当结算到某个角色时才能使用，当前角色不需弃置牌并且不会受到伤害（仅对 $1$ 个角色产生效果）；用于无懈可击时，成为目标的无懈可击被无效。</p>
+</li>
+</ul>
+<h4 id="_8">装备牌</h4>
+<ul>
+<li>『猪哥连弩 / $\texttt{Z}$』武器，攻击范围 $1$ ，出牌阶段你可以使用任意张杀; 同一时刻最多只能装 $1$ 把武器；如果先前已经有了 $1$ 把武器，那么之后再装武器的话，会弃置以前的武器来装现在的武器。</li>
+</ul>
+<h3 id="_9">特殊事件及概念解释</h3>
+<ul>
+<li>
+<p><strong>伤害来源</strong>：杀、南猪入侵、万箭齐发的伤害来源均是使用该牌的猪，决斗的伤害来源如上；</p>
+</li>
+<li>
+<p><strong>距离</strong>：两只猪的距离定义为沿着逆时针方向间隔的猪数 $+1$ 。即初始时 $1$ 和 $2$ 的距离为 $1$ ，但是 $2$ 和 $1$ 的距离就是 $n-1$ 。注意一个角色的死亡会导致一些猪距离的改变；</p>
+</li>
+<li>
+<p><strong>玩家死亡</strong>：如果该玩家的体力降到 $0$ 或者更低，并且自己手中没有足够的桃使得自己的体力值回到 $1$ ，那么就死亡了，死亡后所有的牌（装备区，手牌区）被弃置；</p>
+</li>
+<li>
+<p><strong>奖励与惩罚</strong>：反猪死亡时，最后一个伤害来源处（即使是反猪）立即摸 $3$ 张牌。忠猪死亡时，如果最后一个伤害来源是主猪，那么主猪所有装备牌、手牌被弃置。</p>
+</li>
+</ul>
+<p>注意：一旦达成胜利条件，游戏立刻结束，因此即使会摸 $3$ 张牌或者还有牌可以用也不用执行了。</p>
+<p>现在，我们已经知道每只猪的角色、手牌，还有牌堆初始情况，并且假设每个角色会按照如下的行为准则进行游戏，你需要做的就是告诉小猪 iPig 最后的结果。</p>
+<h3 id="_10">几种行为</h3>
+<ul>
+<li><strong>献殷勤</strong>：使用无懈可击挡下南猪入侵、万箭齐发、决斗；使用无懈可击抵消表敌意；  </li>
+<li><strong>表敌意</strong>：对某个角色使用杀、决斗；使用无懈可击抵消献殷勤；  </li>
+<li><strong>跳忠</strong>：即通过行动表示自己是忠猪。跳忠行动就是对主猪或对某只已经跳忠的猪献殷勤，或者对某只已经跳反的猪表敌意；  </li>
+<li><strong>跳反</strong>：即通过行动表示自己是反猪。跳反行动就是对主猪或对某只已经跳忠的猪表敌意，或者对某只已经跳反的猪献殷勤。</li>
+</ul>
+<p><strong>注意：忠猪不会跳反，反猪也不会跳忠；不管是忠猪还是反猪，能够跳必然跳</strong>。</p>
+<h3 id="_11">行动准则</h3>
+<h4 id="_12">共性</h4>
+<ul>
+<li>每个角色如果手里有桃且生命值未满，那么必然吃掉；</li>
+<li>有南猪入侵、万箭齐发、必然使用；有装备必然装上；</li>
+<li>受到杀时，有闪必然弃置；</li>
+<li>响应南猪入侵或者万箭齐发时候，有杀 / 闪必然弃置；</li>
+<li>不会对未表明身份的猪献殷勤（<strong>包括自己</strong>）。</li>
+</ul>
+<h4 id="_13">特性</h4>
+<ul>
+<li>主猪：</li>
+<li>主猪会认为「没有跳身份，且用南猪入侵 / 万箭齐发对自己造成伤害的猪」是<strong>类</strong>反猪（没伤害到不算，注意类反猪并没有表明身份），如果之后跳了，那么主猪会重新认识这只猪；  </li>
+<li>对于每种表敌意的方式，对逆时针方向能够执行到的第一只类反猪或者已跳反猪表；如果没有，那么就不表敌意；</li>
+<li>决斗时会不遗余力弃置杀；</li>
+<li>如果能对已经跳忠的猪或自己献殷勤，那么一定献；如果能够对已经跳反的猪表敌意，那么一定表。</li>
+<li>忠猪：</li>
+<li>对于每种表敌意的方式，对「逆时针方向能够执行到的第一只已经跳反的猪」表，如果没有，那么就不表敌意；</li>
+<li>决斗时，如果对方是主猪，那么不会弃置杀，否则，会不遗余力弃置杀；</li>
+<li>如果有机会对主猪或者已经跳忠的猪献殷勤，那么一定献。</li>
+<li>反猪：</li>
+<li>对于每种表敌意的方式，如果有机会则对主猪表，否则，对「逆时针方向能够执行到的第一只已经跳忠的猪」表，如果没有，那么就不表敌意；</li>
+<li>决斗时会不遗余力弃置杀；</li>
+<li>如果有机会对已经跳反的猪献殷勤，那么一定献。</li>
+</ul>
+<p>限于 iPig 只会用 P++ 语言写 A + B，他请你用 Pigcal (Pascal)、P (C) 或 P++ (C++) 语言来帮他预测最后的结果。</p>
+<h2 id="_14">输入格式</h2>
+<p>输入文件第一行包含两个正整数 $ n $ $ (2 \leqslant n \leqslant 10) $ 和 $m$ $ (m \leqslant 2000) $，分别代表玩家数和牌堆中牌的数量。数据保证牌的数量够用。</p>
+<p>接下来 $n$ 行，每行 $5$ 个字符串，依次表示对第 $i$ 只猪的角色和初始 $4 $ 张手牌描述。编号为 $1$ 的肯定是主猪。</p>
+<p>再接下来一行，一共 $m$ 个字符串，按照从牌堆顶部到牌堆底部的顺序描述每张牌。</p>
+<p><strong>注意：所有的相邻的两个字符串都严格用 $1$ 个空格隔开，行尾没有多余空格</strong>。</p>
+<h2 id="_15">输出格式</h2>
+<p>输出数据第一行包含一个字符串代表游戏结果。如果是主猪胜利，那么输出 $\texttt{MP}$ ，否则输出 $\texttt{FP}$ 。数据保证游戏总会结束。</p>
+<p>接下来 $n$ 行，第 $i$ 行是对第 $i$ 只猪的手牌描述（注意只需要输出手牌），按照手牌从左往右的顺序输出，相邻两张牌用 $1$ 个空格隔开，行末尾没有多余空格。如果这只猪已阵亡，那么只要输出 $\texttt{DEAD}$ 即可。</p>
+<p><strong>注意：如果要输出手牌而没有手牌的话，那么只需输出 $1$ 个空行</strong>。</p>
+<p><strong>由于数据问题，若牌堆已空，按照每次抽牌抽到的都是最后一张。</strong></p>
+<h2 id="_16">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>3 10
+MP D D F F
+ZP N N N D
+FP J J J J
+F F D D J J F F K D
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>FP
+DEAD
+DEAD
+J J J J J J D
+</code></pre>
+
+<h2 id="_17">说明/提示</h2>
+<h3 id="_18">样例解释</h3>
+<p>第一回合：
+* 主猪没有目标可以表敌意；
+* 接下来忠猪使用了 $3$ 张南猪入侵，主猪掉了 $3$ 点体力，并认为该角色为类反猪，$3$ 号角色尽管手里有无懈可击，但是因为自己未表明身份，所以同样不能对自己用，乖乖掉 $3$ 点体力；  </p>
+<p>下一回合：
+* 反猪无牌可出；
+* 接下来主猪对着类反猪爆发，使用 $4$ 张决斗，忠猪死亡，结果主猪弃掉所有牌；
+* 下来反猪摸到 $1$ 张杀直接杀死主猪获胜。</p>
+<h3 id="_19">子任务</h3>
+<p>一共 $20$ 组测试数据，每个点 $5$ 分。</p>
+<p>$10\%$ 的数据没有锦囊牌，另外 $20\%$ 的数据没有无懈可击。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

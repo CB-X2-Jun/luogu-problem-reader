@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P2586/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2586 [ZJOI2008] 杀蚂蚁</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2586 [ZJOI2008] 杀蚂蚁</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>最近，佳佳迷上了一款好玩的小游戏：antbuster。</p>
+<p>游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~</p>
+<p>为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部分后，佳佳发现，这个游戏实在是太费时间了。为了节省时间，佳佳决定写个程序，对于每一种方案，模拟游戏进程，根据效果来判断方案的优劣。</p>
+<p>根据自己在游戏中积累的一些经验，以及上网搜到的一些参数，佳佳猜了蚂蚁爬行的算法，并且假设游戏中的蚂蚁也是按这个规则选择路线：</p>
+<ol>
+<li>
+<p>每一秒钟开始的时候，蚂蚁都在平面中的某个整点上。如果蚂蚁没有扛着蛋糕，它会在该点留下 $2$ 单位的信息素，否则它会留下 $5$ 单位的信息素。然后蚂蚁会在正北、正南、正东、正西四个方向中选择一个爬过去。</p>
+</li>
+<li>
+<p>选择方向的规则是：首先，爬完一个单位长度后到达的那个点上，不能有其他蚂蚁或是防御塔，并且那个点不能是蚂蚁上一秒所在的点（除非上一个时刻蚂蚁就被卡住，且这个时刻它仍无法动），当然，蚂蚁也不会爬出地图的边界（我们定义这些点为不可达点）。如果此时有多个选择，蚂蚁会选择信息素最多的那个点爬过去。</p>
+</li>
+<li>
+<p>如果此时仍有多种选择，蚂蚁先面向正东，如果正东不是可选择的某个方向，它会顺时针转 $90^\degree$，再次判断，如果还不是，再顺时针旋转 $90^\degree$，直到找到可以去的方向。</p>
+</li>
+<li>
+<p>如果将每只蚂蚁在洞口出现的时间作为它的活动时间的第 $1$ 秒，那么每当这只蚂蚁的活动时间秒数为 $5$ 的倍数的时候，它先按规则 $1\sim 3$ 确定一个方向，面对该方向后逆时针转 $90^\degree$，若它沿当前方向会走到一个不可达点，它会不停地每次逆时针转 $90^\degree$，直到它面对着一个可达的点，这样定下的方向才是蚂蚁最终要爬去的方向。</p>
+</li>
+<li>
+<p>如果蚂蚁的四周都是不可达点，那么蚂蚁在这一秒内会选择停留在当前点。下一秒判断移动方向时，它上一秒所在点为其当前停留的点。</p>
+</li>
+<li>
+<p>你可以认为蚂蚁在选定方向后，瞬间移动到它的目标点，这一秒钟剩下的时间里，它就停留在目标点。</p>
+</li>
+<li>
+<p>蚂蚁按出生的顺序移动，出生得比较早的蚂蚁先移动。</p>
+</li>
+</ol>
+<p>然后，是一些有关地图的信息：</p>
+<ol>
+<li>
+<p>每一秒，地图所有点上的信息素会损失 $1$ 单位，如果那个点上有信息素的话。</p>
+</li>
+<li>
+<p>地图上某些地方是炮台。炮台的坐标在输入中给出。</p>
+</li>
+<li>
+<p>地图的长、宽在输入中给出，对于 $n\times m$ 的地图，它的左上角坐标为 $(0,0)$，右下角坐标为 $(n,m)$。蚂蚁洞的位置为 $(0,0)$，蛋糕的位置为 $(n,m)$。</p>
+</li>
+<li>
+<p>你可以把蚂蚁看做一个直径为 $1$ 单位的圆，圆心位于蚂蚁所在的整点。</p>
+</li>
+<li>
+<p>游戏开始时，地图上没有蚂蚁，每个点上的信息素含量均为 $0$。</p>
+</li>
+</ol>
+<p>一些有关炮塔的信息：</p>
+<ol>
+<li>
+<p>炮塔被放置在地图上的整点处。</p>
+</li>
+<li>
+<p>为了简单一些，我们认为这些炮塔都是激光塔。激光塔的射速是 $1$ 秒每次，它的攻击伤害为 $d$ 单位每次，攻击范围为 $r$。你可以认为每秒蚂蚁移动完毕后，塔才开始攻击。并且，只有当代表蚂蚁的圆的圆心与塔的直线距离不超过 $r$ 时，塔才算打得到那只蚂蚁。</p>
+</li>
+<li>
+<p>如果一只蚂蚁扛着蛋糕，那么它会成为 target，也就是说，任何打得到它的塔的炮口都会对准它。如果蛋糕好好地呆在原位，那么每个塔都会挑离它最近的蚂蚁进行攻击，如果有多只蚂蚁，它会选出生较早的一只。如果有蚂蚁扛着蛋糕，但是不在某个塔的攻击范围内，这个塔会选择最近的蚂蚁进行攻击。</p>
+</li>
+<li>
+<p>激光塔有个比较奇怪的特性：它在选定了打击目标后，只要目标在其射程内，塔到目标蚂蚁圆心的连线上的所有蚂蚁（这里“被打到”的判定变成了表示激光的线段与表示蚂蚁的圆有公共点）都会被打到并损 $d$ 格血，但激光不会穿透它的打击目标打到后面的蚂蚁。</p>
+</li>
+<li>
+<p>尽管在真实游戏中，塔是可以升级的，但在这里我们认为塔的布局和等级就此定了下来，不再变动。</p>
+</li>
+</ol>
+<p>再介绍一下蚂蚁窝：</p>
+<ol>
+<li>
+<p>如果地图上的蚂蚁不足 $6$ 只，并且洞口（即点 $(0,0)$）没有蚂蚁，那么窝中每秒会爬出一只蚂蚁，直到地图上的蚂蚁数为 $6$ 只。</p>
+</li>
+<li>
+<p>刚出生的蚂蚁站在洞口。</p>
+</li>
+<li>
+<p>每只蚂蚁有一个级别，级别决定了蚂蚁的血量，级别为 $k$ 的蚂蚁的血量为 $\lfloor 4\times 1.1^k\rfloor$（$\lfloor x\rfloor$ 表示对 $x$ 下取整）。每被塔打一次，蚂蚁的血减少 $d$。注意，血量为 $0$ 的蚂蚁仍能精力充沛地四处乱爬，只有一只蚂蚁的血被打成负数时，它才算挂了。</p>
+</li>
+<li>
+<p>蚂蚁的级别是这样算的：前 $6$ 只出生的蚂蚁是 $1$ 级，第 $7\sim 12$ 只是 $2$级，依此类推第 $6k+1\sim 6k+6$ 的等级是 $k+1(k\in \Bbb{N})$。</p>
+</li>
+</ol>
+<p>最后给出关于蛋糕的介绍：</p>
+<ol>
+<li>
+<p>简单起见，你可以认为此时只剩最后一块蛋糕了。如果有蚂蚁走到蛋糕的位置，并且此时蛋糕没有被扛走，那么这只蚂蚁就扛上了蛋糕。蚂蚁被打死后蛋糕回到点 $(n,m)$。</p>
+</li>
+<li>
+<p>如果一只扛着蛋糕的蚂蚁走到蚂蚁窝的位置，我们就认为蚂蚁成功抢到了蛋糕，游戏结束。这个回合不会对蚂蚁的年龄产生贡献。</p>
+</li>
+<li>
+<p>蚂蚁扛上蛋糕时，血量会增加 $\left\lfloor\dfrac{x}{2}\right\rfloor$（$x$ 表示蚂蚁出生时的血量），但不会超过蚂蚁的血量上限。</p>
+</li>
+</ol>
+<p>整理一下 $1$ 秒钟内发生的事件：</p>
+<ol>
+<li>
+<p>$1$ 秒的最初，如果地图上蚂蚁数不足 $6$，一只蚂蚁就会在洞口出生。</p>
+</li>
+<li>
+<p>接着，蚂蚁们在自己所在点留下一些信息素后，考虑移动。先出生的蚂蚁先移动。</p>
+</li>
+<li>
+<p>移动完毕后，如果有蚂蚁在蛋糕的位置上并且蛋糕没被拿走，它把蛋糕扛上，血量增加，并在这时被所有塔设成 target。</p>
+</li>
+<li>
+<p>然后所有塔同时开始攻击。如果攻击结束后那只扛着蛋糕的蚂蚁挂了，蛋糕瞬间归位。扛着蛋糕的蚂蚁死后，蛋糕会在下一秒钟所有蚂蚁移动完之后再出现。下一秒钟出现在 $(n,m)$ 的蚂蚁才会获得蛋糕。</p>
+</li>
+<li>
+<p>攻击结束后，如果发现扛蛋糕的蚂蚁没死并在窝的位置，就认为蚂蚁抢到了蛋糕，游戏也在此时结束。</p>
+</li>
+<li>
+<p>最后，地图上所有点的信息素损失 $1$ 单位。所有蚂蚁的年龄加 $1$。漫长的 $1$ 秒到此结束。</p>
+</li>
+</ol>
+<h2 id="_2">输入格式</h2>
+<p>输入的第一行是两个用空格隔开的正整数，$n,m$，分别表示了地图的长和宽。</p>
+<p>第二行是三个用空格隔开的整数，$s,d,r$，依次表示炮塔的个数、单次攻击伤害以及攻击范围。</p>
+<p>接下来 $s$ 行，每行两个用空格隔开的整数 $x,y$，描述了一个炮塔的位置。当然，蚂蚁窝的洞口以及蛋糕所在的位置上一定没有炮塔。</p>
+<p>最后一行是一个正整数 $t$，表示我们模拟游戏的前 $t$ 秒钟。</p>
+<h2 id="_3">输出格式</h2>
+<p>如果在第 $t$ 秒或之前蚂蚁抢到了蛋糕，输出一行 <code>Game over after x seconds</code>，其中 $x$ 为游戏结束的时间，否则输出 <code>The game is going on</code>。</p>
+<p>如果游戏在 $t$ 秒或之前结束，输出游戏结束时所有蚂蚁的信息，否则输出 $t$ 秒后所有蚂蚁的信息。格式如下：</p>
+<p>第一行是一个整数 $s$，表示此时活着的蚂蚁的总数。</p>
+<p>接下来 $s$ 行，每行五个整数，依次表示一只蚂蚁的年龄（单位为秒）、等级、当前血量，以及在地图上的位置 $(a,b)$。输出按蚂蚁的年龄递减排序。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>3 5
+1 1 2
+2 2
+5
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>The game is going on
+5
+5 1 3 1 4
+4 1 3 0 4
+3 1 3 0 3
+2 1 3 0 2
+1 1 4 0 1
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例说明：</h3>
+<p>$3\times 5$ 的地图，有一个单次伤害为 $1$、攻击范围为 $2$ 的激光炮塔，它的位置为 $(2,2)$，模拟游戏的前 $5$ 秒。</p>
+<p>$5$ 秒内有 $5$ 只蚂蚁出生，都是向东爬行，其中第 $1\sim 4$ 只在路过 $(0,2)$ 点时被激光塔射伤了 $1$ 格血。在第 $5$ 秒的时候，最早出生的蚂蚁按移动规则 $1\sim 3$ 本来该向东移动，但由于规则 $4$ 的作用，它在发现向北和向西移动都会到达不可达点后，最终选择了向南移动。</p>
+<h3 id="_7">数据范围说明：</h3>
+<p>对于 $100\%$ 的数据，满足 $1\leqslant n,m\leqslant 8,s\leqslant 20,t\leqslant 2\times 10^5,0\leqslant d\leqslant 10^4,0\leqslant r\leqslant 15$。（这里的 $s$ 指的是炮塔的总数）。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>

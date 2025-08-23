@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P2892/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2892 [NOI2007] 追捕盗贼</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2892 [NOI2007] 追捕盗贼</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>SPJ 来源：loj-Robin。已获得授权。</p>
+<p>https://www.luogu.com.cn/paste/dxytr6gc </p>
+<p>附 SPJ，一些修改部分未按照代码规范，请各位谅解。</p>
+<h2 id="_2">题目描述</h2>
+<p>魔法国度 Magic Land 里最近出现了一个大盗 Frank，他在 Magic Land 四处作案，专门窃取政府机关的机密文件（因而有人怀疑 Frank 是敌国派来的间谍）。</p>
+<p>为了捉住 Frank，Magic Land 的安全局重拳出击！</p>
+<p>Magic Land 由 $N$ 个城市组成，并且这 $N$ 个城市又由恰好 $N-1$ 条公路彼此连接起来，使得任意两个城市间都可以通过若干条公路互达。从数据结构的角度我们也可以说，这 $N$ 个城市和 $N-1$ 条公路形成了一棵树。</p>
+<p>例如，下图就是 Magic Land 的一个可能格局（$4$ 个城市用数字编号，$3$ 条公路用字母编号）：</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12794.png" /> </p>
+<p>大盗 Frank 能够在公路上以任意速度移动。</p>
+<p>比方说，对于上图给出的格局，在 $0.00001$ 秒钟内（或者任意短的一段时间内），Frank 就可以从城市 $1$ 经过城市 $2$ 到达城市 $4$，中间经过了两条公路。</p>
+<p>想要生擒 Frank 困难重重，所以安全局派出了经验丰富的警探，这些警探具有非凡的追捕才能：</p>
+<ol>
+<li>只要有警探和 Frank 同处一个城市，那么就能够立刻察觉到 Frank，并且将其逮捕。</li>
+<li>虽然 Frank 可以在公路上以任意快的速度移动，但是如果有警探和 Frank 在同一条公路上相遇，那么警探也可以立刻察觉到 Frank 并将其逮捕。</li>
+</ol>
+<p>安全局完全不知道 Frank 躲在哪个城市，或者正在哪条公路上移动，所以需要制定一个周密的抓捕计划，计划由若干步骤组成。在每一步中，可以做如下几件事中的一个：</p>
+<ol>
+<li>在某个城市空降一位警探。警探可以直接从指挥部空降到 Magic Land 的任意一个城市里。此操作记为 <code>L x</code>，表示在编号为 $x$ 的城市里空降一位警探。耗时 $1$ 秒。</li>
+<li>把留在某个城市里的一位警探直接召回指挥部。以备在以后的步骤中再度空降到某个城市里。此操作记为 <code>B x</code>。表示把编号为 $x$ 的城市里的一位警探召回指挥部。耗时 $1$ 秒。</li>
+<li>让待在城市 $x$ 的一位警探沿着公路移动到城市 $y$，此操作记为 <code>M x y</code>。耗时 $1$ 秒。当然，前提是城市 $x$ 和城市 $y$ 之间有公路。如果在警探移动的过程中，大盗 Frank 也在同一条公路上，那么警探就抓捕到了Frank。</li>
+</ol>
+<p>现在，由你来制定一套追捕计划，也就是给出若干个步骤，需要保证：无论大盗 Frank 一开始躲在哪儿，也无论 Frank 在整个过程中如何狡猾地移动（Frank 大盗可能会窃取到追捕行动的计划书，所以他一定会想尽办法逃避），他一定会被缉拿归案。</p>
+<p>希望参与的警探越少越好，因为经验丰富的警探毕竟不多。</p>
+<p>例如对于前面所给的那个图示格局，一个可行的计划如下：</p>
+<ol>
+<li><code>L 2</code>：在城市 $2$ 空降一位警探。注意这一步完成之后，城市 $2$ 里不会有 Frank，否则他将被捉住。</li>
+<li><code>L 2</code>：再在城市 $2$ 空降一位警探。</li>
+<li><code>M 2 1</code>：让城市 $2$ 的一位警探移动到城市 $1$。注意城市 $2$ 里还留有另一位警探。这一步完成之后，城市 $1$ 里不会有 Frank，公路 $A$ 上也不会有 Frank。也就是说，假如 Frank 还没有被逮捕，那么他只能是在城市 $3$ 或城市 $4$ 里，或者公路 $B$ 或公路 $C$ 上。</li>
+<li><code>B 1</code>：召回城市 $1$ 的一位警探。注意虽然召回了这位警探，但是由于我们始终留了一位警探在城市 $2$ 把守，所以 Frank 仍然不可能跑到城市 $1$ 或者是公路 $A$ 上。</li>
+<li><code>L 3</code>：在城市 $3$ 空降一位警探。注意这一步可以空降在此之前被召回的那位警探。这一步完成之后，城市 $3$ 里不会有 Frank，否则他会被捉住。</li>
+<li><code>M 3 2</code>：让城市 $3$ 里的一位警探移动到城市 $2$。这一步完成之后，如果 Frank 还没有被捉住，那他只能是在公路 $C$ 上或者城市 $4$ 里。注意这一步之后，城市 $2$ 里有两位警探。</li>
+<li><code>M 2 4</code> 让城市 $2$ 里的一位警探移动到城市 $4$。这一步完成之后，Frank 一定会被捉住，除非他根本就没来 Magic Land。</li>
+</ol>
+<p>这个计划总共需要 $2$ 位警探的参与。可以证明：如果自始至终只有 $1$ 名或者更少的警探参与，则 Frank 就会逍遥法外。</p>
+<p>你的任务很简单：对于一个输入的 Magic Land 的格局，计算 $S$，也就是为了追捕 Frank 至少需要投入多少位警探，并且给出相应的追捕计划步骤。</p>
+<h2 id="_3">输入格式</h2>
+<p>输入文件给出了 Magic Land 的格局。</p>
+<p>第一行一个整数 $N$，代表有 $N$ 个城市，城市的编号是 $1\sim N$。</p>
+<p>接下来 $N-1$ 行，每行有两个用空格分开的整数 $x_i,y_i$，代表城市 $x_i,y_i$ 之间有公路相连。保证 $1\le x_i,y_i \le N$。</p>
+<h2 id="_4">输出格式</h2>
+<p>向输出文件输出你所给出的追捕计划。</p>
+<p>第一行请输出一个整数 $S$，代表追捕计划需要多少位警探。</p>
+<p>第二行请输出一个整数 $T$，代表追捕计划总共有多少步。</p>
+<p>接下来请输出 $T$ 行，依次描述了追捕计划的每一步。每行必须是以下三种形式之一：</p>
+<p><code>L x</code>，其中 <code>L</code> 是大写字母，接着是一个空格，再接着是整数 $x$，代表在城市 $x$ 空降一位警探。你必须保证 $1\le x\le N$。</p>
+<p><code>B x</code>，其中 <code>B</code> 是大写字母，接着是一个空格，再接着是整数 $x$，代表召回城市 $x$ 的一位警探。你必须保证 $1\le x\le N$，且你的计划执行到这一步之前，城市 $x$ 里面确实至少有一位警探。</p>
+<p><code>M x y</code>，其中 <code>M</code> 是大写字母，接着是一个空格，再接着是整数 $x$，再跟一个空格，最后一个是整数 $y$。代表让城市 $x$ 的一位警探沿着公路移动到城市 $y$。你必须保证 $1\le x,y\le N$，且你的计划执行到这一步之前，城市 $x$ 里面确实至少有一位警探，且城市 $x,y$ 之前确实有公路。</p>
+<p>必须保证输出的 $S$ 确实等于追捕计划中所需要的警探数目。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>4
+1 2
+3 2
+2 4
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>2
+7
+L 2
+L 2
+M 2 1
+B 1
+L 3
+M 3 2
+M 2 4
+</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>对于任何一个测试点：</p>
+<p>如果输出的追捕计划不合法，或者整个追捕计划的步骤数 $T$ 超过了 $20000$，或者追捕计划结束之后，不能保证捉住 Frank，则不能得分。</p>
+<p>否则，用你输出的 $S$ 和我们已知的标准答案 $S ^<em> $ 相比较：
+1. 若 $S&lt;S ^</em> $，则得到 $120\%$ 的分。
+2. 若 $S=S ^<em> $，则得到 $100\%$ 的分。
+3. 若 $S ^</em> &lt;S \le S ^<em> +2$，则得到 $60\%$ 的分。
+4. 若 $S ^</em> +2&lt;S \le S ^<em> +4$，则得到 $40\%$ 的分。
+5. 若 $S ^</em> +4<S \le S ^* +8$，则得到 $20\%$ 的分。
+6. 若 $S>S ^* +8$，则得到 $10\%$ 的分。</p>
+<p>输入保证描述了一棵连通的 $N$ 结点树，$1 \le N \le 1000$。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>
