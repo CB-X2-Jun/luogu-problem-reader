@@ -273,8 +273,15 @@ $100 \%$ 的数据 $1 \le n \le 5 \times {10}^6$。</p>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, { 
-          delimiters: [{"left":"$","right":"$","display":false}],
-          throwOnError: false
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
         });
       });
     </script>

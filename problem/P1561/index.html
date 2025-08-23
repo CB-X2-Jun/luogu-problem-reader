@@ -258,8 +258,15 @@ Lines 2..1+N: Line i+1 contains two space-separated integers: U(i) and D(i). (1 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, { 
-          delimiters: [{"left":"$","right":"$","display":false}],
-          throwOnError: false
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
         });
       });
     </script>

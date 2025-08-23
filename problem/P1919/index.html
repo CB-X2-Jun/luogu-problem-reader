@@ -262,8 +262,15 @@ $1\le a,b \le 10^{1000000}$</p>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, { 
-          delimiters: [{"left":"$","right":"$","display":false}],
-          throwOnError: false
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
         });
       });
     </script>

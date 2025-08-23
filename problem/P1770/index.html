@@ -266,8 +266,15 @@ Tian yao mie he xie, tui he xie bao ping an.  shang Wang sou suo jiu ping cha ch
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, { 
-          delimiters: [{"left":"$","right":"$","display":false}],
-          throwOnError: false
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
         });
       });
     </script>

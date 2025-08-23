@@ -146,8 +146,15 @@ def safe_template_format(template, **kwargs):
     
     # KaTeX配置
     katex_config = '''{ 
-          delimiters: [{"left":"$","right":"$","display":false}],
-          throwOnError: false
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\\\(","right":"\\\\)","display":false},
+            {"left":"\\\\[","right":"\\\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
         }'''
     formatted = formatted.replace('KATEX_CONFIG_PLACEHOLDER', katex_config)
     

@@ -278,8 +278,15 @@ a^2 + 2 <span class="gs">* a *</span> 1 + 1^2 + 10 -10 +a -a
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, { 
-          delimiters: [{"left":"$","right":"$","display":false}],
-          throwOnError: false
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
         });
       });
     </script>
