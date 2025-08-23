@@ -93,17 +93,17 @@ def update_index_meta_tags():
     og_tags = f'''
       <!-- Open Graph / Facebook -->
       <meta property="og:type" content="website">
-      <meta property="og:url" content="https://luogu.cb-x2-jun.run.place/">
+      <meta property="og:url" content="https://lglg.netlify.app/">
       <meta property="og:title" content="洛谷题目浏览站 - {stats['total_problems']}道题目在线浏览">
       <meta property="og:description" content="{new_description}">
-      <meta property="og:image" content="https://luogu.cb-x2-jun.run.place/assets/images/og-image.png">
+      <meta property="og:image" content="https://lglg.netlify.app/assets/images/og-image.png">
 
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image">
-      <meta property="twitter:url" content="https://luogu.cb-x2-jun.run.place/">
+      <meta property="twitter:url" content="https://lglg.netlify.app/">
       <meta property="twitter:title" content="洛谷题目浏览站 - {stats['total_problems']}道题目在线浏览">
       <meta property="twitter:description" content="{new_description}">
-      <meta property="twitter:image" content="https://luogu.cb-x2-jun.run.place/assets/images/og-image.png">
+      <meta property="twitter:image" content="https://lglg.netlify.app/assets/images/og-image.png">
 
       <!-- 其他SEO标签 -->
       <meta name="robots" content="index, follow">

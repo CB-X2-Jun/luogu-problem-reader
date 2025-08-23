@@ -13,7 +13,7 @@ def generate_sitemap():
     urlset = ET.Element('urlset')
     urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
     
-    base_url = 'https://luogu.cb-x2-jun.run.place'
+    base_url = 'https://lglg.netlify.app'
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
     
     # 添加主页
@@ -88,7 +88,7 @@ def generate_robots_txt():
 Allow: /
 
 # Sitemap
-Sitemap: https://luogu.cb-x2-jun.run.place/sitemap.xml
+Sitemap: https://lglg.netlify.app/sitemap.xml
 
 # 优化爬虫行为
 Crawl-delay: 1

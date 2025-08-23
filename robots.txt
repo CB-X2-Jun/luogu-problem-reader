@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://luogu.cb-x2-jun.run.place/sitemap.xml
+Sitemap: https://lglg.netlify.app/sitemap.xml
 
 # 优化爬虫行为
 Crawl-delay: 1

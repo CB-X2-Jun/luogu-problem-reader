@@ -173,7 +173,7 @@ def save_problem_files(pid, problem, template):
     # 处理HTML模板
     html_full = safe_template_format(
         template,
-        canonical=f'https://luogu.cb-x2-jun.run.place/problem/P{pid}/',
+        canonical=f'https://lglg.netlify.app/problem/P{pid}/',
         title=problem['title'],
         article=problem['content_html']
     )
@@ -274,7 +274,7 @@ def refresh_html_files():
                     # 生成HTML
                     html_full = safe_template_format(
                         template,
-                        canonical=f'https://luogu.cb-x2-jun.run.place/problem/{entry.name}/',
+                        canonical=f'https://lglg.netlify.app/problem/{entry.name}/',
                         title=title,
                         article=article_html
                     )
@@ -438,7 +438,7 @@ def generate_problem_list():
     # 生成列表页面
     list_html = safe_template_format(
         template,
-        canonical='https://luogu.cb-x2-jun.run.place/problem/list/',
+        canonical='https://lglg.netlify.app/problem/list/',
         title='题目列表',
         article=table_html
     )
@@ -590,7 +590,7 @@ def generate_problem_list():
     # 生成列表页面
     list_html = safe_template_format(
         template,
-        canonical='https://luogu.cb-x2-jun.run.place/problem/list/',
+        canonical='https://lglg.netlify.app/problem/list/',
         title='题目列表',
         article=table_html
     )
