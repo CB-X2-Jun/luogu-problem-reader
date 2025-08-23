@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1915/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1915 P1915 [NOI2010] 成长快乐</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border: 2px solid #4facfe;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #333;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s;
+      }
+      
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1915 P1915 [NOI2010] 成长快乐</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>Nemo 是一条无忧无虑的小鱼，它的初始体重为 $w_0$。可爱的 Nemo 希望自己能够尽快地成长，因此需要吃尽量多的食物。Nemo 最喜爱的食物是海里的小虾。</p>
+<p>已知 Nemo 对食物的情况了解如下：大海里共有 $n$ 只小虾，从 $1$ 到 $n$ 编号，其中编号为 $i$ 的小虾的重量为 $w_i$。将大海看作一个 X-Y 坐标系，在 $0$ 时刻编号为 $i$ 的小虾所在的位置为 $(x_i, y_i)$。小虾在大海中作匀速直线运动，其中编号为 $i$ 的小虾的速度向量为 $(p_i, q_i)$，即在时刻 $t$，它的位置为 $(x_i+p_i \cdot t,y_i+q_i \cdot t)$。</p>
+<p>Nemo 在 $0$ 时刻的位置为 $(x_0, y_0)$，它可以在海中随意移动，但速度不超过 $V$。Nemo 希望通过自己的努力，在 $T$ 个单位时间内（含 $T$ 时刻）吃到的小虾重量总和尽量大。</p>
+<p>当 Nemo 与某只小虾同时移动到同一个位置上，且小虾的重量小于 Nemo 当时的重量，则 Nemo 可以将该小虾吃掉。当 Nemo 吃掉重量为 $w_i$ 的小虾之后，它的体重将增加 $w_i$。注意，小虾不会吃 Nemo，且小虾之间也不会自相残杀。</p>
+<p>Nemo 希望你来帮助它制定一个成长计划，使得它吃掉的小虾重量总和尽量大。</p>
+<h2 id="_2">输入格式</h2>
+<p>该题为提交答案型试题，所有输入数据 <code class="hljs inline">nemo1.in</code> $\sim$ <code class="hljs inline">nemo10.in</code> 已在试题目录下。</p>
+<p><strong><a href="http://pan.baidu.com/s/1dEDLQud">数据以及checker下载</a></strong></p>
+<p>对于每个数据，输入文件中第一行为五个实数 $w_0, V, T, x_0, y_0$。分别表示 Nemo 的初始体重、最大移动速度、时间限制以及 Nemo 在 $0$ 时刻的位置。</p>
+<p>第二行为一个整数 $n$，表示大海中小虾的只数。</p>
+<p>接下来 $n$ 行，每行 $5$ 个实数，包括 $w_i, x_i, y_i, p_i, q_i$，分别表示编号为 $i$ 的小虾的重量、在 $0$ 时刻的位置和速度向量。</p>
+<h2 id="_3">输出格式</h2>
+<p>针对给定的 $10$ 个输入文件 <code class="hljs inline">nemo1.in</code> $\sim$ <code class="hljs inline">nemo10.in</code>，你需要分别提交你的输出文件 <code class="hljs inline">nemo1.in</code> $\sim$ <code class="hljs inline">nemo10.in</code>。</p>
+<p>输出文件第一行包含一个整数 $k$。表示在你的成长计划中，Nemo 将吃到 $k$ 只小虾。</p>
+<p>第二行包含一个实数 $w$，表示在你的成长计划中，Nemo 吃到的小虾的重量总和。</p>
+<p>接下来 $k$ 行，每行 $4$ 个数 $t, x, y, s$。表示在时刻 $t$，Nemo 在位置 $(x, y)$ 处吃掉了编号为 $s$ 的小虾。其中 $t, x, y$ 为实数，$s$ 为整数。</p>
+<p>为保证验证程序的精度，所有实数建议至少输出到小数点后 $6$ 位。在验证程序中，两个实数绝对误差不超过 $10^{-4}$ 时，即视为相等。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 1 6 0 0
+1
+5 2 2 0 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">1
+5
+5 2 2 1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>在这个样例中，Nemo 在时刻 $5$ 在位置 $(2, 2)$ 吃掉了 $1$ 号小虾。其实 Nemo 到达 $(2, 2)$ 的时间可以更早，但题中仅要求速度不超过 $V$ 即可。</p>
+<h3 id="_7">评分方法</h3>
+<p>对于每组数据，我们设置了 $9$ 个评分参数 $a_{10},a_9, \ldots ,a_2$。如果选手的输出不合法，则得零分。否则，设在你的方案中，Nemo 体重的增加量为 $w_{user}$，你的分数将会由下表给出：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">得分</th>
+<th style="text-align: center;">条件</th>
+<th style="text-align: center;">得分</th>
+<th style="text-align: center;">条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">$w_{user} \geq a_{10}$</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">$w_{user} \geq a_5$</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">$w_{user} \geq a_9$</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">$w_{user} \geq a_4$</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">$w_{user} \geq a_8$</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">$w_{user} \geq a_3$</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">$w_{user} \geq a_7$</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">$w_{user} \geq a_2$</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">$w_{user} \geq a_6$</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$w_{user} \gt 0$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="checker">checker 使用方法</h3>
+<p>在 checker 目录下，在终端输入 <code class="hljs inline">./checker in out</code>。</p>
+<p>其中 in 为题目提供的输入文件，out 为你对于该输入文件给出的答案文件。</p>
+<p>校验器将只检查你的答案的合法性，结果以在线评测为准。</p>
+<p>感谢 @FlierKing 提供 spj 以及 @虞皓翔 帮助完善 spj。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

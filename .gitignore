@@ -1,0 +1,30 @@
+# Python虚拟环境
+venv/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jekyll构建文件
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 日志文件
+*.log

@@ -1,0 +1,83 @@
+# Jekyll配置文件
+title: "洛谷题目浏览站"
+description: "洛谷算法题目浏览和学习平台"
+baseurl: ""
+url: "https://eternity-sky.github.io"
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 排除文件和目录（防止Jekyll处理）
+exclude:
+  - venv/**
+  - venv/
+  - env/**
+  - env/
+  - __pycache__/**
+  - __pycache__/
+  - "*.py"
+  - "*.pyc"
+  - "*.pyo"
+  - "*.pyd"
+  - .Python
+  - pip-log.txt
+  - pip-delete-this-directory.txt
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/**
+  - node_modules/
+  - vendor/**
+  - vendor/
+  - .sass-cache/**
+  - .sass-cache/
+  - .jekyll-cache/**
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - .git/**
+  - .git/
+  - .gitignore
+  - .DS_Store
+  - Thumbs.db
+  - "fetch_luogu_problems_html2md.py"
+
+# 包含文件
+include:
+  - _pages
+  - problem/
+
+# 集合设置
+collections:
+  problems:
+    output: true
+    permalink: /problem/:name/
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: "problems"
+    values:
+      layout: "problem"
+  - scope:
+      path: "problem"
+    values:
+      layout: "problem"
+
+# 分页设置
+paginate: 10
+paginate_path: "/page:num/"
+
+# SEO设置
+lang: zh-CN
+author: "CB_X2_Jun"
+
+# 时区
+timezone: Asia/Shanghai

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2262/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2262 P2262 [HNOI2004] FTP服务器</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border: 2px solid #4facfe;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #333;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s;
+      }
+      
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2262 P2262 [HNOI2004] FTP服务器</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>File Transfer Protocol，文件传输协议，简称 FTP。人们可以通过 FTP 实现资源共享。一般的情况下用户访问一个 FTP 服务器是通过类似资源管理器的形式对该服务器上的资源进行浏览，并且不同权限的用户可以实现下载文件/文件夹，上传文件/文件夹。</p>
+<h2 id="_2">题目描述</h2>
+<p>一个FTP服务器的所有资源都以文件的形式按树形结构存储在不同的文件夹里，最低一级的是根目录（即根文件夹），根目录里有若干个文件和文件夹，每一个文件夹里都可以拥有 $0$ 个或多个文件及文件夹，同一文件夹里不存在名称相同的文件和文件夹。</p>
+<p>一个用户包含三个属性：</p>
+<ul>
+<li>$\text{userType}$：用户类型；</li>
+<li>$\text{userState}$：用户状态（用户正在执行的操作）；</li>
+<li>$\text{userPosition}$：用户当前所处的位置（即用户正在浏览的文件夹）。</li>
+</ul>
+<p>用户分 $3$ 种类型：上传用户 $\text{uploadUser}$，下载用户 $\text{downloadUser}$，匿名用户 $\text{guest}$。</p>
+<p>操作分 $3$ 种类型：浏览 $\text{scan}$，下载 $\text{download}$，上传 $\text{upload}$。</p>
+<p>用户的权限是指用户允许进行的操作。不同类型的用户的权限是不同的。</p>
+<p>任何一个用户是不能进行其没有权限的操作的，例如：一个匿名用户想要下载一个文件或者文件夹是不允许的。</p>
+<p>一个文件/文件夹包含三个属性：</p>
+<ul>
+<li>$\text{fileName/folderName}$：文件名（不包含空格和回车）；</li>
+<li>$\text{fileSize/folderSize}$：文件大小
+（单位 $\text{byte}$，$0 &lt;\mathrm{filesize}&lt; 10^5$，$0&lt;\mathrm{folderSize}&lt; 10^8$，文件夹的大小是它里面所包含的所有文件大小的总和）；</li>
+<li>$\text{fileState/folderState}$：当前状态，当前状态有两种：</li>
+<li>一种为正常 $\text{normal}$（文件/文件夹为正常状态时，允许用户对其进行操作）；</li>
+<li>另一种为上传未完成 $\text{uploading}$（处在此种状态时，用户只能够对其进行浏览操作，如果一个文件夹中有一个或多个文件处于 $\text{uploading}$ 状态，那么这个文件夹也处于 $\text{uploading}$ 状态）。</li>
+</ul>
+<p>一个 FTP 服务器除了它所拥有的文件资源外，还有如下属性：</p>
+<ol>
+<li>访问用户的最大数量（包括所有不同类型的用户） $\text{maxUserNumber}&lt;100$。如果当前访问用户数量已经达到最大值的话，其他新的用户对服务器的访问将是失败的。</li>
+<li>服务器的最大流量 $\text{maxServerFlux}&lt;10^7$。</li>
+<li>单个用户允许的最大下载/上传流量 $\text{maxUserFlux}$。</li>
+</ol>
+<p>FTP 服务器运行的最小时间单位为秒。</p>
+<p>每一个用户在同一时刻只能进行一种操作。用户下载和上传文件/文件夹是需要一定时间的，而这个时间决定于用户流量 $\text{userFlux}$，单位为 $\text{byte/second}$，注意如果某一时刻文件/文件夹仍须上传/下载的大小（$&gt;0$）小于 $\text{userFlux}$ 的话，上传/下载时间仍将按照一秒钟看待。</p>
+<p>而 $\text{userFlux}$ 的值是如何确定的呢？</p>
+<p>$$\mathrm{userFlux} = \min(\mathrm{presentMaxUserFlux},\mathrm{maxUserFlux})$$</p>
+<p>其中，$\text{presentMaxUserFlux}$ 为当前服务器的单个用户最大流量：</p>
+<p>$$\mathrm{presentMaxUserFlux} = \lfloor \mathrm{maxServerFlux} / \mathrm{userTotal}\rfloor$$</p>
+<p>（$\text{userTotal}$ 表示该时刻的正在进行上传和下载操作的用户数量）</p>
+<p>一个用户通过一系列命令实现其在 FTP 服务器上的相关操作。下面介绍这些命令：</p>
+<h3 id="verbconnect">$\verb!connect!$ 命令</h3>
+<ul>
+<li>格式：$\verb![name] + 空格 + connect + 空格 + 参数A!$。</li>
+<li>例：$\verb!tsinghua connect 1!$。</li>
+<li>表示在名叫 $\verb!name!$ 的用户请求以 $\verb!A!$ 身份连接到服务器上。如果当前的最大使用用户还没达到 $\text{maxUserNumber}$，并且该用户未连接到服务器，则连接成功，服务器反馈回一个相关信息 $\verb!success!$。否则反馈信息为 $\verb!unsuccess!$。一旦连接成功，用户其所处的位置 $\text{userPosition}$ 为服务器的根目录。$A=1$ 表示上传用户，$A=2$ 表示下载用户，$A=3$ 表示匿名用户。</li>
+</ul>
+<h3 id="verbquit">$\verb!quit!$ 命令</h3>
+<ul>
+<li>格式：$\verb![name] + 空格 + quit!$。</li>
+<li>例：$\verb!tsinghua quit!$。</li>
+<li>表示名叫 $\verb!name!$ 的用户断开与服务器的连接。如果用户未连接反馈 $\verb!unsuccess!$，否则反馈 $\verb!success!$。（注意用户在任何状态下都可以断开与服务器的连接）。</li>
+</ul>
+<h3 id="verbcd">$\verb!cd!$ 命令</h3>
+<ul>
+<li>格式：$\verb![name] + 空格 + cd + 空格 + [folderName/文件夹名称]!$。</li>
+<li>例：$\verb!THU cd FD!$。</li>
+<li>表示名叫 $\verb!name!$ 的用户希望从当前所处的文件夹进入该文件夹中的一个名叫 $\text{folderName}$ 的文件夹。如果名叫 $\text{folderName}$ 的文件夹存在并且处于 $\text{normal}$ 状态，则改变用户当前所处位置 $\text{userPosition}$，反馈相关信息 $\verb!success!$，如果该文件夹不存在或该用户没有成功连接，则反馈信息为 $\verb!unsuccess!$。</li>
+</ul>
+<h3 id="verbcd_1">$\verb!cd..!$ 命令</h3>
+<ul>
+<li>格式：$\verb![name] + 空格 + cd..!$。</li>
+<li>例：$\verb!9# cd..!$。</li>
+<li>表示名叫 $\verb!name!$ 的用户希望从当前所处的文件夹返回到他的上一级文件夹。如果用户处于根目录或者用户未连接，则命令执行失败返回 $\verb!unsuccess!$，否则返回 $\verb!success!$，并且改变用户所处位置 $\text{userPosition}$。</li>
+</ul>
+<h3 id="verbdownload">$\verb!download!$ 命令</h3>
+<ul>
+<li>格式：$\verb![name] + 空格 + download + 空格 + [name1]!$。</li>
+<li>例：$\verb!A download 1.txt!$。</li>
+<li>表示名叫 $\verb!name!$ 的用户希望从当前所处文件夹下载名为 $\verb!name1!$ 的文件或者文件夹。如果用户未连接，用户没有下载权限，名为 $\verb!name1!$ 的文件/文件夹不存在，或者该文件/文件夹处于 $\text{uploading}$ 状态时，反馈信息 $\verb!unsuccess!$，否则返回 $\verb!success!$ 并且开始下载该文件/文件夹。（一旦一个下载命令开始执行，那么执行该命令的用户所下载的是下载命令执行的那一时刻的那一个文件/文件夹，也就是说如果一个用户正在下在某个文件夹，在下载过程中，有另外一用户在这个文件夹里面上传文件，那么原下载用户是不可能下载到这个新上传的文件的）。</li>
+</ul>
+<h3 id="verbupload">$\verb!upload!$ 命令</h3>
+<ul>
+<li>格式：$\verb![name] + 空格 + upload + 空格 + [name1] + 空格 + [size]!$。</li>
+<li>例：$\verb!A upload B 1!$。</li>
+<li>表示名叫 $\verb!name!$ 的用户希望在当前所处的文件夹上传一个名叫 $\verb!name1!$ 的大小为 $\text{size}$ 的文件/文件夹。注意：</li>
+<li>用户通过 $\verb!upload!$ 命令上传文件夹只能为空文件夹，当 $\text{size}=0$ 表示上传文件夹，size&gt;0表示上传文件。</li>
+<li>如果当前目录已经存在了同名的文件/文件夹，用户未成功连接或者用户没有上传权限，反馈信息 $\verb!unsuccess!$，否则反馈 $\verb!success!$，并且开始上传文件/文件夹。（如果一个用户想要上传一个非空文件夹，是很容易通过一系列 $\verb!upload!$ 以及 $\verb!cd!$ 命令实现的）。</li>
+</ul>
+<hr />
+<p>除上传文件和下载文件/文件夹命令需要耗时外，其他的命令都不需要执行时间。</p>
+<p>你的任务是模拟一个 FTP 服务器在某一时间段内的运行过程。</p>
+<h2 id="_3">输入格式</h2>
+<p>一开始你将从文件中获得 FTP 的服务器的初始信息。第一行为 $3$ 个正整数，分别表示 $\text{maxUserNumber},\text{maxServerFlux},\text{maxUserFlux}$。接下来的若干行描述 $\text{server}$ 里已有文件资源的存储情况。</p>
+<p>第一行总是描述的根目录中的一个文件或者文件夹。</p>
+<p>如果某一行描述的是一个文件或者文件夹那么该行的数据为 $\verb!name + 空格 + size!$，如果 $\text{size}=0$ 表示这是一个文件夹，否则表示一个大小为 $\text{size}$ 的文件。</p>
+<p>如果某一行描述的是一个文件夹，那么接下来的若干行描述的都是这个文件夹里的内容，直到一个与之对应的减号为止。这些数据都是递归描述的。因为一开始就是描述整个根目录里的文件和文件夹，所以文件信息的最后一行也为减号。（参看输入示例）。</p>
+<p>下面的每一行为 $\verb!time + 空格 + order!$ 的形式给出，例如 $\verb!4 ares connect 1!$ 表示：在服务器开启后 $4$ 秒钟，名叫 $\verb!ares!$ 的用户请求以 $\text{uploadUser}$ 的身份连接到服务器上来。</p>
+<p>输入的最后一行为一个字符串 $\verb!down!$。</p>
+<p>所有输入命令的时刻 $\text{time}$ 都以命令出现的先后递增，同一时刻的命令以输入中出现的先后顺序确定其执行顺序。</p>
+<h2 id="_4">输出格式</h2>
+<p>请你将每一条命令的反馈信息输出。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">5 200 200
+unzip.exe 100
+xxxx 50
+bin 0
+tpx.exe 200
+turbo.exe 300
+tpx.tp 400
+temp 0
+-
+-
+readme.txt 100
+-
+0 ares connect 2
+0 ares download zip.exe
+1 ares download bin
+5 ares download xxxx
+6 ares cd bin
+6 ares connect 1
+6 ares quit
+7 ares connect 1
+7 rosen connect 2
+7 ares cd bin
+8 ares upload A 300
+9 rosen download bin
+10 rosen download bin
+down</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">success
+unsuccess
+success
+unsuccess
+success
+unsuccess
+success
+success
+success
+success
+success
+unsuccess
+success</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>来源：HNOI2004 经过修改。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

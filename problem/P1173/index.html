@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1173/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P1173 P1173 [NOI2016] 网格</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border: 2px solid #4facfe;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #333;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s;
+      }
+      
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P1173 P1173 [NOI2016] 网格</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>跳蚤国王和蛐蛐国王在玩一个游戏。</p>
+<p>他们在一个 $n$ 行 $m$ 列的网格上排兵布阵。其中的 $c$ 个格子中 $(0 \leq c \leq n\cdot m)$，每个格子有一只蛐蛐，其余的格子中，每个格子有一只跳蚤。</p>
+<p>我们称占据的格子有公共边的两只跳蚤是相邻的。</p>
+<p>我们称两只跳蚤是连通的，当且仅当这两只跳蚤相邻，或存在另一只跳蚤与这两只跳蚤都连通。</p>
+<p>现在，蛐蛐国王希望，将某些（零个，一个或多个）跳蚤替换成蛐蛐，使得在此之后存在至少两只跳蚤不连通。</p>
+<p>例如：图 $1$ 描述了一个 $n=4$，$m=4$，$c=2$ 的情况。</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/96tey4uv.png" /></p>
+<p>这种情况下蛐蛐国王可以通过将第二行第二列，和第三行第三列的两只跳蚤替换为蛐蛐，从而达成他的希望，如右图所示。并且，不存在更优的方案，但是可能存在其他替换两只跳蚤的方案。</p>
+<p>你需要首先判断蛐蛐国王的希望能否被达成。如果能够达成，你还需要最小化被替换的跳蚤的个数。</p>
+<h2 id="_2">输入格式</h2>
+<p>每个输入文件包含多组数据。</p>
+<p>输入文件的第一行只有一个整数 $T$，表示数据的组数。</p>
+<p>接下来依次输入 $T$ 组数据，每组数据的第一行包含三个整数 $n, m, c$。</p>
+<p>接下来 $c$ 行，每行包含两个整数 $x, y$ 表示第 $x$ 行，第 $y$ 列的格子被一个蛐蛐占据。每一组数据当中，同一个蛐蛐不会被多次描述。</p>
+<h2 id="_3">输出格式</h2>
+<p>对于每一组数据依次输出一行答案。</p>
+<p>如果这组数据中，蛐蛐国王的希望不能被达成，输出 $-1$。否则，输出被替换的跳蚤的个数的最小值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">4
+4 4 2
+1 1
+4 4
+2 3 1
+1 2
+2 2 2
+1 1
+2 2
+1 1 0</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">2
+1
+0
+-1</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h3 id="_6">样例解释</h3>
+<p>第一组数据就是问题描述中的例子。</p>
+<p>对于第二组数据，可以将第二行第二列的一只跳蚤替换为蛐蛐，从而使得存在两只跳蚤不连通，并且不存在更优的方案。</p>
+<p>对于第三组数据，最初已经存在两只跳蚤不连通，故不需要再进行替换。</p>
+<p>对于第四组数据，由于最多只有一只跳蚤，所以无论如何替换都不能存在两只跳蚤不连通。</p>
+<h3 id="_7">数据范围</h3>
+<p>对于全部的测试点，保证 $1 \leq T \leq 20$。我们记 $\sum c$ 为某个测试点中，其 $T$ 组输入数据的所有 $c$ 的总和。对于所有的测试点，$\sum c \leq 10^5$。</p>
+<p>对于全部的数据，满足 $1 \leq n,m \leq 10^9$，$0 \leq c \leq n \times m$，$1 \leq x \leq n, 1 \leq y \leq m$。</p>
+<p>每个测试点的详细数据范围见下表。表中的 $n,m,c$ 均是对于单个输入数据（而非测试点）而言的，也就是说同一个测试点下的 $T$ 组数据均满足限制条件；而 $\sum c$是对于单个测试点而言的。为了方便阅读，“测试点”一列被放到了表格的中间而不是左边。 </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$n,m$</th>
+<th style="text-align: center;">测试点</th>
+<th style="text-align: center;">$c$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$n\times m\leq 4$</td>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$c\leq n\times m$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 8$</td>
+<td style="text-align: center;">$2$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 15$</td>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 30$</td>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 100$</td>
+<td style="text-align: center;">$5$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 300$</td>
+<td style="text-align: center;">$6$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 10^3$</td>
+<td style="text-align: center;">$7$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n\times m\leq 2\times 10^4$</td>
+<td style="text-align: center;">$8$</td>
+<td style="text-align: center;">$c\leq 5$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$9$</td>
+<td style="text-align: center;">$c\leq 15$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$10$</td>
+<td style="text-align: center;">$c\leq 30$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 2\times 10^4,n\times m\leq2\times 10^4$</td>
+<td style="text-align: center;">$11$</td>
+<td style="text-align: center;">$\sum c\leq 2\times 10^4$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 2\times 10^4,n\times m\leq10^5$</td>
+<td style="text-align: center;">$12$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 2\times 10^4,n\times m\leq3\times 10^5$</td>
+<td style="text-align: center;">$13$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 2\times 10^4,n\times m\leq10^6$</td>
+<td style="text-align: center;">$14$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 2\times 10^4,n\times m\leq 10^9$</td>
+<td style="text-align: center;">$15$</td>
+<td style="text-align: center;">^</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 10^5$</td>
+<td style="text-align: center;">$16$</td>
+<td style="text-align: center;">$\sum c\leq 10^5$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$n,m\leq 10^9$</td>
+<td style="text-align: center;">$17$</td>
+<td style="text-align: center;">$c=0$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$18$</td>
+<td style="text-align: center;">$c\leq 1$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$19$</td>
+<td style="text-align: center;">$c\leq 2$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$20$</td>
+<td style="text-align: center;">$c\leq 3$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$21$</td>
+<td style="text-align: center;">$c\leq 10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$22$</td>
+<td style="text-align: center;">$c\leq 30$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$23$</td>
+<td style="text-align: center;">$c\leq 300$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$24$</td>
+<td style="text-align: center;">$\sum c\leq 2 \times 10^4$</td>
+</tr>
+<tr>
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">$25$</td>
+<td style="text-align: center;">$\sum c\leq   10^5$</td>
+</tr>
+</tbody>
+</table>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

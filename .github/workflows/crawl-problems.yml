@@ -1,0 +1,156 @@
+# 洛谷题目自动爬取工作流
+name: Crawl Luogu Problems
+
+on:
+  # 手动触发，支持参数配置
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: '批量爬取数量'
+        required: true
+        default: '20'
+        type: string
+      from_head:
+        description: '从头开始爬取 (P1000开始，而不是从最后一题继续)'
+        required: true
+        default: false
+        type: boolean
+  
+  # 定时触发 - 每天凌晨2点自动爬取新题目
+  schedule:
+    - cron: '0 2 * * *'
+
+# 权限设置
+permissions:
+  contents: write
+
+jobs:
+  crawl-and-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 设置Python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 markdown markdownify
+          
+      - name: 配置爬取参数
+        id: config
+        run: |
+          # 设置默认参数
+          BATCH_SIZE="${{ github.event.inputs.batch_size || '20' }}"
+          FROM_HEAD="${{ github.event.inputs.from_head || 'false' }}"
+          
+          echo "batch_size=$BATCH_SIZE" >> $GITHUB_OUTPUT
+          echo "from_head=$FROM_HEAD" >> $GITHUB_OUTPUT
+          
+          echo "配置参数:"
+          echo "- 批量数量: $BATCH_SIZE"
+          echo "- 从头开始: $FROM_HEAD"
+          
+      - name: 爬取洛谷题目
+        run: |
+          echo "开始爬取洛谷题目..."
+          
+          # 构建爬取命令
+          CRAWL_CMD="python fetch_luogu_problems_html2md.py"
+          
+          # 添加批量数量参数
+          CRAWL_CMD="$CRAWL_CMD ${{ steps.config.outputs.batch_size }}"
+          
+          # 添加从头开始参数（如果启用）
+          if [ "${{ steps.config.outputs.from_head }}" = "true" ]; then
+            CRAWL_CMD="$CRAWL_CMD -f"
+          fi
+          
+          echo "执行命令: $CRAWL_CMD"
+          
+          # 执行爬取，设置超时30分钟
+          timeout 1800 $CRAWL_CMD || {
+            echo "爬取超时或被中断，继续部署已爬取的内容"
+          }
+          
+      - name: 生成题目列表
+        run: |
+          echo "生成题目列表..."
+          python -c "
+          import sys
+          sys.path.append('.')
+          from fetch_luogu_problems_html2md import generate_problem_list
+          generate_problem_list()
+          print('题目列表生成完成!')
+          "
+          
+      - name: 统计爬取结果
+        run: |
+          echo "=== 爬取统计 ==="
+          PROBLEM_COUNT=$(find problem -name "P*" -type d 2>/dev/null | wc -l)
+          echo "总题目数量: $PROBLEM_COUNT"
+          
+          # 检查最新题目
+          if [ "$PROBLEM_COUNT" -gt 0 ]; then
+            LATEST_PROBLEM=$(find problem -name "P*" -type d 2>/dev/null | sort -V | tail -1)
+            if [ -n "$LATEST_PROBLEM" ]; then
+              LATEST_PROBLEM=$(basename "$LATEST_PROBLEM")
+              echo "最新题目: $LATEST_PROBLEM"
+            else
+              echo "最新题目: 无"
+            fi
+          else
+            echo "最新题目: 无"
+          fi
+          
+          # 检查样例数据
+          SAMPLE_COUNT=$(find problem -name "index.md" -exec grep -l "输入输出样例" {} \; 2>/dev/null | wc -l)
+          echo "包含样例的题目: $SAMPLE_COUNT"
+          
+      - name: 提交更改
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 检查是否有更改
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "没有新的更改需要提交"
+            exit 0
+          fi
+          
+          # 添加所有更改
+          git add .
+          
+          # 生成提交信息
+          COMMIT_MSG="🤖 自动爬取洛谷题目"
+          
+          if [ "${{ steps.config.outputs.from_head }}" = "true" ]; then
+            COMMIT_MSG="$COMMIT_MSG (从P1000开始)"
+          else
+            COMMIT_MSG="$COMMIT_MSG (继续爬取)"
+          fi
+          
+          COMMIT_MSG="$COMMIT_MSG - 数量:${{ steps.config.outputs.batch_size }} - $(date '+%Y-%m-%d %H:%M:%S')"
+          
+          git commit -m "$COMMIT_MSG"
+          
+      - name: 推送更改
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          
+      - name: 爬取完成通知
+        run: |
+          echo "🎉 洛谷题目爬取完成!"
+          echo "📝 本次爬取参数:"
+          echo "   - 批量数量: ${{ steps.config.outputs.batch_size }}"
+          echo "   - 从头开始: ${{ steps.config.outputs.from_head }}"
+          echo "💡 提示: 更改已提交到仓库，其他工作流将自动处理部署"

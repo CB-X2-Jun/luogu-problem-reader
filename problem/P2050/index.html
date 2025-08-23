@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P2050/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P2050 P2050 [NOI2012] 美食节</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border: 2px solid #4facfe;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #333;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s;
+      }
+      
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P2050 P2050 [NOI2012] 美食节</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目描述</h2>
+<p>CZ 市为了欢迎全国各地的同学，特地举办了一场盛大的美食节。</p>
+<p>作为一个喜欢尝鲜的美食客，小 M 自然不愿意错过这场盛宴。他很快就尝遍了美食节所有的美食。然而，尝鲜的欲望是难以满足的。尽管所有的菜品都很可口，厨师做菜的速度也很快，小 M 仍然觉得自己桌上没有已经摆在别人餐桌上的美食是一件无法忍受的事情。于是小 M 开始研究起了做菜顺序的问题，即安排一个做菜的顺序使得同学们的等待时间最短。</p>
+<p>小 M 发现，美食节共有 $n$ 种不同的菜品。每次点餐，每个同学可以选择其中的<strong>一个菜品</strong>。总共有 $m$ 个厨师来制作这些菜品。当所有的同学点餐结束后，菜品的制作任务就会分配给每个厨师。然后每个厨师就会同时开始做菜。<strong>厨师们会按照要求的顺序进行制作，并且每次只能制作一人份</strong>。</p>
+<p>此外，小 M 还发现了另一件有意思的事情——虽然这 $m$ 个厨师都会制作全部的 $n$ 种菜品，但<strong>对于同一菜品，不同厨师的制作时间未必相同</strong>。他将菜品用 $1, 2, \ldots, n$ 依次编号，厨师用 $1, 2, \ldots, m$ 依次编号，将第 $j$ 个厨师制作第 $i$ 种菜品的时间记为 $t_{i,j}$。</p>
+<p>小 M 认为：每个同学的等待时间为<strong>所有厨师开始做菜起，到自己那份菜品完成为止</strong>的时间总长度。换句话说，如果一个同学点的菜是某个厨师做的第 $k$ 道菜，则他的等待时间就是这个厨师制作前 $k$ 道菜的时间之和。而<strong>总等待时间</strong>为<strong>所有同学的等待时间之和</strong>。</p>
+<p>现在，小 M 找到了所有同学的点菜信息——有 $p_i$ 个同学点了第 $i$ 种菜品（$i=1, 2, \ldots, n$）。他想知道的是最小的总等待时间是多少。</p>
+<h2 id="_2">输入格式</h2>
+<p>输入文件的第 $1$ 行包含两个正整数 $n$ 和 $m$，表示菜品的种数和厨师的数量。</p>
+<p>第 $2$ 行包含 $n$ 个正整数，其中第 $i$ 个数为 $p_i$，表示点第 $i$ 种菜品的人数。</p>
+<p>接下来有 $n$ 行，每行包含 $m$ 个非负整数，这 $n$ 行中的第 $i$ 行的第 $j$ 个数为 $t_{i,j}$，表示第 $j$ 个厨师制作第 $i$ 种菜品所需的时间。</p>
+<p>输入文件中每行相邻的两个数之间均由一个空格隔开，行末均没有多余空格。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出仅一行包含一个整数，为总等待时间的最小值。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="hljs"><code class="hljs">3 2 
+3 1 1 
+5 7 
+3 6 
+8 9</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="hljs"><code class="hljs">47</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<p>厨师 $1$ 先制作 $1$ 份菜品 $2$，再制作 $2$ 份菜品 $1$。点这 $3$ 道菜的 $3$ 个同学的等待时间分别为 $3$，$3+5=8$，$3+5+5=13$。</p>
+<p>厨师 $2$ 先制作 $1$ 份菜品 $1$，再制作 $1$ 份菜品 $3$。点这 $2$ 道菜的 $2$ 个同学的等待时间分别为 $7$，$7+9=16$。</p>
+<p>总等待时间为 $3+8+13+7+16=47$。</p>
+<p>虽然菜品 $1$ 和菜品 $3$ 由厨师 $1$ 制作更快，如果这些菜品都由厨师 $1$ 制作，总等待时间反而更长。如果按上述的做法，将 $1$ 份菜品 $1$ 和 $1$ 份菜品 $3$ 调整到厨师 $2$ 制作，这样厨师 $2$ 不会闲着，总等待时间更短。</p>
+<p>可以证明，没有更优的点餐方案。</p>
+<p>每组数据的 $n,m$ 和 $p$ 值如下：  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;">$n$</th>
+<th style="text-align: center;">$m$</th>
+<th style="text-align: center;">$p$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$n = 5$</td>
+<td style="text-align: center;">$m = 5$</td>
+<td style="text-align: center;">$p = 10$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$2$</td>
+<td style="text-align: center;">$n = 40$</td>
+<td style="text-align: center;">$m = 1$</td>
+<td style="text-align: center;">$p = 400$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$3$</td>
+<td style="text-align: center;">$n = 40$</td>
+<td style="text-align: center;">$m = 2$</td>
+<td style="text-align: center;">$p = 300$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$4$</td>
+<td style="text-align: center;">$n = 40$</td>
+<td style="text-align: center;">$m = 40$</td>
+<td style="text-align: center;">$p = 40$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$5$</td>
+<td style="text-align: center;">$n = 5$</td>
+<td style="text-align: center;">$m = 40$</td>
+<td style="text-align: center;">$p = 100$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$6$</td>
+<td style="text-align: center;">$n = 10$</td>
+<td style="text-align: center;">$m = 50$</td>
+<td style="text-align: center;">$p = 200$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$7$</td>
+<td style="text-align: center;">$n = 20$</td>
+<td style="text-align: center;">$m = 60$</td>
+<td style="text-align: center;">$p = 400$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$8$</td>
+<td style="text-align: center;">$n = 40$</td>
+<td style="text-align: center;">$m = 80$</td>
+<td style="text-align: center;">$p = 600$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$9$</td>
+<td style="text-align: center;">$n = 40$</td>
+<td style="text-align: center;">$m = 100$</td>
+<td style="text-align: center;">$p = 800$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$10$</td>
+<td style="text-align: center;">$n = 40$</td>
+<td style="text-align: center;">$m = 100$</td>
+<td style="text-align: center;">$p = 800$</td>
+</tr>
+</tbody>
+</table>
+<p>对于 $100\%$ 的数据，$n \leq 40$，$m\leq 100$，$p\leq 800$，$t_{i,j}\leq 1000$（其中 $p = \sum p_i$）。</p>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [{"left":"$","right":"$","display":false}],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
