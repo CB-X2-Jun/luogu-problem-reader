@@ -254,3 +254,63 @@ jobs:
             fi
           done
         fi
+
+  # 评论Bot自动回复
+  comment-bot:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.tasks == 'all' || github.event.inputs.tasks == 'comment-bot'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+    
+    - name: Run Comment Bot
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "🤖 启动自动回复评论Bot..."
+        python scripts/comment_bot.py
+    
+    - name: Generate Bot Report
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "📊 生成Bot运行报告..."
+        python scripts/bot_monitor.py
+    
+    - name: Commit Bot Reports
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add stats/
+        if ! git diff --staged --quiet; then
+          # 随机延迟避免并发冲突
+          sleep $((RANDOM % 30 + 10))
+          
+          # 多次重试推送
+          for i in {1..5}; do
+            echo "尝试推送 (第 $i 次)"
+            git fetch origin main
+            git reset --soft origin/main
+            git add stats/
+            git commit -m "🤖 Comment bot report update - $(date +'%Y-%m-%d')" || true
+            
+            if git push origin main; then
+              echo "推送成功！"
+              break
+            else
+              echo "推送失败，等待重试..."
+              sleep $((RANDOM % 20 + 5))
+            fi
+          done
+        fi
