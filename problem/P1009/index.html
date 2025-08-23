@@ -137,6 +137,38 @@
         color: white;
         text-decoration: none;
       }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
@@ -233,6 +265,29 @@
 <p>注，《深入浅出基础篇》中使用本题作为例题，但是其数据范围只有 $n \le 20$，使用书中的代码无法通过本题。</p>
 <p>如果希望通过本题，请继续学习第八章高精度的知识。</p>
 <p>NOIP1998 普及组 第二题</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
             </article>
           </div>
         </div>

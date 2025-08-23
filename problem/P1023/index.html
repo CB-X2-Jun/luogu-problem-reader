@@ -137,6 +137,38 @@
         color: white;
         text-decoration: none;
       }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
@@ -249,6 +281,29 @@
 <p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/21mhtm5i.png" /></p>
 <p>根据题意，$28$ 元是商品的成本。销售价格不应该低于 $28$ 元；当销售价格大于给出的价格的最大值 $31$ 元后，按照售价每提高一元，销量降低 $15$ 计算，例如当售价为 $33$ 元时，销量为 $110-15\times (33-31)=80$。在给出来的价位之间，销量呈线性变化。</p>
 <p>当政府给该商品补贴 $4$ 元后，企业将该商品定价为 $31$ 元时，取得的利润为 $31-28+4=7$ 元，销量为 $110$ 件，总利润为 $7\times 110=770$ 元，是企业在所有定价下能够取得的最大的总利润。此时企业的售价为政府的期望售价，因此是一个合法方案。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
             </article>
           </div>
         </div>

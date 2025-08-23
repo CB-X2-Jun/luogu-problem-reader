@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://lglg.netlify.app/problem/P2395/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P2395 BBCode转换Markdown</title>
+    <title>P2395 P2395 BBCode转换Markdown</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -137,6 +137,38 @@
         color: white;
         text-decoration: none;
       }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
@@ -166,7 +198,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P2395 BBCode转换Markdown</span>
+              <span class="md-ellipsis">P2395 P2395 BBCode转换Markdown</span>
             </div>
           </div>
         </div>
@@ -215,24 +247,24 @@
 <h4 id="pdf-httppanbaiducoms1i3mxk4t-hayc">~~PDF版题目: http://pan.baidu.com/s/1i3mxk4t 提取密码 hayc~~</h4>
 <h3 id="2025-7-17">2025-7-17：链接炸了</h3>
 <p>BBCode的语法如下所示：</p>
-<pre class="codehilite"><code class="language-plain">[h1]Hello World![/h1]
-[h2][i]This is a BBCode[/i][/h2]
-[b][i]I love[/i] Olympic [i]Informatics[/i][/b]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">[h1]Hello World![/h1]</span>
+<span class="k">[h2][i]This is a BBCode[/i][/h2]</span>
+<span class="k">[b][i]I love[/i] Olympic [i]Informatics[/i][/b]</span>
+</code></pre></div>
 
 <p>例如，在标签 <code>[h1]</code> 中，在 <code>[h1]</code> 和 <code>[/h1]</code> 之间包裹的内容属于一级标题，对于这之间的文字要按照一级标题的样式渲染。</p>
 <p>请注意 BBCode 要求标签的开闭必须<strong>完整且且嵌套无误</strong>，也就是说，如下列的例子都是不合法的 BBCode：</p>
-<pre class="codehilite"><code class="language-plain">[h1]Hello World! //标签未闭合
-[h1]Hello World![/h2] //两个标签不匹配
-[h1][i]Hello World![/h1][/i] //嵌套次序错误
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">h1</span><span class="o">]</span><span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="err">!</span><span class="w"> </span><span class="o">//</span><span class="n">标签未闭合</span>
+<span class="o">[</span><span class="n">h1</span><span class="o">]</span><span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="err">!</span><span class="o">[</span><span class="n">/h2</span><span class="o">]</span><span class="w"> </span><span class="o">//</span><span class="n">两个标签不匹配</span>
+<span class="o">[</span><span class="n">h1</span><span class="o">][</span><span class="n">i</span><span class="o">]</span><span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="err">!</span><span class="o">[</span><span class="n">/h1</span><span class="o">][</span><span class="n">/i</span><span class="o">]</span><span class="w"> </span><span class="o">//</span><span class="n">嵌套次序错误</span>
+</code></pre></div>
 
 <p>另外，极其重要的一点是，BBCode有一个特殊的标签[quote][/quote]，在其中的任意文字都不应被解析为BBCode代码，而应该对其进行Markdown化处理后被原样输出。</p>
 <p>现在介绍Markdown。其语法如下所示：</p>
-<pre class="codehilite"><code class="language-cpp"># Hello World! #
-## *This is a Markdown* ##
-__*I love* Olympic *Informatics*__
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="cp"># Hello World! #</span>
+<span class="cp">## *This is a Markdown* ##</span>
+<span class="n">__</span><span class="o">*</span><span class="n">I</span><span class="w"> </span><span class="n">love</span><span class="o">*</span><span class="w"> </span><span class="n">Olympic</span><span class="w"> </span><span class="o">*</span><span class="n">Informatics</span><span class="o">*</span><span class="n">__</span>
+</code></pre></div>
 
 <p>你的任务就是将给定的一串 BBCode 转换成 Markdown，并对不合法的输入报错。</p>
 <p>题目数据中会出现的所有 BBCode 的标签与其对应 Markdown 对应关系如下，保证不出现除此之外的对应：</p>
@@ -244,78 +276,78 @@ __*I love* Olympic *Informatics*__
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="codehilite"><code>[h1]Hello World![/h1]
-[h2]How are [i]you[/i]?[/h2]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">[h1]Hello World![/h1]</span>
+<span class="k">[h2]How are [i]you[/i]?[/h2]</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="codehilite"><code># Hello World! #
-## How are *you*? ##
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="gh">#</span> Hello World! #
+<span class="gu">##</span> How are *you*? ##
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="codehilite"><code>[h1]Introducing Swift.[/h1][quote]
-import SpriteKit
-let object = SKSpriteNode(imageNamed: “[L2/Ascention]”
-[/quote]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="n">h1</span><span class="p">]</span><span class="n">Introducing</span> <span class="n">Swift</span><span class="o">.</span><span class="p">[</span><span class="o">/</span><span class="n">h1</span><span class="p">][</span><span class="n">quote</span><span class="p">]</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">SpriteKit</span>
+<span class="n">let</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">SKSpriteNode</span><span class="p">(</span><span class="n">imageNamed</span><span class="p">:</span> <span class="err">“</span><span class="p">[</span><span class="n">L2</span><span class="o">/</span><span class="n">Ascention</span><span class="p">]</span><span class="err">”</span>
+<span class="p">[</span><span class="o">/</span><span class="n">quote</span><span class="p">]</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="codehilite"><code># Introducing Swift. #
-&gt; import SpriteKit
-&gt; let object = SKSpriteNode(imageNamed: “[L2/Ascention]”
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Introducing Swift. #</span>
+<span class="o">&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">SpriteKit</span>
+<span class="o">&gt;</span> <span class="n">let</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">SKSpriteNode</span><span class="p">(</span><span class="n">imageNamed</span><span class="p">:</span> <span class="err">“</span><span class="p">[</span><span class="n">L2</span><span class="o">/</span><span class="n">Ascention</span><span class="p">]</span><span class="err">”</span>
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="codehilite"><code>[h1]I knew you were
-trouble when you walked in[/h1]
-[url=http://www.example.com]By Taylor Swift[/url]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">h1</span><span class="o">]</span><span class="n">I</span><span class="w"> </span><span class="n">knew</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">were</span>
+<span class="n">trouble</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">walked</span><span class="w"> </span><span class="ow">in</span><span class="o">[</span><span class="n">/h1</span><span class="o">]</span>
+<span class="o">[</span><span class="n">url=http://www.example.com</span><span class="o">]</span><span class="k">By</span><span class="w"> </span><span class="n">Taylor</span><span class="w"> </span><span class="n">Swift</span><span class="o">[</span><span class="n">/url</span><span class="o">]</span>
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="codehilite"><code># I knew you were
+<div class="codehilite"><pre><span></span><code># I knew you were
 trouble when you walked in #
 [By Taylor Swift](http://www.example.com)
-</code></pre>
+</code></pre></div>
 
 <h3 id="4">样例 #4</h3>
 <h4 id="4_1">样例输入 #4</h4>
-<pre class="codehilite"><code>[h1]Thanks for [i]inviting[/h1] me.[/i]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">h1</span><span class="o">]</span><span class="n">Thanks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="n">inviting</span><span class="o">[</span><span class="n">/h1</span><span class="o">]</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="o">[</span><span class="n">/i</span><span class="o">]</span>
+</code></pre></div>
 
 <h4 id="4_2">样例输出 #4</h4>
-<pre class="codehilite"><code>Match Error
-</code></pre>
+<div class="codehilite"><pre><span></span><code>Match Error
+</code></pre></div>
 
 <h3 id="5">样例 #5</h3>
 <h4 id="5_1">样例输入 #5</h4>
-<pre class="codehilite"><code>[h2]Your gift is awesome!
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">h2</span><span class="o">]</span><span class="n">Your</span><span class="w"> </span><span class="n">gift</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">awesome</span><span class="err">!</span>
+</code></pre></div>
 
 <h4 id="5_2">样例输出 #5</h4>
-<pre class="codehilite"><code>Unclosed Mark
-</code></pre>
+<div class="codehilite"><pre><span></span><code>Unclosed Mark
+</code></pre></div>
 
 <h3 id="6">样例 #6</h3>
 <h4 id="6_1">样例输入 #6</h4>
-<pre class="codehilite"><code>[quote][/quote][/quote]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">quote</span><span class="o">][</span><span class="n">/quote</span><span class="o">][</span><span class="n">/quote</span><span class="o">]</span>
+</code></pre></div>
 
 <h4 id="6_2">样例输出 #6</h4>
-<pre class="codehilite"><code>Match Error
+<div class="codehilite"><pre><span></span><code>Match Error
 (对该数据的解释: 匹配到第一个关闭标签后即不认为后面的内容仍是代码段)
-</code></pre>
+</code></pre></div>
 
 <h3 id="7">样例 #7</h3>
 <h4 id="7_1">样例输入 #7</h4>
-<pre class="codehilite"><code>[quote][quote][/quote]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">quote</span><span class="o">][</span><span class="n">quote</span><span class="o">][</span><span class="n">/quote</span><span class="o">]</span>
+</code></pre></div>
 
 <h4 id="7_2">样例输出 #7</h4>
-<pre class="codehilite"><code>&gt; [quote]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="o">[</span><span class="n">quote</span><span class="o">]</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>为保证评测顺利不被误判，请注意下列要求：</p>
@@ -334,6 +366,29 @@ trouble when you walked in #
 <p>保证以下三种字符不出现在除quote标签包裹的段落中的文字中：<code>[</code> <code>]</code> <code>/</code> <code>*</code> <code>_</code> <code>#</code> <code>&gt;</code>，但地址中可能会出现/字符。</p>
 <p>保证输入不会出现标签不完整的情况，例如 <code>[h1]Text[/h</code>。</p>
 <p>对于曾经在其他地方使用过 Markdown 与 BBCode 的同学：题中的格式不是严格的 BBCode 与 Markdown 格式，请勿被经验迷惑。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
             </article>
           </div>
         </div>
