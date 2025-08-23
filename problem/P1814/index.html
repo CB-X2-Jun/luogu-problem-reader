@@ -219,12 +219,13 @@
 <li>对于任何一棵二叉树，设其左子树序号为 $L$，右子树序号为 $R$，且它有 $m$ 个结点，若它的序号为 $n$，则所有序号大于 $n$ 的 $m$ 个结点的二叉树，要么左子树序号大于 $L$，要么左子树序号等于 $L$ 且右子树序号大于 $R$。</li>
 </ul>
 <p>例如，编号为 $0$ 到 $5$ 的六棵树形状如下：</p>
-<pre class="hljs"><code class="hljs">0&nbsp;&nbsp; 1&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 
-&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp; X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X&nbsp;&nbsp; X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp;&nbsp; /&nbsp;&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp; X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp;&nbsp; /
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp; X</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w">   </span><span class="mf">1</span><span class="w">   </span><span class="mf">2</span><span class="w">       </span><span class="mf">3</span><span class="w">   </span><span class="mf">4</span><span class="w">       </span><span class="mf">5</span><span class="w"> </span>
+<span class="w">    </span><span class="n">X</span><span class="w">   </span><span class="n">X</span><span class="w">       </span><span class="n">X</span><span class="w">   </span><span class="n">X</span><span class="w">       </span><span class="n">X</span>
+<span class="w">         </span><span class="err">\</span><span class="w">     </span><span class="o">/</span><span class="w">     </span><span class="err">\</span><span class="w">       </span><span class="err">\</span>
+<span class="w">          </span><span class="n">X</span><span class="w">   </span><span class="n">X</span><span class="w">       </span><span class="n">X</span><span class="w">       </span><span class="n">X</span>
+<span class="w">                       </span><span class="err">\</span><span class="w">     </span><span class="o">/</span>
+<span class="w">                        </span><span class="n">X</span><span class="w">   </span><span class="n">X</span>
+</code></pre></div>
 
 <p>你的任务就是对给定的序号，输出该序号所对应的二叉树。</p>
 <h2 id="_2">输入格式</h2>
@@ -232,19 +233,21 @@
 <p>输入的每行有一个非负整数 $n$，$n=0$ 表示输入结束，此时<strong>不需要</strong>输出 $n=0$ 的空树。</p>
 <h2 id="_3">输出格式</h2>
 <p>对于每组数据，输出一行，代表序号 $n$ 对应的树。</p>
-<p>一棵二叉树的表示为 <code class="hljs inline">(L)X(R)</code>，其中 $L,R$ 分别是左子树和右子树的表示，如一侧为空则省略，例如只有左子树则表示为 <code class="hljs inline">(L)X</code>。</p>
+<p>一棵二叉树的表示为 <code>(L)X(R)</code>，其中 $L,R$ 分别是左子树和右子树的表示，如一侧为空则省略，例如只有左子树则表示为 <code>(L)X</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">1   
-20 
-31117532   
-0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w">   </span>
+<span class="mf">20</span><span class="w"> </span>
+<span class="mf">31117532</span><span class="w">   </span>
+<span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">X
+<div class="codehilite"><pre><span></span><code>X
 ((X)X(X))X
-(X(X(((X(X))X(X))X(X))))X(((X((X)X((X)X)))X)X)</code></pre>
+(X(X(((X(X))X(X))X(X))))X(((X((X)X((X)X)))X)X)
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据规模与约定</h3>

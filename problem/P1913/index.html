@@ -225,51 +225,53 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">u</code></td>
+<td style="text-align: center;"><code>u</code></td>
 <td style="text-align: center;">伞兵向上移动一格</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">d</code></td>
+<td style="text-align: center;"><code>d</code></td>
 <td style="text-align: center;">伞兵向下移动一格</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">l</code></td>
+<td style="text-align: center;"><code>l</code></td>
 <td style="text-align: center;">伞兵向左移动一格</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">r</code></td>
+<td style="text-align: center;"><code>r</code></td>
 <td style="text-align: center;">伞兵向右移动一格</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">o</code></td>
+<td style="text-align: center;"><code>o</code></td>
 <td style="text-align: center;">伞兵空降成功</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">x</code></td>
+<td style="text-align: center;"><code>x</code></td>
 <td style="text-align: center;">伞兵空降失败</td>
 </tr>
 </tbody>
 </table>
-<p><strong>我们默认 I 国领土以外区域的风向描述符均为 <code class="hljs inline">x</code>。</strong></p>
-<p>现在，指挥官在 $n \times m$ 个格子上各投放了一个伞兵，问最终有多少个伞兵空降成功（也就是说，在经过<strong>有限次</strong>移动后能够来到一个风向描述符为 <code class="hljs inline">o</code> 的格子）。</p>
+<p><strong>我们默认 I 国领土以外区域的风向描述符均为 <code>x</code>。</strong></p>
+<p>现在，指挥官在 $n \times m$ 个格子上各投放了一个伞兵，问最终有多少个伞兵空降成功（也就是说，在经过<strong>有限次</strong>移动后能够来到一个风向描述符为 <code>o</code> 的格子）。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行两个正整数 $n,m\ (1 \leq n,m \leq 1000)$。</p>
 <p>以下 $n$ 行，每行 $m$ 个字符，表示每个格子的风向描述符。</p>
-<p><strong>保证输入中只会出现 <code class="hljs inline">u/d/l/r/o</code>，不会出现 <code class="hljs inline">x</code>。</strong></p>
+<p><strong>保证输入中只会出现 <code>u/d/l/r/o</code>，不会出现 <code>x</code>。</strong></p>
 <h2 id="_4">输出格式</h2>
 <p>一个数：表示有几个点可以放下伞兵。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5
-rrrrr
-rdddr
-rroll
-uuuuu
-uuuuu</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">rrrrr</span>
+<span class="n">rdddr</span>
+<span class="n">rroll</span>
+<span class="n">uuuuu</span>
+<span class="n">uuuuu</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">19</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">19</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>样例解释：</p>

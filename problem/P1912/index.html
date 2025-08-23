@@ -217,45 +217,47 @@
 <h2 id="_2">输入格式</h2>
 <p>输入文件中的第一行为一个整数 $T$，表示诗的数量。</p>
 <p>接下来为 $T$ 首诗，这里一首诗即为一组测试数据。每组测试数据中的第一行为三个由空格分隔的正整数 $N,L,P$，其中：$N$ 表示这首诗句子的数目，$L$ 表示这首诗的行标准长度，$P$ 的含义见问题描述。</p>
-<p>从第二行开始，每行为一个句子，句子由英文字母、数字、标点符号等符号组成（ASCII 码 $33 \sim 127$，但不包含 <code class="hljs inline">-</code>）。</p>
+<p>从第二行开始，每行为一个句子，句子由英文字母、数字、标点符号等符号组成（ASCII 码 $33 \sim 127$，但不包含 <code>-</code>）。</p>
 <h2 id="_3">输出格式</h2>
 <p>对于每组测试数据，若最小的不协调度不超过 $10^{18}$，则第一行为一个数，表示不协调度。接下来若干行，表示你排版之后的诗。注意：在同一行的相邻两个句子之间需要用一个空格分开。</p>
-<p>如果有多个可行解，它们的不协调度都是最小值，则输出任意一个解均可。若最小的不协调度超过 $10^{18}$，则输出 <code class="hljs inline">Too hard to arrange</code>。每组测试数据结束后输出 <code class="hljs inline">--------------------</code>，共 20 个 <code class="hljs inline">-</code>，<code class="hljs inline">-</code> 的 ASCII 码为 45，请勿输出多余的空行或者空格。</p>
+<p>如果有多个可行解，它们的不协调度都是最小值，则输出任意一个解均可。若最小的不协调度超过 $10^{18}$，则输出 <code>Too hard to arrange</code>。每组测试数据结束后输出 <code>--------------------</code>，共 20 个 <code>-</code>，<code>-</code> 的 ASCII 码为 45，请勿输出多余的空行或者空格。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4
-4 9 3
-brysj,
-hhrhl.
-yqqlm,
-gsycl.
-4 9 2
-brysj,
-hhrhl.
-yqqlm,
-gsycl.
-1 1005 6
-poet
-1 1004 6
-poet</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">3</span>
+<span class="n">brysj</span><span class="p">,</span>
+<span class="n">hhrhl</span><span class="mf">.</span>
+<span class="n">yqqlm</span><span class="p">,</span>
+<span class="n">gsycl</span><span class="mf">.</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">brysj</span><span class="p">,</span>
+<span class="n">hhrhl</span><span class="mf">.</span>
+<span class="n">yqqlm</span><span class="p">,</span>
+<span class="n">gsycl</span><span class="mf">.</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1005</span><span class="w"> </span><span class="mf">6</span>
+<span class="n">poet</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1004</span><span class="w"> </span><span class="mf">6</span>
+<span class="n">poet</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">108
-brysj,
-hhrhl.
-yqqlm,
-gsycl.
---------------------
-32
-brysj, hhrhl.
-yqqlm, gsycl.
---------------------
-Too hard to arrange
---------------------
-1000000000000000000
-poet
---------------------</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c">108</span>
+<span class="c">brysj</span><span class="nt">,</span>
+<span class="c">hhrhl</span><span class="nt">.</span>
+<span class="c">yqqlm</span><span class="nt">,</span>
+<span class="c">gsycl</span><span class="nt">.</span>
+<span class="nb">--------------------</span>
+<span class="c">32</span>
+<span class="c">brysj</span><span class="nt">,</span><span class="c"> hhrhl</span><span class="nt">.</span>
+<span class="c">yqqlm</span><span class="nt">,</span><span class="c"> gsycl</span><span class="nt">.</span>
+<span class="nb">--------------------</span>
+<span class="c">Too hard to arrange</span>
+<span class="nb">--------------------</span>
+<span class="c">1000000000000000000</span>
+<span class="c">poet</span>
+<span class="nb">--------------------</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="1_3">样例输入输出 1 解释</h4>

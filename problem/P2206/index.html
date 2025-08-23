@@ -217,45 +217,48 @@
 <p>为了防止 Bessie 从舞台边缘掉下，FJ 决定要建一个足够大的舞台。</p>
 <p>Bessie 的舞蹈将会占用一个由许多 $1 \times 1$ 的正方形方块组成的长方形的区域。为了方便，我们把 Bessie 的四只脚按如下方式简写：</p>
 <ul>
-<li><code class="hljs inline">FR</code>：前右脚（Front right hoof）</li>
-<li><code class="hljs inline">FL</code>：前左脚（Front left hoof）</li>
-<li><code class="hljs inline">RR</code>：后右脚（Rear right hoof）</li>
-<li><code class="hljs inline">RL</code>：后左脚（Rear left hoof）</li>
+<li><code>FR</code>：前右脚（Front right hoof）</li>
+<li><code>FL</code>：前左脚（Front left hoof）</li>
+<li><code>RR</code>：后右脚（Rear right hoof）</li>
+<li><code>RL</code>：后左脚（Rear left hoof）</li>
 </ul>
 <p>Bessie 将会从一个如下的四个相邻的格子出发，同时她会面向北方。</p>
-<pre class="hljs"><code class="hljs">FL FR
+<div class="codehilite"><pre><span></span><code>FL FR
 
-RL RR</code></pre>
+RL RR
+</code></pre></div>
 
 <p>Bessie 的舞蹈会依据总数为 $N\ (1 \le N \le 1000)$ 的指令进行。每一条指令都指示 Bessie 将一只脚移动一个格子，或者顺时针旋转 $90^\circ$。</p>
 <p>其中，移动的指示由三个字符组成，其中前两个是脚的代号，最后一个代表脚移动的方向：</p>
 <ul>
-<li><code class="hljs inline">F</code>：向前</li>
-<li><code class="hljs inline">B</code>：向后</li>
-<li><code class="hljs inline">R</code>：向右</li>
-<li><code class="hljs inline">L</code>：向左</li>
+<li><code>F</code>：向前</li>
+<li><code>B</code>：向后</li>
+<li><code>R</code>：向右</li>
+<li><code>L</code>：向左</li>
 </ul>
-<p>比如说，<code class="hljs inline">FRF</code> 代表着 Bessie 的前右脚向前移动一个格子，<code class="hljs inline">RLR</code> 代表她的后左脚将向右移一个格子。</p>
+<p>比如说，<code>FRF</code> 代表着 Bessie 的前右脚向前移动一个格子，<code>RLR</code> 代表她的后左脚将向右移一个格子。</p>
 <p>当然，我们这里说的方向是以 Bessie 正面对的方向决定的。</p>
-<p>另一方面，旋转的指令也是 $3$ 个字符，其中前两个字母也是脚的代号，代表着旋转的支点。最后一个字母总是为 <code class="hljs inline">P</code>（pivot）。</p>
-<p>比如说，<code class="hljs inline">FRP</code> 代表着 Bessie 将以前右脚为支点，顺时针旋转 $90^\circ$。</p>
+<p>另一方面，旋转的指令也是 $3$ 个字符，其中前两个字母也是脚的代号，代表着旋转的支点。最后一个字母总是为 <code>P</code>（pivot）。</p>
+<p>比如说，<code>FRP</code> 代表着 Bessie 将以前右脚为支点，顺时针旋转 $90^\circ$。</p>
 <p>如果我们从图中看，假设现在 Bessie 的脚是这样的，她正朝向北方：</p>
-<pre class="hljs"><code class="hljs">.. .. ..
+<div class="codehilite"><pre><span></span><code><span class="c">.. .. ..</span>
 
-.. .. FR
+<span class="c">.. .. FR</span>
 
-.. FL ..
+<span class="c">.. FL ..</span>
 
-.. RL RR</code></pre>
+<span class="c">.. RL RR</span>
+</code></pre></div>
 
-<p>那么在进行指令 <code class="hljs inline">FRP</code> 之后，她的脚的位置将变成下面这样，同时她将会朝向东方：</p>
-<pre class="hljs"><code class="hljs">RL FL ..
+<p>那么在进行指令 <code>FRP</code> 之后，她的脚的位置将变成下面这样，同时她将会朝向东方：</p>
+<div class="codehilite"><pre><span></span><code>RL FL ..
 
 RR .. FR
 
 .. .. ..
 
-.. .. ..</code></pre>
+.. .. ..
+</code></pre></div>
 
 <p>现在已知 $N$ 条 Bessie 的舞蹈的指令，请你计算她的整个舞蹈所需要的最小的长方形舞台，使得 Bessie 的脚不会落到舞台之外。</p>
 <p>如果无论怎么样，她都会使自己的两个脚移动到相同的格子里，那么她就会被绊倒，并搞砸这次表演。</p>
@@ -269,59 +272,65 @@ RR .. FR
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-FRF
-FRP
-RLB</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">FRF</span>
+<span class="n">FRP</span>
+<span class="n">RLB</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">16</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">16</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>样例解释：</p>
 <p>Bessie 的舞蹈需要至少 $4 \times 4$ 的舞台，并将会按下图进行：</p>
-<pre class="hljs"><code class="hljs">.. .. .. ..
+<div class="codehilite"><pre><span></span><code><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-.. .. .. ..
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-.. .. FL FR
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">FL</span><span class="w"> </span><span class="n">FR</span>
 
-.. .. RL RR
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">RL</span><span class="w"> </span><span class="n">RR</span>
 
-[Face north]</code></pre>
+<span class="p">[</span><span class="n">Face</span><span class="w"> </span><span class="n">north</span><span class="p">]</span>
+</code></pre></div>
 
-<p><code class="hljs inline">FRF</code> 之后：</p>
-<pre class="hljs"><code class="hljs">.. .. .. ..
+<p><code>FRF</code> 之后：</p>
+<div class="codehilite"><pre><span></span><code><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-.. .. .. FR
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">FR</span>
 
-.. .. FL ..
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">FL</span><span class="w"> </span><span class="p">..</span>
 
-.. .. RL RR
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">RL</span><span class="w"> </span><span class="n">RR</span>
 
-[Face north]</code></pre>
+<span class="p">[</span><span class="n">Face</span><span class="w"> </span><span class="n">north</span><span class="p">]</span>
+</code></pre></div>
 
-<p><code class="hljs inline">FRP</code> 之后：</p>
-<pre class="hljs"><code class="hljs">.. RL FL ..
+<p><code>FRP</code> 之后：</p>
+<div class="codehilite"><pre><span></span><code><span class="p">..</span><span class="w"> </span><span class="n">RL</span><span class="w"> </span><span class="n">FL</span><span class="w"> </span><span class="p">..</span>
 
-.. RR .. FR
+<span class="p">..</span><span class="w"> </span><span class="n">RR</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">FR</span>
 
-.. .. .. ..
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-.. .. .. ..
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-[Face east]</code></pre>
+<span class="p">[</span><span class="n">Face</span><span class="w"> </span><span class="n">east</span><span class="p">]</span>
+</code></pre></div>
 
-<p><code class="hljs inline">RLB</code> 之后：</p>
-<pre class="hljs"><code class="hljs">RL .. FL ..
+<p><code>RLB</code> 之后：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">RL</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">FL</span><span class="w"> </span><span class="p">..</span>
 
-.. RR .. FR
+<span class="p">..</span><span class="w"> </span><span class="n">RR</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="n">FR</span>
 
-.. .. .. ..
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-.. .. .. ..
+<span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">..</span>
 
-[Face west]</code></pre>
+<span class="p">[</span><span class="n">Face</span><span class="w"> </span><span class="n">west</span><span class="p">]</span>
+</code></pre></div>
             </article>
           </div>
         </div>

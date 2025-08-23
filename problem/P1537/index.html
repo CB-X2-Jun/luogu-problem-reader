@@ -214,23 +214,25 @@
 <p>玛莎和比尔各自有自己的弹珠收藏。他们想重新分配收藏品，使两人能平等拥有弹珠。如果所有的弹珠的价值相同，那么他们就可以平分。但不幸的是，有一些弹珠更大，或者更美丽，所以，玛莎和比尔给每个弹珠一个 $1$ 到 $6$ 的价值。现在他们想平分这些弹珠，使每个人得到的总价值相同。不幸的是，他们发现，他们可能无法以这种方式分弹珠（即使弹珠的总价值为偶数）。例如，如果有一个价值为 $1$、一个价值为 $3$ 和两个价值为 $4$ 的弹珠，这样他们就不能把弹珠分为价值相等的两部分。因此，他们想要你写一个程序，告诉他们是否能将所有弹珠分成价值相等的两部分。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件有若干行，行中包含六个非负整数 $N_1,\cdots,N_6$，其中 $N_i$ 是价值为 $i$ 的弹珠的个数。最大弹珠总数将达到 $2\times 10^4$。</p>
-<p>输入文件的最后一行是 <code class="hljs inline">0 0 0 0 0 0</code>。不要处理这一行。</p>
+<p>输入文件的最后一行是 <code>0 0 0 0 0 0</code>。不要处理这一行。</p>
 <h2 id="_3">输出格式</h2>
-<p>对于每一组数据，输出 <code class="hljs inline">Collection #k:</code>，$k$ 为输出的是第几组，接着是 <code class="hljs inline">Can be divided.</code> 或 <code class="hljs inline">Can't be divided.</code>。</p>
+<p>对于每一组数据，输出 <code>Collection #k:</code>，$k$ 为输出的是第几组，接着是 <code>Can be divided.</code> 或 <code>Can't be divided.</code>。</p>
 <p>每一组输出后多打一个空行。可以参考样例。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">1 0 1 2 0 0 
-1 0 0 0 1 1 
-0 0 0 0 0 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Collection #1:
-Can&#x27;t be divided.
+<div class="codehilite"><pre><span></span><code>Collection #1:
+Can&#39;t be divided.
 
 Collection #2:
-Can be divided.</code></pre>
+Can be divided.
+</code></pre></div>
             </article>
           </div>
         </div>

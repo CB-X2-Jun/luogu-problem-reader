@@ -215,27 +215,29 @@
 <p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/i7imvc0g.png" /> </p>
 <p>第一和第二个珠子在图片中已经被作记号。</p>
 <p>图片 A 中的项链可以用下面的字符串表示：</p>
-<p><code class="hljs inline">brbrrrbbbrrrrrbrrbbrbbbbrrrrb</code></p>
+<p><code>brbrrrbbbrrrrrbrrbbrbbbbrrrrb</code></p>
 <p>假如你要在一些点打破项链，展开成一条直线，然后从一端开始收集同颜色的珠子直到你遇到一个不同的颜色珠子，在另一端做同样的事(颜色可能与在这之前收集的不同)。 确定应该在哪里打破项链来收集到最大数目的珠子。</p>
 <p>例如，在图片 A 中的项链中，在珠子 $9$ 和珠子 $10$ 或珠子 $24$ 和珠子 $25$ 之间打断项链可以收集到 $8$ 个珠子。</p>
 <p>白色珠子什么意思?</p>
 <p>在一些项链中还包括白色的珠子(如图片B) 所示。</p>
 <p>当收集珠子的时候，一个被遇到的白色珠子可以被当做红色也可以被当做蓝色。</p>
-<p>表现含有白珠项链的字符串将会包括三个符号 <code class="hljs inline">r</code>，<code class="hljs inline">b</code>，<code class="hljs inline">w</code> 。</p>
+<p>表现含有白珠项链的字符串将会包括三个符号 <code>r</code>，<code>b</code>，<code>w</code> 。</p>
 <p>写一个程序来确定从一条被给出的项链可以收集到的珠子最大数目。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个正整数 $n$ ，表示珠子数目。
-第二行一串长度为 $n$ 的字符串, 每个字符是 <code class="hljs inline">r</code> ， <code class="hljs inline">b</code> 或 <code class="hljs inline">w</code>。</p>
+第二行一串长度为 $n$ 的字符串, 每个字符是 <code>r</code> ， <code>b</code> 或 <code>w</code>。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出一行一个整数，表示从给出的项链中可以收集到的珠子的最大数量。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">29 
-wwwbbrwrbrbrrbrbrwrwwrbwrwrrb</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">29</span><span class="w"> </span>
+<span class="n">wwwbbrwrbrbrrbrbrwrwwrbwrwrrb</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">11</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">11</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>【数据范围】<br />

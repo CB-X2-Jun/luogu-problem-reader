@@ -221,27 +221,29 @@
 <p>输入文件的第一行包含两个用空格隔开的自然数 $R$ 和 $C$，$1\le R\le 50$，$1\le C\le 50$，分别表示小镇地图中的行数和列数。</p>
 <p>以下的 $R$ 行中每行都包含一组 $C$ 个符号（$\verb!.!$ 或 $\verb!X!$ 或 $\verb!*!$）用来描述地图上相应的部位。</p>
 <p>接下来的第 $R+2$ 行包含一个自然数 $N$，$1\le N\le 1000$，表示一组方向的长度。</p>
-<p>接下来的 $N$ 行幅行包含下述单词中的任一个：<code class="hljs inline">NORTH</code>（北）、<code class="hljs inline">SOUTH</code>（南）、<code class="hljs inline">WEST</code>（西）和 <code class="hljs inline">EAST</code>（东），表示汽车移动的方向，任何两个连续的方向都不相同。</p>
+<p>接下来的 $N$ 行幅行包含下述单词中的任一个：<code>NORTH</code>（北）、<code>SOUTH</code>（南）、<code>WEST</code>（西）和 <code>EAST</code>（东），表示汽车移动的方向，任何两个连续的方向都不相同。</p>
 <h2 id="_3">输出格式</h2>
 <p>用 $R$ 行表示的小镇的地图（像输入文件中一样），字符 $\verb!*!$ 应该仅用来表示汽车最终可能出现的位置。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5
-.....
-.X...
-...*X
-X.X..
-3
-NORTH
-WEST
-SOUTH</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">.....</span>
+<span class="mf">.</span><span class="n">X</span><span class="mf">...</span>
+<span class="mf">...</span><span class="o">*</span><span class="n">X</span>
+<span class="n">X</span><span class="mf">.</span><span class="n">X</span><span class="mf">..</span>
+<span class="mf">3</span>
+<span class="n">NORTH</span>
+<span class="n">WEST</span>
+<span class="n">SOUTH</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">.....
-*X*..
-*.*.X
-X.X..</code></pre>
+<div class="codehilite"><pre><span></span><code>.....
+<span class="gs">*X*</span>..
+<span class="gs">*.*</span>.X
+X.X..
+</code></pre></div>
             </article>
           </div>
         </div>

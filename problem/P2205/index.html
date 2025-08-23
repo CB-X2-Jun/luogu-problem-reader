@@ -212,25 +212,27 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>Farmer John 已经设计了一种方法来装饰谷仓旁边的长栅栏（把栅栏认为是一根一维的线）。他把一只画刷绑在他最喜爱的奶牛 Bessie 身上，之后就去喝一杯冰水，而 Bessie 隔着栅栏来回走，当她走过某个地方，这里的一段栅栏就被刷上了涂料。</p>
-<p>Bessie 从栅栏上的位置 $0$ 开始，并且遵循着一个 $N$ 次移动的次序（$1\le N\le10^5$）。例如 <code class="hljs inline">10 L</code> 表示 Bessie 向左移动了 $10$ 个单位长度，<code class="hljs inline">15 R</code> 表示 Bessie 向右移动了 $15$ 个单位长度。现给出 Bessie 所有移动的列表，Farmer John 想要知道哪些区域的栅栏至少涂了 $K$ 层涂料（只涂一层涂料的区域可能在大雨中被洗掉）。Bessie 在她的行走中最远到达距起始点 $10^9$ 个单位长度。</p>
+<p>Bessie 从栅栏上的位置 $0$ 开始，并且遵循着一个 $N$ 次移动的次序（$1\le N\le10^5$）。例如 <code>10 L</code> 表示 Bessie 向左移动了 $10$ 个单位长度，<code>15 R</code> 表示 Bessie 向右移动了 $15$ 个单位长度。现给出 Bessie 所有移动的列表，Farmer John 想要知道哪些区域的栅栏至少涂了 $K$ 层涂料（只涂一层涂料的区域可能在大雨中被洗掉）。Bessie 在她的行走中最远到达距起始点 $10^9$ 个单位长度。</p>
 <h2 id="_2">输入格式</h2>
 <p>第 $1$ 行：两个整型数 $N$、$K$。</p>
-<p>第 $2 \sim N+1$ 行：每行描述了 Bessie 的 $N$ 次移动中的一次，例如 <code class="hljs inline">15 L</code>。</p>
+<p>第 $2 \sim N+1$ 行：每行描述了 Bessie 的 $N$ 次移动中的一次，例如 <code>15 L</code>。</p>
 <h2 id="_3">输出格式</h2>
 <p>$1$ 行：被至少涂了 $K$ 层涂料的区域总数。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6 2 
-2 R 
-6 L 
-1 R 
-8 L 
-1 R 
-2 R</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="n">R</span><span class="w"> </span>
+<span class="mf">6</span><span class="w"> </span><span class="n">L</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="n">R</span><span class="w"> </span>
+<span class="mf">8</span><span class="w"> </span><span class="n">L</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="n">R</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="n">R</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>【样例解释】</p>

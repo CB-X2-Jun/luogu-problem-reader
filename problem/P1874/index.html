@@ -215,8 +215,8 @@
 <p>2023-12-16 update: 新增两组 hack。</p>
 <h2 id="_2">题目描述</h2>
 <p>给定一个数字字符串，用最小次数的加法让字符串等于一个给定的目标数字。每次加法就是在字符串的某个位置插入一个加号。在里面要的所有加号都插入后，就像做普通加法那样来求值。</p>
-<p>例如，考虑字符串<code class="hljs inline">12</code>，做 $0$ 次加法，我们得到数字 $12$。如果插入 $1$ 个加号，我们得到 $3$，因此，这个例子中，最少用 $1$ 次加法就得到数字 $3$。</p>
-<p>再举一例，考虑字符串<code class="hljs inline">303</code>和目标数字 $6$，最佳方法不是<code class="hljs inline">3+0+3</code>。而是<code class="hljs inline">3+03</code>。能这样做是因为一个数的前导 $0$ 不会改变它的大小。</p>
+<p>例如，考虑字符串<code>12</code>，做 $0$ 次加法，我们得到数字 $12$。如果插入 $1$ 个加号，我们得到 $3$，因此，这个例子中，最少用 $1$ 次加法就得到数字 $3$。</p>
+<p>再举一例，考虑字符串<code>303</code>和目标数字 $6$，最佳方法不是<code>3+0+3</code>。而是<code>3+03</code>。能这样做是因为一个数的前导 $0$ 不会改变它的大小。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行：一个字符串 $s$。</p>
 <p>第二行：一个整数 $n$。</p>
@@ -225,11 +225,13 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">99999
-45</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">99999</span>
+<span class="mf">45</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h4 id="_7">数据规模与约定</h4>

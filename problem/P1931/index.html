@@ -218,36 +218,38 @@
 <p>接下来 $n$ 行字符串，每行表示一种货币的名称（名称中不会出现空格）。下一行是一个整数 $m$ ，约定了汇率表的长度。随后的 $m$ 行中，每行为 $c_i,r_{i,j},c_j$。其中：$c_i$ 表示源货币的名称，实数 $r_{i,j}$ 表示货币 $c_i$ 到 $c_j$ 的汇率，以及 $c_j$ 表示目标货币的名称。没有出现在其中的换汇是不可能的。</p>
 <p>每组数据之间空一行。当 $n=0$ 时表示输入数据结束。</p>
 <h2 id="_3">输出格式</h2>
-<p>第 $i$ 组数据，输出 Case i: 后，如果可以套利，输出 <code class="hljs inline">Yes</code>，否则输出 <code class="hljs inline">No</code>。</p>
+<p>第 $i$ 组数据，输出 Case i: 后，如果可以套利，输出 <code>Yes</code>，否则输出 <code>No</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-USDollar
-BritishPound
-FrenchFranc
-3
-USDollar 0.5 BritishPound
-BritishPound 10.0 FrenchFranc
-FrenchFranc 0.21 USDollar
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">USDollar</span>
+<span class="n">BritishPound</span>
+<span class="nb">Fre</span><span class="n">nchFranc</span>
+<span class="mf">3</span>
+<span class="n">USDollar</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="n">BritishPound</span>
+<span class="n">BritishPound</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="nb">Fre</span><span class="n">nchFranc</span>
+<span class="nb">Fre</span><span class="n">nchFranc</span><span class="w"> </span><span class="mf">0.21</span><span class="w"> </span><span class="n">USDollar</span>
 
-3
-USDollar
-BritishPound
-FrenchFranc
-6
-USDollar 0.5 BritishPound
-USDollar 4.9 FrenchFranc
-BritishPound 10.0 FrenchFranc
-BritishPound 1.99 USDollar
-FrenchFranc 0.09 BritishPound
-FrenchFranc 0.19 USDollar
+<span class="mf">3</span>
+<span class="n">USDollar</span>
+<span class="n">BritishPound</span>
+<span class="nb">Fre</span><span class="n">nchFranc</span>
+<span class="mf">6</span>
+<span class="n">USDollar</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="n">BritishPound</span>
+<span class="n">USDollar</span><span class="w"> </span><span class="mf">4.9</span><span class="w"> </span><span class="nb">Fre</span><span class="n">nchFranc</span>
+<span class="n">BritishPound</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="nb">Fre</span><span class="n">nchFranc</span>
+<span class="n">BritishPound</span><span class="w"> </span><span class="mf">1.99</span><span class="w"> </span><span class="n">USDollar</span>
+<span class="nb">Fre</span><span class="n">nchFranc</span><span class="w"> </span><span class="mf">0.09</span><span class="w"> </span><span class="n">BritishPound</span>
+<span class="nb">Fre</span><span class="n">nchFranc</span><span class="w"> </span><span class="mf">0.19</span><span class="w"> </span><span class="n">USDollar</span>
 
-0</code></pre>
+<span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Case 1: Yes
-Case 2: No</code></pre>
+<div class="codehilite"><pre><span></span><code>Case 1: Yes
+Case 2: No
+</code></pre></div>
             </article>
           </div>
         </div>

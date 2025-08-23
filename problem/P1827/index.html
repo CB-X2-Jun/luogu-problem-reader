@@ -214,15 +214,15 @@
 <p>农夫约翰非常认真地对待他的奶牛们的血统。然而他不是一个真正优秀的记帐员。他把他的奶牛们的家谱作成二叉树，并且把二叉树以更线性的“树的中序遍历”和“树的前序遍历”的符号加以记录而不是用图形的方法。</p>
 <p>你的任务是在被给予奶牛家谱的“树中序遍历”和“树前序遍历”的符号后，创建奶牛家谱的“树的后序遍历”的符号。每一头奶牛的姓名被译为一个唯一的字母。（你可能已经知道你可以在知道树的两种遍历以后可以经常地重建这棵树。）显然，这里的树不会有多于 $26$ 个的顶点。</p>
 <p>这是在样例输入和样例输出中的树的图形表达方式：</p>
-<pre class="hljs"><code class="hljs">　　　　　　　　 C
-　　　　　　&nbsp;&nbsp; /&nbsp;&nbsp;\
-　　　　　　&nbsp;&nbsp;/　　\
-　　　　　　 B　　&nbsp;&nbsp;G
+<div class="codehilite"><pre><span></span><code>　　　　　　　　 C
+　　　　　　   /  \
+　　　　　　  /　　\
+　　　　　　 B　　  G
 　　　　　　/ \　　/
-　　　　&nbsp;&nbsp; A&nbsp;&nbsp; D&nbsp;&nbsp;H
-　　　　　　&nbsp;&nbsp;/ \
-　　　　　　 E&nbsp;&nbsp; F
-</code></pre>
+　　　　   A   D  H
+　　　　　　  / \
+　　　　　　 E   F
+</code></pre></div>
 
 <p>附注：</p>
 <ul>
@@ -238,11 +238,13 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">ABEDFCHG
-CBADEFGH</code></pre>
+<div class="codehilite"><pre><span></span><code>ABEDFCHG
+CBADEFGH
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">AEFDBHGC</code></pre>
+<div class="codehilite"><pre><span></span><code>AEFDBHGC
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>题目翻译来自NOCOW。</p>

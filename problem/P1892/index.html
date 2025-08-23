@@ -222,23 +222,25 @@
 <p>第二行输入一个整数 $m$ 表示接下来要列出 $m$ 个关系。</p>
 <p>接下来 $m$ 行，每行一个字符 $opt$ 和两个整数 $p,q$，分别代表关系（朋友或敌人），有关系的两个人之中的第一个人和第二个人。其中 $opt$ 有两种可能：</p>
 <ul>
-<li>如果 $opt$ 为 <code class="hljs inline">F</code>，则表明 $p$ 和 $q$ 是朋友。</li>
-<li>如果 $opt$ 为 <code class="hljs inline">E</code>，则表明 $p$ 和 $q$ 是敌人。</li>
+<li>如果 $opt$ 为 <code>F</code>，则表明 $p$ 和 $q$ 是朋友。</li>
+<li>如果 $opt$ 为 <code>E</code>，则表明 $p$ 和 $q$ 是敌人。</li>
 </ul>
 <h2 id="_3">输出格式</h2>
 <p>一行一个整数代表最多的团体数。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6
-4
-E 1 4
-F 3 5
-F 4 6
-E 1 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+<span class="mf">4</span>
+<span class="n">E</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+<span class="n">F</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">F</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span>
+<span class="n">E</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$2 \le n \le 1000$，$1 \le m \le 5000$，$1 \le p,q \le n$。</p>

@@ -213,22 +213,24 @@
               <h2 id="_1">题目描述</h2>
 <p>小 bobo 迷上了逻辑值运算。但小 bobo 算的头都晕了，也没算出个所以然。他只好找到你，让你帮他解决这个问题。</p>
 <h2 id="_2">输入格式</h2>
-<p>一个字符串表达逻辑式子，只包含 <code class="hljs inline">true</code>，<code class="hljs inline">false</code>，<code class="hljs inline">or</code>，<code class="hljs inline">and</code>，<code class="hljs inline">not</code> 和空格（不包含括号和 <code class="hljs inline">xor</code>）。</p>
-<p>运算优先级同 Pascal（从高到低依次为 <code class="hljs inline">not</code>，<code class="hljs inline">and</code>，<code class="hljs inline">or</code>)，同级左边先算）。</p>
-<p>如果逻辑式有误则输出 <code class="hljs inline">error</code>。</p>
+<p>一个字符串表达逻辑式子，只包含 <code>true</code>，<code>false</code>，<code>or</code>，<code>and</code>，<code>not</code> 和空格（不包含括号和 <code>xor</code>）。</p>
+<p>运算优先级同 Pascal（从高到低依次为 <code>not</code>，<code>and</code>，<code>or</code>)，同级左边先算）。</p>
+<p>如果逻辑式有误则输出 <code>error</code>。</p>
 <h2 id="_3">输出格式</h2>
-<p>输出一行表示运算结果：<code class="hljs inline">true</code> 或者 <code class="hljs inline">false</code>，如果无法得到结果的输出 <code class="hljs inline">error</code>。</p>
+<p>输出一行表示运算结果：<code>true</code> 或者 <code>false</code>，如果无法得到结果的输出 <code>error</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">true or false and false</code></pre>
+<div class="codehilite"><pre><span></span><code>true or false and false
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">true</code></pre>
+<div class="codehilite"><pre><span></span><code>true
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于全部数据，保证输入数据串长小于 $255$。</p>
-<p>本题结果为 <code class="hljs inline">true</code>，<code class="hljs inline">false</code>，<code class="hljs inline">error</code> 各占 $\dfrac{1}{3}$，允许“骗分”，但不值得，因为是“水题”。</p>
+<p>本题结果为 <code>true</code>，<code>false</code>，<code>error</code> 各占 $\dfrac{1}{3}$，允许“骗分”，但不值得，因为是“水题”。</p>
 <hr />
 <ul>
 <li>$\text{upd 2022.7.21}$：新增加 $5$ 组 <a href="https://www.luogu.com.cn/discuss/459823">Hack 数据</a>。</li>

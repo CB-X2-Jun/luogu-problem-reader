@@ -219,41 +219,45 @@
 <p>虽然正妹是个吃货，但是零用钱还是很有限。可是她又是管不住自己，就是要买买买。所以她希望知道自己最少能吃掉多少钱的东西。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行两个整数 $H$ 和 $W$。</p>
-<p>接下来 $H$ 行，每行一个长度为 $W$ 的字符串，<strong>没有空格隔开</strong>，是 $1\sim9$ 或者 <code class="hljs inline">.</code> 中的一个，数字表示价格，<code class="hljs inline">.</code> 表示没有开张。</p>
+<p>接下来 $H$ 行，每行一个长度为 $W$ 的字符串，<strong>没有空格隔开</strong>，是 $1\sim9$ 或者 <code>.</code> 中的一个，数字表示价格，<code>.</code> 表示没有开张。</p>
 <h2 id="_4">输出格式</h2>
 <p>一个整数，表示最少花掉的钱。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5
-....7
-.21.8
-9346.
-..45.
-.8...</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">....7</span>
+<span class="mf">.21.8</span>
+<span class="mf">9346.</span>
+<span class="mf">..45.</span>
+<span class="mf">.8...</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">9</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">9</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
-<pre class="hljs"><code class="hljs">5 5
-oooo7
-.2xoo
-9346o
-..45o
-.8..o</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">oooo7</span>
+<span class="mf">.2</span><span class="n">xoo</span>
+<span class="mf">9346</span><span class="n">o</span>
+<span class="mf">..45</span><span class="n">o</span>
+<span class="mf">.8..</span><span class="n">o</span>
+</code></pre></div>
 
-<p>样例解释：<code class="hljs inline">o</code> 为正妹经过的路线，<code class="hljs inline">x</code> 为她顺便买的小吃。当走到 $(2,4)$ 时，左下右都有开张且没有买过的摊位，于是买左和右，继续沿着路线走。由于之后路线没有经过没有买过摊位，而且上下左右开张且没买过的摊位不超过 $1$，所以一个都不买了。</p>
+<p>样例解释：<code>o</code> 为正妹经过的路线，<code>x</code> 为她顺便买的小吃。当走到 $(2,4)$ 时，左下右都有开张且没有买过的摊位，于是买左和右，继续沿着路线走。由于之后路线没有经过没有买过摊位，而且上下左右开张且没买过的摊位不超过 $1$，所以一个都不买了。</p>
 <p>对于 $20\%$ 的数据，开张的摊位不超过 $20$；</p>
 <p>对于 $100\%$ 的数据，保证 $3\le H,W\le1000$。</p>
-<p>特别注意：数据是在 Windows 生成，输入数据换行符可能是 <code class="hljs inline">\r\n</code>（两个字符）或者 <code class="hljs inline">\n</code>。而评测机是 Linux。请特别注意。不接受赛后以「本地能过，评测 WA」的理由申诉。</p>
+<p>特别注意：数据是在 Windows 生成，输入数据换行符可能是 <code>\r\n</code>（两个字符）或者 <code>\n</code>。而评测机是 Linux。请特别注意。不接受赛后以「本地能过，评测 WA」的理由申诉。</p>
 <p>参考读入方式（节选自 std）：</p>
-<pre class="hljs"><code class="hljs">for (i = 0; i &lt; H; ++i) {
-    scanf(&quot;%s&quot;, in);
-    for (j = 0; j &lt; W; ++j) {
-        shop[i][j] = blabla..
-    }
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">W</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">shop</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blabla</span><span class="p">..</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
             </article>
           </div>
         </div>

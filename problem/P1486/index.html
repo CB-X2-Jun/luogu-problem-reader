@@ -220,43 +220,45 @@
 <p>第一行有两个整数 $n$ 和 $\min$。$n$ 表示下面有多少条命令，$\min$ 表示工资下界。</p>
 <p>接下来的 $n$ 行，每行一个字符 $x$ 和一个整数 $k$，表示一条命令。命令可以是以下四种之一：</p>
 <ul>
-<li><code class="hljs inline">I k</code>  新建一个工资档案，初始工资为 $k$。如果某员工的初始工资低于工资下界，他将立刻离开公司。</li>
-<li><code class="hljs inline">A k</code>   把每位员工的工资加上 $k$。</li>
-<li><code class="hljs inline">S k</code>   把每位员工的工资扣除 $k$。</li>
-<li><code class="hljs inline">F k</code>    查询第 $k$ 多的工资。</li>
+<li><code>I k</code>  新建一个工资档案，初始工资为 $k$。如果某员工的初始工资低于工资下界，他将立刻离开公司。</li>
+<li><code>A k</code>   把每位员工的工资加上 $k$。</li>
+<li><code>S k</code>   把每位员工的工资扣除 $k$。</li>
+<li><code>F k</code>    查询第 $k$ 多的工资。</li>
 </ul>
 <p>在初始时，可以认为公司里一个员工也没有。</p>
 <h2 id="_3">输出格式</h2>
-<p>对于每条 <code class="hljs inline">F</code> 命令，你的程序要输出一行，仅包含一个整数，为当前工资第  $k$ 多的员工所拿的工资数，如果 $k$ 大于目前员工的数目，则输出 $-1$。</p>
+<p>对于每条 <code>F</code> 命令，你的程序要输出一行，仅包含一个整数，为当前工资第  $k$ 多的员工所拿的工资数，如果 $k$ 大于目前员工的数目，则输出 $-1$。</p>
 <p>输出的最后一行包含一个整数，为离开公司的员工的总数。</p>
 <p>请注意，初始工资低于工资下界的员工不算做离开公司的员工。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">9 10
-I 60
-I 70
-S 50
-F 2
-I 30
-S 15
-A 5
-F 1
-F 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">9</span><span class="w"> </span><span class="mf">10</span>
+<span class="n">I</span><span class="w"> </span><span class="mf">60</span>
+<span class="n">I</span><span class="w"> </span><span class="mf">70</span>
+<span class="n">S</span><span class="w"> </span><span class="mf">50</span>
+<span class="n">F</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">I</span><span class="w"> </span><span class="mf">30</span>
+<span class="n">S</span><span class="w"> </span><span class="mf">15</span>
+<span class="n">A</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">F</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">F</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">10
-20
--1
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span>
+<span class="mf">20</span>
+<span class="o">-</span><span class="mf">1</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="_6">数据规模与约定</h4>
 <p>对于全部的测试点，保证：</p>
 <ul>
-<li><code class="hljs inline">I</code> 命令的条数不超过 $10^5$；</li>
-<li><code class="hljs inline">A</code> 和 <code class="hljs inline">S</code> 命令的总条数不超过 $100$；</li>
-<li><code class="hljs inline">F</code> 命令的条数不超过 $10^5$；</li>
+<li><code>I</code> 命令的条数不超过 $10^5$；</li>
+<li><code>A</code> 和 <code>S</code> 命令的总条数不超过 $100$；</li>
+<li><code>F</code> 命令的条数不超过 $10^5$；</li>
 <li>每次工资调整的调整量不超过 $10^3$；</li>
 <li>新员工的工资不超过 $10^5$。</li>
 <li>$0 \leq n \leq 3 \times 10^5$，$0 \leq \text{min} \leq 10^9$，输入的所有数字均在 $32$ 位带符号整形范围内。</li>

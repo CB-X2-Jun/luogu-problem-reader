@@ -220,7 +220,7 @@
 <p>由于九在古汉语中表示极大的数，于是，Alice 决定只调整 $9$ 次。对于原始状态和每一次调整过的状态，Alice 希望你依次告诉她每种状态下有哪些方案。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行一个整数 $n$，表示灯泡的数量。</p>
-<p>接下来一行，有 $n-1$ 个整数 $U_i$，第 $i$ 个数表示第 $i+1$ 个灯泡挂在了第 $U_i$ 个的下面。保证编号为 $1$ 的灯泡是挂在天花板上的。数字之间用逗号（西文标点）<code class="hljs inline">,</code> 隔开且最后一个数字后面没有逗号。</p>
+<p>接下来一行，有 $n-1$ 个整数 $U_i$，第 $i$ 个数表示第 $i+1$ 个灯泡挂在了第 $U_i$ 个的下面。保证编号为 $1$ 的灯泡是挂在天花板上的。数字之间用逗号（西文标点）<code>,</code> 隔开且最后一个数字后面没有逗号。</p>
 <h2 id="_4">输出格式</h2>
 <p>对于 $10$ 种状态下的方案，需要按照顺序依次输出。</p>
 <p>对于每一种状态，需要先输出单独的一行，表示状态编号，如样例所示。</p>
@@ -229,11 +229,12 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6
-1,2,3,4,5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+<span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">5</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Case #1:
+<div class="codehilite"><pre><span></span><code>Case #1:
 1
 2
 3
@@ -273,7 +274,8 @@ Case #9:
 Case #10:
 1
 3
-6</code></pre>
+6
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $20\%$ 的数据，$n\leq 3\times 10^3$。</p>

@@ -211,25 +211,29 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>假设一个表达式有英文字母（小写）、运算符（<code class="hljs inline">+</code>、<code class="hljs inline">-</code>、<code class="hljs inline">*</code>、<code class="hljs inline">/</code>）和左右小（圆）括号构成，以 <code class="hljs inline">@</code> 作为表达式的结束符。请编写一个程序检查表达式中的左右圆括号是否匹配，若匹配，则输出 <code class="hljs inline">YES</code>；否则输出 <code class="hljs inline">NO</code>。表达式长度小于 $255$，左圆括号少于 $20$ 个。</p>
+<p>假设一个表达式有英文字母（小写）、运算符（<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>）和左右小（圆）括号构成，以 <code>@</code> 作为表达式的结束符。请编写一个程序检查表达式中的左右圆括号是否匹配，若匹配，则输出 <code>YES</code>；否则输出 <code>NO</code>。表达式长度小于 $255$，左圆括号少于 $20$ 个。</p>
 <h2 id="_2">输入格式</h2>
 <p>一行：表达式。</p>
 <h2 id="_3">输出格式</h2>
-<p>一行：<code class="hljs inline">YES</code> 或 <code class="hljs inline">NO</code>。</p>
+<p>一行：<code>YES</code> 或 <code>NO</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2*(x+y)/(1-x)@</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="err">@</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">YES</code></pre>
+<div class="codehilite"><pre><span></span><code>YES
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">(25+x)*(a*(a+b+b)@</code></pre>
+<div class="codehilite"><pre><span></span><code>(25+x)*(a*(a+b+b)@
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">NO</code></pre>
+<div class="codehilite"><pre><span></span><code>NO
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>表达式长度小于 $255$，左圆括号少于 $20$ 个。</p>

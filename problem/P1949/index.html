@@ -212,25 +212,25 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>阿兰是某机密部门的打字员，她现在接到一个任务：需要在一天之内输入几百个长度固定为 $6$ 的密码。当然，她希望输入的过程中敲击键盘的总次数越少越好。</p>
-<p>不幸的是，出于保密的需要，该部门用于输入密码的键盘是特殊设计的，键盘上没有数字键，而只有以下六个键：<code class="hljs inline">swap0</code>，<code class="hljs inline">swap1</code>，<code class="hljs inline">up</code>，<code class="hljs inline">down</code>，<code class="hljs inline">left</code>，<code class="hljs inline">right</code>。为了说明这 $6$ 个键的作用，我们先定义录入区的 $6$ 个位置的编号，从左至右依次为 $1,2,3,4,5,6$。下面列出每个键的作用：</p>
+<p>不幸的是，出于保密的需要，该部门用于输入密码的键盘是特殊设计的，键盘上没有数字键，而只有以下六个键：<code>swap0</code>，<code>swap1</code>，<code>up</code>，<code>down</code>，<code>left</code>，<code>right</code>。为了说明这 $6$ 个键的作用，我们先定义录入区的 $6$ 个位置的编号，从左至右依次为 $1,2,3,4,5,6$。下面列出每个键的作用：</p>
 <ul>
 <li>
-<p><code class="hljs inline">swap0</code>：按 <code class="hljs inline">swap0</code>，光标位置不变，将光标所在的位置的数字与录入区的 $1$ 号位置的数字（左起第一个数字）交换。如果光标已经处在录入区的 $1$ 号位置，则按 <code class="hljs inline">swap0</code> 键之后录入区的数字不变。</p>
+<p><code>swap0</code>：按 <code>swap0</code>，光标位置不变，将光标所在的位置的数字与录入区的 $1$ 号位置的数字（左起第一个数字）交换。如果光标已经处在录入区的 $1$ 号位置，则按 <code>swap0</code> 键之后录入区的数字不变。</p>
 </li>
 <li>
-<p><code class="hljs inline">swap1</code>：按 <code class="hljs inline">swap1</code>，光标位置不变，将光标所在位置的数字与录入区的 $6$ 号位置的数字（左起第六个数字）交换。如果光标已经处在录入区的 $6$ 号位置，则按 <code class="hljs inline">swap1</code> 键之后录入区的数字不变。</p>
+<p><code>swap1</code>：按 <code>swap1</code>，光标位置不变，将光标所在位置的数字与录入区的 $6$ 号位置的数字（左起第六个数字）交换。如果光标已经处在录入区的 $6$ 号位置，则按 <code>swap1</code> 键之后录入区的数字不变。</p>
 </li>
 <li>
-<p><code class="hljs inline">up</code>：按 <code class="hljs inline">up</code>，光标位置不变，将光标所在位置的数字加 $1$（除非该数字是 $9$）。例如，如果光标所在位置的数字为 $2$，按 <code class="hljs inline">up</code> 之后，该处的数字变为 $3$；如果光标所在位置的数字为 $9$，按 <code class="hljs inline">up</code> 之后，该处的数字不变，光标位置也不变；</p>
+<p><code>up</code>：按 <code>up</code>，光标位置不变，将光标所在位置的数字加 $1$（除非该数字是 $9$）。例如，如果光标所在位置的数字为 $2$，按 <code>up</code> 之后，该处的数字变为 $3$；如果光标所在位置的数字为 $9$，按 <code>up</code> 之后，该处的数字不变，光标位置也不变；</p>
 </li>
 <li>
-<p><code class="hljs inline">down</code>：按 <code class="hljs inline">down</code>，光标位置不变，将光标所在位置的数字减 $1$（除非该数字是 $0$）。如果光标所在位置的数字为 $0$，按 <code class="hljs inline">down</code> 之后，该处的数字不变，光标位置也不变；</p>
+<p><code>down</code>：按 <code>down</code>，光标位置不变，将光标所在位置的数字减 $1$（除非该数字是 $0$）。如果光标所在位置的数字为 $0$，按 <code>down</code> 之后，该处的数字不变，光标位置也不变；</p>
 </li>
 <li>
-<p><code class="hljs inline">left</code>：按 <code class="hljs inline">left</code>，光标左移一个位置，如果光标已在录入区的 $1$ 号位置（左起第一个位置）上，则光标不动；</p>
+<p><code>left</code>：按 <code>left</code>，光标左移一个位置，如果光标已在录入区的 $1$ 号位置（左起第一个位置）上，则光标不动；</p>
 </li>
 <li>
-<p><code class="hljs inline">right</code>：按 <code class="hljs inline">right</code>，光标右移一个位置，如果光标已在录入区的 $6$ 号位置（左起第六个位置）上，则光标不动；</p>
+<p><code>right</code>：按 <code>right</code>，光标右移一个位置，如果光标已在录入区的 $6$ 号位置（左起第六个位置）上，则光标不动；</p>
 </li>
 </ul>
 <p>当然，为了使这样的键盘发挥作用，每次录入密码之前，录入区总会随机出现一个长度为 $6$ 的初始密码，而且光标会固定出现在 $1$ 号位置上。当巧妙的使用上述六个特殊键之后，可以得到目标密码，这时光标允许停留在任何一个位置。</p>
@@ -242,10 +242,12 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">123456 654321</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">123456</span><span class="w"> </span><span class="mf">654321</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">11</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">11</span>
+</code></pre></div>
             </article>
           </div>
         </div>

@@ -220,25 +220,27 @@
 <p>你将得到计数器 $c$ 上的数值和经过若干操作后某些灯的状态。写一个程序去找出所有灯最后可能的与所给出信息相符的状态，并且没有重复。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个正整数 $n$；第二行一个整数 $c$，表示最后计数器的数值。</p>
-<p>第三行若干个整数，表示最后亮着的灯，以 <code class="hljs inline">-1</code> 结束。</p>
-<p>第四行若干个整数，表示最后关着的灯，以 <code class="hljs inline">-1</code> 结束。</p>
+<p>第三行若干个整数，表示最后亮着的灯，以 <code>-1</code> 结束。</p>
+<p>第四行若干个整数，表示最后关着的灯，以 <code>-1</code> 结束。</p>
 <p>保证不会有灯会在输入中出现两次。</p>
 <h2 id="_3">输出格式</h2>
 <p>每一行是所有灯可能的最后状态（没有重复）。</p>
 <p>每一行有 $n$ 个字符，第 $i$ 个字符表示 $i$ 号灯。$0$ 表示关闭，$1$ 表示亮着。这些行必须从小到大排列（看作是二进制数）。</p>
-<p>如果没有可能的状态，则输出一行 <code class="hljs inline">IMPOSSIBLE</code>。</p>
+<p>如果没有可能的状态，则输出一行 <code>IMPOSSIBLE</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">10
-1
--1
-7 -1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span>
+<span class="mf">1</span>
+<span class="o">-</span><span class="mf">1</span>
+<span class="mf">7</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">0000000000
-0101010101
-0110110110</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0000000000</span>
+<span class="mf">0101010101</span>
+<span class="mf">0110110110</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>【数据范围】<br />

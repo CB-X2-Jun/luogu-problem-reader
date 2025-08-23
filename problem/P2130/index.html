@@ -227,19 +227,19 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">$</code></td>
+<td style="text-align: center;"><code>$</code></td>
 <td style="text-align: center;">空地，能走上去</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">.</code></td>
+<td style="text-align: center;"><code>.</code></td>
 <td style="text-align: center;">也是空地，也能走上去</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">X</code></td>
+<td style="text-align: center;"><code>X</code></td>
 <td style="text-align: center;">障碍，不能走上去</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">#</code></td>
+<td style="text-align: center;"><code>#</code></td>
 <td style="text-align: center;">终点，这里有 Wzf 的作业</td>
 </tr>
 </tbody>
@@ -248,29 +248,31 @@
 <ol>
 <li>选中一个方向（上 / 下 / 左 / 右）。</li>
 <li>选中一个非负整数 $m$。</li>
-<li>向选中的方向跨一步，移动 $2^m$ 格：
-   - 中途<strong>不可以</strong>跨过障碍。
-   - 落脚点上不能有障碍。
-   - 不能走到迷宫之外。</li>
+<li>向选中的方向跨一步，移动 $2^m$ 格：</li>
+<li>中途<strong>不可以</strong>跨过障碍。</li>
+<li>落脚点上不能有障碍。</li>
+<li>不能走到迷宫之外。</li>
 </ol>
 <p>求 Wzf 至少需要多少秒才能走到终点。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行两个整数 $n,m\ (1 \le n,m \le 1000)$。</p>
 <p>接下来 $n$ 行，每行 $m$ 个字符。</p>
-<p><strong>保证 <code class="hljs inline">#</code> 有且只有一个。</strong></p>
-<p><strong>保证第 $\bm 1$ 行第 $\bm 1$ 列的标识不是 <code class="hljs inline">X</code>。</strong></p>
+<p><strong>保证 <code>#</code> 有且只有一个。</strong></p>
+<p><strong>保证第 $\bm 1$ 行第 $\bm 1$ 列的标识不是 <code>X</code>。</strong></p>
 <h2 id="_4">输出格式</h2>
 <p>一行一个整数，表示 Wzf 至少需要多少秒才能走到终点。</p>
 <p>如果 Wzf 不可能走到终点，那么输出 $-1$。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2 2
-$$
-.#</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="err">$$</span>
+<span class="mf">.</span><span class="err">#</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+</code></pre></div>
             </article>
           </div>
         </div>

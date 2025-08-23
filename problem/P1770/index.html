@@ -219,7 +219,7 @@
 <p>OIH 的目标是制作出一个适合 OIers 的 app。虽然 OIH 不是 OJ，但是 OIH 的辅助功能能够给 OIers 带来很大的便利。如果您有任何的 idea，请 @soha（oih 的作者）。</p>
 <h2 id="_2">题目描述</h2>
 <p>经过多次谈判，kkksc03 终于取得了 OIH 搜索的接口，现在向 OIH 服务器发送了一个查询请求，返回了一道题目。</p>
-<p>查询关键词是一句话，由汉字（我们用它的拼音代替）、空格（每个汉字之间都有空格）、半角标点组成。返回的题目也是这样的。kkksc03 希望将题目中的某些词语加粗。所谓词语，就是连续两个或以上汉字。比如说 <code class="hljs inline">tao tao</code>,<code class="hljs inline">zhai ping guo</code> 都是词语，而 <code class="hljs inline">hao</code>,<code class="hljs inline">ni,hao</code> 不是词语。如果一个在题目中出现的词语也在关键词中出现的词语，那么加粗。加粗的方法是在词语前加上 <code class="hljs inline"><b></code>，在词语后面加上一个 <code class="hljs inline"></b></code>。至于标点符号么加不加粗无所谓。kkksc03 希望添加标记（<code class="hljs inline"><b></code> <code class="hljs inline"></b></code>对）的数量尽可能少，而且每个标记之间的的字符数最少。</p>
+<p>查询关键词是一句话，由汉字（我们用它的拼音代替）、空格（每个汉字之间都有空格）、半角标点组成。返回的题目也是这样的。kkksc03 希望将题目中的某些词语加粗。所谓词语，就是连续两个或以上汉字。比如说 <code>tao tao</code>,<code>zhai ping guo</code> 都是词语，而 <code>hao</code>,<code>ni,hao</code> 不是词语。如果一个在题目中出现的词语也在关键词中出现的词语，那么加粗。加粗的方法是在词语前加上 <code>&lt;b&gt;</code>，在词语后面加上一个 <code>&lt;/b&gt;</code>。至于标点符号么加不加粗无所谓。kkksc03 希望添加标记（<code>&lt;b&gt;</code> <code>&lt;/b&gt;</code>对）的数量尽可能少，而且每个标记之间的的字符数最少。</p>
 <h2 id="_3">输入格式</h2>
 <p>两行。第一行为一个字符串 $S_1$，关键词字符串。第二行 $S_2$，是 OIH 返回的题目字符串。</p>
 <h2 id="_4">输出格式</h2>
@@ -227,11 +227,13 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">Shang wang dou tmd bei ping ping an an he xie diao le.
-Tian yao mie he xie, tui he xie bao ping an.&nbsp;&nbsp;shang Wang sou suo jiu ping cha cha cha ,you&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zhen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xiang!</code></pre>
+<div class="codehilite"><pre><span></span><code>Shang wang dou tmd bei ping ping an an he xie diao le.
+Tian yao mie he xie, tui he xie bao ping an.  shang Wang sou suo jiu ping cha cha cha ,you       zhen       xiang!
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Tian yao mie &lt;b&gt;he xie&lt;/b&gt;, tui &lt;b&gt;he xie&lt;/b&gt; bao &lt;b&gt;ping an.&nbsp;&nbsp;shang Wang&lt;/b&gt; sou suo jiu ping cha cha cha ,you&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zhen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xiang!</code></pre>
+<div class="codehilite"><pre><span></span><code>Tian<span class="w"> </span>yao<span class="w"> </span>mie<span class="w"> </span><span class="nt">&lt;b&gt;</span>he<span class="w"> </span>xie<span class="nt">&lt;/b&gt;</span>,<span class="w"> </span>tui<span class="w"> </span><span class="nt">&lt;b&gt;</span>he<span class="w"> </span>xie<span class="nt">&lt;/b&gt;</span><span class="w"> </span>bao<span class="w"> </span><span class="nt">&lt;b&gt;</span>ping<span class="w"> </span>an.<span class="w">  </span>shang<span class="w"> </span>Wang<span class="nt">&lt;/b&gt;</span><span class="w"> </span>sou<span class="w"> </span>suo<span class="w"> </span>jiu<span class="w"> </span>ping<span class="w"> </span>cha<span class="w"> </span>cha<span class="w"> </span>cha<span class="w"> </span>,you<span class="w">       </span>zhen<span class="w">       </span>xiang!
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>每个汉字不超过 $7$ 个英文字符。</p>

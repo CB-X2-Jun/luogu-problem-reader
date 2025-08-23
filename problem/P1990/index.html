@@ -212,16 +212,19 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>你有一个长为 $N$ 宽为 $2$ 的墙壁，给你两种砖头：一个长 $2$ 宽 $1$，另一个是 L 型覆盖 $3$ 个单元的砖头。如下图：</p>
-<pre class="hljs"><code class="hljs">0&nbsp;&nbsp;0
-0&nbsp;&nbsp;00</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w">  </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w">  </span><span class="mf">00</span>
+</code></pre></div>
 
 <p>砖头可以旋转，两种砖头可以无限制提供。你的任务是计算用这两种来覆盖 $N\times 2$ 的墙壁的覆盖方法。例如一个 $2\times3$ 的墙可以有 $5$ 种覆盖方法，如下：</p>
-<pre class="hljs"><code class="hljs">012 002 011 001 011&nbsp;&nbsp;
-012 112 022 011 001</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">012</span><span class="w"> </span><span class="mf">002</span><span class="w"> </span><span class="mf">011</span><span class="w"> </span><span class="mf">001</span><span class="w"> </span><span class="mf">011</span><span class="w">  </span>
+<span class="mf">012</span><span class="w"> </span><span class="mf">112</span><span class="w"> </span><span class="mf">022</span><span class="w"> </span><span class="mf">011</span><span class="w"> </span><span class="mf">001</span>
+</code></pre></div>
 
 <p>注意可以使用两种砖头混合起来覆盖，如 $2\times4$ 的墙可以这样覆盖：</p>
-<pre class="hljs"><code class="hljs">0112
-0012</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0112</span>
+<span class="mf">0012</span>
+</code></pre></div>
 
 <p>给定 $N$，要求计算 $2\times N$ 的墙壁的覆盖方法。由于结果很大，所以只要求输出最后 $4$ 位。例如 $2\times 13$ 的覆盖方法为 $13465$，只需输出 $3465$ 即可。如果答案少于 $4$ 位，就直接输出就可以，不用加前导 $0$，如 $N=3$ 时输出 $5$。</p>
 <h2 id="_2">输入格式</h2>
@@ -231,10 +234,12 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">13</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">13</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3465</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3465</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>数据保证，$1\leq N\leq 1000000$。</p>

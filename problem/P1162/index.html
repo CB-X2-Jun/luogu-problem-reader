@@ -213,19 +213,21 @@
               <h2 id="_1">题目描述</h2>
 <p>由数字 $0$ 组成的方阵中，有一任意形状的由数字 $1$ 构成的闭合圈。现要求把闭合圈内的所有空间都填写成 $2$。例如：$6\times 6$ 的方阵（$n=6$），涂色前和涂色后的方阵如下：</p>
 <p>如果从某个 $0$ 出发，只向上下左右 $4$ 个方向移动且仅经过其他 $0$ 的情况下，无法到达方阵的边界，就认为这个 $0$ <strong>在闭合圈内</strong>。闭合圈不一定是环形的，可以是任意形状，但保证<strong>闭合圈内</strong>的 $0$ 是连通的（两两之间可以相互到达）。</p>
-<pre class="hljs"><code class="hljs">0 0 0 0 0 0
-0 0 0 1 1 1
-0 1 1 0 0 1
-1 1 0 0 0 1
-1 0 0 1 0 1
-1 1 1 1 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
-<pre class="hljs"><code class="hljs">0 0 0 0 0 0
-0 0 0 1 1 1
-0 1 1 2 2 1
-1 1 2 2 2 1
-1 2 2 1 2 1
-1 1 1 1 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_2">输入格式</h2>
 <p>每组测试数据第一行一个整数 $n(1 \le n \le 30)$。</p>
@@ -236,21 +238,23 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6
-0 0 0 0 0 0
-0 0 1 1 1 1
-0 1 1 0 0 1
-1 1 0 0 0 1
-1 0 0 0 0 1
-1 1 1 1 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">0 0 0 0 0 0
-0 0 1 1 1 1
-0 1 1 2 2 1
-1 1 2 2 2 1
-1 2 2 2 2 1
-1 1 1 1 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$1 \le n \le 30$。</p>

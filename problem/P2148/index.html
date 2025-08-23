@@ -211,7 +211,7 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>小 E 与小 W 进行一项名为 <code class="hljs inline">E&amp;D</code> 游戏。</p>
+<p>小 E 与小 W 进行一项名为 <code>E&amp;D</code> 游戏。</p>
 <p>游戏的规则如下：桌子上有 $2n$ 堆石子，编号为 $1 \sim 2n$。其中，为了方便起见，我们将第 $2k-1$ 堆与第 $2k$ 堆（$1 \le k \le n$）视为同一组。第 $i$ 堆的石子个数用一个正整数 $S_i$ 表示。</p>
 <p>一次分割操作指的是，从桌子上任取一堆石子，将其移走。然后分割它同一组的另一堆石子，从中取出若干个石子放在被移走的位置，组成新的一堆。操作完成后，所有堆的石子数必须保证大于 $0$。显然，被分割的一堆的石子数至少要为 $2$。两个人轮流进行分割操作。如果轮到某人进行操作时，所有堆的石子数均为 $1$，则此时没有石子可以操作，判此人输掉比赛。</p>
 <p>小 E 进行第一次分割。他想知道，是否存在某种策略使得他一定能战胜小 W。因此，他求助于小 F，也就是你，请你告诉他是否存在必胜策略。例如，假设初始时桌子上有 $4$ 堆石子，数量分别为 $1,2,3,1$。小 E 可以选择移走第 $1$ 堆，然后将第 $2$ 堆分割（只能分出 $1$ 个石子）。接下来，小 W 只能选择移走第 $4$ 堆，然后将第 $3$ 堆分割为 $1$ 和 $2$。最后轮到小 E，他只能移走后两堆中数量为 $1$ 的一堆，将另一堆分割为 $1$ 和 $1$。这样，轮到小 W 时，所有堆的数量均为 $1$，则他输掉了比赛。故小 E 存在必胜策略。</p>
@@ -222,19 +222,21 @@
 <p>第一行一个整数 $N$，表示桌子上共有 $N$ 堆石子，这里的 $N$ 即为题目描述中的 $2n$。</p>
 <p>第二行 $N$ 个整数 $S_{1 \dots N}$。</p>
 <h2 id="_3">输出格式</h2>
-<p>对于每组数据，如果小 E 必胜，则一行一个字符串 <code class="hljs inline">YES</code>，否则一行一个字符串 <code class="hljs inline">NO</code>。</p>
+<p>对于每组数据，如果小 E 必胜，则一行一个字符串 <code>YES</code>，否则一行一个字符串 <code>NO</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2
-4
-1 2 3 1
-6
-1 1 1 1 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">4</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">6</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">YES
-NO</code></pre>
+<div class="codehilite"><pre><span></span><code>YES
+NO
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $20\%$ 的数据，$N=2$。</p>

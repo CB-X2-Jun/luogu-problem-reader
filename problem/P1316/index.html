@@ -214,7 +214,7 @@
 <p>Mivik 想当大作家。</p>
 <h2 id="_2">题目描述</h2>
 <p>Mivik 的键盘上有 $m$ 个不同的按键，对应着 $m$ 个不同的字符。由于 Mivik 不会写文章，所以他只好<strong>等概率</strong>随机乱按了 $n$ 个键，打出了一篇文章。</p>
-<p>Mivik 定义一篇文章的复杂度是这篇文章所有<strong>非空</strong>本质不同子串的数目。我们认为两个字符串本质不同当且仅当它们的长度不同或者它们有任意一位上的字符不同。例如，文章 <code class="hljs inline">abaa</code> 的复杂度是 8，因为它一共有 <code class="hljs inline">a</code>、<code class="hljs inline">b</code>、<code class="hljs inline">ab</code>、<code class="hljs inline">ba</code>、<code class="hljs inline">aa</code>、<code class="hljs inline">aba</code>、<code class="hljs inline">baa</code>、<code class="hljs inline">abaa</code> 这 8 个非空的本质不同子串。</p>
+<p>Mivik 定义一篇文章的复杂度是这篇文章所有<strong>非空</strong>本质不同子串的数目。我们认为两个字符串本质不同当且仅当它们的长度不同或者它们有任意一位上的字符不同。例如，文章 <code>abaa</code> 的复杂度是 8，因为它一共有 <code>a</code>、<code>b</code>、<code>ab</code>、<code>ba</code>、<code>aa</code>、<code>aba</code>、<code>baa</code>、<code>abaa</code> 这 8 个非空的本质不同子串。</p>
 <p>Mivik 现在想知道，这篇文章期望的复杂度是多少。由于 Mivik 不喜欢奇形怪状的小数，你只需要输出期望的复杂度对 $10^9+7$ 取模后的值。</p>
 <h2 id="_3">输入格式</h2>
 <p>一行两个整数 $n$ 和 $m$，意义见题目描述。</p>
@@ -223,28 +223,34 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">500000006</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">500000006</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">3 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="hljs"><code class="hljs">3 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="hljs"><code class="hljs">250000007</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">250000007</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="_7">样例解释</h3>
-<p>样例一：假设键盘上的字符分别为 <code class="hljs inline">a</code> 和 <code class="hljs inline">b</code>，那么可能打出来的文章一共有 <code class="hljs inline">aa</code>、<code class="hljs inline">ab</code>、<code class="hljs inline">ba</code>、<code class="hljs inline">bb</code> 四种，它们的复杂度分别为 2、3、3、2，因此答案为 $\frac{2+3+3+2}{4}=\frac{5}{2}$，对 $10^9+7$ 取模后得到 500000006。</p>
+<p>样例一：假设键盘上的字符分别为 <code>a</code> 和 <code>b</code>，那么可能打出来的文章一共有 <code>aa</code>、<code>ab</code>、<code>ba</code>、<code>bb</code> 四种，它们的复杂度分别为 2、3、3、2，因此答案为 $\frac{2+3+3+2}{4}=\frac{5}{2}$，对 $10^9+7$ 取模后得到 500000006。</p>
 <h3 id="_8">数据范围</h3>
 <p>对于全部数据，有 $1\le n\le 20$，$1\le m\le 5\cdot 10^6$。</p>
 <p>Subtask 1 (10 pts)：满足 $1\le n, m\le 7$。</p>

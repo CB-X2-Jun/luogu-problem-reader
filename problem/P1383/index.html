@@ -214,9 +214,9 @@
 <p>早苗入手了最新的高级打字机。最新款自然有着与以往不同的功能，那就是它具备撤销功能，厉害吧。</p>
 <p>请为这种高级打字机设计一个程序，支持如下 $3$ 种操作：</p>
 <ol>
-<li><code class="hljs inline">T x</code>：Type 操作，表示在文章末尾打下一个小写字母 $x$。</li>
-<li><code class="hljs inline">U x</code>：Undo 操作，表示撤销最后的 $x$ 次修改操作。</li>
-<li><code class="hljs inline">Q x</code>：Query 操作，表示询问当前文章中第 $x$ 个字母并输出。请注意 Query 操作并不算修改操作。</li>
+<li><code>T x</code>：Type 操作，表示在文章末尾打下一个小写字母 $x$。</li>
+<li><code>U x</code>：Undo 操作，表示撤销最后的 $x$ 次修改操作。</li>
+<li><code>Q x</code>：Query 操作，表示询问当前文章中第 $x$ 个字母并输出。请注意 Query 操作并不算修改操作。</li>
 </ol>
 <p>文章一开始可以视为空串。</p>
 <h2 id="_2">输入格式</h2>
@@ -227,18 +227,20 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">7
-T a
-T b
-T c
-Q 2
-U 2
-T c
-Q 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+<span class="n">T</span><span class="w"> </span><span class="n">a</span>
+<span class="n">T</span><span class="w"> </span><span class="n">b</span>
+<span class="n">T</span><span class="w"> </span><span class="n">c</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">U</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">T</span><span class="w"> </span><span class="n">c</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">b
-c</code></pre>
+<div class="codehilite"><pre><span></span><code>b
+c
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于前 $20\%$ 的数据，$n\le 200$。</p>

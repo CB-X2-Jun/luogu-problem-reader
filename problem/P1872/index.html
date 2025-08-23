@@ -218,10 +218,10 @@
 <p>对于字符串 $SS$，设其长度为 Len，那么下文用 $S_i$ 表示 $SS$ 中第 $i$ 个字符（$1 \le i \le Le_n$）。</p>
 </li>
 <li>
-<p>$S[i,j]$ 表示 $SS$ 的一个子串，$S[i,j]=S_i S_{i+1}S_{i+2} \cdots S_{j-2}S_{j-1}S_{j}$，比如当 $SS$ 为 <code class="hljs inline">abcgfd</code> 时，$S[2,5]$ 就是 <code class="hljs inline">bcgf</code>，$S[1,5]$ 是 <code class="hljs inline">abcgf</code>。</p>
+<p>$S[i,j]$ 表示 $SS$ 的一个子串，$S[i,j]=S_i S_{i+1}S_{i+2} \cdots S_{j-2}S_{j-1}S_{j}$，比如当 $SS$ 为 <code>abcgfd</code> 时，$S[2,5]$ 就是 <code>bcgf</code>，$S[1,5]$ 是 <code>abcgf</code>。</p>
 </li>
 <li>
-<p>当一个串被称为一个回文串当且仅当将这个串反写后与原串相同，如<code class="hljs inline">abcba</code>。</p>
+<p>当一个串被称为一个回文串当且仅当将这个串反写后与原串相同，如<code>abcba</code>。</p>
 </li>
 <li>
 <p>考虑一个四元组 $(l,r,L,R)$，当 $S[l,r]$ 和 $S[L,R]$ 均为回文串时，且满足 $1 \le l \le r&lt;L \le R \le \text{Len}$ 时，我们称 $S[l,r]$ 和 $S[L,R]$ 为一对互不相交的回文串。即本题所求，也即为这种四元组的个数。两个四元组相同当且仅当对应的 $l,r,L,R$ 都相同。</p>
@@ -236,9 +236,12 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<p><pre class="hljs"><code class="hljs">aaa</code></pre></p>
+<div class="codehilite"><pre><span></span><code>aaa
+</code></pre></div>
+
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>【样例数据说明】</p>

@@ -220,25 +220,27 @@
 <p>第一行有 $3$ 个正整数，$n,m,k$。表示开始的时候，有 $n$ 行 $m$ 列的砖块，小红有 $k$ 发子弹。</p>
 <p>接下来有 $n$ 行，每行的格式如下：  </p>
 <p>$f_1~c_1~f_2~c_2~f_3~c_3\cdots f_m~c_m$</p>
-<p>其中 $f_i$ 为正整数，表示这一行的第 $i$ 列的砖，在打碎以后的得分。$c_i$ 为一个字符，只有两种可能，<code class="hljs inline">Y</code> 或者 <code class="hljs inline">N</code>。<code class="hljs inline">Y</code> 表示有一发奖励的子弹，<code class="hljs inline">N</code> 表示没有。</p>
+<p>其中 $f_i$ 为正整数，表示这一行的第 $i$ 列的砖，在打碎以后的得分。$c_i$ 为一个字符，只有两种可能，<code>Y</code> 或者 <code>N</code>。<code>Y</code> 表示有一发奖励的子弹，<code>N</code> 表示没有。</p>
 <p>所有的数与字符之间用一个空格隔开，行末没有多余的空格。</p>
 <h2 id="_3">输出格式</h2>
 <p>仅一个正整数，表示最大的得分。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 4 2
-9 N 5 N 1 N 8 N
-5 N 5 Y 5 N 5 N
-6 N 2 N 4 N 3 N</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">9</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="n">N</span>
+<span class="mf">5</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="n">N</span>
+<span class="mf">6</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="n">N</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">13</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">13</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
-<p>对于 $20\%$ 的数据，满足 $1  \le n,m  \le 5$，$1  \le k  \le 10$，所有的字符 $c$ 都为 <code class="hljs inline">N</code>。</p>
-<p>对于 $50\%$ 的数据，满足 $1  \le n,m  \le 200$，$1  \le k  \le 200$，所有的字符 $c$ 都为 <code class="hljs inline">N</code>。</p>
-<p>对于 $100\%$ 的数据，满足 $1  \le n,m  \le 200$，$1  \le k  \le 200$，字符 $c$ 可能为 <code class="hljs inline">Y</code>。</p>
+<p>对于 $20\%$ 的数据，满足 $1  \le n,m  \le 5$，$1  \le k  \le 10$，所有的字符 $c$ 都为 <code>N</code>。</p>
+<p>对于 $50\%$ 的数据，满足 $1  \le n,m  \le 200$，$1  \le k  \le 200$，所有的字符 $c$ 都为 <code>N</code>。</p>
+<p>对于 $100\%$ 的数据，满足 $1  \le n,m  \le 200$，$1  \le k  \le 200$，字符 $c$ 可能为 <code>Y</code>。</p>
 <p>对于 $100\%$ 的数据，所有的 $f$ 值满足 $1  \le f  \le 10000$。</p>
             </article>
           </div>

@@ -211,22 +211,22 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>如果单词 $X$ 的末字母与单词 $Y$ 的首字母相同，则 $X$ 与 $Y$ 可以相连成 $X.Y$。（注意：$X$、$Y$ 之间是英文的句号 <code class="hljs inline">.</code>）。例如，单词 <code class="hljs inline">dog</code> 与单词 <code class="hljs inline">gopher</code>，则 <code class="hljs inline">dog</code> 与 <code class="hljs inline">gopher</code> 可以相连成 <code class="hljs inline">dog.gopher</code>。</p>
+<p>如果单词 $X$ 的末字母与单词 $Y$ 的首字母相同，则 $X$ 与 $Y$ 可以相连成 $X.Y$。（注意：$X$、$Y$ 之间是英文的句号 <code>.</code>）。例如，单词 <code>dog</code> 与单词 <code>gopher</code>，则 <code>dog</code> 与 <code>gopher</code> 可以相连成 <code>dog.gopher</code>。</p>
 <p>另外还有一些例子：
-- <code class="hljs inline">dog.gopher</code>
-- <code class="hljs inline">gopher.rat</code>
-- <code class="hljs inline">rat.tiger</code>
-- <code class="hljs inline">aloha.aloha</code>
-- <code class="hljs inline">arachnid.dog</code></p>
+- <code>dog.gopher</code>
+- <code>gopher.rat</code>
+- <code>rat.tiger</code>
+- <code>aloha.aloha</code>
+- <code>arachnid.dog</code></p>
 <p>连接成的词可以与其他单词相连，组成更长的词链，例如：</p>
-<p><code class="hljs inline">aloha.arachnid.dog.gopher.rat.tiger</code></p>
-<p>注意到，<code class="hljs inline">.</code> 两边的字母一定是相同的。</p>
+<p><code>aloha.arachnid.dog.gopher.rat.tiger</code></p>
+<p>注意到，<code>.</code> 两边的字母一定是相同的。</p>
 <p>现在给你一些单词，请你找到字典序最小的词链，使得每个单词在词链中出现且仅出现一次。注意，相同的单词若出现了 $k$ 次就需要输出 $k$ 次。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行是一个正整数 $n$（$1 \le n \le 1000$），代表单词数量。</p>
 <p>接下来共有 $n$ 行，每行是一个由 $1$ 到 $20$ 个小写字母组成的单词。</p>
 <h2 id="_3">输出格式</h2>
-<p>只有一行，表示组成字典序最小的词链，若不存在则只输出三个星号 <code class="hljs inline">***</code>。</p>
+<p>只有一行，表示组成字典序最小的词链，若不存在则只输出三个星号 <code>***</code>。</p>
 <h2 id="_4">说明/提示</h2>
 <ul>
 <li>对于 $40\%$ 的数据，有 $n \leq 10$；</li>

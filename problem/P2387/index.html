@@ -220,33 +220,37 @@
 <h2 id="_3">输入格式</h2>
 <p>输入文件的第 $1$ 行包含两个整数 $n,m$，表示无向图共有 $n$ 个节点，$m$ 条边。 接下来 $m$ 行，第 $i+1$ 行包含 $4$ 个正整数 $X_i,Y_i,a_i,b_i$，描述第 $i$ 条无向边。 其中 $X_i$ 与 $Y_i$ 为该边两个端点的标号，$a_i$ 与 $b_i$ 的含义如题所述。 注意数据中可能包含重边与自环。</p>
 <h2 id="_4">输出格式</h2>
-<p>输出一行一个整数：如果小 E 可以成功拜访到隐士，输出小 E 最少需要携 带的守护精灵的总个数；如果无论如何小 E 都无法拜访到隐士，输出 <code class="hljs inline">-1</code>。</p>
+<p>输出一行一个整数：如果小 E 可以成功拜访到隐士，输出小 E 最少需要携 带的守护精灵的总个数；如果无论如何小 E 都无法拜访到隐士，输出 <code>-1</code>。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5 
-1 2 19 1 
-2 3 8 12 
-2 4 12 15 
-1 3 17 8 
-3 4 1 17</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">19</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">17</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">17</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">32</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">32</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">3 1 
-1 2 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">-1</code></pre>
+<div class="codehilite"><pre><span></span><code>-1
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>* 解释1</p>
 <p>如果小 E 走路径 $1\to 2\to 4$，需要携带 $19+15=34$ 个守护精灵； 如果小 E 走路径 $1\to 3\to 4$，需要携带 $17+17=34$ 个守护精灵； 如果小 E 走路径 $1\to 2\to 3\to 4$，需要携带 $19+17=36$ 个守护精灵； 如果小 E 走路径  $1\to 3\to 2\to 4$，需要携带 $17+15=32$ 个守护精灵。 综上所述，小 E 最少需要携带 $32$ 个守护精灵。</p>
 <p>* 解释2</p>
-<p>小 E 无法从 $1$ 号节点到达 $3$ 号节点，故输出 <code class="hljs inline">-1</code>。</p>
+<p>小 E 无法从 $1$ 号节点到达 $3$ 号节点，故输出 <code>-1</code>。</p>
 <p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2593.png" /></p>
             </article>
           </div>

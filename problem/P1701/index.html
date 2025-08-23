@@ -217,20 +217,22 @@
 <p>树底部的叶结点表示 3019 年所有产生的奶牛的子种群。没有不同的叶结点（子种群）具有完全相同的一组特性。例如，子种群 #1 是没有特殊特性的奶牛，子种群 #3 是能够心灵感应的（telepathic）会飞的奶牛。相比之下，子种群 #2 是会飞但不能心灵感应的奶牛。子种群 #3 是唯一既会飞又会心灵感应的。</p>
 <p>像上图这样每一种进化出的新特性都恰好在树中的一条边上产生（也就是说，在整个进化历史中仅在一个时间点产生），这样的进化树被称为是“合法的”。例如，如果斑点这一特性在两个不同分支中均进化产生，这棵进化树就不是合法的。给定 3019 年奶牛子种群的描述，请判断是否这可以由一棵合法的进化树所解释。 </p>
 <h2 id="_2">输入格式</h2>
-<p>输入的第一行包含子种群的数量 $N$（$2\le N\le 25$）。以下 $N$ 行每行描述一个子种群。每行包含一个整数 $K$（$0\le K\le 25$），之后是 $K$ 个该子种群奶牛所拥有的特性。特性是由至多 $20$ 个小写字母（<code class="hljs inline">a..z</code>）组成的字符串。没有两个子种群拥有完全相同的特性。 </p>
+<p>输入的第一行包含子种群的数量 $N$（$2\le N\le 25$）。以下 $N$ 行每行描述一个子种群。每行包含一个整数 $K$（$0\le K\le 25$），之后是 $K$ 个该子种群奶牛所拥有的特性。特性是由至多 $20$ 个小写字母（<code>a..z</code>）组成的字符串。没有两个子种群拥有完全相同的特性。 </p>
 <h2 id="_3">输出格式</h2>
-<p>如果可能构造一棵可以解释所有子种群产生途径的进化树，输出 <code class="hljs inline">yes</code>，否则输出 <code class="hljs inline">no</code>。 </p>
+<p>如果可能构造一棵可以解释所有子种群产生途径的进化树，输出 <code>yes</code>，否则输出 <code>no</code>。 </p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4
-2 spots firebreathing
-0
-1 flying
-2 telepathic flying</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="mf">2</span><span class="w"> </span><span class="n">spots</span><span class="w"> </span><span class="n">firebreathing</span>
+<span class="mf">0</span>
+<span class="mf">1</span><span class="w"> </span><span class="n">flying</span>
+<span class="mf">2</span><span class="w"> </span><span class="n">telepathic</span><span class="w"> </span><span class="n">flying</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">yes</code></pre>
+<div class="codehilite"><pre><span></span><code>yes
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="1_3">样例解释 1</h3>

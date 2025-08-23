@@ -217,62 +217,68 @@
 <p>输入格式如下：</p>
 <ol>
 <li>第一行有两个整数，地图高度 $h$ 和宽度 $w$。</li>
-<li>其后 $h$ 行，每行 $w$ 个字符，将是以下字符中的一个：</li>
+<li>
+<p>其后 $h$ 行，每行 $w$ 个字符，将是以下字符中的一个：</p>
+</li>
+<li>
+<p><code>.</code> 表示障碍区。</p>
+</li>
+<li><code>#</code> 表示道路。</li>
+<li><code>E</code> 表示起始点且汽车面朝东。</li>
+<li><code>W</code> 表示起始点且汽车面朝西。</li>
+<li><code>N</code> 表示起始点且汽车面朝北。</li>
+<li><code>S</code> 表示起始点且汽车面朝南。</li>
+<li><code>F</code> 表示终点。</li>
 </ol>
-<ul>
-<li><code class="hljs inline">.</code> 表示障碍区。</li>
-<li><code class="hljs inline">#</code> 表示道路。</li>
-<li><code class="hljs inline">E</code> 表示起始点且汽车面朝东。</li>
-<li><code class="hljs inline">W</code> 表示起始点且汽车面朝西。</li>
-<li><code class="hljs inline">N</code> 表示起始点且汽车面朝北。</li>
-<li><code class="hljs inline">S</code> 表示起始点且汽车面朝南。</li>
-<li><code class="hljs inline">F</code> 表示终点。</li>
-</ul>
 <h2 id="_3">输出格式</h2>
 <p>仅包含一个整数，即为最便宜路径的费用。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">8 11
-...........
-....#####..
-....#...#..
-....#...#..
-.#E######..
-....#......
-.##F#......
-...........</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span><span class="w"> </span><span class="mf">11</span>
+<span class="mf">...........</span>
+<span class="mf">....</span><span class="err">#####</span><span class="mf">..</span>
+<span class="mf">....</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">....</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">.</span><span class="err">#</span><span class="n">E</span><span class="err">######</span><span class="mf">..</span>
+<span class="mf">....</span><span class="err">#</span><span class="mf">......</span>
+<span class="mf">.</span><span class="err">##</span><span class="n">F</span><span class="err">#</span><span class="mf">......</span>
+<span class="mf">...........</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">8</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">17 21
-.....................
-.#######.............
-.#.....#.......#.....
-.###...#.......#.....
-...#...#.......#.....
-.###...#.......#.....
-.#.....#.......#.....
-.############F#####..
-.......#..........#..
-.......#..........#..
-...#...#...#####..#..
-...#...#...#.#.#..#..
-..#S########.#.#..#..
-...#.......#.###..#..
-...#.......#......#..
-...........########..
-.....................</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">17</span><span class="w"> </span><span class="mf">21</span>
+<span class="mf">.....................</span>
+<span class="mf">.</span><span class="err">#######</span><span class="mf">.............</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.....</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.....</span>
+<span class="mf">.</span><span class="err">###</span><span class="mf">...</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.....</span>
+<span class="mf">...</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.....</span>
+<span class="mf">.</span><span class="err">###</span><span class="mf">...</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.....</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.....</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.....</span>
+<span class="mf">.</span><span class="err">############</span><span class="n">F</span><span class="err">#####</span><span class="mf">..</span>
+<span class="mf">.......</span><span class="err">#</span><span class="mf">..........</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">.......</span><span class="err">#</span><span class="mf">..........</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">...</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span><span class="mf">...</span><span class="err">#####</span><span class="mf">..</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">...</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span><span class="mf">..</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">..</span><span class="err">#</span><span class="n">S</span><span class="err">########</span><span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span><span class="mf">..</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">...</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.</span><span class="err">###</span><span class="mf">..</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">...</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">......</span><span class="err">#</span><span class="mf">..</span>
+<span class="mf">...........</span><span class="err">########</span><span class="mf">..</span>
+<span class="mf">.....................</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">7</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>样例一解释：</p>
-<p>直走，然后左转 $3$ 次，最后右转到终止点 <code class="hljs inline">F</code>。如果先直走然后右转 $2$ 次，花费将是 $10$ 。</p>
+<p>直走，然后左转 $3$ 次，最后右转到终止点 <code>F</code>。如果先直走然后右转 $2$ 次，花费将是 $10$ 。</p>
 <hr />
 <p>样例二解释：</p>
 <p>最便宜的路径花费 $7$ ：立刻左转，直走，在第一个岔路口左转，随后右转。</p>

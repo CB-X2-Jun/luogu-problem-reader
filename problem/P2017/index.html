@@ -216,18 +216,20 @@
 <p>Your job is to assign a direction to the two-way cow paths such that the entire farm (ultimately with only one-way paths) has no cycles. That is, there should be no sequence of one-way cow paths which leads back to its starting position. The existing one-way cow paths do not form a cycle and should be left as they are.</p>
 <p>One-way cow paths run from pasture A_i (1 &lt;= A_i &lt;= N) to pasture B_i (1 &lt;= B_i &lt;= N). Two-way cow paths connect pastures X_i (1 &lt;= X_i &lt;= N) and Y_i (1 &lt;= Y_i &lt;= N).</p>
 <p>Consider this example:</p>
-<pre class="hljs"><code class="hljs">1--&gt;2 
-|&nbsp;&nbsp;/| 
-| / | 
-|/&nbsp;&nbsp;| 
-3&lt;--4 </code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mi">1</span><span class="o">--&gt;</span><span class="mi">2</span><span class="w"> </span>
+<span class="o">|</span><span class="w">  </span><span class="o">/|</span><span class="w"> </span>
+<span class="o">|</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">|</span><span class="w"> </span>
+<span class="o">|/</span><span class="w">  </span><span class="o">|</span><span class="w"> </span>
+<span class="mi">3</span><span class="o">&lt;-</span><span class="mi">-4</span><span class="w"> </span>
+</code></pre></div>
 
 <p>The cow paths between pastures 1 and 3, 2 and 3, and 2 and 4 are two-way paths. One-way paths connect 1 to 2 and also 4 to 3. One valid way to convert the two-way paths into one-way paths in such a way that there are no cycles would be to direct them from 1 to 3, from 2 to 3, and from 3 to 4:</p>
-<pre class="hljs"><code class="hljs">1--&gt;2 
-|&nbsp;&nbsp;/| 
-| / | 
-vL&nbsp;&nbsp;v 
-3&lt;--4 </code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mi">1</span><span class="o">--&gt;</span><span class="mi">2</span><span class="w"> </span>
+<span class="o">|</span><span class="w">  </span><span class="o">/|</span><span class="w"> </span>
+<span class="o">|</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">|</span><span class="w"> </span>
+<span class="n">vL</span><span class="w">  </span><span class="n">v</span><span class="w"> </span>
+<span class="mi">3</span><span class="o">&lt;-</span><span class="mi">-4</span><span class="w"> </span>
+</code></pre></div>
 
 <h2 id="_2">输入格式</h2>
 <p>Line 1: Three space separated integers: N, M1, and M2</p>
@@ -238,17 +240,19 @@ vL&nbsp;&nbsp;v
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 2 3
-1 2
-4 3
-1 3
-4 2
-3 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1 3
-4 2
-2 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
             </article>
           </div>
         </div>

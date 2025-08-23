@@ -218,22 +218,24 @@
 <p>求出该棋盘上放置的船只的总数。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行为两个整数 $R$ 和 $C$，用空格隔开，分别表示游戏棋盘的行数和列数。</p>
-<p>接下来 $R$ 行，每行 $C$ 个字符，为 <code class="hljs inline">#</code> 或 <code class="hljs inline">.</code>。<code class="hljs inline">#</code> 表示船只的一部分，<code class="hljs inline">.</code> 表示水。</p>
+<p>接下来 $R$ 行，每行 $C$ 个字符，为 <code>#</code> 或 <code>.</code>。<code>#</code> 表示船只的一部分，<code>.</code> 表示水。</p>
 <h2 id="_4">输出格式</h2>
-<p>一行一个字符串，如果船的位置放得正确（即棋盘上只存在相互之间不能接触的方形，如果两个 <code class="hljs inline">#</code> 号上下相邻或左右相邻却分属两艘不同的船只，则称这两艘船相互接触了）。就输出 <code class="hljs inline">There are S ships.</code>，$S$ 表示船只的数量。否则输出 <code class="hljs inline">Bad placement.</code>。</p>
+<p>一行一个字符串，如果船的位置放得正确（即棋盘上只存在相互之间不能接触的方形，如果两个 <code>#</code> 号上下相邻或左右相邻却分属两艘不同的船只，则称这两艘船相互接触了）。就输出 <code>There are S ships.</code>，$S$ 表示船只的数量。否则输出 <code>Bad placement.</code>。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6 8
-.....#.#
-##.....#
-##.....#
-.......#
-#......#
-#..#...#</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span><span class="w"> </span><span class="mf">8</span>
+<span class="mf">.....</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span>
+<span class="err">##</span><span class="mf">.....</span><span class="err">#</span>
+<span class="err">##</span><span class="mf">.....</span><span class="err">#</span>
+<span class="mf">.......</span><span class="err">#</span>
+<span class="err">#</span><span class="mf">......</span><span class="err">#</span>
+<span class="err">#</span><span class="mf">..</span><span class="err">#</span><span class="mf">...</span><span class="err">#</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">There are 5 ships.</code></pre>
+<div class="codehilite"><pre><span></span><code>There are 5 ships.
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$1 \le R,C \le 1000$。</p>

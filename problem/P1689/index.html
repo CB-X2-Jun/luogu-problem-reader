@@ -211,32 +211,38 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>给一个方程，形如 $X+Y=Z$ 或 $X-Y=Z$。给出了其中两个未知数，请求出第三个数。未知数用 <code class="hljs inline">?</code> 表示，等式中也许会出现一些多余的空格。</p>
+<p>给一个方程，形如 $X+Y=Z$ 或 $X-Y=Z$。给出了其中两个未知数，请求出第三个数。未知数用 <code>?</code> 表示，等式中也许会出现一些多余的空格。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入一行一个字符出代表方程。</p>
 <h2 id="_3">输出格式</h2>
-<p>一行一个整数表示<code class="hljs inline">?</code>代表的值。</p>
+<p>一行一个整数表示<code>?</code>代表的值。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">1+2=?</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="o">+</span><span class="mf">2</span><span class="o">=</span><span class="err">?</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">3 +? =&nbsp;&nbsp;2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="err">?</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">-1</code></pre>
+<div class="codehilite"><pre><span></span><code>-1
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="hljs"><code class="hljs">3-?=2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="o">-</span><span class="err">?</span><span class="o">=</span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="_6">数据规模与约定</h4>

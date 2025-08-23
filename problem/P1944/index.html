@@ -211,37 +211,41 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>对一个由 <code class="hljs inline">(</code>、<code class="hljs inline">)</code>、<code class="hljs inline">[</code>、<code class="hljs inline">]</code> 四种括号组成的字符串，求出其中最长的括号匹配子串。具体来说，满足如下条件的字符串成为括号匹配的字符串：</p>
+<p>对一个由 <code>(</code>、<code>)</code>、<code>[</code>、<code>]</code> 四种括号组成的字符串，求出其中最长的括号匹配子串。具体来说，满足如下条件的字符串成为括号匹配的字符串：</p>
 <ul>
 <li>
-<p><code class="hljs inline">()</code>、<code class="hljs inline">[]</code> 是括号匹配的字符串。</p>
+<p><code>()</code>、<code>[]</code> 是括号匹配的字符串。</p>
 </li>
 <li>
-<p>若 <code class="hljs inline">A</code> 是括号匹配的串，则 <code class="hljs inline">(A)</code>、<code class="hljs inline">[A]</code> 是括号匹配的字符串。</p>
+<p>若 <code>A</code> 是括号匹配的串，则 <code>(A)</code>、<code>[A]</code> 是括号匹配的字符串。</p>
 </li>
 </ul>
-<p>3.若 <code class="hljs inline">A</code>、<code class="hljs inline">B</code> 都是括号匹配的字符串，则 <code class="hljs inline">AB</code> 也是括号匹配的字符串。</p>
-<p>例如：<code class="hljs inline">()</code>、<code class="hljs inline">[]</code>、<code class="hljs inline">([])</code>、<code class="hljs inline">()()</code> 都是括号匹配的字符串，而 <code class="hljs inline">][</code>、<code class="hljs inline">[(])</code> 则不是。</p>
+<p>3.若 <code>A</code>、<code>B</code> 都是括号匹配的字符串，则 <code>AB</code> 也是括号匹配的字符串。</p>
+<p>例如：<code>()</code>、<code>[]</code>、<code>([])</code>、<code>()()</code> 都是括号匹配的字符串，而 <code>][</code>、<code>[(])</code> 则不是。</p>
 <p>字符串 $A$ 的子串是指由 $A$ 中连续若干个字符组成的字符串。</p>
-<p>例如，<code class="hljs inline">A</code>、<code class="hljs inline">B</code>、<code class="hljs inline">C</code>、<code class="hljs inline">ABC</code>、<code class="hljs inline">CAB</code>、<code class="hljs inline">ABCABC</code> 都是字符串 <code class="hljs inline">ABCABC</code> 的子串，而 <code class="hljs inline">D</code>、<code class="hljs inline">BA</code>、<code class="hljs inline">ACB</code> 则不是。空串是任何字符串的子串。</p>
+<p>例如，<code>A</code>、<code>B</code>、<code>C</code>、<code>ABC</code>、<code>CAB</code>、<code>ABCABC</code> 都是字符串 <code>ABCABC</code> 的子串，而 <code>D</code>、<code>BA</code>、<code>ACB</code> 则不是。空串是任何字符串的子串。</p>
 <h2 id="_2">输入格式</h2>
-<p>输入一行，为一个仅由 <code class="hljs inline">()[]</code> 组成的非空字符串。</p>
+<p>输入一行，为一个仅由 <code>()[]</code> 组成的非空字符串。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出一行，为最长的括号匹配子串。若有相同长度的子串，输出在原字符串内出现位置靠前的子串。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">([(][()]]()</code></pre>
+<div class="codehilite"><pre><span></span><code>([(][()]]()
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">[()]</code></pre>
+<div class="codehilite"><pre><span></span><code>[()]
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">())[]</code></pre>
+<div class="codehilite"><pre><span></span><code>())[]
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">()</code></pre>
+<div class="codehilite"><pre><span></span><code>()
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据范围</h3>

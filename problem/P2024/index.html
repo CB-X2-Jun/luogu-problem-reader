@@ -215,8 +215,8 @@
 <p>现有 $N$ 个动物，以 $1 \sim N$ 编号。每个动物都是 $A,B,C$ 中的一种，但是我们并不知道它到底是哪一种。</p>
 <p>有人用两种说法对这 $N$ 个动物所构成的食物链关系进行描述：</p>
 <ul>
-<li>第一种说法是 <code class="hljs inline">1 X Y</code>，表示 $X$ 和 $Y$ 是同类。</li>
-<li>第二种说法是<code class="hljs inline">2 X Y</code>，表示 $X$ 吃 $Y$。</li>
+<li>第一种说法是 <code>1 X Y</code>，表示 $X$ 和 $Y$ 是同类。</li>
+<li>第二种说法是<code>2 X Y</code>，表示 $X$ 吃 $Y$。</li>
 </ul>
 <p>此人对 $N$ 个动物，用上述两种说法，一句接一句地说出 $K$ 句话，这 $K$ 句话有的是真的，有的是假的。当一句话满足下列三条之一时，这句话就是假话，否则就是真话。</p>
 <ul>
@@ -233,17 +233,19 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">100 7
-1 101 1
-2 1 2
-2 2 3
-2 3 3
-1 1 3
-2 3 1
-1 5 5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">100</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">101</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于全部数据，$1\le N\le 5 \times 10^4$，$1\le K \le 10^5$。</p>

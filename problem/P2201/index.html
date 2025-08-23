@@ -215,40 +215,42 @@
 <p>为了方便他的研究，小Z希望实现一个叫做“Open Continuous Lines Processor”的数列编辑器。</p>
 <p>一开始，数列编辑器里没有数字，只有一个光标。这个数列编辑器需要支持五种操作。</p>
 <ul>
-<li><code class="hljs inline">I x</code> 在当前光标前插入数字 $x$。</li>
-<li><code class="hljs inline">D</code> 删除当前光标前的数字。</li>
-<li><code class="hljs inline">L</code> 光标向前移动一个数字。</li>
-<li><code class="hljs inline">R</code> 光标向后移动一个数字。</li>
-<li><code class="hljs inline">Q k</code> 设光标之前的数列是 ${a_1,a_2,\cdots,a_n}$，输出第 $k$ 位及之前最大的前缀和，保证 $k\leqslant n$。</li>
+<li><code>I x</code> 在当前光标前插入数字 $x$。</li>
+<li><code>D</code> 删除当前光标前的数字。</li>
+<li><code>L</code> 光标向前移动一个数字。</li>
+<li><code>R</code> 光标向后移动一个数字。</li>
+<li><code>Q k</code> 设光标之前的数列是 ${a_1,a_2,\cdots,a_n}$，输出第 $k$ 位及之前最大的前缀和，保证 $k\leqslant n$。</li>
 </ul>
 <h2 id="_2">输入格式</h2>
 <p>第一行包含一个数字 $N$，表示操作的个数。</p>
 <p>接下来包含 $N$ 行，每行包含一条命令。</p>
 <h2 id="_3">输出格式</h2>
-<p>对于每个 <code class="hljs inline">Q k</code> 命令，输出一个整数表示这个操作的答案。</p>
+<p>对于每个 <code>Q k</code> 命令，输出一个整数表示这个操作的答案。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">8
-I 2
-I -1
-I 1
-Q 3
-L
-D
-R
-Q 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span>
+<span class="n">I</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">I</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="n">I</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">3</span>
+<span class="n">L</span>
+<span class="n">D</span>
+<span class="n">R</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2
-3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据范围</h3>
 <p>对于 $50\%$ 的数据，$N\leqslant1000$；</p>
 <p>对于 $80\%$ 的数据，$N\leqslant10^5$；</p>
 <p>对于 $100\%$ 的数据，$N\leqslant10^6$，插入的数字绝对值大小不会超过 $1000$。</p>
-<p>题目保证不会在数列编辑器为空时进行 <code class="hljs inline">D</code> 操作。</p>
+<p>题目保证不会在数列编辑器为空时进行 <code>D</code> 操作。</p>
             </article>
           </div>
         </div>

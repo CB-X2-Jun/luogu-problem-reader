@@ -220,26 +220,28 @@
 <p>第一行有两个整数，分别表示收费站个数 $n$，和询问与调整费用的总数 $m$。</p>
 <p>接下来 $m$ 行，每行表示一次调整或询问，首先有一个字符 $op$。</p>
 <ul>
-<li>若 $op$ 为 <code class="hljs inline">C</code>，则后面有三个整数 $l, r, v$，表示将第 $l$ 个收费站到第 $r$ 个收费站之间所有<strong>道路</strong>的通行费用增加 $v$。</li>
-<li>若 $op$ 为 <code class="hljs inline">Q</code>，则后面有两个整数 $l, r$，对于给定的 $l, r$，请回答小 A 的问题。</li>
+<li>若 $op$ 为 <code>C</code>，则后面有三个整数 $l, r, v$，表示将第 $l$ 个收费站到第 $r$ 个收费站之间所有<strong>道路</strong>的通行费用增加 $v$。</li>
+<li>若 $op$ 为 <code>Q</code>，则后面有两个整数 $l, r$，对于给定的 $l, r$，请回答小 A 的问题。</li>
 </ul>
 <h2 id="_4">输出格式</h2>
 <p>对于每次询问，输出一行一个既约分数表示答案。</p>
-<p>若答案为一个整数 $a$，请输出 <code class="hljs inline">a/1</code>。</p>
+<p>若答案为一个整数 $a$，请输出 <code>a/1</code>。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5
-C 1 4 2
-C 1 2 -1
-Q 1 2
-Q 2 4
-Q 1 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">C</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">C</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">4</span>
+<span class="n">Q</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1/1
-8/3
-17/6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="o">/</span><span class="mf">1</span>
+<span class="mf">8</span><span class="o">/</span><span class="mf">3</span>
+<span class="mf">17</span><span class="o">/</span><span class="mf">6</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h4 id="_7">数据规模与约定</h4>

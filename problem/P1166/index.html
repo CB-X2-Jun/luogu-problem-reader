@@ -223,7 +223,7 @@
 <p>若某一轮两次滚球未击倒全部十个柱，则本轮不再继续滚球，该轮得分为这两次滚球击倒的柱数之和。   </p>
 </li>
 </ol>
-<p>总之，若―轮中一次滚球或两次滚球击倒十个柱，则本轮得分是本轮首次滚球开始的连续三次滚球击倒柱数之和（其中有一次或两次不是本轮滚球）。若一轮内二次滚球击倒柱数不足十个，则本轮得分即为这两次击倒柱数之和。下面以实例说明如下(字符 <code class="hljs inline">/</code> 表示击倒当前球道上的全部的柱)：</p>
+<p>总之，若―轮中一次滚球或两次滚球击倒十个柱，则本轮得分是本轮首次滚球开始的连续三次滚球击倒柱数之和（其中有一次或两次不是本轮滚球）。若一轮内二次滚球击倒柱数不足十个，则本轮得分即为这两次击倒柱数之和。下面以实例说明如下(字符 <code>/</code> 表示击倒当前球道上的全部的柱)：</p>
 <table>
 <thead>
 <tr>
@@ -292,18 +292,20 @@
 </table>
 <p>现在请你编写一个保龄球实时计分程序，用来计算和显示某轮结束后的得分情况。若某轮的得分暂时无法算出，则<strong>不显示</strong>该轮得分（不输出）。</p>
 <h2 id="_2">输入格式</h2>
-<p>仅有一行，为前若干轮滚球的情况，每轮滚球用一到两个字符表示，每一个字符表示一次击球，字符 <code class="hljs inline">/</code> 表示击倒当前球道上的全部的柱，否则用一个数字字符表示本次滚球击倒的当前球道上的柱的数目，两轮滚球之间用一个空格字符隔开。</p>
-<p>如上例对应的输入文件内容为：<code class="hljs inline">/ / / 72 9/ 81 8/ / 9/ / 8/</code></p>
+<p>仅有一行，为前若干轮滚球的情况，每轮滚球用一到两个字符表示，每一个字符表示一次击球，字符 <code>/</code> 表示击倒当前球道上的全部的柱，否则用一个数字字符表示本次滚球击倒的当前球道上的柱的数目，两轮滚球之间用一个空格字符隔开。</p>
+<p>如上例对应的输入文件内容为：<code>/ / / 72 9/ 81 8/ / 9/ / 8/</code></p>
 <h2 id="_3">输出格式</h2>
 <p>共两行，第一行为每轮得分，第二行为到当前轮为止的总得分。每个得分之间用一个空格隔开。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">/ / / 72 9/ 81 8/ / 9/ / 8/</code></pre>
+<div class="codehilite"><pre><span></span><code>/ / / 72 9/ 81 8/ / 9/ / 8/
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">30 27 19 9 18 9 20 20 20 20 
-30 57 76 85 103 112 132 152 172 192</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">30</span><span class="w"> </span><span class="mf">27</span><span class="w"> </span><span class="mf">19</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">18</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span>
+<span class="mf">30</span><span class="w"> </span><span class="mf">57</span><span class="w"> </span><span class="mf">76</span><span class="w"> </span><span class="mf">85</span><span class="w"> </span><span class="mf">103</span><span class="w"> </span><span class="mf">112</span><span class="w"> </span><span class="mf">132</span><span class="w"> </span><span class="mf">152</span><span class="w"> </span><span class="mf">172</span><span class="w"> </span><span class="mf">192</span>
+</code></pre></div>
             </article>
           </div>
         </div>

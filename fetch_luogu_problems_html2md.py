@@ -113,57 +113,9 @@ def fetch_problem_html(pid):
         # 使用与刷新功能相同的Markdown处理逻辑
         import markdown
         
-        # 手动预处理代码块 - 使用相同的字符串处理方法
-        def preprocess_code_blocks(text):
-            lines = text.split('\n')
-            result_lines = []
-            in_code_block = False
-            code_block_content = []
-            
-            for line in lines:
-                if line.strip().startswith('```'):
-                    if not in_code_block:
-                        # 开始代码块 - 添加空行确保与前面内容分离
-                        if result_lines and result_lines[-1].strip():
-                            result_lines.append('')
-                        in_code_block = True
-                        code_block_content = []
-                    else:
-                        # 结束代码块
-                        in_code_block = False
-                        # 保持代码块内的换行格式和原始字符
-                        code_content = '\n'.join(code_block_content)
-                        # 只转义必要的HTML字符，保持其他字符原样
-                        import html
-                        # 先转义HTML特殊字符
-                        escaped_code = html.escape(code_content)
-                        # 然后处理Markdown转义字符，将 \* 转回 *
-                        escaped_code = escaped_code.replace('\\*', '*')
-                        escaped_code = escaped_code.replace('\\{', '{')
-                        escaped_code = escaped_code.replace('\\}', '}')
-                        # 保持连续空格格式
-                        escaped_code = escaped_code.replace('  ', '&nbsp;&nbsp;')
-                        result_lines.append(f'<pre class="hljs"><code class="hljs">{escaped_code}</code></pre>')
-                        # 代码块结束后添加空行确保与后面内容分离
-                        result_lines.append('')
-                elif in_code_block:
-                    code_block_content.append(line)
-                else:
-                    # 处理行内代码
-                    processed_line = line
-                    # 使用原始字符串避免转义问题
-                    if '`' in processed_line and not processed_line.strip().startswith('<'):
-                        processed_line = re.sub(r'`([^`\n]+)`', r'<code class="hljs inline">\1</code>', processed_line)
-                    result_lines.append(processed_line)
-            
-            return '\n'.join(result_lines)
-        
-        # 预处理Markdown内容
-        processed_md = preprocess_code_blocks(content_md)
-        
-        # 使用Markdown转换为HTML
-        md_parser = markdown.Markdown(extensions=['tables', 'toc', 'sane_lists'])
-        content_html = md_parser.convert(processed_md)
+        # 使用标准Markdown转换为HTML，确保代码块正确渲染
+        md_parser = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'codehilite'])
+        content_html = md_parser.convert(content_md)
         
         return {
             'pid': f'P{pid}',
@@ -301,11 +253,9 @@ def refresh_html_files():
                         
                         return '\n'.join(result_lines)
                     
-                    # 先处理代码块，再用markdown处理其他格式
-                    processed_content = preprocess_code_blocks(content_to_convert)
-                    
-                    md_parser = markdown.Markdown(extensions=['tables', 'toc', 'sane_lists'])
-                    article_html = md_parser.convert(processed_content)
+                    # 使用标准Markdown转换为HTML，确保代码块正确渲染
+                    md_parser = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'codehilite'])
+                    article_html = md_parser.convert(content_to_convert)
                     
                     # 创建问题对象
                     problem = {

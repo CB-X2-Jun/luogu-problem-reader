@@ -211,12 +211,12 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目背景</h2>
-<p>奶牛 Kruscal 认为人类的加法太落后了。比如说有时候想要用加法计算 <code class="hljs inline">+15*3</code>，只能写成 <code class="hljs inline">+15+15+15</code>，真是浪费精力啊！于是，Kruscal 决定开发出一种新的加法算式。</p>
+<p>奶牛 Kruscal 认为人类的加法太落后了。比如说有时候想要用加法计算 <code>+15*3</code>，只能写成 <code>+15+15+15</code>，真是浪费精力啊！于是，Kruscal 决定开发出一种新的加法算式。</p>
 <h2 id="_2">题目描述</h2>
-<p>当然，新的算式也是建立在原本算式的基础上的，不同就在于上式可以直接写成 <code class="hljs inline">+++15</code>，同理，对于 <code class="hljs inline">-15*3</code> 这样的算式可以写成 <code class="hljs inline">---15</code>。一段时间后，Kruscal 又被那无穷多个 <code class="hljs inline">+-</code> 号囧到了，于是他又将这个算式改进了一下。</p>
-<p>比如 <code class="hljs inline">+15<em>3</code> 又可以写成 <code class="hljs inline">+(3)15</code>，同样，<code class="hljs inline">-15</em>3</code> 等价于 <code class="hljs inline">-(3)15</code>。但从上面可以看出，对于乘数较小的情况，如 <code class="hljs inline">+++15</code> 这样的表述还是很方便的，于是在新的算式中还是保留了这种形式。</p>
-<p>对于算式还要做一点特殊的说明：<code class="hljs inline">+15*3</code> 转换成 Kruscal 型算式时可以写成 <code class="hljs inline">+++15</code> 或 <code class="hljs inline">+(3)15</code>，但不可以写成 <code class="hljs inline">++(2)15</code> 这样的形式。</p>
-<p>对于算式 <code class="hljs inline">23+15*3-2</code> 可以表示为以下几种形式：<code class="hljs inline">23+++15-2</code>、<code class="hljs inline">23+(3)15-2</code>、<code class="hljs inline">+23+++15-2</code>、<code class="hljs inline">+23+(3)15-2</code>、<code class="hljs inline">+(1)23+(3)15-(1)2</code>。不会出现如下几种形式：<code class="hljs inline">(1)23+++15-2</code>、<code class="hljs inline">+23++(2)15-(1)2</code>、<code class="hljs inline">23+++15-2+(0)100</code>、<code class="hljs inline">23-(-3)15-2</code>。</p>
+<p>当然，新的算式也是建立在原本算式的基础上的，不同就在于上式可以直接写成 <code>+++15</code>，同理，对于 <code>-15*3</code> 这样的算式可以写成 <code>---15</code>。一段时间后，Kruscal 又被那无穷多个 <code>+-</code> 号囧到了，于是他又将这个算式改进了一下。</p>
+<p>比如 <code>+15*3</code> 又可以写成 <code>+(3)15</code>，同样，<code>-15*3</code> 等价于 <code>-(3)15</code>。但从上面可以看出，对于乘数较小的情况，如 <code>+++15</code> 这样的表述还是很方便的，于是在新的算式中还是保留了这种形式。</p>
+<p>对于算式还要做一点特殊的说明：<code>+15*3</code> 转换成 Kruscal 型算式时可以写成 <code>+++15</code> 或 <code>+(3)15</code>，但不可以写成 <code>++(2)15</code> 这样的形式。</p>
+<p>对于算式 <code>23+15*3-2</code> 可以表示为以下几种形式：<code>23+++15-2</code>、<code>23+(3)15-2</code>、<code>+23+++15-2</code>、<code>+23+(3)15-2</code>、<code>+(1)23+(3)15-(1)2</code>。不会出现如下几种形式：<code>(1)23+++15-2</code>、<code>+23++(2)15-(1)2</code>、<code>23+++15-2+(0)100</code>、<code>23-(-3)15-2</code>。</p>
 <h2 id="_3">输入格式</h2>
 <p>一行，一个 Kruscal 型算式。</p>
 <h2 id="_4">输出格式</h2>
@@ -224,10 +224,12 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">+(1)23+(3)15-(1)2</code></pre>
+<div class="codehilite"><pre><span></span><code>+(1)23+(3)15-(1)2
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">66</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">66</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $100 \%$ 的数据，算式长度不超过 $2000$。</p>

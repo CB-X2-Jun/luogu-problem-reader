@@ -212,29 +212,32 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>小A打算开始炼 $\texttt{NOI}$ 元丹（什么鬼），据说吃了可以提高 $\texttt{NOI}$ 时的成绩。</p>
-<p>是这么练的。元丹有三种元核，<code class="hljs inline">N</code>、<code class="hljs inline">O</code>、<code class="hljs inline">I</code>。现有很多个这样原核，按顺序排成一行。炼元丹时，从左往右分别挑出 <code class="hljs inline">N</code>、<code class="hljs inline">O</code>、<code class="hljs inline">I</code> 三个原核吞下。</p>
+<p>是这么练的。元丹有三种元核，<code>N</code>、<code>O</code>、<code>I</code>。现有很多个这样原核，按顺序排成一行。炼元丹时，从左往右分别挑出 <code>N</code>、<code>O</code>、<code>I</code> 三个原核吞下。</p>
 <p>现在他关心，有几种服用方式……且慢！</p>
-<p>他觉得服用方式太少，以至于不能成仙。所以他可以通过某个途径，得到 <code class="hljs inline">N</code>、<code class="hljs inline">O</code>、<code class="hljs inline">I</code> 的三种原核中的<strong>任意一个</strong>，至于哪一种由他决定。然后他将获得这个原核的插入到这一排原核中的任意位置（包括最前最后）。</p>
-<p>现在你要知道，新的元核序列中能有多少种 <code class="hljs inline">N</code>、<code class="hljs inline">O</code>、<code class="hljs inline">I</code> 的取出方式。子串的字母并不要求连续。</p>
+<p>他觉得服用方式太少，以至于不能成仙。所以他可以通过某个途径，得到 <code>N</code>、<code>O</code>、<code>I</code> 的三种原核中的<strong>任意一个</strong>，至于哪一种由他决定。然后他将获得这个原核的插入到这一排原核中的任意位置（包括最前最后）。</p>
+<p>现在你要知道，新的元核序列中能有多少种 <code>N</code>、<code>O</code>、<code>I</code> 的取出方式。子串的字母并不要求连续。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行，一个整数 $N$，表示字符串的长度。</p>
-<p>第二行，一行字符串，里面只有只有 <code class="hljs inline">N</code>、<code class="hljs inline">O</code>、<code class="hljs inline">I</code> 三种字母。</p>
+<p>第二行，一行字符串，里面只有只有 <code>N</code>、<code>O</code>、<code>I</code> 三种字母。</p>
 <h2 id="_3">输出格式</h2>
 <p>表示出最多可以提炼出来的 $\texttt{NOI}$ 元丹的方案种数。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-NOIOI</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="n">NOIOI</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>样例解释：</p>
-<p>他可以获取一个 <code class="hljs inline">N</code> 元核，加到最前面。</p>
-<pre class="hljs"><code class="hljs">NNOIOI | NNOIOI | NNOIOI | NNOIOI | NNOIOI | NNOIOI
-~ ~~&nbsp;&nbsp; | ~ ~&nbsp;&nbsp;~ | ~&nbsp;&nbsp; ~~ |&nbsp;&nbsp;~~~&nbsp;&nbsp; |&nbsp;&nbsp;~~&nbsp;&nbsp;~ |&nbsp;&nbsp;~&nbsp;&nbsp;~~</code></pre>
+<p>他可以获取一个 <code>N</code> 元核，加到最前面。</p>
+<div class="codehilite"><pre><span></span><code>NNOIOI | NNOIOI | NNOIOI | NNOIOI | NNOIOI | NNOIOI
+~ ~~   | ~ ~  ~ | ~   ~~ |  ~~~   |  ~~  ~ |  ~  ~~
+</code></pre></div>
 
 <p>对于 $30\%$ 的数据 $N \le 200$。</p>
 <p>对于 $50\%$ 的数据 $N \le 2000$。</p>

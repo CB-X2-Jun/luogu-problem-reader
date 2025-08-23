@@ -219,8 +219,8 @@
 <p>保证每行包括空格在内恰好有 $9$ 个字符，且 $n$ 后面没有空格。</p>
 <p><strong>请读入到输入文件末尾：</strong></p>
 <ul>
-<li>对于 C++ 的 <code class="hljs inline">std::cin</code>，可以使用 <code class="hljs inline">while (std::cin &gt;&gt; s &gt;&gt; n) {/<em> ... </em>/}</code> 来实现这一功能，其中 <code class="hljs inline">s</code> 是 <code class="hljs inline">std::string</code> 类型的变量。</li>
-<li>对于 C/C++ 的 <code class="hljs inline">scanf</code>，可以使用 <code class="hljs inline">while (scanf("%s%d", s, &amp;n) == 2) {/<em> ... </em>/}</code> 来实现这一功能，其中 <code class="hljs inline">s</code> 是 <code class="hljs inline">char*</code> 类型的变量。</li>
+<li>对于 C++ 的 <code>std::cin</code>，可以使用 <code>while (std::cin &gt;&gt; s &gt;&gt; n) {/* ... */}</code> 来实现这一功能，其中 <code>s</code> 是 <code>std::string</code> 类型的变量。</li>
+<li>对于 C/C++ 的 <code>scanf</code>，可以使用 <code>while (scanf("%s%d", s, &amp;n) == 2) {/* ... */}</code> 来实现这一功能，其中 <code>s</code> 是 <code>char*</code> 类型的变量。</li>
 <li>对于其他输入函数实现这一功能的方式，请自行查阅文档。</li>
 </ul>
 <p>保证数据组数不超过 $11$ 组。</p>
@@ -232,24 +232,26 @@
 <li>小数部分末尾不能有 $0$。</li>
 <li>如果结果是整数，不应该输出小数点。</li>
 </ol>
-<p><strong>特别地，当答案小于 $\bm 1$ 时，你需要省略整数部分的 $\bm 0$，输出形如 <code class="hljs inline">.25</code> 的答案。</strong></p>
+<p><strong>特别地，当答案小于 $\bm 1$ 时，你需要省略整数部分的 $\bm 0$，输出形如 <code>.25</code> 的答案。</strong></p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">95.123&nbsp;&nbsp;2
-0.4321&nbsp;&nbsp;5
-5.1234&nbsp;&nbsp;7
-6.7592&nbsp;&nbsp;3
-98.999&nbsp;&nbsp;5
-1.0100 10</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">95.123</span><span class="w">  </span><span class="mf">2</span>
+<span class="mf">0.4321</span><span class="w">  </span><span class="mf">5</span>
+<span class="mf">5.1234</span><span class="w">  </span><span class="mf">7</span>
+<span class="mf">6.7592</span><span class="w">  </span><span class="mf">3</span>
+<span class="mf">98.999</span><span class="w">  </span><span class="mf">5</span>
+<span class="mf">1.0100</span><span class="w"> </span><span class="mf">10</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">9048.385129
-.01506334182914325601
-92663.3181348508776705891407804544
-308.806114738688
-9509420210.697891990494999
-1.10462212541120451001</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">9048.385129</span>
+<span class="mf">.01506334182914325601</span>
+<span class="mf">92663.3181348508776705891407804544</span>
+<span class="mf">308.806114738688</span>
+<span class="mf">9509420210.697891990494999</span>
+<span class="mf">1.10462212541120451001</span>
+</code></pre></div>
             </article>
           </div>
         </div>

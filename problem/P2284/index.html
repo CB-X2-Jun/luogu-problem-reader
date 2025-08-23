@@ -217,21 +217,23 @@
 <h2 id="_2">输入格式</h2>
 <p>输入文件的第一行为 $n$，表示密室的个数。接下来的数据分为 $n$ 组，每组描述一扇门。每组数据的第一行为 $a_i$，即该密室门上转盘的个数，接下来的 $a_i$ 行每行有两个数据，第一个数据表示 $b_{i,j}$，第二个数据表示发现该密室时指针所指向的格子的编号。</p>
 <h2 id="_3">输出格式</h2>
-<p>输出文件总共有 $n$ 行。若第 $i$ 间密室的门能够被打开，则输出文件的第 $i$ 行输出 <code class="hljs inline">possible</code>，如果不能打开则输出 <code class="hljs inline">impossible</code>。（注意小写输出）。</p>
+<p>输出文件总共有 $n$ 行。若第 $i$ 间密室的门能够被打开，则输出文件的第 $i$ 行输出 <code>possible</code>，如果不能打开则输出 <code>impossible</code>。（注意小写输出）。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2
-2
-5 3
-4 2
-2
-4 3
-6 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">2</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">6</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">possible
-impossible</code></pre>
+<div class="codehilite"><pre><span></span><code>possible
+impossible
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$n&lt;100$。</p>

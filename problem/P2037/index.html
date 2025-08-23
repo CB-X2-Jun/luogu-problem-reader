@@ -211,37 +211,39 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>一串由长长的数字组成的电话号码通常很难记忆。为了方便记忆，有种方法是用单词来方便记忆。例如用 <code class="hljs inline">Three Tens</code> 来记忆电话 <code class="hljs inline">3-10-10-10</code>。</p>
-<p>电话号码的标准形式是七位数字，中间用连字号分成前三个和后四个数字（例如：<code class="hljs inline">888-1200</code>）。电话号码可以用字母来表示。以下是字母与数字的对应：</p>
+<p>一串由长长的数字组成的电话号码通常很难记忆。为了方便记忆，有种方法是用单词来方便记忆。例如用 <code>Three Tens</code> 来记忆电话 <code>3-10-10-10</code>。</p>
+<p>电话号码的标准形式是七位数字，中间用连字号分成前三个和后四个数字（例如：<code>888-1200</code>）。电话号码可以用字母来表示。以下是字母与数字的对应：</p>
 <ul>
-<li><code class="hljs inline">A</code>，<code class="hljs inline">B</code> 和 <code class="hljs inline">C</code> 对应 <code class="hljs inline">2</code>；</li>
-<li><code class="hljs inline">D</code>，<code class="hljs inline">E</code> 和 <code class="hljs inline">F</code> 对应 <code class="hljs inline">3</code>；</li>
-<li><code class="hljs inline">G</code>，<code class="hljs inline">H</code> 和 <code class="hljs inline">I</code> 对应 <code class="hljs inline">4</code>；</li>
-<li><code class="hljs inline">J</code>，<code class="hljs inline">K</code> 和 <code class="hljs inline">L</code> 对应 <code class="hljs inline">5</code>；</li>
-<li><code class="hljs inline">M</code>，<code class="hljs inline">N</code> 和 <code class="hljs inline">O</code> 对应 <code class="hljs inline">6</code>；</li>
-<li><code class="hljs inline">P</code>，<code class="hljs inline">R</code> 和 <code class="hljs inline">S</code> 对应 <code class="hljs inline">7</code>；</li>
-<li><code class="hljs inline">T</code>，<code class="hljs inline">U</code> 和 <code class="hljs inline">V</code> 对应 <code class="hljs inline">8</code>；</li>
-<li><code class="hljs inline">W</code>，<code class="hljs inline">X</code> 和 <code class="hljs inline">Y</code> 对应 <code class="hljs inline">9</code>。</li>
+<li><code>A</code>，<code>B</code> 和 <code>C</code> 对应 <code>2</code>；</li>
+<li><code>D</code>，<code>E</code> 和 <code>F</code> 对应 <code>3</code>；</li>
+<li><code>G</code>，<code>H</code> 和 <code>I</code> 对应 <code>4</code>；</li>
+<li><code>J</code>，<code>K</code> 和 <code>L</code> 对应 <code>5</code>；</li>
+<li><code>M</code>，<code>N</code> 和 <code>O</code> 对应 <code>6</code>；</li>
+<li><code>P</code>，<code>R</code> 和 <code>S</code> 对应 <code>7</code>；</li>
+<li><code>T</code>，<code>U</code> 和 <code>V</code> 对应 <code>8</code>；</li>
+<li><code>W</code>，<code>X</code> 和 <code>Y</code> 对应 <code>9</code>。</li>
 </ul>
-<p>你会发现其中没有字母 <code class="hljs inline">Q</code> 和 <code class="hljs inline">Z</code>。电话中的连字号是可以忽略。例如 <code class="hljs inline">TUT-GLOP</code> 的标准形式是 <code class="hljs inline">888-4567</code>，<code class="hljs inline">310-GINO</code> 的标准形式是 <code class="hljs inline">310-4466</code>，<code class="hljs inline">3-10-10-10</code> 的标准形式是 <code class="hljs inline">310-1010</code>。</p>
+<p>你会发现其中没有字母 <code>Q</code> 和 <code>Z</code>。电话中的连字号是可以忽略。例如 <code>TUT-GLOP</code> 的标准形式是 <code>888-4567</code>，<code>310-GINO</code> 的标准形式是 <code>310-4466</code>，<code>3-10-10-10</code> 的标准形式是 <code>310-1010</code>。</p>
 <p>如果两个电话号码的标准形式是一样的，那么这两个电话号码就是一样的。</p>
 <p>现在有一本电话簿，请从中找出哪些电话号码是重复的。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个正整数 $N$，表示有多少个电话号码。</p>
-<p>以下 $N$ 行，每行一个电话号码，电话号码由数字、大写字母（除 <code class="hljs inline">Q</code>、<code class="hljs inline">Z</code>）和连字符组成。电话号码长度不会超过 $1000$。所有电话号码都合法。</p>
+<p>以下 $N$ 行，每行一个电话号码，电话号码由数字、大写字母（除 <code>Q</code>、<code>Z</code>）和连字符组成。电话号码长度不会超过 $1000$。所有电话号码都合法。</p>
 <h2 id="_3">输出格式</h2>
 <p>将所有重复的电话号码按字典序以标准形式输出，并且在每个电话号码后跟一个整数，表示该电话号码共出现了多少次，电话号码和整数间用一个空格隔开。不要输出多余空行。</p>
-<p>如果没有重复的电话号码，则输出：<code class="hljs inline">No duplicates.</code>（注意最后一个字母 <code class="hljs inline">s</code> 有一个点。）</p>
+<p>如果没有重复的电话号码，则输出：<code>No duplicates.</code>（注意最后一个字母 <code>s</code> 有一个点。）</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-TUT-GLOP
-3-10-10-10
-310-1010</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">TUT</span><span class="o">-</span><span class="n">GLOP</span>
+<span class="mf">3</span><span class="o">-</span><span class="mf">10</span><span class="o">-</span><span class="mf">10</span><span class="o">-</span><span class="mf">10</span>
+<span class="mf">310</span><span class="o">-</span><span class="mf">1010</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">310-1010 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">310</span><span class="o">-</span><span class="mf">1010</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>【数据范围】</p>

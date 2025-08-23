@@ -211,7 +211,7 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>校门外马路上本来从编号 $0$ 到 $L$，每一编号的位置都有一棵树。有砍树者每次从编号 $A$ 到 $B$ 处连续砍掉每一棵树，就连树苗也不放过（记 <code class="hljs inline">0 A B</code>，含 $A$ 和 $B$）；幸运的是还有植树者每次从编号 $C$ 到 $D$ 中凡是空穴（树被砍且还没种上树苗或树苗又被砍掉）的地方都补种上树苗（记 <code class="hljs inline">1 C D</code>，含 $C$ 和 $D$）；问最终校门外留下的树苗多少棵？植树者种上又被砍掉的树苗有多少棵？</p>
+<p>校门外马路上本来从编号 $0$ 到 $L$，每一编号的位置都有一棵树。有砍树者每次从编号 $A$ 到 $B$ 处连续砍掉每一棵树，就连树苗也不放过（记 <code>0 A B</code>，含 $A$ 和 $B$）；幸运的是还有植树者每次从编号 $C$ 到 $D$ 中凡是空穴（树被砍且还没种上树苗或树苗又被砍掉）的地方都补种上树苗（记 <code>1 C D</code>，含 $C$ 和 $D$）；问最终校门外留下的树苗多少棵？植树者种上又被砍掉的树苗有多少棵？</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行，两个正整数 $L$ 和 $N$，表示校园外原来有 $L + 1$ 棵树，并有 $N$ 次砍树或种树的操作。</p>
 <p>以下 $N$ 行，每行三个整数，表示砍树或植树的标记和范围。</p>
@@ -220,14 +220,16 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">10 3
-0 2 6
-1 1 8
-0 5 7</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">6</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">8</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">7</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100 \%$ 的数据，$1 \le L \le 10000$，$1 \le N \le 100$。</p>

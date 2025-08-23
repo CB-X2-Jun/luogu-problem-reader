@@ -219,35 +219,40 @@
 第二行包含两个整数 $n$ 和 $m$，分别表示小 E 从商店购买的礼物数和接受礼物的人数。<br />
 第 $3$ 到第 $(m + 2)$ 行，每行一个整数，第 $(i + 2)$ 行的整数 $w_i$ 表示送给第 $i$ 个人的礼物数量。</p>
 <h2 id="_4">输出格式</h2>
-<p>若不存在可行方案，则输出 <code class="hljs inline">Impossible</code>，否则输出一个整数，表示模 $P$ 后的方案数。</p>
+<p>若不存在可行方案，则输出 <code>Impossible</code>，否则输出一个整数，表示模 $P$ 后的方案数。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">100
-4 2
-1
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">100</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">12</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">12</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">100
-2 2
-1
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">100</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">Impossible</code></pre>
+<div class="codehilite"><pre><span></span><code>Impossible
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="1_3">样例 1 解释</h3>
-<p>以 <code class="hljs inline">/</code> 分割，<code class="hljs inline">/</code> 前后分别表示送给第一个人和第二个人的礼物编号。$12$ 种方案详情如下：</p>
-<pre class="hljs"><code class="hljs">1/23 1/24 1/34
-2/13 2/14 2/34
-3/12 3/14 3/24
-4/12 4/13 4/23</code></pre>
+<p>以 <code>/</code> 分割，<code>/</code> 前后分别表示送给第一个人和第二个人的礼物编号。$12$ 种方案详情如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="o">/</span><span class="mf">23</span><span class="w"> </span><span class="mf">1</span><span class="o">/</span><span class="mf">24</span><span class="w"> </span><span class="mf">1</span><span class="o">/</span><span class="mf">34</span>
+<span class="mf">2</span><span class="o">/</span><span class="mf">13</span><span class="w"> </span><span class="mf">2</span><span class="o">/</span><span class="mf">14</span><span class="w"> </span><span class="mf">2</span><span class="o">/</span><span class="mf">34</span>
+<span class="mf">3</span><span class="o">/</span><span class="mf">12</span><span class="w"> </span><span class="mf">3</span><span class="o">/</span><span class="mf">14</span><span class="w"> </span><span class="mf">3</span><span class="o">/</span><span class="mf">24</span>
+<span class="mf">4</span><span class="o">/</span><span class="mf">12</span><span class="w"> </span><span class="mf">4</span><span class="o">/</span><span class="mf">13</span><span class="w"> </span><span class="mf">4</span><span class="o">/</span><span class="mf">23</span>
+</code></pre></div>
 
 <h3 id="_7">数据规模与约定</h3>
 <p>设 $P= \prod_{i=1}^t p_i^{c_i}$，$p_i$ 为质数。</p>

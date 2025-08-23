@@ -226,23 +226,25 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 7
-1 2 1 5 4 4 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="_7">样例解释</h3>
 <p>整个查字典过程如下：每行表示一个单词的翻译，冒号前为本次翻译后的内存状况：</p>
 <ol>
-<li><code class="hljs inline">1</code>：查找单词 1 并调入内存。</li>
-<li><code class="hljs inline">1 2</code>：查找单词 2 并调入内存。</li>
-<li><code class="hljs inline">1 2</code>：在内存中找到单词 1。</li>
-<li><code class="hljs inline">1 2 5</code>：查找单词 5 并调入内存。</li>
-<li><code class="hljs inline">2 5 4</code>：查找单词 4 并调入内存替代单词 1。</li>
-<li><code class="hljs inline">2 5 4</code>：在内存中找到单词 4。</li>
-<li><code class="hljs inline">5 4 1</code>：查找单词 1 并调入内存替代单词 2。</li>
+<li><code>1</code>：查找单词 1 并调入内存。</li>
+<li><code>1 2</code>：查找单词 2 并调入内存。</li>
+<li><code>1 2</code>：在内存中找到单词 1。</li>
+<li><code>1 2 5</code>：查找单词 5 并调入内存。</li>
+<li><code>2 5 4</code>：查找单词 4 并调入内存替代单词 1。</li>
+<li><code>2 5 4</code>：在内存中找到单词 4。</li>
+<li><code>5 4 1</code>：查找单词 1 并调入内存替代单词 2。</li>
 </ol>
 <p>共计查了 $5$ 次词典。</p>
 <h3 id="_8">数据范围</h3>

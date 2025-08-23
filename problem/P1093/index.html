@@ -216,13 +216,15 @@
 <p>某小学最近得到了一笔赞助，打算拿出其中一部分为学习成绩优秀的前 $5$ 名学生发奖学金。期末，每个学生都有 $3$ 门课的成绩：语文、数学、英语。先按总分从高到低排序，如果两个同学总分相同，再按语文成绩从高到低排序，如果两个同学总分和语文成绩都相同，那么规定学号小的同学排在前面，这样，每个学生的排序是唯一确定的。</p>
 <p>任务：先根据输入的 $3$ 门课的成绩计算总分，然后按上述规则排序，最后按排名顺序输出前五名名学生的学号和总分。</p>
 <p>注意，在前 $5$ 名同学中，每个人的奖学金都不相同，因此，你必须严格按上述规则排序。例如，在某个正确答案中，如果前两行的输出数据（每行输出两个数：学号、总分) 是：</p>
-<pre class="hljs"><code class="hljs">7 279&nbsp;&nbsp;
-5 279</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span><span class="w"> </span><span class="mf">279</span><span class="w">  </span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">279</span>
+</code></pre></div>
 
 <p>这两行数据的含义是：总分最高的两个同学的学号依次是 $7$ 号、$5$ 号。这两名同学的总分都是 $279$ (总分等于输入的语文、数学、英语三科成绩之和) ，但学号为 $7$ 的学生语文成绩更高一些。</p>
 <p>如果你的前两名的输出数据是：</p>
-<pre class="hljs"><code class="hljs">5 279&nbsp;&nbsp;
-7 279</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">279</span><span class="w">  </span>
+<span class="mf">7</span><span class="w"> </span><span class="mf">279</span>
+</code></pre></div>
 
 <p>则按输出错误处理，不能得分。</p>
 <h2 id="_3">输入格式</h2>
@@ -235,39 +237,43 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6
-90 67 80
-87 66 91
-78 89 91
-88 99 77
-67 89 64
-78 89 98</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+<span class="mf">90</span><span class="w"> </span><span class="mf">67</span><span class="w"> </span><span class="mf">80</span>
+<span class="mf">87</span><span class="w"> </span><span class="mf">66</span><span class="w"> </span><span class="mf">91</span>
+<span class="mf">78</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">91</span>
+<span class="mf">88</span><span class="w"> </span><span class="mf">99</span><span class="w"> </span><span class="mf">77</span>
+<span class="mf">67</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">64</span>
+<span class="mf">78</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">98</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6 265
-4 264
-3 258
-2 244
-1 237</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span><span class="w"> </span><span class="mf">265</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">264</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">258</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">244</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">237</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">8
-80 89 89
-88 98 78
-90 67 80
-87 66 91
-78 89 91
-88 99 77
-67 89 64
-78 89 98</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span>
+<span class="mf">80</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">89</span>
+<span class="mf">88</span><span class="w"> </span><span class="mf">98</span><span class="w"> </span><span class="mf">78</span>
+<span class="mf">90</span><span class="w"> </span><span class="mf">67</span><span class="w"> </span><span class="mf">80</span>
+<span class="mf">87</span><span class="w"> </span><span class="mf">66</span><span class="w"> </span><span class="mf">91</span>
+<span class="mf">78</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">91</span>
+<span class="mf">88</span><span class="w"> </span><span class="mf">99</span><span class="w"> </span><span class="mf">77</span>
+<span class="mf">67</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">64</span>
+<span class="mf">78</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">98</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">8 265
-2 264
-6 264
-1 258
-5 258</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span><span class="w"> </span><span class="mf">265</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">264</span>
+<span class="mf">6</span><span class="w"> </span><span class="mf">264</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">258</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">258</span>
+</code></pre></div>
             </article>
           </div>
         </div>

@@ -215,15 +215,15 @@
 <h2 id="_2">题目描述</h2>
 <p>某一天 WJMZBMR 在打 osu，~~但是他太弱了，有些地方完全靠运气:(~~。</p>
 <p>我们来简化一下这个游戏的规则</p>
-<p>有 $n$ 次点击要做，成功了就是 <code class="hljs inline">o</code>，失败了就是 <code class="hljs inline">x</code>，分数是按 combo 计算的，连续 $a$ 个 combo 就有 $a\times a$ 分，combo 就是极大的连续 <code class="hljs inline">o</code>。</p>
-<p>比如<code class="hljs inline">ooxxxxooooxxx</code>，分数就是 $2 \times 2 + 4 \times 4 = 4 +16=20$。</p>
-<p>Sevenkplus 闲的慌就看他打了一盘，有些地方跟运气无关要么是 <code class="hljs inline">o</code> 要么是 <code class="hljs inline">x</code>，有些地方 <code class="hljs inline">o</code> 或者 <code class="hljs inline">x</code> 各有 $50\%$ 的可能性，用 <code class="hljs inline">?</code> 号来表示。</p>
-<p>比如 <code class="hljs inline">oo?xx</code> 就是一个可能的输入。
+<p>有 $n$ 次点击要做，成功了就是 <code>o</code>，失败了就是 <code>x</code>，分数是按 combo 计算的，连续 $a$ 个 combo 就有 $a\times a$ 分，combo 就是极大的连续 <code>o</code>。</p>
+<p>比如<code>ooxxxxooooxxx</code>，分数就是 $2 \times 2 + 4 \times 4 = 4 +16=20$。</p>
+<p>Sevenkplus 闲的慌就看他打了一盘，有些地方跟运气无关要么是 <code>o</code> 要么是 <code>x</code>，有些地方 <code>o</code> 或者 <code>x</code> 各有 $50\%$ 的可能性，用 <code>?</code> 号来表示。</p>
+<p>比如 <code>oo?xx</code> 就是一个可能的输入。
 那么 WJMZBMR 这场 osu 的期望得分是多少呢？</p>
-<p>比如 <code class="hljs inline">oo?xx</code> 的话，<code class="hljs inline">?</code> 是 <code class="hljs inline">o</code> 的话就是 <code class="hljs inline">oooxx</code>（$9$），是x的话就是 <code class="hljs inline">ooxxx</code>（$4$），期望自然就是 $(4+9)/2 =6.5$ 了。</p>
+<p>比如 <code>oo?xx</code> 的话，<code>?</code> 是 <code>o</code> 的话就是 <code>oooxx</code>（$9$），是x的话就是 <code>ooxxx</code>（$4$），期望自然就是 $(4+9)/2 =6.5$ 了。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行一个整数 $n$（$n\le3\times10^5$），表示点击的个数</p>
-<p>接下来一个字符串，每个字符都是 <code class="hljs inline">o</code>，<code class="hljs inline">x</code>，<code class="hljs inline">?</code> 中的一个</p>
+<p>接下来一个字符串，每个字符都是 <code>o</code>，<code>x</code>，<code>?</code> 中的一个</p>
 <h2 id="_4">输出格式</h2>
 <p>一行一个浮点数表示答案</p>
 <p>四舍五入到小数点后 $4$ 位</p>
@@ -231,11 +231,13 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4
-????</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="err">????</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">4.1250</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4.1250</span>
+</code></pre></div>
             </article>
           </div>
         </div>

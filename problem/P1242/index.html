@@ -223,28 +223,30 @@
 <p>接下来三行每行若干个整数，分别代表初始状态下 $A$ , $B$ , $C$ 柱子上的圆盘从上到下的编号，如果只有一个数 $0$ 就代表这根柱子上没有数。</p>
 <p>接下来三行每行若干个整数，分别代表目标状态下 $A$ , $B$ , $C$ 柱子上的圆盘从上到下的编号，如果只有一个数 $0$ 就代表这根柱子上没有数。</p>
 <h2 id="_3">输出格式</h2>
-<p>若干行每行一个字符串，格式为 <code class="hljs inline">move I from P to Q</code> ，代表一个移动的操作。</p>
+<p>若干行每行一个字符串，格式为 <code>move I from P to Q</code> ，代表一个移动的操作。</p>
 <p>接下来一行一个整数，代表从初始状态到目标状态的最少步数。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-3 3 2 1
-2 5 4
-0
-1 2
-3 5 4 3
-1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">0</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">move 1 from A to B
+<div class="codehilite"><pre><span></span><code>move 1 from A to B
 move 2 from A to C
 move 1 from B to C
 move 3 from A to B
 move 1 from C to B
 move 2 from C to A
 move 1 from B to C
-7</code></pre>
+7
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="_6">数据规模与约定</h4>

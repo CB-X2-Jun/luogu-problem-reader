@@ -220,7 +220,7 @@
 <p>艾米丽是个天使，她知道每段时间的船体的倾斜情况。她想使钢琴在舞厅里滑行的路程尽量长，这样 1900 会非常高兴，同时也有利于治疗托尼的晕船。但艾米丽还太小，不会算，所以希望你能帮助她。</p>
 <h2 id="_3">输入格式</h2>
 <p>输入文件的第一行包含 $5$ 个数 $N$, $M$, $x$, $y$ 和 $K$。$N$ 和 $M$ 描述舞厅的大小，$x$ 和 $y$ 为钢琴的初始位置；我们对船体倾斜情况是按时间的区间来描述的，且从 $1$ 开始计算时间，比如 “在 $[1, 3]$ 时间里向东倾斜，$[4, 5]$ 时间里向北倾斜”，因此这里的 $K$ 表示区间的数目。</p>
-<p>以下 $N$ 行，每行 $M$ 个字符，描述舞厅里的家具。第 $i$ 行第 $j$ 列的字符若为 <code class="hljs inline">.</code>，则表示该位置是空地；若为 <code class="hljs inline">x</code>，则表示有家具。</p>
+<p>以下 $N$ 行，每行 $M$ 个字符，描述舞厅里的家具。第 $i$ 行第 $j$ 列的字符若为 <code>.</code>，则表示该位置是空地；若为 <code>x</code>，则表示有家具。</p>
 <p>以下 $K$ 行，顺序描述 $K$ 个时间区间，格式为：$s_i\ t_i\ d_i (1 \leq i \leq K)$。表示在时间区间 $[s_i, t_i]$ 内，船体都是向 $d_i$ 方向倾斜的。$d_i$ 为 $1$, $2$, $3$, $4$ 中的一个，依次表示北、南、西、东（分别对应矩阵中的上、下、左、右）。输入保证区间是连续的，即</p>
 <p>$s_1 = 1$，$s_i = t_{i-1} + 1 (1 &lt; i \leq K)$，$t_K = T$。</p>
 <h2 id="_4">输出格式</h2>
@@ -228,17 +228,19 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5 4 1 3
-..xx.
-.....
-...x.
-.....
-1 3 4
-4 5 1
-6 7 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">..</span><span class="n">xx</span><span class="mf">.</span>
+<span class="mf">.....</span>
+<span class="mf">...</span><span class="n">x</span><span class="mf">.</span>
+<span class="mf">.....</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">6</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>钢琴的滑行路线：</p>

@@ -217,13 +217,13 @@
 <p>在这个图上，你要支持以下三种操作：</p>
 <ul>
 <li>
-<p><code class="hljs inline">0 x y</code> 表示把节点 $x$ 的权值改为 $y$</p>
+<p><code>0 x y</code> 表示把节点 $x$ 的权值改为 $y$</p>
 </li>
 <li>
-<p><code class="hljs inline">1 u v w</code> 表示将边 $(u,v)$ 的颜色改为 $w$。  </p>
+<p><code>1 u v w</code> 表示将边 $(u,v)$ 的颜色改为 $w$。  </p>
 </li>
 <li>
-<p><code class="hljs inline">2 c u v</code> 表示查询由颜色 $c$ 的边构成的图中，所有可能在 $u \to v$ 之间的简单路径上的节点的权值的最大值。</p>
+<p><code>2 c u v</code> 表示查询由颜色 $c$ 的边构成的图中，所有可能在 $u \to v$ 之间的简单路径上的节点的权值的最大值。</p>
 </li>
 </ul>
 <h2 id="_2">输入格式</h2>
@@ -237,57 +237,59 @@
 <p>2、对于修改边的颜色操作，按以下几类输出：</p>
 <ul>
 <li>
-<p>若不存在连接节点 $u$ 和节点 $v$ 的边，输出 <code class="hljs inline">No such edge.</code>。</p>
+<p>若不存在连接节点 $u$ 和节点 $v$ 的边，输出 <code>No such edge.</code>。</p>
 </li>
 <li>
-<p>若修改后不满足条件 $1$，不修改边的颜色，并输出 <code class="hljs inline">Error 1.</code>。</p>
+<p>若修改后不满足条件 $1$，不修改边的颜色，并输出 <code>Error 1.</code>。</p>
 </li>
 <li>
-<p>若修改后不满足条件 $2$，不修改边的颜色，并输出 <code class="hljs inline">Error 2.</code>。</p>
+<p>若修改后不满足条件 $2$，不修改边的颜色，并输出 <code>Error 2.</code>。</p>
 </li>
 <li>
-<p>其他情况，成功修改边的颜色，并输出 <code class="hljs inline">Success.</code>。</p>
+<p>其他情况，成功修改边的颜色，并输出 <code>Success.</code>。</p>
 </li>
 </ul>
-<p>输出满足条件的第一条信息即可，即若同时不满足条件 $1,2$ ，则只需要输出<code class="hljs inline">Error 1.</code>。</p>
+<p>输出满足条件的第一条信息即可，即若同时不满足条件 $1,2$ ，则只需要输出<code>Error 1.</code>。</p>
 <p>3、 对于查询操作，输出一个整数表示答案。若 $u,v$ 之间没有颜色 $c$ 构成的路径，则输出 $-1$。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5 2 7
-1
-2
-3
-4
-1 2 0
-1 3 1
-2 3 0
-2 4 1
-3 4 0
-2 0 1 4
-1 1 2 1
-1 4 3 1
-2 0 1 4
-1 2 3 1
-0 2 5
-2 1 1 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+<span class="mf">3</span>
+<span class="mf">4</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">4
-Success.
-Error 2.
--1
-Error 1.
-5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="n">Success</span><span class="mf">.</span>
+<span class="n">Error</span><span class="w"> </span><span class="mf">2.</span>
+<span class="o">-</span><span class="mf">1</span>
+<span class="n">Error</span><span class="w"> </span><span class="mf">1.</span>
+<span class="mf">5</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1714.png" /> </p>
 <p>颜色 $0$ 为实线的边，颜色 $1$ 为虚线的边，</p>
 <p>由颜色 $0$ 构成的从节点 $1$ 到节点 $4$ 的路径有 $1 \to 2 \to 4$，故$\max{v_1, v_2, v_4} = \max{ 1, 2, 4 } = 4$。</p>
-<p>将连接节点 $1$ 和节点 $2$ 的边修改为颜色 $1$，修改成功，输出 <code class="hljs inline">Success.</code></p>
-<p>将连接节点 $4$ 和节点 $3$ 的边修改为颜色 $1$，由于修改后会使得存在由颜色 $1$ 构成的环( $1 – 2 – 4 – 3 – 1$ )，不满足条件 $2$，故不修改，并输<code class="hljs inline">Error 2</code>。</p>
-<p>不存在颜色 $0$ 构成的从节点 $1$ 到节点 $4$ 的边，输出 <code class="hljs inline">-1</code>。</p>
-<p>将连接节点 $2$ 和节点 $3$ 的边修改为颜色 $1$，由于修改后节点 $2$ 的连出去的颜色为 $1$ 的边有 $3$ 条，故不满足条件 $1$，故不修改，并输出<code class="hljs inline">Error 1.</code> 。</p>
+<p>将连接节点 $1$ 和节点 $2$ 的边修改为颜色 $1$，修改成功，输出 <code>Success.</code></p>
+<p>将连接节点 $4$ 和节点 $3$ 的边修改为颜色 $1$，由于修改后会使得存在由颜色 $1$ 构成的环( $1 – 2 – 4 – 3 – 1$ )，不满足条件 $2$，故不修改，并输<code>Error 2</code>。</p>
+<p>不存在颜色 $0$ 构成的从节点 $1$ 到节点 $4$ 的边，输出 <code>-1</code>。</p>
+<p>将连接节点 $2$ 和节点 $3$ 的边修改为颜色 $1$，由于修改后节点 $2$ 的连出去的颜色为 $1$ 的边有 $3$ 条，故不满足条件 $1$，故不修改，并输出<code>Error 1.</code> 。</p>
 <p>将节点 $2$ 的权值修改为 $5$。</p>
 <p>由颜色 $1$ 构成的从节点 $1$ 到节点 $4$ 的路径有 $1 \to 2 \to 4$，故$\max{v_1, v_2, v_4} = \max{ 1, 5, 4 } = 5$。</p>
 <p>【数据范围】</p>

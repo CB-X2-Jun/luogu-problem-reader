@@ -220,21 +220,23 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 500</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">500</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">5
-7
-11
-101
-131
-151
-181
-191
-313
-353
-373
-383</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="mf">7</span>
+<span class="mf">11</span>
+<span class="mf">101</span>
+<span class="mf">131</span>
+<span class="mf">151</span>
+<span class="mf">181</span>
+<span class="mf">191</span>
+<span class="mf">313</span>
+<span class="mf">353</span>
+<span class="mf">373</span>
+<span class="mf">383</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>Hint 1: Generate the palindromes and see if they are prime.</p>
@@ -244,14 +246,14 @@
 <p>题目翻译来自NOCOW。</p>
 <p>USACO Training Section 1.5</p>
 <p>产生长度为 $5$ 的回文数：</p>
-<pre class="hljs"><code class="hljs">for (d1 = 1; d1 &lt;= 9; d1+=2) {&nbsp;&nbsp;&nbsp;&nbsp;// 只有奇数才会是素数
-&nbsp;&nbsp;&nbsp;&nbsp; for (d2 = 0; d2 &lt;= 9; d2++) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (d3 = 0; d3 &lt;= 9; d3++) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; palindrome = 10000*d1 + 1000*d2 +100*d3 + 10*d2 + d1;//(处理回文数...)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
-&nbsp;&nbsp;&nbsp;&nbsp; }
- }
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="n">d1</span><span class="o">+=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// 只有奇数才会是素数</span>
+<span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="n">d2</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">d3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">d3</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="n">d3</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="n">palindrome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="o">*</span><span class="n">d1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1000</span><span class="o">*</span><span class="n">d2</span><span class="w"> </span><span class="o">+</span><span class="mi">100</span><span class="o">*</span><span class="n">d3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">d2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d1</span><span class="p">;</span><span class="c1">//(处理回文数...)</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre></div>
             </article>
           </div>
         </div>

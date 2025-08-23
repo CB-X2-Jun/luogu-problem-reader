@@ -213,11 +213,12 @@
               <h2 id="_1">题目描述</h2>
 <p>Consider an N x N (1 &lt;= N &lt;= 100) square field composed of 1</p>
 <p>by 1 tiles. Some of these tiles are impassible by cows and are marked with an 'x' in this 5 by 5 field that is challenging to navigate:</p>
-<pre class="hljs"><code class="hljs">. . B x . 
-. x x A . 
-. . . x . 
-. x . . . 
-. . x . . </code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="w"> </span>
+<span class="p">.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">.</span><span class="w"> </span>
+<span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="w"> </span>
+<span class="p">.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span>
+<span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span>
+</code></pre></div>
 
 <p>Bessie finds herself in one such field at location A and wants to move to location B in order to lick the salt block there.  Slow, lumbering creatures like cows do not like to turn and, of course, may only move parallel to the edges of the square field. For a given field, determine the minimum number of ninety degree turns in any path from A to B. The path may begin and end with Bessie facing in any direction. Bessie knows she can get to the salt lick.</p>
 <h2 id="_2">输入格式</h2>
@@ -228,13 +229,15 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-. x A
-. . .
-B x .</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="mf">.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">A</span>
+<span class="mf">.</span><span class="w"> </span><span class="mf">.</span><span class="w"> </span><span class="mf">.</span>
+<span class="n">B</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mf">.</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>The cow must make at least 2 turns: For example, the cow may start by facing south, move south, turn to face west, move west, move west, then turn to face south, and finally move south into the B square.</p>

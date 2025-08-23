@@ -219,21 +219,23 @@
 <p>接下来 $x$ 行，每行四个整数 $x_1,y_1,x_2,y_2$，表示被轰炸的矩形的左上角坐标和右下角坐标（比如 $1,3,7,10$ 就表示被轰炸的地方是从 $(1,3)$ 到 $(7,10)$ 的矩形）。</p>
 <p>接下来 $y$ 行，每行两个整数，表示这个关键点的坐标。</p>
 <h2 id="_4">输出格式</h2>
-<p>输出共 $y$ 行，每行第一个字符为 <code class="hljs inline">Y</code> 或 <code class="hljs inline">N</code>，表示是否被轰炸；若为 <code class="hljs inline">Y</code>，在一个空格后为两个整数，表示被炸了几次和最后一次是第几轮。</p>
+<p>输出共 $y$ 行，每行第一个字符为 <code>Y</code> 或 <code>N</code>，表示是否被轰炸；若为 <code>Y</code>，在一个空格后为两个整数，表示被炸了几次和最后一次是第几轮。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">10 10 2 3
-1 1 5 5
-5 5 10 10
-3 2
-5 5
-7 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">7</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Y 1 1
+<div class="codehilite"><pre><span></span><code>Y 1 1
 Y 2 2
-N</code></pre>
+N
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $100\%$ 数据，满足 $1\le n,m\le 100$。</p>

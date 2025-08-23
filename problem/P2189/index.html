@@ -221,27 +221,29 @@
 <p>接下来 $m$ 行，每行包含两个整数 $x,y$，表示房间 $x$ 和房间 $y$ 有一条双向通道相连。</p>
 <p>接下来 $q$ 行，每行包含 $k$ 个整数，表示每次按先后顺序返回信息的传感器所在房间的编号。</p>
 <h2 id="_3">输出格式</h2>
-<p>$q$ 行，每行包含一个字符串 <code class="hljs inline">Yes</code> 或 <code class="hljs inline">No</code>，表示每次传感器返回信息的先后顺序是否可能出现。</p>
+<p>$q$ 行，每行包含一个字符串 <code>Yes</code> 或 <code>No</code>，表示每次传感器返回信息的先后顺序是否可能出现。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5 3 2
-1 2
-2 3
-3 1
-1 4
-4 5
-4 2 1
-4 1 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">No
-Yes</code></pre>
+<div class="codehilite"><pre><span></span><code>No
+Yes
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>样例解释：</p>
-<p>对于第一组询问，$4 \to 2$ 必定经过 $1$，所以答案是 <code class="hljs inline">No</code>。</p>
-<p>对于第二组询问，路径 $4 \to 5 \to 4 \to 1 \to 3 \to 2 \to 1 \to 3$ 符合给定的记录，所以答案是 <code class="hljs inline">Yes</code>。</p>
+<p>对于第一组询问，$4 \to 2$ 必定经过 $1$，所以答案是 <code>No</code>。</p>
+<p>对于第二组询问，路径 $4 \to 5 \to 4 \to 1 \to 3 \to 2 \to 1 \to 3$ 符合给定的记录，所以答案是 <code>Yes</code>。</p>
 <hr />
 <p>对于 $10\%$ 的数据，$n \le 2$。</p>
 <p>对于 $30\%$ 的数据，$n \le 3$。</p>

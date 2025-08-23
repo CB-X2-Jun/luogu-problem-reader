@@ -216,10 +216,10 @@
 <p>维护一个数列 $a_i$，支持两种操作：</p>
 <ul>
 <li>
-<p><code class="hljs inline">1 l r K D</code>：给出一个长度等于 $r-l+1$ 的等差数列，首项为 $K$，公差为 $D$，并将它对应加到 $[l,r]$ 范围中的每一个数上。即：令 $a_l=a_l+K,a_{l+1}=a_{l+1}+K+D\ldots a_r=a_r+K+(r-l) \times D$。</p>
+<p><code>1 l r K D</code>：给出一个长度等于 $r-l+1$ 的等差数列，首项为 $K$，公差为 $D$，并将它对应加到 $[l,r]$ 范围中的每一个数上。即：令 $a_l=a_l+K,a_{l+1}=a_{l+1}+K+D\ldots a_r=a_r+K+(r-l) \times D$。</p>
 </li>
 <li>
-<p><code class="hljs inline">2 p</code>：询问序列的第 $p$ 个数的值 $a_p$。</p>
+<p><code>2 p</code>：询问序列的第 $p$ 个数的值 $a_p$。</p>
 </li>
 </ul>
 <h2 id="_3">输入格式</h2>
@@ -233,13 +233,15 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 2
-1 2 3 4 5
-1 2 4 1 2
-2 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h4 id="_7">数据规模与约定</h4>

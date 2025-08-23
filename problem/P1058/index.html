@@ -224,7 +224,7 @@
 &amp;\verb!+---+  !\
 &amp; \quad\textsf{长}
 \end{aligned}$$</p>
-<p>每个顶点用 $1$ 个加号 <code class="hljs inline">+</code> 表示，长用 $3$ 个 <code class="hljs inline">-</code> 表示，宽用 $1$ 个 <code class="hljs inline">/</code>，高用两个 <code class="hljs inline">|</code> 表示。字符 <code class="hljs inline">+</code>，<code class="hljs inline">-</code>，<code class="hljs inline">/</code>，<code class="hljs inline">|</code> 的 ASCII 码分别为 $43$，$45$，$47$，$124$。字符 <code class="hljs inline">.</code>（ASCII 码 $46$）需要作为背景输出，即立体图里的空白部分需要用 <code class="hljs inline">.</code> 来代替。立体图的画法如下面的规则：</p>
+<p>每个顶点用 $1$ 个加号 <code>+</code> 表示，长用 $3$ 个 <code>-</code> 表示，宽用 $1$ 个 <code>/</code>，高用两个 <code>|</code> 表示。字符 <code>+</code>，<code>-</code>，<code>/</code>，<code>|</code> 的 ASCII 码分别为 $43$，$45$，$47$，$124$。字符 <code>.</code>（ASCII 码 $46$）需要作为背景输出，即立体图里的空白部分需要用 <code>.</code> 来代替。立体图的画法如下面的规则：</p>
 <p>若两块积木左右相邻，图示为：</p>
 <p>$$
 \def\arraystretch{1e-10}
@@ -275,25 +275,27 @@ $$</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 4
-2 2 1 2
-2 2 1 1
-3 2 1 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">......+---+---+...+---+
-..+---+&nbsp;&nbsp;/&nbsp;&nbsp; /|../&nbsp;&nbsp; /|
-./&nbsp;&nbsp; /|-+---+ |.+---+ |
-+---+ |/&nbsp;&nbsp; /| +-|&nbsp;&nbsp; | +
-|&nbsp;&nbsp; | +---+ |/+---+ |/|
-|&nbsp;&nbsp; |/&nbsp;&nbsp; /| +/&nbsp;&nbsp; /|-+ |
-+---+---+ |/+---+ |/| +
-|&nbsp;&nbsp; |&nbsp;&nbsp; | +-|&nbsp;&nbsp; | + |/.
-|&nbsp;&nbsp; |&nbsp;&nbsp; |/&nbsp;&nbsp;|&nbsp;&nbsp; |/| +..
-+---+---+---+---+ |/...
-|&nbsp;&nbsp; |&nbsp;&nbsp; |&nbsp;&nbsp; |&nbsp;&nbsp; | +....
-|&nbsp;&nbsp; |&nbsp;&nbsp; |&nbsp;&nbsp; |&nbsp;&nbsp; |/.....
-+---+---+---+---+......</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nt">......</span><span class="nb">+---+---+</span><span class="nt">...</span><span class="nb">+---+</span>
+<span class="nt">..</span><span class="nb">+---+</span><span class="c">  /   /|</span><span class="nt">..</span><span class="c">/   /|</span>
+<span class="nt">.</span><span class="c">/   /|</span><span class="nb">-+---+</span><span class="c"> |</span><span class="nt">.</span><span class="nb">+---+</span><span class="c"> |</span>
+<span class="nb">+---+</span><span class="c"> |/   /| </span><span class="nb">+-</span><span class="c">|   | </span><span class="nb">+</span>
+<span class="c">|   | </span><span class="nb">+---+</span><span class="c"> |/</span><span class="nb">+---+</span><span class="c"> |/|</span>
+<span class="c">|   |/   /| </span><span class="nb">+</span><span class="c">/   /|</span><span class="nb">-+</span><span class="c"> |</span>
+<span class="nb">+---+---+</span><span class="c"> |/</span><span class="nb">+---+</span><span class="c"> |/| </span><span class="nb">+</span>
+<span class="c">|   |   | </span><span class="nb">+-</span><span class="c">|   | </span><span class="nb">+</span><span class="c"> |/</span><span class="nt">.</span>
+<span class="c">|   |   |/  |   |/| </span><span class="nb">+</span><span class="nt">..</span>
+<span class="nb">+---+---+---+---+</span><span class="c"> |/</span><span class="nt">...</span>
+<span class="c">|   |   |   |   | </span><span class="nb">+</span><span class="nt">....</span>
+<span class="c">|   |   |   |   |/</span><span class="nt">.....</span>
+<span class="nb">+---+---+---+---+</span><span class="nt">......</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>NOIP2008普及组第四题</p>

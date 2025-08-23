@@ -212,29 +212,31 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>奶牛 Bessie 最近在学习字符串操作，它用如下的规则逐一的构造出新的字符串：</p>
-<p>$S(0) =$ <code class="hljs inline">moo</code></p>
-<p>$S(1) = S(0) +$ <code class="hljs inline">m</code> $+$ <code class="hljs inline">ooo</code> $+ S(0) =$ <code class="hljs inline">moo</code> $+$ <code class="hljs inline">m</code> $+$ <code class="hljs inline">ooo</code> $+$ <code class="hljs inline">moo</code> $=$ <code class="hljs inline">moomooomoo</code></p>
-<p>$S(2) = S(1) +$ <code class="hljs inline">m</code> $+$ <code class="hljs inline">oooo</code> $+ S(1) =$ <code class="hljs inline">moomooomoo</code> $+$ <code class="hljs inline">m</code> $+$ <code class="hljs inline">oooo</code> $+$  <code class="hljs inline">moomooomoo</code> $=$ <code class="hljs inline">moomooomoomoooomoomooomoo</code></p>
+<p>$S(0) =$ <code>moo</code></p>
+<p>$S(1) = S(0) +$ <code>m</code> $+$ <code>ooo</code> $+ S(0) =$ <code>moo</code> $+$ <code>m</code> $+$ <code>ooo</code> $+$ <code>moo</code> $=$ <code>moomooomoo</code></p>
+<p>$S(2) = S(1) +$ <code>m</code> $+$ <code>oooo</code> $+ S(1) =$ <code>moomooomoo</code> $+$ <code>m</code> $+$ <code>oooo</code> $+$  <code>moomooomoo</code> $=$ <code>moomooomoomoooomoomooomoo</code></p>
 <p>$\dots$</p>
 <p>Bessie 就这样产生字符串，直到最后产生的那个字符串长度不小于读入的整数 $N$ 才停止。</p>
-<p>通过上面观察，可以发现第 $k$ 个字符串是由：第 $k-1$ 个字符串 $+$ <code class="hljs inline">m</code> $+$  $(k+2$ 个 $o) +$ 第 $k-1$ 个字符串连接起来的。</p>
-<p>现在的问题是：给出一个整数 $N (1 \leq N \leq 10^9)$，问第 $N$ 个字符是字母 <code class="hljs inline">m</code> 还是 <code class="hljs inline">o</code>？</p>
+<p>通过上面观察，可以发现第 $k$ 个字符串是由：第 $k-1$ 个字符串 $+$ <code>m</code> $+$  $(k+2$ 个 $o) +$ 第 $k-1$ 个字符串连接起来的。</p>
+<p>现在的问题是：给出一个整数 $N (1 \leq N \leq 10^9)$，问第 $N$ 个字符是字母 <code>m</code> 还是 <code>o</code>？</p>
 <h2 id="_2">输入格式</h2>
 <p>一个正整数 $N$。</p>
 <h2 id="_3">输出格式</h2>
-<p>一个字符，<code class="hljs inline">m</code> 或者 <code class="hljs inline">o</code>。</p>
+<p>一个字符，<code>m</code> 或者 <code>o</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">11</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">11</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">m</code></pre>
+<div class="codehilite"><pre><span></span><code>m
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>样例解释：</strong></p>
-<p>由题目所知：字符串 $S(0)$ 是 <code class="hljs inline">moo</code>, 现在要求第 $11$ 个字符，显然字符串 $S(0)$ 不够长；</p>
-<p>同样 $S(1)$ 的长度是 $10$，也不够长；$S(2)$ 的长度是 $25$，够长了，$S(2)$ 的第 $11$ 个字符是 <code class="hljs inline">m</code>，所以答案就输出 <code class="hljs inline">m</code>。</p>
+<p>由题目所知：字符串 $S(0)$ 是 <code>moo</code>, 现在要求第 $11$ 个字符，显然字符串 $S(0)$ 不够长；</p>
+<p>同样 $S(1)$ 的长度是 $10$，也不够长；$S(2)$ 的长度是 $25$，够长了，$S(2)$ 的第 $11$ 个字符是 <code>m</code>，所以答案就输出 <code>m</code>。</p>
 <p><strong>数据范围：</strong></p>
 <p>$1\leq N\leq 10^9$。</p>
             </article>

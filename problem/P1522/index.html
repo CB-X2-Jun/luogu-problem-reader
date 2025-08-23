@@ -213,41 +213,44 @@
               <h2 id="_1">题目描述</h2>
 <p>Farmer John 的农场里有很多 <strong>牧区</strong>。有的路径连接一些特定的牧区。<strong>一片所有连通的牧区</strong> 称为一个 <strong>牧场</strong>。但是就目前而言，你能看到至少有两个牧区通过任何路径都不连通。这样，Farmer John 就有 <strong>多个</strong> 牧场了。</p>
 <p>John 想在牧场里添加 <strong>恰好</strong> 一条路径。对这条路径有以下限制：</p>
-<p>一个牧场的 <strong>直径</strong> 就是牧场中 <strong>最远</strong> 的两个牧区的距离（本题中所提到的所有距离指的都是 <strong>最短的距离</strong>）。考虑如下的有 5 个牧区的牧场，牧区用 <code class="hljs inline">*</code> 表示，路径用直线表示。每一个牧区都有自己的坐标：</p>
-<pre class="hljs"><code class="hljs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(15,15) (20,15)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *-------*
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; _/|
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; _/&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | _/&nbsp;&nbsp;&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*--------*-------*
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C
-&nbsp;&nbsp;&nbsp;&nbsp; (10,10)&nbsp;&nbsp;(15,10) (20,10)</code></pre>
+<p>一个牧场的 <strong>直径</strong> 就是牧场中 <strong>最远</strong> 的两个牧区的距离（本题中所提到的所有距离指的都是 <strong>最短的距离</strong>）。考虑如下的有 5 个牧区的牧场，牧区用 <code>*</code> 表示，路径用直线表示。每一个牧区都有自己的坐标：</p>
+<div class="codehilite"><pre><span></span><code>                (15,15) (20,15)
+                 D       E
+                 <span class="gs">*-------*</span>
+                 |     <span class="ge">_/|</span>
+<span class="ge">                 |   _</span>/  |
+                 | _/    |
+                 |/      |
+        <span class="gs">*--------*</span>-------*
+        A        B       C
+     (10,10)  (15,10) (20,10)
+</code></pre></div>
 
 <p>这个牧场的直径大约是 $12.07106$，最远的两个牧区是 A 和 E，它们之间的最短路径是 $A \to B \to E$。</p>
 <p>这里是 John 的另一个牧场：</p>
-<pre class="hljs"><code class="hljs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *F(30,15)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_/&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_/&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*------* 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;H
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(25,10)&nbsp;&nbsp; (30,10)</code></pre>
+<div class="codehilite"><pre><span></span><code>                         <span class="gs">*F(30,15)</span>
+<span class="gs">                        / </span>
+<span class="gs">                      _/  </span>
+<span class="gs">                    _/    </span>
+<span class="gs">                   /      </span>
+<span class="gs">                  *</span>------* 
+                  G      H
+                  (25,10)   (30,10)
+</code></pre></div>
 
 <p>在这个例子中，他刚好有这两个牧场。John 将会在这两个牧场中各选一个牧区（即从 ${A,B,C,D,E}$ 中选择一个牧区，从 ${F,G,H}$ 中选择一个牧区），然后用一条路径将它们连起来，使得连通后这个新的更大的牧场的直径尽可能小。</p>
 <p>注意，如果两条路径中途相交，我们不认为它们是连通的。只有两条路径在同一个牧区相交，我们才认为它们是连通的。</p>
 <p>输入文件包括牧区、它们各自的坐标，还有一个如下的对称邻接矩阵：</p>
-<pre class="hljs"><code class="hljs">　 A&nbsp;&nbsp;B&nbsp;&nbsp;C&nbsp;&nbsp;D&nbsp;&nbsp;E&nbsp;&nbsp;F&nbsp;&nbsp;G&nbsp;&nbsp;H 
-A&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0
-B&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0
-C&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0
-D&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0
-E&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0
-F&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0
-G&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;1
-H&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0</code></pre>
+<div class="codehilite"><pre><span></span><code>　 A  B  C  D  E  F  G  H 
+A  0  1  0  0  0  0  0  0
+B  1  0  1  1  1  0  0  0
+C  0  1  0  0  1  0  0  0
+D  0  1  0  0  1  0  0  0
+E  0  1  1  1  0  0  0  0
+F  0  0  0  0  0  0  1  0
+G  0  0  0  0  0  1  0  1
+H  0  0  0  0  0  0  1  0
+</code></pre></div>
 
 <p>其他邻接表中可能直接使用行列而不使用字母来表示每一个牧区。输入数据中不包括牧区的名字。</p>
 <p>输入文件 <strong>至少</strong> 包括两个不连通的牧区。</p>
@@ -263,26 +266,28 @@ H&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">8
-10 10
-15 10
-20 10
-15 15
-20 15
-30 15
-25 10
-30 10
-01000000
-10111000
-01001000
-01001000
-01110000
-00000010
-00000101
-00000010</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span>
+<span class="mf">10</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">15</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">20</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">15</span><span class="w"> </span><span class="mf">15</span>
+<span class="mf">20</span><span class="w"> </span><span class="mf">15</span>
+<span class="mf">30</span><span class="w"> </span><span class="mf">15</span>
+<span class="mf">25</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">30</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">01000000</span>
+<span class="mf">10111000</span>
+<span class="mf">01001000</span>
+<span class="mf">01001000</span>
+<span class="mf">01110000</span>
+<span class="mf">00000010</span>
+<span class="mf">00000101</span>
+<span class="mf">00000010</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">22.071068</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">22.071068</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>样例对应题目描述中的情况。</p>

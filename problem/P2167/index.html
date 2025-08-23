@@ -213,7 +213,7 @@
               <h2 id="_1">题目描述</h2>
 <p>Sheng_bill 不仅有惊人的心算能力，还可以轻松地完成各种统计。在昨天的比赛中，你凭借优秀的程序与他打成了平局，这导致 Sheng_bill  极度的不满。于是他再次挑战你。这次你可不能输。</p>
 <p>这次，比赛规则是这样的：</p>
-<p>给出 $N$ 个长度相同的字符串（由小写英文字母和 <code class="hljs inline">?</code> 组成），$S_1,S_2,\dots,S_N$，求与这 $N$ 个串中的刚好 $K$ 个串匹配的字符串 $T$ 的个数，答案对 $1000003$ 取模。</p>
+<p>给出 $N$ 个长度相同的字符串（由小写英文字母和 <code>?</code> 组成），$S_1,S_2,\dots,S_N$，求与这 $N$ 个串中的刚好 $K$ 个串匹配的字符串 $T$ 的个数，答案对 $1000003$ 取模。</p>
 <p>若字符串 $S_x(1\le x\le N)$ 和 $T$ 匹配，满足以下条件：
 1. $|S_x|=|T|$。
 2. 对于任意的 $1\le i\le|S_x|$，满足 $S_x[i]= \texttt{?}$ 或者 $S_x[i]=T[i]$。</p>
@@ -228,34 +228,36 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-3 3
-???r???
-???????
-???????
-3 4
-???????
-?????a?
-???????
-3 3
-???????
-?a??j??
-????aa?
-3 2
-a??????
-???????
-???????
-3 2
-???????
-???a???
-????a??</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+<span class="err">???</span><span class="n">r</span><span class="err">???</span>
+<span class="err">???????</span>
+<span class="err">???????</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+<span class="err">???????</span>
+<span class="err">?????</span><span class="n">a</span><span class="err">?</span>
+<span class="err">???????</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+<span class="err">???????</span>
+<span class="err">?</span><span class="n">a</span><span class="err">??</span><span class="n">j</span><span class="err">??</span>
+<span class="err">????</span><span class="n">aa</span><span class="err">?</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">a</span><span class="err">??????</span>
+<span class="err">???????</span>
+<span class="err">???????</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="err">???????</span>
+<span class="err">???</span><span class="n">a</span><span class="err">???</span>
+<span class="err">????</span><span class="n">a</span><span class="err">??</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">914852
-0
-0
-871234
-67018</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">914852</span>
+<span class="mf">0</span>
+<span class="mf">0</span>
+<span class="mf">871234</span>
+<span class="mf">67018</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据规模与约定</h3>

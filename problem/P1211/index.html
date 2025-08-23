@@ -211,16 +211,17 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>下面是一个乘法竖式，如果用我们给定的那 $n$ 个数字来取代 <code class="hljs inline">*</code>，可以使式子成立的话，我们就叫这个式子为牛式。</p>
-<pre class="hljs"><code class="hljs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***
-&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**
-&nbsp;&nbsp; ----------
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ***
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***
-&nbsp;&nbsp; ----------
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;****</code></pre>
+<p>下面是一个乘法竖式，如果用我们给定的那 $n$ 个数字来取代 <code>*</code>，可以使式子成立的话，我们就叫这个式子为牛式。</p>
+<div class="codehilite"><pre><span></span><code><span class="w">          </span><span class="o">***</span>
+<span class="w">    </span><span class="n">x</span><span class="w">      </span><span class="o">**</span>
+<span class="w">   </span><span class="o">----------</span>
+<span class="w">         </span><span class="o">***</span>
+<span class="w">        </span><span class="o">***</span>
+<span class="w">   </span><span class="o">----------</span>
+<span class="w">        </span><span class="o">****</span>
+</code></pre></div>
 
-<p>数字只能取代 <code class="hljs inline">*</code>，当然第一位不能为 $0$，况且给定的数字里不包括 $0$。</p>
+<p>数字只能取代 <code>*</code>，当然第一位不能为 $0$，况且给定的数字里不包括 $0$。</p>
 <p>注意一下在美国的学校中教的“部分乘积”，第一部分乘积是第二个数的个位和第一个数的积，第二部分乘积是第二个数的十位和第一个数的乘积。</p>
 <p>请计算出牛式的数量。</p>
 <h2 id="_2">输入格式</h2>
@@ -231,25 +232,28 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-2 3 4 6 8</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">8</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">样例解释</h3>
-<pre class="hljs"><code class="hljs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;222
-&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22
-&nbsp;&nbsp; ----------
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 444
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;444
-&nbsp;&nbsp; ----------
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4884</code></pre>
+<div class="codehilite"><pre><span></span><code>          222
+    x      22
+   ----------
+         444
+        444
+   ----------
+        4884
+</code></pre></div>
 
 <p>不需要别的数，严格符合上图的数位情况，可以证明没有其他情况。</p>
 <p>不加入样例解释：做题人如果理解错题意会进入误区</p>
-<p>比如不用填中间的数，位数没有要求 <code class="hljs inline">34*2=68</code> 符合要求等误区。</p>
+<p>比如不用填中间的数，位数没有要求 <code>34*2=68</code> 符合要求等误区。</p>
 <h3 id="_7">数据规模</h3>
 <p>对于 $100\%$ 的数据，$1\le n \le 9$，$a_i \in [1,9] \cap \mathbb Z$ 且 $a_i$ 不重复。</p>
 <p>题目翻译来自NOCOW。</p>

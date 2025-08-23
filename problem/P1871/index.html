@@ -215,39 +215,40 @@
 <p>随着科学家们的研究发现，第 $i$ 台对撞机启动是安全的，当且仅当其他已经启动的对撞机的标识数都跟这台对撞机标识数互质。（例如假设前面启动的对撞机标识数是 $j$，如果 $i$ 能启动，那么 $i,j$ 互质，即 $\gcd(i,j) = 1$）。如果两台对撞机的标识数不为互质数就启动，那么就会发生爆炸事故。</p>
 <p>基于前面的研究，科学家们准备做各种启动和关闭对撞机的实验。为了确保科学家们的生命安全，你要设计一个远程遥控的软件。</p>
 <p>刚开始，所有的对撞机都是关闭状态。你的程序将会收到许多询问，格式为“启动、关闭第 $i$ 台对撞机”。这个程序应该能处理这些询问（根据收到询问的先后顺序处理）。程序按照如下的格式输出处理结果。</p>
-<p>如果询问为 <code class="hljs inline">+ i</code>（表示启动第 $i$ 台对撞机），程序应该按照下面三种情况之一输出结果。</p>
+<p>如果询问为 <code>+ i</code>（表示启动第 $i$ 台对撞机），程序应该按照下面三种情况之一输出结果。</p>
 <ul>
-<li><code class="hljs inline">Success</code>，表示启动第 $i$ 台是安全的。</li>
-<li><code class="hljs inline">Already on</code>，表示第 $i$ 台在询问之前就已经启动了。</li>
-<li><code class="hljs inline">Conflict with j</code>，表示第 $i$ 台与前面已经启动的第 $j$ 台冲突。如果前面有多台对撞机跟 $i$ 冲突，那么只输出其中任何一台即可。</li>
+<li><code>Success</code>，表示启动第 $i$ 台是安全的。</li>
+<li><code>Already on</code>，表示第 $i$ 台在询问之前就已经启动了。</li>
+<li><code>Conflict with j</code>，表示第 $i$ 台与前面已经启动的第 $j$ 台冲突。如果前面有多台对撞机跟 $i$ 冲突，那么只输出其中任何一台即可。</li>
 </ul>
-<p>如果询问为 <code class="hljs inline">- i</code>（表示关闭第 $i$ 台对撞机），程序应该按照下面两种情况之一输出结果。</p>
+<p>如果询问为 <code>- i</code>（表示关闭第 $i$ 台对撞机），程序应该按照下面两种情况之一输出结果。</p>
 <ul>
-<li><code class="hljs inline">Success</code>，表示关闭第 $i$ 台对撞机。</li>
-<li><code class="hljs inline">Already off</code>，表示第 $i$ 台对撞机在询问之前就已经关闭了。</li>
+<li><code>Success</code>，表示关闭第 $i$ 台对撞机。</li>
+<li><code>Already off</code>，表示第 $i$ 台对撞机在询问之前就已经关闭了。</li>
 </ul>
 <h2 id="_2">输入格式</h2>
 <p>第一行输入两个以空格隔开的整数 $n$ 和 $m$，分别表示对撞机的数量和询问数。</p>
-<p>接下来 $m$ 行，表示询问，每行仅可能是 <code class="hljs inline">+ i</code> 或 <code class="hljs inline">- i</code>，表示开启或关闭第 $i$ 台对撞机。</p>
+<p>接下来 $m$ 行，表示询问，每行仅可能是 <code>+ i</code> 或 <code>- i</code>，表示开启或关闭第 $i$ 台对撞机。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出 $m$ 行，输出结果按照上面题目给定格式输出。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">10 10 
-+ 6
-+ 10
-+ 5
-- 10
-- 5
-- 6
-+ 10 
-+ 3
-+ 6
-+ 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span>
+<span class="o">+</span><span class="w"> </span><span class="mf">6</span>
+<span class="o">+</span><span class="w"> </span><span class="mf">10</span>
+<span class="o">+</span><span class="w"> </span><span class="mf">5</span>
+<span class="o">-</span><span class="w"> </span><span class="mf">10</span>
+<span class="o">-</span><span class="w"> </span><span class="mf">5</span>
+<span class="o">-</span><span class="w"> </span><span class="mf">6</span>
+<span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span>
+<span class="o">+</span><span class="w"> </span><span class="mf">3</span>
+<span class="o">+</span><span class="w"> </span><span class="mf">6</span>
+<span class="o">+</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Success
+<div class="codehilite"><pre><span></span><code>Success
 Conflict with 6
 Success
 Already off
@@ -256,7 +257,8 @@ Success
 Success
 Success
 Conflict with 3
-Already on</code></pre>
+Already on
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>数据范围</strong></p>

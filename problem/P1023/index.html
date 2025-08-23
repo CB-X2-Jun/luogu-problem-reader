@@ -222,23 +222,25 @@
 <h2 id="_3">输入格式</h2>
 <p>输入的第一行为政府对某种商品的预期价；</p>
 <p>第二行有两个整数，第一个整数为商品成本，第二个整数为以成本价销售时的销售量；</p>
-<p>接下来若干行，每行都有两个整数，第一个为某价位时的单价，第二个为此时的销量，以一行 <code class="hljs inline">-1 -1</code> 表示所有已知价位及对应的销量输入完毕；</p>
+<p>接下来若干行，每行都有两个整数，第一个为某价位时的单价，第二个为此时的销量，以一行 <code>-1 -1</code> 表示所有已知价位及对应的销量输入完毕；</p>
 <p>输入的最后一行为一个单独的整数表示在已知的最高单价外每升高一块钱将减少的销量。</p>
 <h2 id="_4">输出格式</h2>
 <p>输出有两种情况：若在政府预期价上能得到最大总利润，则输出一个单独的整数，数的正负表示是补贴还是收税，数的大小表示补贴或收税的金额最小值。若有多解，取绝对值最小的输出。</p>
-<p>如在政府预期价上不能得到最大总利润，则输出 <code class="hljs inline">NO SOLUTION</code>。</p>
+<p>如在政府预期价上不能得到最大总利润，则输出 <code>NO SOLUTION</code>。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">31
-28 130
-30 120
-31 110
--1&nbsp;&nbsp;-1
-15</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">31</span>
+<span class="mf">28</span><span class="w"> </span><span class="mf">130</span>
+<span class="mf">30</span><span class="w"> </span><span class="mf">120</span>
+<span class="mf">31</span><span class="w"> </span><span class="mf">110</span>
+<span class="o">-</span><span class="mf">1</span><span class="w">  </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">15</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="_7">数据范围及约定</h3>

@@ -214,18 +214,19 @@
 <p>一天，Bessie 望着远处的山脉，在思考：“哪一座山最宽呢？”</p>
 <p>Bessie 设法测量了 $N$ 个位置的高度 $h_i$（$1 \leq N \leq 10^4$，$1 \leq h_i \leq 10^9$）。一座山被定义为一个高度先不下降，后不上升的子序列。视野边缘的山脉也只会增加或减少高度。一座山的宽度被定义为这座山包含的位置数量。</p>
 <p>下面是一个例子：</p>
-<pre class="hljs"><code class="hljs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *******&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*********&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ***
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**********&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *****
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***********&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *********&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *
-*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*****************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ***********&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *** *
-**&nbsp;&nbsp;&nbsp;&nbsp;*******************&nbsp;&nbsp;&nbsp;&nbsp; *************&nbsp;&nbsp; * *&nbsp;&nbsp;&nbsp;&nbsp; *******&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
-**********************************************************************
+<div class="codehilite"><pre><span></span><code>           *******                   <span class="gs">*</span>
+<span class="gs">          *</span>********                 ***
+          **********               *****
+          ***********           *********               <span class="gs">*</span>
+<span class="gs">*</span>      *****************       ***********             *** <span class="gs">*</span>
+<span class="gs">*</span>*    *******************     *************   <span class="gs">* *</span>     *******      <span class="gs">*</span>
+<span class="gs">*</span>*********************************************************************
 3211112333677777776543332111112344456765432111212111112343232111111211
-aaaaaa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ccccccccccccccccccccc eeeeeee&nbsp;&nbsp;&nbsp;&nbsp;ggggggggg
-&nbsp;&nbsp;bbbbbbbbbbbbbbbbbbbbbbbbbbbb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ddddd ffffffffff&nbsp;&nbsp;hhhhhhhhh</code></pre>
+aaaaaa                   ccccccccccccccccccccc eeeeeee    ggggggggg
+  bbbbbbbbbbbbbbbbbbbbbbbbbbbb             ddddd ffffffffff  hhhhhhhhh
+</code></pre></div>
 
-<p>每座山都已经用字母标出来了。这里 <code class="hljs inline">b</code> 山脉的宽度最大，为 $28$。</p>
+<p>每座山都已经用字母标出来了。这里 <code>b</code> 山脉的宽度最大，为 $28$。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个整数 $N$。</p>
 <p>接下来 $N$ 行，每行一个整数 $h_i$。</p>
@@ -234,17 +235,19 @@ aaaaaa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">7
-3
-2
-3
-5
-4
-1
-6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+<span class="mf">3</span>
+<span class="mf">2</span>
+<span class="mf">3</span>
+<span class="mf">5</span>
+<span class="mf">4</span>
+<span class="mf">1</span>
+<span class="mf">6</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>【样例说明】</strong></p>

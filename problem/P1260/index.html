@@ -217,38 +217,42 @@
 <h2 id="_2">输入格式</h2>
 <p>第一行是用空格隔开的两个正整数 $n$ 和 $m$，下面的 $m$ 行每行有三个用空格隔开的整数 $i,j,b$ 对应着不等式 $T_i-T_j≤b$。</p>
 <h2 id="_3">输出格式</h2>
-<p>如果有可行的方案，那么输出 $n$ 行，每行都有一个非负整数且至少有一个为 $0$，按顺序表示每个任务的起始时间。如果没有可行的方案，就输出信息 <code class="hljs inline">NO SOLUTION</code>。</p>
+<p>如果有可行的方案，那么输出 $n$ 行，每行都有一个非负整数且至少有一个为 $0$，按顺序表示每个任务的起始时间。如果没有可行的方案，就输出信息 <code>NO SOLUTION</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 8
-1 2 0
-1 5 -1
-2 5 1
-3 1 5
-4 1 4
-4 3 -1
-5 3 -1
-5 4 -3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">8</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="o">-</span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">0
-2
-5
-4
-1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span>
+<span class="mf">2</span>
+<span class="mf">5</span>
+<span class="mf">4</span>
+<span class="mf">1</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">5 5
-1 2 -3
-1 5 -1
-2 5 -1
-5 1 -5
-4 1 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">NO SOLUTION</code></pre>
+<div class="codehilite"><pre><span></span><code>NO SOLUTION
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>由@zhouyonglong提供SPJ</p>

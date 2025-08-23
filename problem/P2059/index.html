@@ -213,9 +213,9 @@
               <h2 id="_1">题目描述</h2>
 <p>$N$ 个人坐成一圈玩游戏。一开始我们把所有玩家按顺时针从 $1$ 到 $N$ 编号。首先第一回合是玩家 $1$ 作为庄家。每个回合庄家都会随机（即按相等的概率）从卡牌堆里选择一张卡片，假设卡片上的数字为 $X$，则庄家首先把卡片上的数字向所有玩家展示，然后按顺时针从庄家位置数第 $X$ 个人将被处决(即退出游戏)。然后卡片将会被放回卡牌堆里并重新洗牌。被处决的人按顺时针的下一个人将会作为下一轮的庄家。那么经过 $N-1$ 轮后最后只会剩下一个人，即为本次游戏的胜者。现在你预先知道了总共有 $M$ 张卡片，也知道每张卡片上的数字。现在你需要确定每个玩家胜出的概率。</p>
 <p>这里有一个简单的例子：</p>
-<p>例如一共有 $4$ 个玩家，有四张卡片分别写着<code class="hljs inline">3,4,5,6</code>.</p>
-<p>第一回合，庄家是玩家 $1$ ，假设他选择了一张写着数字 $5$ 的卡片。那么按顺时针数 <code class="hljs inline">1,2,3,4,1</code>，最后玩家 $1$ 被踢出游戏。</p>
-<p>第二回合，庄家就是玩家 $1$ 的下一个人，即玩家 $2$.假设玩家 $2$ 这次选择了一张数字 $6$，那么 <code class="hljs inline">2,3,4,2,3,4</code>，玩家 $4$ 被踢出游戏。</p>
+<p>例如一共有 $4$ 个玩家，有四张卡片分别写着<code>3,4,5,6</code>.</p>
+<p>第一回合，庄家是玩家 $1$ ，假设他选择了一张写着数字 $5$ 的卡片。那么按顺时针数 <code>1,2,3,4,1</code>，最后玩家 $1$ 被踢出游戏。</p>
+<p>第二回合，庄家就是玩家 $1$ 的下一个人，即玩家 $2$.假设玩家 $2$ 这次选择了一张数字 $6$，那么 <code>2,3,4,2,3,4</code>，玩家 $4$ 被踢出游戏。</p>
 <p>第三回合，玩家 $2$ 再一次成为庄家。如果这一次玩家 $2$ 再次选了 $6$，则玩家 $3$ 被踢出游戏，最后的胜者就是玩家 $2$。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包括两个整数 $N,M$ 分别表示玩家个数和卡牌总数。</p>
@@ -225,19 +225,23 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5
-2 3 5 7 11</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">11</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">22.72% 17.12% 15.36% 25.44% 19.36%</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">22.72</span><span class="err">%</span><span class="w"> </span><span class="mf">17.12</span><span class="err">%</span><span class="w"> </span><span class="mf">15.36</span><span class="err">%</span><span class="w"> </span><span class="mf">25.44</span><span class="err">%</span><span class="w"> </span><span class="mf">19.36</span><span class="err">%</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">4 4
-3 4 5 6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">25.00% 25.00% 25.00% 25.00%</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">25.00</span><span class="err">%</span><span class="w"> </span><span class="mf">25.00</span><span class="err">%</span><span class="w"> </span><span class="mf">25.00</span><span class="err">%</span><span class="w"> </span><span class="mf">25.00</span><span class="err">%</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $30\%$ 的数据，有 $1\le N\le 10$。</p>

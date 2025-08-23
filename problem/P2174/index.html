@@ -216,19 +216,19 @@
 <p>你需要维护一个可重集，支持五种操作：</p>
 <ul>
 <li>
-<p><code class="hljs inline">D x</code> 表示删除 $x$，保证 $x$ 一定存在。若有多个只用删除一个。</p>
+<p><code>D x</code> 表示删除 $x$，保证 $x$ 一定存在。若有多个只用删除一个。</p>
 </li>
 <li>
-<p><code class="hljs inline">B</code> 询问集合中最大值。</p>
+<p><code>B</code> 询问集合中最大值。</p>
 </li>
 <li>
-<p><code class="hljs inline">S</code> 询问集合中最小值。</p>
+<p><code>S</code> 询问集合中最小值。</p>
 </li>
 <li>
-<p><code class="hljs inline">M</code> 设集合中最大值为 $a$，最小值为 $b$，询问 $a^b \bmod 317847191$。</p>
+<p><code>M</code> 设集合中最大值为 $a$，最小值为 $b$，询问 $a^b \bmod 317847191$。</p>
 </li>
 <li>
-<p><code class="hljs inline">T</code> 询问数列中所有数的乘积，对 $317847191$ 取模。</p>
+<p><code>T</code> 询问数列中所有数的乘积，对 $317847191$ 取模。</p>
 </li>
 </ul>
 <p>对于所有询问保证集合非空。</p>
@@ -241,21 +241,23 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 6
-2 6 9
-M
-D 9
-B
-S
-M
-T</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">6</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">9</span>
+<span class="n">M</span>
+<span class="n">D</span><span class="w"> </span><span class="mf">9</span>
+<span class="n">B</span>
+<span class="n">S</span>
+<span class="n">M</span>
+<span class="n">T</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">81
-6
-2
-36
-12</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">81</span>
+<span class="mf">6</span>
+<span class="mf">2</span>
+<span class="mf">36</span>
+<span class="mf">12</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>【数据规模】<br />

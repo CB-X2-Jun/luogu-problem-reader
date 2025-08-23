@@ -221,35 +221,37 @@
 <p>输入第一行为正整数 $k$，表示丘比特之箭的射程。</p>
 <p>第二行为正整数 $n$。</p>
 <p>随后有 $2 \times n$ 行，表示丘比特选中的人的信息，其中前 $n$ 行为男子，后 $n$ 行为女子。</p>
-<p>每个人的信息由两部分组成：他的姓名和他的位置。姓名是长度小于 $20$ 且仅包含字母的字符串，忽略大小写的区别，位置是由一对整数表示的坐标，它们之间用空格分隔。格式为 <code>&lt;code class="hljs inline"&gt;x y Name&lt;/code&gt;</code>。</p>
-<p>输入文件剩下的部分描述了这些人的缘分。每一行的格式为 <code>&lt;code class="hljs inline"&gt;Name1 Name2 p&lt;/code&gt;</code>。</p>
-<p><code class="hljs inline">Name1</code> 和 <code class="hljs inline">Name2</code> 为有缘人的姓名，$p$ 是他们之间的缘分值（$p$ 为小于等于 $255$ 的正整数）。</p>
-<p>以一个 <code>&lt;code class="hljs inline"&gt;End&lt;/code&gt;</code> 作为文件结束标志。</p>
+<p>每个人的信息由两部分组成：他的姓名和他的位置。姓名是长度小于 $20$ 且仅包含字母的字符串，忽略大小写的区别，位置是由一对整数表示的坐标，它们之间用空格分隔。格式为 <code>x y Name</code>。</p>
+<p>输入文件剩下的部分描述了这些人的缘分。每一行的格式为 <code>Name1 Name2 p</code>。</p>
+<p><code>Name1</code> 和 <code>Name2</code> 为有缘人的姓名，$p$ 是他们之间的缘分值（$p$ 为小于等于 $255$ 的正整数）。</p>
+<p>以一个 <code>End</code> 作为文件结束标志。</p>
 <p>每两个人之间的缘分至多只被描述一次。如果没有被描述，则说明他们缘分值为 $1$。</p>
 <h2 id="_4">输出格式</h2>
 <p>输出仅一个正整数，表示每一对被射中的人之间的缘分的总和。这个和应当是最大的。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2
-3
-0 0 Adam
-1 1 Jack
-0 2 George
-1 0 Victoria
-0 1 Susan
-1 2 Cathy
-Adam Cathy 100
-Susan George 20
-George Cathy 40
-Jack Susan 5
-Cathy Jack 30
-Victoria Jack 20
-Adam Victoria 15
-End</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">3</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="n">Adam</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="n">Jack</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">George</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="n">Victoria</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="n">Susan</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">Cathy</span>
+<span class="n">Adam</span><span class="w"> </span><span class="n">Cathy</span><span class="w"> </span><span class="mf">100</span>
+<span class="n">Susan</span><span class="w"> </span><span class="n">George</span><span class="w"> </span><span class="mf">20</span>
+<span class="n">George</span><span class="w"> </span><span class="n">Cathy</span><span class="w"> </span><span class="mf">40</span>
+<span class="n">Jack</span><span class="w"> </span><span class="n">Susan</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">Cathy</span><span class="w"> </span><span class="n">Jack</span><span class="w"> </span><span class="mf">30</span>
+<span class="n">Victoria</span><span class="w"> </span><span class="n">Jack</span><span class="w"> </span><span class="mf">20</span>
+<span class="n">Adam</span><span class="w"> </span><span class="n">Victoria</span><span class="w"> </span><span class="mf">15</span>
+<span class="kr">End</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">65</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">65</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>$1\le n\le 30$。</p>

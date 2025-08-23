@@ -222,18 +222,18 @@
 <p>题目中只会用到以下这些英文单词：</p>
 </li>
 </ol>
-<p><code class="hljs inline">negative, zero, one, two, three, four, five, six, seven, eight, nine, ten</code></p>
-<p><code class="hljs inline">eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty</code></p>
-<p><code class="hljs inline">thirty, forty, fifty, sixty, seventy, eighty, ninety, hundred, thousand, million</code></p>
-<ol start="3">
+<p><code>negative, zero, one, two, three, four, five, six, seven, eight, nine, ten</code></p>
+<p><code>eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty</code></p>
+<p><code>thirty, forty, fifty, sixty, seventy, eighty, ninety, hundred, thousand, million</code></p>
+<ol>
 <li>
-<p>若 $x$ 为负数，题目中第一个单词是 <code class="hljs inline">negative</code>，否则任何时候都不会出现 <code class="hljs inline">negative</code> 这个词。</p>
+<p>若 $x$ 为负数，题目中第一个单词是 <code>negative</code>，否则任何时候都不会出现 <code>negative</code> 这个词。</p>
 </li>
 <li>
-<p>由于小 Z 很牛 B，他不知道像 $103$ 这样的数字要写成 <code class="hljs inline">one hundred and three</code> 而是直接写成了 <code class="hljs inline">one hundred three</code>，就是说小 Z 的所有题目中都没有写 <code class="hljs inline">and</code> 这个词（尽管本应该是要写的），请你谅解。</p>
+<p>由于小 Z 很牛 B，他不知道像 $103$ 这样的数字要写成 <code>one hundred and three</code> 而是直接写成了 <code>one hundred three</code>，就是说小 Z 的所有题目中都没有写 <code>and</code> 这个词（尽管本应该是要写的），请你谅解。</p>
 </li>
 <li>
-<p>除了第 4 点， 其他还是基本符合英语的语法规则的， 比如 $1500$ 他会写成 <code class="hljs inline">one thousand five hundred</code> 而不会写成 <code class="hljs inline">fifteen hundred</code>。</p>
+<p>除了第 4 点， 其他还是基本符合英语的语法规则的， 比如 $1500$ 他会写成 <code>one thousand five hundred</code> 而不会写成 <code>fifteen hundred</code>。</p>
 </li>
 </ol>
 <p>小 D 拿到题目后不屑地说了一句：水题！写个程序么好了……</p>
@@ -245,31 +245,39 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">six</code></pre>
+<div class="codehilite"><pre><span></span><code>six
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">negative seven hundred twenty nine</code></pre>
+<div class="codehilite"><pre><span></span><code>negative seven hundred twenty nine
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">-729</code></pre>
+<div class="codehilite"><pre><span></span><code>-729
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="hljs"><code class="hljs">one million one hundred one</code></pre>
+<div class="codehilite"><pre><span></span><code>one million one hundred one
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="hljs"><code class="hljs">1000101</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1000101</span>
+</code></pre></div>
 
 <h3 id="4">样例 #4</h3>
 <h4 id="4_1">样例输入 #4</h4>
-<pre class="hljs"><code class="hljs">eight hundred fourteen thousand twenty two</code></pre>
+<div class="codehilite"><pre><span></span><code>eight hundred fourteen thousand twenty two
+</code></pre></div>
 
 <h4 id="4_2">样例输出 #4</h4>
-<pre class="hljs"><code class="hljs">814022</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">814022</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$-999,999,999 ≤ x ≤ 999,999,999$。</p>

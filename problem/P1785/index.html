@@ -216,11 +216,11 @@
 <h2 id="_2">题目描述</h2>
 <p>别说这是个巧合，这类绝杀还真不少。</p>
 <p>现在假设 Boss 还剩下的血为 $x$，absi2011 的企鹅剩 $y$ 血，它拿出的武器的伤害最高是 $z$。它的武器有几率连击。</p>
-<p>他问你有无可能绝杀（可连击）。如果能，请先输出一行 <code class="hljs inline">Yes</code>，否则输出 <code class="hljs inline">No</code>。如果他给你的数据是错的，请输出 <code class="hljs inline">Wrong Data</code>。</p>
+<p>他问你有无可能绝杀（可连击）。如果能，请先输出一行 <code>Yes</code>，否则输出 <code>No</code>。如果他给你的数据是错的，请输出 <code>Wrong Data</code>。</p>
 <p>数据有这么几种情况算错：$y\leq 0$ 或 $y&gt;315$ 或 $y\geq x$ 或    $x&gt;1800$（当前斗神塔 Boss 好像没有超过 $1800$ 血的）或 $z\geq 1000$（红缨枪+天马流星拳+会心一击+残影+武器好手好像都达不到）或 $z\leq 100$（absi2011 认为小于等于 $100$ 就不算绝杀了）。</p>
-<p>（输出 <code class="hljs inline">Yes</code> 后）接下来，他还想问绝杀（就算最高伤害后）如果触发他的 $3$ 星嗜血 / $4$ 星嗜血 / $5$ 星吸星大法各能不能完胜。三星每次的嗜血嗜血量为 $33\%\times$ 伤害（下取整），四星每次的嗜血嗜血量为 $50\%\times$ 伤害（下取整），五星吸星大法嗜血量为 $100\%\times$ 伤害（这还真不用下取整）。两次要分开算。如果超过血上限就不再回血了。</p>
-<p>如果三星能就输出一行 <code class="hljs inline">Great</code>，四星能就输出一行 <code class="hljs inline">Eh..</code> 和一行 <code class="hljs inline">OK</code>，五星能就输出两行 <code class="hljs inline">Oh..</code> 和一行 <code class="hljs inline">Yes , If he can get 5-star.</code>。</p>
-<p>如果都不行，那么输出三行 <code class="hljs inline">No</code> 和他 $4$ 星嗜血后的血量。</p>
+<p>（输出 <code>Yes</code> 后）接下来，他还想问绝杀（就算最高伤害后）如果触发他的 $3$ 星嗜血 / $4$ 星嗜血 / $5$ 星吸星大法各能不能完胜。三星每次的嗜血嗜血量为 $33\%\times$ 伤害（下取整），四星每次的嗜血嗜血量为 $50\%\times$ 伤害（下取整），五星吸星大法嗜血量为 $100\%\times$ 伤害（这还真不用下取整）。两次要分开算。如果超过血上限就不再回血了。</p>
+<p>如果三星能就输出一行 <code>Great</code>，四星能就输出一行 <code>Eh..</code> 和一行 <code>OK</code>，五星能就输出两行 <code>Oh..</code> 和一行 <code>Yes , If he can get 5-star.</code>。</p>
+<p>如果都不行，那么输出三行 <code>No</code> 和他 $4$ 星嗜血后的血量。</p>
 <p>注意，有可能打一下 Boss 就死了，那么不能连击嗜血了。只能算打死 Boss 那下的嗜血。</p>
 <p>Boss 死掉当且仅当 Boss 血 $\leq 0$（其实 $&lt;0$ 会自动当成 $0$）。</p>
 <h2 id="_3">输入格式</h2>
@@ -230,27 +230,31 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">392 4 343</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">392</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">343</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Yes
+<div class="codehilite"><pre><span></span><code>Yes
 Eh..
-OK</code></pre>
+OK
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">392 1 101</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">392</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">101</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">No</code></pre>
+<div class="codehilite"><pre><span></span><code>No
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="_7">提示</h3>
 <p>Boss 死掉当且仅当 Boss 血 $ \le 0$（其实 $&lt;0$ 会自动当成 $=0$）</p>
 <h3 id="_8">数据规模</h3>
-<p>对于 $30\%$ 的数据，保证结果为 <code class="hljs inline">Wrong Data</code> 或 <code class="hljs inline">No</code> 或 <code class="hljs inline">Yes</code>（回车）<code class="hljs inline">Great</code>。</p>
-<p>对于另外 $30\%$ 的数据，保证结果不为 <code class="hljs inline">Wrong Data</code>。</p>
-<p>对于 $100\%$ 的数据，保证 $-10000\leq x\leq 10000,-10000\leq y\leq 10000,-10000\leq z\leq 10000$，即使 <code class="hljs inline">Wrong Data</code> 了</p>
+<p>对于 $30\%$ 的数据，保证结果为 <code>Wrong Data</code> 或 <code>No</code> 或 <code>Yes</code>（回车）<code>Great</code>。</p>
+<p>对于另外 $30\%$ 的数据，保证结果不为 <code>Wrong Data</code>。</p>
+<p>对于 $100\%$ 的数据，保证 $-10000\leq x\leq 10000,-10000\leq y\leq 10000,-10000\leq z\leq 10000$，即使 <code>Wrong Data</code> 了</p>
 <h3 id="_9">题目来源</h3>
 <p>fight.pet.qq.com</p>
 <p>absi2011 授权原创题目。</p>

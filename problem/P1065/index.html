@@ -212,8 +212,8 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>我们现在要利用 $m$ 台机器加工 $n$ 个工件，每个工件都有 $m$ 道工序，每道工序都在不同的指定的机器上完成。每个工件的每道工序都有指定的加工时间。</p>
-<p>每个工件的每个工序称为一个操作，我们用记号 <code class="hljs inline">j-k</code> 表示一个操作，其中 $j$ 为 $1$ 到 $n$ 中的某个数字，为工件号；$k$ 为 $1$ 到 $m$ 中的某个数字，为工序号，例如 <code class="hljs inline">2-4</code> 表示第 $2$ 个工件第 $4$ 道工序的这个操作。在本题中，我们还给定对于各操作的一个安排顺序。</p>
-<p>例如，当 $n=3,m=2$ 时，<code class="hljs inline">1-1,1-2,2-1,3-1,3-2,2-2</code> 就是一个给定的安排顺序，即先安排第 $1$ 个工件的第 $1$ 个工序，再安排第 $1$ 个工件的第 $2$ 个工序，然后再安排第 $2$ 个工件的第 $1$ 个工序，等等。</p>
+<p>每个工件的每个工序称为一个操作，我们用记号 <code>j-k</code> 表示一个操作，其中 $j$ 为 $1$ 到 $n$ 中的某个数字，为工件号；$k$ 为 $1$ 到 $m$ 中的某个数字，为工序号，例如 <code>2-4</code> 表示第 $2$ 个工件第 $4$ 道工序的这个操作。在本题中，我们还给定对于各操作的一个安排顺序。</p>
+<p>例如，当 $n=3,m=2$ 时，<code>1-1,1-2,2-1,3-1,3-2,2-2</code> 就是一个给定的安排顺序，即先安排第 $1$ 个工件的第 $1$ 个工序，再安排第 $1$ 个工件的第 $2$ 个工序，然后再安排第 $2$ 个工件的第 $1$ 个工序，等等。</p>
 <p>一方面，每个操作的安排都要满足以下的两个约束条件。</p>
 <ol>
 <li>
@@ -224,7 +224,7 @@
 </li>
 </ol>
 <p>另一方面，在安排后面的操作时，不能改动前面已安排的操作的工作状态。</p>
-<p>由于同一工件都是按工序的顺序安排的，因此，只按原顺序给出工件号，仍可得到同样的安排顺序，于是，在输入数据中，我们将这个安排顺序简写为 <code class="hljs inline">1 1 2 3 3 2</code>。</p>
+<p>由于同一工件都是按工序的顺序安排的，因此，只按原顺序给出工件号，仍可得到同样的安排顺序，于是，在输入数据中，我们将这个安排顺序简写为 <code>1 1 2 3 3 2</code>。</p>
 <p>还要注意，“安排顺序”只要求按照给定的顺序安排每个操作。不一定是各机器上的实际操作顺序。在具体实施时，有可能排在后面的某个操作比前面的某个操作先完成。</p>
 <p>例如，取 $n=3,m=2$，已知数据如下（机器号/加工时间）：</p>
 <table>
@@ -253,7 +253,7 @@
 </tr>
 </tbody>
 </table>
-<p>则对于安排顺序 <code class="hljs inline">1 1 2 3 3 2</code>，下图中的两个实施方案都是正确的。但所需要的总时间分别是 $10$ 与 $12$。</p>
+<p>则对于安排顺序 <code>1 1 2 3 3 2</code>，下图中的两个实施方案都是正确的。但所需要的总时间分别是 $10$ 与 $12$。</p>
 <p>方案 1，用时 $10$：</p>
 <table>
 <thead>
@@ -274,29 +274,29 @@
 <tbody>
 <tr>
 <td style="text-align: center;">机器 1 执行工序</td>
-<td style="text-align: center;"><code class="hljs inline">1-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">1-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">1-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
+<td style="text-align: center;"><code>1-1</code></td>
+<td style="text-align: center;"><code>1-1</code></td>
+<td style="text-align: center;"><code>1-1</code></td>
+<td style="text-align: center;"><code>2-1</code></td>
+<td style="text-align: center;"><code>2-1</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
 <td style="text-align: center;">无</td>
 </tr>
 <tr>
 <td style="text-align: center;">机器 2 执行工序</td>
-<td style="text-align: center;"><code class="hljs inline">3-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-1</code></td>
+<td style="text-align: center;"><code>3-1</code></td>
+<td style="text-align: center;"><code>3-1</code></td>
 <td style="text-align: center;">无</td>
-<td style="text-align: center;"><code class="hljs inline">1-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">1-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
+<td style="text-align: center;"><code>1-2</code></td>
+<td style="text-align: center;"><code>1-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
 </tr>
 </tbody>
 </table>
@@ -322,17 +322,17 @@
 <tbody>
 <tr>
 <td style="text-align: center;">机器 1 执行工序</td>
-<td style="text-align: center;"><code class="hljs inline">1-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">1-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">1-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-1</code></td>
+<td style="text-align: center;"><code>1-1</code></td>
+<td style="text-align: center;"><code>1-1</code></td>
+<td style="text-align: center;"><code>1-1</code></td>
+<td style="text-align: center;"><code>2-1</code></td>
+<td style="text-align: center;"><code>2-1</code></td>
 <td style="text-align: center;">无</td>
 <td style="text-align: center;">无</td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
+<td style="text-align: center;"><code>3-2</code></td>
 <td style="text-align: center;">无</td>
 </tr>
 <tr>
@@ -340,15 +340,15 @@
 <td style="text-align: center;">无</td>
 <td style="text-align: center;">无</td>
 <td style="text-align: center;">无</td>
-<td style="text-align: center;"><code class="hljs inline">1-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">1-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">3-1</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
-<td style="text-align: center;"><code class="hljs inline">2-2</code></td>
+<td style="text-align: center;"><code>1-2</code></td>
+<td style="text-align: center;"><code>1-2</code></td>
+<td style="text-align: center;"><code>3-1</code></td>
+<td style="text-align: center;"><code>3-1</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
+<td style="text-align: center;"><code>2-2</code></td>
 </tr>
 </tbody>
 </table>
@@ -367,17 +367,19 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2 3
-1 1 2 3 3 2
-1 2 
-1 2 
-2 1
-3 2 
-2 5 
-2 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">10</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>NOIP 2006 提高组 第三题</p>

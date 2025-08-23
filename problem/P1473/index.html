@@ -212,24 +212,26 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>请考虑一个由 $1$ 到 $N$ 的数字组成的递增数列：$1, 2, 3, \ldots, N$。</p>
-<p>现在请在数列中插入 <code class="hljs inline">+</code> 表示加，或者 <code class="hljs inline">-</code> 表示减，<code class="hljs inline"> </code>（空格） 表示空白（例如 <code class="hljs inline">1-2 3</code> 就等于 <code class="hljs inline">1-23</code>），来将每一对数字组合在一起（请不要在第一个数字前插入符号）。</p>
+<p>现在请在数列中插入 <code>+</code> 表示加，或者 <code>-</code> 表示减，<code></code>（空格） 表示空白（例如 <code>1-2 3</code> 就等于 <code>1-23</code>），来将每一对数字组合在一起（请不要在第一个数字前插入符号）。</p>
 <p>计算该表达式的结果并判断其值是否为 $0$。 请你写一个程序找出所有产生和为零的长度为N的数列。</p>
 <h2 id="_2">输入格式</h2>
 <p>单独的一行表示整数 $N$（$3 \leq N \leq 9$）。</p>
 <h2 id="_3">输出格式</h2>
-<p>按照 ASCI I码的顺序，输出所有在每对数字间插入 <code class="hljs inline">+</code>，<code class="hljs inline">-</code>，<code class="hljs inline"> </code>（空格） 后能得到结果为零的数列。</p>
+<p>按照 ASCI I码的顺序，输出所有在每对数字间插入 <code>+</code>，<code>-</code>，<code></code>（空格） 后能得到结果为零的数列。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">7</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1+2-3+4-5-6+7
-1+2-3-4+5+6-7
-1-2 3+4+5+6+7
-1-2 3-4 5+6 7
-1-2+3+4-5+6-7
-1-2-3-4-5+6+7</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="o">+</span><span class="mf">2</span><span class="o">-</span><span class="mf">3</span><span class="o">+</span><span class="mf">4</span><span class="o">-</span><span class="mf">5</span><span class="o">-</span><span class="mf">6</span><span class="o">+</span><span class="mf">7</span>
+<span class="mf">1</span><span class="o">+</span><span class="mf">2</span><span class="o">-</span><span class="mf">3</span><span class="o">-</span><span class="mf">4</span><span class="o">+</span><span class="mf">5</span><span class="o">+</span><span class="mf">6</span><span class="o">-</span><span class="mf">7</span>
+<span class="mf">1</span><span class="o">-</span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="o">+</span><span class="mf">4</span><span class="o">+</span><span class="mf">5</span><span class="o">+</span><span class="mf">6</span><span class="o">+</span><span class="mf">7</span>
+<span class="mf">1</span><span class="o">-</span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="o">-</span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="o">+</span><span class="mf">6</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">1</span><span class="o">-</span><span class="mf">2</span><span class="o">+</span><span class="mf">3</span><span class="o">+</span><span class="mf">4</span><span class="o">-</span><span class="mf">5</span><span class="o">+</span><span class="mf">6</span><span class="o">-</span><span class="mf">7</span>
+<span class="mf">1</span><span class="o">-</span><span class="mf">2</span><span class="o">-</span><span class="mf">3</span><span class="o">-</span><span class="mf">4</span><span class="o">-</span><span class="mf">5</span><span class="o">+</span><span class="mf">6</span><span class="o">+</span><span class="mf">7</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>翻译来自NOCOW</p>

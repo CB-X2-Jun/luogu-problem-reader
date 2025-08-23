@@ -214,11 +214,12 @@
 <p>无</p>
 <h2 id="_2">题目描述</h2>
 <p>在一个凹槽中放置了 $n$ 层砖块、最上面的一层有 $n$ 块砖，从上到下每层依次减少一块砖。每块砖都有一个分值，敲掉这块砖就能得到相应的分值，如下图所示：</p>
-<pre class="hljs"><code class="hljs">14 15&nbsp;&nbsp;4&nbsp;&nbsp;3&nbsp;&nbsp;23
- 33&nbsp;&nbsp;33 76&nbsp;&nbsp;2
-&nbsp;&nbsp; 2&nbsp;&nbsp; 13 11
-&nbsp;&nbsp;&nbsp;&nbsp; 22 23
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 31</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mi">14</span><span class="w"> </span><span class="mi">15</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">23</span>
+<span class="w"> </span><span class="mi">33</span><span class="w">  </span><span class="mi">33</span><span class="w"> </span><span class="mi">76</span><span class="w">  </span><span class="mi">2</span>
+<span class="w">   </span><span class="mi">2</span><span class="w">   </span><span class="mi">13</span><span class="w"> </span><span class="mi">11</span>
+<span class="w">     </span><span class="mi">22</span><span class="w"> </span><span class="mi">23</span>
+<span class="w">       </span><span class="mi">31</span>
+</code></pre></div>
 
 <p>如果你想敲掉第 $i$ 层的第 $j$ 块砖的话，若 $i=1$，你可以直接敲掉它；若 $i&gt;1$，则你必须先敲掉第 $i-1$ 层的第 $j$ 和第 $j+1$ 块砖。</p>
 <p>你现在可以敲掉最多 $m$ 块砖，求得分最多能有多少。</p>
@@ -230,14 +231,16 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5
-2 2 3 4
-8 2 7
-2 3
-49</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">8</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">49</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">19</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">19</span>
+</code></pre></div>
             </article>
           </div>
         </div>

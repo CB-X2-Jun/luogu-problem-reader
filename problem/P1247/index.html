@@ -231,30 +231,34 @@
 <li>A：$(0,2,3) \rightarrow (0,2,2)$。</li>
 <li>A 已将游戏归结为 $(2,2)$ 的情况，不管 P 如何取 A 都必胜。</li>
 </ul>
-<p>编一个程序，在给出初始状态之后，判断是先取必胜还是先取必败，如果是先取必胜，请输出第一次该如何取。如果是先取必败，则输出 <code class="hljs inline">lose</code>。</p>
+<p>编一个程序，在给出初始状态之后，判断是先取必胜还是先取必败，如果是先取必胜，请输出第一次该如何取。如果是先取必败，则输出 <code>lose</code>。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行，一个正整数 $k$。</p>
 <p>第二行，$k$ 个整数 $n_1,n_2,\cdots,n_k$。</p>
 <h2 id="_3">输出格式</h2>
 <p>如果是先取必胜，请在第一行输出两个整数 $a,b$，表示第一次从第 $b$ 堆取出 $a$ 个。第二行为第一次取火柴后的状态。如果有多种答案，则输出 $\lang b,a\rang$ 字典序最小的答案（ 即 $b$ 最小的前提下，使 $a$ 最小）。</p>
-<p>如果是先取必败，则输出 <code class="hljs inline">lose</code>。</p>
+<p>如果是先取必败，则输出 <code>lose</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-3 6 9</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">9</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">4 3
-3 6 5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">5</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">4
-15 22 19 10</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="mf">15</span><span class="w"> </span><span class="mf">22</span><span class="w"> </span><span class="mf">19</span><span class="w"> </span><span class="mf">10</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">lose</code></pre>
+<div class="codehilite"><pre><span></span><code>lose
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据范围及约定</h3>

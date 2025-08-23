@@ -221,14 +221,14 @@
 <p>每次询问，你需要向<strong>标准输出</strong>输出一个 $[1,10^9]$ 中的整数，<strong>然后输出一个换行并清空缓冲区</strong>。</p>
 <p>你可以使用如下语句来清空缓冲区：</p>
 <ul>
-<li>对于 C/C++：<code class="hljs inline">fflush(stdout)</code>；</li>
-<li>对于 C++：<code class="hljs inline">std::cout &lt;&lt; std::flush</code>；</li>
-<li>对于 Java：<code class="hljs inline">System.out.flush()</code>；</li>
-<li>对于 Python：<code class="hljs inline">stdout.flush()</code>；</li>
-<li>对于 Pascal：<code class="hljs inline">flush(output)</code>；</li>
+<li>对于 C/C++：<code>fflush(stdout)</code>；</li>
+<li>对于 C++：<code>std::cout &lt;&lt; std::flush</code>；</li>
+<li>对于 Java：<code>System.out.flush()</code>；</li>
+<li>对于 Python：<code>stdout.flush()</code>；</li>
+<li>对于 Pascal：<code>flush(output)</code>；</li>
 <li>对于其他语言，请自行查阅对应语言的帮助文档。</li>
 </ul>
-<p>特别的，对于 C++ 语言，在输出换行时如果你使用 <code class="hljs inline">std::endl</code> 而不是 <code class="hljs inline">'\n'</code>，也可以自动刷新缓冲区。<strong>建议使用<code class="hljs inline">std::endl</code>以避免忘记输出换行。</strong></p>
+<p>特别的，对于 C++ 语言，在输出换行时如果你使用 <code>std::endl</code> 而不是 <code>'\n'</code>，也可以自动刷新缓冲区。<strong>建议使用<code>std::endl</code>以避免忘记输出换行。</strong></p>
 <p>然后你需要从<strong>标准输入</strong>中输入一个整数，代表评测机返回的结果。</p>
 <h2 id="_2">说明/提示</h2>
 <h4 id="_3">数据规模与约定</h4>
@@ -240,25 +240,26 @@
 <p><a href="https://www.luogu.com.cn/paste/uaece7av">本题交互库</a>。</p>
 <h4 id="_4">提示</h4>
 <p>本题参考程序：</p>
-<pre class="hljs"><code class="hljs">#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
-int main() {
-&nbsp;&nbsp;for (int l = 1, r = 1000000000, mid = (l + r) &gt;&gt; 1, res; l &lt;= r; mid = (l + r) &gt;&gt; 1) {
-&nbsp;&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; mid &lt;&lt; std::endl;
-&nbsp;&nbsp;&nbsp;&nbsp;std::cin &gt;&gt; res;
-&nbsp;&nbsp;&nbsp;&nbsp;if (res == 0) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;
-&nbsp;&nbsp;&nbsp;&nbsp;} else if (res == -1) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l = mid + 1;
-&nbsp;&nbsp;&nbsp;&nbsp;} else if (res == 1) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r = mid - 1;
-&nbsp;&nbsp;&nbsp;&nbsp;} else {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts(&quot;OvO, I AK IOI&quot;); // this statement will never be executed.
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;}
-&nbsp;&nbsp;return 0;
-}</code></pre>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;OvO, I AK IOI&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// this statement will never be executed.</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
             </article>
           </div>
         </div>

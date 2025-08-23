@@ -226,10 +226,10 @@
 <p>维护一棵初始有 $n$ 个节点的有根树（根节点为 $1$），树上节点编号为 $1 \sim n$，每个点有一个权值 $w_i$，它可能会变成森林。</p>
 <p>支持以下操作：</p>
 <ul>
-<li><code class="hljs inline">0 u x</code> 询问以 $u$ 为根的子树中，严格大于 $x$ 的值的个数。</li>
-<li><code class="hljs inline">1 u x</code>  把 $u$ 节点的权值改成 $x$。</li>
-<li><code class="hljs inline">2 u x</code>  添加一个编号为“当前树中节点数+1”的节点，其父节点为 $u$，其权值为 $x$。</li>
-<li><code class="hljs inline">3 u</code> 删除 $u$ 与其父亲的边，并使 $u$ 变为其所在连通块的根。</li>
+<li><code>0 u x</code> 询问以 $u$ 为根的子树中，严格大于 $x$ 的值的个数。</li>
+<li><code>1 u x</code>  把 $u$ 节点的权值改成 $x$。</li>
+<li><code>2 u x</code>  添加一个编号为“当前树中节点数+1”的节点，其父节点为 $u$，其权值为 $x$。</li>
+<li><code>3 u</code> 删除 $u$ 与其父亲的边，并使 $u$ 变为其所在连通块的根。</li>
 </ul>
 <p><strong>本题强制在线。</strong></p>
 <p>所有输入的 $u,x$ 都需要异或 $\text{last}$ 才是真正的输入。其中 $\text{last}$ 为上一次询问的答案，定义初始 $\text{last} = 0$。</p>
@@ -244,14 +244,16 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2
-1 2
-10 20
-1
-0 1 5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">10</span><span class="w"> </span><span class="mf">20</span>
+<span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">5</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="_7">数据范围及约定</h3>

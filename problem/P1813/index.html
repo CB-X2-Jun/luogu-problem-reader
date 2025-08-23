@@ -216,21 +216,23 @@
 <h2 id="_2">输入格式</h2>
 <p>第一行 $4$ 个数，分别是 $n,m,s,t$。基地在路口 $s$，码头在路口 $t$。</p>
 <p>接下来 $m$ 行每行 $5$ 个数 $x,y,b,e,c$ 表示一条 $x$ 路口到 $y$ 路口的单行线，在 $b$ 时刻到 $e$ 时刻之间开放，需要 $c$ 的时间通过这条路（必须保证行进在路中间时，路一直开放，否则小 tim 会被捉住）。两个路口之间可能会有多条道路。一开始的时刻是 $0$（当然，你可以不用马上出发，在基地多呆一段时间）。</p>
-<p>如果不存在任何一种方案使得小 tim 能成功到达码头，输出 <code class="hljs inline">Impossible</code>。</p>
+<p>如果不存在任何一种方案使得小 tim 能成功到达码头，输出 <code>Impossible</code>。</p>
 <h2 id="_3">输出格式</h2>
 <p>一行，为小 tim 在路上停留的最短时间。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 5 1 4 
-1 2 0 1 1 
-1 2 0 1 2 
-1 3 1 3 2 
-2 4 3 4 1 
-3 4 3 4 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>【样例解释 #1】</strong></p>

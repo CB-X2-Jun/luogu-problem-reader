@@ -215,15 +215,15 @@
 <h2 id="_2">题目描述</h2>
 <p>废话少说，给你一个大数 $N$（可能大于 $4 \times 10^7$），让你进行素性判断，然后分解质因数。当然，初中数学题不可能有大于 $4 \times 10^7$ 的数让你判断素性，因此超过范围的数可以忽略不计。为了让程序更加贴心，JosephZheng 多了一些要求，会在输入输出中给出具体情况。</p>
 <h2 id="_3">输入格式</h2>
-<p>一个大数 $N$（$N$ 为非负整数），其中这个数的各个数位之间可以插入各种符号（包括负号和小数点等，它们也需要被忽略），例如 $1234$ 可以为 <code class="hljs inline">1 - 2alsdkjf3！@￥%！@@@##￥……！￥#-4</code> 等。你需要在这一长串乱码中找出这个要判断的数。</p>
+<p>一个大数 $N$（$N$ 为非负整数），其中这个数的各个数位之间可以插入各种符号（包括负号和小数点等，它们也需要被忽略），例如 $1234$ 可以为 <code>1 - 2alsdkjf3！@￥%！@@@##￥……！￥#-4</code> 等。你需要在这一长串乱码中找出这个要判断的数。</p>
 <p><strong>输入数据可能有多组，如果读到一行没有数字的字串即结束。</strong></p>
 <p>保证输入数据不超过 $100$ 组，字符串长度不超过 $1000$。</p>
 <h2 id="_4">输出格式</h2>
-<p>在读入数据之前先输出 <code class="hljs inline">Enter the number=</code>，需要换行。</p>
-<p>然后输出 <code class="hljs inline">Prime?</code>，问号后有一个空格，但不要换行。</p>
-<p>如果是质数则输出 <code class="hljs inline">Yes!</code> 否则输出 <code class="hljs inline">No!</code>。此时换行。</p>
-<p>若果是质数就 halt，若是小于 $2$ 的数则在输出 <code class="hljs inline">No!</code> 后也 halt。</p>
-<p>若是合数则分解质因数。如果该数大于 $4 \times 10^7$ 则输出 <code class="hljs inline">The number is too large!</code>，然后 halt。</p>
+<p>在读入数据之前先输出 <code>Enter the number=</code>，需要换行。</p>
+<p>然后输出 <code>Prime?</code>，问号后有一个空格，但不要换行。</p>
+<p>如果是质数则输出 <code>Yes!</code> 否则输出 <code>No!</code>。此时换行。</p>
+<p>若果是质数就 halt，若是小于 $2$ 的数则在输出 <code>No!</code> 后也 halt。</p>
+<p>若是合数则分解质因数。如果该数大于 $4 \times 10^7$ 则输出 <code>The number is too large!</code>，然后 halt。</p>
 <p>否则分解质因数。</p>
 <p>输出结果的方式在输出样例中会详细给出。</p>
 <p>每组数据之间空一行。</p>
@@ -231,59 +231,68 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4
-eed</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="n">eed</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Enter the number=
+<div class="codehilite"><pre><span></span><code>Enter the number=
 Prime? No!
 4=2^2
 
-Enter the number=</code></pre>
+Enter the number=
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">2
-end</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="kr">end</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">Enter the number=
+<div class="codehilite"><pre><span></span><code>Enter the number=
 Prime? Yes!
 
-Enter the number=</code></pre>
+Enter the number=
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="hljs"><code class="hljs">-1
-adfs</code></pre>
+<div class="codehilite"><pre><span></span><code>-1
+adfs
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="hljs"><code class="hljs">Enter the number=
+<div class="codehilite"><pre><span></span><code>Enter the number=
 Prime? No!
 
-Enter the number=</code></pre>
+Enter the number=
+</code></pre></div>
 
 <h3 id="4">样例 #4</h3>
 <h4 id="4_1">样例输入 #4</h4>
-<pre class="hljs"><code class="hljs">1234###24#@13#@￥！1
-hehe</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mi">1234</span><span class="err">###</span><span class="mi">24</span><span class="err">#</span><span class="mi">@13</span><span class="err">#</span><span class="p">@</span><span class="err">￥！</span><span class="mi">1</span>
+<span class="n">hehe</span>
+</code></pre></div>
 
 <h4 id="4_2">样例输出 #4</h4>
-<pre class="hljs"><code class="hljs">Enter the number=
+<div class="codehilite"><pre><span></span><code>Enter the number=
 Prime? No!
 The number is too large!
 
-Enter the number=</code></pre>
+Enter the number=
+</code></pre></div>
 
 <h3 id="5">样例 #5</h3>
 <h4 id="5_1">样例输入 #5</h4>
-<pre class="hljs"><code class="hljs">1.5
-1
-1234324123512343123
-@~@~@~@</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.5</span>
+<span class="mf">1</span>
+<span class="mf">1234324123512343123</span>
+<span class="err">@~@~@~@</span>
+</code></pre></div>
 
 <h4 id="5_2">样例输出 #5</h4>
-<pre class="hljs"><code class="hljs">Enter the number=
+<div class="codehilite"><pre><span></span><code>Enter the number=
 Prime? No!
 15=3^1*5^1
 
@@ -294,19 +303,22 @@ Enter the number=
 Prime? No!
 The number is too large!
 
-Enter the number=</code></pre>
+Enter the number=
+</code></pre></div>
 
 <h3 id="6">样例 #6</h3>
 <h4 id="6_1">样例输入 #6</h4>
-<pre class="hljs"><code class="hljs">12
-halt@@</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">12</span>
+<span class="n">halt</span><span class="err">@@</span>
+</code></pre></div>
 
 <h4 id="6_2">样例输出 #6</h4>
-<pre class="hljs"><code class="hljs">Enter the number=
+<div class="codehilite"><pre><span></span><code>Enter the number=
 Prime? No!
 12=2^2*3^1
 
-Enter the number=</code></pre>
+Enter the number=
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>编这道题的 JosephZheng 有些无聊，但是很考验基本功哦！仔细审题！</p>

@@ -223,23 +223,27 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 2 2
-1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">623902721</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">623902721</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">6 3 4
-1 2 3 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">480636170</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">480636170</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h3 id="_7">样例解释</h3>
-<p>样例一：为方便描述，我们定义键盘上两个按键为 <code class="hljs inline">a</code> 和 <code class="hljs inline">b</code>。那么长度为 3 的所有字符串共有 <code class="hljs inline">aaa</code>、<code class="hljs inline">aab</code>、<code class="hljs inline">aba</code>、<code class="hljs inline">abb</code>、<code class="hljs inline">baa</code>、<code class="hljs inline">bab</code>、<code class="hljs inline">bba</code>、<code class="hljs inline">bbb</code> 这 8 个，其中包含有指定名字 <code class="hljs inline">aa</code> 的共有 <code class="hljs inline">aaa</code>、<code class="hljs inline">aab</code>、<code class="hljs inline">baa</code> 这三个，则概率为 $\frac{3}{8}$，取模后得到 623902721。</p>
+<p>样例一：为方便描述，我们定义键盘上两个按键为 <code>a</code> 和 <code>b</code>。那么长度为 3 的所有字符串共有 <code>aaa</code>、<code>aab</code>、<code>aba</code>、<code>abb</code>、<code>baa</code>、<code>bab</code>、<code>bba</code>、<code>bbb</code> 这 8 个，其中包含有指定名字 <code>aa</code> 的共有 <code>aaa</code>、<code>aab</code>、<code>baa</code> 这三个，则概率为 $\frac{3}{8}$，取模后得到 623902721。</p>
 <h3 id="_8">数据范围</h3>
 <p>对于全部数据，有 $1\le |S|\le 10^5$，$|S|\le n\le |S|+10^5$，$1\le m\le 10^8$。</p>
 <p>Subtask 1 (5 pts)：满足 $m=1$。</p>

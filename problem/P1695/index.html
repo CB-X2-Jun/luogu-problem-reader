@@ -216,21 +216,23 @@
 <p>高速公路经过农场的这一段长 $N$ 英里，车辆仅从一个方向通过公路，从第 $1$ 英里驶向第 $N$ 英里。Farmer John 想要安装 $N$ 个传感器——每一个监测高速公路上 $1$ 英里长的路段。在其中某些路段上，有能够使得车辆进入高速公路的上匝道；在所有这样的路段上，Farmer John 会将传感器装在上匝道上，测量流入的（近似）车流量。在某些路段上有能够使得车辆离开高速公路的下匝道；在所有这样的路段上，Farmer John 会将传感器装在下匝道上。每一个路段包含至多一个匝道。如果在公路的一个路段上没有上匝道或下匝道，Farmer John就将传感器装在高速公路的主路上。</p>
 <p>给定 Farmer John 的 $N$ 个传感器的读数，请求出在高速公路第 $1$ 英里之前和第 $N$ 英里之后车流量的最为准确的可能范围。这些范围应当与所有 $N$ 个传感器的读数相一致。 </p>
 <h2 id="_2">输入格式</h2>
-<p>输入的第一行包含 $N$（$1\le N\le 100$）。余下 $N$ 行每行按从第 $1$ 英里至第 $N$ 英里的顺序描述一段 $1$ 英里长的路段。每行包含一个字符串，为 <code class="hljs inline">on</code>（如果这段路上有一个上匝道），<code class="hljs inline">off</code>（如果这段路上有一个下匝道），或者是 <code class="hljs inline">none</code>（如果这段路上没有匝道），然后是两个范围为 $0\ldots 1000$ 的整数，表示这段路上的传感器的读数所给出的下界、上界。如果这段路上包含匝道，传感器读数来自于匝道，否则来自于主路。至少一个高速公路路段的描述会是 <code class="hljs inline">none</code>。</p>
+<p>输入的第一行包含 $N$（$1\le N\le 100$）。余下 $N$ 行每行按从第 $1$ 英里至第 $N$ 英里的顺序描述一段 $1$ 英里长的路段。每行包含一个字符串，为 <code>on</code>（如果这段路上有一个上匝道），<code>off</code>（如果这段路上有一个下匝道），或者是 <code>none</code>（如果这段路上没有匝道），然后是两个范围为 $0\ldots 1000$ 的整数，表示这段路上的传感器的读数所给出的下界、上界。如果这段路上包含匝道，传感器读数来自于匝道，否则来自于主路。至少一个高速公路路段的描述会是 <code>none</code>。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出的第一行包含两个整数，为第 $1$ 英里之前的车流量的最准确的可能范围。第二行包含两个整数，为第 $N$ 英里之后的车流量的最准确的可能范围。输入保证存在符合要求的解。 </p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4
-on 1 1
-none 10 14
-none 11 15
-off 2 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="kr">on</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">none</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">14</span>
+<span class="n">none</span><span class="w"> </span><span class="mf">11</span><span class="w"> </span><span class="mf">15</span>
+<span class="n">off</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">10 13
-8 12</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span><span class="w"> </span><span class="mf">13</span>
+<span class="mf">8</span><span class="w"> </span><span class="mf">12</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="1_3">样例解释 1</h3>

@@ -217,22 +217,24 @@
 <p>由于男家丁数目不多，再加上 mzc 大大的找人水平很好，所以一次只需要找一个男家丁。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行有两个数 $n,m$，表示有 $n$ 行 $m$ 列供男家丁躲藏，</p>
-<p>之后 $n$ 行 $m$ 列的矩阵，<code class="hljs inline">m</code> 表示 mzc，<code class="hljs inline">d</code> 表示男家丁，<code class="hljs inline">#</code> 表示不能走，<code class="hljs inline">.</code> 表示空地。</p>
+<p>之后 $n$ 行 $m$ 列的矩阵，<code>m</code> 表示 mzc，<code>d</code> 表示男家丁，<code>#</code> 表示不能走，<code>.</code> 表示空地。</p>
 <h2 id="_4">输出格式</h2>
 <p>一行，若有解：一个数 $sum$，表示找到男家丁的最短移动次数。</p>
-<p>若无解：输出 <code class="hljs inline">No Way!</code>。</p>
+<p>若无解：输出 <code>No Way!</code>。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 6
-.#..#.
-....#.
-d.....
-#####.
-m.....</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">6</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">..</span><span class="err">#</span><span class="mf">.</span>
+<span class="mf">....</span><span class="err">#</span><span class="mf">.</span>
+<span class="n">d</span><span class="mf">.....</span>
+<span class="err">#####</span><span class="mf">.</span>
+<span class="n">m</span><span class="mf">.....</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">12</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">12</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>$3 \leq m,n \leq 2000$。</p>

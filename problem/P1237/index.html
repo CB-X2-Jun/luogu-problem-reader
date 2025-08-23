@@ -220,31 +220,35 @@
 <h2 id="_3">输出格式</h2>
 <p>每一行输出一个冗余依赖，以及其他依赖的一个序列以说明该依赖是冗余的。格式为 $\texttt{FD}\ x\ \texttt{is redundant using FDs:}\ p_1\ p_2 \cdots p_k$。其中 $x$ 是冗余的依赖的编号，$p_1,p_2,\cdots,p_k$ 是用来证明 $x$ 是冗余依赖的依赖序列。</p>
 <p>如果许多函数依赖的序列都能被用来说明一个依赖是冗余的，则输出其中最短的证明序列。</p>
-<p>如果这些函数依赖中不包含冗余依赖，则输出 <code class="hljs inline">No redundant FDs</code>。</p>
+<p>如果这些函数依赖中不包含冗余依赖，则输出 <code>No redundant FDs</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-A-&gt;BD
-BD-&gt;C
-A-&gt;C</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">BD</span>
+<span class="n">BD</span><span class="o">-&gt;</span><span class="n">C</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">C</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">FD 3 is redundant using FDs: 1 2</code></pre>
+<div class="codehilite"><pre><span></span><code>FD 3 is redundant using FDs: 1 2
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">6
-P-&gt;RST
-VRT-&gt;SQP
-PS-&gt;T
-Q-&gt;TR
-QS-&gt;P
-SR-&gt;V</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+<span class="n">P</span><span class="o">-&gt;</span><span class="n">RST</span>
+<span class="n">VRT</span><span class="o">-&gt;</span><span class="n">SQP</span>
+<span class="n">PS</span><span class="o">-&gt;</span><span class="n">T</span>
+<span class="n">Q</span><span class="o">-&gt;</span><span class="n">TR</span>
+<span class="n">QS</span><span class="o">-&gt;</span><span class="n">P</span>
+<span class="n">SR</span><span class="o">-&gt;</span><span class="n">V</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">FD 3 is redundant using FDs: 1
-FD 5 is redundant using FDs: 4 6 2</code></pre>
+<div class="codehilite"><pre><span></span><code>FD 3 is redundant using FDs: 1
+FD 5 is redundant using FDs: 4 6 2
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="1_3">样例 1 解释</h3>

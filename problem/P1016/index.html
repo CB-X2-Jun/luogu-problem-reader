@@ -211,22 +211,24 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>一个旅行家想驾驶汽车以最少的费用从一个城市到另一个城市（假设出发时油箱是空的）。给定两个城市之间的距离 $D_1$、汽车油箱的容量 $C$（以升为单位）、每升汽油能行驶的距离 $D_2$、出发点每升汽油价格 $P$ 和沿途油站数 $N$，油站 $i$ 离出发点的距离 $D_i$、每升汽油价格 $P_i$（$i=1,2,…,N$）。计算结果四舍五入至小数点后两位。如果无法到达目的地，则输出 <code class="hljs inline">No Solution</code>。</p>
+<p>一个旅行家想驾驶汽车以最少的费用从一个城市到另一个城市（假设出发时油箱是空的）。给定两个城市之间的距离 $D_1$、汽车油箱的容量 $C$（以升为单位）、每升汽油能行驶的距离 $D_2$、出发点每升汽油价格 $P$ 和沿途油站数 $N$，油站 $i$ 离出发点的距离 $D_i$、每升汽油价格 $P_i$（$i=1,2,…,N$）。计算结果四舍五入至小数点后两位。如果无法到达目的地，则输出 <code>No Solution</code>。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行，$D_1$，$C$，$D_2$，$P$，$N$。</p>
 <p>接下来有 $N$ 行。</p>
 <p>第 $i+1$ 行，两个数字，油站 $i$ 离出发点的距离 $D_i$ 和每升汽油价格 $P_i$。</p>
 <h2 id="_3">输出格式</h2>
-<p>所需最小费用，计算结果四舍五入至小数点后两位。如果无法到达目的地，则输出 <code class="hljs inline">No Solution</code>。</p>
+<p>所需最小费用，计算结果四舍五入至小数点后两位。如果无法到达目的地，则输出 <code>No Solution</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">275.6 11.9 27.4 2.8 2
-102.0 2.9
-220.0 2.2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">275.6</span><span class="w"> </span><span class="mf">11.9</span><span class="w"> </span><span class="mf">27.4</span><span class="w"> </span><span class="mf">2.8</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">102.0</span><span class="w"> </span><span class="mf">2.9</span>
+<span class="mf">220.0</span><span class="w"> </span><span class="mf">2.2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">26.95</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">26.95</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>保证 $0 \leq N \leq 6,0 \leq D_1,C,D_2,P,P_i \leq 500$。</p>

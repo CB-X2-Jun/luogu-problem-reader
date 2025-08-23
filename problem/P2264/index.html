@@ -217,7 +217,7 @@
 1. 在情书的一句话中若含有给定词汇列表中的特定单词，则感动值加 $1$，但每一单词在同一句话中出现多次感动值不叠加，不同单词不受影响。保证输入的单词不重复。
 2. 每句话以英文句号定界。
 3. 全文不区分大小写。
-4. 一句话中可能包含英文引号，比如<code>&lt;code class="hljs inline"&gt;you're&lt;/code&gt;</code>。</p>
+4. 一句话中可能包含英文引号，比如<code>you're</code>。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行包含一个数字 $n$，表示导致感动值提升的词汇列表中单词的数量，随后 $n$ 行是给定单词，每行一个。保证单词只包含英文字母。</p>
 <p>最后一行为情书正文，保证只包含以下几种字符：英文字母、数字、空格、英文逗号、英文句号、英文引号。</p>
@@ -226,14 +226,16 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-love
-so
-much
-I love you so much.</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">love</span>
+<span class="n">so</span>
+<span class="n">much</span>
+<span class="n">I</span><span class="w"> </span><span class="n">love</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">much</span><span class="mf">.</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于所有的数据，保证 $1 \le n \le 100$，每个单词不超过 $50$ 字符，全文不超过 $1000$ 字符。</p>

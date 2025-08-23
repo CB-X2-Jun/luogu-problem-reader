@@ -240,7 +240,7 @@ $Name_M$  $MP_M$  $Target_M$  $Damage_M$  </p>
 <p>$M$ 表示可用的魔法数量（$1\le M\le 100$）。</p>
 <p>$Name_j$ 是第 $j$ 种魔法的名字，最长会有 $30$ 个大写或小写字母。</p>
 <p>$MP_j$ 是这种魔法需要消耗的魔力（$0\le MP_j&lt;100$）。</p>
-<p>$Target_j$ 要么是 <code class="hljs inline">Single</code>，要么是 <code class="hljs inline">All</code>，表示该魔法只攻击单个怪兽（<code class="hljs inline">Single</code>）或对全体怪兽同时有效（<code class="hljs inline">All</code>）。</p>
+<p>$Target_j$ 要么是 <code>Single</code>，要么是 <code>All</code>，表示该魔法只攻击单个怪兽（<code>Single</code>）或对全体怪兽同时有效（<code>All</code>）。</p>
 <p>$Damage_j$ 表示该魔法进行一次攻击能使得被攻击者的生命值减少的数量（$0\le Damage_j&lt;10^6$）。</p>
 <p>所有数字都是整数。</p>
 <p>最少有一种魔法的 $Damage$ 值是非零的。</p>
@@ -249,15 +249,17 @@ $Name_M$  $MP_M$  $Target_M$  $Damage_M$  </p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-8000 15000 30000
-3
-Flare 45 Single 8000
-Meteor 62 All 6000
-Ultimate 80 All 9999</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="mf">8000</span><span class="w"> </span><span class="mf">15000</span><span class="w"> </span><span class="mf">30000</span>
+<span class="mf">3</span>
+<span class="n">Flare</span><span class="w"> </span><span class="mf">45</span><span class="w"> </span><span class="nb">Sin</span><span class="n">gle</span><span class="w"> </span><span class="mf">8000</span>
+<span class="n">Meteor</span><span class="w"> </span><span class="mf">62</span><span class="w"> </span><span class="n">All</span><span class="w"> </span><span class="mf">6000</span>
+<span class="n">Ultimate</span><span class="w"> </span><span class="mf">80</span><span class="w"> </span><span class="n">All</span><span class="w"> </span><span class="mf">9999</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">232</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">232</span>
+</code></pre></div>
             </article>
           </div>
         </div>

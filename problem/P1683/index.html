@@ -216,25 +216,27 @@
 <p>注意：瓷砖可以重复走过，但不能重复计数。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行两个正整数 $W$ 和 $H$，分别表示小路的宽度和长度。</p>
-<p>以下 $H$ 行为一个 $H\times W$ 的字符矩阵。每一个字符代表一块瓷砖。其中，<code class="hljs inline">.</code> 代表安全的砖，<code class="hljs inline">#</code> 代表不安全的砖，<code class="hljs inline">@</code> 代表第一块砖。</p>
+<p>以下 $H$ 行为一个 $H\times W$ 的字符矩阵。每一个字符代表一块瓷砖。其中，<code>.</code> 代表安全的砖，<code>#</code> 代表不安全的砖，<code>@</code> 代表第一块砖。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出一行，只包括一个数，即你从第一块砖开始所能安全走过的最多的砖块个数（包括第一块砖）。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">11 9
-.#.........
-.#.#######.
-.#.#.....#.
-.#.#.###.#.
-.#.#..@#.#.
-.#.#####.#.
-.#.......#.
-.#########.
-...........</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">11</span><span class="w"> </span><span class="mf">9</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.........</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#######</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span><span class="mf">.....</span><span class="err">#</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">###</span><span class="mf">.</span><span class="err">#</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#</span><span class="mf">..</span><span class="err">@#</span><span class="mf">.</span><span class="err">#</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.</span><span class="err">#####</span><span class="mf">.</span><span class="err">#</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">#</span><span class="mf">.......</span><span class="err">#</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">#########</span><span class="mf">.</span>
+<span class="mf">...........</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">59</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">59</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="_6">数据规模与约定</h4>

@@ -216,27 +216,29 @@
 <p>色板长度为 $L$，$L$ 是一个正整数，所以我们可以均匀地将它划分成 $L$ 块 $1$ 厘米长的小方格。并从左到右标记为 $1, 2, \dots, L$。</p>
 <p>现在色板上只有一个颜色，老师告诉阿宝在色板上只能做两件事：</p>
 <ol>
-<li><code class="hljs inline">C A B C</code> 指在 $A$ 到 $B$ 号方格中涂上颜色 $C$。</li>
-<li><code class="hljs inline">P A B</code> 指老师的提问：$A$ 到 $B$ 号方格中有几种颜色。</li>
+<li><code>C A B C</code> 指在 $A$ 到 $B$ 号方格中涂上颜色 $C$。</li>
+<li><code>P A B</code> 指老师的提问：$A$ 到 $B$ 号方格中有几种颜色。</li>
 </ol>
 <p>学校的颜料盒中一共有 $T$ 种颜料。为简便起见，我们把他们标记为 $1, 2, \dots, T$。开始时色板上原有的颜色就为 $1$ 号色。 面对如此复杂的问题，阿宝向你求助，你能帮助他吗？</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行有3个整数 $L (1 \le L \le 10^5)$，$T (1 \le T \le 30)$ 和 $O (1 \le O \le 10^5)$。 在这里 $O$ 表示事件数。 </p>
-<p>接下来 $O$ 行, 每行以 <code class="hljs inline">C A B C</code> 或 <code class="hljs inline">P A B</code> 的形式表示所要做的事情（这里 $A, B, C$ 为整数, 可能 $A&gt; B$，这样的话需要你交换 $A$ 和 $B$）。</p>
+<p>接下来 $O$ 行, 每行以 <code>C A B C</code> 或 <code>P A B</code> 的形式表示所要做的事情（这里 $A, B, C$ 为整数, 可能 $A&gt; B$，这样的话需要你交换 $A$ 和 $B$）。</p>
 <h2 id="_4">输出格式</h2>
 <p>对于老师的提问，做出相应的回答。每行一个整数。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2 2 4
-C 1 1 2
-P 1 2
-C 2 2 2
-P 1 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">4</span>
+<span class="n">C</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">P</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">C</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">P</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2
-1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">1</span>
+</code></pre></div>
             </article>
           </div>
         </div>

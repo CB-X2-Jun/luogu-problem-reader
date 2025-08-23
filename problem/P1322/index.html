@@ -211,20 +211,20 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>Logo 语言命令可以指挥海龟在屏幕中爬行。本问题只使用 Logo 语言的三个语句：前进 <code class="hljs inline">FD</code>，倒退 <code class="hljs inline">BK</code> 和重复 <code class="hljs inline">REPEAT</code>，因此，海龟只在一条直线上来回爬行。输入一行 logo 的命令行，输出海龟在屏幕中离开原来位子的距离（假设屏幕很大，可以让海龟移开 $10^9$ 的距离）。</p>
+<p>Logo 语言命令可以指挥海龟在屏幕中爬行。本问题只使用 Logo 语言的三个语句：前进 <code>FD</code>，倒退 <code>BK</code> 和重复 <code>REPEAT</code>，因此，海龟只在一条直线上来回爬行。输入一行 logo 的命令行，输出海龟在屏幕中离开原来位子的距离（假设屏幕很大，可以让海龟移开 $10^9$ 的距离）。</p>
 <p>例如：</p>
 <ul>
 <li>
-<p>输入 <code class="hljs inline">FD 100</code> ，输出：$100$。</p>
+<p>输入 <code>FD 100</code> ，输出：$100$。</p>
 </li>
 <li>
-<p>输入 <code class="hljs inline">FD 100 BK 150</code>， 输出：$50$。</p>
+<p>输入 <code>FD 100 BK 150</code>， 输出：$50$。</p>
 </li>
 <li>
-<p>输入 <code class="hljs inline">REPEAT 5[FD 100 BK 50]</code>， 输出：$250$。</p>
+<p>输入 <code>REPEAT 5[FD 100 BK 50]</code>， 输出：$250$。</p>
 </li>
 <li>
-<p>输入 <code class="hljs inline">REPEAT 5[FD 50 REPEAT 10[FD 100]]</code>， 输出：$5250$。</p>
+<p>输入 <code>REPEAT 5[FD 50 REPEAT 10[FD 100]]</code>， 输出：$5250$。</p>
 </li>
 </ul>
 <h2 id="_2">输入格式</h2>
@@ -234,10 +234,12 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">FD 100</code></pre>
+<div class="codehilite"><pre><span></span><code>FD 100
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">100</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">100</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>每个语句输入数据的绝对值不超过 $1000$。输出结果不会超过 $10^9$。</p>

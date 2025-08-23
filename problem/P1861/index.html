@@ -222,8 +222,9 @@
 <li>每一次使用 2 中的方法驱动“星”，将会产生魔力，魔法使会得到这一部分魔力。魔力的量等于这个两个区域之间所间隔的区域数。</li>
 </ol>
 <p>这样，我们可以用一个 $N\times M$ 的数表来表示星之器的状态，比如 $N=2,M=3$ 时：</p>
-<pre class="hljs"><code class="hljs">2 0 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 0
-5 1 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 1 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w">                                     </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span><span class="w">                                     </span><span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <p>当星之器为左侧的状态时，通过操纵第一行的第 $1$ 和 $3$ 个区域中的“星”，变为右侧所示的状态，同时，将产生 $1$ 单位的魔力（因为这两个区域之间恰好隔了 $1$ 个区域）。</p>
 <p>在经过了进一步的研究之后，人们知道了这个星之器最初的状态（Ini）以及最终被他们得到时的状态（Fin）。</p>
@@ -238,21 +239,23 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5 
-1 0 0 0 1 
-0 0 0 0 0 
-0 0 0 0 0 
-0 1 0 1 1 
-1 0 0 0 0 
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span>
 
-0 0 0 0 0 
-0 0 0 0 1 
-2 0 0 0 1 
-0 0 2 0 0 
-0 0 0 0 0</code></pre>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">7</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$1\le N,M\le200$，$\mathit{Ini}<em>{i,j},\mathit{Fin}</em>{i,j}\le1000$。</p>

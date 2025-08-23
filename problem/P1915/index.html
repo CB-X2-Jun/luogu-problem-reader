@@ -217,13 +217,13 @@
 <p>当 Nemo 与某只小虾同时移动到同一个位置上，且小虾的重量小于 Nemo 当时的重量，则 Nemo 可以将该小虾吃掉。当 Nemo 吃掉重量为 $w_i$ 的小虾之后，它的体重将增加 $w_i$。注意，小虾不会吃 Nemo，且小虾之间也不会自相残杀。</p>
 <p>Nemo 希望你来帮助它制定一个成长计划，使得它吃掉的小虾重量总和尽量大。</p>
 <h2 id="_2">输入格式</h2>
-<p>该题为提交答案型试题，所有输入数据 <code class="hljs inline">nemo1.in</code> $\sim$ <code class="hljs inline">nemo10.in</code> 已在试题目录下。</p>
+<p>该题为提交答案型试题，所有输入数据 <code>nemo1.in</code> $\sim$ <code>nemo10.in</code> 已在试题目录下。</p>
 <p><strong><a href="http://pan.baidu.com/s/1dEDLQud">数据以及checker下载</a></strong></p>
 <p>对于每个数据，输入文件中第一行为五个实数 $w_0, V, T, x_0, y_0$。分别表示 Nemo 的初始体重、最大移动速度、时间限制以及 Nemo 在 $0$ 时刻的位置。</p>
 <p>第二行为一个整数 $n$，表示大海中小虾的只数。</p>
 <p>接下来 $n$ 行，每行 $5$ 个实数，包括 $w_i, x_i, y_i, p_i, q_i$，分别表示编号为 $i$ 的小虾的重量、在 $0$ 时刻的位置和速度向量。</p>
 <h2 id="_3">输出格式</h2>
-<p>针对给定的 $10$ 个输入文件 <code class="hljs inline">nemo1.in</code> $\sim$ <code class="hljs inline">nemo10.in</code>，你需要分别提交你的输出文件 <code class="hljs inline">nemo1.in</code> $\sim$ <code class="hljs inline">nemo10.in</code>。</p>
+<p>针对给定的 $10$ 个输入文件 <code>nemo1.in</code> $\sim$ <code>nemo10.in</code>，你需要分别提交你的输出文件 <code>nemo1.in</code> $\sim$ <code>nemo10.in</code>。</p>
 <p>输出文件第一行包含一个整数 $k$。表示在你的成长计划中，Nemo 将吃到 $k$ 只小虾。</p>
 <p>第二行包含一个实数 $w$，表示在你的成长计划中，Nemo 吃到的小虾的重量总和。</p>
 <p>接下来 $k$ 行，每行 $4$ 个数 $t, x, y, s$。表示在时刻 $t$，Nemo 在位置 $(x, y)$ 处吃掉了编号为 $s$ 的小虾。其中 $t, x, y$ 为实数，$s$ 为整数。</p>
@@ -231,14 +231,16 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 1 6 0 0
-1
-5 2 2 0 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">1</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1
-5
-5 2 2 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+<span class="mf">5</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">样例解释</h3>
@@ -288,7 +290,7 @@
 </tbody>
 </table>
 <h3 id="checker">checker 使用方法</h3>
-<p>在 checker 目录下，在终端输入 <code class="hljs inline">./checker in out</code>。</p>
+<p>在 checker 目录下，在终端输入 <code>./checker in out</code>。</p>
 <p>其中 in 为题目提供的输入文件，out 为你对于该输入文件给出的答案文件。</p>
 <p>校验器将只检查你的答案的合法性，结果以在线评测为准。</p>
 <p>感谢 @FlierKing 提供 spj 以及 @虞皓翔 帮助完善 spj。</p>

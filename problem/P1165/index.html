@@ -218,9 +218,9 @@
 <p>第一行为一个正整数 $N$，对应于日志内所含操作的总数。</p>
 <p>接下来的 $N$ 行，分别属于以下三种格式之一：</p>
 <ul>
-<li>格式 1：<code class="hljs inline">0 X</code>，表示一次集装箱入库操作，正整数 $X$ 表示该次入库的集装箱的重量。</li>
-<li>格式 2：<code class="hljs inline">1</code>，表示一次集装箱出库操作，（就当时而言）最后入库的集装箱出库。</li>
-<li>格式 3：<code class="hljs inline">2</code>，表示一次查询操作，要求分析程序输出当前仓库内最大集装箱的重量。</li>
+<li>格式 1：<code>0 X</code>，表示一次集装箱入库操作，正整数 $X$ 表示该次入库的集装箱的重量。</li>
+<li>格式 2：<code>1</code>，表示一次集装箱出库操作，（就当时而言）最后入库的集装箱出库。</li>
+<li>格式 3：<code>2</code>，表示一次查询操作，要求分析程序输出当前仓库内最大集装箱的重量。</li>
 </ul>
 <p>当仓库为空时你应该忽略出库操作，当仓库为空查询时你应该输出 $0$。</p>
 <h2 id="_3">输出格式</h2>
@@ -228,27 +228,29 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">13
-0 1
-0 2
-2
-0 4
-0 2
-2
-1
-2
-1
-1
-2
-1
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">13</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+<span class="mf">1</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2
-4
-4
-1
-0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">4</span>
+<span class="mf">4</span>
+<span class="mf">1</span>
+<span class="mf">0</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据范围及约定</h3>

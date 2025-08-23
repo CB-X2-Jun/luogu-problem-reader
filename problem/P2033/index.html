@@ -222,32 +222,32 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">move n</code></td>
+<td style="text-align: center;"><code>move n</code></td>
 <td style="text-align: center;">$n$ 是非负整数，表示你按目前所在方向前进 $n$ 步，如果即将走出棋盘，则停止。如果面前有棋子，则将其向前推一步。</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">turn left</code></td>
+<td style="text-align: center;"><code>turn left</code></td>
 <td style="text-align: center;">向左转 $90$ 度</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">turn right</code></td>
+<td style="text-align: center;"><code>turn right</code></td>
 <td style="text-align: center;">向右转 $90$ 度</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">turn back</code></td>
+<td style="text-align: center;"><code>turn back</code></td>
 <td style="text-align: center;">向后转</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_2">输入格式</h2>
-<p>输入前 $8$ 行，每行 $8$ 个字符，给出棋盘状态。<code class="hljs inline">.</code> 表示该格为空，字母表示棋子，不同字母表示不同的棋子。你所在位置用 <code class="hljs inline">^</code>、<code class="hljs inline">&lt;</code>、<code class="hljs inline">&gt;</code>、<code class="hljs inline">v</code> 四个字母中一个表示，分别表示你的方向上、左、右、下。</p>
-<p>接下来有若干行，每行一个操作。以 <code class="hljs inline">#</code> 结束。操作数不超过 $1000$ 个。</p>
+<p>输入前 $8$ 行，每行 $8$ 个字符，给出棋盘状态。<code>.</code> 表示该格为空，字母表示棋子，不同字母表示不同的棋子。你所在位置用 <code>^</code>、<code>&lt;</code>、<code>&gt;</code>、<code>v</code> 四个字母中一个表示，分别表示你的方向上、左、右、下。</p>
+<p>接下来有若干行，每行一个操作。以 <code>#</code> 结束。操作数不超过 $1000$ 个。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出 $8$ 行，每行 $8$ 个字符，表示经过一系列操作后棋盘和你的状态。表示方法同输入。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">......bA
+<div class="codehilite"><pre><span></span><code>......bA
 .....^..
 ........
 ........
@@ -258,17 +258,19 @@
 move 2
 turn right
 move 1
-#</code></pre>
+#
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">......&gt;b
+<div class="codehilite"><pre><span></span><code>......&gt;b
 ........
 ........
 ........
 ........
 ........
 ........
-........</code></pre>
+........
+</code></pre></div>
             </article>
           </div>
         </div>

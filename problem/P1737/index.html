@@ -230,67 +230,67 @@
 <tbody>
 <tr>
 <td>输入节点</td>
-<td><code class="hljs inline">I</code></td>
+<td><code>I</code></td>
 <td>无</td>
 <td>从终端读入一个实数作为 $x_t$</td>
 </tr>
 <tr>
 <td>输出节点</td>
-<td><code class="hljs inline">O</code></td>
+<td><code>O</code></td>
 <td>$i$</td>
 <td>$x_t = x_i$，并将 $x_t$ 输出到终端</td>
 </tr>
 <tr>
 <td>加法节点</td>
-<td><code class="hljs inline">+</code></td>
+<td><code>+</code></td>
 <td>$i,j$</td>
 <td>$x_t = x_i+x_j$</td>
 </tr>
 <tr>
 <td>偏移节点</td>
-<td><code class="hljs inline">C</code></td>
+<td><code>C</code></td>
 <td>$i,c$</td>
 <td>$x_t=x_i+c$</td>
 </tr>
 <tr>
 <td>取反节点</td>
-<td><code class="hljs inline">-</code></td>
+<td><code>-</code></td>
 <td>$i$</td>
 <td>$x_t=-x_i$</td>
 </tr>
 <tr>
 <td>左移节点</td>
-<td><code class="hljs inline">&lt;</code></td>
+<td><code>&lt;</code></td>
 <td>$i,k$</td>
 <td>$x_t=x_i\cdot 2^k$</td>
 </tr>
 <tr>
 <td>右移节点</td>
-<td><code class="hljs inline">&gt;</code></td>
+<td><code>&gt;</code></td>
 <td>$i,k$</td>
 <td>$x_t=x_i\cdot 2^{-k}$</td>
 </tr>
 <tr>
 <td>S 型节点</td>
-<td><code class="hljs inline">S</code></td>
+<td><code>S</code></td>
 <td>$i$</td>
 <td>$x_t=s(x_i)$</td>
 </tr>
 <tr>
 <td>比较节点</td>
-<td><code class="hljs inline">P</code></td>
+<td><code>P</code></td>
 <td>$i,j$</td>
 <td>$x_t=\begin{cases}-1 &amp;x_i<x_j\\ 0 &x_i=x_j\\1 &x_i>x_j\\end{cases}$</td>
 </tr>
 <tr>
 <td>Max 节点</td>
-<td><code class="hljs inline">M</code></td>
+<td><code>M</code></td>
 <td>$i,j$</td>
 <td>$x_t=\begin{cases}x_i &amp;x_i&gt;x_j\x_j &amp;x_i \leq x_j\end{cases}$</td>
 </tr>
 <tr>
 <td>乘法节点</td>
-<td><code class="hljs inline">*</code></td>
+<td><code>*</code></td>
 <td>$i,j$</td>
 <td>$x_t=x_i \cdot x_j$</td>
 </tr>
@@ -377,21 +377,22 @@
 </table>
 <p>跳蚤国王发现自己没有足够的能力设计这样的计算机。于是他找到了来参加 NOI 的你。请你依次设计每个计算节点的类型及操作数，完成蝈蝈大臣给的这 10 个计算任务，且要求使用的计算节点数尽量少。</p>
 <h2 id="_3">输入格式</h2>
-<p>所有输入数据 <code class="hljs inline">nodes1.in</code> $\sim$ <code class="hljs inline">nodes10.in</code>，分别对应 10 个计算任务。</p>
+<p>所有输入数据 <code>nodes1.in</code> $\sim$ <code>nodes10.in</code>，分别对应 10 个计算任务。</p>
 <p>每组输入数据仅包含一个整数，表示需要解决的计算任务编号。</p>
 <p>因只供评测机内部使用，洛谷不提供本题输入数据的下载，若有需要请自行生成。</p>
 <h2 id="_4">输出格式</h2>
-<p>输出文件为 <code class="hljs inline">nodes1.out</code> $\sim$ <code class="hljs inline">nodes10.out</code>，分别对应相应的输入文件。</p>
+<p>输出文件为 <code>nodes1.out</code> $\sim$ <code>nodes10.out</code>，分别对应相应的输入文件。</p>
 <p>对于每组输入数据，你需要依次输出若干行，第 $i$ 行描述第 $i$ 个计算节点。</p>
 <p>描述每个计算节点时，首先一个字符表示该计算节点的类型，接下来若干个数按顺序表示该计算节点的内置参数。字符与数，数与数之间均用空格隔开。</p>
 <p>输出的行数不能超过 $10^4$ 行。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">I
+<div class="codehilite"><pre><span></span><code>I
 + 1 1
 - 2
 I
@@ -400,11 +401,12 @@ I
 + 3 6
 - 7
 - 8
-O 9</code></pre>
+O 9
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>该样例输出为第一个计算任务一个可能的构造。共用了 $10$ 个计算节点，可获得 $3$ 分。</p>
-<p>我们提供了十个评分文件 <code class="hljs inline">nodes1.ans</code> $\sim$ <code class="hljs inline">nodes10.ans</code>，分别对应每个计算任务。</p>
+<p>我们提供了十个评分文件 <code>nodes1.ans</code> $\sim$ <code>nodes10.ans</code>，分别对应每个计算任务。</p>
 <p>每个评分文件共 $10$ 行，第 $i$ 行一个评分参数 $w_i$，具体意义将在下面给出。</p>
 <p>本题中，每个测试点单独进行评分，每个测试点 $10$ 分。</p>
 <p>如果选手的输出格式不合法或者参数不符合题目约定,则得 $0$ 分。</p>

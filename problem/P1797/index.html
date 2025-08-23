@@ -221,7 +221,7 @@
 </ul>
 <h3 id="task-1encode_path">Task 1：ENCODE_PATH</h3>
 <ul>
-<li>输入格式：<code class="hljs inline">ENCODE_PATH</code> $p$ $q$；</li>
+<li>输入格式：<code>ENCODE_PATH</code> $p$ $q$；</li>
 <li>输出格式：$k$ $n_1$ $c_1$ $n_2$ $c_2$ $\cdots$ $n_k$ $c_k$</li>
 </ul>
 <p>给定分数 $\dfrac{p}{q}$，你需要按照以下格式输出从 Stern-Brocot 树根走到节点 $\dfrac{p}{q}$ 的路径：</p>
@@ -232,7 +232,7 @@
 <p>你需要保证 $\forall 1\le i\lt k$，$c_i\neq c_{i+1}$。</p>
 <h3 id="task-2decode_path">Task 2：DECODE_PATH</h3>
 <ul>
-<li>输入格式：<code class="hljs inline">DECODE_PATH</code> $k$ $n_1$ $c_1$ $n_2$ $c_2$ $\cdots$ $n_k$ $c_k$</li>
+<li>输入格式：<code>DECODE_PATH</code> $k$ $n_1$ $c_1$ $n_2$ $c_2$ $\cdots$ $n_k$ $c_k$</li>
 <li>输出格式：$p$ $q$。</li>
 </ul>
 <p>给定从 Stern-Brocot 树根出发的路径，格式如 Task 1 所述，输出节点上的分数。</p>
@@ -240,13 +240,13 @@
 <h3 id="task-3lca">Task 3：LCA</h3>
 <p>给定 $\dfrac{a}{b},\dfrac{c}{d}$，输出 $\dfrac{a}{b},\dfrac{c}{d}$ 的 LCA 上的分数 $\dfrac{p}{q}$。</p>
 <ul>
-<li>输入格式：<code class="hljs inline">LCA</code> $a$ $b$ $c$ $d$；</li>
+<li>输入格式：<code>LCA</code> $a$ $b$ $c$ $d$；</li>
 <li>输出格式：$p$ $q$。</li>
 </ul>
 <h3 id="task-4ancestor">Task 4：ANCESTOR</h3>
 <p>给定 $\dfrac{a}{b},k$，输出 $\dfrac{a}{b}$ 到根的链上，深度为 $k$ 的节点 $\dfrac{p}{q}$ 的值。如果不存在，输出 $-1$。</p>
 <ul>
-<li>输入格式：<code class="hljs inline">ANCESTOR</code> $k$ $a$ $b$；</li>
+<li>输入格式：<code>ANCESTOR</code> $k$ $a$ $b$；</li>
 <li>输出格式：$p$ $q$。</li>
 <li>数据范围：$1\le k\le 10^9$。</li>
 </ul>
@@ -254,7 +254,7 @@
 <p>给定 $\dfrac{p}{q}$，记在 Stern-Brocot 树中，$\dfrac{p}{q}$ 的子树中的所有分数构成的集合为 $S$。输出 $\inf S=\dfrac{a}{b}$ 和 $\sup S=\dfrac{c}{d}$。</p>
 <p>特别地，对于 $0$，输出 $0$ $1$；对于 $+\infty$，输出 $1$ $0$。</p>
 <ul>
-<li>输入格式：<code class="hljs inline">RANGE</code> $p$ $q$；</li>
+<li>输入格式：<code>RANGE</code> $p$ $q$；</li>
 <li>输出格式：$a$ $b$ $c$ $d$。</li>
 </ul>
 <h2 id="_3">输入格式</h2>
@@ -265,29 +265,31 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">10
-DECODE_PATH 0
-DECODE_PATH 3 R 2 L 1 R 2
-ENCODE_PATH 1 1
-ENCODE_PATH 5 11
-LCA 2 3 3 5
-LCA 5439 19294 8291 29410
-ANCESTOR 10 1 1
-ANCESTOR 300 1000000000 1
-RANGE 1 1
-RANGE 11 8</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10</span>
+<span class="n">DECODE_PATH</span><span class="w"> </span><span class="mf">0</span>
+<span class="n">DECODE_PATH</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">ENCODE_PATH</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">ENCODE_PATH</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">11</span>
+<span class="n">LCA</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">LCA</span><span class="w"> </span><span class="mf">5439</span><span class="w"> </span><span class="mf">19294</span><span class="w"> </span><span class="mf">8291</span><span class="w"> </span><span class="mf">29410</span>
+<span class="n">ANCESTOR</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">ANCESTOR</span><span class="w"> </span><span class="mf">300</span><span class="w"> </span><span class="mf">1000000000</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">RANGE</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">RANGE</span><span class="w"> </span><span class="mf">11</span><span class="w"> </span><span class="mf">8</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1 1
-11 4
-0
-2 L 2 R 4
-2 3
-148 525
--1
-301 1
-0 1 1 0
-4 3 7 5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">11</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">0</span>
+<span class="mf">2</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">148</span><span class="w"> </span><span class="mf">525</span>
+<span class="o">-</span><span class="mf">1</span>
+<span class="mf">301</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">5</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <ul>

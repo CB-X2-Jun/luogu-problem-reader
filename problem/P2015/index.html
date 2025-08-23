@@ -214,11 +214,12 @@
 <p>有一棵苹果树，如果树枝有分叉，一定是分二叉（就是说没有只有一个儿子的结点）</p>
 <p>这棵树共有 $N$ 个结点（叶子点或者树枝分叉点），编号为 $1 \sim N$，树根编号一定是 $1$。</p>
 <p>我们用一根树枝两端连接的结点的编号来描述一根树枝的位置。下面是一颗有 $4$ 个树枝的树：</p>
-<pre class="hljs"><code class="hljs">2&nbsp;&nbsp; 5
- \ / 
-&nbsp;&nbsp;3&nbsp;&nbsp; 4
-&nbsp;&nbsp; \ /
-&nbsp;&nbsp;&nbsp;&nbsp;1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w">   </span><span class="mf">5</span>
+<span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="o">/</span><span class="w"> </span>
+<span class="w">  </span><span class="mf">3</span><span class="w">   </span><span class="mf">4</span>
+<span class="w">   </span><span class="err">\</span><span class="w"> </span><span class="o">/</span>
+<span class="w">    </span><span class="mf">1</span>
+</code></pre></div>
 
 <p>现在这颗树枝条太多了，需要剪枝。但是一些树枝上长有苹果。</p>
 <p>给定需要保留的树枝数量，求出最多能留住多少苹果。</p>
@@ -230,14 +231,16 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 2
-1 3 1
-1 4 10
-2 3 20
-3 5 20</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">20</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">20</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">21</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">21</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>$1 \leqslant Q &lt; N \leqslant 100$，每根树枝上的苹果 $\leqslant 3 \times 10^4$。</p>

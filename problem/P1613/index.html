@@ -211,7 +211,7 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>小 A 的工作不仅繁琐，更有苛刻的规定，要求小 A 每天早上在 $6:00$ 之前到达公司，否则这个月工资清零。可是小 A 偏偏又有赖床的坏毛病。于是为了保住自己的工资，小 A 买了一个空间跑路器，每秒钟可以跑 $2^k$ 千米（$k$ 是任意自然数）。当然，这个机器是用 <code class="hljs inline">longint</code> 存的，所以总跑路长度不能超过 <code class="hljs inline">maxlongint</code> 千米。小 A 的家到公司的路可以看做一个有向图，小 A 家为点 $1$，公司为点 $n$，每条边长度均为一千米。小 A 想每天能醒地尽量晚，所以让你帮他算算，他最少需要几秒才能到公司。数据保证 $1$ 到 $n$ 至少有一条路径。</p>
+<p>小 A 的工作不仅繁琐，更有苛刻的规定，要求小 A 每天早上在 $6:00$ 之前到达公司，否则这个月工资清零。可是小 A 偏偏又有赖床的坏毛病。于是为了保住自己的工资，小 A 买了一个空间跑路器，每秒钟可以跑 $2^k$ 千米（$k$ 是任意自然数）。当然，这个机器是用 <code>longint</code> 存的，所以总跑路长度不能超过 <code>maxlongint</code> 千米。小 A 的家到公司的路可以看做一个有向图，小 A 家为点 $1$，公司为点 $n$，每条边长度均为一千米。小 A 想每天能醒地尽量晚，所以让你帮他算算，他最少需要几秒才能到公司。数据保证 $1$ 到 $n$ 至少有一条路径。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行两个整数 $n,m$，表示点的个数和边的个数。</p>
 <p>接下来 $m$ 行每行两个数字 $u,v$，表示一条 $u$ 到 $v$ 的边。</p>
@@ -220,21 +220,23 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 4
-1 1
-1 2
-2 3
-3 4</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">4</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>【样例解释】</strong></p>
 <p>$1 \to 1 \to 2 \to 3 \to 4$，总路径长度为 $4$ 千米，直接使用一次跑路器即可。</p>
 <p><strong>【数据范围】</strong></p>
 <p>$50\%$ 的数据满足最优解路径长度 $\leq 1000$；</p>
-<p>$100\%$ 的数据满足 $2\leq n \leq 50$，$m \leq 10 ^ 4$，最优解路径长度 $\leq$ <code class="hljs inline">maxlongint</code>。</p>
+<p>$100\%$ 的数据满足 $2\leq n \leq 50$，$m \leq 10 ^ 4$，最优解路径长度 $\leq$ <code>maxlongint</code>。</p>
             </article>
           </div>
         </div>

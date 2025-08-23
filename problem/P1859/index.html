@@ -212,35 +212,37 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>机器人收到 $N$ 条指令，但它不想走到障碍物上或走出边界，所以决定拒绝一些指令。求最少拒绝多少条指令？</p>
-<p><code class="hljs inline">FORWARD</code> 前进 $1$</p>
-<p><code class="hljs inline">BACK</code> 后退 $1$</p>
-<p><code class="hljs inline">LEFT</code> 左转 $90$ 度</p>
-<p><code class="hljs inline">RIGHT</code> 右转 $90$ 度</p>
+<p><code>FORWARD</code> 前进 $1$</p>
+<p><code>BACK</code> 后退 $1$</p>
+<p><code>LEFT</code> 左转 $90$ 度</p>
+<p><code>RIGHT</code> 右转 $90$ 度</p>
 <p>初始时，机器人是面对着上方的。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行 $M,N,X_0,Y_0$ ($M\le 100,N\le 1000$)，表示场地大小为 $M\times M$，共有 $N$ 条指令，起点 $(X_0,Y_0)$。</p>
-<p>接下来一个 $M\times M$ 矩阵，表示场地。其中 <code class="hljs inline">.</code> 为场地，<code class="hljs inline">*</code>为障碍物。</p>
+<p>接下来一个 $M\times M$ 矩阵，表示场地。其中 <code>.</code> 为场地，<code>*</code>为障碍物。</p>
 <p>接下来 $N$ 行，表示 $N$ 条命令。</p>
 <h2 id="_3">输出格式</h2>
 <p>一个数，表示最少拒绝多少条命令。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 7 3 3
-.***
-..**
-*..*
-****
-LEFT
-FORWARD
-LEFT
-BACK
-FORWARD
-RIGHT
-FORWARD</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">.</span><span class="o">***</span>
+<span class="mf">..</span><span class="o">**</span>
+<span class="o">*</span><span class="mf">..</span><span class="o">*</span>
+<span class="o">****</span>
+<span class="n">LEFT</span>
+<span class="kr">FOR</span><span class="n">WARD</span>
+<span class="n">LEFT</span>
+<span class="n">BACK</span>
+<span class="kr">FOR</span><span class="n">WARD</span>
+<span class="n">RIGHT</span>
+<span class="kr">FOR</span><span class="n">WARD</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
             </article>
           </div>
         </div>

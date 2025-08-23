@@ -219,31 +219,34 @@
 <p>第一行两个整数 $M,N$。</p>
 <p>接下来 $M$ 行，每行 $N$ 个整数，表示初始状态，$0$ 表示白面朝上，$1$ 表示黑面朝上。</p>
 <h2 id="_3">输出格式</h2>
-<p>如果不能将所有瓦片都翻转为白面朝上的话，输出 <code class="hljs inline">IMPOSSIBLE</code>。</p>
+<p>如果不能将所有瓦片都翻转为白面朝上的话，输出 <code>IMPOSSIBLE</code>。</p>
 <p>否则输出 $M$ 行，每行 $N$ 个整数，第 $i$ 行的第 $j$ 个数代表第 $i$ 行第 $j$ 列的瓦片被翻转了多少次。</p>
 <p>你的输出应该确保翻转次数最少。如果存在多种方案，输出字典序最小的方案。</p>
 <p>这里的字典序最小指将输出中的所有空白字符去掉后，形成的字符串字典序最小。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 4    
-1 0 0 1     
-0 1 1 0     
-0 1 1 0     
-1 0 0 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">4</span><span class="w">     </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w">     </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w">     </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w">     </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">0 0 0 0    
-1 0 0 1     
-1 0 0 1     
-0 0 0 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w">     </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w">     </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w">     </span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>下面的方案操作次数同样是最小的，但是字典序不是最小的。</p>
-<pre class="hljs"><code class="hljs">0 1 1 0
-0 0 0 0
-0 0 0 0
-0 1 1 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
             </article>
           </div>
         </div>

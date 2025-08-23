@@ -213,8 +213,8 @@
               <h2 id="_1">题目背景</h2>
 <p>NOIP2013 提高组 D2T3</p>
 <h2 id="_2">题目描述</h2>
-<p><code class="hljs inline">小 B</code> 最近迷上了华容道，可是他总是要花很长的时间才能完成一次。于是，他想到用编程来完成华容道：给定一种局面， 华容道是否根本就无法完成，如果能完成， 最少需要多少时间。</p>
-<p><code class="hljs inline">小 B</code> 玩的华容道与经典的华容道游戏略有不同，游戏规则是这样的：</p>
+<p><code>小 B</code> 最近迷上了华容道，可是他总是要花很长的时间才能完成一次。于是，他想到用编程来完成华容道：给定一种局面， 华容道是否根本就无法完成，如果能完成， 最少需要多少时间。</p>
+<p><code>小 B</code> 玩的华容道与经典的华容道游戏略有不同，游戏规则是这样的：</p>
 <ol>
 <li>在一个 $n \times m$ 棋盘上有 $ n \times m$ 个格子，其中有且只有一个格子是空白的，其余 $ n \times m-1$ 个格子上每个格子上有一个棋子，每个棋子的大小都是 $1 \times 1$ 的；</li>
 <li>有些棋子是固定的，有些棋子则是可以移动的；</li>
@@ -222,7 +222,7 @@
 </ol>
 <p>游戏的目的是把某个指定位置可以活动的棋子移动到目标位置。</p>
 <p>给定一个棋盘，游戏可以玩 $q$ 次，当然，每次棋盘上固定的格子是不会变的， 但是棋盘上空白的格子的初始位置、 指定的可移动的棋子的初始位置和目标位置却可能不同。第 $i$ 次玩的时候， 空白的格子在第 $EX_i$ 行第 $EY_i$ 列，指定的可移动棋子的初始位置为第 $SX_i$ 行第 $SY_i$列，目标位置为第 $TX_i$ 行第 $TY_i$ 列。</p>
-<p>假设 <code class="hljs inline">小 B</code> 每秒钟能进行一次移动棋子的操作，而其他操作的时间都可以忽略不计。请你告诉 <code class="hljs inline">小 B</code> 每一次游戏所需要的最少时间，或者告诉他不可能完成游戏。</p>
+<p>假设 <code>小 B</code> 每秒钟能进行一次移动棋子的操作，而其他操作的时间都可以忽略不计。请你告诉 <code>小 B</code> 每一次游戏所需要的最少时间，或者告诉他不可能完成游戏。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行有 $3$个整数，每两个整数之间用一个空格隔开，依次表示 $ n,m,q$；</p>
 <p>接下来的 $n$ 行描述一个 $ n \times m$ 的棋盘，每行有 $ m $ 个整数，每两个整数之间用一个空格隔开，每个整数描述棋盘上一个格子的状态，$0$ 表示该格子上的棋子是固定的，$1$ 表示该格子上的棋子可以移动或者该格子是空白的。  </p>
@@ -232,16 +232,18 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 4 2
-0 1 1 1
-0 1 1 0
-0 1 0 0
-3 2 1 2 2 2
-1 2 2 2 3 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2
--1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="o">-</span><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p><strong>输入输出样例说明</strong></p>
@@ -251,7 +253,7 @@
 </ol>
 <p>移动过程如下：</p>
 <p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/n0q385tw.png" /></p>
-<ol start="2">
+<ol>
 <li>第二次游戏，空白格子的初始位置是 $(1, 2)$（图中空白所示），游戏的目标是将初始位置在 $(2, 2)$ 上的棋子（图中绿色圆圈所示）移动到目标位置  $(3, 2)$ 上。</li>
 </ol>
 <p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/aq9apos0.png" /></p>

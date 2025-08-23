@@ -218,16 +218,18 @@
 <li>没有一对鬼在一步里交换了位置。</li>
 </ol>
 <p>例如，假设鬼的位置是如右上图所示的，其中sharp(#)表示墙，空格表示走廊，a,b,c表示鬼：</p>
-<pre class="hljs"><code class="hljs">####
+<div class="codehilite"><pre><span></span><code>####
  ab#
 #c##
-####</code></pre>
+####
+</code></pre></div>
 
 <p>经过一步移动后，地图可以变成如下的样子：</p>
-<pre class="hljs"><code class="hljs">####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ####
- ab#&nbsp;&nbsp;&nbsp;&nbsp; a b#&nbsp;&nbsp;&nbsp;&nbsp; acb#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ab #
-#c##&nbsp;&nbsp;&nbsp;&nbsp; #c##&nbsp;&nbsp;&nbsp;&nbsp; # ##&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #c##&nbsp;&nbsp; 
-####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp; ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ####</code></pre>
+<div class="codehilite"><pre><span></span><code>####     ####     ####       ####
+ ab#     a b#     acb#       ab #
+#c##     #c##     # ##       #c##   
+####     ####     ####       ####
+</code></pre></div>
 
 <h2 id="_2">输入格式</h2>
 <p>输入包括最多 $10$ 组数据，每组数据包含一幅地图。输入格式如下：</p>
@@ -241,7 +243,7 @@ c_{h,1} &amp; c_{h,2} &amp; \cdots &amp; c_{h,w} \
 <p>第一行的 $w，h$ 和 $n$ 表示地图的宽度和高度，$n$ 表示鬼的数目，他们满足 $4 \le w \le 16$，$4 \le h \le 16$，$1 \le n \le 3$。</p>
 <p>接下来 $h$ 行，每行 $w$ 个字符：</p>
 <ul>
-<li>一个 <code class="hljs inline">#</code> 表示墙。</li>
+<li>一个 <code>#</code> 表示墙。</li>
 <li>一个小写字母表示鬼的初始位置（该位置也是走廊）。</li>
 <li>一个大写字母表示鬼的目标位置（该位置也是走廊）。</li>
 <li>一个空格表示空的走廊。</li>
@@ -253,40 +255,42 @@ c_{h,1} &amp; c_{h,2} &amp; \cdots &amp; c_{h,w} \
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5 2
-#####
-#A#B#
-#&nbsp;&nbsp; #
-#b#a#
-#####
-16 4 3
-################
-## ########## ##
-#&nbsp;&nbsp;&nbsp;&nbsp;ABCcba&nbsp;&nbsp;&nbsp;&nbsp;#
-################
-16 16 3
-################
-### ##&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp; ##
-##&nbsp;&nbsp;#&nbsp;&nbsp;##&nbsp;&nbsp; # c#
-#&nbsp;&nbsp;## ########b#
-# ##&nbsp;&nbsp;# #&nbsp;&nbsp; #&nbsp;&nbsp;#
-#&nbsp;&nbsp;# ##&nbsp;&nbsp; # # ##
-##&nbsp;&nbsp;a#&nbsp;&nbsp;# # #&nbsp;&nbsp;#
-### ## #### ## #
-##&nbsp;&nbsp; #&nbsp;&nbsp; #&nbsp;&nbsp;#&nbsp;&nbsp;#
-#&nbsp;&nbsp;##### # ## ##
-####&nbsp;&nbsp; #B# #&nbsp;&nbsp; #
-##&nbsp;&nbsp;C#&nbsp;&nbsp; #&nbsp;&nbsp; ###
-#&nbsp;&nbsp;# # ####### #
-# ######&nbsp;&nbsp;A##&nbsp;&nbsp;#
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; #
-################
-0 0 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">2</span>
+<span class="err">#####</span>
+<span class="err">#</span><span class="n">A</span><span class="err">#</span><span class="n">B</span><span class="err">#</span>
+<span class="err">#</span><span class="w">   </span><span class="err">#</span>
+<span class="err">#</span><span class="n">b</span><span class="err">#</span><span class="n">a</span><span class="err">#</span>
+<span class="err">#####</span>
+<span class="mf">16</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+<span class="err">################</span>
+<span class="err">##</span><span class="w"> </span><span class="err">##########</span><span class="w"> </span><span class="err">##</span>
+<span class="err">#</span><span class="w">    </span><span class="n">ABCcba</span><span class="w">    </span><span class="err">#</span>
+<span class="err">################</span>
+<span class="mf">16</span><span class="w"> </span><span class="mf">16</span><span class="w"> </span><span class="mf">3</span>
+<span class="err">################</span>
+<span class="err">###</span><span class="w"> </span><span class="err">##</span><span class="w">    </span><span class="err">#</span><span class="w">   </span><span class="err">##</span>
+<span class="err">##</span><span class="w">  </span><span class="err">#</span><span class="w">  </span><span class="err">##</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="n">c</span><span class="err">#</span>
+<span class="err">#</span><span class="w">  </span><span class="err">##</span><span class="w"> </span><span class="err">########</span><span class="n">b</span><span class="err">#</span>
+<span class="err">#</span><span class="w"> </span><span class="err">##</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">   </span><span class="err">#</span><span class="w">  </span><span class="err">#</span>
+<span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">##</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">##</span>
+<span class="err">##</span><span class="w">  </span><span class="n">a</span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">  </span><span class="err">#</span>
+<span class="err">###</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="err">####</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="err">#</span>
+<span class="err">##</span><span class="w">   </span><span class="err">#</span><span class="w">   </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w">  </span><span class="err">#</span>
+<span class="err">#</span><span class="w">  </span><span class="err">#####</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="err">##</span>
+<span class="err">####</span><span class="w">   </span><span class="err">#</span><span class="n">B</span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">   </span><span class="err">#</span>
+<span class="err">##</span><span class="w">  </span><span class="n">C</span><span class="err">#</span><span class="w">   </span><span class="err">#</span><span class="w">   </span><span class="err">###</span>
+<span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">#######</span><span class="w"> </span><span class="err">#</span>
+<span class="err">#</span><span class="w"> </span><span class="err">######</span><span class="w">  </span><span class="n">A</span><span class="err">##</span><span class="w">  </span><span class="err">#</span>
+<span class="err">#</span><span class="w">        </span><span class="err">#</span><span class="w">     </span><span class="err">#</span>
+<span class="err">################</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">7
-36
-77</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+<span class="mf">36</span>
+<span class="mf">77</span>
+</code></pre></div>
             </article>
           </div>
         </div>

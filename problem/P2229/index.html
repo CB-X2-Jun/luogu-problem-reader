@@ -233,27 +233,29 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">start
-&nbsp;&nbsp;&nbsp;&nbsp; i=0
-&nbsp;&nbsp;&nbsp;&nbsp; j=0
-&nbsp;&nbsp;&nbsp;&nbsp; loop 100
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=i+1
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=j+i
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loop 10
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write j
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end
-&nbsp;&nbsp;&nbsp;&nbsp; end
-&nbsp;&nbsp;&nbsp;&nbsp; loop 100
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=j+1
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=j+1
-&nbsp;&nbsp;&nbsp;&nbsp; end
-&nbsp;&nbsp;&nbsp;&nbsp; write j
-end</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nv">start</span>
+<span class="w">     </span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="w">     </span><span class="nv">j</span><span class="o">=</span><span class="mi">0</span>
+<span class="w">     </span><span class="k">loop</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">          </span><span class="nv">i</span><span class="o">=</span><span class="nv">i</span><span class="o">+</span><span class="mi">1</span>
+<span class="w">          </span><span class="nv">j</span><span class="o">=</span><span class="nv">j</span><span class="o">+</span><span class="nv">i</span>
+<span class="w">          </span><span class="k">continue</span>
+<span class="w">          </span><span class="k">loop</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">               </span><span class="nv">write</span><span class="w"> </span><span class="nv">j</span>
+<span class="w">          </span><span class="k">end</span>
+<span class="w">     </span><span class="k">end</span>
+<span class="w">     </span><span class="k">loop</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">          </span><span class="nv">j</span><span class="o">=</span><span class="nv">j</span><span class="o">+</span><span class="mi">1</span>
+<span class="w">          </span><span class="k">break</span>
+<span class="w">          </span><span class="nv">j</span><span class="o">=</span><span class="nv">j</span><span class="o">+</span><span class="mi">1</span>
+<span class="w">     </span><span class="k">end</span>
+<span class="w">     </span><span class="nv">write</span><span class="w"> </span><span class="nv">j</span>
+<span class="k">end</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">5051</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5051</span>
+</code></pre></div>
             </article>
           </div>
         </div>

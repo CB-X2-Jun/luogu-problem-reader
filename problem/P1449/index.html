@@ -212,8 +212,8 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>所谓后缀表达式是指这样的一个表达式：式中不再引用括号，运算符号放在两个运算对象之后，所有计算按运算符号出现的顺序，严格地由左而右新进行（不用考虑运算符的优先级）。</p>
-<p>本题中运算符仅包含 $\texttt{+-<em>/}$。保证对于 $\texttt{/}$ 运算除数不为 0。特别地，其中 $\texttt{/}$ 运算的结果需要</em><em>向 0 取整</em>*（即与 C++ <code class="hljs inline">/</code> 运算的规则一致）。</p>
-<p>如：$\texttt{3<em>(5-2)+7}$ 对应的后缀表达式为：$\texttt{3.5.2.-</em>7.+@}$。在该式中，<code class="hljs inline">@</code> 为表达式的结束符号。<code class="hljs inline">.</code> 为操作数的结束符号。</p>
+<p>本题中运算符仅包含 $\texttt{+-<em>/}$。保证对于 $\texttt{/}$ 运算除数不为 0。特别地，其中 $\texttt{/}$ 运算的结果需要</em><em>向 0 取整</em>*（即与 C++ <code>/</code> 运算的规则一致）。</p>
+<p>如：$\texttt{3<em>(5-2)+7}$ 对应的后缀表达式为：$\texttt{3.5.2.-</em>7.+@}$。在该式中，<code>@</code> 为表达式的结束符号。<code>.</code> 为操作数的结束符号。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入一行一个字符串 $s$，表示后缀表达式。</p>
 <h2 id="_3">输出格式</h2>
@@ -221,17 +221,21 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3.5.2.-*7.+@</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3.5.2.</span><span class="o">-*</span><span class="mf">7.</span><span class="o">+</span><span class="err">@</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">16</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">16</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">10.28.30./*7.-@</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">10.28.30.</span><span class="o">/*</span><span class="mf">7.</span><span class="o">-</span><span class="err">@</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">-7</code></pre>
+<div class="codehilite"><pre><span></span><code>-7
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>数据保证，$1 \leq |s| \leq 50$，答案和计算过程中的每一个值的绝对值不超过 $10^9$。</p>

@@ -223,10 +223,10 @@
 - 条件跳转：两个量和两个整数。执行到这里时，若第一个量小于第二个量，则执行位置将被修改为第一个整数，否则将被修改为第二个整数。</p>
 <p>小 Q 认为，整个游戏是希望一个叫做「成就值」的变量（编号为 $1$）最大。</p>
 <h2 id="_2">输入格式</h2>
-<p>该题为提交答案型试题，所有输入数据 <code class="hljs inline">train1.in</code>~<code class="hljs inline">train10.in</code> 已在附加文件中。</p>
+<p>该题为提交答案型试题，所有输入数据 <code>train1.in</code>~<code>train10.in</code> 已在附加文件中。</p>
 <p>输入的第一行包含两个正整数 $n, m$，表示事件的个数和变量的个数。</p>
 <p>接下来有 $n$ 行，每行描述一个事件。这些事件按照给出的顺序依次编号为 $1$ 到 $n$。</p>
-<p>描述量和事件的格式如下（格式中 <code class="hljs inline">#</code>表示空格）</p>
+<p>描述量和事件的格式如下（格式中 <code>#</code>表示空格）</p>
 <p>::cute-table{tuack}</p>
 <table>
 <thead>
@@ -239,62 +239,64 @@
 <tbody>
 <tr>
 <td style="text-align: center;">常数</td>
-<td style="text-align: center;"><code class="hljs inline">c#整数</code></td>
-<td style="text-align: center;"><code class="hljs inline">c -2</code></td>
+<td style="text-align: center;"><code>c#整数</code></td>
+<td style="text-align: center;"><code>c -2</code></td>
 </tr>
 <tr>
 <td style="text-align: center;">变量</td>
-<td style="text-align: center;"><code class="hljs inline">v#正整数</code></td>
-<td style="text-align: center;"><code class="hljs inline">v 5</code></td>
+<td style="text-align: center;"><code>v#正整数</code></td>
+<td style="text-align: center;"><code>v 5</code></td>
 </tr>
 <tr>
 <td style="text-align: center;">普通事件</td>
-<td style="text-align: center;"><code class="hljs inline">变量#+#量</code></td>
-<td style="text-align: center;"><code class="hljs inline">v 1 + c 1</code></td>
+<td style="text-align: center;"><code>变量#+#量</code></td>
+<td style="text-align: center;"><code>v 1 + c 1</code></td>
 </tr>
 <tr>
 <td style="text-align: center;">普通事件</td>
-<td style="text-align: center;"><code class="hljs inline">变量#-#量</code></td>
-<td style="text-align: center;"><code class="hljs inline">v 2 - c 2</code></td>
+<td style="text-align: center;"><code>变量#-#量</code></td>
+<td style="text-align: center;"><code>v 2 - c 2</code></td>
 </tr>
 <tr>
 <td style="text-align: center;">选择跳转</td>
-<td style="text-align: center;"><code class="hljs inline">s#整数 1#整数 2</code></td>
-<td style="text-align: center;"><code class="hljs inline">s 10 20</code></td>
+<td style="text-align: center;"><code>s#整数 1#整数 2</code></td>
+<td style="text-align: center;"><code>s 10 20</code></td>
 </tr>
 <tr>
 <td style="text-align: center;">条件跳转</td>
-<td style="text-align: center;"><code class="hljs inline">i#量 1#量 2#整数 1#整数 2</code></td>
-<td style="text-align: center;"><code class="hljs inline">i c 99 v 2 0 1</code></td>
+<td style="text-align: center;"><code>i#量 1#量 2#整数 1#整数 2</code></td>
+<td style="text-align: center;"><code>i c 99 v 2 0 1</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="_3">输出格式</h2>
-<p>针对给定的 $10$ 个输入文件 <code class="hljs inline">train1.in</code> ~ <code class="hljs inline">train10.in</code>，你需要分别提交你的输出文件 <code class="hljs inline">train1.out</code> ~ <code class="hljs inline">train10.out</code>。</p>
-<p>每个文件需要输出若干行，每行输出一个字符 <code class="hljs inline">1</code> 或 <code class="hljs inline">2</code>，表示执行过程中遇到的每个选择跳转所作的选择。输出的行数需要严格等于此次游戏执行过程中遇到的选择跳转的个数。</p>
+<p>针对给定的 $10$ 个输入文件 <code>train1.in</code> ~ <code>train10.in</code>，你需要分别提交你的输出文件 <code>train1.out</code> ~ <code>train10.out</code>。</p>
+<p>每个文件需要输出若干行，每行输出一个字符 <code>1</code> 或 <code>2</code>，表示执行过程中遇到的每个选择跳转所作的选择。输出的行数需要严格等于此次游戏执行过程中遇到的选择跳转的个数。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">11 2
-v 2 + c 19
-i v 2 c 3 7 3
-s 4 7
-v 1 + c 13
-v 2 - c 3
-i c 0 c 1 2 0
-i v 2 c 5 12 8
-s 9 12
-v 1 + c 23
-v 2 - c 5
-i c 0 c 1 7 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">11</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">v</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">19</span>
+<span class="n">i</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">3</span>
+<span class="n">s</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">7</span>
+<span class="n">v</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">13</span>
+<span class="n">v</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">3</span>
+<span class="n">i</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span>
+<span class="n">i</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="mf">8</span>
+<span class="n">s</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">12</span>
+<span class="n">v</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">23</span>
+<span class="n">v</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">i</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1
-1
-1
-2
-1
-1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+<span class="mf">1</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+<span class="mf">1</span>
+<span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">评分标准</h3>
@@ -307,31 +309,31 @@ i c 0 c 1 7 0</code></pre>
 <p>如果你的输出能让剧本正常结束，且结束时成就值不小于 $a_s$，得 $s$ 分。</p>
 <p>如果以上条目有多项满足，则取满足条件中的最高得分。</p>
 <h3 id="_7">如何测试你的输出</h3>
-<p>我们提供 <code class="hljs inline">checker</code> 这个工具来测试你的输出文件是否是可接受的。使用这个工具的方法是，首先进入终端，在终端中运行下面的命令进入本题的文件夹：</p>
-<p><code class="hljs inline">cd train</code></p>
+<p>我们提供 <code>checker</code> 这个工具来测试你的输出文件是否是可接受的。使用这个工具的方法是，首先进入终端，在终端中运行下面的命令进入本题的文件夹：</p>
+<p><code>cd train</code></p>
 <p>然后运行：</p>
-<p><code class="hljs inline">./checker <case_no></code></p>
-<p>其中 <code class="hljs inline">case_no</code> 是测试数据的编号。例如</p>
-<p><code class="hljs inline">./checker 3</code></p>
-<p>将测试 <code class="hljs inline">train3.out</code> 是否可以接受。</p>
-<p>在你调用这个程序后，<code class="hljs inline">checker</code> 将根据你给出的输出文件给出测试的结果，其中包括：
+<p><code>./checker &lt;case_no&gt;</code></p>
+<p>其中 <code>case_no</code> 是测试数据的编号。例如</p>
+<p><code>./checker 3</code></p>
+<p>将测试 <code>train3.out</code> 是否可以接受。</p>
+<p>在你调用这个程序后，<code>checker</code> 将根据你给出的输出文件给出测试的结果，其中包括：
 - 非法退出：未知错误。
-- <code class="hljs inline">Input/Output file does not exist.</code>：输入/输出文件不存在。
-- <code class="hljs inline">Output invalid.</code>：输出文件有误,此时可能包含具体错误信息。
-- <code class="hljs inline">Correct! Your answer is x.</code>：输出可接受,最后的成就值为 $x$。</p>
+- <code>Input/Output file does not exist.</code>：输入/输出文件不存在。
+- <code>Output invalid.</code>：输出文件有误,此时可能包含具体错误信息。
+- <code>Correct! Your answer is x.</code>：输出可接受,最后的成就值为 $x$。</p>
 <h3 id="_8">更多功能</h3>
-<p><code class="hljs inline">checker</code> 还可以检查任意输入输出文件的测试结果，方法是在终端中运行：</p>
-<p><code class="hljs inline">cd train</code></p>
-<p><code class="hljs inline">./checker <input_file_name> <output_file_name></code></p>
-<p>其中 <code class="hljs inline">input_file_name</code> 和 <code class="hljs inline">output_file_name</code> 分别是输入输出文件的名称。例如</p>
-<p><code class="hljs inline">./checker train3.in train3.out</code></p>
-<p>将测试 <code class="hljs inline">train3.out</code> 是否可以接受。</p>
-<p>使用 <code class="hljs inline">-w</code> 可以输出每步运行的结果。用法是</p>
-<p><code class="hljs inline">./checker -w <input_file_name> <output_file_name></code></p>
+<p><code>checker</code> 还可以检查任意输入输出文件的测试结果，方法是在终端中运行：</p>
+<p><code>cd train</code></p>
+<p><code>./checker &lt;input_file_name&gt; &lt;output_file_name&gt;</code></p>
+<p>其中 <code>input_file_name</code> 和 <code>output_file_name</code> 分别是输入输出文件的名称。例如</p>
+<p><code>./checker train3.in train3.out</code></p>
+<p>将测试 <code>train3.out</code> 是否可以接受。</p>
+<p>使用 <code>-w</code> 可以输出每步运行的结果。用法是</p>
+<p><code>./checker -w &lt;input_file_name&gt; &lt;output_file_name&gt;</code></p>
 <p>或者</p>
-<p><code class="hljs inline">./checker -w <case_no></code></p>
+<p><code>./checker -w &lt;case_no&gt;</code></p>
 <p>例如</p>
-<p><code class="hljs inline">./checker -w train3.in train3.out</code></p>
+<p><code>./checker -w train3.in train3.out</code></p>
 <h3 id="_9">特别提示</h3>
 <p>如果选手使用自己生成输入文件进行调试，有可能因规模过大造成 checker 出错。若发生这类情况，请尝试较小规模的数据。</p>
             </article>

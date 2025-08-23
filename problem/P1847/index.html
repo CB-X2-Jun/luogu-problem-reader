@@ -215,20 +215,22 @@
 <p>在轰炸后，有 $N$ 个关键点，指挥官想知道，它们有没有受到过轰炸，如果有，被炸了几次，最后一次是第几轮。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行，两个整数：$M,N$。</p>
-<p>以下 $M$ 行，每行四个整数：$x_1$、$y_1$、$x_2$、$y_2$，表示被轰炸的矩形的左上角坐标和右下角坐标（比如<code class="hljs inline">1 3 7 10</code>就表示被轰炸的地方是从$(1,3)$到$(7,10)$ 的矩形）。</p>
+<p>以下 $M$ 行，每行四个整数：$x_1$、$y_1$、$x_2$、$y_2$，表示被轰炸的矩形的左上角坐标和右下角坐标（比如<code>1 3 7 10</code>就表示被轰炸的地方是从$(1,3)$到$(7,10)$ 的矩形）。</p>
 <p>再以下 $N$ 行，每行两个整数，表示这个关键点的坐标。</p>
 <h2 id="_3">输出格式</h2>
 <p>共 $N$ 行，</p>
-<p>每行第一个字符为 <code class="hljs inline">YES</code> 或 <code class="hljs inline">NO</code>，表示是否被轰炸，若为 <code class="hljs inline">YES</code>，在一个空格后为两个整数，表示被炸了几次和最后一次是第几轮。</p>
+<p>每行第一个字符为 <code>YES</code> 或 <code>NO</code>，表示是否被轰炸，若为 <code>YES</code>，在一个空格后为两个整数，表示被炸了几次和最后一次是第几轮。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">1 1 
-1 1 10 10
-11 11</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">10</span>
+<span class="mf">11</span><span class="w"> </span><span class="mf">11</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">NO</code></pre>
+<div class="codehilite"><pre><span></span><code>NO
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>$1 \le N,M\le 2000$</p>

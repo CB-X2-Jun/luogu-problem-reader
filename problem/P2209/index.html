@@ -214,23 +214,25 @@
 <p>Farmer John 决定去一次跨国旅游度假。为了不让他的奶牛们感到被抛弃，他决定租一辆大卡车来带他的奶牛们一起旅行。</p>
 <p>这辆卡车有一个很大的油箱，可以装下 $G$ 个单位的油（$1 \le G \le {10}^6$），不幸的是，卡车的耗油量也很大，卡车每运动一个单位的距离，就要消耗一个单位的油。Farmer John 要在他的旅程中走 $D$ 个单位的距离（$1 \le D \le {10}^9$）。</p>
 <p>因为 FJ 知道他可能要几次在旅途中停下，给油箱加油，所以他把在旅途沿路上的 $N$（$1\le n\le 5\times 10^4$）个加油站的记录做成了表格。对于第 $i$ 个加油站，他记录了加油站与起点的距离 $X_i$（$0 \le X_i \le D$），以及加油站中每单位油的价格 $Y_i$（$1 \le Y_i \le {10}^6$）。</p>
-<p>已知以上所给的信息，以及 FJ 在路途开始时拥有的燃油的数量 $B$（$0 \le B \le D$），请计算出 FJ 到达目的地时花费的油费用的最小值。如果 FJ 无法到达旅途的终点，那么请输出 <code class="hljs inline">-1</code>。本题的答案可能无法使用 32 位整数储存。</p>
+<p>已知以上所给的信息，以及 FJ 在路途开始时拥有的燃油的数量 $B$（$0 \le B \le D$），请计算出 FJ 到达目的地时花费的油费用的最小值。如果 FJ 无法到达旅途的终点，那么请输出 <code>-1</code>。本题的答案可能无法使用 32 位整数储存。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行： 四个整数：$N, G, B, D$。</p>
 <p>接下来 $N$ 行：每一行都有两个整数 $X_i$ 与 $Y_i$，意义如上所述。</p>
 <h2 id="_3">输出格式</h2>
-<p>一个整数，如果 FJ 无法到达旅途的终点，那么输出 <code class="hljs inline">-1</code>，否则输出 FJ 到达目的地时花费的油费用的最小值。</p>
+<p>一个整数，如果 FJ 无法到达旅途的终点，那么输出 <code>-1</code>，否则输出 FJ 到达目的地时花费的油费用的最小值。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4 10 3 17
-2 40
-9 15
-5 7
-10 12</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">17</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">40</span>
+<span class="mf">9</span><span class="w"> </span><span class="mf">15</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">10</span><span class="w"> </span><span class="mf">12</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">174</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">174</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>样例解释：FJ 先移动 $2$ 个单位，然后停下购买 $2$ 个单位的油（要花费 $40 \times 2$）。然后一直前进到距离起点 $5$ 个单位的地方，此时油箱为空。这时向油箱里加满油（要花费 $7 \times 10$）。再向前走 $5$ 个单位，加 $2$ 个单位的油（花费 $12 \times 2$）。最后一直走到终点。此时总花费是 $174$。</p>

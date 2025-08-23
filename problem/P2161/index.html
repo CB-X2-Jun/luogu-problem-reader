@@ -213,17 +213,17 @@
               <h2 id="_1">题目背景</h2>
 <p><strong>形式化题意：</strong></p>
 <p>你需要维护一个在数轴上的线段的集合 $S$，支持两种操作：</p>
-<p><code class="hljs inline">A l r</code> 表示将 $S$ 中所有与线段 $[l,r]$ 相交的线段删去，并将 $[l,r]$ 加入 $S$ 中。</p>
-<p><code class="hljs inline">B</code> 查询 $S$ 中的元素数量。</p>
-<p>对于 <code class="hljs inline">A</code> 操作，每次还需输出删掉的元素个数。</p>
+<p><code>A l r</code> 表示将 $S$ 中所有与线段 $[l,r]$ 相交的线段删去，并将 $[l,r]$ 加入 $S$ 中。</p>
+<p><code>B</code> 查询 $S$ 中的元素数量。</p>
+<p>对于 <code>A</code> 操作，每次还需输出删掉的元素个数。</p>
 <h2 id="_2">题目描述</h2>
 <p>PP 大厦有一间空的礼堂，可以为企业或者单位提供会议场地。</p>
 <p>这些会议中的大多数都需要连续几天的时间（个别的可能只需要一天），不过场地只有一个，所以不同的会议的时间申请不能够冲突。也就是说，前一个会议的结束日期必须在后一个会议的开始日期之前。所以，如果要接受一个新的场地预约申请，就必须拒绝掉与这个申请相冲突的预约。</p>
 <p>一般来说，如果 PP 大厦方面事先已经接受了一个会场预约（例如从 $10$ 日到 $15$ 日），就不会再接受与之相冲突的预约（例如从 $12$ 日到 $17$ 日）。</p>
 <p>不过，有时出于经济利益，PP 大厦方面有时会为了接受一个新的会场预约，而拒绝掉一个甚至几个之前预订的预约。 于是，礼堂管理员 QQ 的笔记本上经常记录着这样的信息：（本题中为方便起见，所有的日期都用一个整数表示）例如，如果一个为期 $10$ 天的会议从 $90$ 日开始到 $99$ 日，那么下一个会议最早只能在 $100$ 日开始。（此处前后矛盾，若无法理解请参考形式化描述。）</p>
 <p>最近，这个业务的工作量与日俱增，礼堂的管理员 QQ 希望参加 SHTSC 的你替他设计一套计算机系统，方便他的工作。这个系统应当能执行下面两个操作：</p>
-<p><code class="hljs inline">A</code> 操作：有一个新的预约是从 $start$ 日到 $end$ 日，并且拒绝掉所有与它相冲突的预约。执行这个操作的时候，你的系统应当返回为了这个新预约而拒绝掉的预约个数，以方便 QQ 与自己的记录相校对。</p>
-<p><code class="hljs inline">B</code> 操作：请你的系统返回当前的仍然有效的预约的总数。</p>
+<p><code>A</code> 操作：有一个新的预约是从 $start$ 日到 $end$ 日，并且拒绝掉所有与它相冲突的预约。执行这个操作的时候，你的系统应当返回为了这个新预约而拒绝掉的预约个数，以方便 QQ 与自己的记录相校对。</p>
+<p><code>B</code> 操作：请你的系统返回当前的仍然有效的预约的总数。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行一个正整数 $n$，表示操作个数。<br />
 接下来 $n$ 行，每行表示一个操作，都是上面两种中的一个。</p>
@@ -232,21 +232,23 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">6
-A 10 15
-A 17 19
-A 12 17
-A 90 99
-A 11 12
-B</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+<span class="n">A</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">15</span>
+<span class="n">A</span><span class="w"> </span><span class="mf">17</span><span class="w"> </span><span class="mf">19</span>
+<span class="n">A</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="mf">17</span>
+<span class="n">A</span><span class="w"> </span><span class="mf">90</span><span class="w"> </span><span class="mf">99</span>
+<span class="n">A</span><span class="w"> </span><span class="mf">11</span><span class="w"> </span><span class="mf">12</span>
+<span class="n">B</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">0
-0
-2
-0
-1
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span>
+<span class="mf">0</span>
+<span class="mf">2</span>
+<span class="mf">0</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>【数据范围】<br />

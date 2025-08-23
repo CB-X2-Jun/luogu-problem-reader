@@ -211,22 +211,24 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>我有一个长度为 $l$ 的字符串，最开始时，这个字符串由 $l$ 个句号（<code class="hljs inline">.</code>）组成。</p>
-<p>我在这个字符串中，将多次把 <code class="hljs inline">boy</code> 或者 <code class="hljs inline">girl</code> 两单词，依次贴到这个字符串中。</p>
+<p>我有一个长度为 $l$ 的字符串，最开始时，这个字符串由 $l$ 个句号（<code>.</code>）组成。</p>
+<p>我在这个字符串中，将多次把 <code>boy</code> 或者 <code>girl</code> 两单词，依次贴到这个字符串中。</p>
 <p>后贴上单词，会覆盖之前贴上的单词，或者覆盖句号。最终，每个单词至少有一个字符没有被覆盖。</p>
-<p>请问，一共贴有几个 <code class="hljs inline">boy</code> 几个 <code class="hljs inline">girl</code>？</p>
+<p>请问，一共贴有几个 <code>boy</code> 几个 <code>girl</code>？</p>
 <h2 id="_2">输入格式</h2>
-<p>一行被反复贴有 <code class="hljs inline">boy</code> 和 <code class="hljs inline">girl</code> 两单词的字符串。</p>
+<p>一行被反复贴有 <code>boy</code> 和 <code>girl</code> 两单词的字符串。</p>
 <h2 id="_3">输出格式</h2>
-<p>两行，两个整数。第一行为 <code class="hljs inline">boy</code> 的个数，第二行为 <code class="hljs inline">girl</code> 的个数。</p>
+<p>两行，两个整数。第一行为 <code>boy</code> 的个数，第二行为 <code>girl</code> 的个数。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">......boyogirlyy......girl.......</code></pre>
+<div class="codehilite"><pre><span></span><code>......boyogirlyy......girl.......
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">4
-2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span>
+<span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>数据保证，$3\le l\le255$，字符串仅仅包含如下字符：$\texttt{.bgilory}$。</p>

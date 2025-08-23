@@ -236,26 +236,28 @@
 <h2 id="_3">输出格式</h2>
 <p>输出 $n$ 行，每行表示一个询问的结果。按如下规则输出：</p>
 <ul>
-<li>如果最后栈内不是一个元素，输出 <code class="hljs inline">ERROR</code>。</li>
-<li>如果运算过程中有数字的绝对值大于 $1000000000$，输出 <code class="hljs inline">ERROR</code>。</li>
-<li>如果输入数据不合法，导致中途退出，输出 <code class="hljs inline">ERROR</code>。</li>
+<li>如果最后栈内不是一个元素，输出 <code>ERROR</code>。</li>
+<li>如果运算过程中有数字的绝对值大于 $1000000000$，输出 <code>ERROR</code>。</li>
+<li>如果输入数据不合法，导致中途退出，输出 <code>ERROR</code>。</li>
 <li>否则输出对应的 $f(x)$。</li>
 </ul>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">NUM 600000000
-ADD
-END
-3
-0
-600000000
-1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">NUM</span> <span class="mi">600000000</span>
+<span class="n">ADD</span>
+<span class="kr">END</span>
+<span class="mi">3</span>
+<span class="mi">0</span>
+<span class="mi">600000000</span>
+<span class="mi">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">600000000
-ERROR
-600000001</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">600000000</span>
+<span class="n">ERROR</span>
+<span class="mf">600000001</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据规模与约定</h3>

@@ -221,33 +221,37 @@
 </ul>
 <p>当然，使用每一个门都算作一步。</p>
 <p>当然还有障碍，如果有障碍，那么这个点没有门且这个点不能被传送到。</p>
-<p>但是，魔王 Bill 有可能创造出了一个完全无法到达 $(N,N)$ 的迷宫，所以，当从三个原点出发都无法到达 $(N,N)$ 时，请输出 <code class="hljs inline">No answer</code>。注意，原点算作一步（Mini 一开始站在 $(1,1)$ 或 $(1,N)$ 或 $(N,1)$ 的位置，然后走一步到原点，所以原点算作一步）。</p>
+<p>但是，魔王 Bill 有可能创造出了一个完全无法到达 $(N,N)$ 的迷宫，所以，当从三个原点出发都无法到达 $(N,N)$ 时，请输出 <code>No answer</code>。注意，原点算作一步（Mini 一开始站在 $(1,1)$ 或 $(1,N)$ 或 $(N,1)$ 的位置，然后走一步到原点，所以原点算作一步）。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个数 $N$，表示迷宫的大小 $N\times N$。</p>
 <p>以下 $N$ 行，每行 $N$ 个字符，表示迷宫的示意图。字符要么是字母 ABC，要么是障碍。</p>
 <p>A 表示时空之门，B 表示海洋之门，C 表示天堂之门，障碍用 $*$ 表示。</p>
 <h2 id="_3">输出格式</h2>
-<p>输出为 Mini 从原点处走到公主处的最快路径长度。无解输出 <code class="hljs inline">No answer</code>。</p>
+<p>输出为 Mini 从原点处走到公主处的最快路径长度。无解输出 <code>No answer</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-A*C
-*AC
-ACA</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">A</span><span class="o">*</span><span class="n">C</span>
+<span class="o">*</span><span class="n">AC</span>
+<span class="n">ACA</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">No answer</code></pre>
+<div class="codehilite"><pre><span></span><code>No answer
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">3
-AAA
-CAA
-AAA</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">AAA</span>
+<span class="n">CAA</span>
+<span class="n">AAA</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100\%$ 的数据，$0\le N\le 1200$。</p>

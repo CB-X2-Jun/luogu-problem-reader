@@ -221,10 +221,11 @@
 <p>你希望通过以上操作使得任意非叶子结点的左子树权值和右子树权值相差不超过 $1$。</p>
 <p>求达成以上目标需要的最少操作次数。</p>
 <h2 id="_3">输入格式</h2>
-<p>一行一个字符串 $T$，以中序遍历的方式描述了这棵树，<code class="hljs inline">B</code> 表示彩球。</p>
+<p>一行一个字符串 $T$，以中序遍历的方式描述了这棵树，<code>B</code> 表示彩球。</p>
 <hr />
 <p>形式化的，$T$ 的 CFG（上下文无关文法）定义为：</p>
-<pre class="hljs"><code class="hljs">&lt;T&gt; := (&lt;T&gt;&lt;T&gt;) | (B) | ()</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">()</span>
+</code></pre></div>
 
 <table>
 <thead>
@@ -235,44 +236,50 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">(<T><T>)</code></td>
-<td style="text-align: center;">一个非叶子结点，两个 <code class="hljs inline"><T></code> 分别为它的左子树和右子树</td>
+<td style="text-align: center;"><code>(&lt;T&gt;&lt;T&gt;)</code></td>
+<td style="text-align: center;">一个非叶子结点，两个 <code>&lt;T&gt;</code> 分别为它的左子树和右子树</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">(B)</code></td>
+<td style="text-align: center;"><code>(B)</code></td>
 <td style="text-align: center;">一个权值为 $1$ 的叶子结点</td>
 </tr>
 <tr>
-<td style="text-align: center;"><code class="hljs inline">()</code></td>
+<td style="text-align: center;"><code>()</code></td>
 <td style="text-align: center;">一个权值为 $0$ 的叶子结点</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_4">输出格式</h2>
-<p>输出一个数字，表示最少移动多少个彩球就能使它平衡，或输出 <code class="hljs inline">impossible</code>，表示如何移动多少个都无法平衡。</p>
+<p>输出一个数字，表示最少移动多少个彩球就能使它平衡，或输出 <code>impossible</code>，表示如何移动多少个都无法平衡。</p>
 <hr />
-<p>输出一个数字，表示至少需要多少次操作，或输出 <code class="hljs inline">impossible</code>，表示不可能达成目标。</p>
+<p>输出一个数字，表示至少需要多少次操作，或输出 <code>impossible</code>，表示不可能达成目标。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">((B)())</code></pre>
+<div class="codehilite"><pre><span></span><code>((B)())
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">((((B)(B))((B)()))(B))</code></pre>
+<div class="codehilite"><pre><span></span><code>((((B)(B))((B)()))(B))
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">impossible</code></pre>
+<div class="codehilite"><pre><span></span><code>impossible
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="hljs"><code class="hljs">(()(((B)(B))(B)))</code></pre>
+<div class="codehilite"><pre><span></span><code>(()(((B)(B))(B)))
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>【样例解释】</p>

@@ -219,30 +219,32 @@
 <p>第一行两个整数 $n,m$。</p>
 <p>接下来 $n$ 行，第 $i+1$ 行两个整数 $x_i,y_i$ 表示第 $i$ 支军队的位置。</p>
 <p>接下来 $m$ 行，每行首先是一个字符 $c$。
-- 若 $c$ 为 <code class="hljs inline">m</code>，则后面再输入两个整数 $p,q$，表示把每支军队的位置从 $(x_i,y_i)$ 移到 $(x_i+p,y_i+q)$。
-- 若 $c$ 为 <code class="hljs inline">x</code>，则表示把每支军队的位置从 $(x_i,y_i)$ 移到 $(-x_i,y_i)$。
-- 若 $c$ 为 <code class="hljs inline">y</code>，则表示把每支军队的位置从 $(x_i,y_i)$ 移到 $(x_i,-y_i)$。</p>
+- 若 $c$ 为 <code>m</code>，则后面再输入两个整数 $p,q$，表示把每支军队的位置从 $(x_i,y_i)$ 移到 $(x_i+p,y_i+q)$。
+- 若 $c$ 为 <code>x</code>，则表示把每支军队的位置从 $(x_i,y_i)$ 移到 $(-x_i,y_i)$。
+- 若 $c$ 为 <code>y</code>，则表示把每支军队的位置从 $(x_i,y_i)$ 移到 $(x_i,-y_i)$。</p>
 <h2 id="_4">输出格式</h2>
 <p>输出包含 $n$ 行，第 $i$ 行有两个整数 $x_i',y_i'$，表示第 $i$ 支军队移动后的位置。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 3
-0 0
-4 -3
-6 7
-x
-m -1 2
-y</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">4</span><span class="w"> </span><span class="o">-</span><span class="mf">3</span>
+<span class="mf">6</span><span class="w"> </span><span class="mf">7</span>
+<span class="n">x</span>
+<span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">y</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1 2
--3 5
--5 -5</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="o">-</span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span>
+<span class="o">-</span><span class="mf">5</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $30\%$ 的数据，$1\leqslant n,m\leqslant 1000$。</p>
-<p>对于 $100\%$ 的数据，$1\leqslant n,m\leqslant 5\times 10^5$，$x_i,y_i$ 在 <code class="hljs inline">int</code> 范围内。</p>
+<p>对于 $100\%$ 的数据，$1\leqslant n,m\leqslant 5\times 10^5$，$x_i,y_i$ 在 <code>int</code> 范围内。</p>
             </article>
           </div>
         </div>

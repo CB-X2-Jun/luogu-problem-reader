@@ -217,9 +217,9 @@
 <p>yyy2015c01 设想的 Debugger 由几部分组成，其中的一个小组件就是 Watches——中文称之为“变量观察器”。</p>
 <p>由于 IDE 目前还是内测版，开发组需要先编一个能观察 int 类型变量值的 Watches 来看看效果如何。这个任务交由你来完成。</p>
 <p>开发组假想的 Watches 能实现如下 3 种语句运行后监测相应变量值的功能：
-- <code class="hljs inline">n=1;</code> 将常量赋给变量，保证这个常量的位数不大于 $9$。
-- <code class="hljs inline">a=b;</code> 变量之间赋值：若原变量（在本例中是 $b$）未被赋值则认为其初始值为 $0$。
-- <code class="hljs inline">m=1+2;</code> $A+B$ 表达式赋值，只有 <code class="hljs inline">+</code> 且只有两个数或者变量，$A$ 和 $B$ 都介于 $1$ 至 $10^6$ 之间。</p>
+- <code>n=1;</code> 将常量赋给变量，保证这个常量的位数不大于 $9$。
+- <code>a=b;</code> 变量之间赋值：若原变量（在本例中是 $b$）未被赋值则认为其初始值为 $0$。
+- <code>m=1+2;</code> $A+B$ 表达式赋值，只有 <code>+</code> 且只有两个数或者变量，$A$ 和 $B$ 都介于 $1$ 至 $10^6$ 之间。</p>
 <p>请你编写一个 Watches，并在所有语句运行完后对所有被赋值过的变量按标识符的字典序输出它们的值（保证不会有变量的值大于 int 的最大值）。</p>
 <h2 id="_3">输入格式</h2>
 <p>输入共 $n+1$ 行。</p>
@@ -230,26 +230,30 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3
-a=233;
-b=a;
-c=a+b;</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">a</span><span class="o">=</span><span class="mf">233</span><span class="p">;</span>
+<span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="p">;</span>
+<span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">a 233
+<div class="codehilite"><pre><span></span><code>a 233
 b 233
-c 466</code></pre>
+c 466
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">3
-a=233;
-b=1+1;
-a=b;</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">a</span><span class="o">=</span><span class="mf">233</span><span class="p">;</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">1</span><span class="o">+</span><span class="mf">1</span><span class="p">;</span>
+<span class="n">a</span><span class="o">=</span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">a 2
-b 2</code></pre>
+<div class="codehilite"><pre><span></span><code>a 2
+b 2
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>数据很弱，直接模拟过哟~</p>

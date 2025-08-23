@@ -217,31 +217,33 @@
 <h2 id="_2">输入格式</h2>
 <p>第一行输入 $L,R,C$ （$L$ 为地牢的层数，$R$ 为每层小格的行数，$C$ 为每层小格的列数，其中 $1 \leq L,R,C \leq 30$）。</p>
 <p>第二行开始输入 $L$ 层地牢的格局，每一层有 $R$ 行，每行有 $C$ 个小格，两层地牢中间有空行隔开。</p>
-<p>输入的文件中，<code class="hljs inline">S</code> 代表你的起始点，<code class="hljs inline">E</code> 代表你所要到达的出口，<code class="hljs inline">#</code> 为小格被岩石占据，<code class="hljs inline">.</code> 表示没有被岩石占据。</p>
+<p>输入的文件中，<code>S</code> 代表你的起始点，<code>E</code> 代表你所要到达的出口，<code>#</code> 为小格被岩石占据，<code>.</code> 表示没有被岩石占据。</p>
 <h2 id="_3">输出格式</h2>
-<p>输出包含一行，当你可以顺利到达出口时请输出：<code class="hljs inline">Escaped in x minute(s).</code></p>
-<p>其中，$x$ 代表你所花费的最短时间，否则请输出 <code class="hljs inline">Trapped!</code></p>
+<p>输出包含一行，当你可以顺利到达出口时请输出：<code>Escaped in x minute(s).</code></p>
+<p>其中，$x$ 代表你所花费的最短时间，否则请输出 <code>Trapped!</code></p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 4 5
-S....
-.###.
-.##..
-###.#
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="n">S</span><span class="mf">....</span>
+<span class="mf">.</span><span class="err">###</span><span class="mf">.</span>
+<span class="mf">.</span><span class="err">##</span><span class="mf">..</span>
+<span class="err">###</span><span class="mf">.</span><span class="err">#</span>
 
-#####
-#####
-##.##
-##...
+<span class="err">#####</span>
+<span class="err">#####</span>
+<span class="err">##</span><span class="mf">.</span><span class="err">##</span>
+<span class="err">##</span><span class="mf">...</span>
 
-#####
-#####
-#.###
-####E</code></pre>
+<span class="err">#####</span>
+<span class="err">#####</span>
+<span class="err">#</span><span class="mf">.</span><span class="err">###</span>
+<span class="err">####</span><span class="n">E</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Escaped in 11 minute(s).</code></pre>
+<div class="codehilite"><pre><span></span><code>Escaped in 11 minute(s).
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>来源：POJ 2251</p>

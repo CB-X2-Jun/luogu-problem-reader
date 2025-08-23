@@ -217,7 +217,7 @@
 +\qquad \verb!8468#6633! \[-1em]\underline{\kern{8em}} \
  \verb!44445509678! \
 \end{aligned}$$</p>
-<p>其中 <code class="hljs inline">#</code> 号代表被虫子啃掉的数字。根据算式，我们很容易判断：第一行的两个数字分别是 $5$ 和 $3$，第二行的数字是 $5$。</p>
+<p>其中 <code>#</code> 号代表被虫子啃掉的数字。根据算式，我们很容易判断：第一行的两个数字分别是 $5$ 和 $3$，第二行的数字是 $5$。</p>
 <p>现在，我们对问题做两个限制：</p>
 <p>首先，我们只考虑加法的虫食算。这里的加法是 $n$ 进制加法，算式中三个数都有 $n$ 位，允许有前导的 $0$。</p>
 <p>其次，虫子把所有的数都啃光了，我们只知道哪些数字是相同的，我们将相同的数字用相同的字母表示，不同的数字用不同的字母表示。如果这个算式是 $n$ 进制的，我们就取英文字母表的前 $n$ 个大写字母来表示这个算式中的 $0$ 到 $n - 1$ 这 $n$ 个不同的数字：但是这 $n$ 个字母并不一定顺序地代表 $0$ 到 $n-1$。输入数据保证 $n$ 个字母分别至少出现一次。</p>
@@ -235,13 +235,15 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-ABCED
-BDACE
-EBBAA</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="n">ABCED</span>
+<span class="n">BDACE</span>
+<span class="n">EBBAA</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1 0 3 4 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="_6">数据规模与约定</h4>

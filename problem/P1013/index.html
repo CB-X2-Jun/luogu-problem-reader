@@ -234,22 +234,24 @@
 <p>若记 $s_{i,j}$ 表示第 $i$ 行第 $j$ 个字符串，数据保证 $s_{1,1}=\texttt +$，$s_{i,1}=s_{1,i}$，$|s_{i,1}|=1$，$s_{i,1}\ne s_{j,1}$ （$i\ne j$）。</p>
 <p>保证至多有一组解。</p>
 <h2 id="_3">输出格式</h2>
-<p>第一行输出各个字母表示什么数，格式如：<code class="hljs inline">L=0 K=1</code> $\cdots$ 按给出的字母顺序排序。不同字母必须代表不同数字。</p>
+<p>第一行输出各个字母表示什么数，格式如：<code>L=0 K=1</code> $\cdots$ 按给出的字母顺序排序。不同字母必须代表不同数字。</p>
 <p>第二行输出加法运算是几进制的。</p>
-<p>若不可能组成加法表，则应输出 <code class="hljs inline">ERROR!</code>。</p>
+<p>若不可能组成加法表，则应输出 <code>ERROR!</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-+ L K V E
-L L K V E
-K K V E KL
-V V E KL KK
-E E KL KK KV</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="o">+</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">E</span>
+<span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">E</span>
+<span class="n">K</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">KL</span>
+<span class="n">V</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">KL</span><span class="w"> </span><span class="n">KK</span>
+<span class="n">E</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">KL</span><span class="w"> </span><span class="n">KK</span><span class="w"> </span><span class="n">KV</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">L=0 K=1 V=2 E=3
-4</code></pre>
+<div class="codehilite"><pre><span></span><code>L=0 K=1 V=2 E=3
+4
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>NOIP1998 提高组 第三题</p>

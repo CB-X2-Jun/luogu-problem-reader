@@ -217,7 +217,7 @@
 <li>相对于 X 轴的映射</li>
 </ol>
 <p>对于给定的操作序列，如果结果相同，我们只对最短的操作序列感兴趣。结果相同是指对于不同的操作序列，最后的操作结果中每一个单一点的位置都是一样的。</p>
-<p>操作序列以字符串的形式给出，该字符串中只含有字母 <code class="hljs inline">r</code> 和 <code class="hljs inline">m</code>。<code class="hljs inline">r</code> 代表顺时针旋转，<code class="hljs inline">m</code> 代表单独映射（到右边并且对称）。字符串中如果有多个字母连续出现要简写成 <code class="hljs inline">&lt;字母&gt;&lt;数字&gt;</code> 的形式，为了方便起见，字母如果单独出现也写成这种形式。如 <code class="hljs inline">rrmrrrrrrrrrrrr</code> 可以写成 <code class="hljs inline">r2 m1 r12</code>，每个操作序列一行。</p>
+<p>操作序列以字符串的形式给出，该字符串中只含有字母 <code>r</code> 和 <code>m</code>。<code>r</code> 代表顺时针旋转，<code>m</code> 代表单独映射（到右边并且对称）。字符串中如果有多个字母连续出现要简写成 <code>&lt;字母&gt;&lt;数字&gt;</code> 的形式，为了方便起见，字母如果单独出现也写成这种形式。如 <code>rrmrrrrrrrrrrrr</code> 可以写成 <code>r2 m1 r12</code>，每个操作序列一行。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入共两行。</p>
 <p>第一行一个数 $N$，表示圆周上点的个数。</p>
@@ -227,11 +227,13 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">54
-r218 m3 r1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">54</span>
+<span class="n">r218</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="n">r1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">r1 m1</code></pre>
+<div class="codehilite"><pre><span></span><code>r1 m1
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>$100\%$ 的数据满足 $3 \leq N \leq 10^8$。</p>

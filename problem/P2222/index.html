@@ -218,12 +218,13 @@
 <p>其中 $d_{i,j}=\sum^n_{k=1} a_{i,k} \times b_{k,j}$，简记为 $D=A\times B$。</p>
 <p>现已知三个矩阵 $A,B,C$，这三个矩阵大多数元素为 $0$，我们把这种矩阵称为稀疏矩阵。因此，我们采用三元组 $i,j,a$ 来表示矩阵的第 $i$ 行第 $j$ 列的值为 $a$ 其余未列出的元素均为 $0$；在计算机中，我们仅给出非零元素的三元组，而且使用行优先法给出稀疏矩阵的三元组，首先是第一行按列给出，然后是第二行按列给出……</p>
 <p>例如，矩阵：$\begin{bmatrix}1&amp;0&amp;0&amp;0\0&amp;0&amp;2&amp;-1\0&amp;1&amp;2&amp;3\0&amp;0&amp;0&amp;0\end{bmatrix}$ 那么，矩阵的三元组表示为：</p>
-<pre class="hljs"><code class="hljs">1 1 1
-2 3 2
-2 4 -1
-3 2 1 
-3 3 2
-3 4 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <p>你的任务就是：计算矩阵 $D=A\times B\times C$。</p>
 <h2 id="_2">输入格式</h2>
@@ -235,25 +236,27 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">1 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-3 4 2 3
-1 1 3
-1 4 5
-2 2 1
-3 1 2
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w">                       </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
 
-1 2 2
-2 1 1
-3 1 2
-3 2 4
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">4</span>
 
-1 2 2
-1 3 3
-2 1 1
-2 2 2</code></pre>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">3</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">12</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">12</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="_6">数据规模与约定</h4>

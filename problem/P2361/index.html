@@ -235,23 +235,25 @@
 <p>接下来若干行为 uim 依次下的顺序，每行三个整数 $x_i, y_i, c_i$，分别表示位置和颜色，颜色 $1$ 为黑，$0$ 为白。位置 $1 \le x_i \le A$，$  1 \le y _ i \le B$。</p>
 <p>如果 uim 发现没地方可走，就可能会耍赖，将棋子下在了不合法的地方。遇到这种情况，你也要指出。当然 uim 也有可能知道自己输了后就不下了。不存在游戏胜负还没定 uim 就投降的情况。</p>
 <h2 id="_3">输出格式</h2>
-<p>第一行，选择先手还是后手，先手请输出 <code class="hljs inline">First</code>，后手输出 <code class="hljs inline">Second</code>。</p>
+<p>第一行，选择先手还是后手，先手请输出 <code>First</code>，后手输出 <code>Second</code>。</p>
 <p>接下来几行，如果你是第一个下子的，请输出你的第一步下法。然后对 uim 的下的每一个子做出回应。输出 $x _ i \ y _ i \ c _ i$，意思和上面相同。</p>
-<p><strong>你必须输出必胜的下法，否则你将 <code class="hljs inline">WA</code> 这个点。</strong></p>
+<p><strong>你必须输出必胜的下法，否则你将 <code>WA</code> 这个点。</strong></p>
 <p>如果多个下法都是必胜点，请输出个能够尽早结束游戏的下法。</p>
 <p><strong>在你下完这个子之前，请假装你不知道uim的下一步走法。</strong></p>
-<p>如果 uim 耍赖，那么这一行输出 <code class="hljs inline">Buwanle</code> 并结束程序，多余的输入就不管它了。</p>
+<p>如果 uim 耍赖，那么这一行输出 <code>Buwanle</code> 并结束程序，多余的输入就不管它了。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2 2
-1 2 1
-1 1 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Second
+<div class="codehilite"><pre><span></span><code>Second
 2 1 0
-Buwanle</code></pre>
+Buwanle
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>$40\%$ 数据，$2 \le A, B \le 3$。</p>

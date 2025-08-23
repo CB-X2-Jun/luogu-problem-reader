@@ -213,22 +213,24 @@
               <h2 id="_1">题目描述</h2>
 <p>给定 $n$ 个点，第 $i$ 个点的坐标为 $(x_i,y_i)$，如果想连通第 $i$ 个点与第 $j$ 个点，需要耗费的代价为两点的距离。第 $i$ 个点与第 $j$ 个点之间的距离使用欧几里得距离的平方进行计算，即：
 $$(x_i-x_j)^2+(y_i-y_j)^2$$
-我们规定耗费代价小于 $c$ 的两点无法连通，求使得每两点都能连通下的最小代价，如果无法连通输出 <code class="hljs inline">-1</code>。</p>
+我们规定耗费代价小于 $c$ 的两点无法连通，求使得每两点都能连通下的最小代价，如果无法连通输出 <code>-1</code>。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行两个整数 $n,c$ 代表点数与想要连通代价不能少于的一个数。 <br />
 接下来 $n$ 行每行两个整数 $x_i,y_i$ 描述第 $i$ 个点。</p>
 <h2 id="_3">输出格式</h2>
-<p>一行一个整数代表使得每两点都能连通下的最小代价，如果无法连通输出 <code class="hljs inline">-1</code>。</p>
+<p>一行一个整数代表使得每两点都能连通下的最小代价，如果无法连通输出 <code>-1</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 11
-0 2
-5 0
-4 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">11</span>
+<span class="mf">0</span><span class="w"> </span><span class="mf">2</span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">0</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">46</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">46</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据规模与约定</h3>

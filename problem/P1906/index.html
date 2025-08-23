@@ -214,56 +214,60 @@
 <p>在元老院的支持下，Caesar 率领罗马军团进攻高卢地区。但是他的军事行动并不顺利，他急需你的支持。</p>
 <p>一天，你突然受到 Caesar 从前线写来的信。为了防止敌军偷窃情报，Caesar 决定用自创的密码来写这封信。但是面对满纸的乱码，你也无从下手。于是你前往元老院询问这种密码的玄机。</p>
 <p>元老们告诉你，这是凯撒移位密码（世界上最早的加密术——编者注），解读它非常的简单：</p>
-<p>对于明文中的每个字母，Caesar 会用它后面的第 $t$ 个字母代替。例如，当 $t=2$ 时，字母 <code class="hljs inline">A</code> 将变成 <code class="hljs inline">C</code>，字母 <code class="hljs inline">B</code> 将变成 <code class="hljs inline">D</code>，……，字母 <code class="hljs inline">Y</code> 将变成 <code class="hljs inline">A</code>，字母 <code class="hljs inline">Z</code> 将变成 <code class="hljs inline">B</code>（假设字母表是循环的）。</p>
+<p>对于明文中的每个字母，Caesar 会用它后面的第 $t$ 个字母代替。例如，当 $t=2$ 时，字母 <code>A</code> 将变成 <code>C</code>，字母 <code>B</code> 将变成 <code>D</code>，……，字母 <code>Y</code> 将变成 <code>A</code>，字母 <code>Z</code> 将变成 <code>B</code>（假设字母表是循环的）。</p>
 <p>这样一来：</p>
-<pre class="hljs"><code class="hljs">(t = 2)
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 
-[Plain Text]&nbsp;&nbsp; A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-[Cipher]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+<span class="p">[</span><span class="n">Plain</span><span class="w"> </span><span class="n">Text</span><span class="p">]</span><span class="w">   </span><span class="n">A</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">J</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">O</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="n">Z</span>
+<span class="p">[</span><span class="n">Cipher</span><span class="p">]</span><span class="w">       </span><span class="n">C</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">J</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">O</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="n">Z</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">B</span>
 
-[Plain Text]&nbsp;&nbsp; I Need Soldiers
-[Cipher]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; K Pggf Uqnfkgtu</code></pre>
+<span class="p">[</span><span class="n">Plain</span><span class="w"> </span><span class="n">Text</span><span class="p">]</span><span class="w">   </span><span class="n">I</span><span class="w"> </span><span class="n">Need</span><span class="w"> </span><span class="n">Soldiers</span>
+<span class="p">[</span><span class="n">Cipher</span><span class="p">]</span><span class="w">       </span><span class="n">K</span><span class="w"> </span><span class="n">Pggf</span><span class="w"> </span><span class="n">Uqnfkgtu</span>
+</code></pre></div>
 
 <p>如此一来，需要传达的信息在外人看来就如同天书了。加上 Caesar 会不时更换 $t$ 的值，使得密码变得更加难以捉摸。</p>
 <p>你的任务是将 Caesar 的密码翻译为明文。</p>
 <h2 id="_2">输入格式</h2>
 <p>你将得到若干段 Caesar 的密码，我们保证这是一句成文的英文句子。输入文件将保证小于 50 KB。</p>
-<p>每个句子以一行 <code class="hljs inline">START</code> 开始，下一行描述这个句子，再下一行以 <code class="hljs inline">END</code> 结束。整个输入文件以 <code class="hljs inline">ENDOFINPUT</code> 结束。</p>
+<p>每个句子以一行 <code>START</code> 开始，下一行描述这个句子，再下一行以 <code>END</code> 结束。整个输入文件以 <code>ENDOFINPUT</code> 结束。</p>
 <h2 id="_3">输出格式</h2>
 <p>对于每个句子，输出翻译后的明文。</p>
 <p><strong>输出请全部转为大写！</strong></p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">START
-NS BFW, JAJSYX TK NRUTWYFSHJ FWJ YMJ WJXZQY TK YWNANFQ HFZXJX
-END
-START
-N BTZQI WFYMJW GJ KNWXY NS F QNYYQJ NGJWNFS ANQQFLJ YMFS XJHTSI NS WTRJ
-END
-START
-IFSLJW PSTBX KZQQ BJQQ YMFY HFJXFW NX RTWJ IFSLJWTZX YMFS MJ
-END
-ENDOFINPUT</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">START</span>
+<span class="n">NS</span> <span class="n">BFW</span><span class="p">,</span> <span class="n">JAJSYX</span> <span class="n">TK</span> <span class="n">NRUTWYFSHJ</span> <span class="n">FWJ</span> <span class="n">YMJ</span> <span class="n">WJXZQY</span> <span class="n">TK</span> <span class="n">YWNANFQ</span> <span class="n">HFZXJX</span>
+<span class="kr">END</span>
+<span class="n">START</span>
+<span class="n">N</span> <span class="n">BTZQI</span> <span class="n">WFYMJW</span> <span class="n">GJ</span> <span class="n">KNWXY</span> <span class="n">NS</span> <span class="n">F</span> <span class="n">QNYYQJ</span> <span class="n">NGJWNFS</span> <span class="n">ANQQFLJ</span> <span class="n">YMFS</span> <span class="n">XJHTSI</span> <span class="n">NS</span> <span class="n">WTRJ</span>
+<span class="kr">END</span>
+<span class="n">START</span>
+<span class="n">IFSLJW</span> <span class="n">PSTBX</span> <span class="n">KZQQ</span> <span class="n">BJQQ</span> <span class="n">YMFY</span> <span class="n">HFJXFW</span> <span class="n">NX</span> <span class="n">RTWJ</span> <span class="n">IFSLJWTZX</span> <span class="n">YMFS</span> <span class="n">MJ</span>
+<span class="kr">END</span>
+<span class="n">ENDOFINPUT</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">IN WAR, EVENTS OF IMPORTANCE ARE THE RESULT OF TRIVIAL CAUSES
+<div class="codehilite"><pre><span></span><code>IN WAR, EVENTS OF IMPORTANCE ARE THE RESULT OF TRIVIAL CAUSES
 I WOULD RATHER BE FIRST IN A LITTLE IBERIAN VILLAGE THAN SECOND IN ROME
-DANGER KNOWS FULL WELL THAT CAESAR IS MORE DANGEROUS THAN HE</code></pre>
+DANGER KNOWS FULL WELL THAT CAESAR IS MORE DANGEROUS THAN HE
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <ol>
 <li>如果你有看过《福尔摩斯探案集》的话，请回忆“跳舞娃娃”密码破译第一步；</li>
 <li>我想这些可能会对你有帮助：</li>
 </ol>
-<pre class="hljs"><code class="hljs">e 0.1268
+<div class="codehilite"><pre><span></span><code>e 0.1268
 t 0.0978
 a 0.0788
 o 0.0766
 i 0.0707
 n 0.0706
 s 0.0634
-r 0.0594</code></pre>
+r 0.0594
+</code></pre></div>
 
 <hr />
 <p><strong>提示：</strong></p>

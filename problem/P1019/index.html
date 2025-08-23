@@ -215,7 +215,7 @@
 <p>本题为搜索题，本题不接受 hack 数据。<a href="https://www.luogu.com.cn/paste/pf94n89x">关于此类题目的详细内容</a></p>
 <p>NOIP2000 提高组 T3</p>
 <h2 id="_2">题目描述</h2>
-<p>单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 <code class="hljs inline">beast</code> 和 <code class="hljs inline">astonish</code>，如果接成一条龙则变为 <code class="hljs inline">beastonish</code>，另外相邻的两部分不能存在包含关系，例如 <code class="hljs inline">at</code> 和 <code class="hljs inline">atide</code> 间不能相连。</p>
+<p>单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 <code>beast</code> 和 <code>astonish</code>，如果接成一条龙则变为 <code>beastonish</code>，另外相邻的两部分不能存在包含关系，例如 <code>at</code> 和 <code>atide</code> 间不能相连。</p>
 <h2 id="_3">输入格式</h2>
 <p>输入的第一行为一个单独的整数 $n$ 表示单词数，以下 $n$ 行每行有一个单词，输入的最后一行为一个单个字符，表示“龙”开头的字母。你可以假定以此字母开头的“龙”一定存在。</p>
 <h2 id="_4">输出格式</h2>
@@ -223,19 +223,21 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5
-at
-touch
-cheat
-choose
-tact
-a</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span>
+<span class="n">at</span>
+<span class="kr">to</span><span class="n">uch</span>
+<span class="n">cheat</span>
+<span class="n">choose</span>
+<span class="n">tact</span>
+<span class="n">a</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">23</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">23</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
-<p>样例解释：连成的“龙”为 <code class="hljs inline">atoucheatactactouchoose</code>。</p>
+<p>样例解释：连成的“龙”为 <code>atoucheatactactouchoose</code>。</p>
 <p>$n \le 20$。</p>
             </article>
           </div>

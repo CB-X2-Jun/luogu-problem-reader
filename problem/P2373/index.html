@@ -216,20 +216,24 @@
 <p>作为他开发团队中的一员，你不幸地 yyy2015c01 被选入了 Debugger 的开发组。</p>
 <p>yyy2015c01 设想的 Debugger 由几部分组成，其中的一个小组件就是 Call Stack——中文称之为 “调用栈”。</p>
 <p>由于 IDE 目前还是内测版，开发组需要先编一个能识别参数表的 Call Stack 来看看效果如何。这个任务交由你来完成。</p>
-<p>开发组假想的 Call Stack 能实现识别 <code class="hljs inline">int</code> 和 <code class="hljs inline">char</code> 参数表，以辨别出不同的函数，规则是：</p>
-<pre class="hljs"><code class="hljs">int fac1(int n);</code></pre>
+<p>开发组假想的 Call Stack 能实现识别 <code>int</code> 和 <code>char</code> 参数表，以辨别出不同的函数，规则是：</p>
+<div class="codehilite"><pre><span></span><code>int fac1(int n);
+</code></pre></div>
 
 <p>和</p>
-<pre class="hljs"><code class="hljs">int fac1(char n);</code></pre>
+<div class="codehilite"><pre><span></span><code>int fac1(char n);
+</code></pre></div>
 
 <p>是两个不同的函数；但</p>
-<pre class="hljs"><code class="hljs">int Fac1(int n,int m);</code></pre>
+<div class="codehilite"><pre><span></span><code>int Fac1(int n,int m);
+</code></pre></div>
 
 <p>和</p>
-<pre class="hljs"><code class="hljs">int FAC1(int x,int y);</code></pre>
+<div class="codehilite"><pre><span></span><code>int FAC1(int x,int y);
+</code></pre></div>
 
 <p>被认为是相同的函数。也就是说，这个 Call Stack 认的不是参数名，而是其类型和忽略大小写的函数名。</p>
-<p>注意：<code class="hljs inline">int main()</code> 可能会出现，也可能不出现；无论它有没有出现，都不能将其算入函数中。</p>
+<p>注意：<code>int main()</code> 可能会出现，也可能不出现；无论它有没有出现，都不能将其算入函数中。</p>
 <p>请你编写一个 Call Stack，并在所有函数调用完后输出这个程序一共有多少个不完全相同的函数（保证程序中的每个函数至少调用一次）。</p>
 <h2 id="_3">输入格式</h2>
 <p>输入共 $n + 1$ 行：第一行是一个正整数 $n$，表示共有 $n$ 次调用操作；第 $2 \sim n+1$ 行每行是一条函数调用信息（严格按照样例输入的格式），保证不会有多余的其他字符。</p>
@@ -238,21 +242,25 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2
-FAC1 (N=233, M=65 &#x27;A&#x27;, A=0)
-main ()</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="n">FAC1</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mf">233</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="mf">65</span><span class="w"> </span><span class="err">&#39;</span><span class="n">A</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mf">0</span><span class="p">)</span>
+<span class="n">main</span><span class="w"> </span><span class="p">()</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">2
-fac1 (N=250)
-FAC1 (a=987)</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="n">fac1</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mf">250</span><span class="p">)</span>
+<span class="n">FAC1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mf">987</span><span class="p">)</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>每个函数的参数最多有 $10$ 个，每行的输入数据长度均不超过 $255$。</p>

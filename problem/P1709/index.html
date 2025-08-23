@@ -212,15 +212,15 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>有时候程序员有很奇怪的方法来隐藏他们的口令。Binny 会选择一个字符串 $S$（由 $N$ 个小写字母组成，$5 \le N \le 5 \times {10}^6$），然后他把 $S$ 顺时针绕成一个圈，每次取一个做开头字母并顺时针依次取字母而组成一个字符串。这样将得到一些字符串，他把它们排序后取出第一个字符串。把这个字符串的第一个字母在原字符串中的位置减 $1$ 做为口令。</p>
-<p>如字符串 <code class="hljs inline">alabala</code>，按操作的到 $7$ 个字符串，排序后得：</p>
-<p><code class="hljs inline">aalabal</code></p>
-<p><code class="hljs inline">abalaal</code><br />
-<code class="hljs inline">alaalab</code><br />
-<code class="hljs inline">alabala</code><br />
-<code class="hljs inline">balaala</code><br />
-<code class="hljs inline">laalaba</code><br />
-<code class="hljs inline">labalaa</code></p>
-<p>第一个字符串为 <code class="hljs inline">aalabal</code>，这个 <code class="hljs inline">a</code> 在原字符串位置为 $7$，$7-1=6$，则 $6$ 为口令。</p>
+<p>如字符串 <code>alabala</code>，按操作的到 $7$ 个字符串，排序后得：</p>
+<p><code>aalabal</code></p>
+<p><code>abalaal</code><br />
+<code>alaalab</code><br />
+<code>alabala</code><br />
+<code>balaala</code><br />
+<code>laalaba</code><br />
+<code>labalaa</code></p>
+<p>第一个字符串为 <code>aalabal</code>，这个 <code>a</code> 在原字符串位置为 $7$，$7-1=6$，则 $6$ 为口令。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行：一个数：$N$</p>
 <p>第二行开始：字符串：$S$（每 $72$ 个字符一个换行符）</p>
@@ -229,11 +229,13 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">7
-anabana</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+<span class="n">anabana</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">6</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">6</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>题目满足：</p>

@@ -217,58 +217,60 @@
 <li>$B$ 与 $A$ 相似；</li>
 <li>将 $A$ 集合删去一个元素，或更改一个元素的值之后 $A$ 集合与 $B$ 集合相等。</li>
 </ol>
-<p>现要将 $K$ 个集合分成至多 $M$ 组（$M&gt;N$），使得每一组内的集合互不相似。要求你给出一种合法的方案。如果无解请输出 <code class="hljs inline">impossible</code>。</p>
+<p>现要将 $K$ 个集合分成至多 $M$ 组（$M&gt;N$），使得每一组内的集合互不相似。要求你给出一种合法的方案。如果无解请输出 <code>impossible</code>。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件第一行有三个数 $n, k, m$，意义如题目所述。</p>
 <p>接下来有 $k$ 行，每行第一数 $s_i$ 表示序列长度。之后 $s_i$ 个数为些集合的元素。</p>
 <h2 id="_3">输出格式</h2>
-<p>如果存在合法方案，输出 $k$ 个数，表示每个集合（按输入顺序）被分到的组的编号（$1\sim m$）。否则，若不存在合法方案则输出 <code class="hljs inline">impossible</code>。</p>
+<p>如果存在合法方案，输出 $k$ 个数，表示每个集合（按输入顺序）被分到的组的编号（$1\sim m$）。否则，若不存在合法方案则输出 <code>impossible</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">8 20 12 
-5 1 3 5 6 4 
-5 1 3 5 6 3 
-4 5 6 3 3 
-4 5 6 3 4 
-4 4 6 5 8 
-4 7 7 7 7 
-3 7 7 7 
-2 2 2 
-3 2 2 7 
-3 1 2 3 
-3 1 2 4 
-10 1 2 3 4 5 6 7 8 7 6 
-10 8 7 6 5 4 3 2 1 2 1 
-20 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 3 5 7 
-5 4 6 4 6 4 
-5 6 4 6 4 6 
-6 6 6 6 6 6 6 
-3 6 6 6 
-1 1 
-1 2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span>
+<span class="mf">10</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span>
+<span class="mf">10</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">20</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span>
+<span class="mf">5</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span>
+<span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2 
-1 
-9 
-1 
-6 
-2 
-4 
-5 
-3 
-7 
-8 
-5 
-4 
-8
-7 
-9 
-1 
-1 
-2
-3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span>
+<span class="mf">9</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span>
+<span class="mf">6</span><span class="w"> </span>
+<span class="mf">2</span><span class="w"> </span>
+<span class="mf">4</span><span class="w"> </span>
+<span class="mf">5</span><span class="w"> </span>
+<span class="mf">3</span><span class="w"> </span>
+<span class="mf">7</span><span class="w"> </span>
+<span class="mf">8</span><span class="w"> </span>
+<span class="mf">5</span><span class="w"> </span>
+<span class="mf">4</span><span class="w"> </span>
+<span class="mf">8</span>
+<span class="mf">7</span><span class="w"> </span>
+<span class="mf">9</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span>
+<span class="mf">1</span><span class="w"> </span>
+<span class="mf">2</span>
+<span class="mf">3</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">数据范围及约定</h3>

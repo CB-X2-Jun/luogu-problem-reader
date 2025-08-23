@@ -245,41 +245,45 @@
 <p>$n,k,m,p$ 的含义见题意所述。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出共 $4$ 行，每行一个字符串，表示第 $p$ 位玩家拥有的 $4$ 张牌（输出应包括每张牌的<strong>花色、点数和类型</strong>，格式同输入）。</p>
-<p>如果牌数不够，输出 <code class="hljs inline">Error:cards not enough</code>。</p>
+<p>如果牌数不够，输出 <code>Error:cards not enough</code>。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2 10 1 1
-C2 K
-H5 B
-DT K
-SA M
-HQ P
-D4 K
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">C2</span><span class="w"> </span><span class="n">K</span>
+<span class="n">H5</span><span class="w"> </span><span class="n">B</span>
+<span class="n">DT</span><span class="w"> </span><span class="n">K</span>
+<span class="n">SA</span><span class="w"> </span><span class="n">M</span>
+<span class="n">HQ</span><span class="w"> </span><span class="n">P</span>
+<span class="n">D4</span><span class="w"> </span><span class="n">K</span>
+<span class="n">C6</span><span class="w"> </span><span class="n">P</span>
+<span class="n">H9</span><span class="w"> </span><span class="n">M</span>
+<span class="n">ST</span><span class="w"> </span><span class="n">B</span>
+<span class="n">SK</span><span class="w"> </span><span class="n">C</span>
+</code></pre></div>
+
+<h4 id="1_2">样例输出 #1</h4>
+<div class="codehilite"><pre><span></span><code>D4 K
 C6 P
 H9 M
 ST B
-SK C</code></pre>
-
-<h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">D4 K
-C6 P
-H9 M
-ST B</code></pre>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="hljs"><code class="hljs">2 7 1 1
-C2 K
-H5 B
-DT K
-SA M
-HQ P
-SK C
-C6 P</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">C2</span><span class="w"> </span><span class="n">K</span>
+<span class="n">H5</span><span class="w"> </span><span class="n">B</span>
+<span class="n">DT</span><span class="w"> </span><span class="n">K</span>
+<span class="n">SA</span><span class="w"> </span><span class="n">M</span>
+<span class="n">HQ</span><span class="w"> </span><span class="n">P</span>
+<span class="n">SK</span><span class="w"> </span><span class="n">C</span>
+<span class="n">C6</span><span class="w"> </span><span class="n">P</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="hljs"><code class="hljs">Error:cards not enough</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">Error</span><span class="o">:</span><span class="n">cards</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">enough</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>对于 $100\%$ 的数据，满足 $1\leqslant p\leqslant n\leqslant 1000,1\leqslant k\leqslant 100000,1\leqslant m\leqslant 80$。</p>

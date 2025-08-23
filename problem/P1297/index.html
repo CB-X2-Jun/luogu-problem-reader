@@ -218,20 +218,21 @@
 <p>我们假设 gx 没有做错任何题目，只是答案抄错位置了。</p>
 <h2 id="_2">输入格式</h2>
 <p>$n$ 很大，为了避免读入耗时太多，输入文件只有 $5$ 个整数参数 $n, A, B, C, a_1$，由上交的程序产生数列 $a$。下面给出 pascal/C/C++ 的读入语句和产生序列的语句（默认从标准输入读入）：</p>
-<pre class="hljs"><code class="hljs">// for pascal
-readln(n,A,B,C,q[1]);
-for i:=2 to n do
-q[i] := (int64(q[i-1]) * A + B) mod 100000001;
-for i:=1 to n do
-q[i] := q[i] mod C + 1;
+<div class="codehilite"><pre><span></span><code><span class="c1">// for pascal</span>
+<span class="n">readln</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">:=</span><span class="mi">2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">do</span>
+<span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="n">int64</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">100000001</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">:=</span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">do</span>
+<span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
 
-// for C/C++
-scanf(&quot;%d%d%d%d%d&quot;, &amp;n, &amp;A, &amp;B, &amp;C, a + 1);
-for (int i = 2; i &lt;= n; i++)
-    a[i] = ((long long) a[i - 1] * A + B) % 100000001;
-for (int i = 1; i &lt;= n; i++)
-    a[i] = a[i] % C + 1;</code></pre>
+<span class="c1">// for C/C++</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d%d%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">100000001</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
 
 <p>选手可以通过以上的程序语句得到 $n$ 和数列 $a$（$a$ 的元素类型是 $32$ 位整数），$n$ 和 $a$ 的含义见题目描述。</p>
 <h2 id="_3">输出格式</h2>
@@ -239,10 +240,12 @@ for (int i = 1; i &lt;= n; i++)
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">3 2 0 4 1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">1.167</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.167</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>【样例说明】</p>

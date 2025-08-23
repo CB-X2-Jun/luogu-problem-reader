@@ -217,26 +217,28 @@
 <li>牌局结束时，由各玩家持有的有关计分的牌（计分牌）仅有「猪」$S_{12}$，所有红心牌，「羊」$D_{11}$ 及「加倍」$C_{10}$ 等 $16$ 张牌，其它牌均弃置不计（也就是在下面的算分过程中不再考虑这些牌），若一位玩家未持有这 $16$ 张牌中任意一张，则以得零分计算；</li>
 <li>若持有 $C_{10}$ 牌的玩家只有该张牌而没有任何其它牌则得 $+50$ 分，否则将其它计分牌所得分数加倍计算；</li>
 <li>若红心牌不在同一家，则 $H_1$ 至 $H_{13}$ 等 $13$ 张牌均以负分计，其数值依次为 $-50, -2, -3, -4, -5, -6, -7, -8, -9, -10, -20, -30, -40$，且 $S_{12}$ 与 $D_{11}$ 的分值分别以 $-100$ 及 $+100$ 分计算；</li>
-<li>若红心牌 $H_1$ 至 $H_{13}$ 均在同一家，则有下列情形：</li>
-</ol>
-<ul>
-<li>所有红心牌以 $+200$ 分计算。<strong>不是每一张牌都以 $+200$ 分计算，而是所有红心牌。</strong></li>
+<li>
+<p>若红心牌 $H_1$ 至 $H_{13}$ 均在同一家，则有下列情形：</p>
+</li>
+<li>
+<p>所有红心牌以 $+200$ 分计算。<strong>不是每一张牌都以 $+200$ 分计算，而是所有红心牌。</strong></p>
+</li>
 <li>若 $S_{12}, D_{11}$ 皆在吃下所有红心牌之一家，则此玩家得 $+500$ 分，<strong>这个分不与红心牌的 $+200$ 分叠加。</strong> 否则这两张牌的分值以前文所述原则计算。</li>
 <li>$C_{10}$ 牌依旧以前文所述原则计算。</li>
-</ul>
+</ol>
 <p>例一：若各玩家持有计分牌如下：</p>
 <ol>
-<li><code class="hljs inline">S12 H3 H5 H13</code></li>
-<li><code class="hljs inline">D11 H8 H9</code></li>
-<li><code class="hljs inline">C10 H1 H2 H4 H6 H7</code></li>
-<li><code class="hljs inline">H10 H11 H12</code></li>
+<li><code>S12 H3 H5 H13</code></li>
+<li><code>D11 H8 H9</code></li>
+<li><code>C10 H1 H2 H4 H6 H7</code></li>
+<li><code>H10 H11 H12</code></li>
 </ol>
 <p>则各家之得分依序为：$-148, +83, -138$ 及 $-60$。</p>
 <p>例二：若各玩家持有计分牌如下：</p>
 <ol>
-<li><code class="hljs inline">H1 H2 H3 H4 H5 H6 H7 H8 H9 H10 H11 H12 H13</code></li>
-<li><code class="hljs inline">S12 C10</code></li>
-<li><code class="hljs inline">D11</code></li>
+<li><code>H1 H2 H3 H4 H5 H6 H7 H8 H9 H10 H11 H12 H13</code></li>
+<li><code>S12 C10</code></li>
+<li><code>D11</code></li>
 <li>无</li>
 </ol>
 <p>则各家之得分依序为：$+200, -200, +100$ 及 $0$。</p>
@@ -251,22 +253,24 @@
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">4&nbsp;&nbsp;S12&nbsp;&nbsp;H3&nbsp;&nbsp;H5&nbsp;&nbsp;H13
-3&nbsp;&nbsp;D11&nbsp;&nbsp;H8&nbsp;&nbsp;H9
-6&nbsp;&nbsp;C10&nbsp;&nbsp;H1&nbsp;&nbsp;H2&nbsp;&nbsp;H4&nbsp;&nbsp;H6&nbsp;&nbsp;H7
-3&nbsp;&nbsp;H10&nbsp;&nbsp;H11 H12
-13 H1&nbsp;&nbsp;H2&nbsp;&nbsp;H3&nbsp;&nbsp;H4&nbsp;&nbsp;H5&nbsp;&nbsp;H6&nbsp;&nbsp;H7&nbsp;&nbsp;H8&nbsp;&nbsp;H9&nbsp;&nbsp;H10&nbsp;&nbsp;H11&nbsp;&nbsp;H12&nbsp;&nbsp;H13&nbsp;&nbsp;
-2&nbsp;&nbsp;S12&nbsp;&nbsp;C10
-1&nbsp;&nbsp;D11
-0
-0
-0
-0
-0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w">  </span><span class="n">S12</span><span class="w">  </span><span class="n">H3</span><span class="w">  </span><span class="n">H5</span><span class="w">  </span><span class="n">H13</span>
+<span class="mf">3</span><span class="w">  </span><span class="n">D11</span><span class="w">  </span><span class="n">H8</span><span class="w">  </span><span class="n">H9</span>
+<span class="mf">6</span><span class="w">  </span><span class="n">C10</span><span class="w">  </span><span class="n">H1</span><span class="w">  </span><span class="n">H2</span><span class="w">  </span><span class="n">H4</span><span class="w">  </span><span class="n">H6</span><span class="w">  </span><span class="n">H7</span>
+<span class="mf">3</span><span class="w">  </span><span class="n">H10</span><span class="w">  </span><span class="n">H11</span><span class="w"> </span><span class="n">H12</span>
+<span class="mf">13</span><span class="w"> </span><span class="n">H1</span><span class="w">  </span><span class="n">H2</span><span class="w">  </span><span class="n">H3</span><span class="w">  </span><span class="n">H4</span><span class="w">  </span><span class="n">H5</span><span class="w">  </span><span class="n">H6</span><span class="w">  </span><span class="n">H7</span><span class="w">  </span><span class="n">H8</span><span class="w">  </span><span class="n">H9</span><span class="w">  </span><span class="n">H10</span><span class="w">  </span><span class="n">H11</span><span class="w">  </span><span class="n">H12</span><span class="w">  </span><span class="n">H13</span><span class="w">  </span>
+<span class="mf">2</span><span class="w">  </span><span class="n">S12</span><span class="w">  </span><span class="n">C10</span>
+<span class="mf">1</span><span class="w">  </span><span class="n">D11</span>
+<span class="mf">0</span>
+<span class="mf">0</span>
+<span class="mf">0</span>
+<span class="mf">0</span>
+<span class="mf">0</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">-148 +83 -138 -60
-+200 -200 +100 0</code></pre>
+<div class="codehilite"><pre><span></span><code>-148 +83 -138 -60
++200 -200 +100 0
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p>样例中两组数据为题面中的例子。</p>

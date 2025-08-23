@@ -211,7 +211,7 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
-<p>对于任意一个整数数列，我们可以在每两个整数中间任意放一个符号 <code class="hljs inline">+</code> 或 <code class="hljs inline">-</code>，这样就可以构成一个表达式，也就可以计算出表达式的值。对于一个整数数列来说，我们能通过如上的方法构造出不同的表达式，从而得到不同的数值，如果其中某一个数值能够被 $k$ 整除的话，我们就称该数列能被 $k$ 整除。现在你的任务是判断某个数列是否能被某数整除。</p>
+<p>对于任意一个整数数列，我们可以在每两个整数中间任意放一个符号 <code>+</code> 或 <code>-</code>，这样就可以构成一个表达式，也就可以计算出表达式的值。对于一个整数数列来说，我们能通过如上的方法构造出不同的表达式，从而得到不同的数值，如果其中某一个数值能够被 $k$ 整除的话，我们就称该数列能被 $k$ 整除。现在你的任务是判断某个数列是否能被某数整除。</p>
 <h2 id="_2">输入格式</h2>
 <p><strong>本题有多组数据</strong>。  </p>
 <p>第一行一个整数 $M$，表示数据组数。  </p>
@@ -219,19 +219,21 @@
 <p>第一行两个整数 $n$ 和 $k$，$n$ 表示数列中整数的个数。  </p>
 <p>第二行  $n$ 个整数，表示输入数列 ${a_n}$。</p>
 <h2 id="_3">输出格式</h2>
-<p>输出应有 $M$ 行，依次对应输入文件中的 $M$ 个子任务，若数列能被 $k$ 整除则输出 <code class="hljs inline">Divisible</code>，否则输出 <code class="hljs inline">Not divisible</code> ，行首行末应没有空格。</p>
+<p>输出应有 $M$ 行，依次对应输入文件中的 $M$ 个子任务，若数列能被 $k$ 整除则输出 <code>Divisible</code>，否则输出 <code>Not divisible</code> ，行首行末应没有空格。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">2
-4 7
-17 5 -21 15
-4 5
-17 5 -21 15</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">17</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">-</span><span class="mf">21</span><span class="w"> </span><span class="mf">15</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">5</span>
+<span class="mf">17</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">-</span><span class="mf">21</span><span class="w"> </span><span class="mf">15</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">Divisible
-Not divisible</code></pre>
+<div class="codehilite"><pre><span></span><code>Divisible
+Not divisible
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <h4 id="1_3">样例输入输出 1 解释</h4>

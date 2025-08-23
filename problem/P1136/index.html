@@ -212,26 +212,28 @@
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目描述</h2>
 <p>LHX 教主要来 X 市指导 OI 学习工作了。为了迎接教主，在一条道路旁，一群“Orz 教主 er”穿着文化衫站在道路两旁迎接教主，每件文化衫上都印着大字。一旁的 Orzer 依次摆出“欢迎欢迎欢迎欢迎……”的大字，但是领队突然发现，另一旁穿着“教”和“主”字文化衫的 Orzer 却不太和谐。</p>
-<p>为了简单描述这个不和谐的队列，我们用 <code class="hljs inline">j</code> 替代“教”，<code class="hljs inline">z</code> 替代“主”。而一个 <code class="hljs inline">j</code> 与 <code class="hljs inline">z</code> 组成的序列则可以描述当前的队列。为了让教主看得尽量舒服，你必须调整队列，使得 <code class="hljs inline">jz</code> 子串尽量多。每次调整你可以交换任意位置上的两个人，也就是序列中任意位置上的两个字母。而因为教主马上就来了，时间仅够最多做 $K$ 次调整（当然可以调整不满 $K$ 次），所以这个问题交给了你。</p>
+<p>为了简单描述这个不和谐的队列，我们用 <code>j</code> 替代“教”，<code>z</code> 替代“主”。而一个 <code>j</code> 与 <code>z</code> 组成的序列则可以描述当前的队列。为了让教主看得尽量舒服，你必须调整队列，使得 <code>jz</code> 子串尽量多。每次调整你可以交换任意位置上的两个人，也就是序列中任意位置上的两个字母。而因为教主马上就来了，时间仅够最多做 $K$ 次调整（当然可以调整不满 $K$ 次），所以这个问题交给了你。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行，两个正整数 $N, K$，分别表示序列长度与最多交换次数。</p>
-<p>第二行，一个长度为 $N$ 的字符串，字符串仅由字母 <code class="hljs inline">j</code> 与字母 <code class="hljs inline">z</code> 组成，描述了这个序列。</p>
+<p>第二行，一个长度为 $N$ 的字符串，字符串仅由字母 <code>j</code> 与字母 <code>z</code> 组成，描述了这个序列。</p>
 <h2 id="_3">输出格式</h2>
-<p>一个非负整数，为调整最多 $K$ 次后最后最多能出现多少个 <code class="hljs inline">jz</code> 子串。</p>
+<p>一个非负整数，为调整最多 $K$ 次后最后最多能出现多少个 <code>jz</code> 子串。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 2 
-zzzjj</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span>
+<span class="n">zzzjj</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">2</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span>
+</code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>【样例说明】</strong></p>
-<p>第 $1$ 次交换位置 $1$ 上的 <code class="hljs inline">z</code> 和位置 $4$ 上的 <code class="hljs inline">j</code>，变为 <code class="hljs inline">jzzzj</code>；</p>
-<p>第 $2$ 次交换位置 $4$ 上的 <code class="hljs inline">z</code> 和位置 $5$ 上的 <code class="hljs inline">j</code>，变为 <code class="hljs inline">jzzjz</code>。</p>
-<p>最后的串有 $2$ 个 <code class="hljs inline">jz</code> 子串。</p>
+<p>第 $1$ 次交换位置 $1$ 上的 <code>z</code> 和位置 $4$ 上的 <code>j</code>，变为 <code>jzzzj</code>；</p>
+<p>第 $2$ 次交换位置 $4$ 上的 <code>z</code> 和位置 $5$ 上的 <code>j</code>，变为 <code>jzzjz</code>。</p>
+<p>最后的串有 $2$ 个 <code>jz</code> 子串。</p>
 <p><strong>【数据规模与约定】</strong></p>
 <p>对于 $10 \%$ 的数据，有 $N \le 10$；<br />
 对于 $30 \%$ 的数据，有 $K \le 10$；<br />

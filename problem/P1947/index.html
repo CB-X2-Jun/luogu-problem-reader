@@ -215,31 +215,33 @@
 <h2 id="_2">题目描述</h2>
 <p>珂愛给了你一个 $[1,n]$ 之间的整数 $k$，你每次可以询问一个整数 $x$，然后珂愛会告诉你 $x$ 和 $k$ 的大小关系。</p>
 <p>你需要用尽可能少的次数猜出珂愛想的数。</p>
-<p>你需要实现一个函数 <code class="hljs inline">int Chtholly(int n,int c)</code>，这个函数的作用是在不超过 $c$ 次询问中猜对 $[1,n]$ 中的一个数，返回值为你最终确定的数。</p>
-<p>你可以调用交互库中一个叫做 <code class="hljs inline">Seniorious</code> 的函数，其原型为 <code class="hljs inline">int Seniorious(int x)</code>，返回值为：</p>
+<p>你需要实现一个函数 <code>int Chtholly(int n,int c)</code>，这个函数的作用是在不超过 $c$ 次询问中猜对 $[1,n]$ 中的一个数，返回值为你最终确定的数。</p>
+<p>你可以调用交互库中一个叫做 <code>Seniorious</code> 的函数，其原型为 <code>int Seniorious(int x)</code>，返回值为：</p>
 <ul>
 <li>若 $k\lt x$，则返回 $1$。</li>
 <li>若 $k\gt x$，则返回 $-1$。</li>
 <li>若 $k=x$，则返回 $0$。</li>
 </ul>
-<p>你调用 <code class="hljs inline">Seniorious</code> 函数的次数不超过 $c$ 才能得到这个点的分数，否则这个点为 $0$ 分。有关该函数的调用请参考【说明/提示】部分。</p>
+<p>你调用 <code>Seniorious</code> 函数的次数不超过 $c$ 才能得到这个点的分数，否则这个点为 $0$ 分。有关该函数的调用请参考【说明/提示】部分。</p>
 <p>由于珂愛只会写 C++ 语言的交互库，所以你只能使用 C++ 语言（包括 C++，C++11，C++14，C++17，C++20，C++23）来解决本题。</p>
 <h2 id="_3">输入格式</h2>
 <p>样例输入中三个数分别为 $n,c,k$。这些数据你都<strong>无法读取</strong>。</p>
 <h2 id="_4">输出格式</h2>
-<p>样例输出中第一个数是你猜的 $k$，第二个数是你调用 <code class="hljs inline">Seniorious</code> 函数的次数。这些数据你<strong>不必输出</strong>。</p>
+<p>样例输出中第一个数是你猜的 $k$，第二个数是你调用 <code>Seniorious</code> 函数的次数。这些数据你<strong>不必输出</strong>。</p>
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="hljs"><code class="hljs">5 5 3</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="hljs"><code class="hljs">3 0</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <h4 id="_7">样例解释</h4>
 <p>你要猜的 $k$ 为 $3$。</p>
-<p>由于你和珂愛心灵相通，所以在没有调用 <code class="hljs inline">Seniorious</code> 的情况下就猜出来了。</p>
+<p>由于你和珂愛心灵相通，所以在没有调用 <code>Seniorious</code> 的情况下就猜出来了。</p>
 <h4 id="_8">数据规模与约定</h4>
 <ul>
 <li>对于 $30\%$ 的数据，保证 $c=n-1$。</li>
@@ -248,48 +250,50 @@
 <h4 id="_9">提示</h4>
 <p><a href="https://help.luogu.com.cn/manual/luogu/problem/interactive-problems">关于交互题</a>。</p>
 <p>样例交互库源代码：</p>
-<pre class="hljs"><code class="hljs">#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
-int k, cnt;
+<span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
 
-extern &quot;C&quot; {
-&nbsp;&nbsp;extern int Chtholly(int n, int c);
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Chtholly</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 
-&nbsp;&nbsp;extern int Seniorious(int x) {
-&nbsp;&nbsp;&nbsp;&nbsp;const int lim = 3000000;
-&nbsp;&nbsp;&nbsp;&nbsp;if(++cnt &gt; lim) cnt = lim;
-&nbsp;&nbsp;&nbsp;&nbsp;return (k &lt; x) ? 1 : ((k == x) ? 0 : -1);
-&nbsp;&nbsp;}
-&nbsp;&nbsp;
-}
-int main() {
-&nbsp;&nbsp;int n, c;
-&nbsp;&nbsp;std::cin &gt;&gt; n &gt;&gt; c &gt;&gt; k;
-&nbsp;&nbsp;int OvO = Chtholly(n, c);
-&nbsp;&nbsp;std::cout &lt;&lt; OvO &lt;&lt; &#x27; &#x27; &lt;&lt; cnt &lt;&lt; std::endl;
-&nbsp;&nbsp;return 0;
-}</code></pre>
+<span class="w">  </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Seniorious</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3000000</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">++</span><span class="n">cnt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">lim</span><span class="p">)</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lim</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">((</span><span class="n">k</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">OvO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Chtholly</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">OvO</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p><strong>注意，此交互库仅供测试样例使用，实际评测时的交互库此交互库不同</strong>。</p>
 <p>如果您不知道如何在本地调试您的代码，请参考<a href="https://www.luogu.com.cn/blog/fusu2333/solution-p1947">这篇文章</a>。</p>
 <p>请特别注意，你的答案应该作为函数的返回值给出，<strong>你不需要，也不应该向标准输出输出任何内容，否则将无法获得分数</strong>。</p>
 <p>如果有需要，你可以在选手程序的开头加入一些头文件，当然在本题中这并不是必须的。</p>
-<p>交互库给出的函数 <code class="hljs inline">Seniorious</code> 无法直接调用，需要在选手程序中用 <code class="hljs inline">extern "C"</code> 关键字声明一次。</p>
+<p>交互库给出的函数 <code>Seniorious</code> 无法直接调用，需要在选手程序中用 <code>extern "C"</code> 关键字声明一次。</p>
 <p>下面给出本题的模板程序（请不要使用 gcc9 提交）：</p>
-<pre class="hljs"><code class="hljs">#include &lt;cstdio&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 在本题中并不是必须的
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="c1">                         // 在本题中并不是必须的</span>
 
-extern &quot;C&quot; int Seniorious(int);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 在这里需要声明一次交互库给出的函数。
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Seniorious</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w">           </span><span class="c1">// 在这里需要声明一次交互库给出的函数。</span>
 
-extern &quot;C&quot; int Chtholly(int n, int OvO) { // 在这里实现交互库要求你实现的函数。
-&nbsp;&nbsp;int ans = 1;
-&nbsp;&nbsp;for (int l = 1, r = n, mid = (l + r) &gt;&gt; 1; l &lt;= r; mid = (l + r) &gt;&gt; 1) if (Seniorious(mid) &gt;= 0) {
-&nbsp;&nbsp;&nbsp;&nbsp;r = (ans = mid) - 1;
-&nbsp;&nbsp;} else {
-&nbsp;&nbsp;&nbsp;&nbsp;l = mid + 1;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;return ans;
-}</code></pre>
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Chtholly</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">OvO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 在这里实现交互库要求你实现的函数。</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Seniorious</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
             </article>
           </div>
         </div>
