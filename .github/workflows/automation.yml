@@ -65,11 +65,25 @@ jobs:
         git config --local user.name "GitHub Action"
         git add stats/ README.md
         if ! git diff --staged --quiet; then
-          git fetch origin main
-          git reset --soft origin/main
-          git add stats/ README.md
-          git commit -m "📊 Daily stats update - $(date +'%Y-%m-%d')" || true
-          git push origin main
+          # 随机延迟避免并发冲突
+          sleep $((RANDOM % 30 + 10))
+          
+          # 多次重试推送
+          for i in {1..5}; do
+            echo "尝试推送 (第 $i 次)"
+            git fetch origin main
+            git reset --soft origin/main
+            git add stats/ README.md
+            git commit -m "📊 Daily stats update - $(date +'%Y-%m-%d')" || true
+            
+            if git push origin main; then
+              echo "推送成功！"
+              break
+            else
+              echo "推送失败，等待重试..."
+              sleep $((RANDOM % 20 + 5))
+            fi
+          done
         fi
 
   # 数据可视化
@@ -105,11 +119,25 @@ jobs:
         git config --local user.name "GitHub Action"
         git add charts/ dashboard/
         if ! git diff --staged --quiet; then
-          git fetch origin main
-          git reset --soft origin/main
-          git add charts/ dashboard/
-          git commit -m "📊 Data visualization update - $(date +'%Y-%m-%d')" || true
-          git push origin main
+          # 随机延迟避免并发冲突
+          sleep $((RANDOM % 30 + 10))
+          
+          # 多次重试推送
+          for i in {1..5}; do
+            echo "尝试推送 (第 $i 次)"
+            git fetch origin main
+            git reset --soft origin/main
+            git add charts/ dashboard/
+            git commit -m "📊 Data visualization update - $(date +'%Y-%m-%d')" || true
+            
+            if git push origin main; then
+              echo "推送成功！"
+              break
+            else
+              echo "推送失败，等待重试..."
+              sleep $((RANDOM % 20 + 5))
+            fi
+          done
         fi
 
   # SEO优化
@@ -145,11 +173,25 @@ jobs:
         git config --local user.name "GitHub Action"
         git add sitemap.xml
         if ! git diff --staged --quiet; then
-          git fetch origin main
-          git reset --soft origin/main
-          git add sitemap.xml
-          git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')" || true
-          git push origin main
+          # 随机延迟避免并发冲突
+          sleep $((RANDOM % 30 + 10))
+          
+          # 多次重试推送
+          for i in {1..5}; do
+            echo "尝试推送 (第 $i 次)"
+            git fetch origin main
+            git reset --soft origin/main
+            git add sitemap.xml
+            git commit -m "🔍 SEO optimization update - $(date +'%Y-%m-%d')" || true
+            
+            if git push origin main; then
+              echo "推送成功！"
+              break
+            else
+              echo "推送失败，等待重试..."
+              sleep $((RANDOM % 20 + 5))
+            fi
+          done
         fi
 
   # 主题自动化
@@ -191,9 +233,23 @@ jobs:
         git config --local user.name "GitHub Action"
         git add css/
         if ! git diff --staged --quiet; then
-          git fetch origin main
-          git reset --soft origin/main
-          git add css/
-          git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')" || true
-          git push origin main
+          # 随机延迟避免并发冲突
+          sleep $((RANDOM % 30 + 10))
+          
+          # 多次重试推送
+          for i in {1..5}; do
+            echo "尝试推送 (第 $i 次)"
+            git fetch origin main
+            git reset --soft origin/main
+            git add css/
+            git commit -m "🎨 Theme automation update - $(date +'%Y-%m-%d')" || true
+            
+            if git push origin main; then
+              echo "推送成功！"
+              break
+            else
+              echo "推送失败，等待重试..."
+              sleep $((RANDOM % 20 + 5))
+            fi
+          done
         fi
