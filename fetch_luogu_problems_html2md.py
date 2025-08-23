@@ -1,10 +1,13 @@
 import os
 import re
 import requests
+import markdown
+import json
 import time
 from pathlib import Path
-from bs4 import BeautifulSoup
 from markdownify import markdownify as md
+from bs4 import BeautifulSoup
+import argparse
 
 PROBLEM_DIR = Path(__file__).parent / 'problem'
 BASE_URL = 'https://www.luogu.com.cn/problem/'
@@ -359,13 +362,54 @@ def generate_problem_list():
     problem_dirs = [d for d in PROBLEM_DIR.iterdir() if d.is_dir() and re.match(r'^P\d+$', d.name)]
     problem_dirs.sort(key=lambda d: int(d.name[1:]))
     
+    # 读取每个题目的标题数据
+    problem_data = []
+    for d in problem_dirs:
+        problem_id = d.name
+        title = "题目"  # 默认标题
+        
+        # 尝试从HTML文件中提取标题
+        html_file = d / 'index.html'
+        if html_file.exists():
+            try:
+                with open(html_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    # 使用BeautifulSoup解析HTML并提取title标题
+                    from bs4 import BeautifulSoup
+                    soup = BeautifulSoup(content, 'html.parser')
+                    title_tag = soup.find('title')
+                    if title_tag:
+                        full_title = title_tag.get_text().strip()
+                        # 去掉重复的题号，例如 "P1001 P1001 A+B Problem" -> "A+B Problem"
+                        title = full_title.replace(f'{problem_id} {problem_id} ', '').replace(f'{problem_id} ', '', 1)
+                        if not title or title == problem_id:
+                            title = "题目"
+            except Exception as e:
+                print(f"读取 {problem_id} 标题失败: {e}")
+                title = "题目"
+        
+        problem_data.append({
+            'id': problem_id,
+            'title': title,
+            'url': f'../{problem_id}/index.html'
+        })
+    
     table_rows = '\n'.join([
-        f'<tr><td><a href="../{d.name}/index.html">{d.name}</a></td></tr>' 
-        for d in problem_dirs
+        f'<tr><td><a href="{p["url"]}">{p["id"]}</a></td></tr>' 
+        for p in problem_data
     ])
     
+    # 生成包含题目网格和JavaScript的完整页面内容
     table_html = f'''<h1>题目列表</h1>
-<table>
+
+<!-- 题目统计信息 -->
+<div class="problem-stats">
+  <p id="problem-count">正在加载题目统计...</p>
+</div>
+
+<!-- 题目网格 -->
+<div id="problem-grid" class="problem-grid"></div>
+<table style="display: none;">
   <thead><tr><th>题号</th></tr></thead>
   <tbody>
 {table_rows}
@@ -387,6 +431,177 @@ def generate_problem_list():
         title='题目列表',
         article=table_html
     )
+    
+    # 添加题目网格的CSS和JavaScript
+    additional_css = '''
+      /* 题目统计信息美化 */
+      .problem-stats {
+        text-align: center;
+        margin: 2rem 0;
+        padding: 1rem;
+        background: linear-gradient(135deg, #f8f9ff 0%, #e9ecef 100%);
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+      }
+      
+      .problem-stats p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      
+      /* 题目网格布局 */
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      
+      .problem-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        color: #2c3e50;
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e1e8ed;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .problem-id {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        align-self: flex-start;
+      }
+      
+      .problem-title {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #5a6c7d;
+      }
+      
+      .problem-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        border-color: #667eea;
+      }
+      
+      /* 动画效果 */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    '''
+    
+    # 生成包含题目网格和JavaScript的完整页面内容
+    table_html = f'''<h1>题目列表</h1>
+
+<!-- 题目统计信息 -->
+<div class="problem-stats">
+  <p id="problem-count">正在加载题目统计...</p>
+</div>
+
+<!-- 题目网格 -->
+<div id="problem-grid" class="problem-grid"></div>
+'''
+    
+    # 读取模板文件
+    template_path = PROBLEM_DIR / 'html_template_material.html'
+    if template_path.exists():
+        with open(template_path, 'r', encoding='utf-8') as tf:
+            template = tf.read()
+    else:
+        template = '<!doctype html><html><head><title>{title}</title></head><body>{article}</body></html>'
+    
+    # 生成题目数据的JavaScript对象
+    problem_data_js = json.dumps(problem_data, ensure_ascii=False)
+    
+    additional_js = f'''
+        // 预加载的题目数据
+        const problemData = {problem_data_js};
+        
+        // 动态生成题目网格
+        const problemGrid = document.getElementById('problem-grid');
+        const problemCountEl = document.getElementById('problem-count');
+        
+        if (problemGrid) {{
+          const problemCount = problemData.length;
+          
+          // 更新统计信息
+          problemCountEl.textContent = `共收录 ${{problemCount}} 道洛谷题目，持续更新中...`;
+          
+          // 生成题目卡片
+          problemData.forEach((problem, index) => {{
+            const card = document.createElement('a');
+            card.className = 'problem-card';
+            card.href = problem.url;
+            
+            // 创建题目ID元素
+            const idElement = document.createElement('div');
+            idElement.className = 'problem-id';
+            idElement.textContent = problem.id;
+            
+            // 创建题目标题元素（使用预加载的数据）
+            const titleElement = document.createElement('div');
+            titleElement.className = 'problem-title';
+            titleElement.textContent = problem.title;
+            
+            card.appendChild(idElement);
+            card.appendChild(titleElement);
+            
+            // 添加延迟动画效果
+            card.style.animationDelay = `${{index * 0.02}}s`;
+            card.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            
+            problemGrid.appendChild(card);
+          }});
+        }}
+    '''
+    
+    # 生成列表页面
+    list_html = safe_template_format(
+        template,
+        canonical='https://luogu.cb-x2-jun.run.place/problem/list/',
+        title='题目列表',
+        article=table_html
+    )
+    
+    # 在HTML中插入CSS和JavaScript
+    list_html = list_html.replace('</style>', additional_css + '\n      </style>')
+    list_html = list_html.replace('});', '});\n        \n        ' + additional_js)
+    
+    # 修复highlight.js CDN链接
+    list_html = list_html.replace(
+        'https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'
+    )
+    
+    # 修复hljs调用，添加安全检查
+    list_html = list_html.replace(
+        '<script>hljs.highlightAll();</script>',
+        '<script>if (typeof hljs !== \'undefined\') { hljs.highlightAll(); }</script>'
+    )
+    
+    # 移除错误的katex.js引用
+    list_html = list_html.replace('<script src="/javascripts/katex.js"></script>', '')
     
     list_dir = PROBLEM_DIR / 'list'
     list_dir.mkdir(exist_ok=True)

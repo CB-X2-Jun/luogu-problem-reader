@@ -36,22 +36,33 @@
       
       /* 题目内容区块美化 */
       .md-content__inner h2 {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        color: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        color: #2c3e50;
         padding: 1rem 1.5rem;
         border-radius: 8px;
+        border: 2px solid #667eea;
         margin: 2rem 0 1rem 0;
         font-size: 1.3rem;
-        box-shadow: 0 4px 16px rgba(240, 147, 251, 0.3);
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        font-weight: 600;
       }
       
       /* 代码块美化 */
       .md-content__inner pre {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
         border-radius: 12px;
         padding: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
       }
       
       .md-content__inner code {
@@ -64,13 +75,15 @@
       
       /* 样例区块特殊美化 */
       .md-content__inner h3:contains("样例") {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        color: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        color: #2c3e50;
         padding: 0.8rem 1.2rem;
         border-radius: 6px;
+        border: 2px solid #4facfe;
         margin: 1.5rem 0 0.8rem 0;
         font-size: 1.1rem;
-        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.3);
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2);
+        font-weight: 600;
       }
       
       /* 普通段落美化 */
@@ -130,11 +143,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
   <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
     <header class="md-header md-header--shadow" data-md-component="header">
       <nav class="md-header__inner md-grid" aria-label="页眉">
         <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
         </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
         <div class="md-header__title" data-md-component="header-title">
           <div class="md-header__ellipsis">
             <div class="md-header__topic">
@@ -150,6 +176,38 @@
     <div class="md-container" data-md-component="container">
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               <h2 id="_1">题目背景</h2>
@@ -242,9 +300,12 @@ Wherethereisawillthereisaway
       </footer>
     </div>
     <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-    <script src="/javascripts/katex.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
