@@ -517,6 +517,53 @@
       
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
+        <!-- 自定义搜索跳转功能 -->
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            // 获取搜索表单和输入框
+            const searchForm = document.querySelector('.md-search__form');
+            const searchInput = document.querySelector('.md-search__input');
+            
+            if (searchForm && searchInput) {
+              // 监听表单提交事件
+              searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleSearch();
+              });
+              
+              // 监听回车键
+              searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSearch();
+                }
+              });
+              
+              function handleSearch() {
+                const query = searchInput.value.trim();
+                
+                if (!query) {
+                  // 如果没有输入，跳转到题目列表
+                  window.location.href = 'problem/list/';
+                  return;
+                }
+                
+                // 检查是否是题目编号格式（P开头的数字或纯数字）
+                const problemMatch = query.match(/^[Pp]?(\d+)$/);
+                if (problemMatch) {
+                  const problemNum = problemMatch[1];
+                  const problemId = 'P' + problemNum;
+                  // 跳转到具体题目页面
+                  window.location.href = `problem/${problemId}/`;
+                  return;
+                }
+                
+                // 其他情况跳转到题目列表页面，用户可以手动查找
+                window.location.href = 'problem/list/';
+              }
+            }
+          });
+        </script>
     
   </body>
 </html>
