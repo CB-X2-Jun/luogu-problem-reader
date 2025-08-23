@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1104/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1104 P1104 生日</title>
+    <title>P1104 生日</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -167,7 +167,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1104 P1104 生日</span>
+              <span class="md-ellipsis">P1104 生日</span>
             </div>
           </div>
         </div>
@@ -210,18 +210,32 @@
           </div>
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1104">P1104 生日</h1>
-<h2 id="_1">题目描述</h2>
+              <h2 id="_1">题目描述</h2>
 <p>cjf 君想调查学校 OI 组每个同学的生日，并按照年龄从大到小的顺序排序。但 cjf 君最近作业很多，没有时间，所以请你帮她排序。</p>
 <h2 id="_2">输入格式</h2>
-<p>输入共有 $n + 1$ 行，
-第 $1$ 行为 OI 组总人数 $n$；
-第 $2$ 行至第 $n+1$ 行分别是每人的姓名 $s$、出生年 $y$、月 $m$、日 $d$。</p>
+<p>输入共有 $n + 1$ 行，</p>
+<p>第 $1$ 行为 OI 组总人数 $n$；</p>
+<p>第 $2$ 行至第 $n+1$ 行分别是每人的姓名 $s$、出生年 $y$、月 $m$、日 $d$。</p>
 <h2 id="_3">输出格式</h2>
-<p>输出共有 $n$ 行，
-即 $n$ 个生日从大到小同学的姓名。（如果有两个同学生日相同，输入靠后的同学先输出）</p>
-<h2 id="_4">说明/提示</h2>
-<p>数据保证，$1</p>
+<p>输出共有 $n$ 行，</p>
+<p>即 $n$ 个生日从大到小同学的姓名。（如果有两个同学生日相同，输入靠后的同学先输出）</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+<span class="n">Yangchu</span><span class="w"> </span><span class="mf">1992</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">23</span>
+<span class="n">Qiujingya</span><span class="w"> </span><span class="mf">1993</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">13</span>
+<span class="n">Luowen</span><span class="w"> </span><span class="mf">1991</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">1</span>
+</code></pre></div>
+
+<h4 id="1_2">样例输出 #1</h4>
+<div class="codehilite"><pre><span></span><code>Luowen
+Yangchu
+Qiujingya
+</code></pre></div>
+
+<h2 id="_5">说明/提示</h2>
+<p>数据保证，$1&lt;n&lt;100$，$1\leq |s|&lt;20$。保证年月日实际存在，且年份 $\in [1960,2020]$。</p>
             </article>
           </div>
         </div>

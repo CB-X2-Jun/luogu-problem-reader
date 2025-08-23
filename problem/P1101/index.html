@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1101/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1101 P1101 单词方阵</title>
+    <title>P1101 单词方阵</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -167,7 +167,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1101 P1101 单词方阵</span>
+              <span class="md-ellipsis">P1101 单词方阵</span>
             </div>
           </div>
         </div>
@@ -210,14 +210,59 @@
           </div>
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1101">P1101 单词方阵</h1>
-<h2 id="_1">题目描述</h2>
-<p>给一 $n \times n$ 的字母方阵，内可能蕴含多个 <code>yizhong</code> 单词。单词在方阵中是沿着同一方向连续摆放的。摆放可沿着 $8$ 个方向的任一方向，同一单词摆放时不再改变方向，单词与单词之间可以交叉，因此有可能共用字母。输出时，将不是单词的字母用 <code>\*</code> 代替，以突出显示单词。</p>
+              <h2 id="_1">题目描述</h2>
+<p>给一 $n \times n$ 的字母方阵，内可能蕴含多个 <code>yizhong</code> 单词。单词在方阵中是沿着同一方向连续摆放的。摆放可沿着 $8$ 个方向的任一方向，同一单词摆放时不再改变方向，单词与单词之间可以交叉，因此有可能共用字母。输出时，将不是单词的字母用 <code>*</code> 代替，以突出显示单词。</p>
 <h2 id="_2">输入格式</h2>
-<p>第一行输入一个数 $n$。$(7 \le n \le 100)$。
-第二行开始输入 $n \times n$ 的字母矩阵。</p>
+<p>第一行输入一个数 $n$。$(7 \le n \le 100)$。</p>
+<p>第二行开始输入 $n \times n$ 的字母矩阵。</p>
 <h2 id="_3">输出格式</h2>
 <p>突出显示单词的 $n \times n$ 矩阵。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<div class="codehilite"><pre><span></span><code><span class="mf">7</span>
+<span class="n">aaaaaaa</span>
+<span class="n">aaaaaaa</span>
+<span class="n">aaaaaaa</span>
+<span class="n">aaaaaaa</span>
+<span class="n">aaaaaaa</span>
+<span class="n">aaaaaaa</span>
+<span class="n">aaaaaaa</span>
+</code></pre></div>
+
+<h4 id="1_2">样例输出 #1</h4>
+<div class="codehilite"><pre><span></span><code>*******
+*******
+*******
+*******
+*******
+*******
+*******
+</code></pre></div>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span>
+<span class="n">qyizhong</span>
+<span class="n">gydthkjy</span>
+<span class="n">nwidghji</span>
+<span class="ow">or</span><span class="n">bzsfgz</span>
+<span class="n">hhgrhwth</span>
+<span class="n">zzzzzozo</span>
+<span class="n">iwdfrgng</span>
+<span class="n">yyyygggg</span>
+</code></pre></div>
+
+<h4 id="2_2">样例输出 #2</h4>
+<div class="codehilite"><pre><span></span><code>*yizhong
+gy******
+n*i*****
+o**z****
+h***h***
+z****o**
+i*****n*
+y******g
+</code></pre></div>
             </article>
           </div>
         </div>

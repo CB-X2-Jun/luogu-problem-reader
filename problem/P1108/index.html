@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://luogu.cb-x2-jun.run.place/problem/P1108/">
     <link rel="icon" href="../../assets/images/favicon.png">
     <meta name="generator" content="mkdocs-material">
-    <title>P1108 P1108 低价购买</title>
+    <title>P1108 低价购买</title>
     <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -167,7 +167,7 @@
               <span class="md-ellipsis">洛谷题目浏览站</span>
             </div>
             <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P1108 P1108 低价购买</span>
+              <span class="md-ellipsis">P1108 低价购买</span>
             </div>
           </div>
         </div>
@@ -210,18 +210,17 @@
           </div>
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
-              <h1 id="p1108">P1108 低价购买</h1>
-<h2 id="_1">题目描述</h2>
-<p>“低价购买”这条建议是在奶牛股票市场取得成功的一半规则。要想被认为是伟大的投资者，你必须遵循以下的问题建议:“低价购买；再低价购买”。每次你购买一支股票,你必须用低于你上次购买它的价格购买它。买的次数越多越好!你的目标是在遵循以上建议的前提下，求你最多能购买股票的次数。你将被给出一段时间内一支股票每天的出售价，你可以选择在哪些天购买这支股票。每次购买都必须遵循“低价购买；再低价购买”的原则。写一个程序计算最大购买次数。
-这里是某支股票的价格清单：
-$$
+              <h2 id="_1">题目描述</h2>
+<p>“低价购买”这条建议是在奶牛股票市场取得成功的一半规则。要想被认为是伟大的投资者，你必须遵循以下的问题建议:“低价购买；再低价购买”。每次你购买一支股票,你必须用低于你上次购买它的价格购买它。买的次数越多越好!你的目标是在遵循以上建议的前提下，求你最多能购买股票的次数。你将被给出一段时间内一支股票每天的出售价，你可以选择在哪些天购买这支股票。每次购买都必须遵循“低价购买；再低价购买”的原则。写一个程序计算最大购买次数。</p>
+<p>这里是某支股票的价格清单：</p>
+<p>$$
 \def\arraystretch{1.5}
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
 \textsf{日期} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 &amp; 11 &amp; 12 \cr\hline
 \textsf{价格} &amp; 68 &amp; 69 &amp; 54 &amp; 64 &amp; 68 &amp; 64 &amp; 70 &amp; 67 &amp; 78 &amp; 62&amp; 98 &amp; 87 \cr\hline
-\end{array}$$
-最优秀的投资者可以购买最多 $4$ 次股票，可行方案中的一种是：
-$$
+\end{array}$$</p>
+<p>最优秀的投资者可以购买最多 $4$ 次股票，可行方案中的一种是：</p>
+<p>$$
 \def\arraystretch{1.5}
 \begin{array}{|c|c|c|c|c|}\hline
 \textsf{日期} &amp; 2 &amp; 5 &amp; 6 &amp; 10 \cr\hline
@@ -229,10 +228,20 @@ $$
 \end{array}
 $$</p>
 <h2 id="_2">输入格式</h2>
-<p>第一行共一个整数 $N\ (1 \le N \le 5000)$，股票发行天数。
-第二行一行 $N$ 个整数，是每天的股票价格。保证是大小不超过 $2^{16}$ 的正整数。</p>
+<p>第一行共一个整数 $N\ (1  \le  N  \le 5000)$，股票发行天数。</p>
+<p>第二行一行 $N$ 个整数，是每天的股票价格。保证是大小不超过 $2^{16}$ 的正整数。</p>
 <h2 id="_3">输出格式</h2>
 <p>输出共一行两个整数，分别为最大购买次数和拥有最大购买次数的方案数（数据保证 $ \le 2^{31}$）当二种方案“看起来一样”时（就是说它们构成的价格队列一样的时候）,这 $2$ 种方案被认为是相同的。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<div class="codehilite"><pre><span></span><code><span class="mf">12</span>
+<span class="mf">68</span><span class="w"> </span><span class="mf">69</span><span class="w"> </span><span class="mf">54</span><span class="w"> </span><span class="mf">64</span><span class="w"> </span><span class="mf">68</span><span class="w"> </span><span class="mf">64</span><span class="w"> </span><span class="mf">70</span><span class="w"> </span><span class="mf">67</span><span class="w"> </span><span class="mf">78</span><span class="w"> </span><span class="mf">62</span><span class="w"> </span><span class="mf">98</span><span class="w"> </span><span class="mf">87</span>
+</code></pre></div>
+
+<h4 id="1_2">样例输出 #1</h4>
+<div class="codehilite"><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
             </article>
           </div>
         </div>

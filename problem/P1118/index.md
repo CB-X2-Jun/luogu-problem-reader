@@ -25,6 +25,22 @@ Line 1: Two space-separated integers: N and the final sum.
 
 Line 1: An ordering of the integers 1..N that leads to the given sum. If there are multiple solutions, choose the one that is lexicographically least, i.e., that puts smaller numbers first.
 
+## 输入输出样例
+
+### 样例 #1
+
+#### 样例输入 #1
+
+```
+4 16
+```
+
+#### 样例输出 #1
+
+```
+3 1 2 4
+```
+
 ## 说明/提示
 
 - For $40\%$ of the data, $1\le n\le 7$;

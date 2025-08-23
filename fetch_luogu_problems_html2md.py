@@ -1,12 +1,12 @@
 import os
 import re
 import requests
-import markdown
-import json
-import time
-from pathlib import Path
-from markdownify import markdownify as md
 from bs4 import BeautifulSoup
+import json
+from pathlib import Path
+import markdown
+from markdownify import markdownify as md
+import time
 import argparse
 
 PROBLEM_DIR = Path(__file__).parent / 'problem'
@@ -284,6 +284,52 @@ def refresh_html_files():
     
     print(f"HTML结构刷新完成，共刷新 {refreshed_count} 个题目。")
     generate_problem_list()
+
+def crawl_specific_problems(problem_list):
+    """批量爬取指定题目列表"""
+    print(f"批量爬取指定题目，共 {len(problem_list)} 道题...")
+    
+    # 读取模板
+    template_path = PROBLEM_DIR / 'html_template_material.html'
+    if template_path.exists():
+        with open(template_path, 'r', encoding='utf-8') as f:
+            template = f.read()
+    else:
+        template = '<!doctype html><html><head><title>{title}</title></head><body>{article}</body></html>'
+    
+    success_count = 0
+    sample_count = 0
+    
+    for i, pid in enumerate(problem_list, 1):
+        print(f"[{i}/{len(problem_list)}] 尝试爬取 P{pid} ...", end="")
+        problem = fetch_problem_html(pid)
+        if problem:
+            save_problem_files(pid, problem, template)
+            print("成功", end="")
+            success_count += 1
+            
+            # 检查样例数据
+            if '## 输入输出样例' in problem['content_md']:
+                print(" ✅")
+                sample_count += 1
+            else:
+                print(" ⚠️")
+        else:
+            print('失败')
+        
+        # 添加延迟避免被封
+        if i < len(problem_list):
+            time.sleep(1)
+    
+    print(f"\n批量爬取完成！")
+    print(f"成功: {success_count}/{len(problem_list)} 道题")
+    print(f"包含样例: {sample_count}/{success_count} 道题")
+    
+    generate_problem_list()
+
+def crawl_specific_problem(pid):
+    """爬取指定题目"""
+    crawl_specific_problems([pid])
 
 def main(batch=20, from_head=False):
     """主函数"""
@@ -566,23 +612,125 @@ def generate_problem_list():
     with open(list_dir / 'index.html', 'w', encoding='utf-8') as f:
         f.write(list_html)
 
+def show_help():
+    """显示帮助信息"""
+    print("""
+洛谷题目爬取工具使用说明：
+
+用法：
+    python fetch_luogu_problems_html2md.py [选项] [批量数量]
+
+选项：
+    -f, --from-head         从P1000开始爬取（默认从最后一题继续）
+    -r, --refresh           刷新已有题目的HTML结构
+    -p, --problem NUM       爬取指定题目（NUM为题目编号，如1098或P1098）
+    -b, --batch START-END   批量爬取指定范围的题目（如1098-1128）
+    -l, --list NUM1,NUM2... 爬取指定题目列表（用逗号分隔，如1098,1100,1102）
+    -h, --help              显示此帮助信息
+
+示例：
+    python fetch_luogu_problems_html2md.py 50              # 批量爬取50道题
+    python fetch_luogu_problems_html2md.py -f 10           # 从P1000开始爬取10道题
+    python fetch_luogu_problems_html2md.py -r              # 刷新所有已有题目
+    python fetch_luogu_problems_html2md.py -p 1098         # 爬取P1098题目
+    python fetch_luogu_problems_html2md.py -b 1098-1128    # 批量爬取P1098到P1128
+    python fetch_luogu_problems_html2md.py -l 1098,1100,1733  # 爬取指定题目列表
+""")
+
 if __name__ == '__main__':
     import sys
     
     batch = 20
     from_head = False
     refresh_mode = False
+    specific_problem = None
+    batch_range = None
+    problem_list = None
     
-    for arg in sys.argv[1:]:
+    i = 0
+    while i < len(sys.argv[1:]):
+        arg = sys.argv[1:][i]
         if arg in ('--from-head', '-f'):
             from_head = True
         elif arg in ('--refresh', '-r'):
             refresh_mode = True
+        elif arg in ('--help', '-h'):
+            show_help()
+            sys.exit(0)
+        elif arg in ('--problem', '-p'):
+            # 下一个参数应该是题目编号
+            if i + 1 < len(sys.argv[1:]):
+                next_arg = sys.argv[1:][i + 1]
+                if next_arg.isdigit():
+                    specific_problem = int(next_arg)
+                    i += 1  # 跳过下一个参数
+                elif next_arg.startswith('P') and next_arg[1:].isdigit():
+                    specific_problem = int(next_arg[1:])
+                    i += 1  # 跳过下一个参数
+                else:
+                    print("错误: --problem 参数后必须跟题目编号")
+                    sys.exit(1)
+            else:
+                print("错误: --problem 参数后必须跟题目编号")
+                sys.exit(1)
+        elif arg in ('--batch', '-b'):
+            # 批量范围参数，格式如 1098-1128
+            if i + 1 < len(sys.argv[1:]):
+                next_arg = sys.argv[1:][i + 1]
+                if '-' in next_arg:
+                    try:
+                        start_str, end_str = next_arg.split('-', 1)
+                        start = int(start_str.replace('P', ''))
+                        end = int(end_str.replace('P', ''))
+                        if start <= end:
+                            batch_range = (start, end)
+                            i += 1  # 跳过下一个参数
+                        else:
+                            print("错误: 起始编号必须小于等于结束编号")
+                            sys.exit(1)
+                    except ValueError:
+                        print("错误: --batch 参数格式错误，应为 START-END")
+                        sys.exit(1)
+                else:
+                    print("错误: --batch 参数格式错误，应为 START-END")
+                    sys.exit(1)
+            else:
+                print("错误: --batch 参数后必须跟范围")
+                sys.exit(1)
+        elif arg in ('--list', '-l'):
+            # 题目列表参数，格式如 1098,1100,1102
+            if i + 1 < len(sys.argv[1:]):
+                next_arg = sys.argv[1:][i + 1]
+                try:
+                    problem_list = []
+                    for num_str in next_arg.split(','):
+                        num_str = num_str.strip().replace('P', '')
+                        if num_str.isdigit():
+                            problem_list.append(int(num_str))
+                        else:
+                            print(f"错误: 无效的题目编号 '{num_str}'")
+                            sys.exit(1)
+                    i += 1  # 跳过下一个参数
+                except ValueError:
+                    print("错误: --list 参数格式错误")
+                    sys.exit(1)
+            else:
+                print("错误: --list 参数后必须跟题目列表")
+                sys.exit(1)
         elif arg.isdigit():
             batch = int(arg)
+        i += 1
     
     try:
-        if refresh_mode:
+        if specific_problem:
+            crawl_specific_problem(specific_problem)
+        elif batch_range:
+            start, end = batch_range
+            problems = list(range(start, end + 1))
+            crawl_specific_problems(problems)
+        elif problem_list:
+            crawl_specific_problems(problem_list)
+        elif refresh_mode:
             refresh_html_files()
         else:
             main(batch, from_head)
