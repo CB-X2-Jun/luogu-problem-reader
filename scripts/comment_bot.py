@@ -389,7 +389,6 @@ class CommentBot:
                     bot_reply = f"{reply_text}\n\n---\n🤖 *这是自动回复，如需人工帮助请 @Eternity-Sky*"
                     if self.reply_to_comment(discussion_number, comment['id'], bot_reply):
                         reply_count += 1
-                        time.sleep(2)
         print(f"✨ 处理完成，共回复了 {reply_count} 条评论")
         return reply_count
 
