@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const { path, method = 'GET', body, csrfToken, headers = {}, sessionId } = JSON.parse(event.body);
+        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId } = JSON.parse(event.body);
         
         if (!path) {
             return {
@@ -52,27 +52,22 @@ exports.handler = async (event, context) => {
         
         // 设置请求头
         const requestHeaders = {
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': path.includes('/api/') ? 'application/json, text/plain, */*' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': '*/*',
             'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'identity',
+            'Accept-Encoding': 'identity', // 禁用压缩
             'Connection': 'keep-alive',
-            'Cache-Control': 'no-cache',
-            'Pragma': 'no-cache',
-            'Sec-Fetch-Dest': path.includes('/api/') ? 'empty' : 'document',
-            'Sec-Fetch-Mode': path.includes('/api/') ? 'cors' : 'navigate',
-            'Sec-Fetch-Site': 'same-origin',
-            'Sec-Fetch-User': path.includes('/auth/') ? '?1' : undefined,
-            'Upgrade-Insecure-Requests': path.includes('/auth/') ? '1' : undefined,
-            ...headers
+            'Referer': 'https://www.luogu.com.cn/auth/login',
+            'Origin': 'https://www.luogu.com.cn'
         };
 
-        // 移除undefined值
-        Object.keys(requestHeaders).forEach(key => {
-            if (requestHeaders[key] === undefined) {
-                delete requestHeaders[key];
-            }
-        });
+        // 对于验证码请求，设置特定的Accept头
+        if (path === '/api/verify/captcha') {
+            requestHeaders['Accept'] = 'image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8';
+        }
+
+        // 添加客户端传递的头部
+        Object.assign(requestHeaders, clientHeaders);
 
         // 添加保存的Cookie
         if (globalCookies[clientSessionId]) {
