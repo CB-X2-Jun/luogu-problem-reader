@@ -338,8 +338,35 @@
     </div>
 
     <script>
-        let csrfToken = null;
+        let loginCookies = '';
         let currentUser = null;
+        let csrfToken = null;
+
+        // 代理函数 - 通过Netlify Functions调用洛谷API
+        async function proxyLuoguAPI(path, options = {}) {
+            const { method = 'GET', body, headers = {} } = options;
+            
+            try {
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        path: path,
+                        method: method,
+                        body: body,
+                        csrfToken: csrfToken,
+                        headers: headers
+                    })
+                });
+                
+                return response;
+            } catch (error) {
+                console.error('代理请求失败:', error);
+                throw error;
+            }
+        }
 
         // 显示状态消息
         function showStatus(message, type = 'info') {
@@ -359,11 +386,7 @@
         // 获取CSRF Token
         async function getCSRFToken() {
             try {
-                const response = await fetch('https://www.luogu.com.cn/auth/login', {
-                    headers: {
-                        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                    }
-                });
+                const response = await proxyLuoguAPI('/auth/login');
                 
                 if (!response.ok) {
                     throw new Error('获取登录页面失败');
@@ -389,11 +412,7 @@
         // 刷新验证码
         async function refreshCaptcha() {
             try {
-                const response = await fetch('https://www.luogu.com.cn/api/verify/captcha', {
-                    headers: {
-                        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                    }
-                });
+                const response = await proxyLuoguAPI('/api/verify/captcha');
                 
                 if (response.ok) {
                     const blob = await response.blob();
@@ -442,19 +461,13 @@
                 }
                 
                 // 发送登录请求
-                const response = await fetch('https://www.luogu.com.cn/do-auth/password', {
+                const response = await proxyLuoguAPI('/do-auth/password', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                        'Referer': 'https://www.luogu.com.cn/auth/login',
-                        'x-csrf-token': csrfToken
-                    },
-                    body: JSON.stringify({
+                    body: {
                         username: username,
                         password: password,
                         captcha: captcha
-                    })
+                    }
                 });
                 
                 console.log('登录响应状态:', response.status);
@@ -497,11 +510,7 @@
         // 检查登录状态
         async function checkLoginStatus() {
             try {
-                const response = await fetch('https://www.luogu.com.cn/_lfe/config', {
-                    headers: {
-                        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                    }
-                });
+                const response = await proxyLuoguAPI('/_lfe/config');
                 
                 if (response.ok) {
                     const data = await response.json();
