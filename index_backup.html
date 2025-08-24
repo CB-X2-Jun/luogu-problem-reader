@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGOJ - 题目浏览站</title>
-    <meta name="description" content="LGOJ 题目浏览站 - 洛谷题目收集与浏览平台，提供题目的静态浏览和查看功能。">
-    <meta name="keywords" content="LGOJ, 题目浏览, 洛谷题目, 算法题库, 题目查看">
+    <title>LGOJ - 在线评测系统</title>
+    <meta name="description" content="LGOJ 是一个功能强大的在线评测系统，提供算法竞赛题目、在线编程练习和实时评测服务。">
+    <meta name="keywords" content="LGOJ, 在线评测, OJ, 算法竞赛, 编程练习, 编程竞赛, 算法题库">
     <meta name="author" content="LGOJ Team">
     
     <!-- Favicon -->
@@ -17,6 +18,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Custom CSS -->
     <style>
         :root {
             --primary-color: #2563eb;
@@ -116,51 +118,26 @@
             background-color: var(--gray-50);
         }
         
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: 0;
             transition: var(--transition);
-            border: none;
-            font-size: 0.95rem;
-            text-decoration: none;
-            gap: 0.5rem;
         }
         
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-1px);
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: white;
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -188,7 +165,7 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
             line-height: 1.1;
@@ -385,39 +362,96 @@
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="/" class="logo">
-                <i class="fas fa-book"></i>
-                LGOJ
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="/" class="active">首页</a></li>
-                    <li><a href="/problem/list">题库</a></li>
-                    <li><a href="/about">关于</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  
+  <body dir="ltr">
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="container">
-                <h1>LGOJ 题目浏览站</h1>
-                <p>洛谷题目收集与浏览平台，提供题目的静态浏览和查看功能。</p>
-                <div class="hero-buttons">
-                    <a href="/problem/list" class="btn btn-primary">
-                        <i class="fas fa-list"></i>
-                        浏览题库
-                    </a>
-                    <a href="/about" class="btn btn-outline">
-                        <i class="fas fa-info-circle"></i>
-                        了解更多
-                    </a>
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="." title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            洛谷题目浏览站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              首页
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+
+    
+    
+      
+      
+        <!-- 自定义搜索框 -->
+        <div style="display: flex; align-items: center; margin-right: 1rem;">
+          <form id="custom-search-form" style="display: flex; align-items: center; background: rgba(255,255,255,0.1); border-radius: 4px; padding: 0.3rem 0.8rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: rgba(255,255,255,0.7); margin-right: 0.5rem;"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+            <input type="text" id="custom-search-input" placeholder="搜索题目 (如: P1000)" style="background: transparent; border: none; color: white; outline: none; font-size: 0.9rem; width: 150px;" autocomplete="off">
+          </form>
+        </div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Eternity-Sky/luogu-problem-reader" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
                 </div>
             </div>
         </div>
@@ -427,47 +461,80 @@
     <section class="features">
         <div class="container">
             <div class="section-title">
-                <h2>平台特色</h2>
-                <p>简单实用的题目浏览功能</p>
+                <h2>为什么选择 LGOJ？</h2>
+                <p>我们提供全面的学习资源和强大的评测系统，帮助您提升编程能力</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>题目浏览</h3>
-                    <p>收录洛谷平台题目，提供清晰的题目内容展示和浏览功能。</p>
+                    <h3>海量题库</h3>
+                    <p>超过1000道精心挑选的算法题目，涵盖各大OJ平台经典题目，满足不同层次学习需求。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>题目搜索</h3>
-                    <p>支持按题目编号和标题搜索，快速找到需要的题目。</p>
+                    <h3>实时评测</h3>
+                    <p>快速准确的在线评测系统，支持多种编程语言，即时反馈代码运行结果。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>代码高亮</h3>
-                    <p>支持代码语法高亮显示，提供更好的阅读体验。</p>
+                    <h3>进度跟踪</h3>
+                    <p>详细的学习进度统计，帮助你了解自己的强项和薄弱环节，制定针对性学习计划。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>社区交流</h3>
+                    <p>活跃的编程社区，与其他程序员交流经验，分享解题思路，共同进步。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>竞赛模式</h3>
+                    <p>定期举办编程竞赛，模拟真实比赛环境，提升你的竞赛能力和心理素质。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>移动友好</h3>
+                    <p>响应式设计，完美适配各种设备，随时随地都能进行编程练习。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Info Section -->
+    <!-- Stats Section -->
     <section class="stats">
         <div class="container">
             <div class="section-title">
-                <h2>使用说明</h2>
-                <p>简单易用的题目浏览平台</p>
+                <h2>平台数据</h2>
+                <p>用数字见证我们的成长</p>
             </div>
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray-600);">
-                    本站收录了洛谷平台的算法题目，提供静态浏览功能。您可以通过题库页面查看所有题目，
-                    使用搜索功能快速找到特定题目，所有题目内容支持代码高亮和数学公式渲染。
-                </p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>算法题目</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10K+</h3>
+                    <p>注册用户</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100K+</h3>
+                    <p>代码提交</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>在线服务</p>
+                </div>
             </div>
         </div>
     </section>
@@ -477,22 +544,79 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>LGOJ 题目浏览站</h3>
-                    <p>洛谷题目收集与浏览平台，提供题目的静态浏览功能。</p>
+                    <h3>LGOJ</h3>
+                    <p>专业的在线评测平台，致力于为编程爱好者提供优质的学习环境和丰富的题目资源。</p>
                 </div>
                 <div class="footer-column">
                     <h3>快速链接</h3>
                     <ul class="footer-links">
-                        <li><a href="/">首页</a></li>
                         <li><a href="/problem/list">题目列表</a></li>
-                        <li><a href="/about">关于</a></li>
+                        <li><a href="/contest">比赛中心</a></li>
+                        <li><a href="/rank">排行榜</a></li>
+                        <li><a href="/discuss">讨论区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助支持</h3>
+                    <ul class="footer-links">
+                        <li><a href="/help">使用帮助</a></li>
+                        <li><a href="/faq">常见问题</a></li>
+                        <li><a href="/contact">联系我们</a></li>
+                        <li><a href="/feedback">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">关于LGOJ</a></li>
+                        <li><a href="/team">团队介绍</a></li>
+                        <li><a href="/privacy">隐私政策</a></li>
+                        <li><a href="/terms">服务条款</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+                <p>&copy; 2024 LGOJ. All rights reserved. | 专业的在线评测系统</p>
             </div>
         </div>
     </footer>
 </body>
+                handleSearch();
+              });
+              
+              // 监听回车键
+              searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSearch();
+                }
+              });
+              
+              function handleSearch() {
+                const query = searchInput.value.trim();
+                
+                if (!query) {
+                  // 如果没有输入，跳转到题目列表
+                  window.location.href = 'problem/list/';
+                  return;
+                }
+                
+                // 检查是否是题目编号格式（P开头的数字或纯数字）
+                const problemMatch = query.match(/^[Pp]?(\d+)$/);
+                if (problemMatch) {
+                  const problemNum = problemMatch[1];
+                  const problemId = 'P' + problemNum;
+                  // 跳转到具体题目页面
+                  window.location.href = `problem/${problemId}/`;
+                  return;
+                }
+                
+                // 其他情况跳转到题目列表页面，用户可以手动查找
+                window.location.href = 'problem/list/';
+              }
+            }
+          });
+        </script>
+    
+  </body>
 </html>
