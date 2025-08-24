@@ -167,6 +167,13 @@
     <script>
         let currentUser = null;
         
+        // 生成会话ID（用于在代理中识别用户会话）
+        let sessionId = localStorage.getItem('luogu_session_id');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('luogu_session_id', sessionId);
+        }
+        
         // 代理函数
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
@@ -183,7 +190,8 @@
                         path: path,
                         method: method,
                         body: body,
-                        headers: headers
+                        headers: headers,
+                        sessionId: sessionId
                     })
                 });
                 

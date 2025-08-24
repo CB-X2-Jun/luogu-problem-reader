@@ -1,6 +1,9 @@
 const https = require('https');
 const http = require('http');
 
+// 全局Cookie存储（在实际生产环境中应该使用数据库或缓存）
+let globalCookies = {};
+
 exports.handler = async (event, context) => {
     // 只允许POST请求
     if (event.httpMethod !== 'POST') {
@@ -29,7 +32,7 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const { path, method = 'GET', body, csrfToken, headers = {} } = JSON.parse(event.body);
+        const { path, method = 'GET', body, csrfToken, headers = {}, sessionId } = JSON.parse(event.body);
         
         if (!path) {
             return {
@@ -43,6 +46,9 @@ exports.handler = async (event, context) => {
 
         // 构建完整URL
         const url = `https://www.luogu.com.cn${path}`;
+        
+        // 获取会话ID（使用客户端IP作为简单的会话标识）
+        const clientSessionId = sessionId || event.headers['x-forwarded-for'] || 'default';
         
         // 设置请求头
         const requestHeaders = {
@@ -68,6 +74,12 @@ exports.handler = async (event, context) => {
             }
         });
 
+        // 添加保存的Cookie
+        if (globalCookies[clientSessionId]) {
+            requestHeaders['Cookie'] = globalCookies[clientSessionId];
+            console.log('使用保存的Cookie:', globalCookies[clientSessionId]);
+        }
+
         // 如果是POST请求，添加必要的头部
         if (method === 'POST') {
             requestHeaders['Content-Type'] = 'application/json';
@@ -88,6 +100,24 @@ exports.handler = async (event, context) => {
         console.log('洛谷API响应状态:', response.statusCode);
         console.log('响应内容类型:', response.headers['content-type']);
         console.log('响应内容长度:', response.body ? response.body.length : 0);
+
+        // 保存Cookie（如果有Set-Cookie头部）
+        if (response.headers['set-cookie']) {
+            const cookies = Array.isArray(response.headers['set-cookie']) 
+                ? response.headers['set-cookie'] 
+                : [response.headers['set-cookie']];
+            
+            // 解析并保存Cookie
+            const cookieStrings = cookies.map(cookie => {
+                // 只保留cookie的name=value部分，去掉Path、Domain等属性
+                return cookie.split(';')[0];
+            }).filter(Boolean);
+            
+            if (cookieStrings.length > 0) {
+                globalCookies[clientSessionId] = cookieStrings.join('; ');
+                console.log('保存Cookie:', globalCookies[clientSessionId]);
+            }
+        }
 
         // 返回响应
         return {

@@ -341,6 +341,13 @@
         let loginCookies = '';
         let currentUser = null;
         let csrfToken = null;
+        
+        // 生成会话ID（用于在代理中识别用户会话）
+        let sessionId = localStorage.getItem('luogu_session_id');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('luogu_session_id', sessionId);
+        }
 
         // 代理函数 - 通过Netlify Functions调用洛谷API
         async function proxyLuoguAPI(path, options = {}) {
@@ -359,7 +366,8 @@
                         method: method,
                         body: body,
                         csrfToken: csrfToken,
-                        headers: headers
+                        headers: headers,
+                        sessionId: sessionId
                     })
                 });
                 
