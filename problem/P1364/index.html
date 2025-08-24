@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>设有一棵二叉树，如图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/kawht13x.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/kawht13x.png" /></p>
 <p>其中，圈中的数字表示结点中居民的人口。圈边上数字表示结点编号，现在要求在某个结点上建立一个医院，使所有居民所走的路程之和为最小，同时约定，相邻接点之间的距离为 $1$。如上图中，若医院建在 $1$ 处，则距离和 $=4+12+2\times20+2\times40=136$；若医院建在 $3$ 处，则距离和 $=4\times2+13+20+40=81$。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个整数 $n$，表示树的结点数。</p>
@@ -468,6 +463,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

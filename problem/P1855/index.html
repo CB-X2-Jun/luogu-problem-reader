@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,11 +389,11 @@
           <h2 id="_1">题目描述</h2>
 <p>洛谷 2 的团队功能是其他任何 OJ 和工具难以达到的。借助洛谷强大的服务器资源，任何学校都可以在洛谷上零成本的搭建 OJ 并高效率的完成训练计划。</p>
 <p>为什么说是搭建 OJ 呢？为什么高效呢？</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1236.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1236.png" /></p>
 <p>因为，你可以上传私有题目，团队外别人是无法看到的。我们还能帮你们评测！</p>
 <p>你可以创建作业，给组员布置任务，查看组员的完成情况，还可以点评任意一份代码！</p>
 <p>你可以创建比赛！既可以是 OI 赛制还可以是 ICPC 赛制！既可以是团队内部的私有比赛，也可以公开赛，甚至可以指定谁可以参加比赛。这样，搞“x 校联赛”最合适不过了。洛谷凭借这个功能，希望能够提供公开及私有比赛的另外一个平台。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1237.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1237.png" /></p>
 <p>值得说明的是，本次比赛就是采用团队私有题目+邀请比赛的机制。</p>
 <p>洛谷的运营组决定，如果一名 OIer 向他的教练推荐洛谷，并能够成功的使用（成功使用的定义是：该团队有 $20$ 个或以上的成员，上传 $10$ 道以上的私有题目，布置过一次作业并成功举办过一次公开比赛），那么他可以浪费掉 kkksc03 的一些时间的同时消耗掉 kkksc03 的一些金钱以满足自己的一个愿望。</p>
 <p>kkksc03 的时间和金钱是有限的，所以他很难满足所有同学的愿望。所以他想知道在自己的能力范围内，最多可以完成多少同学的愿望？</p>
@@ -472,6 +467,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

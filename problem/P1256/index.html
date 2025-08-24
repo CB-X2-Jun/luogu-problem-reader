@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -400,7 +395,7 @@
 0 &amp; 1 &amp; 1 &amp; 0 \
 \end{pmatrix}$$</p>
 <p>对应屏幕显示应为：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cwg2di9s.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cwg2di9s.png" /></p>
 <p>假设放大后，一个格子表示一个像素点。</p>
 <p>由于未知的原因，显示黑色的像素点总是受显示白色的像素点的影响——可能是阴极射线管工作的作用。并且，距离越近，影响越大。这里的距离定义如下：</p>
 <p>设有像素点 $P_1(x_1,y_1)$ 和像素点 $P_2(x_2,y_2)$，则它们之间的距离 $D(P_1,P_2)=|x_1-x_2|+|y_1-y_2|$。</p>
@@ -481,6 +476,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

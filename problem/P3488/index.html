@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,14 +387,14 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p>Byteasar runs a skate club. Its members meet on a regular basis and train    together, and they always use the club's ice-skates. The skate sizes are    (by convention) numbered from <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.1.png" /> to <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.2.png" />. Naturally, each club member has    some foot size, but that is not all to it! Skaters have skate size tolerance    factor <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.3.png" />: a skater with foot size <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.4.png" /> can wear skates with    sizes from <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.5.png" /> up to <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.6.png" />. It should be noted, though, that    no skater ever wears two skates of different size simultaneously.</p>
-<p>To supply the club, Byteasar bought <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.7.png" /> pairs of ice-skates of each size,    i.e. from <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.8.png" /> to <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.9.png" />. As time passes, some people join the club, just as    some established members leave it. Byteasar worries if he will have enough    skates of appropriate size for every member at each training.</p>
-<p>We assume that initially the club has no members at all. Byteasar will give    you a sequence of <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.10.png" /> events of the following form: <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.11.png" /> (new) members with    foot size <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.12.png" /> have joined/left the club. Right after each such event    Byteasar wants to know whether he has enough skates of appropriate size for    every club member. He asks you to write a programme that will check it for    him.</p>
+<p>Byteasar runs a skate club. Its members meet on a regular basis and train    together, and they always use the club's ice-skates. The skate sizes are    (by convention) numbered from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.1.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.2.png" />. Naturally, each club member has    some foot size, but that is not all to it! Skaters have skate size tolerance    factor <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.3.png" />: a skater with foot size <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.4.png" /> can wear skates with    sizes from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.5.png" /> up to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.6.png" />. It should be noted, though, that    no skater ever wears two skates of different size simultaneously.</p>
+<p>To supply the club, Byteasar bought <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.7.png" /> pairs of ice-skates of each size,    i.e. from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.8.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.9.png" />. As time passes, some people join the club, just as    some established members leave it. Byteasar worries if he will have enough    skates of appropriate size for every member at each training.</p>
+<p>We assume that initially the club has no members at all. Byteasar will give    you a sequence of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.10.png" /> events of the following form: <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.11.png" /> (new) members with    foot size <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.12.png" /> have joined/left the club. Right after each such event    Byteasar wants to know whether he has enough skates of appropriate size for    every club member. He asks you to write a programme that will check it for    him.</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input contains four integers <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.13.png" />, <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.14.png" />,      <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.15.png" /> and <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.16.png" /> (<img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.17.png" />, <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.18.png" />,      <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.19.png" />, <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.20.png" />), separated by single spaces, that      denote, respectively: maximum skate size, number of events, number of      skate pairs of each size Byteasar initially bought, and the skate size      tolerance factor. The following <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.21.png" /> lines contain the sequence of <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.22.png" />      events, one per line. The <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.23.png" />-th line (for ![](http://main.edu.pl…</p>
+<p>The first line of the standard input contains four integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.13.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.14.png" />,      <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.15.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.16.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.17.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.18.png" />,      <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.19.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.20.png" />), separated by single spaces, that      denote, respectively: maximum skate size, number of events, number of      skate pairs of each size Byteasar initially bought, and the skate size      tolerance factor. The following <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.21.png" /> lines contain the sequence of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.22.png" />      events, one per line. The <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.23.png" />-th line (for ![](http://main.edu.pl…</p>
 <h2 id="_3">输出格式</h2>
-<p>Your programme should print out <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.35.png" /> lines to the standard output.</p>
-<p>The <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.36.png" />-th line (for <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.37.png" />) should either contain the word      TAK (Polish for yes), or the word NIE (Polish for      no), depending on whether Byteasar has the skates of appropriate      size for every club member right after the <img alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.38.png" />-th event.</p>
+<p>Your programme should print out <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.35.png" /> lines to the standard output.</p>
+<p>The <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.36.png" />-th line (for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.37.png" />) should either contain the word      TAK (Polish for yes), or the word NIE (Polish for      no), depending on whether Byteasar has the skates of appropriate      size for every club member right after the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/lyz-en-tex.38.png" />-th event.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -466,6 +461,9 @@ TAK
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

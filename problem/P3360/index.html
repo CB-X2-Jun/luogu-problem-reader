@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>艺术馆由若干个展览厅和若干条走廊组成。每一条走廊的尽头不是通向一个展览厅，就是分为两个走廊。</p>
 <p>每个展览厅内都有若干幅画，每副画都有一个价值。经过走廊和偷画都是要耗费时间的。</p>
 <p>警察会在 $n$ 秒后到达进口，在不被逮捕的情况下你最多能得到的价值。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2730.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2730.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行一个整数 $n (n \leq 600)$。</p>
 <p>第二行若干组整数，对于每组整数 $(t,x)$，$t$ 表示进入这个展览厅或经过走廊要耗费 $t$ 秒的时间，若 $x&gt;0$ 表示走廊通向的展览厅内有 $x$ 幅画。</p>
@@ -468,6 +463,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

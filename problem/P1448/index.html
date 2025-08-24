@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -402,7 +397,7 @@
 - 第二行有 $3$ 个单元，其中有 $2$ 个是形如 $\Delta$ 的，有 $1$ 个是形如 $\nabla$ 的（这两种三角形我们认为是形状相同的）。
 - 第三行有 $5$ 个单元，其中有 $3$ 个是形如 $\Delta$ 的，有 $2$ 个是形如 $\nabla$ 的……</p>
 <p>用坐标 $(X,Y)$ 给每个单元定位，第一行的单元的坐标为 $(1,1)$；第二行从左到右的三个单元的坐标依次为 $(2,1)$、$(2,2)$、$(2,3)$；……</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rwklebsy.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rwklebsy.png" /></p>
 <p>围巾的剪裁条件如下：<br />
   1. 裁成的两块小围巾形状与原来的大围巾完全相同，都是正三角形；
   2. 每一块小围巾里都不存在被蛀虫咬坏的部分；
@@ -494,6 +489,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

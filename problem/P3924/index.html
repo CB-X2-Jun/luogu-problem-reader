@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>小林是个程序媛，不可避免地康娜对这种人类的“魔法”产生了浓厚的兴趣，于是小林开始教她OI。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/8043.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/8043.png" /> </p>
 <p>今天康娜学习了一种叫做线段树的神奇魔法，这种魔法可以维护一段区间的信息，是非常厉害的东西。康娜试着写了一棵维护区间和的线段树。由于她不会打标记，因此所有的区间加操作她都是暴力修改的。具体的代码如下：</p>
 <div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Segment_Tree</span><span class="p">{</span>
 <span class="cp">#define lson (o&lt;&lt;1)</span>
@@ -501,6 +496,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

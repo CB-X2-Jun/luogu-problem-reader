@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -421,7 +416,7 @@
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="_6">样例解释</h3>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/10bjubxe.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/10bjubxe.png" /></p>
 <p>输入的原图是左图，它的访问代价是 $1 \times 1+2 \times 2+3 \times 3+4 \times 4=30$。</p>
 <p>最佳的修改方案是把输入中的第 $3$ 个结点的权值改成 $0$，得到右图，访问代价是：$1 \times 2+2 \times 3+3 \times 1+4 \times 2=19$，加上额外修改代价 $10$，一共是 $29$。</p>
 <h3 id="_7">数据范围</h3>
@@ -480,6 +475,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

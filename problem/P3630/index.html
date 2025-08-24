@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>一家电信公司正在北京城搭建一个 GSM 网络。城市里共有 n 个房子需要被 信号覆盖。由于经费的限制，电信公司只能安装一个天线。 这里将每个房子用一个点坐标来表示。为了简化天线的放置，电信公司将会 选择其中的 3 个房子作一个外接圆，然后将天线放在圆的中心，所有位于这个圆 内或者圆的边界上的房子都将被天线的信号所覆盖。 电信公司将会随机选择城市中的 3 个房子来搭建天线，他们想知道在所有可 能放置天线的方案中平均会有多少个房子被信号覆盖。 例如，假设共有 4 个房子 A, B, C, D，它们的位置如下图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4405.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4405.png" /> </p>
 <p>如果我们选择ABC或者BCD三个点搭建的外接圆，所有的房子都会被覆盖。 如果我们选择 ACD 或者 ABD，剩下的房子将不会在天线的信号覆盖范围内。因 此平均有(4 + 4 + 3 + 3) / 4 = 3.50 个房子被信号覆盖。 给定所有房子的位置，你的任务是计算平均有多少个房子被信号覆盖。假定 每一个房子都有一个二维的整数坐标，并且保证任何三个房子都不在同一条直线 上，任何四个房子都不在同一个圆上。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入第一行包含一个正整数 n, 表示房子的总数。接下来有 n 行，分别表示 每一个房子的位置。对于 i = 1, 2, .., n, 第 i 个房子的坐标用一对整数 xi和 yi来表 示，中间用空格隔开。</p>
@@ -471,6 +466,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

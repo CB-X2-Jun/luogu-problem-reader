@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -454,7 +449,7 @@
 <p>最优路线唯一：$(0,0) \rightarrow (0,1) \rightarrow (-2,1) \rightarrow (2,1) \rightarrow (3,2)$，可许愿 $4$ 次。其中在 $(0,1)$ 许愿后，从 $(-2,1)$ 出发沿着向右的方向能够到达的最近的未许愿过的树是 $(2,1)$，所以可以到达 $(2,1)$。</p>
 <p>而如果沿着 $(0,0) \rightarrow (0,1) \rightarrow (2,1) \rightarrow (-2,1)$ 的方向前进，此时 $(-2,1)$ 右边所有树都是许愿过的，根据题目条件规定，停止前进。故无法获得最优解。</p>
 <p>$(0,0) \rightarrow (0,1)$ 与 $(2,1) \rightarrow (3,2)$ 会留下非左右方向车辙印，需 $2$ 台轧路机。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1509.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1509.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -505,6 +500,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

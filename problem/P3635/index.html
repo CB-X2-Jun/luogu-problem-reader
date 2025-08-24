@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,9 +390,9 @@
 <p>苦无(Kunai)是一种忍者使用的形状像刀的武器，忍者通过投掷苦无攻击对 手。 现在有 $N$ 名忍者聚集在一块 $H$ 行 $W$ 列的棋盘式的广场上。每个忍者都站在 其所在方块的中心处，任何两个忍者都不在同一个方块上。每个忍者都拿着一个 苦无，面朝上、下、左、右四个方向中的一个方向站着。在时刻 $0$，所有忍者同 时向其所朝向的方向投掷苦无。</p>
 <p>每个苦无将会一直保持其初始的方向，并以单位速度飞行。如果某个时刻一 个位置上多于一个的苦无，它们将会相撞并且消失。苦无特别小，可以看成质点。 同时，由于忍者的移动速度特别快，他们不会被苦无击中。</p>
 <p>在下面的例子中，我们用箭头来表示苦无，而箭头的方向即为苦无的方向。 在这些图中，所有的苦无都会相撞后消失。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4414.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4414.png" /> </p>
 <p>在下面的图中，两个粗线箭头表示的苦无不会相撞。其中在第二个和第三个 图中，其中一个粗线表示的苦无会与细线表示的苦无相撞后消失，因此不会撞上 另一个粗线表示的苦无。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4415.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4415.png" /> </p>
 <p>你的任务是计算经过足够长的时间之后，在这个 $W × H$ 的广场中有多少格 子被苦无经过。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包含两个被空格隔开的整数 $W$, $H$，表示广场的尺寸为 $W$ 列 $H$ 行。 第二行包含一个整数 $N$，表示忍者的数量。</p>
@@ -483,6 +478,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目背景</h2>
 <h3 id="nleq-20">本题可能为错题，目前数据只是随机生成的 $n\leq 20$ 的情况，测试数据和题解仅供参考。</h3>
 <p>在一个n×n的棋盘上，布满了0和1，如图（a）所示（n=7），为叙述方便，将0用字母表示，如图（b）。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6077.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6077.png" /></p>
 <h2 id="_2">题目描述</h2>
 <p>跳棋规则：</p>
 <p>（1）从某个0格出发，可以向上，下，左，右4个方向连续越过若干个（至少1个）</p>
@@ -477,6 +472,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <p>栈有两种最重要的操作，即 pop（从栈顶弹出一个元素）和 push（将一个元素进栈）。</p>
 <p>栈的重要性不言自明，任何一门数据结构的课程都会介绍栈。宁宁同学在复习栈的基本概念时，想到了一个书上没有讲过的问题，而他自己无法给出答案，所以需要你的帮忙。</p>
 <h2 id="_2">题目描述</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5qxy9fz2.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5qxy9fz2.png" /></p>
 <p>宁宁考虑的是这样一个问题：一个操作数序列，$1,2,\ldots ,n$（图示为 1 到 3 的情况），栈 A 的深度大于 $n$。</p>
 <p>现在可以进行两种操作，</p>
 <ol>
@@ -404,7 +399,7 @@
 <li>将一个数，从栈的头端移到输出序列的尾端（对应数据结构栈的 pop 操作）</li>
 </ol>
 <p>使用这两种操作，由一个操作数序列就可以得到一系列的输出序列，下图所示为由 <code>1 2 3</code> 生成序列 <code>2 3 1</code> 的过程。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/8uwv2pa2.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/8uwv2pa2.png" /></p>
 <p>（原始状态如上图所示）</p>
 <p>你的程序将对给定的 $n$，计算并输出由操作数序列 $1,2,\ldots,n$ 经过操作可能得到的输出序列的总数。</p>
 <h2 id="_3">输入格式</h2>
@@ -474,6 +469,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

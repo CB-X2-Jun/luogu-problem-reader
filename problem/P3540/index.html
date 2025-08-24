@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,29 +390,29 @@
 <p>A famous Byteotian physicist Byteasar is studying a new constituent of matter - squarks.</p>
 <p>These are quite exotic particles that never exist alone but always in pairs.</p>
 <p>Moreover, squarks of a particular kind form pairs only with squarks of different kinds.</p>
-<p>After years of studies Byteasar has established that there are <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.1.png" /> different kinds of squarks.</p>
+<p>After years of studies Byteasar has established that there are <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.1.png" /> different kinds of squarks.</p>
 <p>Squarks of each kind have a unique mass, which is a positive integer multiple of (an appropriate) unit.</p>
-<p>Byteasar has also measured the total mass of each of the <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.2.png" /> possible pairs of squarks.</p>
+<p>Byteasar has also measured the total mass of each of the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.2.png" /> possible pairs of squarks.</p>
 <p>According to standard Byteotian model of physics, the mass of a pair of squarks equals the sum of the masses    of the two squarks forming it.</p>
 <p>Now Byteasar desires to determine the individual masses of squarks of every kind.</p>
 <p>He has asked your help in writing a program that will determine all solutions to this puzzle,    i.e., will reconstruct all configurations of squark masses that are consistent with his previous measurements.</p>
 <h2 id="_2">输入格式</h2>
-<p>In the first line of the standard input there is a single integer <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.3.png" /> (<img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.4.png" />)      that denotes the number of different kinds of squarks.</p>
-<p>In the second line there are <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.5.png" /> positive integers, separated by single spaces,      that denote the total masses of all possible pairs of squarks.</p>
-<p>The mass of every pair does not exceed <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.6.png" />.</p>
+<p>In the first line of the standard input there is a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.3.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.4.png" />)      that denotes the number of different kinds of squarks.</p>
+<p>In the second line there are <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.5.png" /> positive integers, separated by single spaces,      that denote the total masses of all possible pairs of squarks.</p>
+<p>The mass of every pair does not exceed <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.6.png" />.</p>
 <p>For each two different kinds of squarks, the mass of the pair they form is given on the input exactly once.</p>
 <div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="nv">The</span><span class="w"> </span><span class="nv">masses</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">input</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">given</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="k">random</span><span class="w"> </span><span class="nv">order</span>.
 </code></pre></div>
 
 <p>In tests worth 32% of the points the following conditions hold in addition:</p>
-<p><img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.7.png" /> and the mass of every pair of squarks does not exceed <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.8.png" />.</p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.7.png" /> and the mass of every pair of squarks does not exceed <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.8.png" />.</p>
 <h2 id="_3">输出格式</h2>
-<p>In the first line of the standard output your program should print the number <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.9.png" /> of possible solutions to the problem.</p>
-<p>In the <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.10.png" /> lines that follow it should report successive solutions, one per line.</p>
-<p>Each solution should consist of <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.11.png" /> different positive integers, namely the masses of squarks of all kinds.</p>
+<p>In the first line of the standard output your program should print the number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.9.png" /> of possible solutions to the problem.</p>
+<p>In the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.10.png" /> lines that follow it should report successive solutions, one per line.</p>
+<p>Each solution should consist of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.11.png" /> different positive integers, namely the masses of squarks of all kinds.</p>
 <p>In every solution these should be given in increasing order and separated by single spaces.</p>
 <p>Solutions can be reported in arbitrary order, but they cannot be repeated.</p>
-<p>You may assume that for each test data there exists at least one solution, i.e., <img alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.12.png" />.</p>
+<p>You may assume that for each test data there exists at least one solution, i.e., <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/squ-en-tex.12.png" />.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -479,6 +474,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

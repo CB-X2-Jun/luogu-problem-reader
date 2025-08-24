@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -402,25 +397,25 @@
 <p>Now that is an interesting question, at least in Byteasar's opinion.</p>
 <p>You learn of the puzzle sooner than you would wish: unable to solve the problem all by himself,    thinking little of sleep now (be it his and yours), Byteasar calls you to ask for help.</p>
 <p>You know him well enough to understand that you too will not get any sleep until you write a program    that solves his problem.</p>
-<p>Byteasar lives in the building <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.1.png" />, which has <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.2.png" /> windows.</p>
+<p>Byteasar lives in the building <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.1.png" />, which has <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.2.png" /> windows.</p>
 <p>The lamp is situated on a wall at the very bottom of this building.</p>
-<p>Opposite the building <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.3.png" />, exactly 10 meters apart, there is another building, <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.4.png" />.</p>
-<p>The wall of this <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.5.png" />-windowed building is parallel to the wall of <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.6.png" />, the Byteasar's building.</p>
+<p>Opposite the building <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.3.png" />, exactly 10 meters apart, there is another building, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.4.png" />.</p>
+<p>The wall of this <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.5.png" />-windowed building is parallel to the wall of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.6.png" />, the Byteasar's building.</p>
 <p>The lamp light behaves like you would expect, i.e., in the way predicted by geometrical optics (or ray optics).</p>
 <p>Namely the light propagates along rays, and if a ray hits a window, it is reflected.</p>
 <p>Due to The Law of Reflection, the angle of the ray's reflection equals the angle of incidence.</p>
 <p>We introduce coordinate systems on the the walls of the two buildings in the following way.</p>
-<p>Both <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.7.png" /> axes are horizontal, while both <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.8.png" /> axes are vertical; the axes on both walls are identically oriented,    and the <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.9.png" /> points of the walls are opposite one another.</p>
+<p>Both <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.7.png" /> axes are horizontal, while both <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.8.png" /> axes are vertical; the axes on both walls are identically oriented,    and the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.9.png" /> points of the walls are opposite one another.</p>
 <p>The windows (on either building) are simply rectangles with sides parallel to the axes of the coordinate system.</p>
 <p>A ray is reflected only in the interior of any window; it is absorbed on the window's boundary.</p>
 <p>In each building, no two windows share any part of their interiors.</p>
-<p>The lamp is located on the wall of the <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.10.png" /> building at the point <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.11.png" />,    which is neither inside nor at the boundary of any window.</p>
+<p>The lamp is located on the wall of the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.10.png" /> building at the point <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.11.png" />,    which is neither inside nor at the boundary of any window.</p>
 <h2 id="_3">输入格式</h2>
-<p>In the first line of the standard input there are two integers <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.12.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.13.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.14.png" />),      separated by a single space, denoting the number of windows in the first and second building respectively.</p>
-<p>The <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.15.png" /> lines that follow describe the windows in Byteasar's building (the <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.16.png" /> building), one per line.</p>
-<p>The line no. <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.17.png" /> (for <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.18.png" />) holds four integers <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.19.png" />, <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.20.png" />, <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.21.png" />, <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.22.png" />      (<img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.23.png" />,      !…</p>
+<p>In the first line of the standard input there are two integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.12.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.13.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.14.png" />),      separated by a single space, denoting the number of windows in the first and second building respectively.</p>
+<p>The <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.15.png" /> lines that follow describe the windows in Byteasar's building (the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.16.png" /> building), one per line.</p>
+<p>The line no. <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.17.png" /> (for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.18.png" />) holds four integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.19.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.20.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.21.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.22.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.23.png" />,      !…</p>
 <h2 id="_4">输出格式</h2>
-<p>In the first line of the standard output your program should print the number of windows in the <img alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.31.png" /> building      whose interiors are hit by some ray.</p>
+<p>In the first line of the standard output your program should print the number of windows in the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/lat-en-tex.31.png" /> building      whose interiors are hit by some ray.</p>
 <p>You may assume that in every test instance there will be at least one such window (the Byteasar's window).</p>
 <p>In the second line the numbers of these windows (windows are numbered starting from 1) should be printed in increasing order,      separated by single spaces.</p>
 <h2 id="_5">输入输出样例</h2>
@@ -492,6 +487,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

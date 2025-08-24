@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>一个循环格就是一个矩阵,其中所有元素为箭头,指向相邻四个格子。每个元素有一个坐标(行,列),其中左上角元素坐标为(0,0)。给定一个起始位(r,c),你可以沿着箭头方向在格子间行走。即:如果(r,c)是一个左箭头，那么走到(r,c-1);如果是一个右箭头,走到(r,c+1);如果是上箭头,走到(r-1,c);如果是下箭头,走到(r+1,c)。每一行和每一列都是循环的,即如果走出边界,你会出现在另一侧。比如在一个5*5的循环格里,从(3,0)向左走会出现在(3,4)。</p>
 <h2 id="_2">题目描述</h2>
 <p>一个完美的循环格是这样定义的:对于任意一个起始位置,你都可以沿着箭头最终回到起始位置。如果一个循环格不满足完美,你可以随意修改任意一个元素的箭头直到完美。例如下图,左边不是一个完美的循环格,因为只有从(1,1),(1,2),(2,0),(2,3)出发才会回到起始位置。通过修改其中两个箭头,可以得到右图,一个完美的循环格。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/10987.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/10987.png" /> </p>
 <p>给定一个循环格,你需要计算最少需要修改多少个元素使其完美。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行两个整数R和C,表示循环格的行和列。接下来R行,每一行包含C个字符LRUD表示左右上下</p>
@@ -481,6 +476,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

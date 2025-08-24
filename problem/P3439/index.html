@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>The streets of the New Byte City form a rectangular grid - those running east-west are simply called streets, while those running north-south are called avenues. To avoid mistakes, we shall call them h-streets and v-streets, respectively. The v-streets are numbered from $1$ to $500\ 000\ 000$ eastwards. Similarly, the h-streets are numbered from $1$ to $500\ 000\ 000$ northwards. Every v-street crosses every h-street and, conversely, every h-street crosses every v-street. The distance between two consecutive v-streets, as well as between two consecutive h-streets, is exactly one kilometre.</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6964.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6964.png" /> </p>
 <p>There are $k$ shops in the city, each one of them is situated at a crossroads. Byteasar, the merchant, supplies every single one of the $k$ shops, and furthermore he returns to some of them several times a day with fresh supplies. Recently he has decided to have a warehouse built, from which the goods would be delivered. For obvious reasons, it should stand at a crossroads. The lorry loaded with goods can supply only one shop per course - it leaves the warehouse, delivers to the shop and returns to the warehouse. The lorry always picks the shortest path from the warehouse to the shop, and the shortest one back (possibly the same one). The distance between points $(x_i, y_i)$ and $(x_j, y_j)$ equals $\max { |x_i - x_j|, |y_i - y_j| }$.</p>
 <p>TaskWrite a programme that:</p>
 <p>reads the locations of shops, as well as the numbers of their daily deliveries, from the standard inputdetermines such a warehouse's position that the summary distance of the lorry's daily route is minimal,writes the result to the standard output.</p>
@@ -469,6 +464,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

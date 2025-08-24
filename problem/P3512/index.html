@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,13 +390,13 @@
 <p>In the Byteotian Training Centre, the pilots prepare for missions requiring extraordinary precision and control.</p>
 <p>One measure of a pilot's capability is the duration he is able to fly along a desired route without deviating too much -    simply put, whether he can fly steadily. This is not an easy task, as the simulator is so sensitive that it registers    even a slightest move of the yoke1.</p>
 <p>At each moment the simulator stores a single parameter describing the yoke's position.</p>
-<p>Before each training session a certain tolerance level <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.1.png" /> is set.</p>
-<p>The pilots' task then is to fly as long as they can in such a way that all the yoke's position measured during the    flight differ by at most <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.2.png" />. In other words, a fragment of the flight starting at time <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.3.png" /> and ending at time <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.4.png" />    is within tolerance level <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.5.png" /> if the position measurements, starting with <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.6.png" />-th and ending with <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.7.png" />-th,    form such a sequence <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.8.png" /> that for all elements <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.9.png" /> of this sequence, the inequality <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.10.png" /> holds.</p>
-<p>Your task is to write a program that, given a number <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.11.png" /> and the sequence of yoke's position measurements,    determines the length of the longest fragment of the flight that is within the tolerance level <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.12.png" />.</p>
+<p>Before each training session a certain tolerance level <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.1.png" /> is set.</p>
+<p>The pilots' task then is to fly as long as they can in such a way that all the yoke's position measured during the    flight differ by at most <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.2.png" />. In other words, a fragment of the flight starting at time <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.3.png" /> and ending at time <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.4.png" />    is within tolerance level <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.5.png" /> if the position measurements, starting with <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.6.png" />-th and ending with <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.7.png" />-th,    form such a sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.8.png" /> that for all elements <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.9.png" /> of this sequence, the inequality <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.10.png" /> holds.</p>
+<p>Your task is to write a program that, given a number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.11.png" /> and the sequence of yoke's position measurements,    determines the length of the longest fragment of the flight that is within the tolerance level <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.12.png" />.</p>
 <p>给定 $n, k$ 和一个长度为 $n$ 的序列，求最长的最大值最小值相差不超过 $k$ 的子段。</p>
 <h2 id="_2">输入格式</h2>
-<p>In the first line of the standard input two integers are given, <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.13.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.14.png" />      (<img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.15.png" />, <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.16.png" />), separated by a single space,      denoting the tolerance level and the number of yoke's position measurements taken.</p>
-<p>The second line gives those measurements, separated by single spaces. Each measurement      is an integer from the interval from <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.17.png" /> to <img alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.18.png" />.</p>
+<p>In the first line of the standard input two integers are given, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.13.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.14.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.15.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.16.png" />), separated by a single space,      denoting the tolerance level and the number of yoke's position measurements taken.</p>
+<p>The second line gives those measurements, separated by single spaces. Each measurement      is an integer from the interval from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.17.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/pil-en-tex.18.png" />.</p>
 <p>第一行两个由空格隔开的整数 $k, n$（$0\leq k\leq 2\times 10 ^ 9$，$1\leq n\leq 3\times 10 ^ 6$），$k$ 表示设定的极差的最大值，$n$ 表示序列的长度。</p>
 <p>第二行 $n$ 个由空格隔开的整数 $a_i$（$1\leq a_i\leq 2\times 10^ 9$）表示序列。</p>
 <h2 id="_3">输出格式</h2>
@@ -471,6 +466,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

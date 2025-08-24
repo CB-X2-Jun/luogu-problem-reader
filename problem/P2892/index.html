@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -400,7 +395,7 @@
 <p>为了捉住 Frank，Magic Land 的安全局重拳出击！</p>
 <p>Magic Land 由 $N$ 个城市组成，并且这 $N$ 个城市又由恰好 $N-1$ 条公路彼此连接起来，使得任意两个城市间都可以通过若干条公路互达。从数据结构的角度我们也可以说，这 $N$ 个城市和 $N-1$ 条公路形成了一棵树。</p>
 <p>例如，下图就是 Magic Land 的一个可能格局（$4$ 个城市用数字编号，$3$ 条公路用字母编号）：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12794.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/12794.png" /> </p>
 <p>大盗 Frank 能够在公路上以任意速度移动。</p>
 <p>比方说，对于上图给出的格局，在 $0.00001$ 秒钟内（或者任意短的一段时间内），Frank 就可以从城市 $1$ 经过城市 $2$ 到达城市 $4$，中间经过了两条公路。</p>
 <p>想要生擒 Frank 困难重重，所以安全局派出了经验丰富的警探，这些警探具有非凡的追捕才能：</p>
@@ -523,6 +518,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

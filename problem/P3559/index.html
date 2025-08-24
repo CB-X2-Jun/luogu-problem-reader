@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -407,12 +402,12 @@ During the contest, you can ask for the score of three arbitrarily chosen submis
 <p>Byteasar wonders for which words composed of the letters L and Pthere exists a maze whose traversal results in writing this very word.</p>
 <p>用L和P描述一个边与坐标轴平行的简单多边形，其中L表示往左拐，P表示往右拐。给定L，P的描述，请输出这个多边形。</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input gives a single <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.1.png" />-letter word(<img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.2.png" />)composed of the letters L and P, describingthe sequence of successive turns made during the maze's traversal.</p>
-<p>In tests worth 50% of the total points an additional constraint <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.3.png" /> holds.</p>
+<p>The first line of the standard input gives a single <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.1.png" />-letter word(<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.2.png" />)composed of the letters L and P, describingthe sequence of successive turns made during the maze's traversal.</p>
+<p>In tests worth 50% of the total points an additional constraint <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.3.png" /> holds.</p>
 <h2 id="_3">输出格式</h2>
 <p>If no maze corresponds to the description given as input,then the word NIE (Polish for no) is to be printedon the standard output.</p>
-<p>Otherwise, exactly <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.4.png" /> lines should be printed, specifying any maze(consistent with the input) as follows.</p>
-<p>The <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.5.png" />-th of these lines is to hold two integers, <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.6.png" /> and <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.7.png" />(<img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.8.png" />), separated by a single space,that are the coordinates of the <img alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.9.png" />-th vertex of the maze's sketch.</p>
+<p>Otherwise, exactly <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.4.png" /> lines should be printed, specifying any maze(consistent with the input) as follows.</p>
+<p>The <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.5.png" />-th of these lines is to hold two integers, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.6.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.7.png" />(<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.8.png" />), separated by a single space,that are the coordinates of the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lab-en-tex.9.png" />-th vertex of the maze's sketch.</p>
 <p>The vertices are to be printed in their counterclockwise order on the polygon's perimeter;an arbitrary vertex can be chosen as the first one, and the position of the entrance need not be indicated.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
@@ -483,6 +478,9 @@ During the contest, you can ask for the score of three arbitrarily chosen submis
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

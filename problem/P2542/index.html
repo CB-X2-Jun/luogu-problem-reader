@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>一些先遣飞船已经出发，在星球之间开辟探险航线。</p>
 <p>探险航线是双向的，例如从 $1$ 号星球到 $3$ 号星球开辟探险航线，那么从 $3$ 号星球到 $1$ 号星球也可以使用这条航线。</p>
 <p>例如下图所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1644.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1644.png" /> </p>
 <p>在 $5$ 个星球之间，有 $5$ 条探险航线。</p>
 <p>$A,B$ 两星球之间，如果某条航线不存在，就无法从 $A$ 星球抵达 $B$ 星球，我们则称这条航线为关键航线。</p>
 <p>显然上图中，$1$ 号与 $5$ 号星球之间的关键航线有 $1$ 条：即为 $4\leftrightarrow5$ 航线。</p>
@@ -496,6 +491,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

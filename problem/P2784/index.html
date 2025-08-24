@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,8 +390,8 @@
 <p>蒟蒻 HansBug 在化学考场上，挠了无数次的头，可脑子里还是一片空白。</p>
 <h2 id="_2">题目描述</h2>
 <p>眼下出现在蒟蒻 HansBug 面前的是一个化学合成题，据他所知，一般答案如下面这样的格式：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2223.png" /> （接下一行）</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2221.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2223.png" /> （接下一行）</p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2221.png" /> </p>
 <p>简单解释下：每种化合物可以通过一步反应生成另一个化合物（将这称作一步反应，设为 $A\rightarrow B$），现在假设每个 $A\rightarrow B$ 中，理论上 $1$ 个单位的 $A$ 都仅可以生成 $1$ 个单位的 $B$。然而实际实验表明，并不存在绝对完全的化学转化，设转化率为 $C$（即 $1$ 个单位 $A$ 实际可以生成 $C$ 个单位的 $B$，$0&lt;C&lt;1$）。</p>
 <p>现在蒟蒻 HansBug 的知识体系中有 $N$ 个这样 $A\rightarrow B$ 的转化。然而题目中蒟蒻 HansBug 要由 $1$ 个单位的化合物 $S$ 生成化合物 $T$，可是他脑细胞和 RP 已经消耗殆尽，所以找到最终产量最高的合成路线的艰巨任务就交给你啦！</p>
 <h2 id="_3">输入格式</h2>
@@ -434,7 +429,7 @@
 <p>在样例 1 中，有两种可行的路线 $1\rightarrow3$ 和 $1\rightarrow2\rightarrow3$ ，最终产量分别为 $0.8$、$0.9\times0.9=0.81$，故第二条路线更优，产量为 $0.8100$。</p>
 <p>样例 2 中，$2$ 只能生成 $3$，$3$ 无法生成别的化合物，故无法生成，蒟蒻 HansBug 只好选择 <code>orz</code>。</p>
 <p><strong>【数据范围】</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2220.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2220.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -485,6 +480,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

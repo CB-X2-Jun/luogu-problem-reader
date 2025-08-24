@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -421,7 +416,7 @@
 </code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1136.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1136.png" /> </p>
 <p>对于 $1$ 号结点而言，只有 $2$ 号到 $4$ 号结点和 $4$ 号到 $2$ 号结点的最短路经过 $1$ 号结点，而 $2$号结点和 $4$ 号结点之间的最短路又有 $2$ 条。因而根据定义， $1$ 号结点的重要程度计算为 $\frac{1}{2}+\frac{1}{2}=1$。由于图的对称性，其他三个结点的重要程度也都是 $1$。</p>
 <p>对于 $50\%$ 的数据，$n \le 10,m \le 45$。   <br />
 对于 $100\%$ 的数据，$n \le 100,m \le 4500$，任意一条边的权值 $c$ 是正整数且 $1 \leqslant c \leqslant 1000$。  <br />
@@ -476,6 +471,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

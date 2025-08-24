@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -406,7 +401,7 @@
 <p>不妨假设枫叶上有 $n$ 个穴位，穴位的编号为 $1\sim n$。有若干条有向的脉络连接着这些穴位。</p>
 <p>穴位和脉络组成一个有向无环图——称之为<strong>脉络图</strong>（例如图 $1$），穴位的编号使得穴位 $1$ 没有从其他穴位连向它的脉络，即穴位 $1$ 只有连出去的脉络；由上面的故事可知，这个有向无环图存在一个树形子图，它是以穴位 $1$ 为根的包含全部 $n$ 个穴位的一棵树——称之为<strong>脉络树</strong>（例如图 $2$ 和图 $3$ 给出的树都是图 $1$ 给出的脉络图的子图）。</p>
 <p>值得注意的是，脉络图中的脉络树方案可能有多种可能性，例如图 $2$ 和图 $3$ 就是图 $1$ 给出的脉络图的两个脉络树方案。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/11330.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/11330.png" /> </p>
 <p>脉络树的形式化定义为：以穴位 $r$ 为根的脉络树由枫叶上全部 $n$ 个穴位以及 $(n-1)$ 条脉络组成，脉络树里没有环，亦不存在从一个穴位连向自身的脉络，且对于枫叶上的每个穴位 $s$，都存在一条唯一的包含于脉络树内的脉络路径，使得从穴位 $r$ 出发沿着这条路径可以到达穴位  $s$。 </p>
 <p>现在向脉络图添加一条与已有脉络不同的脉络（<strong>注意：连接 $2$ 个穴位但方向不同的脉络是不同的脉络</strong>，例如从穴位 $3$ 到 $4$ 的脉络与从 $4$ 到 $3$ 的脉络是不同的脉络，因此，图 $1$ 中不能添加从 $3$ 到 $4$ 的脉络，但可添加从 $4$ 到 $3$ 的脉络）。这条新脉络<strong>可以是从一个穴位连向自身的</strong>（例如，图 1 中可添加从 $4$ 到 $4$ 的脉络）。</p>
 <p>原脉络图添加这条新脉络后得到的新脉络图可能会出现脉络构成的环。 请你求出添加了这一条脉络之后的新脉络图的以穴位 $1$ 为根的脉络树方案数。</p>
@@ -489,6 +484,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

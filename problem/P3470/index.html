@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -419,7 +414,7 @@
 <h2 id="_2">输入格式</h2>
 <p>The first line contains 5 integers $n,p,q,x$ and $y\ (1\le n\le 1\ 000\ 000$, $0\le p,q\le 1\ 000\ 000$, $1\le x,y\le 1000$), separated by single spaces and denoting respectively:</p>
 <p>the number of transactions done by Byteasar, initial and final account     balance and the number of seconds needed to perform a single turn     (change of sign) and move of transaction to the beginning.</p>
-<p>The second line contains a sequence of <img alt="" src="http://main.edu.pl/images/OI15/bbb-en-tex.18.png" /> signs (each a plus     or a minus), with no spaces in-between.</p>
+<p>The second line contains a sequence of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI15/bbb-en-tex.18.png" /> signs (each a plus     or a minus), with no spaces in-between.</p>
 <h2 id="_3">输出格式</h2>
 <p>The first and last output line should contain one integer,     the minimum number of seconds needed to correct the statement. If no     corrections are necessary, the number is zero.</p>
 <p>You may assume that a proper sequence of modifications exists for each     test data.</p>
@@ -483,6 +478,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

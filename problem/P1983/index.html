@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>一条单向的铁路线上，依次有编号为 $1, 2, …, n$ 的 $n $ 个火车站。每个火车站都有一个级别，最低为 $1$ 级。现有若干趟车次在这条线路上行驶，每一趟都满足如下要求：如果这趟车次停靠了火车站 $x$，则始发站、终点站之间所有级别大于等于火车站 $x$ 的都必须停靠。<br />
 注意：起始站和终点站自然也算作事先已知需要停靠的站点。</p>
 <p>例如，下表是 $ 5 $ 趟车次的运行情况。其中，前 $ 4$ 趟车次均满足要求，而第 $5$ 趟车次由于停靠了 $3$ 号火车站（$2$ 级）却未停靠途经的 $6$ 号火车站（亦为 $2$ 级）而不满足要求。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1238.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1238.png" /> </p>
 <p>现有 $m$ 趟车次的运行情况（全部满足要求），试推算这 $ n$ 个火车站至少分为几个不同的级别。</p>
 <h2 id="_3">输入格式</h2>
 <p>第一行包含 $2$ 个正整数 $n, m$，用一个空格隔开。</p>
@@ -482,6 +477,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

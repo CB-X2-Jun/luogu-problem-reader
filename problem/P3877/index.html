@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>学校新建了一批宿舍，值日生小A要把所有的空房间都打扫一遍。这些宿舍的布局很奇怪，整个建筑物里所有的房间组成一个N * M的矩阵，每个房间的东南西北四面墙上都有一个门通向隔壁房间。另外有些房间是堆放杂物的，无需打扫。小A想设计若干条打扫路线，使得恰好进出每个需打扫的房间各一次，而且进出每个房间不能通过同一个门。要求每条路线都是一个闭合的环线，并且每条路线经过的房间数大于2。</p>
 <p>如下面两图所示均为满足要求的打扫方案（灰色格子为放杂物的房间）：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6841.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6841.png" /> </p>
 <p>小A发现对于某些房间布局是不存在这样的满足要求的方案的。他请你写一个程序计算一下，对于一种给定的房间布局，满足要求的方案是否存在。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件的第一行是一个整数T (1 ≤ T ≤ 10)，表示该文件中一共有T组数据。接下来依次是T组数据的信息。每组数据的第一行包含两个整数N和M，接下来的N行，每行包含M个字符，表示一个房间布局。字符'.'表示该房间需要打扫，'#'表示该房间是堆放杂物的，无需打扫。</p>
@@ -483,6 +478,9 @@ NO
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

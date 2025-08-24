@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,13 +389,13 @@
           <h2 id="_1">题目背景</h2>
 <p>浮游大陆的 $68$ 号岛，位于浮游大陆的边境地带。平时很少有人造访。</p>
 <p>岛上被浓厚的森林覆盖。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9282.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9282.png" /> </p>
 <p>在这座边境地区不起眼的浮游岛上，建立着神秘的”兵器“管理仓库——妖精仓库。</p>
 <h2 id="_2">题目描述</h2>
 <p>妖精仓库里生活着黄金妖精们，她们过着快乐，却随时准备着迎接死亡的生活。</p>
 <p>换用更高尚的说法，是随时准备着为这个无药可救的世界献身。</p>
 <p>然而孩子们的生活却总是无忧无虑的，幼体的黄金妖精们过着天真烂漫的生活，自然也无暇考虑什么拯救世界之类的重任。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/qxdahsft.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/qxdahsft.png" /></p>
 <p>有一天小妖精们又在做游戏。这个游戏是这样的。</p>
 <p>妖精仓库的储物点可以看做在一个数轴上。每一个储物点会有一些东西，同时他们之间存在距离。</p>
 <p>每次他们会选出一个小妖精，然后剩下的人找到区间$[l,r]$储物点的所有东西，清点完毕之后问她，把这个区间内所有储物点的东西运到另外一个仓库的代价是多少？</p>
@@ -408,7 +403,7 @@
 <p>$$x \times \mathrm{dist}( i , j )$$</p>
 <p>dist就是仓库间的距离。</p>
 <p>当然啦，由于小妖精们不会算很大的数字，因此您的答案需要对19260817取模。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9294.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9294.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行两个数表示$n,m$</p>
 <p>第二行$n-1$个数，第$i$个数表示第$i$个储物点与第$i+1$个储物点的距离</p>
@@ -493,6 +488,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

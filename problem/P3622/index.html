@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,12 +389,12 @@
           <h2 id="_1">题目描述</h2>
 <p>新建的圆形动物园是亚太地区的骄傲。圆形动物园坐落于太平洋的一个小岛上，包含一大圈围栏，每个围栏里有一
 种动物。如下图所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/8pr43p86.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/8pr43p86.png" /></p>
 <p>你是动物园的公共主管。你要做的是，让每个来动物园的人都尽可能高兴。今天有一群小朋友来动物园参观，你希望能让他们在动物园度过一段美好的时光。但这并不是一件容易的事——有的动物有一些小朋友喜欢，有的动物有一些小朋友害怕。如，Alex 喜欢可爱的猴子和考拉，而害怕拥牙齿锋利的狮子。而 Polly 会因狮子有美丽的鬃毛而喜欢它，但害怕有臭味的考拉。你可以选择将一些动物从围栏中移走以使得小朋友不会害怕。但你不能移走太多动物，否则小朋友们就没有动物可看了。每个小朋友站在大围栏圈的外面，可以看到连续的 $5$ 个围栏。你得到了所有小朋友喜欢和害怕的动物信息。当下面两处情况之一发生时，小朋友就会高兴：
 - 至少有一个他害怕的动物被移走
 - 至少有一个他喜欢的动物没被移走</p>
 <p>例如，考虑下图中的小朋友和动物：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/n69iqfv6.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/n69iqfv6.png" /></p>
 <ul>
 <li>假如你将围栏 $4$ 和 $12$ 的动物移走。Alex 和 Ka-Shu 将很高兴，因为至少有一个他们害怕的动物被移走了。这也会使 Chaitanya 高兴，因为他喜欢的围栏  $6$ 和 $8$ 中的动物都保留了。但是，Polly 和 Hwan 将不高兴，因为他们看不到任何他们喜欢的动物，而他们害怕的动物都还在。这种安排方式使得三个小朋友高兴。</li>
 <li>现在，换一种方法，如果你将围栏 $4$ 和 $6$ 中的动物移走，Alex 和 Polly 将很高兴，因为他们害怕的动物被移走了。Chaitanya 也会高兴，虽然他喜欢的动物 $6$ 被移走了，他仍可以看到围栏 $8$ 里面他喜欢的动物。同样的 Hwan 也会因可以看到自己喜欢的动物 $12$ 而高兴。唯一不高兴的只有 Ka-Shu。</li>
@@ -509,6 +504,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

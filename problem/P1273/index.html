@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -420,7 +415,7 @@
 
 <h2 id="_5">说明/提示</h2>
 <p><strong>样例解释</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7yj4u55m.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7yj4u55m.png" /></p>
 <p>如图所示，共有五个结点。结点 ① 为根结点，即现场直播站，② 为一个中转站，③④⑤ 为用户端，共 $M$ 个，编号从 $N-M+1$ 到 $N$，他们为观看比赛分别准备的钱数为 $3$、$4$、$2$。</p>
 <p>从结点 ① 可以传送信号到结点 ②，费用为 $2$；</p>
 <p>也可以传送信号到结点 ⑤，费用为 $3$（第二行数据所示）；</p>
@@ -478,6 +473,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,26 +392,26 @@
 <p>设有一个 $N \times M$ 方格的棋盘 $(1≤N≤100,1≤M≤100)$</p>
 <p>求出该棋盘中包含有多少个正方形、多少个长方形（不包括正方形）。</p>
 <p>例如：当 $N=2, M=3$ 时：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/kkidop2i.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/kkidop2i.png" /></p>
 <p>正方形的个数有 $8$ 个：即边长为 $1$ 的正方形有 $6$ 个；边长为 $2$ 的正方形有 $2$ 个。</p>
 <p>长方形的个数有 $10$ 个：</p>
 <p>即  </p>
 <ul>
 <li>$2 \times 1$ 的长方形有 $4$ 个：</li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/vhazon60.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/vhazon60.png" /></p>
 <ul>
 <li>$1 \times 2$ 的长方形有 $3$ 个：  </li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/jr40fqzv.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/jr40fqzv.png" /></p>
 <ul>
 <li>$3 \times 1$ 的长方形有 $2$ 个：  </li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ja0mx48f.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ja0mx48f.png" /></p>
 <ul>
 <li>$3 \times 2$ 的长方形有 $1$ 个：  </li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/kkidop2i.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/kkidop2i.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>一行两个整数 $N,M$。</p>
 <h2 id="_4">输出格式</h2>
@@ -480,6 +475,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,29 +387,29 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p>A snake fills a <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.1.png" /> board completely.</p>
-<p>Successive segments of the snake are numbered from <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.2.png" /> to <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.3.png" />.</p>
+<p>A snake fills a <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.1.png" /> board completely.</p>
+<p>Successive segments of the snake are numbered from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.2.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.3.png" />.</p>
 <p>The segments with successive numbers (i.e., 1 and 2, 2 and 3, 3 and 4...) occupy squares  that share an edge.</p>
-<p>For example, a snake can fill a <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.4.png" /> board as follows:</p>
+<p>For example, a snake can fill a <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.4.png" /> board as follows:</p>
 <p>The snake's segment numbers in some of the squares have been erased.</p>
 <p>Can you reconstruct the snake?</p>
 <p>一只蛇被放在了一块3*n的木板上（填充满了），蛇被分为多个小段，小段的编号是1到3n。比如说蛇可以填写一个3*9的木板，如下所示：</p>
 <p>部分木板上的蛇段已删遮挡。</p>
 <p>你能重建蛇吗？</p>
 <h2 id="_2">输入格式</h2>
-<p>In the first line of the standard input, there is a single integer <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.5.png" />  (<img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.6.png" />), the length of the board.</p>
-<p>The three lines that follow describe the board;  the <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.7.png" />-th of them contains <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.8.png" /> integers <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.9.png" />  (<img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.10.png" /> for <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.11.png" />).</p>
-<p>If <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.12.png" />, then <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.13.png" /> is the number of the snake's segment  occupying the <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.14.png" />-th square of the <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.15.png" />-th row of the board.</p>
-<p>If on the other hand <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.16.png" />, then the number of the snake's segment  on this square is unknown.</p>
-<p>In tests worth 15% of the total score <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.17.png" /> holds,  in those worth 40% of the total score <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.18.png" /> holds,  and finally, in those worth 70% of the total score <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.19.png" /> holds.</p>
+<p>In the first line of the standard input, there is a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.5.png" />  (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.6.png" />), the length of the board.</p>
+<p>The three lines that follow describe the board;  the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.7.png" />-th of them contains <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.8.png" /> integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.9.png" />  (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.10.png" /> for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.11.png" />).</p>
+<p>If <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.12.png" />, then <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.13.png" /> is the number of the snake's segment  occupying the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.14.png" />-th square of the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.15.png" />-th row of the board.</p>
+<p>If on the other hand <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.16.png" />, then the number of the snake's segment  on this square is unknown.</p>
+<p>In tests worth 15% of the total score <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.17.png" /> holds,  in those worth 40% of the total score <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.18.png" /> holds,  and finally, in those worth 70% of the total score <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.19.png" /> holds.</p>
 <p>在标准输入的第一行中，有一个整数n（1&lt;=n&lt;=1000），即板的长度。</p>
 <p>下面三行描述木板的情况，第i行是n个整数aij（0&lt;=aij&lt;=3n）(1&lt;=j&lt;=n)。</p>
 <p>如果aij大于0，那么aij就是蛇段的第aij部分</p>
 <p>如果aij=0，那么这个蛇段就是我们不知道的</p>
 <h2 id="_3">输出格式</h2>
 <p>Your program is to print three lines to the standard output.</p>
-<p>The <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.20.png" />-th lines should hold <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.21.png" /> positive integers <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.22.png" /> (for <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.23.png" />).</p>
-<p>All the numbers <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.24.png" /> together should be a permutation of the numbers from <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.25.png" /> to <img alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.26.png" />.</p>
+<p>The <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.20.png" />-th lines should hold <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.21.png" /> positive integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.22.png" /> (for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.23.png" />).</p>
+<p>All the numbers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.24.png" /> together should be a permutation of the numbers from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.25.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/waz-en-tex.26.png" />.</p>
 <p>The output numbers should be a valid reconstruction of the snake, i.e., they should  be consistent with the (positive) input numbers and satisfy aforementioned constraints.</p>
 <p>You may assume that there is at least one valid reconstruction of the snake.</p>
 <p>If there is more than one, your program can print any valid reconstruction.</p>
@@ -483,6 +478,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

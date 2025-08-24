@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -400,7 +395,7 @@
 <p>小猫可以从宿舍的阳台上跳到窗外任意一棵柿子树的树顶。之后，她每次都可以在当前位置沿着当前所在的柿子树向下跳 $1$ 单位距离。当然，小猫的能力远不止如此，她还可以在树之间跳跃。每次她都可以从当前这棵树跳到另外的任意一棵，在这个过程中，她的高度会下降 <code>Delta</code> 单位距离。每个时刻，只要她所在的位置有柿子，她就可以吃掉。整个“吃柿子行动”一直到小猫落到地面上为止。</p>
 <p>雷涛调查了所有柿子树上柿子的生长情况。他很想知道，小猫从阳台出发，最多能吃到多少柿子？他知道写一个程序可以很容易的解决这个问题，但是他现在懒于写任何代码。于是，现在你的任务就是帮助雷涛写一个这样的程序。</p>
 <p>图为 $N=3, H=10, Delta=2$ 的一个例子。小猫按照图示路线进行跳跃，可以吃到最多的 $8$ 个柿子。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/69gyw9xt.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/69gyw9xt.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行有三个以空格分隔的整数，分别代表 $N,H,Delta$。</p>
 <p>接下来的 $N$ 行，每行第一个整数为 $N_i$，代表第 $i$ 棵树上的柿子数量。</p>
@@ -475,6 +470,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

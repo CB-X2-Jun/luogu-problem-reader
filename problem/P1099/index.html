@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -401,7 +396,7 @@ $d(a, b)$ 为 $a, b$ 两结点间的距离。</p>
 <p>$$\mathrm{ECC}(F)=\max{D(v, F),v \in V}$$</p>
 <p>任务：对于给定的树网 $T=(V, E, W)$ 和非负整数 $s$，求一个路径 $F$，他是某直径上的一段路径（该路径两端均为树网中的结点），其长度不超过 $s$（可以等于 $s$），使偏心距 $\mathrm{ECC}(F)$ 最小。我们称这个路径为树网 $T=(V, E, W)$ 的核（<code>Core</code>）。必要时，$F$ 可以退化为某个结点。一般来说，在上述定义下，核不一定只有一个，但最小偏心距是唯一的。</p>
 <p>下面的图给出了树网的一个实例。图中，$A-B$ 与 $A-C$ 是两条直径，长度均为 $20$。点 $W$ 是树网的中心，$EF$ 边的长度为 $5$。如果指定 $s=11$，则树网的核为路径<code>DEFG</code>（也可以取为路径<code>DEF</code>），偏心距为 $8$。如果指定 $s=0$（或 $s=1$、$s=2$），则树网的核为结点 $F$，偏心距为 $12$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/oms5c6rq.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/oms5c6rq.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>共 $n$ 行。</p>
 <p>第 $1$ 行，两个正整数 $n$ 和 $s$，中间用一个空格隔开。其中 $n$ 为树网结点的个数，$s$ 为树网的核的长度的上界。设结点编号以此为 $1,2\dots,n$。</p>
@@ -495,6 +490,9 @@ $d(a, b)$ 为 $a, b$ 两结点间的距离。</p>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

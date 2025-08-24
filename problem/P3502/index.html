@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -403,17 +398,17 @@
 
 <p>Only one name will be displayed simultaneously.</p>
 <p>The lit letters forming the name have to stand next to each other,    i.e., form a contiguous subsequence.</p>
-<p>Byteasar wants to be able to display the names of the hamsters on at least <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.1.png" /> different positions.</p>
+<p>Byteasar wants to be able to display the names of the hamsters on at least <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.1.png" /> different positions.</p>
 <p>However, he allows displaying the same name on multiple different positions,    and does not require to be able to display each and every hamster's name.</p>
 <p>Note that the occurrences of the names on the display can overlap.</p>
 <p>You can assume that no hamster's name occurs (as a contiguous fragment) in any other hamster's name.</p>
 <p>Bytesar asks your help in determining the minimum number of letters the display has to have.</p>
-<p>In other words, you are to determine the minimum length of a string    (consisting of non-capital letters of the English alphabet)    that has at least <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.2.png" /> total occurrences of the hamsters' names (counting multiplicities).</p>
-<p>(We say that a string <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.3.png" /> occurs in the string <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.4.png" /> if <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.5.png" /> forms a contiguous fragment of <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.6.png" />.)</p>
+<p>In other words, you are to determine the minimum length of a string    (consisting of non-capital letters of the English alphabet)    that has at least <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.2.png" /> total occurrences of the hamsters' names (counting multiplicities).</p>
+<p>(We say that a string <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.3.png" /> occurs in the string <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.4.png" /> if <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.5.png" /> forms a contiguous fragment of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.6.png" />.)</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input holds two integers <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.7.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.8.png" />      (<img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.9.png" />, <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.10.png" />), separated by a single space, that denote      the number of Byteasar's hamsters and the minimum number of occurrences of the hamsters' names on the display.</p>
-<p>Each of the following <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.11.png" /> lines contains a non-empty string of non-capital letters of the English alphabet      that is the hamster's name.</p>
-<p>The total length of all names does not exceed <img alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.12.png" /> letters.</p>
+<p>The first line of the standard input holds two integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.7.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.8.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.9.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.10.png" />), separated by a single space, that denote      the number of Byteasar's hamsters and the minimum number of occurrences of the hamsters' names on the display.</p>
+<p>Each of the following <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.11.png" /> lines contains a non-empty string of non-capital letters of the English alphabet      that is the hamster's name.</p>
+<p>The total length of all names does not exceed <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/cho-en-tex.12.png" /> letters.</p>
 <h2 id="_3">输出格式</h2>
 <p>The first and only line of the standard output should hold a single integer      - the minimum number of letters the display has to have.</p>
 <h2 id="_4">输入输出样例</h2>
@@ -482,6 +477,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

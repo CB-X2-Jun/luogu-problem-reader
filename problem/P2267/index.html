@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>话说 laosb 在与 scjyholy 配对成功 $1$ 周年后， laosb 花光了其所有的积蓄，为 scjyholy 买了一条项链。但是，他发现店中项链的样式实在太少，于是他想买回一条项链，组成自己的独特样式，以使 scjyholy 感动。</p>
 <p>首先 laosb 把项链中所有珠子取下，然后从左到右，选出若干珠子（至少 $1$ 颗），组成新的项链。因为项链珠子有很多颜色，laosb 希望知道他一共能组合出多少种不同的样式。</p>
 <p>如图所示，假设原始的项链有 $3$ 颗珠子：蓝、黄、蓝，这样他一共有如下的选择方法：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1.png" /> </p>
 <p>由于答案可能很大，请输出答案 $\bmod\ M$ 的结果。</p>
 <h2 id="_3">输入格式</h2>
 <p>第 $1$ 行两个整数 $N,M\ (1 \le N \le 5 \times 10^5,1 \le M \le 10^9)$，其中 $N$ 为原始珠子数目。</p>
@@ -474,6 +469,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

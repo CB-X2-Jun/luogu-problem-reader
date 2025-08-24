@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -419,7 +414,7 @@
 
 <h2 id="_5">说明/提示</h2>
 <h3 id="1_3">样例 1 解释</h3>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rl3com2y.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rl3com2y.png" /></p>
 <h3 id="_6">数据规模与约定</h3>
 <p>对于全部的测试点，保证 $1 \leq x \leq n \leq 10^3$，$1 \leq m \leq 10^5$，$1 \leq u,v \leq n$，$1 \leq w \leq 10^2$，保证从任何一个结点出发都能到达 $x$ 号结点，且从 $x$ 出发可以到达其他所有节点。</p>
         </div>
@@ -472,6 +467,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

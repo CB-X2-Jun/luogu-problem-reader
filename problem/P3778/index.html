@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -432,7 +427,7 @@
 <p>综上所述，盈利效率最高的环路的盈利效率为 2 。</p>
 <h2 id="_7">子任务</h2>
 <p>在所有的子任务中，保证$1 \leq N \leq 100$，$1 \leq M \leq 9900$，$1 \leq K \leq 1000$, 如果在编号为$i (1 \leq i \leq N)$的集市中，编号为$j (1 \leq j \leq K)$的商品既可以购买又可以卖出，则$0 \leq S_{i,j} \leq B_{i,j} \leq 1000000000$。对于编号为$p (1 \leq p \leq M)$的道路，保证$V_p \not= W_p$且$1 \leq T_p \leq 10000000$。 不存在满足$1 \leq p &lt; q \leq M$的$p$，$q$使得$(V_p, W_p)=(V_q, W_q)$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5529.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5529.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -483,6 +478,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

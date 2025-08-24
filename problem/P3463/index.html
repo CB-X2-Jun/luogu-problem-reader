@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>The Byteotian driving licence exam takes place in an area in which there are $n$ straight, parallel, unidirectional, north-oriented streets (that is the allowed driving direction is south to north). Each of the streets is exactly $m$ meters long, all of them begin and end on the same level. These streets are numbered from $1$ to $n$ starting the westernmost. There are also $p$ unidirectional, east or west-oriented streets perpendicular to the abovementioned, each one of them connecting a pair of adjacent north-oriented streets. It is also possible that an east-oriented and a west-oriented street overlap, thus forming a bidirectional one.</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6981.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6981.png" /> </p>
 <p>An exemplary testing area ($n=4, m=3, p=5$).</p>
 <p>The examiner chooses a north-oriented street, at the beginnig of which the examination starts and anothernorth-oriented street, where it is to come to an end. The task of the applicant is to drive from the starting tothe final point, observing the allowed directions.The examiner always chooses as starting point a street, from which it is possible to drive to the endpointof any other north-oriented street.The work of the examiners is a very tedious one, because they always have to start at the beginning ofone of the few suitable streets. The board of directors have decided to build a new testing area on the basis ofpre-existent plans. It has been calculated, that available funds allow for no more than $k$ east or west-orientedstreets to be built. Those new streets are to be constructed in such a way, so as to add the largest possiblenumber of potential starting points (there may or may not exist starting points on the pre-existent plan). Newstreets have to connect pairs of adjacent north-oriented streets.</p>
 <h2 id="task">Task</h2>
@@ -478,6 +473,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

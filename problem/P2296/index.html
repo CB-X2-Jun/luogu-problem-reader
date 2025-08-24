@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -438,10 +433,10 @@
 
 <h2 id="_6">说明/提示</h2>
 <p><strong>样例 1 解释</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/2p3mke49.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/2p3mke49.png" /> </p>
 <p>如上图所示，箭头表示有向道路，圆点表示城市。起点 $1$ 与终点 $3$ 不连通，所以满足题目描述的路径不存在，故输出 $-1$。</p>
 <p><strong>样例 2 解释</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/tm2e1lqq.png" />
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/tm2e1lqq.png" />
 如上图所示，满足条件的路径为 $1\to 3\to 4\to 5$。注意点 $2$ 不能在答案路径中，因为点 $2$ 连了一条边到点 $6$，而点 $6$ 不与终点 $5$ 连通。</p>
 <p><strong>数据范围及约定</strong></p>
 <ul>
@@ -499,6 +494,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

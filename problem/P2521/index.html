@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -399,11 +394,11 @@
 <p>3、A国上层询问对于剩下要保护的城市，修建防线的总经费最少是多少</p>
 <p>你需要对每次询问作出回答。注意单位长度的防线花费为 $1$。</p>
 <p>A 国的地形是这样的，形如下图，$x$ 轴是一条河流，相当于一条天然防线，不需要你再修建。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rkaw5kay.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rkaw5kay.png" /></p>
 <p>A 国总是有两个城市在河边，一个点是 $(0,0)$，一个点是 $(n,0)$，其余所有点的横坐标均在 $(0,n)$ 范围内，纵坐标均大于0。<br />
 A国有一个不在 $(0,0)$ 和 $(n,0)$ 的首都。$(0,0),(n,0)$ 和首都这三个城市是一定需要保护的。</p>
 <p>上图中，A,B,C,D,E 点为 A 国城市，且目前都要保护，那么修建的防线就会是 A-B-C-D，花费也就是线段 AB 的长度+线段 BC 的长度+线段 CD 的长度,如果，这个时候撤销 B 点的保护，那么防线变成下图</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cd7dpmcj.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cd7dpmcj.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行三个整数 $n,x,y$ 分别表示河边城市和首都是 $(0,0),(n,0),(x,y)$。</p>
 <p>第二行一个整数 $m$。</p>
@@ -490,6 +485,9 @@ A国有一个不在 $(0,0)$ 和 $(n,0)$ 的首都。$(0,0),(n,0)$ 和首都这�
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -426,7 +421,7 @@
 <h2 id="_6">说明/提示</h2>
 <p><strong>广告</strong></p>
 <p>洛谷出品的算法教材，帮助您更简单的学习基础算法。<a href="https://item.taobao.com/item.htm?id=637730514783">【官方网店绝赞热卖中！】&gt;&gt;&gt;</a></p>
-<p><a href="https://item.taobao.com/item.htm?id=637730514783"><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/njc7dlng.png" /></a></p>
+<p><a href="https://item.taobao.com/item.htm?id=637730514783"><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/njc7dlng.png" /></a></p>
 <p><strong>本题各种语言的程序范例：</strong></p>
 <p>C</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -647,6 +642,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

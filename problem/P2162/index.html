@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,11 +390,11 @@
 <p>Constantine 刚结束在 MySky Island 的度假，正准备离开的时候，他想送给她的好朋友 YY 一份特别的礼物——MySky Island 上特别的手工艺品宝石纪念币。</p>
 <p>宝石纪念币的一面上刻着小岛的名字 <code>MySky</code>，或者收礼物的人，比如 <code>to YY</code>。不过特别的是，每枚纪念币的反面，依次均匀的镶着一圈共 $n$ 颗彩色的宝石。</p>
 <p>例如，下面是一个 $n=7$ 时的简单例子：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/l936rcm4.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/l936rcm4.png" /></p>
 <p>因为纪念币是圆的，所以如果两种“宝石颜色的排布”经过旋转后对应位置的颜色相重合，就认为它们是相同的排布方式。</p>
 <p>（请注意：纪念币只有一面镶宝石，所以两种排布若经过翻转以后是可以重合的，但只经过旋转无法使两者重合，则认为他们是不同的排布。）</p>
 <p>例如下面的两种排布方式就是相同的：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/o7uxs4ti.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/o7uxs4ti.png" /></p>
 <p>另外，由于 MySky Island 当地的习俗，每枚钱币上都只能嵌奇数颗宝石，不然就认为是不吉利的。</p>
 <p>宝石纪念币是现场制作的，游客可以选择自己喜欢的颜色的宝石。所以 Constantine 选出了他最喜欢的 $17$ 种颜色（你如果要问为什么选这么多的话，只能告诉你因为 $17$ 是他的幸运数字）。他想知道，如果按他要求把这 ${17}$ 种颜色的宝石都用上的话，可以制作出多少枚不同的纪念币。</p>
 <p>由于答案可能很大，你只需要计算答案的最后 $120$ 位（十进制）就可以了。</p>
@@ -466,6 +461,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

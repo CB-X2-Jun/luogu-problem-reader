@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -403,10 +398,10 @@
 </ol>
 <p>（2.1）选择两个数字 $a,b$，其中 $1 \leq a \leq N, 1 \leq b \leq \text{当前大树的结点数}$。</p>
 <p>（2.2）将模板树中以结点 $a$ 为根的子树复制一遍，挂到大树中结点 $b$ 的下方(也就是说，模板树中的结点 $a$ 为根的子树复制到大树中后，将成为大树中结点 $b$ 的子树)。</p>
-<p>（2.3）将新加入大树的结点按照在模板树中编号的顺序重新编号。例如，假设在进行2.2步之前大树有 $L$ 个结点，模板树中以 $a$ 为根的子树共有 $C$ 个结点，那么新加入模板树的 $C$ 个结点在大树中的编号将是 $L+1,L+2,...,L+C$ ；大树中这C个结点编号的大小顺序和模板树中对应的 $C$ 个结点的大小顺序是一致的。下面给出一个实例。假设模板树如下图：<img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mchs3i55.png" /></p>
+<p>（2.3）将新加入大树的结点按照在模板树中编号的顺序重新编号。例如，假设在进行2.2步之前大树有 $L$ 个结点，模板树中以 $a$ 为根的子树共有 $C$ 个结点，那么新加入模板树的 $C$ 个结点在大树中的编号将是 $L+1,L+2,...,L+C$ ；大树中这C个结点编号的大小顺序和模板树中对应的 $C$ 个结点的大小顺序是一致的。下面给出一个实例。假设模板树如下图：<img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mchs3i55.png" /></p>
 <p>根据第(1)步，初始的大树与模板树是相同的。</p>
 <p>在(2.1)步，假设选择了 $a=4, b=3$。运行(2.2)和(2.3)后，得到新的大树如下图所示</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ey2lqez8.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ey2lqez8.png" /></p>
 <p>现在他想问你，树中一些结点对的距离是多少。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行三个整数：$N,M,Q$，以空格隔开，$N$ 表示模板树结点数，$M$ 表示第(2)中的循环操作的次数，$Q$ 表示询问数量。</p>
@@ -439,7 +434,7 @@
 
 <h2 id="_5">说明/提示</h2>
 <p>经过两次操作后，大树变成了下图所示的形状：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/370xfnn2.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/370xfnn2.png" /></p>
 <p>结点6到9之间经过了6条边，所以距离为6；类似地，结点1到8之间经过了3条边；结点5到3之间也经过了3条边。</p>
         </div>
         
@@ -491,6 +486,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

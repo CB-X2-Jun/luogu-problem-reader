@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,7 +387,7 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5279.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5279.png" /> </p>
 <p>盛夏，冰之妖精琪露诺发现了一大片西瓜地，终于可以吃到美味的冻西瓜啦。</p>
 <h2 id="_2">题目描述</h2>
 <p>琪露诺是拥有操纵冷气程度的能力的妖精，一天她发现了一片西瓜地。这里有 $n$ 个西瓜，由 $n-1$ 条西瓜蔓连接，形成一个有根树，琪露诺想要把它们冷冻起来慢慢吃。</p>
@@ -446,7 +441,7 @@
 <p>子任务可能出现如下的特殊性质:</p>
 <p>“西瓜树”退化为一条链</p>
 <p>输入数据中的实数均保留8位小数，选手的答案被判作正确当且仅当输出与标准答案误差不超过 $10^{-7}$。请特别注意浮点数精度问题。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5278.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5278.png" /> </p>
 <p>实际数据中，冷气的寒冷程度x的范围为 $[-0.1,0.1]$</p>
 <p>(样例中的冷气寒冷程度的范围为 $[1,5]$)</p>
 <p>命题人:orangebird,鸣谢oscar。</p>
@@ -500,6 +495,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

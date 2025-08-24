@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>在国际象棋和中国象棋中，马的移动规则相同，都是走“日”字，我们将这种移动方式称为马步移动。</p>
 <p>如下图所示，从标号为 $0$ 的点出发，可以经过一步马步移动达到标号为 $1$ 的点，经过两步马步移动达到标号为 $2$ 的点。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/15477.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/15477.png" /></p>
 <p>任给平面上的两点 $p$ 和 $s$，它们的坐标分别为 $(x_p,y_p)$ 和 $(x_s,y_s)$，从 $(x,y)$ 出发经过一步马步移动可以达到 $(x+1,y+2)$，$(x+2,y+1)$，$(x+1,y-2)$，$(x+2,y-1)$，$(x-1,y+2)$，$(x-2,y+1)$，$(x-1,y-2)$、$(x-2,y-1)$。</p>
 <p>假设棋盘充分大，并且坐标可以为负数。现在请你求出从点 $p$ 到点 $s$ 至少需要经过多少次马步移动？</p>
 <h2 id="_2">输入格式</h2>
@@ -464,6 +459,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

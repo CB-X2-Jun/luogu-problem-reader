@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>byx 和诗乃酱都非常都非常喜欢种树。有一天，他们得到了两颗奇怪的树种，于是各自取了一颗回家种树，并约定几年后比一比谁种出来的树更加牛 X。</p>
 <h2 id="_2">题目描述</h2>
 <p>很快，这棵树就开花结果了。byx 和诗乃酱惊讶的发现，这是一棵主主树，树上长满了主主和主主的朋友们。这棵树上一共有五种人，主主（$\verb!J!$），记记（$\verb!HK!$），高高（$\verb!W!$），王王（$\verb!E!$）和歪歪（$\verb!YYY!$）。他们发现，他们的主主树上的人数相同，都为 $N$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0vklm8ow.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0vklm8ow.png" /> </p>
 <p>研究发现，这五种人的输赢如上图所示（一样的人不能 PK），箭头指向输的人。至于为什么，留给同学们自己思考。</p>
 <p>比赛如期进行。</p>
 <p>byx 和诗乃酱要进行 $M$ 场比赛，每一场比赛他们会选出树上的两个人来比较看谁更牛 X。</p>
@@ -478,6 +473,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

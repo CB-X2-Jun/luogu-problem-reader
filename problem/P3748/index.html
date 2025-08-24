@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -650,14 +645,14 @@
 <p>数据 5：唯一的最优方案是，小 P 从节点 $5$ 入侵到节点 $5$，小 H 也从节点 $5$ 入侵到节点 $5$，剩下 $4$ 个连通块。</p>
 </li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38934.png" /></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38935.png" /></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38936.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/38934.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/38935.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/38936.png" /></p>
 <p>对于整数 $k$，设$\sum n^k$ 为某个输入文件中，其$ T$ 个输入数据的 $n^k$ 之和。</p>
 <p>对于所有数据，$T \leq 10^5, \sum n^1 &lt;5 \times 10^5$</p>
 <p>请注意初始化的时间复杂度，避免输入大量小数据时超时。</p>
 <p>每个测试点的详细数据范围见下表。如果表中 “完全二叉” 为 Yes，则该输入文件的每个数据满足：网线信息的第 $j$ 行 $(1 \leq j &lt; n)$ 输入的两个数依次是 $\left\lfloor \frac {j + 1} {2} \right\rfloor$ 和 $j + 1$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/38937.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/38937.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -708,6 +703,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -419,7 +414,7 @@
 
 <h2 id="_6">说明/提示</h2>
 <p><strong>样例解释</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5zkpab9k.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5zkpab9k.png" /></p>
 <p>本例输入的图如上所示，距离为 $2$ 的有序点对有$(1,3)$ 、$(2,4)$ 、$(3,1)$ 、$(3,5) $、$(4,2)$ 、$(5,3) $。</p>
 <p>其联合权值分别为 $2,15,2,20,15,20$。其中最大的是 $20$，总和为 $74$。</p>
 <p><strong>数据说明</strong></p>
@@ -479,6 +474,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>一个点每过一个单位时间就会向四个方向扩散一个距离，如图。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cd4e53lw.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cd4e53lw.png" /></p>
 <p>两个点 $a$ 、 $b$ 连通，记作 $e(a,b)$，当且仅当 $a,b$ 的扩散区域有公共部分。连通块的定义是块内的任意两个点 $u,v$ 都必定存在路径 $e(u,a_0),e(a_0,a_1),\cdots,e(a_k,v)$。给定平面上的 $n$ 个点，问最早什么时刻它们形成一个连通块。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行一个数 $n$，以下 $n$ 行，每行一个点坐标。</p>
@@ -465,6 +460,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -399,7 +394,7 @@
 <li>$2\ l\ r$，表示询问 $(\sum_{i=l}^r A_i) \bmod 2$。</li>
 </ul>
 <p>尽管那个时候的可怜非常的 simple，但是她还是发现这题可以用树状数组做。当时非常 young 的她写了如下的算法：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4744.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4744.png" /></p>
 <p>其中 $\mathrm{lowbit}(x)$ 表示数字 $x$ <strong>最低</strong>的非 $0$ 二进制位，例如 $\text{lowbit}(5) = 1, \text{lowbit}(12) = 4$。进行第一类操作的时候就调用 $\mathrm{Add}(x)$，第二类操作的时候答案就是 $\mathrm{Query}(l, r)$。</p>
 <p>如果你对树状数组比较熟悉，不难发现可怜把树状数组写错了：<strong>$\text{Add}$ 和 $\text{Find}$ 中 $x$  变化的方向反了</strong>。因此这个程序在最终测试时华丽的爆 0 了。</p>
 <p>然而奇怪的是，在当时，这个程序通过了出题人给出的大样例——这也是可怜没有进行对拍的原因。</p>
@@ -563,6 +558,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

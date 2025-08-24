@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -429,7 +424,7 @@
 
 <h2 id="_6">说明/提示</h2>
 <p>样例解释：下图展示了样例中内联网的结构。字符串用红色字体标出。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/btzomagx.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/btzomagx.png" /></p>
 <p>记 $\mathrm{LCP}(S,T)$ 为字符串 $S,T$ 的<strong>最长公共前缀</strong>的长度。例如，$\mathrm{LCP}(\texttt{\textcolor{red}{starry}killer},\texttt{\textcolor{red}{starry}dust})=6$。记 $\epsilon$ 为空字符串。</p>
 <p>从 $1$ 到 $3$ 的一条可行路径是 $1 \rightarrow 2 \rightarrow 3$，所需时间是$(2 + \mathrm{LCP}(\epsilon , \texttt{1112})) + (2 +\mathrm{LCP}(\texttt{1112} ,\texttt{1112})) = 8$。</p>
 <p>但这条路径不是最优的，最优路径是 $1 \rightarrow 2 \rightarrow 4 \rightarrow 2 \rightarrow 3$。</p>
@@ -525,6 +520,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

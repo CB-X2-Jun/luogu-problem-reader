@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>令 $S$ 表示从 $u$ 到 $v$ 的所有简单路径（不经过重复的点的路径）上点的并集，也就是对于一个点 $x$，如果存在一条从 $u$ 到 $v$ 的简单路径经过这个点，那么它就在集合 $S$ 中。</p>
 <p>如果 $S$ 非空且 $S$ 的导出子图是 $u, v$ 为端点的二端串并联图，那么 $u, v$ 之间的电阻就能用串并联方法计算。</p>
 <p>一个有两个不同端点 $s, t$ 的图被称为二端图，其中一个称为源点，另一个称为汇点。两个二端图 $X, Y$ 并联（parallel composition）是指建一个新图，把 $X$ 和 $Y$ 的源点和汇点分别合并起来。两个二端图 $X, Y$ 串联（series composition）是指建一个新图，把 $X$ 的汇点和 $Y$ 的源点合并起来。由若干个两个点一条边的二端图经过一系列串并联变化之后形成的图称为二端串并联图。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/9xagyluf.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/9xagyluf.png" /></p>
 <p>集合 $S$ 的导出子图点集为 $S$，边集由原图中两个端点都在 $S$ 中的边构成。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包含两个正整数 $n, m$，表示电阻网络中的节点数和电阻数。<br />
@@ -480,6 +475,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

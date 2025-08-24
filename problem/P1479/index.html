@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -398,7 +393,7 @@
 <p>在一个 $5 \times 5$ 的棋盘内，放上 $n$ 颗棋子，其中 $5 \le n \le 25$；</p>
 <p>这 $n$ 颗棋子可以放到棋盘内任意一个地方，但是不能重叠在一起。于是，便会有五颗棋子排成一行，或一列，或处在同一条对角线上。不同的放法可能会出现不同个数的五子的排列。</p>
 <p>本题你要做的是，给你一个 $n$，你要找出不同放法出现的五子连线的数量（设为 $k$），如 $n=11$，有：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rcwazq5o.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/rcwazq5o.png" /></p>
 <p>只有这两种非负的 $k$ 值，（注意 $k$ 不重复），你要输出的便是 $k$ 值的和。</p>
 <p>也就是 $1+2=3$。</p>
 <h2 id="_2">输入格式</h2>
@@ -464,6 +459,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

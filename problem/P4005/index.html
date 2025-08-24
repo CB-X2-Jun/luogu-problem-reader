@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>小 Y 是一个爱好旅行的 OIer。一天，她来到了一个新的城市。由于不熟悉那里的交通系统，她选择了坐地铁。</p>
 <p>她发现每条地铁线路可以看成平面上的一条曲线，不同线路的交点处一定会设有换乘站 。通过调查得知，没有线路是环线，也没有线路与自身相交。任意两条不同的线路只会在若干个点上相交，没有重合的部分，且没有三线共点的情况。即，如图所示的情况都是不存在的：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12055.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/12055.png" /> </p>
 <p>小 Y 坐着地铁 $0$ 号线，路上依次经过了 $n$ 个换乘站。她记下了每个换乘站可以换乘的线路编号，发现每条线路与她所乘坐的线路最多只有 $2$ 个换乘站。现在小 Y 想知道，除掉她经过的换乘站以外，这个城市里最少有几个换乘站。只有你告诉她正确的答案，她才会答应下次带你去玩呢。</p>
 <h2 id="_2">输入格式</h2>
 <p><strong>请注意本题有多组输入数据。</strong></p>
@@ -425,11 +420,11 @@
 <h2 id="_5">说明/提示</h2>
 <p>【样例 1 解释】</p>
 <p>对于样例的前两组数据，一种可能的最优答案如下图所示。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12053.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/12053.png" /> </p>
 <p>【子任务】</p>
 <p>一共有 $50$ 个测试点，每个测试点 $2$ 分。你只有在答案完全正确时才能得到该测试点的全部分数，否则不得分。</p>
 <p>对于所有测试点，以及对于样例， $1 \leq T \leq 100$, $1 \leq n \leq 44$。对于每个测试点， $n$ 的范围如下表：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12054.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/12054.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -480,6 +475,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

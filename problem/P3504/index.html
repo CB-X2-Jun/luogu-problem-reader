@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -398,7 +393,7 @@
 <p>Sometimes however, the sheep want to play. As they play in pairs, every shepherd keeps an even number of sheep,    so that his every sheep has a partner to play with.</p>
 <p>The shepherds are concerned about a decree recently issued by the Byteburg's High Commissioner for Agriculture.</p>
 <p>The decree states that as of the next year the sheep can only graze on triangle-shaped pastures.</p>
-<p>Thus every shepherd whose pasture is an <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.1.png" />-gon for <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.2.png" /> is to partition it into triangles by putting <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.3.png" />    fences inside.</p>
+<p>Thus every shepherd whose pasture is an <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.1.png" />-gon for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.2.png" /> is to partition it into triangles by putting <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.3.png" />    fences inside.</p>
 <p>Each single new fence, of course, is going to be a segment connecting two vertices of the polygon (pasture).</p>
 <p>Additionally, the fences can intersect only in these vertices.</p>
 <p>A shepherd who does not fulfil these requirements will no longer be subsidized.</p>
@@ -406,11 +401,11 @@
 <p>In fact, he is unsure how many partitions are possible. He is only interested in such partitions    that no fence is drawn through a favourite spot of any sheep, and such that every resulting triangle    contains the favourite spots of an even number of sheep, so that these sheep can play in pairs.</p>
 <p>Help Byteasar by writing a program that calculates the number of such partitions!</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input contains three integers <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.4.png" />, <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.5.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.6.png" />    (<img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.7.png" />, <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.8.png" />, <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.9.png" />, <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.10.png" />),    separated by single spaces, that denote respectively:</p>
-<p>the number of vertices of the polygon forming the pasture,    the number of the sheep, and a certain positive integer <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.11.png" />.</p>
-<p>Each of the following <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.12.png" /> lines contains two integers <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.13.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.14.png" />    (<img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.15.png" />), separated by a single space,    de…</p>
+<p>The first line of the standard input contains three integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.4.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.5.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.6.png" />    (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.7.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.8.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.9.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.10.png" />),    separated by single spaces, that denote respectively:</p>
+<p>the number of vertices of the polygon forming the pasture,    the number of the sheep, and a certain positive integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.11.png" />.</p>
+<p>Each of the following <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.12.png" /> lines contains two integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.13.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.14.png" />    (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.15.png" />), separated by a single space,    de…</p>
 <h2 id="_3">输出格式</h2>
-<p>Your program should print one integer on the standard output,    namely the remainder of division by <img alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.22.png" /> of the number of partitions of the pasture in triangles,    such that no fence is drawn through a favourite spot of any sheep, and every resulting triangle    contains the favourite spots of an even number of sheep.</p>
+<p>Your program should print one integer on the standard output,    namely the remainder of division by <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/owc-en-tex.22.png" /> of the number of partitions of the pasture in triangles,    such that no fence is drawn through a favourite spot of any sheep, and every resulting triangle    contains the favourite spots of an even number of sheep.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -482,6 +477,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

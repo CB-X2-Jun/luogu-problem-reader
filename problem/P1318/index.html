@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>一组正整数，分别表示由正方体叠起的柱子的高度。若某高度值为 $x$，表示由 $x$ 个正立方的方块叠起（如下图，$0 \le x \le 5000$）。找出所有可能积水的地方（图中蓝色部分），统计它们可能积水的面积总和（计算的是图中的横截面积。一个立方体的位置，为一个单位面积）。</p>
 <p>如图：柱子高度变化为 <code>0 1 0 2 1 2 0 0 2 0</code>。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/8bu0hhke.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/8bu0hhke.png" /></p>
 <p>图中蓝色部分为积水面积，共有 $6$ 个单位面积积水。</p>
 <h2 id="_2">输入格式</h2>
 <p>两行，第一行 $n$，表示有 $n$ 个数（$3 \le n \le 10000$）。第 $2$ 行连续 $n$ 个数表示依次由正方体叠起的高度，保证首尾为 $0$。</p>
@@ -460,6 +455,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -438,7 +433,7 @@
 
 <h2 id="_5">说明/提示</h2>
 <p>图中，以墓地 $(2, 2)$ 和 $(2, 3)$ 为中心的十字架各有 $3$ 个，即它们的虔诚度均为 $3$。其他墓地的虔诚度为 $0$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1589.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1589.png" /> </p>
 <p>对于 $30\%$ 的数据，满足 $1 ≤ N, M ≤ 10^3$。</p>
 <p>对于 $60\%$ 的数据，满足 $1 ≤ N, M ≤ 10^6$。</p>
 <p>对于 $100\%$ 的数据，满足 $1 ≤ N, M ≤ 10^9$，$0 ≤ x_i ≤ N$，$0 ≤ y_i ≤ M$，$1 ≤ W ≤ 10^5$，$1 ≤ k ≤ 10$。</p>
@@ -494,6 +489,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

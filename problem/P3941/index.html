@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -403,7 +398,7 @@
 <p>小 F 当时暗自觉得，与自己的幼稚相比起来，还有好多要学习的呢。</p>
 <p>一年过去了，想想都还有点恍惚。</p>
 <p>他至今还能记得，某天晚上听着入阵曲，激动地睡不着觉，写题写到鸡鸣时分都兴奋不 已。也许，这就是热血吧。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9810.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9810.png" /> </p>
 <p>也就是在那个时候，小 F 学会了矩阵乘法。让两个矩阵乘几次就能算出斐波那契数列的 第 $10^{100}$ 项，真是奇妙无比呢。</p>
 <p>不过，小 F 现在可不想手算矩阵乘法——他觉得好麻烦。取而代之的，是一个简单的小 问题。他写写画画，画出了一个 $n \times m$ 的矩阵，每个格子里都有一个不超过 $k$ 的正整数。</p>
 <p>小 F 想问问你，这个矩阵里有多少个不同的子矩形中的数字之和是 $k$ 的倍数？ 如果把一个子矩形用它的左上角和右下角描述为 $(x_1,y_1,x_2,y_2)$，其中$x_1 \le x_2,y_1 \le y_2$； 那么，我们认为两个子矩形是不同的，当且仅当他们以 $(x_1,y_1,x_2,y_2)$ 表示时不同；也就是 说，只要两个矩形以 $(x_1,y_1,x_2,y_2)$ 表示时相同，就认为这两个矩形是同一个矩形，你应该 在你的答案里只算一次。</p>
@@ -431,7 +426,7 @@
 <p>这些矩形是符合要求的： (1, 1, 1, 3)，(1, 1, 2, 2)，(1, 2, 1, 2)，(1, 2, 2, 3)，(2, 1, 2, 1)，(2, 3, 2, 3)。</p>
 <p>子任务会给出部分测试数据的特点。如果你在解决题目中遇到了困难，可以尝试只解 决一部分测试数据。</p>
 <p>每个测试点的数据规模及特点如下表：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9811.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9811.png" /> </p>
 <p>特殊性质：保证所有 $a_{i,j}$ 均相同。</p>
         </div>
         
@@ -483,6 +478,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

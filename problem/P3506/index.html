@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,22 +388,22 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>This task is a harder version of task Monotonicity from the third stage of 17th Polish OI. It wasn't used in the contest itself.</p>
-<p>For an integer sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.1.png" /> we define its monotonicity scheme as the sequence    <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.2.png" /> of symbols <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.3.png" />, <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.4.png" /> or <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.5.png" />.</p>
-<p>The symbol <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.6.png" /> represents the relation between <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.7.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.8.png" />.</p>
-<p>For example, the monotonicity scheme of the sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.9.png" /> is <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.10.png" />.</p>
-<p>We say that an integer sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.11.png" /> with monotonicity scheme    <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.12.png" />, realizes another monotonicity scheme <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.13.png" />    if for every <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.14.png" /> it holds that <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.15.png" />.</p>
-<p>In other words, the sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.16.png" /> can be obtained by repeating the sequence    <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.17.png" /> and removing appropriate suffix from that repetition.</p>
-<p>For example, the sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.18.png" /> realizes each and every one of the following schemes:</p>
-<p><img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.19.png" />           <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.20.png" />           <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.21.png" />           <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.22.png" />                  as well as many others.</p>
-<p>An integer sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.23.png" /> and a monotonicity scheme <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.24.png" /> are given.</p>
-<p>Your task is to find the longest subsequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.25.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.26.png" />)    of the former that realizes the latter.</p>
+<p>For an integer sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.1.png" /> we define its monotonicity scheme as the sequence    <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.2.png" /> of symbols <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.3.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.4.png" /> or <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.5.png" />.</p>
+<p>The symbol <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.6.png" /> represents the relation between <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.7.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.8.png" />.</p>
+<p>For example, the monotonicity scheme of the sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.9.png" /> is <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.10.png" />.</p>
+<p>We say that an integer sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.11.png" /> with monotonicity scheme    <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.12.png" />, realizes another monotonicity scheme <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.13.png" />    if for every <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.14.png" /> it holds that <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.15.png" />.</p>
+<p>In other words, the sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.16.png" /> can be obtained by repeating the sequence    <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.17.png" /> and removing appropriate suffix from that repetition.</p>
+<p>For example, the sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.18.png" /> realizes each and every one of the following schemes:</p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.19.png" />           <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.20.png" />           <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.21.png" />           <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.22.png" />                  as well as many others.</p>
+<p>An integer sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.23.png" /> and a monotonicity scheme <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.24.png" /> are given.</p>
+<p>Your task is to find the longest subsequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.25.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.26.png" />)    of the former that realizes the latter.</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input holds two integers <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.27.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.28.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.29.png" />, <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.30.png" />),    separated by a single space, denoting the lengths of the sequences <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.31.png" /> and monotonicity scheme <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.32.png" /> respectively.</p>
-<p>The second input line gives the sequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.33.png" />, i.e, it holds <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.34.png" /> integers <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.35.png" /> separated by single spaces (<img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.36.png" />).</p>
-<p>Finally, the third lines gives the monotonicity scheme <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.37.png" />, i.e., it holds <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.38.png" /> s…</p>
+<p>The first line of the standard input holds two integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.27.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.28.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.29.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.30.png" />),    separated by a single space, denoting the lengths of the sequences <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.31.png" /> and monotonicity scheme <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.32.png" /> respectively.</p>
+<p>The second input line gives the sequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.33.png" />, i.e, it holds <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.34.png" /> integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.35.png" /> separated by single spaces (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.36.png" />).</p>
+<p>Finally, the third lines gives the monotonicity scheme <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.37.png" />, i.e., it holds <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.38.png" /> s…</p>
 <h2 id="_3">输出格式</h2>
-<p>In the first line of the standard output your program should print out a single integer <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.40.png" />,    the maximum length of a subsequence of <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.41.png" /> that realizes the scheme <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.42.png" />.</p>
-<p>In the second line it should print out any such subsequence <img alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.43.png" />, separating its elements by single spaces.</p>
+<p>In the first line of the standard output your program should print out a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.40.png" />,    the maximum length of a subsequence of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.41.png" /> that realizes the scheme <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.42.png" />.</p>
+<p>In the second line it should print out any such subsequence <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mot-en-tex.43.png" />, separating its elements by single spaces.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -471,6 +466,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

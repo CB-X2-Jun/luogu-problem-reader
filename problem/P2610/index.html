@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>到了难得的暑假，为了庆祝小白在数学考试中取得的优异成绩，小蓝决定带小白出去旅游~~</p>
 <p>经过一番抉择，两人决定将 T 国作为他们的目的地。T 国的国土可以用一个凸 $n$ 边形来表示，$n$ 个顶点表示 $n$ 个入境/出境口。T 国包含 $n-2$ 个城市，每个城市都是顶点均为 $n$ 边形顶点的三角形（换而言之，<strong>城市组成了关于 T 国的一个三角剖分</strong>）。<strong>两人的旅游路线可以看做是连接 $n$ 个顶点中不相邻两点的线段</strong>。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1409.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1409.png" /> </p>
 <p>为了能够买到最好的纪念品，小白希望旅游路线上经过的城市尽量多。作为小蓝的好友，你能帮帮小蓝吗？</p>
 <h2 id="_2">输入格式</h2>
 <p>每个输入文件中仅包含一个测试数据。</p>
@@ -469,6 +464,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

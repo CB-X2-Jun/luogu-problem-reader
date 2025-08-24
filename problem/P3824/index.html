@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -401,7 +396,7 @@
 - 必须是矩形。即游泳场必须是整个网格中的一个 $a\times b$ 的子网格。
 - 必须和海滩相邻。即游泳场的下边界必须紧贴网格的下边界。</p>
 <p>例如：当 $N = 5$ 时，若测量的结果如下（因为 $1001$ 太大，这儿只画出网格最下面三行的信息，其他部分都是危险的）。 </p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6465.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6465.png" /> </p>
 <p>那么她可以选取最下面一行的 $1\times4$ 的子海域，也可以选择第三列的 $3\times1$ 的子海域。注意她不能选取最上面一行的 $1\times5$ 的子海域，因为它没有与海滩相邻。</p>
 <p>为了让朋友们玩的开心，她想让游泳场的面积尽可能的大。因此她会选取最下面那一行的 $1\times4$ 的子海域作为最终方案。</p>
 <p>虽然她要明天才能知道每一个单位海域是否安全，但是她现在就想行动起来估计一下她的游泳场面积有多大。经过简单的估计，她假设每一个单位海域都有独立的 $q$ 的概率是安全的，$1 − q$ 的概率是不安全的。她想要知道她能选择的最大的游泳场的面积<strong>恰好</strong>为 $K$ 的概率是多少。</p>
@@ -543,6 +538,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

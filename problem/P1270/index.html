@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>经过数月的精心准备，Peer Brelstet，一个出了名的盗画者，准备开始他的下一个行动。艺术馆的结构，每条走廊要么分叉为两条走廊，要么通向一个展览室。Peer 知道每个展室里藏画的数量，并且他精确测量了通过每条走廊的时间。由于经验老到，他拿下一幅画需要 $5$ 秒的时间。你的任务是编一个程序，计算在警察赶来之前，他最多能偷到多少幅画。假定他回到起点后还需要留至少 $1$ 秒逃跑。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7kbyjwgy.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7kbyjwgy.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行是警察赶到的时间，以秒为单位。第 $2$ 行描述了艺术馆的结构，是一串非负整数，成对地出现：每一对的第一个数是走过一条走廊的时间，第 $2$ 个数是它末端的藏画数量；如果第 $2$ 个数是 $0$，那么说明这条走廊分叉为两条另外的走廊。数据按照深度优先的次序给出，请看样例。</p>
 <p>一个展室最多有 $20$ 幅画。通过每个走廊的时间不超过 $20$ 秒。艺术馆最多有 $100$ 个展室。警察赶到的时间在 $6000$ 秒以内。</p>
@@ -459,6 +454,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,7 +387,7 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5565.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5565.png" /> </p>
 <p>伊吹萃香 (Ibuki Suika) 正在魔法之森漫步，突然，许多西瓜 (Suika) 从四周飞来，划出了绚丽的轨迹。虽然阵势有点恐怖，但她还是决定抱走一些西瓜。</p>
 <h2 id="_2">题目描述</h2>
 <p>萃香所处的环境被简化为一个长为 $h$，宽为 $w$ 的网格平面。$X$ 坐标范围为 $[1,w]$，$Y$ 坐标范围为 $[1,h]$。</p>
@@ -506,6 +501,9 @@ t1&lt; t2$</p>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

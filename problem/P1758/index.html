@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,13 +388,13 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>管道取珠是小 X 很喜欢的一款游戏。在本题中，我们将考虑该游戏的一个简单改版。游戏画面如图 1 所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7p4r2ip9.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7p4r2ip9.png" /></p>
 <p>游戏初始时，左侧上下两个管道分别有一定数量的小球（有深色球和浅色球两种类型），而右侧输出管道为空。每一次操作，可以从左侧选择一个管道，并将该管道中最右侧的球推入右边输出管道。</p>
 <p>例如：我们首先从下管道中移一个球到输出管道中，将得到图 2 所示的情况。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xj1kay44.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xj1kay44.png" /></p>
 <p>假设上管道中有 $n$ 个球, 下管道中有 $m$ 个球，则整个游戏过程需要进行 $n+m$ 次操作，即将所有左侧管道中的球移入输出管道。最终 $n+m$ 个球在输出管道中从右到左形成输出序列。</p>
 <p>爱好数学的小 X 知道，他共有 $\dbinom{n+m}{m}$ 种不同的操作方式，而不同的操作方式可能导致相同的输出序列。举个例子，对于图 3 所示的游戏情形：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0m1t5d3h.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0m1t5d3h.png" /></p>
 <p>我们用 A 表示浅色球，B 表示深色球。并设移动上管道右侧球的操作为 U，移动下管道右侧球的操作为 D，则共有 $\binom{2+1}{1}=3$ 种不同的操作方式，分别为 UUD，UDU，DUU；最终在输出管道中形成的输出序列（从右到左）分别为 BAB，BBA，BBA。可以发现后两种操作方式将得到同样的输出序列。</p>
 <p>假设最终可能产生的不同种类的输出序列共有 $K$ 种，其中：第 $i$ 种输出序列的产生方式（即不同的操作方式数目）有 $a_i$ 个。聪明的小 X 早已知道，</p>
 <p>$$
@@ -488,6 +483,9 @@ $$</p>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

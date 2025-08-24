@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -398,7 +393,7 @@
 <h2 id="_2">题目描述</h2>
 <p><strong>此题为规律题，请自行寻找规律，以锻炼数学归纳能力！！</strong></p>
 <p>我们拿三角形数做例子：图中的 $1$、$3$、$6$、$10$ 就是三角形数。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1742.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1742.png" /> </p>
 <p>任务：求出 $N$ 是哪一种多边形数（假设 $N$ 是 $K$ 边形数），比如我们求出 $36$ 是三边形数和四边形数（貌似叫做三角形数和正方形数呵）。若不是多边形数，输出 Poor + 该数字。若同时是多种多边形数，输出最小的一个和第二小的一个。每个读入文件里有 $ng$ 组数据。</p>
 <h2 id="_3">输入格式</h2>
 <p>先是一个数 $ng$，然后 $ng$ 行，每行一个整数。</p>
@@ -534,6 +529,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

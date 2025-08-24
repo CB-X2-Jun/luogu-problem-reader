@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -436,9 +431,9 @@
 
 <h2 id="_6">说明/提示</h2>
 <p>样例说明：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2231.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2231.png" /> </p>
 <p>数据规模：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2232.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2232.png" /> </p>
 <h3 id="_7">此题目中大小写不敏感。</h3>
 <h3 id="hack-1le-nm-le-50000">新加了三组 hack 数据，不在上面的表格中，但保证 $1\le n,m \le 50000$。</h3>
         </div>
@@ -491,6 +486,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

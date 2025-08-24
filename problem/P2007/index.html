@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>常神牛从来没接触过魔方，所以他要借助计算机来玩。即使是这样，他还是很菜。</p>
 <h2 id="_2">题目描述</h2>
 <p>常神牛家的魔方都是 $3\times3\times3$ 的三阶魔方，大家都见过。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1002.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1002.png" /></p>
 <p>（更正：操作 $3$ 和操作 $4$ 以文字右边的图示为准。）</p>
 <p>作为一名菜鸟，常神牛从网上搜了一篇攻略，并找人翻译成了他自己会做的方法。现在告诉你他的魔方情况，以及他从网上搜到的攻略，请你求出最后魔方变成什么样子。</p>
 <h2 id="_3">输入格式</h2>
@@ -450,8 +445,8 @@
 
 <h2 id="_6">说明/提示</h2>
 <p>【样例解释】</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1047.png" /> </p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1048.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1047.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1048.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -502,6 +497,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -399,7 +394,7 @@
 <h3 id="_2">任务</h3>
 <p>根据给出的信息，编程求出每个动物的笼子的位置。</p>
 <p>动物园的地形描述为一个 $n\times n$ 的网格，一个格子可以是建筑物或者平地。笼子的位置只可能在平地，动物也只在平地运动。每种动物的奔跑速度不一样，例如老虎一分钟可以跑 $5$ 个格子，猫一分钟只可以跑 $2$ 个格子等等。以下是一个例子（其中阴影部分是建筑物）：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1577.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1577.png" /></p>
 <p><strong>每个笼子只关一只动物，不同的笼子关不同的动物。不同的笼子可能在同一个格子里。</strong></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行为自然数 $n$，表示网格的边长</p>
@@ -490,6 +485,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

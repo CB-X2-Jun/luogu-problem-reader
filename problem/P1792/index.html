@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,9 +387,9 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p>A 城市有一个巨大的圆形广场，为了绿化环境和净化空气，市政<img alt="" src="" />府决定沿圆形广场外圈种一圈树。</p>
+<p>A 城市有一个巨大的圆形广场，为了绿化环境和净化空气，市政<img style="max-width: 100%; height: auto;" alt="" src="" />府决定沿圆形广场外圈种一圈树。</p>
 <p>园林部门得到指令后，初步规划出 $n$ 个种树的位置，顺时针编号 $1$ 到 $n$。并且每个位置都有一个美观度 $A_i$，如果在这里种树就可以得到这 $A_i$ 的美观度。但由于 A 城市土壤肥力欠佳，两棵树决不能种在相邻的位置（$i$ 号位置和 $i+1$ 号位置叫相邻位置。值得注意的是 $1$ 号和 $n$ 号也算相邻位置）。</p>
-<p>最终市<img alt="" src="" />政<img alt="" src="" />府给园林部门提供了 $m$ 棵树苗并要求全部种上，请你帮忙设计种树方案使得美观度总和最大。如果无法将 $m$ 棵树苗全部种上，给出无解信息。</p>
+<p>最终市<img style="max-width: 100%; height: auto;" alt="" src="" />政<img style="max-width: 100%; height: auto;" alt="" src="" />府给园林部门提供了 $m$ 棵树苗并要求全部种上，请你帮忙设计种树方案使得美观度总和最大。如果无法将 $m$ 棵树苗全部种上，给出无解信息。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入的第一行包含两个正整数 $n,m$。</p>
 <p>第二行 $n$ 个整数，第 $i$ 个代表 $A_i$。</p>
@@ -545,6 +540,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

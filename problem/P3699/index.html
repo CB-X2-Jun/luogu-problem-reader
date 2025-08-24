@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -433,7 +428,7 @@
 <p>整个草稿纸是全新的，任意两个关键点都可以连线。</p>
 <p>【输入输出样例 2 说明】</p>
 <p>如图所示，任意两个关键点的连线都被挡住了。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5011.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5011.png" /> </p>
 <p>【数据规模与约定】</p>
 <p>对于 100%的测试点，0 ≤ 所有坐标 ≤ $10^8$，且都是整数。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">NO</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="mi">3</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w">   </span><span class="mi">6</span><span class="w">   </span><span class="mi">7</span><span class="w">    </span><span class="mi">8</span><span class="w">    </span><span class="mi">9</span><span class="w">   </span><span class="mi">10</span>
@@ -490,6 +485,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

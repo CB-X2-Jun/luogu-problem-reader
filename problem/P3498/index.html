@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,20 +389,20 @@
           <h2 id="_1">题目描述</h2>
 <p>Byteasar once decided to start manufacturing necklaces.</p>
 <p>He subsequently bought a very long string of colourful coral beads for a bargain price.</p>
-<p>Byteasar now also has a machine that, for a given <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.1.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.2.png" />), can cut the string    into pieces (or substrings) of <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.3.png" /> coral beads (i.e., the first piece consists of the beads no.</p>
-<p><img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.4.png" />, the second of <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.5.png" />, etc.).</p>
-<p>If the length of the string (measured in coral beads) is not a multiple of <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.6.png" />,    then the last piece is not used, as it has length smaller than <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.7.png" />.</p>
+<p>Byteasar now also has a machine that, for a given <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.1.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.2.png" />), can cut the string    into pieces (or substrings) of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.3.png" /> coral beads (i.e., the first piece consists of the beads no.</p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.4.png" />, the second of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.5.png" />, etc.).</p>
+<p>If the length of the string (measured in coral beads) is not a multiple of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.6.png" />,    then the last piece is not used, as it has length smaller than <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.7.png" />.</p>
 <p>From now on we denote the colours of the beads with positive integers.</p>
-<p>Byteasar, always praising diversity, wonders how he should choose the number <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.8.png" />    in order to get as many different substrings as possible.</p>
-<p>The ends of the long string that will be cut are different: there are specific    beginning and ending (rather than two interchangeable endpoints), and the machine    of course starts cutting at the beginning. On the other hand, in the substrings    obtained from cutting the endpoints are interchangeable, and so the substrings    can be reversed. In other words, the substrings <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.9.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.10.png" /> are    identical to us. Write a program that determines the optimum value of <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.11.png" /> for Byteasar.</p>
+<p>Byteasar, always praising diversity, wonders how he should choose the number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.8.png" />    in order to get as many different substrings as possible.</p>
+<p>The ends of the long string that will be cut are different: there are specific    beginning and ending (rather than two interchangeable endpoints), and the machine    of course starts cutting at the beginning. On the other hand, in the substrings    obtained from cutting the endpoints are interchangeable, and so the substrings    can be reversed. In other words, the substrings <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.9.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.10.png" /> are    identical to us. Write a program that determines the optimum value of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.11.png" /> for Byteasar.</p>
 <h2 id="_2">输入格式</h2>
-<p>In the first line of the standard input there is an integer <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.37.png" />      (<img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.38.png" />) denoting the length of the string to cut.</p>
-<p>In the second line there are <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.39.png" /> positive integers <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.40.png" />      (<img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.41.png" />), separated by single spaces, that denote      the colours of successive beads in Byteasar's string.</p>
+<p>In the first line of the standard input there is an integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.37.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.38.png" />) denoting the length of the string to cut.</p>
+<p>In the second line there are <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.39.png" /> positive integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.40.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.41.png" />), separated by single spaces, that denote      the colours of successive beads in Byteasar's string.</p>
 <h2 id="_3">输出格式</h2>
 <p>Two integers, separated by a single space, should be printed out to the first line of the standard ouput:</p>
-<p>the (maximum) number of different substrings that can be obtained with an optimal choice    of parameter <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.42.png" />, and the number <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.43.png" /> of such optimal values of <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.44.png" />.</p>
-<p>The second line should contain <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.45.png" /> integers separated by single spaces:</p>
-<p>the values of parameter <img alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.46.png" /> that yield an optimum solution;    these can be given in arbitrary order.</p>
+<p>the (maximum) number of different substrings that can be obtained with an optimal choice    of parameter <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.42.png" />, and the number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.43.png" /> of such optimal values of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.44.png" />.</p>
+<p>The second line should contain <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.45.png" /> integers separated by single spaces:</p>
+<p>the values of parameter <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kor-en-tex.46.png" /> that yield an optimum solution;    these can be given in arbitrary order.</p>
 <p>输出两行，第一行第一个数为最多可以得到的不同子串的个数，第二个数为取到最优解时的不同的k的个数。第二行包含若干个数，为取到最优解时的不同的k 。第二行中的不同的k可以按任意位置输出。</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
@@ -473,6 +468,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <h2 id="_2">题目描述</h2>
 <p>JOI 同学点的小笼包套餐，由馅料不同的 $N$ 个小笼包组成。$N$ 个小笼包等间隔排成一列，编号为 $1$ 到 $N$。第 $i$ 个小笼包与第 $j$ 个小笼包之间的距离是绝对值 $\vert i-j\vert$。</p>
 <p>JOI 同学按照顺序吃小笼包。最初，所有的小笼包的美味度都是 $0$。吃第 $i$ 个小笼包时，汤汁向周围飞散，与第 $i$ 个小笼包距离 $D_i$ 以下的小笼包都淋上了汤汁，而被淋上汤汁的小笼包的美味度会增加 $A_i$。也就是说，吃第 $i$ 个小笼包的时候，第 $j\ (1\le j\le N$ 并且 $i-D_i\le j\le i+D_i)$ 个小笼包还没有吃到的话，第 $j$ 个小笼包的美味度就增加 $A_i$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/2340.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/2340.png" /> </p>
 <p>JOI 同学要在吃小笼包的顺序上下功夫，让吃的小笼包的美味度的合计最大化。</p>
 <h2 id="_3">输入格式</h2>
 <p>输入共三行。</p>
@@ -481,6 +476,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

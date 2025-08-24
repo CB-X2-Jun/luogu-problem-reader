@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,14 +387,14 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5575.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5575.png" /> </p>
 <p>西行寺幽幽子是冥界的亡灵，她是一个标准的吃货，现在她的面前摆着一个妖梦替她准备的大西瓜。</p>
 <h2 id="_2">题目描述</h2>
 <p>妖梦费了好大的劲为幽幽子准备了一个大西瓜，甚至和兔子铃仙打了一架。现在妖梦闲来无事，就蹲在一旁看幽幽子吃西瓜。西瓜可以看作一个标准的球体，瓜皮是绿色的，瓜瓤是红色的，瓜皮的厚度可视为0。妖梦恰好以正视的角度看着这个西瓜。幽幽子是一个吃货，妖梦一走神，自己背后的刀就不见了，而西瓜也被切掉了一块。幽幽子切西瓜时刀面始终垂直于桌面，并且切下的一块在俯视图中正好是一个以西瓜中心为顶点，半径为西瓜半径的扇形。如图所示，是一种满足条件的情况</p>
 <p>俯视:</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5576.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5576.png" /> </p>
 <p>正视:</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5577.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5577.png" /> </p>
 <p>妖梦看着红红绿绿的西瓜，忽然陷入思考，红色的西瓜瓤占整个西瓜可视面积的百分之多少呢？但她对几何一窍不通，于是想问问幽幽子，但幽幽子正抱着切下来的西瓜大吃特吃，没有理会妖梦。于是她想让你来帮她解决这个问题。</p>
 <p>为了方便描述问题，我们为俯视图建立一个平面极坐标系，极点在俯视图圆形(扇形)的正中央，极轴方向竖直向下。极轴所对应的角度为0度，角度逆时针依次增加，直到转一圈又回到极轴。因此角度范围是[0,360)。幽幽子会切掉西瓜从a°到b°的这一整块。</p>
 <h2 id="_3">输入格式</h2>
@@ -481,6 +476,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

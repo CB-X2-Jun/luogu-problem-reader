@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <p>小 L 家的客厅是一个 $r\times c$ 的矩形，现在他想用 L 型的地板来铺满整个客厅，客厅里有些位置有柱子，不能铺地板。</p>
 <p>现在小 L 想知道，用 L 型的地板铺满整个客厅有多少种不同的方案？</p>
 <p>需要注意的是，如下图所示，L 型地板的两端长度可以任意变化，但不能长度为 $0$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4636.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4636.png" /></p>
 <p>铺设完成后，客厅里面所有没有柱子的地方都必须铺上地板，但同一个地方不能被铺多次。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入的第一行包含两个整数，$r$ 和 $c$，表示客厅的大小。</p>
@@ -501,6 +496,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

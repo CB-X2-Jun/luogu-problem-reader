@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -402,7 +397,7 @@
 <p><strong>光辉自内心满溢而出 愿能望见更加前方的景色</strong></p>
 <p><strong>Ah!やっと手にしたミライチケットかざして…！</strong></p>
 <p><strong>Ah!挥舞起终于得手的未来门票…！</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4529.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4529.png" /> </p>
 <p>我们Aqours，终于闪闪发亮了！</p>
 <p>2月25和26日，将是我们登上横滨ARENA演唱的日子！</p>
 <p>而且，还要在全日本、甚至全世界的好多影院进行转播呢！</p>
@@ -501,6 +496,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

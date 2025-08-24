@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,8 +391,8 @@
 <p>这个方案却给负责小区送报任务的投递员带来了一些麻烦，因为他希望坚持自己的送报习惯：他喜欢骑在自己的自行车上沿着一个标准的圆形路线投送报纸，每当看到自己的右手方向有一户住宅时，他就会将报纸投过去，而且最令他骄傲的是，无论距离远近，他投出的报纸总是准确地落在住户的门前。他的这种极具艺术感的服务方式也正是住户们最感欣赏的地方。</p>
 <p>但遗憾的是，他分辨不出每户住宅之间的区别，也记不住每家订了哪些报纸，邮局按照住宅在多边形上的次序把每户的报纸交给他，他就按照这种次序把每户的报纸投送出去。所以图一中的方案是不成立的，因为住户3拿到的总是住户2的报纸，而住户2拿到的报纸却是住户3的。图二中画出了两种可行的方案。</p>
 <p>你的任务就是找出所有满足上述要求的投递路线的圆心（这些圆心的坐标应当是整数）。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1580.png" /> </p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1581.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1580.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1581.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件名为Polygon.in。文件第1行是4个整数Xmin、Xmax、Ymin、Ymax，表示圆心坐标的范围，第2行是一个正整数n(n100)，表示多边形的顶点数，从第3行至第n+2行是每个顶点的坐标(x,y)，所有坐标值均为整数，坐标的绝对值不大于1000，顶点按顺时针排序。</p>
 <h2 id="_3">输出格式</h2>
@@ -421,7 +416,7 @@
 </code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1582.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1582.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -472,6 +467,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

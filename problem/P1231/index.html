@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -432,7 +427,7 @@
 <p>$M_2=5$，表示数和答案共有 $5$ 个可能的对应关系，分别为：书 $1$ 和答案 $3$、书 $3$ 和答案 $1$、书 $2$ 和答案 $2$、书 $3$ 和答案 $3$ 以及书 $4$ 和答案 $3$。</p>
 <p>所以，以上情况的话最多可以同时配成两个书册，分别为：书 $2$ 练习册 $2$ 答案 $2$、书 $4$ 练习册 $3$ 答案 $3$。</p>
 <p>数据规模：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/srj2v9um.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/srj2v9um.png" /></p>
 <p>对于数据点 $1,2,3$，$1\le M_1,M_2\leq 20$。</p>
 <p>对于数据点 $4\sim 10$，$1\le M_1,M_2 \leq 20000$。</p>
         </div>
@@ -485,6 +480,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

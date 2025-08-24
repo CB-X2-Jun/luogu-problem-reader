@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -426,7 +421,7 @@ $x_1+x_2+\dots +x_{n}=m$。</p>
 <p><strong>【样例解释】</strong></p>
 <p>对于第一组数据，三组解为 $(1,3,2)，(1,4,1),(2,3,1) $。<br />
 对于第二组数据，六组解为 $(1,1,3),(1,2,2),(1,3,1),(2,1,2),(2,2,1),(3,1,1)$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/17621.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/17621.png" /></p>
 <p>对于 $100\%$ 的数据，$1\le T \le 5$，$1\le m, n \le 10^9$，$1 \le a_i \le m$，$0 \le n_1,n_2 \le \min(8, m)$ 且 $n_1 + n_2 \le n$，$1\le p \le 437367875$。</p>
         </div>
         
@@ -478,6 +473,9 @@ $x_1+x_2+\dots +x_{n}=m$。</p>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

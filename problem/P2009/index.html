@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>跑步是一项有意思的运动，尤其是可以开发人的脑筋。常神牛很喜欢跑步。</p>
 <h2 id="_2">题目描述</h2>
 <p>常神牛跑步的场地是一个多边形（边数 $\leq 20$，每个顶点用英文大写字母表示），并且在这个多边形内部，还会有一些小道，连接两个不相邻的顶点。所有的边长和小道都是双向通行的举例来说，下面一个图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1049.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1049.png" /></p>
 <p>假设常神牛从 $A$ 点跑到 $D$ 点，最短的路径是 $A-E-D$（长度为 $6$）。</p>
 <p>现在告诉你多边形的边数 $n$，多边形每条边的长度，多边形内的连线数 $k$，每条连线的两个端点及长度，以及起始点和结束点，请你输出最短路径的长度。但是常神牛有点强迫症，如果两点之间有多条道路直接连接，他会选择最长的那条。</p>
 <p>注意：输入数据不保证起点和终点不同，也不保证小道的起点和终点不同。在读入过程中，如果两点之间有多条小道，那么它们间的距离为这些小道的最大值。所以，如果读入一个小道起点和终点相同，那么这个点到它本身的距离不为 $0$。</p>
@@ -475,6 +470,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

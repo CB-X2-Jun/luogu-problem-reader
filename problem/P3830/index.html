@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -406,7 +401,7 @@
 <li><strong>叶结点平均深度</strong> 的数学期望值。</li>
 <li><strong>树深度</strong> 的数学期望值。约定根结点的深度为 0。</li>
 </ol>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7ql5uhxn.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7ql5uhxn.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>输入仅有一行，包含两个正整数 $q$, $n$，分别表示问题编号以及叶结点的个数。</p>
 <h2 id="_4">输出格式</h2>
@@ -492,9 +487,9 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6556.png" /> </p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6557.png" /> </p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6558.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6556.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6557.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6558.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -545,6 +540,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -480,7 +475,7 @@
 <p>其中，$s(x)$ 的定义如下：（$e$ 为自然常数,其值约为 $2.718281828459045\ldots$）</p>
 <p>$$s\left ( x \right )=\frac{1}{1+e^{-x}}$$</p>
 <p>$s(x)$ 的函数图像如下图所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/fnscfgzu.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/fnscfgzu.png" /></p>
 <p>上述表格中的操作数 $i,j$ 均要小于当前节点的编号 $t$，这样随着跳蚤国王的一声令下，跳蚤就可以按编号从小到大的顺序，依次获得输入然后计算输出。每个跳蚤的计算能力都是有限的，他们仅可以精确到十进制小数点后 $90$ 位，超过的部分将会被四舍五入。同理，上述表格中的操作数 $c$ 的小数部分也不能超过 $90$ 位。另外，左移节点和右移节点中的操作数 $k$ 必须是非负整数，且不能超过 $10^4$。</p>
 <p>把跳蚤排列好后，野心勃勃的跳蚤国王决心测试一下这台由跳蚤组成的计算机的计算能力，于是蝈蝈大臣给跳蚤国王献上了十个计算任务。完成每个计算任务均需要从终端获取输入，进行中间计算，再用输出节点将结果输出。具体任务说明如下：</p>
 <p>::cute-table{tuack}</p>
@@ -697,6 +692,9 @@ O 9
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

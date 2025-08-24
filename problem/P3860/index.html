@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
 <p>你应火星人之邀为他们设计一款新型的手机。我们知道在标准的地球人手机上，数字键共有 $10$ 个，$26$ 个字母 <code>a</code>…<code>z</code> 分别与某个数字键相关联，并且一个数字键上的若干字母必须是字母表中连续的一段。比如下图是地球手机的一个标准方案：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6103.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6103.png" /></p>
 <h2 id="_2">题目描述</h2>
 <p>我们要输入一个字母，必须连续按它所在的数字键若干次，次数即为这个字母在这个键的第几个位置。例如在上图的方案中，若我们要输入 <code>C</code>，就需要按三次数字键 <code>2</code>；若要输入 <code>M</code>，需按一次数字键 <code>6</code>。</p>
 <p>火星人手机的构造与地球人手机类似，上面有 $M$ 个火星数字键，你需要把火星文的 $N$ 个字母放置在这 $M$ 个键上。（同样要求一个数字键上必须是连续的若干个火星字母）现在给定一段火星文中各个字母的出现次数，你设计的手机必须使得输入这段文字所需的按键次数最少。</p>
@@ -471,6 +466,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

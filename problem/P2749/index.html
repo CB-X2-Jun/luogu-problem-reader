@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
 <p>高高的星空，簇簇闪耀的群星形态万千。一个星座 <strong>(cluster)</strong> 是一群连通的星组成的非空连通星系，这里的连通是指水平，垂直或者对角相邻的两个星星。一个星座不能是另一个更大星座的一部分，星座可以相似 <strong>(similar)</strong>。如果两个星座有相同的形状，而且包括相同数目的星体，那么不管其方向性如何，就算相似。一般而言，星座可能的方向有八个，如图 $1$ 所示。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1970.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1970.png" /></p>
 <h2 id="_2">题目描述</h2>
 <p>夜空可以表示为一份天体图 <strong>(sky map)</strong>，它是一个由字符 <code>0</code> 和 <code>1</code> 组成的二维矩阵，字符 <code>1</code> 表示所在的位置有一颗星；字符 <code>0</code> 表示该位置上是空的。</p>
 <p>给定一份天体图，用同一个小写英文标识 <strong>(mark)</strong> 相似的所有星座。</p>
@@ -447,9 +442,9 @@ b000000e000000000000000
 <h3 id="_7">样例解释</h3>
 <p>此时的天体图是一个长 $23$ 宽 $15$ 的二维矩阵。</p>
 <p>输入对应 <strong>(corresponds to)</strong> 下面这个矩阵的图像。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1971.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1971.png" /> </p>
 <p>输出对应 <strong>(corresponds to)</strong> 下面的天空景象。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1972.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1972.png" /> </p>
 <h3 id="_8">数据范围</h3>
 <ul>
 <li>$0\le$ 星空的长和宽 $\le100$；</li>
@@ -507,6 +502,9 @@ b000000e000000000000000
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

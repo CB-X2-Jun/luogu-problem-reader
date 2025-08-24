@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p><strong>译自 CLRS Problem 26-1 Escape problem</strong></p>
 <p>在一个 $n\times n$ 的网格中有 $m$ 个起始点 $(x_1, y_1),$ $(x_2, y_2),$ $\dots,$ $(x_m, y_m)$，试问：能否为这些结点分别找一条到边界的路径，且这 $m$ 条路径互不相交（即任意两条路径上没有一个相同的结点）。</p>
-<p><img alt="https://i.loli.net/2018/10/14/5bc2ec2948f8b.png" src="https://i.loli.net/2018/10/14/5bc2ec2948f8b.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="https://i.loli.net/2018/10/14/5bc2ec2948f8b.png" src="https://i.loli.net/2018/10/14/5bc2ec2948f8b.png" /></p>
 <p>黑点表示起始点，其他点用白点表示。找出的路径用加粗的线表示。图 (a) 存在符合条件的 $m$ 条路径，图 (b) 则不存在。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行是一个整数，为 $n$ $(1\le n≤35)$。</p>
@@ -472,6 +467,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,9 +391,9 @@
 <p>He already has quite an impressive collection, and some of them he likes    more than the others.</p>
 <p>Each chain consists of a certain number of colorful links.</p>
 <p>Byteasar has noticed that Bytie's sense of aesthetics is very precise.</p>
-<p>It turns out that Bytie finds a contiguous fragment of a chain nice if    it contains exactly    <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.1.png" /> links of color <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.2.png" /> links of color <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.3.png" /> links of color <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.4.png" />,    and moreover it contains no links of other colors.</p>
+<p>It turns out that Bytie finds a contiguous fragment of a chain nice if    it contains exactly    <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.1.png" /> links of color <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.2.png" /> links of color <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.3.png" /> links of color <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.4.png" />,    and moreover it contains no links of other colors.</p>
 <p>A chain's appeal is its number of (contiguous) fragments that are nice.</p>
-<p>By trial and error, Byteasar has determined the values <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.5.png" /> and <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.6.png" />.</p>
+<p>By trial and error, Byteasar has determined the values <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.5.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.6.png" />.</p>
 <p>Now he would like to buy a new chain, and therefore asks you to write a program to aid him in shopping.</p>
 <p>给定一个长度为 $n$ 的序列 $a$ 和 $m$ 个条件（每个条件中包含键 $c_i$ 和值 $l_i$），要求找出满足下列条件的子串的数量并输出：</p>
 <ul>
@@ -411,13 +406,13 @@
 </ul>
 <p>先输入 $n$ 和 $m$，再输入 $m$ 个条件的 $l_i$，然后输入 $m$ 个条件的 $c_i$，最后输入 $a_i$。</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input gives two integers, <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.7.png" /> and <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.8.png" />      (<img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.9.png" />), separated by a single space.</p>
+<p>The first line of the standard input gives two integers, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.7.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.8.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.9.png" />), separated by a single space.</p>
 <p>These are the length of the chain and the length of a nice fragment's description.</p>
-<p>The second line gives <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.10.png" /> integers, <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.11.png" /> (<img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.12.png" />),      separated by single spaces.</p>
-<p>The third line gives <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.13.png" /> integers, <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.14.png" />      (<img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.15.png" />, <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.16.png" /> for <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.17.png" />), also separated by single spaces.</p>
-<p>The sequences <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.18.png" /> and <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.19.png" /> define a nice fragment of a chain - it has to contain exactly <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.20.png" /> links of color <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.21.png" />.</p>
-<p>The fourth line gives <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.22.png" /> integers, <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.23.png" /> (<img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.24.png" />),      separated by single spaces, that are the colors of successive links of      the chain.</p>
-<p>In tests worth 50% of total points the constraint <img alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.25.png" /> holds in addition.</p>
+<p>The second line gives <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.10.png" /> integers, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.11.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.12.png" />),      separated by single spaces.</p>
+<p>The third line gives <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.13.png" /> integers, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.14.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.15.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.16.png" /> for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.17.png" />), also separated by single spaces.</p>
+<p>The sequences <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.18.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.19.png" /> define a nice fragment of a chain - it has to contain exactly <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.20.png" /> links of color <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.21.png" />.</p>
+<p>The fourth line gives <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.22.png" /> integers, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.23.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.24.png" />),      separated by single spaces, that are the colors of successive links of      the chain.</p>
+<p>In tests worth 50% of total points the constraint <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/lan-en-tex.25.png" /> holds in addition.</p>
 <h2 id="_3">输出格式</h2>
 <p>Your program is to print a single integer, the number of nice contiguous    fragments in the chain, to the first and only line of the standard output.</p>
 <h2 id="_4">输入输出样例</h2>
@@ -486,6 +481,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

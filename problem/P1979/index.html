@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -433,11 +428,11 @@
 <li>第一次游戏，空白格子的初始位置是 $(3,2)$（图中空白所示），游戏的目标是将初始位置在 $(1, 2)$ 上的棋子（图中绿色圆圈所代表的棋子）移动到目标位置 $(2, 2)$（图中红色的格子）上。</li>
 </ol>
 <p>移动过程如下：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/n0q385tw.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/n0q385tw.png" /></p>
 <ol>
 <li>第二次游戏，空白格子的初始位置是 $(1, 2)$（图中空白所示），游戏的目标是将初始位置在 $(2, 2)$ 上的棋子（图中绿色圆圈所示）移动到目标位置  $(3, 2)$ 上。</li>
 </ol>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/aq9apos0.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/aq9apos0.png" /></p>
 <p>要将指定块移入目标位置，必须先将空白块移入目标位置，空白块要移动到目标位置，必然是从位置 $(2,2)$ 上与当前图中目标位置上的棋子交换位置，之后能与空白块交换位置的只有当前图中目标位置上的那个棋子，因此目标棋子永远无法走到它的目标位置， 游戏无法完成。</p>
 <p><strong>数据范围</strong></p>
 <p>对于 $ 30\%$ 的数据，$1 ≤ n, m ≤ 10,q = 1$；</p>
@@ -493,6 +488,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

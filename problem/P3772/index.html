@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -449,7 +444,7 @@
 <p>对于 $100\%$ 的数据，$1 ≤ n ≤ 200000$，$1 ≤ m ≤ 200000$，$0 &lt; p_i, q_i &lt; 1$。</p>
 <p>对于 $100\%$ 的数据，输入保留最多四位小数。</p>
 <p>本题共有 $20$ 个数据点，每个数据点 $5$ 分, 每个测试点的具体约定如下表：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5484.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5484.png" /> </p>
 <p>【小 R 教你学数学】</p>
 <p>你可. 能. 会用到以下公式</p>
 <ol>
@@ -468,7 +463,7 @@
 </ol>
 <p>如果随机变量 $x$ 有 $k$ 个取值，分别为 $x_1, x_2,\ldots , x_k$ 那么</p>
 <p>$p(A)=\sum^{k}_{i=1} {p(A|x=x_i)p(x=x_i)}$</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5486.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5486.png" /> </p>
 <p>【温馨提示】</p>
 <p>在本题中，如果你希望获得全部的分数，你可能需要考虑由于浮点数运算引入的误差。只使用加法和乘法运算不会引入太大的误差，但请谨慎使用减法和除法。</p>
 <ol>
@@ -530,6 +525,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

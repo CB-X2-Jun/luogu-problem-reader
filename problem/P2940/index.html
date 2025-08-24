@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -401,7 +396,7 @@
 <p>Bessie pondered for a moment and realized that the torus was a device for 'wrapping' the columns, rows, and diagonals of a matrix so that one could choose contiguous elements that 'wrapped around' the side or top edge.</p>
 <p>Bessie will share the matrix with you.  Determine the value of the largest possible sum (which requires choosing at least one matrix element).</p>
 <p>By way of example, consider the 4 x 4 matrix on the left below that has all the elements from one exemplary 'wrapped' diagonal marked:</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/03z54guy.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/03z54guy.png" /></p>
 <p>The marked diagonal of the right-hand matrix includes two nines (the highest available number) and a six for a total of 24. This is the best possible sum for this matrix and includes only three of the four possible elements on its diagonal.</p>
 <p>你难以想象贝茜看到一只妖精在牧场出现时是多么的惊讶．她不是傻瓜，立即猛扑过去，用她那灵活的牛蹄抓住了那只妖精．</p>
 <p>“你可以许一个愿望，傻大个儿！”妖精说．</p>
@@ -478,6 +473,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

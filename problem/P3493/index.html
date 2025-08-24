@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -407,14 +402,14 @@
 <p>Byteasar believes your loyalty, and thus entrusts you with a task to find the shortest safe route from the town he is currently in to Byteburg.</p>
 <p>Byteotia岛屿是一个凸多边形。城市全都在海岸上。按顺时针编号1到n。任意两个城市之间都有一条笔直的道路相连。道路相交处可以自由穿行。有一些道路被游击队控制了，不能走，但是可以经过这条道路与未被控制的道路的交点。问从城市1到n的最短距离。</p>
 <h2 id="_2">输入格式</h2>
-<p>In the first line of the standard input two integers <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.1.png" /> and <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.2.png" /> are given     (<img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.3.png" />, <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.4.png" />),     separated by a single space,     that denote respectively: the number of towns and      the number of roads controlled by Bitratio's guerrilla.</p>
-<p>Let us number the towns from <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.5.png" /> to <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.6.png" /> starting from Byteburg      and moving clockwise along the shore.</p>
-<p>Bytesar is currently in the town no. <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.7.png" />.</p>
-<p>Each of the following <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.8.png" /> lines holds a pair of integers <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.9.png" /> and <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.10.png" />      (![](http://main.edu.pl/images/O…</p>
+<p>In the first line of the standard input two integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.1.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.2.png" /> are given     (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.3.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.4.png" />),     separated by a single space,     that denote respectively: the number of towns and      the number of roads controlled by Bitratio's guerrilla.</p>
+<p>Let us number the towns from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.5.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.6.png" /> starting from Byteburg      and moving clockwise along the shore.</p>
+<p>Bytesar is currently in the town no. <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.7.png" />.</p>
+<p>Each of the following <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.8.png" /> lines holds a pair of integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.9.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.10.png" />      (![](http://main.edu.pl/images/O…</p>
 <h2 id="_3">输出格式</h2>
 <p>Your programme is to print out one floating point number     to the standard output:</p>
-<p>the length of the shortest safe route leading from the town no. <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.19.png" />     to Byteburg.</p>
-<p>The absolute difference between the number returned and the correct one  has to be at most <img alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.20.png" />.</p>
+<p>the length of the shortest safe route leading from the town no. <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.19.png" />     to Byteburg.</p>
+<p>The absolute difference between the number returned and the correct one  has to be at most <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI16/wsp-en-tex.20.png" />.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -492,6 +487,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

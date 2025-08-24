@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>桃花岛其实也没什么好玩的，黄蓉经常偷偷跑到江湖上与洪七公等人玩。于是，黄药师就经常想一些游戏与女儿玩，为了是把黄蓉留在身边，江湖险恶啊！</p>
 <p>这次黄药师又想了一种模拟游戏，游戏是这样的：她把整个桃花岛划分成一个坐标系。游戏开始前，黄蓉站在平面坐标系的一个点上，而她的闺房在坐标系的另一个点上，任何时候，她可以从当前所在点跨一步达到她周围的上、下、左、右四个点，黄药师不断地说四个字“东（E）”、“南（S）”、“西（W）”、“北（N）”，则黄蓉就想象着不断地从一个点走到另一个点，直至到自己的闺房为止。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/gso383g9.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/gso383g9.png" /></p>
 <p>比如，黄蓉开始时站在 $\rm A$ 点，她的家在 $\rm B$ 点，黄药师连续说了一串：$\verb!NNNENNWWWSSW!$，则走了如下一个线路。然后，黄药师会问黄蓉：中间有没有走“弯路”了？即有没有捷径好走？比如，下图中就有多条捷径，可以从 $\rm C$ 走 $\verb!NN!$ 而到 $\rm E$，或走 $\verb!WW!$ 直接到 $\rm D$。</p>
 <p>注意：捷径必须是直线。</p>
 <p>黄药师听说你是一个程序设计高手，就想请你编个程序帮他测测这个游戏的难度，以便改进游戏规则后再让黄蓉挑战。</p>
@@ -472,6 +467,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

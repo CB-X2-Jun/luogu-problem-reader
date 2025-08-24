@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>千年虫是远古时代的生物，时隔几千万年，千年虫早已从地球上销声匿迹，人们对其知之甚少。考古生物学家最近开始对其有了兴趣，因为一批珍贵的千年虫化石被发现，这些化石保留了千年虫近乎完整的形态。</p>
 <p>理论科学家们根据这些化石归纳出了千年虫的一般形态特征模型，并且据此判定出千年虫就是蜈蚣的祖先！但科学家 J 发现了实际与理论的一些出入，他仔细的研究了上百个千年虫化石，发现其中大部分千年虫的形态都不完全符合理论模型，这到底是什么因素造成的呢？理论科学家 K 敏锐的指出，千年虫的形态保存在化石中很有可能发生各种变化，即便最细微的变化也能导致它不符合模型。</p>
 <p>于是，摆在科学家面前的新问题诞生了：判断一个化石中的千年虫与理论模型的差距有多大？具体来说，就是根据一个千年虫化石的形态 $A$，找到 一个符合理论模型的形态 $B$，使得 $B$ 是最有可能在形成化石时变成形态 $A$。理论学家提出的“千年虫形态特征模型”如下（如左图所示）：躯体由头、尾、躯干、足四大部分构成。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1876.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1876.png" /></p>
 <ul>
 <li>
 <p>头，尾用一对平行线段表示。称平行于头、尾的方向为 $x$ 方向；垂直于 $x$ 的方向为 $y$ 方向；</p>
@@ -428,9 +423,9 @@
 </li>
 </ul>
 <p>倘若满足上面五条，我们仍然可以用 $(n,L_1,L_2,\dots,L_n,R_1,R_2,\dots,R_n)$ 来描述一个化石里头的千年虫的形态。其中 $L_i\le R_i$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1879.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1879.png" /></p>
 <p>例如下图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1878.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1878.png" /></p>
 <p>现在你的任务是，输入一个化石里的千年虫的描述 $A$，找一个满足理论模型的千年虫的描述 $B$，使得 $B$ 可以通过腐蚀过程得以变为 $A$，且由 $B$ 转化为 $A$ 的代价（须被腐蚀的格子数）最少。输出此最小代价。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行为一个整数 $n$。</p>
@@ -457,7 +452,7 @@
 <h2 id="_5">说明/提示</h2>
 <p>【样例说明】</p>
 <p>如图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1877.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1877.png" /></p>
 <p>【评分方法】</p>
 <p>本题没有部分分，你的程序的输出只有和我们的答案完全一致才能获得满分，否则不得分。</p>
 <p>【数据范围】</p>
@@ -515,6 +510,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

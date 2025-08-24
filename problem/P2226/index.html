@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <p>在赛车的马力和灵活性等性能相差较小的情况下，要控制速度极快的赛车绕开障碍物移动到终点，关键是提高选手的反应灵敏度，即两次改变赛车运动方向所间隔的最短时间，也可称为选手的反应时间。使自己能够更快地控制赛车改变前进的方向。</p>
 <p>当然，由于选手反应灵敏度的不同，可选择的路径就会大不相同。如图 $1$ 和图 $2$ 所示，对于同一个赛场，两位选手的反应时间分别为 $2$ 秒和 $1$ 秒，而其到达终点所需的时间分别为 $18$ 秒和 $16$ 秒（赛车每秒可沿当前方向移动一格，从起点出发时算改变一次方向）。</p>
 <p>由图 $1$ 和图 $2$ 可知，赛车的最短路线长度是由选手的反应灵敏度所决定的，当选手的反应很慢时，可能就不会存在可行的路径。你的任务是：在能够完成赛程（即存在从起点到终点的路径）的条件下，求出选手每个可能的反应时间所对应的最短路线长度。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1294.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1294.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包含两个整数 $N$ 和 $M$，表示赛场的行数和列数。$1≤N, M≤100$。</p>
 <p>第二行有四个整数 $x1$、$y1$、$x2$、$y2$，表示赛程的起点和终点的位置分别为 $(x1, y1$ 和 $x2,y2$。</p>
@@ -474,6 +469,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

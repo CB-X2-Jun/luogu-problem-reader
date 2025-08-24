@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -428,7 +423,7 @@
 <p>保证输入的所有数字均小于 $10^5$。</p>
 <h3 id="2023622">样例解释（2023/6/22 更新）</h3>
 <p>如下图所示是输入样例所对应的价格变化图，横轴表示销售价格，纵轴表示销量。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/21mhtm5i.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/21mhtm5i.png" /></p>
 <p>根据题意，$28$ 元是商品的成本。销售价格不应该低于 $28$ 元；当销售价格大于给出的价格的最大值 $31$ 元后，按照售价每提高一元，销量降低 $15$ 计算，例如当售价为 $33$ 元时，销量为 $110-15\times (33-31)=80$。在给出来的价位之间，销量呈线性变化。</p>
 <p>当政府给该商品补贴 $4$ 元后，企业将该商品定价为 $31$ 元时，取得的利润为 $31-28+4=7$ 元，销量为 $110$ 件，总利润为 $7\times 110=770$ 元，是企业在所有定价下能够取得的最大的总利润。此时企业的售价为政府的期望售价，因此是一个合法方案。</p>
         </div>
@@ -481,6 +476,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

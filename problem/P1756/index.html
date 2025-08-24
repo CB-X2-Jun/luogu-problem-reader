@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>小 Z 是一位杰出的数学家。聪明的他特别喜欢研究一些数学小问题。</p>
 <p>有一天，他在一张纸上选择了 $n$ 个点，并用铅笔将它们两两连接起来，构成 $\dfrac{n(n-1)}{2}$ 条线段。由于铅笔很细，可以认为这些线段的宽度为 $0$。</p>
 <p>望着这些线段，小 Z 陷入了冥想中。他认为这些线段中的一部分比较重要，需要进行强调。因此小 Z 拿出了毛笔，将它们重新进行了描边。毛笔画在纸上，会形成一个半径为 $r$ 的圆。在对一条线段进行描边时，毛笔的中心（即圆心）将从线段的一个端点开始，沿着该线段描向另一个端点。下图即为在一张 $4$ 个点的图中，对其中一条线段进行描边强调后的情况。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/h92i5d69.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/h92i5d69.png" /></p>
 <p>现在，小 Z 非常想知道在描边之后纸面上共有多大面积的区域被强调，你能帮助他解答这个问题么？</p>
 <h2 id="_2">输入格式</h2>
 <p>本题是一道提交答案型试题，所有的输入文件 <code>path1.in</code> $\sim$ <code>path10.in</code> 已在相应目录下。</p>
@@ -485,6 +480,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

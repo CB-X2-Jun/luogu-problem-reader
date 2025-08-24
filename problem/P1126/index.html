@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -405,7 +400,7 @@
 <p>第一行为两个正整数 $N,M\ (1\le N,M\le50)$，下面 $N$ 行是储藏室的构造，$0$ 表示无障碍，$1$ 表示有障碍，数字之间用一个空格隔开。接着一行有 $4$ 个整数和 $1$ 个大写字母，分别为起始点和目标点左上角网格的行与列，起始时的面对方向（东 $\tt  E$，南 $\tt  S$，西 $\tt W$，北 $\tt N$），数与数，数与字母之间均用一个空格隔开。终点的面向方向是任意的。</p>
 <h2 id="_3">输出格式</h2>
 <p>一个整数，表示机器人完成任务所需的最少时间。如果无法到达，输出 $-1$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mma661em.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mma661em.png" /></p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -475,6 +470,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

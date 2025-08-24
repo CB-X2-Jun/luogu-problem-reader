@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>这天晚上的观测条件实在是空前的好，ZDM-99 星球也十分明亮，不时呈现出若干个激光点，天文学家们推定这些激光点极有可能存在地球以外的智慧生命。遗憾的是仅持续很短的一段时间，这些激光点就消失了。</p>
 <p>ZDM 实验室的射电望远镜观测的区域有限，只可以遥感检测到一个半径为 $R$ 的圆形区域。为了能同时能检测到所有的激光点，ZDM 实验室需要要在一个水平的直线上尽快地安装多个的射电望远镜来。</p>
 <p>不妨设，这条安放射电望远镜的水平直线为 X 轴，ZDM-99 星球激光点就处在 $P_1(x_1,y_1),P_1(x_1,y_1),\cdots,P_1(x_n,y_n)$（忽略 Z 坐标）</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5206.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5206.png" /> </p>
 <p>ZDM 实验室的天文学家们想知道，至少需要安装多少个射电望远镜才能检测到所有激光点。</p>
 <h2 id="_2">输入格式</h2>
 <p>第 1 行，$N, R$ 分别表示激光点的个数和射电望远镜能检测到的半径。</p>
@@ -470,6 +465,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

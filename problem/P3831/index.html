@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <h2 id="_2">题目描述</h2>
 <p>2046 年 OI 城的城市轨道交通建设终于全部竣工，由于前期规划周密，建成后的轨道交通网络由 $2n$ 条地铁线路构成，组成了一个 $n$ 纵 $n$ 横的交通网。如下图所示，这 $2n$ 条线路每条线路都包含 $n$ 个车站，而每个车站都在一组纵横线路的交汇处。</p>
 <p>出于建设成本的考虑，并非每个车站都能够进行站内换乘，能够进行站内换乘的地铁站共有 $m$ 个，在下图中，标上方块标记的车站为换乘车站。已知地铁运行 $1$ 站需要 $2$ 分钟，而站内换乘需要步行 $1$ 分钟。Serenade 想要知道，在不中途出站的前提下，他从学校回家最快需要多少时间（等车时间忽略不计）。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6547.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6547.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行有两个整数 $n,m$。</p>
 <p>接下去 $m$ 行每行两个整数 $x,y$，表示第 $x$ 条横向线路与第 $y$ 条纵向线路的交</p>
@@ -509,6 +504,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

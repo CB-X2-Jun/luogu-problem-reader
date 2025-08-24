@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <h2 id="_2">题目描述</h2>
 <p>皇后有 $n$ 位大臣，每位大臣的左右手上面分别写上了一个正整数。恰逢国庆节来临，皇后决定为 $n$ 位大臣颁发奖金，其中第 $i$ 位大臣所获得的奖金数目为第 $i - 1$ 位大臣所获得奖金数目与前 $i$ 位大臣左手上的数的和的较大值再加上第 $i$ 位大臣右手上的数。</p>
 <p>形式化地讲：我们设第 $i$ 位大臣左手上的正整数为 $a_i$，右手上的正整数为 $b_i$，则第 $i$ 位大臣获得的奖金数目为 $c_i$ 可以表达为：</p>
-<p>$$ c_{i} = \begin{cases} a_{1}+b_{1}  &amp; ,i=1 \ \displaystyle \max \left { c_{i-1},\sum_{j=1}^{i}a_{j} \right } +b_{i} &amp; ,2\leq i \leq n \end{cases} % <img alt="" src="https://cdn.luogu.com.cn/upload/pic/1257.png" /> $$</p>
+<p>$$ c_{i} = \begin{cases} a_{1}+b_{1}  &amp; ,i=1 \ \displaystyle \max \left { c_{i-1},\sum_{j=1}^{i}a_{j} \right } +b_{i} &amp; ,2\leq i \leq n \end{cases} % <img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1257.png" /> $$</p>
 <p>当然，吝啬的皇后并不希望太多的奖金被发给大臣，所以她想请你来重新安排一下队伍的顺序，使得获得奖金最多的大臣，所获奖金数目尽可能的少。</p>
 <p>注意：重新安排队伍并不意味着一定要打乱顺序，我们允许不改变任何一位大臣的位置。</p>
 <h2 id="_3">输入格式</h2>
@@ -513,6 +508,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

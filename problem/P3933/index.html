@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -399,16 +394,16 @@
 <p><strong>今の、私は</strong></p>
 <p><strong>谁が何と言おうと</strong></p>
 <h2 id="_2">世界一、幸せな女の子だ</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9193.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9193.png" /></p>
 <h2 id="_3">题目描述</h2>
 <p>——“假如……我是说假如喔。</p>
 <p>万一我再过五天就会死，你能不能对我温柔一点？”</p>
 <p>巨大的六号兽五天后将袭击浮游大陆。</p>
 <p>无数次计算得到的残酷数据表明，只有圣剑瑟尼欧尼斯的适格精灵——珂朵莉·诺塔·瑟尼欧尼斯(Chtholly Nota Seniorious)开启妖精乡之门，才可以以生命为代价守住浮游岛。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9228.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9228.png" /> </p>
 <p>“至少，我也希望自己不用消失，也想让别人记住。我也想留下羁绊啊。”</p>
 <p>留给妖精少女珂朵莉的时间似乎已经不多了。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9229.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9229.png" /> </p>
 <p>年轻的二等技官，妖精仓库的管理员，世界上最后一个人类——威廉·克梅<strong>修</strong>，数百年前曾经是一名准勇者，掌握着成为一名勇者所需要的所有知识。</p>
 <p>大战在即，调整圣剑的状态成为了一项重要的任务。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">瑟尼欧里斯</span><span class="err">（</span><span class="n">セニオリス</span><span class="err">）</span>
@@ -441,7 +436,7 @@
 <p>其中(1)(2)是不允许的分法，(3)是允许的分法。在(2)中，a属于A区域，这两个a元素之间互相到达，没有办法最多只拐一次弯。</p>
 <p>现在要问，所有合法的分法中，A区域的极差与B区域的极差 中间较大的一个的 <strong>最小值</strong> 是多少？</p>
 <p>好心而可爱的在一旁默默观察奈芙莲悄悄地告诉你，极差就是区域内最大值减去最小值。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9230.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9230.png" /> </p>
 <p>夜晚的风吹拂着，68号岛上的景色竟与地上的森林无异。转念又想，黄金妖精本身就是与森林之中出现，成长，消亡的神秘存在啊。</p>
 <p>时间不早了，早上训练中落败的珂朵莉即将回来了。您要尽快和威廉一起调整好圣剑，千万不能迟哟。</p>
 <h2 id="_4">输入格式</h2>
@@ -506,7 +501,7 @@
 </table>
 <p>对于所有的权值$1\le A_{i,j} \le 10^9$</p>
 <p>《末日时在做什么？有没有空？可以来拯救吗？》</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9235.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9235.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -557,6 +552,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

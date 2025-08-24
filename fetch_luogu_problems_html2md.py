@@ -117,6 +117,9 @@ def fetch_problem_html(pid):
         md_parser = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'codehilite'])
         content_html = md_parser.convert(content_md)
         
+        # 处理图片标签 - 直接在HTML中添加尺寸控制
+        content_html = process_image_tags(content_html)
+        
         return {
             'pid': f'P{pid}',
             'title': title,
@@ -132,6 +135,37 @@ def generate_md(problem):
     return f"# {problem['pid']} {problem['title']}\n\n{problem['content_md']}\n"
 
 import re
+
+def process_image_tags(html_content):
+    """处理HTML中的图片标签，添加尺寸控制属性"""
+    import re
+    
+    # 匹配所有img标签，但跳过LaTeX数学公式图片
+    def replace_img_tag(match):
+        img_tag = match.group(0)
+        
+        # 跳过LaTeX数学公式图片
+        if 'latex' in img_tag.lower():
+            return img_tag
+        
+        # 如果已经有style属性，就在其中添加max-width
+        if 'style=' in img_tag:
+            # 在现有style中添加max-width
+            img_tag = re.sub(r'style="([^"]*)"', r'style="\1; max-width: 100%; height: auto;"', img_tag)
+        else:
+            # 添加style属性
+            img_tag = img_tag.replace('<img', '<img style="max-width: 100%; height: auto;"')
+        
+        # 移除可能存在的width和height属性，避免冲突
+        img_tag = re.sub(r'\s+width="[^"]*"', '', img_tag)
+        img_tag = re.sub(r'\s+height="[^"]*"', '', img_tag)
+        
+        return img_tag
+    
+    # 使用正则表达式匹配并替换所有img标签
+    processed_html = re.sub(r'<img[^>]*>', replace_img_tag, html_content)
+    
+    return processed_html
 
 def safe_template_format(template, **kwargs):
     """使用占位符替换系统格式化HTML模板，完全避免花括号冲突"""
@@ -263,6 +297,9 @@ def refresh_html_files():
                     # 使用标准Markdown转换为HTML，确保代码块正确渲染
                     md_parser = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'codehilite'])
                     article_html = md_parser.convert(content_to_convert)
+                    
+                    # 处理图片标签 - 直接在HTML中添加尺寸控制
+                    article_html = process_image_tags(article_html)
                     
                     # 创建问题对象
                     problem = {

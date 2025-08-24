@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>又到暑假了，住在城市 A 的 Car 想和朋友一起去城市旅游。<br />
 她知道每个城市都有 $4$ 个飞机场，分别位于一个矩形的 $4$ 个顶点上，同一个城市中两个机场之间有一条笔直的高速铁路，第 $i$ 个城市中高速铁路的单位里程价格为 $T_i$，任意两个不同城市的机场之间均有航线，所有航线单位里程的价格均为 $t$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/odqxn9sz.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/odqxn9sz.png" /></p>
 <p><strong>注意</strong>：图中并没有标出所有的铁路与航线。</p>
 <p>那么 Car 应如何安排到城市 B 的路线才能尽可能的节省花费呢？她发现这并不是一个简单的问题，于是她来向你请教。</p>
 <p>找出一条从城市 A 到 B 的旅游路线，出发和到达城市中的机场可以任意选取，要求总的花费最少。</p>
@@ -475,6 +470,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

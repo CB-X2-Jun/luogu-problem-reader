@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -398,7 +393,7 @@
 <p>每条预定路径上的生物标本的价值是已知的，而且生物标本只能被采集一次。</p>
 <p>本题限定深海机器人只能从其出发位置沿着向北或向东的方向移动，而且多个深海机器人可以在同一时间占据同一位置。</p>
 <p>用一个 $P\times Q$ 网格表示深海机器人的可移动位置。西南角的坐标为 $(0,0)$，东北角的坐标为 $(Q,P)$ 。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12215.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/12215.png" /> </p>
 <p>给定每个深海机器人的出发位置和目标位置，以及每条网格边上生物标本的价值。</p>
 <p>计算深海机器人的最优移动方案， 使深海机器人到达目的地后，采集到的生物标本的总价值最高。</p>
 <h2 id="_2">输入格式</h2>
@@ -483,6 +478,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

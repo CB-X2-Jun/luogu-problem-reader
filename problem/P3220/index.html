@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>如果你能提供题面或者题意简述，请直接在讨论区发帖，感谢你的贡献。</p>
 <h2 id="_2">题目描述</h2>
 <p>NAND（与非）是一种二元逻辑运算，其运算结果为真当且仅当两个输入的布尔值不全为真。NAND运算的真值表如下（1表示真，0表示假）:</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/7851.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/7851.png" /> </p>
 <p>两个非负整数的NAND是指将它们表示成二进制数，再在对应的二进制位进行NAND运算。由于两个二进制数的长度可能不等，因此一般约定一个最高位K，使得两个数的二进制表示都不 超过K位，不足K位的在高位补零。给定N个非负整数A1,A2......AN和约定位数K，利用NAND运算与括号，每个数可以使用任意次，请你求出范围[L,R]内可以被计算出的数有多少个。</p>
 <h2 id="_3">输入格式</h2>
 <p>输入文件第一行是用空格隔开的四个正整数N，K，L和R，接下来的一行是N个非负整数A1,A2......AN，其含义如上所述。 100%的数据满足K&lt;=60且N&lt;=1000,0&lt;=Ai&lt;=2^k-1,0&lt;=L&lt;=R&lt;=10^18</p>
@@ -464,6 +459,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

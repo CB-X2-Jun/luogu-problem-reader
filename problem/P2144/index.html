@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>轮状病毒有很多变种。许多轮状病毒都是由一个轮状基产生。一个 $n$ 轮状基由圆环上 $n$ 个不同的基原子和圆心的一个核原子构成。$2$ 个原子之间的边表示这 $2$ 个原子之间的信息通道，如图 1 所示。</p>
 <p>$n$ 轮状病毒的产生规律是在 $n$ 轮状基中删除若干边，使各原子之间有唯一一条信息通道。例如，共有 $16$ 个不同的 $3$ 轮状病毒，如图 2 所示。</p>
 <p>给定 $n\ (n\le100)$，编程计算有多少个不同的 $n$ 轮状病毒。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1408.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1408.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行有 $1$ 个正整数 $n$。</p>
 <h2 id="_3">输出格式</h2>
@@ -459,6 +454,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

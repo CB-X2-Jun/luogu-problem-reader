@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -402,7 +397,7 @@
 <strong>元気だよ元気をだしていくよ</strong>   <br />
 <strong>拿出活力 打起精神向前迈进吧</strong>     </p>
 </blockquote>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4471.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4471.png" /> </p>
 <p>我们 Aqours，要第一次举办演唱会啦！</p>
 <p>虽然学生会长看上去不怎么支持我们的样子，可是有了理事长的支持，我们还是被允许在校内的篮球场里歌唱！</p>
 <p>歌曲也好好地准备过了，名字叫“<a href="https://zh.moegirl.org/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E8%AF%9D%E5%B0%B1%E6%B2%A1%E9%97%AE%E9%A2%98">最喜欢的话就没问题！ (ダイスキだったらダイジョウブ！)</a>“，大家一定会喜欢的吧！</p>
@@ -531,6 +526,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

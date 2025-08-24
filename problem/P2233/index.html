@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>在长沙城新建的环城公路上一共有 $8$ 个公交站，分别为 A、B、C、D、E、F、G、H。公共汽车只能够在相邻的两个公交站之间运行，因此你从某一个公交站到另外一个公交站往往要换几次车，例如从公交站 A 到公交站 D，你就至少需要换 $3$ 次车。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1297.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1297.png" /> </p>
 <p>Tiger 的方向感极其糟糕，我们知道从公交站 A 到公交 E 只需要换 $4$ 次车就可以到达，可是 tiger 却总共换了 $n$ 次车，注意 tiger 一旦到达公交站 E，他不会愚蠢到再去换车。现在希望你计算一下 tiger 有多少种可能的乘车方案。</p>
 <h2 id="_2">输入格式</h2>
 <p>仅有一个正整数 $n$，表示 tiger 从公交车站 A 到公交车站 E 共换了 $n$ 次车。</p>
@@ -467,6 +462,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>3206 年 5 月，正在钻研 ET 专业的刘博士所在的 OI 团队发现：地球受到了来自外星球的生物人的侵袭。这些生物人采取了极秘的乘法加密电文，控制了具有大量武器的军火库，攻占了大量的城市，甚至出现了 K 弹计划……</p>
 <p>刘博士所在的 OI 团队决定要发挥他们的科研机构作用（由于吉林省所在的地理位置具有特殊的优势，此科研机构全球只有吉林一处），以制伏这些外星球的生物人。他们想方设法捕获了几个外星球的生物人，经研究后发现，这些外星球的生物人在地球上的生存，取决于一个参数：生存度。他们要做的就是：找到这个参数的最大值！于是，他们开始了对这些外星球的生物人生长的研究。</p>
 <p>每次实验前，他们把一个外星球生物人的细胞随机地放在一个 $N\times N$ 的方形培养容器的一格中，并给容器的每个格子都标了一个数值，是生物在此单元的生存度（可正可负，数值越大表示越危险）。整个生物的生存度是生物所有占据格子的生存度之和。每次实验开始后，让生物自然生长。这个生物每一单位时间都选择其身体的一部分（某个格子），随机地向与之有公共边的空格生长，例如某次实验，一开始生物只占据一个格子，然后开始了生长：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6844.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6844.png" /> </p>
 <p>刘博士所在的 OI 团队做了大量的实验，并且对数据进行了记录和统计。假设进行的实验次数足够多，问在实验进行的某一时刻，该生物达到的最大生存度是多少？</p>
 <p>3206 年 9 月，妄图破坏地球的外星球生物人终于被刘博士所在的 OI 团队制伏了……</p>
 <h2 id="_2">输入格式</h2>
@@ -471,6 +466,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

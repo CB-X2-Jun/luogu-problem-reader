@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -401,7 +396,7 @@
 <p>命题委员会选择了单源最短路（SSSP）以及一个被称之为神秘问题（Mystery）的两个图论问题来作为比赛的题目。我们将命题委员会完成的伪代码列在了附录中，而具体的 C、C++ 和 Pascal 源程序被我们放在了下发的文件当中。</p>
 <h3 id="_2">子任务</h3>
 <p>参见下表。表中每一行描述了一个子任务。其中前六个子任务与单源最短路相关，子任务 7,8 与神秘问题相关。每个任务所占分数见下表。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4428.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4428.png" /> </p>
 <p>对于每个子任务，你的程序给出的输入 $X$ 需要能够将源程序 $A$ 和 $B$ 区分开来，这有这样你才能够得到相应的分数。具体说来，你的分数将由输入 $X$ 中数的个数决定。假设 $X$ 中包含了 $F$ 个整数，子任务的满分为 $S,T$ 是该任务的目标大小，则该测试点的分数将由下式给出:</p>
 <p>$$S \times \min{T / F, 1}$$</p>
 <p>也就是说，如果你的测试数据 $X$ 中含有不超过 $T$ 个整数，则你将得到该任务的全部得分。</p>
@@ -599,6 +594,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

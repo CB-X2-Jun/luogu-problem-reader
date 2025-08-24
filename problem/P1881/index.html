@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>FJ 有一个长度为 $L$（$1 \le L \le 10,000$）的绳子。这个绳子上有 $N$（$1 \le N \le 100$）个结，包括两个端点。FJ 想将绳子对折，并使较短一边的绳子上的结与较长一边绳子上的结完全重合，如图所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1spqhchu.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1spqhchu.png" /></p>
 <p>找出 FJ 有多少种可行的折叠方案。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行：两个整数，$N$ 和 $L$。</p>
@@ -467,6 +462,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

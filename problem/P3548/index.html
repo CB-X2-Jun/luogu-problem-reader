@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -405,14 +400,14 @@
 <p>Your task is to determine if there is such a spot that placing the lamp    in it satisfies the following:</p>
 <p>each wall is to be either completely illuminated or completely shaded, as required by the tapestry hanging on it;        there can be no wall that is partly illuminated and partly shaded;                  if the lamp is located exactly on the wall or its extension, this wall is not illuminated;                the lamp can neither be switched off nor taken away from the room; it has      to be on while located (strictly) inside the room (i.e., it cannot be      placed in a corner or on any wall).</p>
 <h2 id="_2">输入格式</h2>
-<p>There is a single integer <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.1.png" /> (<img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.2.png" />) in the first line of      the standard input, denoting the number of data sets.</p>
+<p>There is a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.1.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.2.png" />) in the first line of      the standard input, denoting the number of data sets.</p>
 <p>The following lines describe these data sets.</p>
-<p>The first line of a single description holds a single integer <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.3.png" /> (<img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.4.png" />), denoting the number of walls in the main exhibition room.</p>
-<p>Then the following <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.5.png" /> lines specify the room's shape.</p>
-<p>Each of those lines contains a pair of integers <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.6.png" /> and <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.7.png" />      (<img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.8.png" /> for <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.9.png" />), separated by      a single space, denoting the coordinates of the room's corner or, in      other words, the vertex of corresponding polygon.  The vertices are given      clockwise.</p>
-<p>The next <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.10.png" /> lines specify the tapestries' requirements.</p>
+<p>The first line of a single description holds a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.3.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.4.png" />), denoting the number of walls in the main exhibition room.</p>
+<p>Then the following <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.5.png" /> lines specify the room's shape.</p>
+<p>Each of those lines contains a pair of integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.6.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.7.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.8.png" /> for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.9.png" />), separated by      a single space, denoting the coordinates of the room's corner or, in      other words, the vertex of corresponding polygon.  The vertices are given      clockwise.</p>
+<p>The next <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.10.png" /> lines specify the tapestries' requirements.</p>
 <p>Each of those lines contains a single letter, S or      C, denoting that the wall has to be illuminated or shaded,      respectively.</p>
-<p>The letter in the <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.11.png" />-th of these lines (for <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.12.png" />)      regards the wall between the <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.13.png" />-th and the <img alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.14.png" />-th vertex.</p>
+<p>The letter in the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.11.png" />-th of these lines (for <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.12.png" />)      regards the wall between the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.13.png" />-th and the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/gob-en-tex.14.png" />-th vertex.</p>
 <p>The letter in the last of these lines regards the wall between the last      and the first vertex.</p>
 <p>The polygon depicting the room's shape has no self-crossings, i.e.,      with the exception of successive sides, which share a common vertex,      no two sides of the polygon share a common point.  Furthermore, no three      vertices …</p>
 <h2 id="_3">输出格式</h2>
@@ -510,6 +505,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

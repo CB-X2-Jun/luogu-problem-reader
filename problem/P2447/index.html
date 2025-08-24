@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,12 +391,12 @@
 <p>在带回的活体样本中，最吸引人的当属这些来自外星的千足虫了。这些虫子身躯纤长，身体分为若干节。受到触碰时，会将身体卷曲成圆环形，间隔一段时间后才会复原活动。</p>
 <p>有趣的还不止如此。研究人员发现，这些虫子的足并不像地球千足虫成对出现、总共偶数条——它们每节身体下方都有着不定数量的足，但足的总数一定是奇数条！</p>
 <p>虽然从外观难以区分二者，但通过统计足的数目，科学家们就能根据奇偶性判断出千足虫所属的星球。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1592.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1592.png" /></p>
 <p>作为 J 国派去 NASA 的秘密间谍，你希望参加这次研究活动以掌握进一步的情报，而 NASA 选拔的研究人员都是最优秀的科学家。于是 NASA 局长 Charles Bolden 出了一道难题来检测你的实力：</p>
 <p>现在你面前摆有 $1\ldots N$ 编号的 $N$ 只千足虫，你的任务是鉴定每只虫子所属的星球，但不允许亲自去数它们的足。</p>
 <p>Charles 每次会在这 $N$ 只千足虫中选定若干只放入“昆虫点足机”（the Insect Feet Counter, IFC）中，“点足机”会自动统计出其内所有昆虫足数之和。Charles 会将这个和数 $\bmod$ $2$ 的结果反馈给你，同时告诉你一开始放入机器中的是哪几只虫子。</p>
 <p>他的这种统计操作总共进行 $M$ 次，而你应当尽早得出鉴定结果。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1593.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1593.png" /></p>
 <p>假如在第 $K$ 次统计结束后，现有数据就足以确定每只虫子的身份，你就还应将这个 $K$ 反馈给 Charles，此时若 $K&lt;M$，则表明那后 $M-K$ 次统计并非必须的。</p>
 <p>如果根据所有 $M$ 次统计数据还是无法确定每只虫子身份，你也要跟 Charles 讲明：就目前数据会存在多个解。</p>
 <h2 id="_2">输入格式</h2>
@@ -505,6 +500,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

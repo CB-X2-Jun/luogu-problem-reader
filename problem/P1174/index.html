@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>小红很喜欢玩一个叫打砖块的游戏，这个游戏的规则如下：</p>
 <p>在刚开始的时候，有 $n$ 行 $m$ 列的砖块，小红有 $k$ 发子弹。小红每次可以用一发子弹，打碎某一列当前处于这一列最下面的那块砖，并且得到相应的得分。（如图所示）</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/twgirdp6.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/twgirdp6.png" /></p>
 <p>某些砖块在打碎以后，还可能将得到一发子弹的奖励。最后当所有的砖块都打碎了，或者小红没有子弹了，游戏结束。</p>
 <p>小红在游戏开始之前，就已经知道每一块砖在打碎以后的得分，并且知道能不能得到一发奖励的子弹。小红想知道在这次游戏中她可能的最大得分，可是这个问题对于她来说太难了，你能帮帮她吗？</p>
 <h2 id="_2">输入格式</h2>
@@ -473,6 +468,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

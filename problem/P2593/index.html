@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>很多人都知道玩麻将，当然也有人不知道，呵呵，不要紧，我在这里简要地介绍一下麻将规则：</p>
 <p>普通麻将有砣、索、万三种类型的牌，每种牌有 $1\sim9$ 个数字，其中相同的牌每个有四张，例如 <code>1砣</code>\~<code>9砣</code>，<code>1索</code>\~<code>9索</code>，<code>1万</code>\~<code>9万</code> 各有 $4$ 张，所以共 $36\times 3=108$ 张牌。胡牌时每人有 $14$ 张牌，其中只要某人手里有若干句话（就是同种类型的牌连续三张或同种牌三张），另外再加上一对，即可胡牌。当然如果全是对，叫七小对，也可以胡牌。下图是连三张示例。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1709.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1709.png" /> </p>
 <p>要判断某人是否胡牌，显然一个弱智的算法就行了，某中学信息学小组超级麻将迷想了想，决定将普通麻将改造成超级麻将。</p>
 <p>所谓超级麻将没有了砣、索、万的区分，每种牌上的数字可以是 $1\sim100$，而每种数字的牌各有 $100$ 张。另外特别自由的是，玩牌的人手里想拿多少张牌都可以，好刺激哦！</p>
 <p>刺激归刺激，但是拿多了怎么胡牌呢？</p>
@@ -469,6 +464,9 @@ No
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

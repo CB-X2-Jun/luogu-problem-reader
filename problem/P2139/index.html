@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,23 +388,23 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>小 Z 得到了一种奇特的骰子（如下图所示），想要用它进行掷骰游戏。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1263.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1263.png" /></p>
 <p>游戏很简单，小 Z 每次都从同样的位置将一个骰子竖直抛下，当骰子落到平面或另一个骰子上时停下来。然而，由于这是一种奇特的骰子，它还会继续翻滚和下落。这种骰子有以下特性：</p>
 <ul>
 <li>普通骰子可能往四个方向翻滚，而这种骰子只能往 $4,5,6$ 这三个面的方向翻滚。在下图所示的情况中，这种骰子只能往两个方向翻滚；</li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1264.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1264.png" /></p>
 <ul>
 <li>这种骰子只有在翻滚后会导致其下落时才会翻滚（如下图所示），当有多个方向可以翻滚时，它会往数字最大的面的方向翻滚；</li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1265.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1265.png" /></p>
 <ul>
 <li>这种骰子翻滚恰好 $90^\circ$ 后会竖直下落，当落到平面或另一个骰子上时停下来（如下图中的 $B$ 和 $C$ 所示），然后继续翻滚和下落的过程。</li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1266.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1266.png" /></p>
 <p>上图就是将 $4$ 个骰子均以上面是 $6$ 前面是 $4$ 的状态依次抛下的过程。</p>
 <p>现在小 Z 抛了 $n$ 个骰子，他想知道游戏结束后从上面看每个数字分别出现了多少次（如下图所示），希望你帮帮他。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1267.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1267.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>每次多组数据，每组数据格式如下：</p>
 <p>第 $1$ 行，一个整数 $n$，表示抛了 $n$ 个骰子；</p>
@@ -488,6 +483,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

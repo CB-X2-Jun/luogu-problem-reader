@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>a180285 幸运地被选作了地球到喵星球的留学生，其实是作为特工去调查，喵星人是否有侵略地球的企图。喵星人果然打算入侵地球！从 a180285 口中得到确切消息之后，地球小组成员决定制定反侵略计划。</p>
 <p>喵星到地球的一段必经之路可以看作 $n\times m$ 的格点，喵星人将会从地图上的 $S$ 位置出发，目的地是地球的入口 $T$。为了抵抗喵星人的入侵，地球防御小组打算在地图上的格点上放置一些炮塔（最多放置 $K$ 个），炮塔攻击周围的 $8$ 个方向（$8$ 个方向分别是：东、南、西、北、东北、西北、东南、西南）（如下图所示，中间格子的炮塔可以攻击周围的八个格子）。此外地球防御小组还可以在地图上放置无限多个障碍，使得喵星人无法从有障碍的格子经过。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/l6ezyb3h.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/l6ezyb3h.png" /></p>
 <p>右图是 $3\times 3$ 地图的一个示例，其中 $\tt X$ 表示炮塔，$\tt #$ 表示障碍，有炮塔或者障碍的格子，喵星人都无法经过。在这张地图中喵星人从 $S$ 走到 $T$ 受到的伤害如下：</p>
 <ul>
 <li>在 $S(1, 0)$ 处受到伤害为 $2$（炮塔 $(0,0)$ 和 $(2, 1)$ 能攻击到 $S$）；</li>
@@ -485,6 +480,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

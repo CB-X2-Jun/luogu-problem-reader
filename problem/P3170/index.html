@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,7 +387,7 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p>一家名字缩写为 LLL 的公司正在设计 logo，他们的初步方案是在一张方格上放置 $3$ 个 L 形的图案以及一些额外的装饰性图形，例如：<img alt="" src="https://cdn.luogu.com.cn/upload/pic/15558.png" />  （灰色区域表示装饰性图形）。</p>
+<p>一家名字缩写为 LLL 的公司正在设计 logo，他们的初步方案是在一张方格上放置 $3$ 个 L 形的图案以及一些额外的装饰性图形，例如：<img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/15558.png" />  （灰色区域表示装饰性图形）。</p>
 <p>$3$ 个 L 图案和装饰性图形均放置在方格之中，且必须占满方格。L 的横竖笔画长短均可，但长度必须大于 $0$（即不能退化为一条线段）。另外，为了使 L 图案醒目且容易辨别，设计师规定 $3$ 个 L 形图案之间不能有重叠或交叉的部分。当然，L 形图案也不能穿过装饰图形或与之重叠。</p>
 <p>现在设计师已经确定了所有装饰性图形的位置，希望你计算一下放置不同的 L 形图案总共可以设计出多少个 logo。</p>
 <h2 id="_2">输入格式</h2>
@@ -467,6 +462,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

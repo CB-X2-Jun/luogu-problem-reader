@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>如果一个<strong>无自环无重边无向连通图</strong>的任意一条边最多属于一个简单环，我们就称之为仙人掌。所谓简单环即不经过重复的结点的环。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4742.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4742.png" /> </p>
 <p>现在九条可怜手上有一张<strong>无自环无重边的无向连通图</strong>，但是她觉得这张图中的边数太少了，所以她想要在图上连上一些新的边。同时为了方便的存储这张无向图，图中的边数又不能太多。经过权衡，她想要加边后得到的图为一棵仙人掌。</p>
 <p>不难发现合法的加边方案有很多，可怜想要知道总共有多少不同的加边方案。</p>
 <p>两个加边方案是不同的当且仅当一个方案中存在一条另一个方案中没有的边。</p>
@@ -426,7 +421,7 @@
 <p><strong>样例说明</strong></p>
 <p>对于第一组样例合法加边的方案有 ${},{(2,3)}$，共 $2$ 种。</p>
 <p><strong>数据范围</strong></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4743.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4743.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -477,6 +472,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

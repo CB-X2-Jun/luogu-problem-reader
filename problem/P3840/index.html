@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -448,7 +443,7 @@ v = [1, 2, 3, 2, 3, 3]
 <div class="codehilite"><pre><span></span><code>find_roads(4, [0, 0, 0, 1, 1, 2], [1, 2, 3, 2, 3, 3])
 </code></pre></div>
 
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/yal4gyvl.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/yal4gyvl.png" /></p>
 <p>这个例子中有 $4$ 个城市和 $6$ 条道路。我们将连接城市 $a$ 和 $b$ 的道路表示为 $(a, b)$。这些道路按照下面的顺序被标为从 $0$ 到 $5$：$(0, 1)$，$(0, 2)$，$(0, 3)$，$(1, 2)$，$(1, 3)$ 和 $(2, 3)$。每个黄金集合包含 $n - 1 = 3$ 条道路。</p>
 <p>假设御道是标号为 $0$，$1$ 和 $5$ 的道路，即 $(0, 1)$，$(0, 2)$ 和 $(2,3)$。这样的话：</p>
 <ul>
@@ -543,6 +538,9 @@ reference）的方式。你可以与平常一样调用这个函数。评测工�
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

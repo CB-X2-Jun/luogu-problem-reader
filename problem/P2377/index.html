@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -439,7 +434,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/68g5vnfv.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/68g5vnfv.png" /></p>
 <p>此外，UNowen 按如下方式定义一个向量序列 ${\bm L_1,\bm L_2,\ldots,\bm L_n}$ 的「标准表示」：</p>
 <ul>
 <li>分别对于 $l=1,2,\ldots,n$，求出向量序列 ${\bm L_l,\bm L_{l+1},\ldots,\bm L_n,\bm L_1,\bm L_2,\ldots,\bm L_{l-1}}$ 对应的字符串：</li>
@@ -462,7 +457,7 @@
 <li>对于任意两个修改方案，如果修改后的向量序列首尾拼接得到的图形全等，那么 UNowen 会认为这两个修改方案是等价的。例如，在下面的图片中，$k=1$ 和 $k=2$ 的两个修改方案就是等价的。</li>
 <li><strong>也就是说，修改操作会对封闭多边形上的某个向量向外作等边三角形，使得修改后的图形仍为满足上述要求（各个内角均为 $\dfrac{\pi}{3}$ 的正整数倍，内部没有其他向量，并且不是空心的）的封闭多边形。对于任意两个修改方案，如果修改后的向量序列首尾拼接得到的图形全等，那么它们是等价的。</strong></li>
 </ul>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/dgd779r1.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/dgd779r1.png" /></p>
 <p>请求出互不等价的合法的修改方案的个数，并按字典序从小到大输出每个修改方案的「修改结果」。</p>
 <h2 id="_3">输入格式</h2>
 <p><strong>本题有多组数据。</strong></p>
@@ -594,6 +589,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

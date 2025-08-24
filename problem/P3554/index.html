@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>The king of Byteotia, Byteasar, is returning to his country after a victorious battle.</p>
-<p>In Byteotia, there are <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.1.png" /> towns connected with only <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.2.png" /> roads.</p>
+<p>In Byteotia, there are <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.1.png" /> towns connected with only <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.2.png" /> roads.</p>
 <p>It is known that every town can be reached from every other town by a unique route,    consisting of one or more (direct) roads.</p>
 <div class="codehilite"><pre><span></span><code>(In other words, the road network forms a tree).
 </code></pre></div>
@@ -417,11 +412,11 @@
 <p>Help him out by writing a program that will determine the minimum number    of crews that allow a timely delivery of the arches.</p>
 <p>给一颗 $n$ 个节点的树（$n \le 3 \times 10^5$），初始时 $1$ 号节点被染黑，其余是白的。两个人轮流操作，一开始 B 在 $1$ 号节点。每一轮，A 选择 $k$ 个点染黑，然后 B 走到一个相邻节点，如果 B 当前处于白点则 B 胜，否则当 A 将所有点染为黑点时 A 胜。求能让 A 获胜的最小的 $k$ 。</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input contains a single integer <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.3.png" />    (<img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.4.png" />), the number of towns in Byteotia.</p>
-<p>The towns are numbered from 1 to <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.5.png" />, where the number 1 corresponds to the capital.</p>
-<p>The road network is described in <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.6.png" /> lines that then follow.</p>
-<p>Each of those lines contains two integers, <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.7.png" />    (<img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.8.png" />), separated by a single space,    indicating that towns <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.9.png" /> and <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.10.png" /> are directly connected with a two way road.</p>
-<p>In tests worth 50% of the total points, an additional condition <img alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.11.png" /> holds.</p>
+<p>The first line of the standard input contains a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.3.png" />    (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.4.png" />), the number of towns in Byteotia.</p>
+<p>The towns are numbered from 1 to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.5.png" />, where the number 1 corresponds to the capital.</p>
+<p>The road network is described in <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.6.png" /> lines that then follow.</p>
+<p>Each of those lines contains two integers, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.7.png" />    (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.8.png" />), separated by a single space,    indicating that towns <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.9.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.10.png" /> are directly connected with a two way road.</p>
+<p>In tests worth 50% of the total points, an additional condition <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI20/luk-en-tex.11.png" /> holds.</p>
 <h2 id="_3">输出格式</h2>
 <p>The first and only line of the standard output is to hold a single integer,    the minimum number of crews that Byteasar's advisor needs to hire.</p>
 <h2 id="_4">输入输出样例</h2>
@@ -492,6 +487,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

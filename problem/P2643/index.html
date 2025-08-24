@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>显然，任何题目对于K触来说都是水题，倒是K触怕你不会写，于是给了你最最简单的化学卷子。</p>
 <p>原来K触正在准备化学方程式配平大赛，所以卷子全都是配平练习题。</p>
 <p>K触给你举了个简单的例子，比如下列物质在氧气中燃烧的化学方程式，要求配平：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1755.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1755.png" /> </p>
 <p>K触当然知道这是绿原酸(C16H18O9)（O和0要分清楚哦），它在氧气中燃烧的方程式是：</p>
 <p>C16H18O9+O2=CO2+H2O</p>
 <p>什么？你说配平？这种简单的事情当然就交给你啦。</p>
@@ -481,6 +476,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

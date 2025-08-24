@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,12 +390,12 @@
 <p>小渊是个聪明的孩子，他经常会给周围的小朋友们讲些自己认为有趣的内容。最近，他准备给小朋友们讲解彩色水平光源照射下的立体图，并请你帮他在平面上画出来。</p>
 <p>小渊有一块面积为m*n的矩形区域，上面有m*n个边长为1的格子，每个格子上堆了一些同样大小的积木（积木的长宽高都是1）。</p>
 <p>为了方便阐述，我们假设这块区域是坐北朝南的，下面我们给出一个例子。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/22187.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/22187.png" /></p>
 <p>小渊想请你打印出这些格子的立体图。我们定义每个积木为如下格式，并且不会做任何翻转旋转，只会严格以这一种形式摆放（左侧是应该打印出来的图样，右侧为对应每一个位置符号的十进制ASCII，其中ASCII为32的符号为空</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/22188.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/22188.png" /></p>
 <p>在良好的光学环境下，小渊将T束平行光同时照射在这些积木上。这些平行光首先满足一定是红绿蓝三基色之一，其次入射角度满足：与x轴y轴的夹角度数均为45的倍数；且与z轴正方向的夹角或为45度，或为0度，或为315度。</p>
 <p>具体来说，我们最多会考虑9个方向的不同平行光，它们的入射方向可以被描述为：   西北方45度仰角  正北方45度仰角  东北方45度仰角   正西方45度仰角  垂直从上入射光  正东方45度仰角   西南方45度仰角  正南方45度仰角  东南方45度仰角对于每一个单位积木来说，可以打印出来的三个表面被分为12个小三角形，如下图所示（下图中用符号0,1,2,。。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/22189.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/22189.png" /></p>
 <p>红绿蓝三基色分别用字母RGB来表示。而二次叠加后的三种颜色青黄紫，分别用CYP来表示。对于三次叠加后的颜色，也就是白色，用W来表示。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行有两个正整数m和n，表示区域有m行n列。之后m行，依次由远及近描述了每一行的情况。每一行给出n个正整数，表示第i行第j列中有堆放了多少积木。之后3行，每行三个字符，描述了9个对应方向（与地图描述方向相同）的光照颜色。其中每一个字符或者为RGB中之一，表示对应的颜色。或者为*，表示没有照射光。这九个方向依次是：   西北方45度仰角  正北方45度仰角  东北方45度仰角   正西方45度仰角  垂直从上入射光  正东方45度仰角   西南方45度仰角  正南方45度仰角  东南方45度仰角</p>
@@ -489,7 +484,7 @@
 </code></pre></div>
 
 <h2 id="_5">说明/提示</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/22190.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/22190.png" /></p>
 <p>对于15%的数据，1&lt;=n,m&lt;=100,没有入射光。</p>
 <p>对于40%的数据，1&lt;=n,m&lt;=100,入射光只有一束，且入射方向一定是东南方。</p>
 <p>对于100%的数据，1&lt;=n,m&lt;=100，每一个位置堆放的积木总数不超过100,入射光颜色可能是RGB中的任何一种颜色，最多可以有9束入射光。</p>
@@ -543,6 +538,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

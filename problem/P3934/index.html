@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -415,7 +410,7 @@
 <p>波若歌鹦苟延残喘，</p>
 <p>迷途绿龟嚎哮迷茫”</p>
 <p>——《炸脖龙之诗》</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21111.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21111.png" /></p>
 <p>我喊了出来...却不成人话</p>
 <p>只能，像在水中一边融化一边下沉的方糖一样...</p>
 <p>失去自己的轮廓...一直沉向最低处</p>
@@ -432,7 +427,7 @@
 <p>逐渐消失的世界...</p>
 <p>我看到了世界</p>
 <p>失落的...世界...</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21112.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21112.png" /></p>
 <div class="codehilite"><pre><span></span><code>   回归天空的话我就可以成为      了
 
   开什么玩笑，你才不是什么      ！
@@ -504,7 +499,7 @@
                      空
 </code></pre></div>
 
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21113.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21113.png" /></p>
 <p>一个婴儿出生了</p>
 <p>谁的？</p>
 <p>不知道</p>
@@ -549,22 +544,22 @@
 <p>我能做到的</p>
 <p>唯一的</p>
 <p>唯一的赎罪啊。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21114.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21114.png" /></p>
 <p>让我在这里了结了你吧…间宫卓司</p>
 <p>这里是终之空的下面吧…这不刚好吗</p>
 <p>跟我们的终结很相称不是吗…</p>
 <p>这里，是只对你而言的，终结的天空…</p>
 <p>这里就是终焉之地…</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21115.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21115.png" /></p>
 <p>“不行！绝对不行！”</p>
 <p>…为什么…跟过来了…</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21116.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21116.png" /></p>
 <p>预定…调和吗…</p>
 <p>原来如此…看来不管怎样对于你来说…我都已经毫无任何价值了对吧…</p>
 <p>竟然被这家伙打倒了…真是没办法呐…</p>
 <p>这也是现实吗…</p>
 <p>那就接受吧…</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21117.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21117.png" /></p>
 <p>不知为何，我好像看到了在夜空中挺立的向日葵…</p>
 <p>只有一瞬间…</p>
 <p>那株向日葵…</p>
@@ -574,7 +569,7 @@
 <p>是啊…</p>
 <p>我是哥哥啊…</p>
 <p>要是…能再多当当她的哥哥就好了……</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/21119.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/21119.png" /></p>
 <p>咦……</p>
 <p>刚才的…</p>
 <p>那个是…那片风景…</p>
@@ -695,6 +690,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

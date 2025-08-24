@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>在探险的过程中，考古学家 Dr. Kong 无意地被困在一个金字塔中。金字塔中的每个房间都是三角形。Dr. Kong 可以破壁走到相邻的房间去。例如，如果他目前处于三角形 $(2,2)$ 房间，那么他可以破壁走到三角形 $(2,1)$、$(2,3)$ 或 $(1,1)$ 房间。但破壁一面墙需要花费 $K$ 分钟时间，而考古学家 Dr. Kong 的体能只能支持他 $S$ 分钟。</p>
 <p>好在 Dr. Kong 手中有这个金字塔地图，他发现金字塔有许多出口，一旦他进入一个有出口的三角形房间，他再用 $1$ 分钟就可以走出金字塔。</p>
 <p>现在，你能否帮助 Dr. Kong 找到一个走出金字塔花费时间最少的出口？若能，输出 Dr. Kong 走出金字塔后还剩下的体能时间（应当大于或等于 $0$）；若不能，输出 $-1$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5208.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5208.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行共四个整数，$N,M,K,S$，其中，</p>
 <ul>
@@ -475,6 +470,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

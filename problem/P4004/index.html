@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -399,7 +394,7 @@
 <p>既然小 V 把题藏在了树里， ufozgg 就不能直接削弱题目了。他就必须在树上跳跃，边跳跃边削弱题目。 ufozgg 每次跳跃经过一个节点（包括起点 $s$ ，当 $s = t$ 的时候也是如此），就会把该节点上的题目的毒瘤值开根并向下取整：即如果他经过了节点 $i$，他就会使 $a_i = \lfloor \sqrt{a_i} \rfloor$。这种操作我们称为削弱操作。</p>
 <p>ufozgg 还会不时地希望知道他对题目的削弱程度。因此，他在一些跳跃操作中会放弃对题目的削弱，转而统计该次跳跃经过节点的题目毒瘤值总和。这种操作我们称为统计操作。</p>
 <p>吃瓜群众绿绿对小 V 的毒瘤题和 ufozgg 的削弱计划常感兴趣。他现在想知道ufozgg 每次做统计操作时得到的结果。你能帮帮他吗？</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/12052.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/12052.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>从文件 helloworld.in 中读入数据。</p>
 <p>输入的第一行一个正整数 $n$ ，表示树的节点数。</p>
@@ -484,6 +479,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

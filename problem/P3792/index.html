@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,20 +387,20 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5702.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5702.png" /> </p>
 <p>由乃最近没事干，去研究轻拍学去了</p>
 <p>就是一个叫做flip flappers，轻拍翻转小膜女的番</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5703.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5703.png" /> </p>
 <p>然后研究的过程中她看到了一个叫做大母神原型的东西</p>
 <p>大母神不仅是部落保护神，而且是部落间互相识别的标记（以后泛化为不同的图形符号、服饰和祭祀仪式），在部落联盟出现后，具有领导力的部落神祇，上升为整个联盟的共神，进而成为酋邦和王国的共神</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5709.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5709.png" /> </p>
 <p>大概就是说这个东西是母系社会时候的偶像，然后象征着母亲可以创造生命也可以毁灭生命什么什么的，分别是善母与恶母，既孕育一切，又吞噬一切</p>
 <p>然后我们熟知的神话里面就有大母神，比如女娲其实就是个大母神。。。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5716.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5716.png" /> </p>
 <p>原始部落时期的大母神既具有生育和哺乳的能力，也具有保护部落、带来丰收的神力。</p>
 <p>到了神话时期，大母神进一步分化，演变出形形色色的女神，分别象征了女性能量的不同面向：孕育女神、大地女神、爱与美女神、保护女神、战争女神、丰收女神、智慧女神、命运女神……</p>
 <p>这些是善母</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5717.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5717.png" /> </p>
 <p>世间的事物总是两面性的：一切生命诞生于土地，最终要回归土地；创造的必然也拥有毁灭的能力。大母神也同样具有痛苦、恐怖、吞噬和危险的一面。</p>
 <p>比如童话故事里面的女巫，其实就是大母神的另一面的体现，也就是恶母</p>
 <p>糖果屋的故事讲的就是韩赛尔和格雷特被继母赶出家里，因为没饭吃了，然后进了森林发现了一个糖果屋，里面有个女巫，专门吃小孩子</p>
@@ -416,7 +411,7 @@
 <p>所以这个故事本质上讲的是她们杀了她们的母亲，也就是打败了大母神</p>
 <p>很多神话故事里面都有打败大母神的情节</p>
 <h2 id="_2">题目描述</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5706.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5706.png" /> </p>
 <p>你看到这里也许已经觉得由乃精神不正常了</p>
 <p>然而由乃自从不小心##了自己的##后早就不正常了</p>
 <p>由乃研究了很久大母神原型，但是仍然一脸懵逼</p>
@@ -429,7 +424,7 @@
 <p>由乃：woc你们好树链啊，我。。我带修</p>
 <p>zzq：#######sb题</p>
 <p>由乃：我就是要出原题</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5710.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5710.png" /> </p>
 <p>给你一个长为 $n$ 的序列 $a$</p>
 <p>每次两个操作：</p>
 <ol>
@@ -440,7 +435,7 @@
 <p>查询区间 $[l,r]$ 是否可以重排为值域上连续的一段</p>
 </li>
 </ol>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5705.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5705.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行两个数 $n，m$</p>
 <p>第二行 $n$ 个数表示 $a_i$</p>
@@ -523,6 +518,9 @@ yuanxing
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

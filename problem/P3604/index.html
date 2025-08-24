@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -398,13 +393,13 @@
 <p>由于世界会在 $7$ 月 $20$ 日完结，作为救世主，间宫卓司要在 $19$ 日让所有人回归天空。</p>
 <p>现在已经是 $19$ 日傍晚，大家集合在 C 栋的天台上，一共 $n$ 个人。</p>
 <p>在他们面前，便是终之空，那终结的天空。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4139.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4139.png" /></p>
 <h2 id="_2">题目描述</h2>
 <p>回归天空是一件庄重的事情，所以卓司决定让大家分批次进行，给每个人给了一个小写字母 $\texttt{a}\sim\texttt{z}$ 作为编号。</p>
 <p>一个区间的人如果满足他们的<strong>编号重排之后可以成为一个回文串</strong>，则他们可以一起回归天空，即这个区间可以回归天空。</p>
 <p>由于卓司是一个喜欢妄想的人，他妄想了 $m$ 个区间，每次他想知道每个区间中有多少个子区间可以回归天空。</p>
 <p>因为世界末日要来了，所以卓司的信徒很多。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4138.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4138.png" /></p>
 <h2 id="_3">输入格式</h2>
 <p>第一行，两个数 $n,m$。</p>
 <p>之后一行，一个长为 $n$ 的字符串，代表每个人的编号。</p>
@@ -471,7 +466,7 @@
 <p>对于 $100\%$ 的数据，$n,m\le 60000$。</p>
 <p><strong>字符集大小有梯度</strong>。</p>
 <p>在大家回归天空之后，彩名露出了阴冷的笑容。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4137.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4137.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -522,6 +517,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

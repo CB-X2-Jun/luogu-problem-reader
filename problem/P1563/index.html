@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <h2 id="_2">题目描述</h2>
 <p>小南有一套可爱的玩具小人，它们各有不同的职业。</p>
 <p>有一天，这些玩具小人把小南的眼镜藏了起来。小南发现玩具小人们围成了一个圈，它们有的面朝圈内，有的面朝圈外。如下图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0u7em9pi.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/0u7em9pi.png" /> </p>
 <p>这时 singer 告诉小南一个谜题：“眼镜藏在我左数第 $3$ 个玩具小人的右数第 $1$ 个玩具小人的左数第 $2$ 个玩具小人那里。”</p>
 <p>小南发现，这个谜题中玩具小人的朝向非常关键，因为朝内和朝外的玩具小人的左右方向是相反的：面朝圈内的玩具小人，它的左边是顺时针方向，右边是逆时针方向；而面向圈外的玩具小人，它的左边是逆时针方向，右边是顺时针方向。</p>
 <p>小南一边艰难地辨认着玩具小人，一边数着:</p>
@@ -467,7 +462,7 @@
 <p><strong>子任务</strong></p>
 <p>子任务会给出部分测试数据的特点。如果你在解决题目中遇到了困难，可以尝试只解决一部分测试数据。</p>
 <p>每个测试点的数据规模及特点如下表:</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7su06u3r.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/7su06u3r.png" /></p>
 <p>其中一些简写的列意义如下:</p>
 <ul>
 <li>
@@ -531,6 +526,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

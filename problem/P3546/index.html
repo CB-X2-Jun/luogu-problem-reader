@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,20 +392,20 @@
 <p>A final (terminal) fragment of a given string is called its suffix.</p>
 <p>In particular, the empty string is both a prefix and a suffix of any string.</p>
 <p>Two strings are cyclically equivalent if one of them can be obtained from another by    moving its certain suffix from the end of the string to its beginning.</p>
-<p>For example, the strings <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.1.png" /> and <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.2.png" /> are cyclically equivalent, whereas the strings <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.3.png" /> and <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.4.png" /> are not.</p>
+<p>For example, the strings <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.1.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.2.png" /> are cyclically equivalent, whereas the strings <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.3.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.4.png" /> are not.</p>
 <p>In particular, every string is cyclically equivalent to itself.</p>
-<p>A string <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.5.png" /> consisting of <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.6.png" /> letters is given.</p>
-<p>We are looking for its prefix <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.7.png" /> and suffix <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.8.png" /> of equal length such that:</p>
-<p><img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.9.png" /> and <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.10.png" /> are cyclically equivalent,                  the common length of <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.11.png" /> and <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.12.png" /> does not exceed <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.13.png" />        (i.e., the prefix <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.14.png" /> and the suffix <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.15.png" /> do not overlap in <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.16.png" />), and                  the common length of <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.17.png" /> and <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.18.png" /> is maximized.</p>
+<p>A string <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.5.png" /> consisting of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.6.png" /> letters is given.</p>
+<p>We are looking for its prefix <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.7.png" /> and suffix <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.8.png" /> of equal length such that:</p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.9.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.10.png" /> are cyclically equivalent,                  the common length of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.11.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.12.png" /> does not exceed <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.13.png" />        (i.e., the prefix <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.14.png" /> and the suffix <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.15.png" /> do not overlap in <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.16.png" />), and                  the common length of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.17.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.18.png" /> is maximized.</p>
 <p>对于两个串 $S_1, S_2$，如果能够将 $S_1$ 的一个后缀移动到开头后变成 $S_2$，就称 $S_1$ 和 $S_2$ 循环相同。例如串 ababba 和串 abbaab 是循环相同的。</p>
 <p>给出一个长度为 $n$ 的串 $S$，求满足下面条件的最大的 $L(L\leq \frac n 2)$：$S$ 的 $L$ 前缀和 $S$ 的 $L$ 后缀是循环相同的。</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input contains a single integer <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.19.png" />      (<img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.20.png" />) denoting the length of the string <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.21.png" />.</p>
-<p>The second line of input contains the string <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.22.png" /> itself, consisting of <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.23.png" /> lowercase letters of the English alphabet.</p>
-<p>In tests worth 30% of the points the condition <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.24.png" /> holds in addition.</p>
-<p>In tests worth 50% of the points the condition <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.25.png" /> holds in addition.</p>
+<p>The first line of the standard input contains a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.19.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.20.png" />) denoting the length of the string <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.21.png" />.</p>
+<p>The second line of input contains the string <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.22.png" /> itself, consisting of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.23.png" /> lowercase letters of the English alphabet.</p>
+<p>In tests worth 30% of the points the condition <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.24.png" /> holds in addition.</p>
+<p>In tests worth 50% of the points the condition <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.25.png" /> holds in addition.</p>
 <h2 id="_3">输出格式</h2>
-<p>Your program should print a single integer in the first and only line of the standard output,      namely the common length of the prefix <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.26.png" /> and the suffix <img alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.27.png" /> that we are looking for.</p>
+<p>Your program should print a single integer in the first and only line of the standard output,      namely the common length of the prefix <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.26.png" /> and the suffix <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI19/pre-en-tex.27.png" /> that we are looking for.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -479,6 +474,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

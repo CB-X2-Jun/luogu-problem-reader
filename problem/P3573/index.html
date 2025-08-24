@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,8 +390,8 @@
 <p>An annual bicycle rally will soon begin in Byteburg.</p>
 <p>The bikers of Byteburg are natural long distance cyclists.</p>
 <p>Local representatives of motorcyclists, long feuding the cyclists,  have decided to sabotage the event.</p>
-<p>There are <img alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.1.png" /> intersections in Byteburg, connected with one way streets.</p>
-<p>Strangely enough, there are no cycles in the street network - if one can ride from  intersection <img alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.2.png" /> to intersection <img alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.3.png" />, then it is definitely impossible to get from <img alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.4.png" /> to <img alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.5.png" />.</p>
+<p>There are <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.1.png" /> intersections in Byteburg, connected with one way streets.</p>
+<p>Strangely enough, there are no cycles in the street network - if one can ride from  intersection <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.2.png" /> to intersection <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.3.png" />, then it is definitely impossible to get from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.4.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI21/raj-en-tex.5.png" />.</p>
 <p>The rally's route will lead through Byteburg's streets.</p>
 <p>The motorcyclists plan to ride their blazing machines in the early morning of the rally day  to one intersection and completely block it.</p>
 <p>The cyclists' association will then of course determine an alternative route  but it could happen that this new route will be relatively short,  and the cyclists will thus be unable to exhibit their remarkable endurance.</p>
@@ -474,6 +469,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

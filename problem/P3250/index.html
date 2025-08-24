@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -472,7 +467,7 @@
 
 <h2 id="_5">说明/提示</h2>
 <p>样例给出的树如下所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ka4zpxia.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/ka4zpxia.png" /></p>
 <p>解释其中的部分询问；下面的解释中用 $(a,b;t,v)$ 表示在 $t$ 时刻出现的服务器 $a$ 和 $b$ 之间的重要度为 $v$ 的请求：</p>
 <p>对于第一个询问（在时刻 $1$），此时没有任何请求，输出 $-1$。</p>
 <p>对于第四个询问（在时刻 $6$），此时有两条交互$(8,13;2,3),(9,12;3,5)$，所有询问均经过 $2$ 号服务器，输出 $-1$。</p>
@@ -529,6 +524,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>为了进行一种游戏，现决定搭造一些平板，而各个平板的地址已经选定。基于最普遍的认识，没有任何支持物的平板不可能漂浮在空中。说的更精确些，任意一平板的两端必需有支柱或者它在另一块平板上。</p>
 <p>你会得到各个平板在坐标系中的坐标（如左下图）。每一块平板的坐标都是由它的高度（与地板间的垂直距离）和它的水平方位（开始和结束）决定的。每个支柱都距它支撑的平板的边缘半个单位（如图）。</p>
 <p>算出支持所有平板的支柱的总长度。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/994.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/994.png" /> </p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包括 $1$ 个整数 $N$，$1 \le N \le 100$，即平板的总数。</p>
 <p>接下来的 $N$ 行每行都是一块平板的坐标，是相应的 $Y$，$X_1$ 和 $X_2$。即高度和水平的边缘坐标。所有的数都是不大于 $10000$ 的正整数且满足 $X_2&gt;X_1+1$（也可这样理解，每一块平板的长度至少为 $2$）。</p>
@@ -464,6 +459,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

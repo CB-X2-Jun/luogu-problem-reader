@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,11 +392,11 @@
 <p>为了帮助你更好的理解题目，请仔细分析一下例子：</p>
 <p>假设 $L = 4$，$K = 1$</p>
 <p>第一次实验开始前每个格子显示的字母如下图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6849.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6849.png" /> </p>
 <p>Jodie 从显示字母为 <code>a</code> 的格子开始走，Aiden 在她走了 $K$ 步重复的格子之后告诉她停止，所以 Jodie 一共走了 $5$ 步，每走一步，格子的变化如下（箭头指着 Jodie 所在的格子）：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6850.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6850.png" /> </p>
 <p>Jodie 的第二次实验从显示字母为 <code>c</code> 的格子开始走，每走一步格子的变化如下（箭头指着 Jodie 所在的格子）：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6851.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6851.png" /> </p>
 <p>Jodie 两次实验记录的路径分别为：</p>
 <p><code>abcdx</code></p>
 <p><code>cdabz</code></p>
@@ -489,6 +484,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

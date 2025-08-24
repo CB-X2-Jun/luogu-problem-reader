@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -435,7 +430,7 @@
 </code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/10868.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/10868.png" /> </p>
 <p>【样例解释 $1$】</p>
 <p>小明选定让赞助商打通了 $1$ 号宝藏屋。小明开发了道路 $1 \to 2$，挖掘了 $2$ 号宝藏。开发了道路 $1 \to 4$，挖掘了 $4$ 号宝藏。还开发了道路 $4 \to 3$，挖掘了 $3$ 号宝藏。</p>
 <p>工程总代价为 $1 \times 1 + 1 \times 1 + 1 \times 2  = 4 $。</p>
@@ -499,6 +494,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

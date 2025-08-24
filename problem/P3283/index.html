@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,14 +389,14 @@
           <h2 id="_1">题目描述</h2>
 <p>Fish是一条生活在海里的鱼，有一天他很无聊，于是他去捡了人类扔进海里的垃圾，打算用这些来玩些什么。</p>
 <p>他从捡回来的垃圾堆里找到了不少火柴棍，便把这些火柴棍拼成了一个长度为n 的十进制数，每个数字的拼法如下图所示</p>
-<p>注意：每个数字占据的宽度和摆放方式是固定的，故以下情况均不合法。 <img alt="" src="https://cdn.luogu.com.cn/upload/pic/4633.png" /></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4634.png" /> </p>
+<p>注意：每个数字占据的宽度和摆放方式是固定的，故以下情况均不合法。 <img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4633.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4634.png" /> </p>
 <p>拼完之后他好累，感觉再也不会拼了。他对拼出来的数大小不满意，希望通过移动一些火柴棍的位置来把这个数变得尽量大。</p>
 <p>由于太累，他只能最多移动k 根火柴棍。而且由于数字的最低位放在墙边，他不能在该数的低位后面添加数字，但他可以在该数的前面添加数字。</p>
 <p>你能帮他算出他移动火柴棍之后的数最大能是多大吗？</p>
 <p>注意：火柴棍对于Fish 来说是很贵重的物品，所以不允许折断或丢弃火柴棍。</p>
 <p>注意：火柴头的方向不影响数字的辨识，例如下面几种情况都是数字1</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4635.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4635.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>输入仅含一行，分别是长度为n 的十进制数x 和最多移动火柴棍的数量k。x 没有前导零。</p>
 <h2 id="_3">输出格式</h2>
@@ -478,6 +473,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

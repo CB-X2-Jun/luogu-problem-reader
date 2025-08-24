@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <p>小A发现了一个计算器的隐藏功能——写英语作文。</p>
 <p>他在计算器上按一些数字，这些然后旋转 $180$ 度就是作文。</p>
 <p>每个数字对应一两个字母</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1738.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1738.png" /> </p>
 <p>小 A 准备了一个单词表，选择其中的一些单词，按照一个顺序组成作文。这个作文是可以用计算器按出来的。比如单词表给 <code>ODD</code>、<code>EGG</code>，作文写成 <code>ODDEGG</code> 的话，那么要在计算器上按出 <code>993000</code>，这篇作文的得分就是 $993000$。</p>
 <p>单词表的单词不能重复使用。如果单词表出现了多个一样的单词，每个单词最多都可以各使用一次。单词不可以被截断。</p>
 <p>小 A 希望自己写出的作文得分最高。当然这个计算器是有位数限制，作文长度不能超过显示位数。</p>
@@ -475,6 +470,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

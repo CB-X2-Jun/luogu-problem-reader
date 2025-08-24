@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>你准备给弟弟 Ike 买一件礼物，但是，Ike 挑选礼物的方式很特别：他只喜欢那些能被他排成有序形状的东西。</p>
 <p>你准备给 Ike 买一个风铃。风铃是一种多层的装饰品，一般挂在天花板上。</p>
 <p>每个风铃都包含一些由竖直线连起来的水平杆。每根杆的两头都有线连接，下面或者挂着另一根水平杆，或者挂着一个玩具。下面是一个风铃的例子：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/e1m223hc.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/e1m223hc.png" /></p>
 <p>为了满足弟弟，你需要选一个满足下面两个条件的风铃：</p>
 <ol>
 <li>所有的玩具都在同一层(也就是说，每个玩具到天花板之间的杆的个数是一样的)或至多相差一层。</li>
@@ -408,11 +403,11 @@
 <ol>
 <li>第一步，将杆 $1$ 的左右两边交换，这使得杆 $2$ 和杆 $3$ 的位置互换，交换的结果如下图所示：</li>
 </ol>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4388.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4388.png" /></p>
 <ol>
 <li>第二步，也是最后一步，将杆 $2$ 的左右两边交换，这使得杆 $4$ 到了左边，原来在左边的玩具到了右边，交换的结果发下图所示：</li>
 </ol>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/4389.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/4389.png" /></p>
 <p>现在的这个风铃就满足 Ike 的条件了。</p>
 <p>你的任务是：给定一个风铃的描述，求出最少需要多少次交换才能使这风铃满足 Ike 的条件(如果可能)。</p>
 <h2 id="_2">输入格式</h2>
@@ -491,6 +486,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

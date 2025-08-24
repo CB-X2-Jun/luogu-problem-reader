@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -401,7 +396,7 @@
 <p>If there is no route satisfying the requirements of the daring two riders,   the first and only line of the standard output should hold the word NIE   (no in Polish).</p>
 <p>Otherwise, the output should have two lines, specifying the least tiresome route   over San Bytecisco.</p>
 <p>The first line should hold the maximum opposing wind speed for that route, i.e.,   the number we wish to minimize.</p>
-<p>The second line should hold <img alt="" src="http://main.edu.pl/images/OI17/mos-en-tex.28.png" /> integers, separated by single spaces, giving   the numbers of successive bridges one crosses on the least tiresome route.</p>
+<p>The second line should hold <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/mos-en-tex.28.png" /> integers, separated by single spaces, giving   the numbers of successive bridges one crosses on the least tiresome route.</p>
 <p>Should there be more than one least tiresome route, your program can pick one   arbitrarily.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
@@ -470,6 +465,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

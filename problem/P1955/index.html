@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -447,7 +442,7 @@ NO
 <p>在第二个问题中，约束条件有四个：$x_1=x_2,x_2= x_3,x_3=x_4,x_4\neq x_1$。由前三个约束条件可以推出 $x_1=x_2=x_3=x_4$，然而最后一个约束条件却要求 $x_1\neq x_4$，因此不可被满足。</p>
 <p>【数据范围】</p>
 <p>所有测试数据的范围和特点如下表所示：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/6f34qrmu.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/6f34qrmu.png" /></p>
         </div>
         
         <!-- 评论区域 -->
@@ -498,6 +493,9 @@ NO
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

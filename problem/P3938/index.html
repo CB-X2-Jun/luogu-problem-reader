@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,7 +392,7 @@
 <p>小 C 养了一些很可爱的兔子。 有一天，小 C 突然发现兔子们都是严格按照伟大的数学家斐波那契提出的模型来进行 繁衍：一对兔子从出生后第二个月起，每个月刚开始的时候都会产下一对小兔子。我们假定， 在整个过程中兔子不会出现任何意外。</p>
 <p>小 C 把兔子按出生顺序，把兔子们从 1 开始标号，并且小 C 的兔子都是 1 号兔子和 1 号兔子的后代。如果某两对兔子是同时出生的，那么小 C 会将父母标号更小的一对优先标 号。</p>
 <p>如果我们把这种关系用图画下来，前六个月大概就是这样的：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9806.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9806.png" /> </p>
 <p>其中，一个箭头 $A \to B$ 表示 $A$ 是 $B$ 的祖先，相同的颜色表示同一个月出生的兔子。</p>
 <p>为了更细致地了解兔子们是如何繁衍的，小 C 找来了一些兔子，并且向你提出了 $m$ 个问题：她想知道关于每两对兔子 $a_i$ 和 $b_i$，他们的最近公共祖先是谁。你能帮帮小 C 吗？</p>
 <p>一对兔子的祖先是这对兔子以及他们父母（如果有的话）的祖先，而最近公共祖先是指 两对兔子所共有的祖先中，离他们的距离之和最近的一对兔子。比如，$5$ 和 $7$ 的最近公共祖 先是 $2,1$ 和 $2$ 的最近公共祖先是 $1,6$ 和 $6$ 的最近公共祖先是 $6$。</p>
@@ -426,7 +421,7 @@
 
 <h2 id="_6">说明/提示</h2>
 <p>【数据范围与约定】 子任务会给出部分测试数据的特点。如果你在解决题目中遇到了困难，可以尝试只解决一部分测试数据。 每个测试点的数据规模及特点如下表：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9807.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/9807.png" /> </p>
 <p>特殊性质 $1$：保证 $a_i$, $b_i$ 均为某一个月出生的兔子中标号最大的一对兔子。例如，对 于前六个月，标号最大的兔子分别是 $1, 2, 3, 5, 8, 13$。</p>
 <p>特殊性质 $2$：保证 $|a_i-b_i|\le 1$。</p>
         </div>
@@ -479,6 +474,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

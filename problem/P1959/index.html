@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -395,7 +390,7 @@
 <p>很久很久以前有一座寺庙，从上往下看寺庙的形状正好是一个正方形，由 $4$ 个角上竖立的圆柱搭建而成。现在圆柱都倒塌了，只在地上留下圆形的痕迹，可是现在地上有很多这样的痕迹，专家说一定是最大的那个。</p>
 <p>写一个程序，给出圆柱的坐标，找出由 $4$ 个圆柱构成的最大的正方形，因为这就是寺庙的位置，要求计算出最大的面积。注意正方形的边不一定平行于坐标轴。</p>
 <p>例如图有 $10$ 根柱子，其中 $(4,2),\allowbreak(5,2),\allowbreak(5,3),\allowbreak(4,3)$ 可以形成一个正方形，$(1,1),\allowbreak(4,0),\allowbreak(5,3),\allowbreak(2,4)$ 也可以，后者是其中最大的，面积为 $10$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/pjic0frl.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/pjic0frl.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包含一个 $N(1\leq N\leq 3000)$，表示柱子的数量。</p>
 <p>接下来 $N$ 行，每行有两个空格隔开的整数表示柱子的坐标（坐标值在 $0$ 到 $5000$ 之间），柱子的位置互不相同。</p>
@@ -476,6 +471,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

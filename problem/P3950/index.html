@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目背景</h2>
 <p>在一个叫做 Travian 的世界里，生活着各个大大小小的部落。其中最为强大的是罗马、高卢和日耳曼。他们之间为了争夺资源和土地，进行了无数次的战斗。期间诞生了众多家喻户晓的英雄人物，也留下了许多可歌可泣的动人故事。</p>
-<p><img alt="" src="http://img4.dwstatic.com/coc/1602/320370032694/1456415099616.jpg" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="http://img4.dwstatic.com/coc/1602/320370032694/1456415099616.jpg" /></p>
 <p>其中，在大大小小的部落之间，会有一些道路相连，这些道路是 Travian 世界里的重要枢纽，简单起见，你可以把这些部落与部落之间相连的道路看作一颗树，可见每条道路对于 Travian 世界的重要程度。有了这些道路，建筑工人就可以通过这些道路进行友好外交啦。</p>
 <p>然而，事情并不会像想象的那样美好，由于资源的匮乏，相邻的部落（由一条道路相连的部落）之间经常会发生大大小小的冲突事件，更有甚者，会升级为部落之间的大型战争。</p>
 <p>为了避免误伤，每当两个相邻的部落之间发生大型战争之时，这两个部落间的道路是不允许通行的，对于一些强大的部落，甚至能与多个相邻的部落同时开战，同样的，这些战争地带的道路十分危险，是不可通行的。</p>
@@ -583,6 +578,9 @@ No
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -393,7 +388,7 @@
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
 <p>二维平面中，给定 $N$ 个等腰直角三角形（每个三角形的两条直角边分别平行于坐标轴，斜边从左上到右下）。我们用三个非负整数 $(x,y,d)$ 来描述这样一个三角形，三角形三个顶点的坐标分别为 $(x,y)$，$(x+d,y)$ 和 $(x,y+d)$。要求计算这 $N$ 个三角形所覆盖的总面积。例如，下图有 $3$ 个三角形，覆盖的总面积为 $11.0$。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1459ccln.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1459ccln.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件第一行为一个正整数 $N$，表示三角形的个数。</p>
 <p>接下来的 $N$ 行每行有用空格隔开的三个非负整数 $x,y,d$，描述一个三角形的顶点坐标，分别为 $(x,y)$，$(x+d,y)$，$(x,y+d)$，其中 $x,y,d$ 满足 $0 \le x,y,d \le 10^6$。</p>
@@ -465,6 +460,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

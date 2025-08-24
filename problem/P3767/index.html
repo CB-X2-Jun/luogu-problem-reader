@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -398,7 +393,7 @@
 <h2 id="_2">题目描述</h2>
 <p>魔法阵由 $N$ 个枢纽组成。</p>
 <p>每个枢纽可以有五种属性：金、木、水、火、土。它们之间满足相生相克的关系。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/5349.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/5349.png" /> </p>
 <p>一开始，魔法阵中没有咒语。</p>
 <p>每次，小 Y 会添加一条咒语，它会要求两个枢纽的属性满足相生/相克的关系。然后你需要回答：是否存在一种为每个枢纽分配一个属性的方案，满足所有的要求。</p>
 <p>为了调整法阵，小 Y 有时候需要删除一条写过的咒语。</p>
@@ -496,6 +491,9 @@ excited
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

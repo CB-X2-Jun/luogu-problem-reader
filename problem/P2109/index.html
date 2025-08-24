@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -399,7 +394,7 @@
 </ul>
 <p>这两个发现让小栋欣喜若狂，由此更加坚定了他继续计算生成树个数的想法，他要计算出各种各样图的生成树数目。</p>
 <p>一天，小栋和同学聚会，大家围坐在一张大圆桌周围。小栋看了看，马上想到了生成树问题。如果把每个同学看成一个结点，邻座（结点间距离为 $1$）的同学间连一条边，就变成了一个环。可是，小栋对环的计数已经十分娴熟且不再感兴趣。于是，小栋又把图变了一下：不仅把邻座的同学之间连一条边，还把相隔一个座位（结点间距离为 $2$）的同学之间也连一条边，将结点间有边直接相连的这两种情况统称为 有边相连，如图 $1$ 所示。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5lvvgbor.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/5lvvgbor.png" /> </p>
 <p>小栋以前没有计算过这类图的生成树个数，但是，他想起了老师讲过的计算任意图的生成树个数的一种通用方法：构造一个 $n\times n$ 的矩阵 $A={ a_{i,j}}$，其中：</p>
 <p>$$a_{i,j}=\begin{cases}
 d_i &amp; i=j \
@@ -429,7 +424,7 @@ B=\begin{bmatrix}
 \end{bmatrix},
 $$</p>
 <p>所以生成树的个数为 $\det B =3528$。小栋发现利用通用方法，因计算过于复杂而很难算出来，而且用其他方法也难以找到更简便的公式进行计算。于是，他将图做了简化，从一个地方将圆桌断开，这样所有的同学形成了一条链，连接距离为 1 和距离为 2 的点。例如八个点的情形如下：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cfo7z7yu.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/cfo7z7yu.png" /> </p>
 <p>这样生成树的总数就减少了很多。小栋不停的思考，一直到聚会结束，终于找到了一种快捷的方法计算出这个图的生成树个数。可是，如果把距离为 $3$ 的点也连起来，小栋就不知道如何快捷计算了。现在，请你帮助小栋计算这类图的生成树的数目。</p>
 <h2 id="_2">输入格式</h2>
 <p>输入文件中包含两个整数 $k,n$，由一个空格分隔。$k$ 表示要将所有距离不超过 $k$（含 $k$）的结点连接起来，$n$ 表示有 $n$ 个结点。</p>
@@ -592,6 +587,9 @@ $$</p>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>在一个 $n \times m$ 的棋盘上，每个格子有一个权值，初始时，在某个格子的顶点处一只面朝北的蚂蚁，我们只知道它的行走路线是如何转弯，却不知道每次转弯前走了多长。</p>
 <p>蚂蚁转弯是有一定特点的，即它的转弯序列一定是如下的形式：右转，右转，左转，左转，右转，右转…左转，左转，右转，右转，右转。即两次右转和两次左转交替出现的形式，最后两次右转（最后两次一定是右转）后再多加一次右转。我们还知道，蚂蚁不会在同一个位置连续旋转两次，并且蚂蚁行走的路径除了起点以外，不会到达同一个点多次，它最后一定是回到起点然后结束自己的行程，而且蚂蚁只会在棋盘格子的顶点处转弯。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/6217.png" /> </p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/6217.png" /> </p>
 <p>现在已知棋盘大小、每个格子的权值以及左转次数除以 $2$ 的值，问蚂蚁走出的路径围出的封闭图形，权值之和最大可能是多少。</p>
 <h2 id="_2">输入格式</h2>
 <p>第一行三个数 $n,m,k$。意义如题目描述。</p>
@@ -473,6 +468,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

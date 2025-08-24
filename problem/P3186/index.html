@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -396,7 +391,7 @@
 <p>所罗门广场由边长为1米的正方形大理石板铺成，据说由于所罗门魔法的作用，在每个雷电交加的黎明，广场上的每块大理石板会发出不同的微弱的光芒，而那些亮度大于某个值的大理石板作为一个整体来看，就是开启所罗门宝藏的咒语，但由于年久失修，有的大理石板可能产生错误的亮度。</p>
 <p>图1为在一个雷电交加的黎明从太空看所罗门广场的一个实例。通过所罗门的藏书可以知道，开启所罗门宝藏的咒语是由15种字符0,1,2,3,4,5,6,7,8,9,A,D,E,L,X中的若干个组成的长度小于10的符号串，这些符号按照从左到右的顺序大致排成一行，如图1所示。</p>
 <p>现已在一个雷电交加的黎明搜集到所罗门广场上各块大理石板的亮度，亮度值用0到255的整数来度量，你能破译出开启所罗门宝藏的咒语么？</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/pko6syac.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/pko6syac.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>第一行包含用一个空格隔开的2个整数L和H，其中L表示所罗门广场包含的大理石板的列数，5&lt;=L&lt;=100，H表示所罗门广场包含的大理石板的行数, 5&lt;=H&lt;=100。</p>
 <p>接下来的H行，每行有L个由一个空格隔开的整数，不妨记接下来的第i行，第J列的整数为Vij，则有0&lt;=Vij&lt;=255。</p>
@@ -480,6 +475,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

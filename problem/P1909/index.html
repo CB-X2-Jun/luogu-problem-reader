@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -457,7 +452,7 @@
 <p><strong>子任务</strong></p>
 <p>子任务会给出部分测试数据的特点。如果你在解决题目中遇到了困难，可以尝试只解决一部分测试数据。</p>
 <p>每个测试点的数据规模及特点如下表：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/dlgsz3h4.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/dlgsz3h4.png" /></p>
 <p>上表中“整倍数”的意义为：若为 $K$，表示对应数据所需要的铅笔数量 $n$ —定是每种包装铅笔数量的整倍数（这意味着一定可以不用多买铅笔）。</p>
 <p>于 2022 年 12 月 23 日新加 Hack 数据三组。</p>
         </div>
@@ -510,6 +505,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

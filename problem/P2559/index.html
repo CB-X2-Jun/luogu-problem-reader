@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,7 +387,7 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/1681.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/pic/1681.png" /></p>
 <h2 id="_2">输入格式</h2>
 <p>文件中第一行有七个数，分别是 S1、 S2 、 …、 S7 ；第二行有两个数，依次分别是起点城市 i 和终点城市 j ；第三行有一个正整数 c ，c&lt;=10000， 表示随后的 c 行中每行存放了一对能直接通达的城市的信息。 能直接通达的城市的信息由三个数组成， 依次分别是两个城市的编号和这两个城市之间的地形。城市的编号都是不超过 100 的正整</p>
 <p>数， 但是各个城市的编号未必连续。 文件里同一行中相邻的两个数都是用一个空白字符隔开的。</p>
@@ -463,6 +458,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

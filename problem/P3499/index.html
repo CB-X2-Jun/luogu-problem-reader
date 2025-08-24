@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,22 +387,22 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p>An integer <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.1.png" /> is given.</p>
-<p>We say that an integer <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.2.png" /> is a divisor of <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.3.png" /> with multiplicity <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.4.png" />    (<img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.5.png" /> is integer) if <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.6.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.7.png" /> does not divide <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.8.png" />.</p>
-<p>For example, the number <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.9.png" /> has the following divisors:</p>
+<p>An integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.1.png" /> is given.</p>
+<p>We say that an integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.2.png" /> is a divisor of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.3.png" /> with multiplicity <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.4.png" />    (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.5.png" /> is integer) if <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.6.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.7.png" /> does not divide <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.8.png" />.</p>
+<p>For example, the number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.9.png" /> has the following divisors:</p>
 <p>2 with multiplicity 4, 3 with multiplicity 1, 4 with multiplicity 2, 6 with multiplicity 1, and so on.</p>
-<p>We say that a number <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.10.png" /> is a  divine divisor of the number <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.11.png" />    if <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.12.png" /> is a divisor of <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.13.png" /> with multiplicity <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.14.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.15.png" /> has no divisors    with multiplicities greater than <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.16.png" />.</p>
+<p>We say that a number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.10.png" /> is a  divine divisor of the number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.11.png" />    if <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.12.png" /> is a divisor of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.13.png" /> with multiplicity <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.14.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.15.png" /> has no divisors    with multiplicities greater than <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.16.png" />.</p>
 <p>For example, the sole divine divisor of 48 is 2 (with multiplicity 4),    and the divine divisors of 6 are: 2, 3 and 6 (each with multiplicity 1).</p>
-<p>Your task is to determine the multiplicity of divine divisors of <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.17.png" />    and the number of its divine divisors.</p>
+<p>Your task is to determine the multiplicity of divine divisors of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.17.png" />    and the number of its divine divisors.</p>
 <p>给定一个正整数 $m$ 以及长度为 $m$ 的正整数序列  $a$ ,同时给出  $n = \prod_{i=1}^{m}{a_i}$。你需要找出一个最大的 $k$ 使得存在一个 $d$ , $d &gt; 1$ 并且 $d^k | n$。求这个最大的 $k$ 以及在 $k$ 最大的情况下有多少个 $d$ 满足条件。</p>
 <h2 id="_2">输入格式</h2>
-<p>The number <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.18.png" /> is given on the standard input, though in a somewhat unusual way.</p>
-<p>The first line holds a single integer <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.19.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.20.png" />).</p>
-<p>The second line holds <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.21.png" /> integers <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.22.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.23.png" />)    separated by single spaces.</p>
-<p>These denote that <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.24.png" />.</p>
+<p>The number <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.18.png" /> is given on the standard input, though in a somewhat unusual way.</p>
+<p>The first line holds a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.19.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.20.png" />).</p>
+<p>The second line holds <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.21.png" /> integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.22.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.23.png" />)    separated by single spaces.</p>
+<p>These denote that <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.24.png" />.</p>
 <h2 id="_3">输出格式</h2>
-<p>The first line of the standard output should hold the maximum integer <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.25.png" />    such that there exists a divisor <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.26.png" /> of <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.27.png" /> such that <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.28.png" />.</p>
-<p>The second line should hold a single integer <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.29.png" /> that is the number of    (divine) divisors of <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.30.png" /> with multiplicity <img alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.31.png" />.</p>
+<p>The first line of the standard output should hold the maximum integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.25.png" />    such that there exists a divisor <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.26.png" /> of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.27.png" /> such that <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.28.png" />.</p>
+<p>The second line should hold a single integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.29.png" /> that is the number of    (divine) divisors of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.30.png" /> with multiplicity <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/naj-en-tex.31.png" />.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
@@ -472,6 +467,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

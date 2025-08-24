@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -392,8 +387,8 @@
       <div class="container">
         <div class="problem-content">
           <h2 id="_1">题目描述</h2>
-<p>King Byteasar is the ruler of the whole solar system that contains <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.1.png" /> planets.</p>
-<p>This number is so large that people have abandoned the silly custom of naming the planets    and use numbers instead. The planets are thus conveniently numbered from 1 to <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.2.png" />.</p>
+<p>King Byteasar is the ruler of the whole solar system that contains <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.1.png" /> planets.</p>
+<p>This number is so large that people have abandoned the silly custom of naming the planets    and use numbers instead. The planets are thus conveniently numbered from 1 to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.2.png" />.</p>
 <p>Byteasar's palace is on the planet no. 1, while his military base on the planet no. 2.</p>
 <p>A long time ago Byteasar had a teleportation portal established between these two planets,    which allows travelling from either planet to another in two hundred and fifty minutes    (slightly over four hours).</p>
 <p>Nowadays the teleportation technology is more mature, and the recent teleportation devices shorten    the travel time to just a single hour. Let us note here, that all the portals, both the Byteasar's old one    and the new ones available on the market, are of course bidirectional, and that the teleportation    travel time is irrespective of the distance travelled.</p>
@@ -403,9 +398,9 @@
 <p>The technology itself is increasingly available, and as everyone realises its economic significance,    each pair of planets that are not currently directly connected with a portal are petitioning for establishing    such a connection. Being a wise ruler, Byteasar intends to give his consent to as many constructions as possible,    though keeping himself secure, i.e., not allowing the travel between planets 1 and 2 faster than with his private portal.</p>
 <p>Help the king determine how many portals he can agree to.</p>
 <h2 id="_2">输入格式</h2>
-<p>Two integers are given in the first line of the standard input, <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.3.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.4.png" />      (<img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.5.png" />, <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.6.png" />), separated by a single space,      denoting the number of planets in Byteasar's realm and the number of new portals      that already exist.</p>
-<p>These teleportation portals are described in the <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.7.png" /> lines that follow.</p>
-<p>Each such line contains two integers <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.8.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.9.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.10.png" />),      separated by a single space, denoting that there is a teleportation portal of the new kind      connecting <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.11.png" /> and <img alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.12.png" />.</p>
+<p>Two integers are given in the first line of the standard input, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.3.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.4.png" />      (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.5.png" />, <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.6.png" />), separated by a single space,      denoting the number of planets in Byteasar's realm and the number of new portals      that already exist.</p>
+<p>These teleportation portals are described in the <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.7.png" /> lines that follow.</p>
+<p>Each such line contains two integers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.8.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.9.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.10.png" />),      separated by a single space, denoting that there is a teleportation portal of the new kind      connecting <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.11.png" /> and <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/tel-en-tex.12.png" />.</p>
 <p>No pair of numbers appears twice.</p>
 <p>You may assume that the existing network of new portals allows travel from      planet no. 1 to planet no. 2, but in no less than 250 minutes.</p>
 <h2 id="_3">输出格式</h2>
@@ -482,6 +477,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

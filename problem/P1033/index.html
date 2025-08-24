@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,7 +389,7 @@
           <h2 id="_1">题目描述</h2>
 <p>在高为 $H$ 的天花板上有 $n$ 个小球，体积不计，位置分别为 $0,1,2,\cdots,n-1$。在地面上有一个小车（长为 $L$，高为 $K$，距原点距离为 $S_1$）。已知小球下落距离计算公式为 $d=0.5 \times g \times (t^2)$，其中 $g=10$，$t$ 为下落时间。地面上的小车以速度 $V$ 前进。</p>
 <p>如下图：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1d177dhg.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/1d177dhg.png" /></p>
 <p>小车与所有小球同时开始运动，当小球距小车的距离 $\le  0.0001$ (感谢 Silver_N 修正) 时，即认为小球被小车接受（小球落到地面后不能被接受）。</p>
 <p>请你计算出小车能接受到多少个小球。</p>
 <h2 id="_2">输入格式</h2>
@@ -465,6 +460,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

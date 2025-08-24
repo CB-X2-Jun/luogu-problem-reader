@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,11 +389,11 @@
           <h2 id="_1">题目描述</h2>
 <p>很久以前，亚瑟王和他的骑士习惯每年元旦去庆祝他们的友谊。为了纪念上述事件， 我们把这些故事看作是一个棋盘游戏。有一个国王和若干个骑士被放置在一个由许多方格 组成的棋盘上，没有两个骑士在同一个方格内。</p>
 <p>这个例子是标准的 $8\times 8$ 棋盘。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/bvjh9o2q.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/bvjh9o2q.png" /></p>
 <p>国王可以移动到任何一个相邻的方格，从下图中黑子位置到下图中白子位置前提是他 不掉出棋盘之外。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/joj1exif.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/joj1exif.png" /></p>
 <p>一个骑士可以从下图中黑子位置移动到下图中白子位置(走“日”字形） 但前提是他 不掉出棋盘之外。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/vf9vuque.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/vf9vuque.png" /></p>
 <p>在游戏中，玩家可在每个方格上放不止一个棋子，假定方格足够大，任何棋子都不会 阻碍到其他棋子正常行动。</p>
 <p>玩家的任务就是把所有的棋子移动到同一个方格里——用最小的步数。为了完成这个 任务，他必须按照上面所说的规则去移动棋子。另外，玩家可以选择一个骑士跟国王从他们两个相遇的那个点开始一起行动，这时他们按照骑士的行动规则行动，其他的单独骑士则自己一直走到集中点。骑士和国王一起走的时候，只算一个人走的步数。</p>
 <p>请计算他们集中在一起的最小步数，而且玩家必须自己找出这个集中点。当然，这些 棋子可以在棋盘的任何地方集合。</p>
@@ -482,6 +477,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

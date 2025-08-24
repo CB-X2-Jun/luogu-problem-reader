@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -394,17 +389,17 @@
           <h2 id="_1">题目描述</h2>
 <p>A railroad siding consists of two (dead-end) sidetracks 1 and 2.</p>
 <p>The siding is entered by track A, and left by track B (see figure below).</p>
-<p>There are <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.1.png" /> cars on track A, numbered from <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.2.png" /> to <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.3.png" />.</p>
-<p>They are arranged in such a way that they enter the siding in the order    <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.4.png" />.</p>
-<p>The cars are to be transferred to the siding, so that they leave it by track B    in the order <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.5.png" />.</p>
+<p>There are <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.1.png" /> cars on track A, numbered from <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.2.png" /> to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.3.png" />.</p>
+<p>They are arranged in such a way that they enter the siding in the order    <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.4.png" />.</p>
+<p>The cars are to be transferred to the siding, so that they leave it by track B    in the order <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.5.png" />.</p>
 <p>Each car is to be transferred once from track A to one of the sidetracks 1 or 2,    and later (possibly after some transfers of the remaining cars) once from that    sidetrack to the track B.</p>
 <p>The sidetracks are long enough to store even the longest trains, so there is    no need to worry about their capacity.</p>
 <h2 id="_2">输入格式</h2>
-<p>The first line of the standard input holds one integer <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.6.png" /> (<img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.7.png" />)      that denotes the number of cars for transfer.</p>
-<p>The second line stores the numbers <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.8.png" /> that are a permutation of <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.9.png" />      (i.e., each <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.10.png" /> belongs to <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.11.png" />, and all these numbers are unique),      separated by single spaces.</p>
+<p>The first line of the standard input holds one integer <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.6.png" /> (<img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.7.png" />)      that denotes the number of cars for transfer.</p>
+<p>The second line stores the numbers <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.8.png" /> that are a permutation of <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.9.png" />      (i.e., each <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.10.png" /> belongs to <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.11.png" />, and all these numbers are unique),      separated by single spaces.</p>
 <h2 id="_3">输出格式</h2>
-<p>The first line of the standard output should contain the word TAK      (yes in Polish) if there is a way of transferring the cars so that they      enter track B in the order <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.12.png" />, or the word NIE      (no in Polish) if it is impossible.</p>
-<p>If the answer is TAK, the second line should give, separated by      single spaces, the numbers of sidetracks (1 or 2) to which successive cars      <img alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.13.png" /> are moved in a correct transfer.</p>
+<p>The first line of the standard output should contain the word TAK      (yes in Polish) if there is a way of transferring the cars so that they      enter track B in the order <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.12.png" />, or the word NIE      (no in Polish) if it is impossible.</p>
+<p>If the answer is TAK, the second line should give, separated by      single spaces, the numbers of sidetracks (1 or 2) to which successive cars      <img style="max-width: 100%; height: auto;" alt="" src="http://main.edu.pl/images/OI17/kol-en-tex.13.png" /> are moved in a correct transfer.</p>
 <p>If there are several ways of making the transfer, choose one arbitrarily.</p>
 <h2 id="_4">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
@@ -470,6 +465,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

@@ -203,21 +203,16 @@
         font-size: 1rem;
       }
       
-      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
-      .md-content__inner img {
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
         max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        margin: 1rem 0;
-        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
       }
       
-      /* 确保题目标题始终在最上方 */
-      .md-content__inner > h1:first-child {
-        margin-top: 0;
-        order: -1;
-      }
+
       
       /* 防止图片过大影响布局 */
       .md-content__inner img[src*="latex"] {
@@ -397,14 +392,14 @@
 <p>每个测试点包含至多 $200$ 组数据。</p>
 <p>每组数据第一行 $n\ (1≤n≤4)$，表示立方体的数量，接下来 $n$ 行，每行 $6$ 个字符串 $\mathit{color}_1,\allowbreak\mathit{color}_2,\allowbreak\mathit{color}_3,\allowbreak\mathit{color}_4,\allowbreak\mathit{color}_5,\allowbreak\mathit{color}_6$，表示立方体 $6$ 个面的颜色。</p>
 <p>其中，面的标号如下：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xlfu6oe0.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xlfu6oe0.png" /></p>
 <p>两个立方体被视为相同，当且仅当它们可以在某种摆放方式下，每个面的颜色都对应相同。</p>
 <p>如下图所示的两个立方体是相同的。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/equmi6mp.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/equmi6mp.png" /></p>
 <p>如下图所示的两个立方体是不同的。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/jqp05oyq.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/jqp05oyq.png" /></p>
 <p>一种涂色的方案如下：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mewvgalo.png" /></p>
+<p><img style="max-width: 100%; height: auto;" alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/mewvgalo.png" /></p>
 <h2 id="_3">输出格式</h2>
 <p>每组数据，输出一行一个整数，表示最少的涂色数。（涂一个面算一次涂色）</p>
 <h2 id="_4">输入输出样例</h2>
@@ -512,6 +507,9 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},
