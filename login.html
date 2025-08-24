@@ -549,19 +549,32 @@
                         showStatus('登录失败: ' + errorMsg, 'error');
                     }
                 } else if (response.status === 400) {
-                    // 400状态码，通常是验证码错误或参数错误
-                    const errorMsg = data.errorMessage || data.message || '请求参数错误';
-                    console.log('400错误详情:', data);
+                    // 400状态码，可能是验证码错误，也可能是登录成功但状态码不同
+                    console.log('400状态码详情:', data);
                     
-                    // 检查是否是验证码错误
-                    if (errorMsg.includes('验证码') || errorMsg.includes('captcha') || 
-                        data.errorType && data.errorType.includes('CaptchaNotMatchException')) {
-                        showStatus('验证码错误，请重新输入', 'warning');
-                        await refreshCaptcha();
-                        // 清空验证码输入框
-                        document.getElementById('captcha').value = '';
+                    // 先检查是否实际登录成功（通过检查用户数据）
+                    console.log('400状态码，尝试检查登录状态...');
+                    const loginCheckResult = await checkLoginStatus();
+                    
+                    if (loginCheckResult) {
+                        // 如果能获取到用户数据，说明登录成功
+                        showStatus('登录成功！正在跳转...', 'success');
+                        setTimeout(() => {
+                            const returnUrl = new URLSearchParams(window.location.search).get('return') || '/';
+                            window.location.href = returnUrl;
+                        }, 1500);
                     } else {
-                        showStatus('登录失败: ' + errorMsg, 'error');
+                        // 登录状态检查失败，按验证码错误处理
+                        const errorMsg = data.errorMessage || data.message || '请求参数错误';
+                        
+                        if (errorMsg.includes('验证码') || errorMsg.includes('captcha') || 
+                            data.errorType && data.errorType.includes('CaptchaNotMatchException')) {
+                            showStatus('验证码错误，请重新输入', 'warning');
+                            await refreshCaptcha();
+                            document.getElementById('captcha').value = '';
+                        } else {
+                            showStatus('登录失败: ' + errorMsg, 'error');
+                        }
                     }
                 } else {
                     // 其他状态码
