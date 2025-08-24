@@ -1,86 +1,197 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="zh">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="洛谷题目浏览站题目详情">
-    <meta name="author" content="CB_X2_Jun">
+    <meta name="description" content="LGOJ 题目浏览站 - 洛谷题目详情">
+    <meta name="author" content="LGOJ Team">
     <link rel="canonical" href="https://lglg.netlify.app/problem/P4029/">
-    <link rel="icon" href="../../assets/images/favicon.png">
-    <meta name="generator" content="mkdocs-material">
-    <title>P4029 [Code+#2] 化学狂暴</title>
-    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" type="image/png">
+    <meta name="generator" content="LGOJ 题目浏览站">
+    <title>P4029 P4029 [Code+#2] 化学狂暴 - LGOJ 题目浏览站</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary-color: #10b981;
+        --accent-color: #8b5cf6;
+        --danger-color: #ef4444;
+        --warning-color: #f59e0b;
+        --dark-color: #1f2937;
+        --light-color: #f9fafb;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --transition: all 0.2s ease-in-out;
+      }
+      { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
       
-      /* 美化题目页面样式 */
-      .md-content__inner {
+      /* LGOJ 题目页面样式 */
+      body {
+        font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background-color: #fff;
+        color: var(--gray-900);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* 页面头部 */
+      .lgoj-header {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .lgoj-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .lgoj-header .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .lgoj-header .logo:hover {
+        color: var(--primary-dark);
+      }
+      
+      .lgoj-header nav {
+        display: flex;
+        gap: 2rem;
+      }
+      
+      .lgoj-header nav a {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      
+      .lgoj-header nav a:hover {
+        color: var(--primary-color);
+      }
+      
+      /* 主要内容区域 */
+      .main-content {
+        min-height: calc(100vh - 200px);
+        padding: 2rem 0;
+      }
+      
+      .problem-content {
         max-width: 1000px;
         margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      
+      /* 页脚 */
+      .lgoj-footer {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--gray-600);
       }
       
       /* 题目标题美化 */
       .md-content__inner h1 {
-        color: #2c3e50;
+        color: var(--gray-900);
         font-size: 2.5rem;
-        font-weight: bold;
+        font-weight: 800;
         margin-bottom: 2rem;
         text-align: center;
-        padding: 1rem 0;
-        border-bottom: 3px solid #3498db;
+        padding: 2rem 0 1rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        border-bottom: 2px solid var(--gray-200);
       }
       
       /* 题目内容区块美化 */
       .md-content__inner h2 {
-        background: #f8f9fa;
-        color: #2c3e50;
+        background: var(--gray-50);
+        color: var(--gray-900);
         padding: 1rem 1.5rem;
         border-radius: 8px;
-        border-left: 4px solid #3498db;
+        border-left: 4px solid var(--primary-color);
         margin: 2rem 0 1rem 0;
         font-size: 1.3rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow);
         font-weight: 600;
       }
       
       /* 代码块美化 */
       .md-content__inner pre {
-        background: #f8f9fa;
-        border: 1px solid #e9ecef;
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
         border-radius: 8px;
         padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        box-shadow: var(--shadow);
         margin: 1.5rem 0;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
       }
       
       .md-content__inner pre code {
         background: transparent;
-        color: #2c3e50;
+        color: var(--gray-800);
         padding: 0;
         border-radius: 0;
         font-weight: 400;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
       }
       
       .md-content__inner code {
-        background: #e9ecef;
-        color: #495057;
+        background: var(--gray-100);
+        color: var(--gray-800);
         padding: 0.2rem 0.5rem;
         border-radius: 4px;
         font-weight: 500;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
       }
       
       /* 样例区块特殊美化 */
-      .md-content__inner h3:contains("样例") {
-        background: #f0f8ff;
-        color: #2c3e50;
+      .md-content__inner h3 {
+        background: linear-gradient(135deg, var(--secondary-color), #059669);
+        color: white;
         padding: 0.8rem 1.2rem;
         border-radius: 6px;
-        border-left: 4px solid #17a2b8;
         margin: 1.5rem 0 0.8rem 0;
         font-size: 1.1rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow);
         font-weight: 600;
       }
       
@@ -88,7 +199,8 @@
       .md-content__inner p {
         line-height: 1.8;
         margin: 1rem 0;
-        color: #444;
+        color: var(--gray-700);
+        font-size: 1rem;
       }
       
       /* 列表美化 */
@@ -99,149 +211,162 @@
       
       .md-content__inner li {
         margin: 0.5rem 0;
-        line-height: 1.6;
+        line-height: 1.7;
+        color: var(--gray-600);
       }
       
       /* 表格美化 */
       .md-content__inner table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow);
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        margin: 1.5rem 0;
+        border: 1px solid var(--gray-200);
       }
       
       .md-content__inner th {
-        background: #e9ecef;
-        color: #495057;
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        text-align: left;
         font-weight: 600;
       }
       
-      /* 返回按钮美化 */
-      .back-button {
-        display: inline-block;
-        background: #3498db;
-        color: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 8px;
+      .md-content__inner td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      
+      .md-content__inner tr:nth-child(even) {
+        background: var(--gray-50);
+      }
+      
+      /* 强调文本美化 */
+      .md-content__inner strong {
+        color: var(--gray-900);
+        font-weight: 600;
+      }
+      
+      .md-content__inner em {
+        color: var(--gray-600);
+        font-style: italic;
+      }
+      
+      /* 链接美化 */
+      .md-content__inner a {
+        color: var(--primary-color);
         text-decoration: none;
-        font-weight: bold;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+      
+      .md-content__inner a:hover {
+        color: var(--primary-dark);
+        border-bottom-color: var(--primary-dark);
+      }
+      
+      /* 引用块美化 */
+      .md-content__inner blockquote {
+        border-left: 4px solid var(--warning-color);
+        background: #fefbf3;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+        color: var(--gray-700);
+        font-style: italic;
+      }
+      
+      /* 水平分割线美化 */
+      .md-content__inner hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
         margin: 2rem 0;
-        transition: background-color 0.3s;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       
-      .back-button:hover {
-        background: #2980b9;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      /* 导航栏品牌更新 */
+      .md-header__title .md-header__ellipsis .md-ellipsis {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+      
+      /* 返回首页按钮 */
+      .return-home-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+      
+      .return-home-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         color: white;
         text-decoration: none;
       }
       
-      /* Giscus评论区域样式 */
-      .comments-section {
-        margin: 3rem 0 2rem 0;
-        padding: 2rem;
-        background: #f8f9fa;
-        border-radius: 12px;
-        border: 1px solid #e9ecef;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      }
-      
-      .comments-title {
-        color: #2c3e50;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #3498db;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      /* 自定义Giscus样式 */
-      .giscus {
-        margin-top: 1rem;
-      }
-      
-      .giscus-frame {
-        border-radius: 8px;
-        border: 1px solid #e9ecef;
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .md-content__inner {
+          padding: 1rem;
+        }
+        
+        .md-content__inner h1 {
+          font-size: 2rem;
+        }
+        
+        .md-content__inner h2 {
+          font-size: 1.2rem;
+          padding: 0.8rem 1rem;
+        }
+        
+        .md-content__inner pre {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+        
+        .lgoj-home-btn {
+          position: static;
+          margin: 1rem 0;
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
-  <body dir="ltr">
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      <a href="#题目内容" class="md-skip">跳转至</a>
-    </div>
-    <div data-md-component="announce"></div>
-    
-    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
-    
-    <header class="md-header md-header--shadow" data-md-component="header">
-      <nav class="md-header__inner md-grid" aria-label="页眉">
-        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <body>
+    <!-- 简洁的页面头部 -->
+    <header class="lgoj-header">
+      <div class="container">
+        <a href="/" class="logo">
+          <i class="fas fa-book"></i>
+          LGOJ 题目浏览站
         </a>
-        <label class="md-header__button md-icon" for="__drawer">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-        </label>
-        <div class="md-header__title" data-md-component="header-title">
-          <div class="md-header__ellipsis">
-            <div class="md-header__topic">
-              <span class="md-ellipsis">洛谷题目浏览站</span>
-            </div>
-            <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P4029 [Code+#2] 化学狂暴</span>
-            </div>
-          </div>
-        </div>
-      </nav>
+        <nav>
+          <a href="/">首页</a>
+          <a href="/problem/list">题库</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
     </header>
-    <div class="md-container" data-md-component="container">
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          <!-- 侧边栏导航 -->
-          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
-                  <label class="md-nav__title" for="__drawer">
-                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-                    </a>
-                    洛谷题目浏览站
-                  </label>
-                  <ul class="md-nav__list" data-md-scrollfix>
-                    <li class="md-nav__item">
-                      <a href="/" class="md-nav__link">
-                        <span class="md-ellipsis">🏠 首页</span>
-                      </a>
-                    </li>
-                    <li class="md-nav__item">
-                      <a href="/problem/list/" class="md-nav__link">
-                        <span class="md-ellipsis">📋 题目列表</span>
-                      </a>
-                    </li>
-                    <li class="md-nav__item">
-                      <a href="/about/" class="md-nav__link">
-                        <span class="md-ellipsis">ℹ️ 关于</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              <h2 id="_1">题目背景</h2>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+      <div class="container">
+        <div class="problem-content">
+          <h2 id="_1">题目背景</h2>
 <p>在那遥远的钦钦草原，住着 Yazid 和 YJQQQAQ，他们都是炼金术士。</p>
 <p>一般而言，题目背景总是没有用的，但这道题是个例外。在这里，我们将严谨地介绍钦钦草原世界化学学科的一些基本知识。如果你对这些内容感到枯燥乏味，你也可以跳过这个部分，直接阅读题目描述中的简述并结合样例来帮助你更快地理解题目。</p>
 <p>钦钦草原的世界里共有 $26$ 种元素，分别用大写字母A至Z表示。</p>
@@ -252,32 +377,32 @@
 <p>特别地，对于同时省略了“虚无元素”和“单一元素”下标的表示，我们把它叫做该物质的“最简式”。如上面物质的“最简式”即为：<code>JQY2</code>。</p>
 <p>由于钦钦草原世界的化学研究仍处于起步阶段，因此对于任意的物质，所有元素下标均为不超过 $9$ 的非负整数。</p>
 <p>化学方程式是描述化学反应的式子。一个化学方程式包含恰好一个等号（=），等号两边是由加号（+）连接的若干物质。形象地说，它的形式是这样的：</p>
-<pre class="codehilite"><code>物质+物质+…+物质=物质+物质+…+物质
-</code></pre>
+<div class="codehilite"><pre><span></span><code>物质+物质+…+物质=物质+物质+…+物质
+</code></pre></div>
 
 <p>除了需要满足上述格式外，元素守恒也是不可忽视的。这表示等号两边所有元素在各物质中的出现次数总和必须相等。比如，这就是一个合法的（格式正确、元素守恒的）化学方程式：</p>
-<pre class="codehilite"><code>JQY2+J2=J3QY2
-</code></pre>
+<div class="codehilite"><pre><span></span><code>JQY2+J2=J3QY2
+</code></pre></div>
 
 <p>需要特别注意的是，在化学方程式的书写中，未被化至“最简式”的元素也是可以被接受的。例如，下面的化学方程式也是合法的：</p>
-<pre class="codehilite"><code>J1Q1Y2+J2=J3Q1Y2
-</code></pre>
+<div class="codehilite"><pre><span></span><code>J1Q1Y2+J2=J3Q1Y2
+</code></pre></div>
 
 <p>而下面这个化学方程式就不是合法的了，因为它并没有满足元素守恒。</p>
-<pre class="codehilite"><code>JQY2+J2=JQY
-</code></pre>
+<div class="codehilite"><pre><span></span><code>JQY2+J2=JQY
+</code></pre></div>
 
 <p>钦钦草原化学学科的基本知识就介绍到这。祝各位选手武运昌隆！</p>
 <h2 id="_2">题目描述</h2>
 <p>所谓化学方程式，即是用加号（+）和等号（=）连接一些化学物质的式子。保证一个化学方程式中含有恰好一个等号（=）。化学物质由一些元素（用大写字母A至Z表示）加上下标（保证下标为不超过 $9$ 的非负整数）连接而成的。例如：<code>JQY2</code>、<code>A0J1QY2</code> 等。书写时需要保证字典序越小的字母排在越前面。</p>
 <p>需要注意的是，像 <code>A0J1QY2</code> 这样的物质书写同样是合法的，虽然事实上它和 <code>JQY2</code> 是等价的。我们把下标为 $1$ 的元素称为“单一元素”，把下标为 $0$ 的元素称为“虚无元素”。在书写一种物质时，我们既可以省去“单一元素”的下标，又可以直接省去“虚无元素”。特别地，我们把用这两种规则省略至最简的书写称为该物质的“最简式”。例如，<code>JQY2</code> 就是 <code>A0J1Q1Y2</code> 的最简式。</p>
 <p>既然称之为“方程式”，元素守恒就是必须的了。对于一个化学方程式，元素守恒指的是指等号两边所有元素的下标之和相等。比如，这个化学方程式就是元素守恒的：</p>
-<pre class="codehilite"><code>JQY2+J2=J3QY2
-</code></pre>
+<div class="codehilite"><pre><span></span><code>JQY2+J2=J3QY2
+</code></pre></div>
 
 <p>而这个化学方程式就是不合法的，因为它不满足元素守恒：</p>
-<pre class="codehilite"><code>JQY2+J2=JQY
-</code></pre>
+<div class="codehilite"><pre><span></span><code>JQY2+J2=JQY
+</code></pre></div>
 
 <p>作为一名资深炼金术士，Yazid 自然是整日沉迷在化学狂暴中。某一天，Yazid 写下了 $n$ 个化学方程式，并把它们放在一边，为后续的研究做着准备。</p>
 <p>然而，见习炼金术士 YJQQQAQ 不慎打翻了一瓶绿色的试剂，导致 Yazid 写下的所有化学方程式中，都有恰好 $1$ 个物质被绿色液体弄得模糊不清了。</p>
@@ -298,53 +423,53 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="codehilite"><code>3 0
-A=?
-?=A+B
-C+O2=?
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">0</span>
+<span class="n">A</span><span class="o">=</span><span class="err">?</span>
+<span class="err">?</span><span class="o">=</span><span class="n">A</span><span class="o">+</span><span class="n">B</span>
+<span class="n">C</span><span class="o">+</span><span class="n">O2</span><span class="o">=</span><span class="err">?</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="codehilite"><code>A
+<div class="codehilite"><pre><span></span><code>A
 AB
 CO2
-</code></pre>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="codehilite"><code>3 1
-A1=?
-A1+?=B1
-C1+O2=?
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span><span class="w"> </span><span class="mf">1</span>
+<span class="n">A1</span><span class="o">=</span><span class="err">?</span>
+<span class="n">A1</span><span class="o">+</span><span class="err">?</span><span class="o">=</span><span class="n">B1</span>
+<span class="n">C1</span><span class="o">+</span><span class="n">O2</span><span class="o">=</span><span class="err">?</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="codehilite"><code>A
+<div class="codehilite"><pre><span></span><code>A
 No Solution
 CO2
-</code></pre>
+</code></pre></div>
 
 <h3 id="3">样例 #3</h3>
 <h4 id="3_1">样例输入 #3</h4>
-<pre class="codehilite"><code>1 2
-A0B0C0D0E0F0G0H0I0JK0L0M0N0O0P0QR0S0T0U0V0W0X0Y2Z0=?
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="mf">2</span>
+<span class="n">A0B0C0D0E0F0G0H0I0JK0L0M0N0O0P0QR0S0T0U0V0W0X0Y2Z0</span><span class="o">=</span><span class="err">?</span>
+</code></pre></div>
 
 <h4 id="3_2">样例输出 #3</h4>
-<pre class="codehilite"><code>JQY2
-</code></pre>
+<div class="codehilite"><pre><span></span><code>JQY2
+</code></pre></div>
 
 <h3 id="4">样例 #4</h3>
 <h4 id="4_1">样例输入 #4</h4>
-<pre class="codehilite"><code>2 3
-?=A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0
-A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0+A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0=?
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">2</span><span class="w"> </span><span class="mf">3</span>
+<span class="err">?</span><span class="o">=</span><span class="n">A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0</span>
+<span class="n">A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0</span><span class="o">+</span><span class="n">A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0</span><span class="o">=</span><span class="err">?</span>
+</code></pre></div>
 
 <h4 id="4_2">样例输出 #4</h4>
-<pre class="codehilite"><code>JQY2
+<div class="codehilite"><pre><span></span><code>JQY2
 J2Q2Y4
-</code></pre>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <table>
@@ -509,45 +634,46 @@ J2Q2Y4
 <p>Git Repo：<a href="https://git.thusaac.org/publish/CodePlus201712">https://git.thusaac.org/publish/CodePlus201712</a></p>
 <p>感谢腾讯公司对此次比赛的支持。</p>
 <p>感谢 @<a href="https://www.luogu.com.cn/user/1036180">ChampionCyan</a> 提供了修复后的题面。</p>
-              
-              <!-- Giscus评论系统 -->
-              <div class="comments-section">
-                <div class="comments-title">
-                  💬 讨论交流
-                </div>
-                <script src="https://giscus.app/client.js"
-                        data-repo="Eternity-Sky/luogu-problem-reader"
-                        data-repo-id="R_kgDOPiP5uw"
-                        data-category="Announcements"
-                        data-category-id="DIC_kwDOPiP5u84CugHo"
-                        data-mapping="url"
-                        data-strict="0"
-                        data-reactions-enabled="1"
-                        data-emit-metadata="0"
-                        data-input-position="bottom"
-                        data-theme="preferred_color_scheme"
-                        data-lang="zh-CN"
-                        data-loading="lazy"
-                        crossorigin="anonymous"
-                        async>
-                </script>
-              </div>
-            </article>
-          </div>
         </div>
-      </main>
-      <footer class="md-footer">
-        <div class="md-footer-meta md-typeset">
-          <div class="md-footer-meta__inner md-grid">
-            <div class="md-copyright">
-              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
-              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
-            </div>
+        
+        <!-- 评论区域 -->
+        <div class="comments-section">
+          <div class="comments-title">
+            💬 讨论交流
           </div>
+          <script src="https://giscus.app/client.js"
+                  data-repo="Eternity-Sky/luogu-problem-reader"
+                  data-repo-id="R_kgDOPiP5uw"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPiP5u84CugHo"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="zh-CN"
+                  crossorigin="anonymous"
+                  async>
+          </script>
         </div>
-      </footer>
-    </div>
-    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="lgoj-footer">
+      <div class="container">
+        <p>© 2024 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+      </div>
+    </footer>
+
+    <!-- 返回首页按钮 -->
+    <a href="/" class="return-home-btn">
+      <i class="fas fa-home"></i>
+      返回首页
+    </a>
+
+    <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
       if (typeof hljs !== 'undefined') {
@@ -558,16 +684,14 @@ J2Q2Y4
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, { 
+        renderMathInElement(document.body, {
           delimiters: [
-            {"left":"$$","right":"$$","display":true},
-            {"left":"$","right":"$","display":false},
-            {"left":"\\(","right":"\\)","display":false},
-            {"left":"\\[","right":"\\]","display":true}
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
           ],
-          throwOnError: false,
-          strict: false,
-          trust: true
+          throwOnError: false
         });
       });
     </script>

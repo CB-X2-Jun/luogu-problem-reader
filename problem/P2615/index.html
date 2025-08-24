@@ -1,86 +1,197 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="zh">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="洛谷题目浏览站题目详情">
-    <meta name="author" content="CB_X2_Jun">
+    <meta name="description" content="LGOJ 题目浏览站 - 洛谷题目详情">
+    <meta name="author" content="LGOJ Team">
     <link rel="canonical" href="https://lglg.netlify.app/problem/P2615/">
-    <link rel="icon" href="../../assets/images/favicon.png">
-    <meta name="generator" content="mkdocs-material">
-    <title>P2615 [NOIP 2015 提高组] 神奇的幻方</title>
-    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" type="image/png">
+    <meta name="generator" content="LGOJ 题目浏览站">
+    <title>P2615 P2615 [NOIP 2015 提高组] 神奇的幻方 - LGOJ 题目浏览站</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary-color: #10b981;
+        --accent-color: #8b5cf6;
+        --danger-color: #ef4444;
+        --warning-color: #f59e0b;
+        --dark-color: #1f2937;
+        --light-color: #f9fafb;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --transition: all 0.2s ease-in-out;
+      }
+      { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
       
-      /* 美化题目页面样式 */
-      .md-content__inner {
+      /* LGOJ 题目页面样式 */
+      body {
+        font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background-color: #fff;
+        color: var(--gray-900);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* 页面头部 */
+      .lgoj-header {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .lgoj-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .lgoj-header .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .lgoj-header .logo:hover {
+        color: var(--primary-dark);
+      }
+      
+      .lgoj-header nav {
+        display: flex;
+        gap: 2rem;
+      }
+      
+      .lgoj-header nav a {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      
+      .lgoj-header nav a:hover {
+        color: var(--primary-color);
+      }
+      
+      /* 主要内容区域 */
+      .main-content {
+        min-height: calc(100vh - 200px);
+        padding: 2rem 0;
+      }
+      
+      .problem-content {
         max-width: 1000px;
         margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      
+      /* 页脚 */
+      .lgoj-footer {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--gray-600);
       }
       
       /* 题目标题美化 */
       .md-content__inner h1 {
-        color: #2c3e50;
+        color: var(--gray-900);
         font-size: 2.5rem;
-        font-weight: bold;
+        font-weight: 800;
         margin-bottom: 2rem;
         text-align: center;
-        padding: 1rem 0;
-        border-bottom: 3px solid #3498db;
+        padding: 2rem 0 1rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        border-bottom: 2px solid var(--gray-200);
       }
       
       /* 题目内容区块美化 */
       .md-content__inner h2 {
-        background: #f8f9fa;
-        color: #2c3e50;
+        background: var(--gray-50);
+        color: var(--gray-900);
         padding: 1rem 1.5rem;
         border-radius: 8px;
-        border-left: 4px solid #3498db;
+        border-left: 4px solid var(--primary-color);
         margin: 2rem 0 1rem 0;
         font-size: 1.3rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow);
         font-weight: 600;
       }
       
       /* 代码块美化 */
       .md-content__inner pre {
-        background: #f8f9fa;
-        border: 1px solid #e9ecef;
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
         border-radius: 8px;
         padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        box-shadow: var(--shadow);
         margin: 1.5rem 0;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
       }
       
       .md-content__inner pre code {
         background: transparent;
-        color: #2c3e50;
+        color: var(--gray-800);
         padding: 0;
         border-radius: 0;
         font-weight: 400;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
       }
       
       .md-content__inner code {
-        background: #e9ecef;
-        color: #495057;
+        background: var(--gray-100);
+        color: var(--gray-800);
         padding: 0.2rem 0.5rem;
         border-radius: 4px;
         font-weight: 500;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
       }
       
       /* 样例区块特殊美化 */
-      .md-content__inner h3:contains("样例") {
-        background: #f0f8ff;
-        color: #2c3e50;
+      .md-content__inner h3 {
+        background: linear-gradient(135deg, var(--secondary-color), #059669);
+        color: white;
         padding: 0.8rem 1.2rem;
         border-radius: 6px;
-        border-left: 4px solid #17a2b8;
         margin: 1.5rem 0 0.8rem 0;
         font-size: 1.1rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow);
         font-weight: 600;
       }
       
@@ -88,7 +199,8 @@
       .md-content__inner p {
         line-height: 1.8;
         margin: 1rem 0;
-        color: #444;
+        color: var(--gray-700);
+        font-size: 1rem;
       }
       
       /* 列表美化 */
@@ -99,149 +211,162 @@
       
       .md-content__inner li {
         margin: 0.5rem 0;
-        line-height: 1.6;
+        line-height: 1.7;
+        color: var(--gray-600);
       }
       
       /* 表格美化 */
       .md-content__inner table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow);
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        margin: 1.5rem 0;
+        border: 1px solid var(--gray-200);
       }
       
       .md-content__inner th {
-        background: #e9ecef;
-        color: #495057;
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        text-align: left;
         font-weight: 600;
       }
       
-      /* 返回按钮美化 */
-      .back-button {
-        display: inline-block;
-        background: #3498db;
-        color: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 8px;
+      .md-content__inner td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      
+      .md-content__inner tr:nth-child(even) {
+        background: var(--gray-50);
+      }
+      
+      /* 强调文本美化 */
+      .md-content__inner strong {
+        color: var(--gray-900);
+        font-weight: 600;
+      }
+      
+      .md-content__inner em {
+        color: var(--gray-600);
+        font-style: italic;
+      }
+      
+      /* 链接美化 */
+      .md-content__inner a {
+        color: var(--primary-color);
         text-decoration: none;
-        font-weight: bold;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+      
+      .md-content__inner a:hover {
+        color: var(--primary-dark);
+        border-bottom-color: var(--primary-dark);
+      }
+      
+      /* 引用块美化 */
+      .md-content__inner blockquote {
+        border-left: 4px solid var(--warning-color);
+        background: #fefbf3;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+        color: var(--gray-700);
+        font-style: italic;
+      }
+      
+      /* 水平分割线美化 */
+      .md-content__inner hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
         margin: 2rem 0;
-        transition: background-color 0.3s;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       
-      .back-button:hover {
-        background: #2980b9;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      /* 导航栏品牌更新 */
+      .md-header__title .md-header__ellipsis .md-ellipsis {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+      
+      /* 返回首页按钮 */
+      .return-home-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+      
+      .return-home-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         color: white;
         text-decoration: none;
       }
       
-      /* Giscus评论区域样式 */
-      .comments-section {
-        margin: 3rem 0 2rem 0;
-        padding: 2rem;
-        background: #f8f9fa;
-        border-radius: 12px;
-        border: 1px solid #e9ecef;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      }
-      
-      .comments-title {
-        color: #2c3e50;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #3498db;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      /* 自定义Giscus样式 */
-      .giscus {
-        margin-top: 1rem;
-      }
-      
-      .giscus-frame {
-        border-radius: 8px;
-        border: 1px solid #e9ecef;
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .md-content__inner {
+          padding: 1rem;
+        }
+        
+        .md-content__inner h1 {
+          font-size: 2rem;
+        }
+        
+        .md-content__inner h2 {
+          font-size: 1.2rem;
+          padding: 0.8rem 1rem;
+        }
+        
+        .md-content__inner pre {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+        
+        .lgoj-home-btn {
+          position: static;
+          margin: 1rem 0;
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
   </head>
-  <body dir="ltr">
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      <a href="#题目内容" class="md-skip">跳转至</a>
-    </div>
-    <div data-md-component="announce"></div>
-    
-    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
-    
-    <header class="md-header md-header--shadow" data-md-component="header">
-      <nav class="md-header__inner md-grid" aria-label="页眉">
-        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <body>
+    <!-- 简洁的页面头部 -->
+    <header class="lgoj-header">
+      <div class="container">
+        <a href="/" class="logo">
+          <i class="fas fa-book"></i>
+          LGOJ 题目浏览站
         </a>
-        <label class="md-header__button md-icon" for="__drawer">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-        </label>
-        <div class="md-header__title" data-md-component="header-title">
-          <div class="md-header__ellipsis">
-            <div class="md-header__topic">
-              <span class="md-ellipsis">洛谷题目浏览站</span>
-            </div>
-            <div class="md-header__topic" data-md-component="header-topic">
-              <span class="md-ellipsis">P2615 [NOIP 2015 提高组] 神奇的幻方</span>
-            </div>
-          </div>
-        </div>
-      </nav>
+        <nav>
+          <a href="/">首页</a>
+          <a href="/problem/list">题库</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
     </header>
-    <div class="md-container" data-md-component="container">
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          <!-- 侧边栏导航 -->
-          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
-                  <label class="md-nav__title" for="__drawer">
-                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-                    </a>
-                    洛谷题目浏览站
-                  </label>
-                  <ul class="md-nav__list" data-md-scrollfix>
-                    <li class="md-nav__item">
-                      <a href="/" class="md-nav__link">
-                        <span class="md-ellipsis">🏠 首页</span>
-                      </a>
-                    </li>
-                    <li class="md-nav__item">
-                      <a href="/problem/list/" class="md-nav__link">
-                        <span class="md-ellipsis">📋 题目列表</span>
-                      </a>
-                    </li>
-                    <li class="md-nav__item">
-                      <a href="/about/" class="md-nav__link">
-                        <span class="md-ellipsis">ℹ️ 关于</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              <h2 id="_1">题目背景</h2>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+      <div class="container">
+        <div class="problem-content">
+          <h2 id="_1">题目背景</h2>
 <p>NOIp2015 提高组 Day1T1</p>
 <h2 id="_2">题目描述</h2>
 <p>幻方是一种很神奇的 $N\times N$ 矩阵：它由数字 $1,2,3,\cdots \cdots ,N \times N$ 构成，且每行、每列及两条对角线上的数字之和都相同。</p>
@@ -262,89 +387,90 @@
 <h2 id="_5">输入输出样例</h2>
 <h3 id="1">样例 #1</h3>
 <h4 id="1_1">样例输入 #1</h4>
-<pre class="codehilite"><code>3
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span>
+</code></pre></div>
 
 <h4 id="1_2">样例输出 #1</h4>
-<pre class="codehilite"><code>8 1 6
-3 5 7
-4 9 2
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">6</span>
+<span class="mf">3</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">7</span>
+<span class="mf">4</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
 
 <h3 id="2">样例 #2</h3>
 <h4 id="2_1">样例输入 #2</h4>
-<pre class="codehilite"><code>25
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">25</span>
+</code></pre></div>
 
 <h4 id="2_2">样例输出 #2</h4>
-<pre class="codehilite"><code>327 354 381 408 435 462 489 516 543 570 597 624 1 28 55 82 109 136 163 190 217 244 271 298 325
-353 380 407 434 461 488 515 542 569 596 623 25 27 54 81 108 135 162 189 216 243 270 297 324 326
-379 406 433 460 487 514 541 568 595 622 24 26 53 80 107 134 161 188 215 242 269 296 323 350 352
-405 432 459 486 513 540 567 594 621 23 50 52 79 106 133 160 187 214 241 268 295 322 349 351 378
-431 458 485 512 539 566 593 620 22 49 51 78 105 132 159 186 213 240 267 294 321 348 375 377 404
-457 484 511 538 565 592 619 21 48 75 77 104 131 158 185 212 239 266 293 320 347 374 376 403 430
-483 510 537 564 591 618 20 47 74 76 103 130 157 184 211 238 265 292 319 346 373 400 402 429 456
-509 536 563 590 617 19 46 73 100 102 129 156 183 210 237 264 291 318 345 372 399 401 428 455 482
-535 562 589 616 18 45 72 99 101 128 155 182 209 236 263 290 317 344 371 398 425 427 454 481 508
-561 588 615 17 44 71 98 125 127 154 181 208 235 262 289 316 343 370 397 424 426 453 480 507 534
-587 614 16 43 70 97 124 126 153 180 207 234 261 288 315 342 369 396 423 450 452 479 506 533 560
-613 15 42 69 96 123 150 152 179 206 233 260 287 314 341 368 395 422 449 451 478 505 532 559 586
-14 41 68 95 122 149 151 178 205 232 259 286 313 340 367 394 421 448 475 477 504 531 558 585 612
-40 67 94 121 148 175 177 204 231 258 285 312 339 366 393 420 447 474 476 503 530 557 584 611 13
-66 93 120 147 174 176 203 230 257 284 311 338 365 392 419 446 473 500 502 529 556 583 610 12 39
-92 119 146 173 200 202 229 256 283 310 337 364 391 418 445 472 499 501 528 555 582 609 11 38 65
-118 145 172 199 201 228 255 282 309 336 363 390 417 444 471 498 525 527 554 581 608 10 37 64 91
-144 171 198 225 227 254 281 308 335 362 389 416 443 470 497 524 526 553 580 607 9 36 63 90 117
-170 197 224 226 253 280 307 334 361 388 415 442 469 496 523 550 552 579 606 8 35 62 89 116 143
-196 223 250 252 279 306 333 360 387 414 441 468 495 522 549 551 578 605 7 34 61 88 115 142 169
-222 249 251 278 305 332 359 386 413 440 467 494 521 548 575 577 604 6 33 60 87 114 141 168 195
-248 275 277 304 331 358 385 412 439 466 493 520 547 574 576 603 5 32 59 86 113 140 167 194 221
-274 276 303 330 357 384 411 438 465 492 519 546 573 600 602 4 31 58 85 112 139 166 193 220 247
-300 302 329 356 383 410 437 464 491 518 545 572 599 601 3 30 57 84 111 138 165 192 219 246 273
-301 328 355 382 409 436 463 490 517 544 571 598 625 2 29 56 83 110 137 164 191 218 245 272 299
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">327</span><span class="w"> </span><span class="mf">354</span><span class="w"> </span><span class="mf">381</span><span class="w"> </span><span class="mf">408</span><span class="w"> </span><span class="mf">435</span><span class="w"> </span><span class="mf">462</span><span class="w"> </span><span class="mf">489</span><span class="w"> </span><span class="mf">516</span><span class="w"> </span><span class="mf">543</span><span class="w"> </span><span class="mf">570</span><span class="w"> </span><span class="mf">597</span><span class="w"> </span><span class="mf">624</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">28</span><span class="w"> </span><span class="mf">55</span><span class="w"> </span><span class="mf">82</span><span class="w"> </span><span class="mf">109</span><span class="w"> </span><span class="mf">136</span><span class="w"> </span><span class="mf">163</span><span class="w"> </span><span class="mf">190</span><span class="w"> </span><span class="mf">217</span><span class="w"> </span><span class="mf">244</span><span class="w"> </span><span class="mf">271</span><span class="w"> </span><span class="mf">298</span><span class="w"> </span><span class="mf">325</span>
+<span class="mf">353</span><span class="w"> </span><span class="mf">380</span><span class="w"> </span><span class="mf">407</span><span class="w"> </span><span class="mf">434</span><span class="w"> </span><span class="mf">461</span><span class="w"> </span><span class="mf">488</span><span class="w"> </span><span class="mf">515</span><span class="w"> </span><span class="mf">542</span><span class="w"> </span><span class="mf">569</span><span class="w"> </span><span class="mf">596</span><span class="w"> </span><span class="mf">623</span><span class="w"> </span><span class="mf">25</span><span class="w"> </span><span class="mf">27</span><span class="w"> </span><span class="mf">54</span><span class="w"> </span><span class="mf">81</span><span class="w"> </span><span class="mf">108</span><span class="w"> </span><span class="mf">135</span><span class="w"> </span><span class="mf">162</span><span class="w"> </span><span class="mf">189</span><span class="w"> </span><span class="mf">216</span><span class="w"> </span><span class="mf">243</span><span class="w"> </span><span class="mf">270</span><span class="w"> </span><span class="mf">297</span><span class="w"> </span><span class="mf">324</span><span class="w"> </span><span class="mf">326</span>
+<span class="mf">379</span><span class="w"> </span><span class="mf">406</span><span class="w"> </span><span class="mf">433</span><span class="w"> </span><span class="mf">460</span><span class="w"> </span><span class="mf">487</span><span class="w"> </span><span class="mf">514</span><span class="w"> </span><span class="mf">541</span><span class="w"> </span><span class="mf">568</span><span class="w"> </span><span class="mf">595</span><span class="w"> </span><span class="mf">622</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="mf">26</span><span class="w"> </span><span class="mf">53</span><span class="w"> </span><span class="mf">80</span><span class="w"> </span><span class="mf">107</span><span class="w"> </span><span class="mf">134</span><span class="w"> </span><span class="mf">161</span><span class="w"> </span><span class="mf">188</span><span class="w"> </span><span class="mf">215</span><span class="w"> </span><span class="mf">242</span><span class="w"> </span><span class="mf">269</span><span class="w"> </span><span class="mf">296</span><span class="w"> </span><span class="mf">323</span><span class="w"> </span><span class="mf">350</span><span class="w"> </span><span class="mf">352</span>
+<span class="mf">405</span><span class="w"> </span><span class="mf">432</span><span class="w"> </span><span class="mf">459</span><span class="w"> </span><span class="mf">486</span><span class="w"> </span><span class="mf">513</span><span class="w"> </span><span class="mf">540</span><span class="w"> </span><span class="mf">567</span><span class="w"> </span><span class="mf">594</span><span class="w"> </span><span class="mf">621</span><span class="w"> </span><span class="mf">23</span><span class="w"> </span><span class="mf">50</span><span class="w"> </span><span class="mf">52</span><span class="w"> </span><span class="mf">79</span><span class="w"> </span><span class="mf">106</span><span class="w"> </span><span class="mf">133</span><span class="w"> </span><span class="mf">160</span><span class="w"> </span><span class="mf">187</span><span class="w"> </span><span class="mf">214</span><span class="w"> </span><span class="mf">241</span><span class="w"> </span><span class="mf">268</span><span class="w"> </span><span class="mf">295</span><span class="w"> </span><span class="mf">322</span><span class="w"> </span><span class="mf">349</span><span class="w"> </span><span class="mf">351</span><span class="w"> </span><span class="mf">378</span>
+<span class="mf">431</span><span class="w"> </span><span class="mf">458</span><span class="w"> </span><span class="mf">485</span><span class="w"> </span><span class="mf">512</span><span class="w"> </span><span class="mf">539</span><span class="w"> </span><span class="mf">566</span><span class="w"> </span><span class="mf">593</span><span class="w"> </span><span class="mf">620</span><span class="w"> </span><span class="mf">22</span><span class="w"> </span><span class="mf">49</span><span class="w"> </span><span class="mf">51</span><span class="w"> </span><span class="mf">78</span><span class="w"> </span><span class="mf">105</span><span class="w"> </span><span class="mf">132</span><span class="w"> </span><span class="mf">159</span><span class="w"> </span><span class="mf">186</span><span class="w"> </span><span class="mf">213</span><span class="w"> </span><span class="mf">240</span><span class="w"> </span><span class="mf">267</span><span class="w"> </span><span class="mf">294</span><span class="w"> </span><span class="mf">321</span><span class="w"> </span><span class="mf">348</span><span class="w"> </span><span class="mf">375</span><span class="w"> </span><span class="mf">377</span><span class="w"> </span><span class="mf">404</span>
+<span class="mf">457</span><span class="w"> </span><span class="mf">484</span><span class="w"> </span><span class="mf">511</span><span class="w"> </span><span class="mf">538</span><span class="w"> </span><span class="mf">565</span><span class="w"> </span><span class="mf">592</span><span class="w"> </span><span class="mf">619</span><span class="w"> </span><span class="mf">21</span><span class="w"> </span><span class="mf">48</span><span class="w"> </span><span class="mf">75</span><span class="w"> </span><span class="mf">77</span><span class="w"> </span><span class="mf">104</span><span class="w"> </span><span class="mf">131</span><span class="w"> </span><span class="mf">158</span><span class="w"> </span><span class="mf">185</span><span class="w"> </span><span class="mf">212</span><span class="w"> </span><span class="mf">239</span><span class="w"> </span><span class="mf">266</span><span class="w"> </span><span class="mf">293</span><span class="w"> </span><span class="mf">320</span><span class="w"> </span><span class="mf">347</span><span class="w"> </span><span class="mf">374</span><span class="w"> </span><span class="mf">376</span><span class="w"> </span><span class="mf">403</span><span class="w"> </span><span class="mf">430</span>
+<span class="mf">483</span><span class="w"> </span><span class="mf">510</span><span class="w"> </span><span class="mf">537</span><span class="w"> </span><span class="mf">564</span><span class="w"> </span><span class="mf">591</span><span class="w"> </span><span class="mf">618</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="mf">47</span><span class="w"> </span><span class="mf">74</span><span class="w"> </span><span class="mf">76</span><span class="w"> </span><span class="mf">103</span><span class="w"> </span><span class="mf">130</span><span class="w"> </span><span class="mf">157</span><span class="w"> </span><span class="mf">184</span><span class="w"> </span><span class="mf">211</span><span class="w"> </span><span class="mf">238</span><span class="w"> </span><span class="mf">265</span><span class="w"> </span><span class="mf">292</span><span class="w"> </span><span class="mf">319</span><span class="w"> </span><span class="mf">346</span><span class="w"> </span><span class="mf">373</span><span class="w"> </span><span class="mf">400</span><span class="w"> </span><span class="mf">402</span><span class="w"> </span><span class="mf">429</span><span class="w"> </span><span class="mf">456</span>
+<span class="mf">509</span><span class="w"> </span><span class="mf">536</span><span class="w"> </span><span class="mf">563</span><span class="w"> </span><span class="mf">590</span><span class="w"> </span><span class="mf">617</span><span class="w"> </span><span class="mf">19</span><span class="w"> </span><span class="mf">46</span><span class="w"> </span><span class="mf">73</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="mf">102</span><span class="w"> </span><span class="mf">129</span><span class="w"> </span><span class="mf">156</span><span class="w"> </span><span class="mf">183</span><span class="w"> </span><span class="mf">210</span><span class="w"> </span><span class="mf">237</span><span class="w"> </span><span class="mf">264</span><span class="w"> </span><span class="mf">291</span><span class="w"> </span><span class="mf">318</span><span class="w"> </span><span class="mf">345</span><span class="w"> </span><span class="mf">372</span><span class="w"> </span><span class="mf">399</span><span class="w"> </span><span class="mf">401</span><span class="w"> </span><span class="mf">428</span><span class="w"> </span><span class="mf">455</span><span class="w"> </span><span class="mf">482</span>
+<span class="mf">535</span><span class="w"> </span><span class="mf">562</span><span class="w"> </span><span class="mf">589</span><span class="w"> </span><span class="mf">616</span><span class="w"> </span><span class="mf">18</span><span class="w"> </span><span class="mf">45</span><span class="w"> </span><span class="mf">72</span><span class="w"> </span><span class="mf">99</span><span class="w"> </span><span class="mf">101</span><span class="w"> </span><span class="mf">128</span><span class="w"> </span><span class="mf">155</span><span class="w"> </span><span class="mf">182</span><span class="w"> </span><span class="mf">209</span><span class="w"> </span><span class="mf">236</span><span class="w"> </span><span class="mf">263</span><span class="w"> </span><span class="mf">290</span><span class="w"> </span><span class="mf">317</span><span class="w"> </span><span class="mf">344</span><span class="w"> </span><span class="mf">371</span><span class="w"> </span><span class="mf">398</span><span class="w"> </span><span class="mf">425</span><span class="w"> </span><span class="mf">427</span><span class="w"> </span><span class="mf">454</span><span class="w"> </span><span class="mf">481</span><span class="w"> </span><span class="mf">508</span>
+<span class="mf">561</span><span class="w"> </span><span class="mf">588</span><span class="w"> </span><span class="mf">615</span><span class="w"> </span><span class="mf">17</span><span class="w"> </span><span class="mf">44</span><span class="w"> </span><span class="mf">71</span><span class="w"> </span><span class="mf">98</span><span class="w"> </span><span class="mf">125</span><span class="w"> </span><span class="mf">127</span><span class="w"> </span><span class="mf">154</span><span class="w"> </span><span class="mf">181</span><span class="w"> </span><span class="mf">208</span><span class="w"> </span><span class="mf">235</span><span class="w"> </span><span class="mf">262</span><span class="w"> </span><span class="mf">289</span><span class="w"> </span><span class="mf">316</span><span class="w"> </span><span class="mf">343</span><span class="w"> </span><span class="mf">370</span><span class="w"> </span><span class="mf">397</span><span class="w"> </span><span class="mf">424</span><span class="w"> </span><span class="mf">426</span><span class="w"> </span><span class="mf">453</span><span class="w"> </span><span class="mf">480</span><span class="w"> </span><span class="mf">507</span><span class="w"> </span><span class="mf">534</span>
+<span class="mf">587</span><span class="w"> </span><span class="mf">614</span><span class="w"> </span><span class="mf">16</span><span class="w"> </span><span class="mf">43</span><span class="w"> </span><span class="mf">70</span><span class="w"> </span><span class="mf">97</span><span class="w"> </span><span class="mf">124</span><span class="w"> </span><span class="mf">126</span><span class="w"> </span><span class="mf">153</span><span class="w"> </span><span class="mf">180</span><span class="w"> </span><span class="mf">207</span><span class="w"> </span><span class="mf">234</span><span class="w"> </span><span class="mf">261</span><span class="w"> </span><span class="mf">288</span><span class="w"> </span><span class="mf">315</span><span class="w"> </span><span class="mf">342</span><span class="w"> </span><span class="mf">369</span><span class="w"> </span><span class="mf">396</span><span class="w"> </span><span class="mf">423</span><span class="w"> </span><span class="mf">450</span><span class="w"> </span><span class="mf">452</span><span class="w"> </span><span class="mf">479</span><span class="w"> </span><span class="mf">506</span><span class="w"> </span><span class="mf">533</span><span class="w"> </span><span class="mf">560</span>
+<span class="mf">613</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="mf">42</span><span class="w"> </span><span class="mf">69</span><span class="w"> </span><span class="mf">96</span><span class="w"> </span><span class="mf">123</span><span class="w"> </span><span class="mf">150</span><span class="w"> </span><span class="mf">152</span><span class="w"> </span><span class="mf">179</span><span class="w"> </span><span class="mf">206</span><span class="w"> </span><span class="mf">233</span><span class="w"> </span><span class="mf">260</span><span class="w"> </span><span class="mf">287</span><span class="w"> </span><span class="mf">314</span><span class="w"> </span><span class="mf">341</span><span class="w"> </span><span class="mf">368</span><span class="w"> </span><span class="mf">395</span><span class="w"> </span><span class="mf">422</span><span class="w"> </span><span class="mf">449</span><span class="w"> </span><span class="mf">451</span><span class="w"> </span><span class="mf">478</span><span class="w"> </span><span class="mf">505</span><span class="w"> </span><span class="mf">532</span><span class="w"> </span><span class="mf">559</span><span class="w"> </span><span class="mf">586</span>
+<span class="mf">14</span><span class="w"> </span><span class="mf">41</span><span class="w"> </span><span class="mf">68</span><span class="w"> </span><span class="mf">95</span><span class="w"> </span><span class="mf">122</span><span class="w"> </span><span class="mf">149</span><span class="w"> </span><span class="mf">151</span><span class="w"> </span><span class="mf">178</span><span class="w"> </span><span class="mf">205</span><span class="w"> </span><span class="mf">232</span><span class="w"> </span><span class="mf">259</span><span class="w"> </span><span class="mf">286</span><span class="w"> </span><span class="mf">313</span><span class="w"> </span><span class="mf">340</span><span class="w"> </span><span class="mf">367</span><span class="w"> </span><span class="mf">394</span><span class="w"> </span><span class="mf">421</span><span class="w"> </span><span class="mf">448</span><span class="w"> </span><span class="mf">475</span><span class="w"> </span><span class="mf">477</span><span class="w"> </span><span class="mf">504</span><span class="w"> </span><span class="mf">531</span><span class="w"> </span><span class="mf">558</span><span class="w"> </span><span class="mf">585</span><span class="w"> </span><span class="mf">612</span>
+<span class="mf">40</span><span class="w"> </span><span class="mf">67</span><span class="w"> </span><span class="mf">94</span><span class="w"> </span><span class="mf">121</span><span class="w"> </span><span class="mf">148</span><span class="w"> </span><span class="mf">175</span><span class="w"> </span><span class="mf">177</span><span class="w"> </span><span class="mf">204</span><span class="w"> </span><span class="mf">231</span><span class="w"> </span><span class="mf">258</span><span class="w"> </span><span class="mf">285</span><span class="w"> </span><span class="mf">312</span><span class="w"> </span><span class="mf">339</span><span class="w"> </span><span class="mf">366</span><span class="w"> </span><span class="mf">393</span><span class="w"> </span><span class="mf">420</span><span class="w"> </span><span class="mf">447</span><span class="w"> </span><span class="mf">474</span><span class="w"> </span><span class="mf">476</span><span class="w"> </span><span class="mf">503</span><span class="w"> </span><span class="mf">530</span><span class="w"> </span><span class="mf">557</span><span class="w"> </span><span class="mf">584</span><span class="w"> </span><span class="mf">611</span><span class="w"> </span><span class="mf">13</span>
+<span class="mf">66</span><span class="w"> </span><span class="mf">93</span><span class="w"> </span><span class="mf">120</span><span class="w"> </span><span class="mf">147</span><span class="w"> </span><span class="mf">174</span><span class="w"> </span><span class="mf">176</span><span class="w"> </span><span class="mf">203</span><span class="w"> </span><span class="mf">230</span><span class="w"> </span><span class="mf">257</span><span class="w"> </span><span class="mf">284</span><span class="w"> </span><span class="mf">311</span><span class="w"> </span><span class="mf">338</span><span class="w"> </span><span class="mf">365</span><span class="w"> </span><span class="mf">392</span><span class="w"> </span><span class="mf">419</span><span class="w"> </span><span class="mf">446</span><span class="w"> </span><span class="mf">473</span><span class="w"> </span><span class="mf">500</span><span class="w"> </span><span class="mf">502</span><span class="w"> </span><span class="mf">529</span><span class="w"> </span><span class="mf">556</span><span class="w"> </span><span class="mf">583</span><span class="w"> </span><span class="mf">610</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="mf">39</span>
+<span class="mf">92</span><span class="w"> </span><span class="mf">119</span><span class="w"> </span><span class="mf">146</span><span class="w"> </span><span class="mf">173</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="mf">202</span><span class="w"> </span><span class="mf">229</span><span class="w"> </span><span class="mf">256</span><span class="w"> </span><span class="mf">283</span><span class="w"> </span><span class="mf">310</span><span class="w"> </span><span class="mf">337</span><span class="w"> </span><span class="mf">364</span><span class="w"> </span><span class="mf">391</span><span class="w"> </span><span class="mf">418</span><span class="w"> </span><span class="mf">445</span><span class="w"> </span><span class="mf">472</span><span class="w"> </span><span class="mf">499</span><span class="w"> </span><span class="mf">501</span><span class="w"> </span><span class="mf">528</span><span class="w"> </span><span class="mf">555</span><span class="w"> </span><span class="mf">582</span><span class="w"> </span><span class="mf">609</span><span class="w"> </span><span class="mf">11</span><span class="w"> </span><span class="mf">38</span><span class="w"> </span><span class="mf">65</span>
+<span class="mf">118</span><span class="w"> </span><span class="mf">145</span><span class="w"> </span><span class="mf">172</span><span class="w"> </span><span class="mf">199</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="mf">228</span><span class="w"> </span><span class="mf">255</span><span class="w"> </span><span class="mf">282</span><span class="w"> </span><span class="mf">309</span><span class="w"> </span><span class="mf">336</span><span class="w"> </span><span class="mf">363</span><span class="w"> </span><span class="mf">390</span><span class="w"> </span><span class="mf">417</span><span class="w"> </span><span class="mf">444</span><span class="w"> </span><span class="mf">471</span><span class="w"> </span><span class="mf">498</span><span class="w"> </span><span class="mf">525</span><span class="w"> </span><span class="mf">527</span><span class="w"> </span><span class="mf">554</span><span class="w"> </span><span class="mf">581</span><span class="w"> </span><span class="mf">608</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="mf">37</span><span class="w"> </span><span class="mf">64</span><span class="w"> </span><span class="mf">91</span>
+<span class="mf">144</span><span class="w"> </span><span class="mf">171</span><span class="w"> </span><span class="mf">198</span><span class="w"> </span><span class="mf">225</span><span class="w"> </span><span class="mf">227</span><span class="w"> </span><span class="mf">254</span><span class="w"> </span><span class="mf">281</span><span class="w"> </span><span class="mf">308</span><span class="w"> </span><span class="mf">335</span><span class="w"> </span><span class="mf">362</span><span class="w"> </span><span class="mf">389</span><span class="w"> </span><span class="mf">416</span><span class="w"> </span><span class="mf">443</span><span class="w"> </span><span class="mf">470</span><span class="w"> </span><span class="mf">497</span><span class="w"> </span><span class="mf">524</span><span class="w"> </span><span class="mf">526</span><span class="w"> </span><span class="mf">553</span><span class="w"> </span><span class="mf">580</span><span class="w"> </span><span class="mf">607</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="mf">36</span><span class="w"> </span><span class="mf">63</span><span class="w"> </span><span class="mf">90</span><span class="w"> </span><span class="mf">117</span>
+<span class="mf">170</span><span class="w"> </span><span class="mf">197</span><span class="w"> </span><span class="mf">224</span><span class="w"> </span><span class="mf">226</span><span class="w"> </span><span class="mf">253</span><span class="w"> </span><span class="mf">280</span><span class="w"> </span><span class="mf">307</span><span class="w"> </span><span class="mf">334</span><span class="w"> </span><span class="mf">361</span><span class="w"> </span><span class="mf">388</span><span class="w"> </span><span class="mf">415</span><span class="w"> </span><span class="mf">442</span><span class="w"> </span><span class="mf">469</span><span class="w"> </span><span class="mf">496</span><span class="w"> </span><span class="mf">523</span><span class="w"> </span><span class="mf">550</span><span class="w"> </span><span class="mf">552</span><span class="w"> </span><span class="mf">579</span><span class="w"> </span><span class="mf">606</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="mf">35</span><span class="w"> </span><span class="mf">62</span><span class="w"> </span><span class="mf">89</span><span class="w"> </span><span class="mf">116</span><span class="w"> </span><span class="mf">143</span>
+<span class="mf">196</span><span class="w"> </span><span class="mf">223</span><span class="w"> </span><span class="mf">250</span><span class="w"> </span><span class="mf">252</span><span class="w"> </span><span class="mf">279</span><span class="w"> </span><span class="mf">306</span><span class="w"> </span><span class="mf">333</span><span class="w"> </span><span class="mf">360</span><span class="w"> </span><span class="mf">387</span><span class="w"> </span><span class="mf">414</span><span class="w"> </span><span class="mf">441</span><span class="w"> </span><span class="mf">468</span><span class="w"> </span><span class="mf">495</span><span class="w"> </span><span class="mf">522</span><span class="w"> </span><span class="mf">549</span><span class="w"> </span><span class="mf">551</span><span class="w"> </span><span class="mf">578</span><span class="w"> </span><span class="mf">605</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="mf">34</span><span class="w"> </span><span class="mf">61</span><span class="w"> </span><span class="mf">88</span><span class="w"> </span><span class="mf">115</span><span class="w"> </span><span class="mf">142</span><span class="w"> </span><span class="mf">169</span>
+<span class="mf">222</span><span class="w"> </span><span class="mf">249</span><span class="w"> </span><span class="mf">251</span><span class="w"> </span><span class="mf">278</span><span class="w"> </span><span class="mf">305</span><span class="w"> </span><span class="mf">332</span><span class="w"> </span><span class="mf">359</span><span class="w"> </span><span class="mf">386</span><span class="w"> </span><span class="mf">413</span><span class="w"> </span><span class="mf">440</span><span class="w"> </span><span class="mf">467</span><span class="w"> </span><span class="mf">494</span><span class="w"> </span><span class="mf">521</span><span class="w"> </span><span class="mf">548</span><span class="w"> </span><span class="mf">575</span><span class="w"> </span><span class="mf">577</span><span class="w"> </span><span class="mf">604</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="mf">33</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="mf">87</span><span class="w"> </span><span class="mf">114</span><span class="w"> </span><span class="mf">141</span><span class="w"> </span><span class="mf">168</span><span class="w"> </span><span class="mf">195</span>
+<span class="mf">248</span><span class="w"> </span><span class="mf">275</span><span class="w"> </span><span class="mf">277</span><span class="w"> </span><span class="mf">304</span><span class="w"> </span><span class="mf">331</span><span class="w"> </span><span class="mf">358</span><span class="w"> </span><span class="mf">385</span><span class="w"> </span><span class="mf">412</span><span class="w"> </span><span class="mf">439</span><span class="w"> </span><span class="mf">466</span><span class="w"> </span><span class="mf">493</span><span class="w"> </span><span class="mf">520</span><span class="w"> </span><span class="mf">547</span><span class="w"> </span><span class="mf">574</span><span class="w"> </span><span class="mf">576</span><span class="w"> </span><span class="mf">603</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="mf">32</span><span class="w"> </span><span class="mf">59</span><span class="w"> </span><span class="mf">86</span><span class="w"> </span><span class="mf">113</span><span class="w"> </span><span class="mf">140</span><span class="w"> </span><span class="mf">167</span><span class="w"> </span><span class="mf">194</span><span class="w"> </span><span class="mf">221</span>
+<span class="mf">274</span><span class="w"> </span><span class="mf">276</span><span class="w"> </span><span class="mf">303</span><span class="w"> </span><span class="mf">330</span><span class="w"> </span><span class="mf">357</span><span class="w"> </span><span class="mf">384</span><span class="w"> </span><span class="mf">411</span><span class="w"> </span><span class="mf">438</span><span class="w"> </span><span class="mf">465</span><span class="w"> </span><span class="mf">492</span><span class="w"> </span><span class="mf">519</span><span class="w"> </span><span class="mf">546</span><span class="w"> </span><span class="mf">573</span><span class="w"> </span><span class="mf">600</span><span class="w"> </span><span class="mf">602</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="mf">31</span><span class="w"> </span><span class="mf">58</span><span class="w"> </span><span class="mf">85</span><span class="w"> </span><span class="mf">112</span><span class="w"> </span><span class="mf">139</span><span class="w"> </span><span class="mf">166</span><span class="w"> </span><span class="mf">193</span><span class="w"> </span><span class="mf">220</span><span class="w"> </span><span class="mf">247</span>
+<span class="mf">300</span><span class="w"> </span><span class="mf">302</span><span class="w"> </span><span class="mf">329</span><span class="w"> </span><span class="mf">356</span><span class="w"> </span><span class="mf">383</span><span class="w"> </span><span class="mf">410</span><span class="w"> </span><span class="mf">437</span><span class="w"> </span><span class="mf">464</span><span class="w"> </span><span class="mf">491</span><span class="w"> </span><span class="mf">518</span><span class="w"> </span><span class="mf">545</span><span class="w"> </span><span class="mf">572</span><span class="w"> </span><span class="mf">599</span><span class="w"> </span><span class="mf">601</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="mf">57</span><span class="w"> </span><span class="mf">84</span><span class="w"> </span><span class="mf">111</span><span class="w"> </span><span class="mf">138</span><span class="w"> </span><span class="mf">165</span><span class="w"> </span><span class="mf">192</span><span class="w"> </span><span class="mf">219</span><span class="w"> </span><span class="mf">246</span><span class="w"> </span><span class="mf">273</span>
+<span class="mf">301</span><span class="w"> </span><span class="mf">328</span><span class="w"> </span><span class="mf">355</span><span class="w"> </span><span class="mf">382</span><span class="w"> </span><span class="mf">409</span><span class="w"> </span><span class="mf">436</span><span class="w"> </span><span class="mf">463</span><span class="w"> </span><span class="mf">490</span><span class="w"> </span><span class="mf">517</span><span class="w"> </span><span class="mf">544</span><span class="w"> </span><span class="mf">571</span><span class="w"> </span><span class="mf">598</span><span class="w"> </span><span class="mf">625</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="mf">29</span><span class="w"> </span><span class="mf">56</span><span class="w"> </span><span class="mf">83</span><span class="w"> </span><span class="mf">110</span><span class="w"> </span><span class="mf">137</span><span class="w"> </span><span class="mf">164</span><span class="w"> </span><span class="mf">191</span><span class="w"> </span><span class="mf">218</span><span class="w"> </span><span class="mf">245</span><span class="w"> </span><span class="mf">272</span><span class="w"> </span><span class="mf">299</span>
+</code></pre></div>
 
 <h2 id="_6">说明/提示</h2>
 <p>对于 $100\%$ 的数据，对于全部数据， $1 \leq N \leq 39$ 且 $N$ 为奇数。</p>
-              
-              <!-- Giscus评论系统 -->
-              <div class="comments-section">
-                <div class="comments-title">
-                  💬 讨论交流
-                </div>
-                <script src="https://giscus.app/client.js"
-                        data-repo="Eternity-Sky/luogu-problem-reader"
-                        data-repo-id="R_kgDOPiP5uw"
-                        data-category="Announcements"
-                        data-category-id="DIC_kwDOPiP5u84CugHo"
-                        data-mapping="url"
-                        data-strict="0"
-                        data-reactions-enabled="1"
-                        data-emit-metadata="0"
-                        data-input-position="bottom"
-                        data-theme="preferred_color_scheme"
-                        data-lang="zh-CN"
-                        data-loading="lazy"
-                        crossorigin="anonymous"
-                        async>
-                </script>
-              </div>
-            </article>
-          </div>
         </div>
-      </main>
-      <footer class="md-footer">
-        <div class="md-footer-meta md-typeset">
-          <div class="md-footer-meta__inner md-grid">
-            <div class="md-copyright">
-              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
-              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
-            </div>
+        
+        <!-- 评论区域 -->
+        <div class="comments-section">
+          <div class="comments-title">
+            💬 讨论交流
           </div>
+          <script src="https://giscus.app/client.js"
+                  data-repo="Eternity-Sky/luogu-problem-reader"
+                  data-repo-id="R_kgDOPiP5uw"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPiP5u84CugHo"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="zh-CN"
+                  crossorigin="anonymous"
+                  async>
+          </script>
         </div>
-      </footer>
-    </div>
-    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="lgoj-footer">
+      <div class="container">
+        <p>© 2024 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+      </div>
+    </footer>
+
+    <!-- 返回首页按钮 -->
+    <a href="/" class="return-home-btn">
+      <i class="fas fa-home"></i>
+      返回首页
+    </a>
+
+    <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
       if (typeof hljs !== 'undefined') {
@@ -355,16 +481,14 @@
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, { 
+        renderMathInElement(document.body, {
           delimiters: [
-            {"left":"$$","right":"$$","display":true},
-            {"left":"$","right":"$","display":false},
-            {"left":"\\(","right":"\\)","display":false},
-            {"left":"\\[","right":"\\]","display":true}
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
           ],
-          throwOnError: false,
-          strict: false,
-          trust: true
+          throwOnError: false
         });
       });
     </script>
