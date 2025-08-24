@@ -524,13 +524,13 @@
                 }
                 
                 // 发送登录请求
-                console.log('发送登录请求，参数:', {
+                console.log('登录请求参数:', {
                     username: username,
                     password: '***',
                     captcha: captcha,
                     sessionId: sessionId.substring(0, 10) + '...',
                     csrfToken: csrfToken ? csrfToken.substring(0, 10) + '...' : 'null'
-                });z
+                });
                 
                 const response = await proxyLuoguAPI('/do-auth/password', {
                     method: 'POST',
