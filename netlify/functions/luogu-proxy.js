@@ -153,22 +153,30 @@ function makeRequest(url, options) {
                 if (isBase64) {
                     body = buffer.toString('base64');
                 } else {
-                    // 处理gzip压缩
+                    // 处理压缩编码
                     const encoding = res.headers['content-encoding'];
-                    if (encoding === 'gzip') {
-                        const zlib = require('zlib');
-                        try {
+                    const zlib = require('zlib');
+                    
+                    try {
+                        if (encoding === 'gzip') {
                             body = zlib.gunzipSync(buffer).toString('utf8');
-                        } catch (e) {
+                        } else if (encoding === 'deflate') {
+                            body = zlib.inflateSync(buffer).toString('utf8');
+                        } else if (encoding === 'br') {
+                            body = zlib.brotliDecompressSync(buffer).toString('utf8');
+                        } else {
                             body = buffer.toString('utf8');
                         }
-                    } else {
+                    } catch (e) {
+                        console.error('解压缩失败:', e.message, '编码:', encoding);
+                        // 如果解压失败，尝试直接解码
                         body = buffer.toString('utf8');
                     }
                 }
 
                 console.log('响应状态码:', res.statusCode);
                 console.log('响应头:', res.headers);
+                console.log('内容编码:', res.headers['content-encoding']);
                 console.log('响应体长度:', body.length);
                 console.log('响应体前200字符:', body.substring(0, 200));
 
