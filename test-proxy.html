@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代理测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <h1>洛谷API代理测试</h1>
+    
+    <div class="test-section">
+        <h3>测试1: 获取登录页面 (CSRF Token)</h3>
+        <button onclick="testGetLoginPage()">测试获取登录页面</button>
+        <div id="result1" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>测试2: 获取验证码图片</h3>
+        <button onclick="testGetCaptcha()">测试获取验证码</button>
+        <div id="result2" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>测试3: 获取用户配置</h3>
+        <button onclick="testGetConfig()">测试获取配置</button>
+        <div id="result3" class="result"></div>
+    </div>
+
+    <script>
+        // 代理函数
+        async function proxyLuoguAPI(path, options = {}) {
+            const { method = 'GET', body, headers = {} } = options;
+            
+            try {
+                console.log('发起代理请求:', path, method);
+                
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        path: path,
+                        method: method,
+                        body: body,
+                        headers: headers
+                    })
+                });
+                
+                console.log('代理响应状态:', response.status);
+                console.log('代理响应头:', response.headers.get('content-type'));
+                
+                return response;
+            } catch (error) {
+                console.error('代理请求失败:', error);
+                throw error;
+            }
+        }
+
+        // 测试获取登录页面
+        async function testGetLoginPage() {
+            const resultDiv = document.getElementById('result1');
+            resultDiv.textContent = '正在测试...';
+            resultDiv.className = 'result';
+            
+            try {
+                const response = await proxyLuoguAPI('/auth/login');
+                
+                if (response.ok) {
+                    const html = await response.text();
+                    const match = html.match(/name="csrf-token"\s+content="([^"]+)"/);
+                    
+                    if (match) {
+                        resultDiv.textContent = `✅ 成功获取CSRF Token: ${match[1].substring(0, 20)}...`;
+                        resultDiv.className = 'result success';
+                    } else {
+                        resultDiv.textContent = `❌ 未找到CSRF Token\n响应长度: ${html.length}\n响应开头: ${html.substring(0, 200)}`;
+                        resultDiv.className = 'result error';
+                    }
+                } else {
+                    resultDiv.textContent = `❌ 请求失败: ${response.status} ${response.statusText}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                resultDiv.textContent = `❌ 错误: ${error.message}`;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        // 测试获取验证码
+        async function testGetCaptcha() {
+            const resultDiv = document.getElementById('result2');
+            resultDiv.textContent = '正在测试...';
+            resultDiv.className = 'result';
+            
+            try {
+                const response = await proxyLuoguAPI('/api/verify/captcha');
+                
+                if (response.ok) {
+                    const contentType = response.headers.get('content-type');
+                    if (contentType && contentType.startsWith('image/')) {
+                        resultDiv.innerHTML = '✅ 成功获取验证码图片<br>Content-Type: ' + contentType;
+                        resultDiv.className = 'result success';
+                    } else {
+                        const text = await response.text();
+                        resultDiv.textContent = `❌ 响应不是图片格式\nContent-Type: ${contentType}\n响应内容: ${text.substring(0, 200)}`;
+                        resultDiv.className = 'result error';
+                    }
+                } else {
+                    resultDiv.textContent = `❌ 请求失败: ${response.status} ${response.statusText}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                resultDiv.textContent = `❌ 错误: ${error.message}`;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        // 测试获取用户配置
+        async function testGetConfig() {
+            const resultDiv = document.getElementById('result3');
+            resultDiv.textContent = '正在测试...';
+            resultDiv.className = 'result';
+            
+            try {
+                const response = await proxyLuoguAPI('/_lfe/config');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.textContent = `✅ 成功获取配置\n${JSON.stringify(data, null, 2)}`;
+                    resultDiv.className = 'result success';
+                } else {
+                    const text = await response.text();
+                    resultDiv.textContent = `❌ 请求失败: ${response.status} ${response.statusText}\n响应: ${text}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                resultDiv.textContent = `❌ 错误: ${error.message}`;
+                resultDiv.className = 'result error';
+            }
+        }
+    </script>
+</body>
+</html>
