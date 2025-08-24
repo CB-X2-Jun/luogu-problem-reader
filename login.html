@@ -512,146 +512,122 @@
             return cookies;
         }
 
-        // 检查Cookie变化
-        function checkCookieChanges() {
-            console.log('🔍 开始检查Cookie变化...');
-            showStatus('开始检测Cookie变化...', 'info');
+        // 处理Cookie
+        function processCookies(cookieString) {
+            console.log('🔍 开始处理Cookie...');
+            showStatus('正在处理Cookie...', 'info');
             
-            // 重置检测状态
-            hasDetectedCookies = false;
-            
-            // 尝试从当前页面获取Cookie
-            const currentCookies = document.cookie;
-            console.log('🍪 当前页面Cookie:', currentCookies);
-            
-            // 如果当前页面有Cookie，先处理
-            if (currentCookies) {
-                processCookies(currentCookies);
-            }
-            
-            // 尝试从iframe获取Cookie信息
-            try {
-                const iframe = document.getElementById('luoguIframe');
-                if (iframe && iframe.contentWindow) {
-                    console.log('🔍 尝试访问iframe内容...');
-                    
-                    // 由于同源策略限制，我们无法直接访问iframe的内容
-                    // 但可以尝试通过postMessage与iframe通信
-                    try {
-                        iframe.contentWindow.postMessage({ type: 'GET_COOKIES' }, '*');
-                    } catch (e) {
-                        console.warn('无法直接访问iframe内容，使用备用方案');
-                    }
-                    
-                    // 监听来自iframe的消息
-                    const messageHandler = function(event) {
-                        if (event.data && event.data.type === 'COOKIES_RESPONSE') {
-                            console.log('📩 收到iframe的Cookie响应:', event.data.cookies);
-                            processCookies(event.data.cookies);
-                            window.removeEventListener('message', messageHandler);
-                        }
-                    };
-                    
-                    window.addEventListener('message', messageHandler);
-                    
-                    // 设置轮询检查
-                    const maxAttempts = 5;
-                    let attempts = 0;
-                    
-                    const pollCookies = setInterval(() => {
-                        attempts++;
-                        console.log(`🔄 尝试获取Cookie (${attempts}/${maxAttempts})`);
-                        
-                        try {
-                            if (attempts >= maxAttempts) {
-                                clearInterval(pollCookies);
-                                if (!hasDetectedCookies) {
-                                    showStatus('自动检测超时，请尝试手动输入Cookie', 'warning');
-                                    showNetworkInstructions();
-                                }
-                                return;
-                            }
-                            
-                            // 尝试通过document.cookie获取
-                            if (document.cookie && document.cookie.includes('_uid')) {
-                                processCookies(document.cookie);
-                                clearInterval(pollCookies);
-                                return;
-                            }
-                            
-                            // 尝试通过iframe获取
-                            if (iframe.contentWindow) {
-                                iframe.contentWindow.postMessage({ type: 'GET_COOKIES' }, '*');
-                            }
-                            
-                        } catch (e) {
-                            console.error('轮询检查Cookie时出错:', e);
-                        }
-                    }, 2000);
-                    
-                    return;
+            // 如果是字符串类型的Cookie，先解析为对象
+            let cookies = {};
+            if (typeof cookieString === 'string') {
+                try {
+                    cookies = parseCookies(cookieString);
+                } catch (e) {
+                    console.error('解析Cookie失败:', e);
+                    showStatus('解析Cookie失败: ' + e.message, 'error');
+                    return false;
                 }
-            } catch (error) {
-                console.error('❌ 访问iframe时出错:', error);
-                showStatus('访问登录页面时出错: ' + error.message, 'error');
+            } else if (typeof cookieString === 'object') {
+                cookies = cookieString;
             }
             
-            // 如果无法访问iframe，尝试其他方法
-            showNetworkInstructions();
-            const allCookieNames = Object.keys(cookies);
+            console.log('🍪 解析后的Cookie对象:', cookies);
             
-            console.log('🔍 开始逐个检查Cookie:');
-            allCookieNames.forEach((cookieName, index) => {
-                const cookieValue = cookies[cookieName];
-                console.log(`   [${index + 1}] Cookie名: ${cookieName}`);
-                console.log(`       Cookie值: ${cookieValue.substring(0, 50)}${cookieValue.length > 50 ? '...' : ''}`);
-                console.log(`       Cookie值长度: ${cookieValue.length}`);
-                
+            // 检查是否有有效的洛谷Cookie
+            const luoguCookieKeys = ['_uid', '__client_id', 'login', 'session', 'auth', 'token', 'user', 'luogu', 'csrf', 'remember', 'access', 'refresh', 'sid', 'PHPSESSID'];
+            const foundLuoguCookies = [];
+            
+            Object.entries(cookies).forEach(([name, value]) => {
                 const isLuoguCookie = luoguCookieKeys.some(key => 
-                    cookieName.toLowerCase().includes(key.toLowerCase())
+                    name.toLowerCase().includes(key.toLowerCase())
                 );
                 
                 if (isLuoguCookie) {
                     foundLuoguCookies.push({
-                        name: cookieName,
-                        value: cookieValue,
-                        length: cookieValue.length
+                        name: name,
+                        value: value,
+                        length: value ? value.length : 0
                     });
-                    console.log(`       ✅ 匹配洛谷Cookie关键字!`);
-                } else {
-                    console.log(`       ❌ 不匹配洛谷Cookie关键字`);
                 }
             });
-
-            console.log('\n🎯 检测结果汇总:');
-            console.log('🎯 所有Cookie名称:', allCookieNames);
+            
             console.log('🎯 找到的洛谷相关Cookie:', foundLuoguCookies.map(c => c.name));
             
             if (foundLuoguCookies.length > 0) {
-                console.log('\n✅ 洛谷Cookie详细信息:');
-                foundLuoguCookies.forEach((cookie, index) => {
-                    console.log(`   [${index + 1}] ${cookie.name}: ${cookie.value.substring(0, 100)}${cookie.value.length > 100 ? '...' : ''}`);
-                });
-            }
-            
-            console.log('🔍 ===== Cookie检测结束 =====\n');
-            
-            // 显示Cookie
-            cookieContent.textContent = cookieString;
-            cookieDisplay.style.display = 'block';
-            
-            if (foundLuoguCookies.length > 0) {
-                console.log('🎉 成功检测到洛谷相关Cookie!');
-                showStatus(`检测到 ${foundLuoguCookies.length} 个洛谷Cookie！可以复制使用了`, 'success');
-            } else if (allCookieNames.length > 0) {
-                console.log('⚠️ 检测到Cookie但可能不是洛谷的');
-                showStatus(`检测到 ${allCookieNames.length} 个Cookie，但未找到洛谷相关Cookie`, 'info');
+                console.log('✅ 成功检测到洛谷相关Cookie!');
+                showStatus(`检测到 ${foundLuoguCookies.length} 个洛谷Cookie`, 'success');
+                
+                // 显示Cookie信息
+                const cookieDisplay = document.getElementById('cookieDisplay');
+                const cookieContent = document.getElementById('cookieContent');
+                
+                if (cookieDisplay && cookieContent) {
+                    cookieContent.textContent = foundLuoguCookies
+                        .map(c => `${c.name}=${c.value}`)
+                        .join('; ');
+                    cookieDisplay.style.display = 'block';
+                }
+                
+                // 标记为已检测到Cookie
+                hasDetectedCookies = true;
+                return true;
             } else {
-                console.log('❌ 解析Cookie失败');
-                showStatus('检测到Cookie但解析失败', 'error');
+                console.log('❌ 未检测到有效的洛谷Cookie');
+                showStatus('未检测到有效的洛谷Cookie', 'warning');
+                return false;
+            }
+        }
+        
+        // 手动处理Cookie
+        function processManualCookie() {
+            const manualCookieInput = document.getElementById('manualCookie');
+            if (!manualCookieInput) {
+                console.error('未找到手动输入框');
+                showStatus('错误：未找到输入框', 'error');
+                return;
             }
             
-            return allCookieNames.length > 0;
+            const cookieString = manualCookieInput.value.trim();
+            if (!cookieString) {
+                console.log('❌ 未输入Cookie');
+                showStatus('请先输入Cookie', 'error');
+                return;
+            }
+            
+            console.log('🔍 开始处理手动输入的Cookie...');
+            showStatus('正在处理手动输入的Cookie...', 'info');
+            
+            // 显示加载状态
+            const processBtn = document.getElementById('processCookieBtn');
+            const originalBtnText = processBtn.innerHTML;
+            processBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 处理中...';
+            processBtn.disabled = true;
+            
+            // 使用setTimeout确保UI更新
+            setTimeout(() => {
+                try {
+                    // 处理Cookie
+                    const success = processCookies(cookieString);
+                    
+                    if (success) {
+                        // 自动滚动到底部
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: document.body.scrollHeight,
+                                behavior: 'smooth'
+                            });
+                        }, 300);
+                    }
+                    
+                } catch (error) {
+                    console.error('❌ 处理Cookie时出错:', error);
+                    showStatus('处理Cookie时出错: ' + error.message, 'error');
+                } finally {
+                    // 恢复按钮状态
+                    processBtn.innerHTML = originalBtnText;
+                    processBtn.disabled = false;
+                }
+            }, 100);
         }
 
         // 监听网络请求和Cookie变化
