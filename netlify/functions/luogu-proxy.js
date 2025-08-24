@@ -74,12 +74,18 @@ exports.handler = async (event, context) => {
             body: body ? JSON.stringify(body) : undefined
         });
 
+        console.log('洛谷API响应状态:', response.statusCode);
+        console.log('响应内容类型:', response.headers['content-type']);
+        console.log('响应内容长度:', response.body ? response.body.length : 0);
+
         // 返回响应
         return {
             statusCode: response.statusCode,
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Content-Type': response.headers['content-type'] || 'application/json'
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Content-Type': response.headers['content-type'] || 'text/html'
             },
             body: response.body,
             isBase64Encoded: response.isBase64Encoded || false
@@ -131,11 +137,29 @@ function makeRequest(url, options) {
 
             res.on('end', () => {
                 let body;
+                const buffer = Buffer.concat(data);
+                
                 if (isBase64) {
-                    body = Buffer.concat(data).toString('base64');
+                    body = buffer.toString('base64');
                 } else {
-                    body = Buffer.concat(data).toString();
+                    // 处理gzip压缩
+                    const encoding = res.headers['content-encoding'];
+                    if (encoding === 'gzip') {
+                        const zlib = require('zlib');
+                        try {
+                            body = zlib.gunzipSync(buffer).toString('utf8');
+                        } catch (e) {
+                            body = buffer.toString('utf8');
+                        }
+                    } else {
+                        body = buffer.toString('utf8');
+                    }
                 }
+
+                console.log('响应状态码:', res.statusCode);
+                console.log('响应头:', res.headers);
+                console.log('响应体长度:', body.length);
+                console.log('响应体前200字符:', body.substring(0, 200));
 
                 resolve({
                     statusCode: res.statusCode,

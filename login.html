@@ -347,6 +347,8 @@
             const { method = 'GET', body, headers = {} } = options;
             
             try {
+                console.log('发起代理请求:', path, method);
+                
                 const response = await fetch('/.netlify/functions/luogu-proxy', {
                     method: 'POST',
                     headers: {
@@ -360,6 +362,16 @@
                         headers: headers
                     })
                 });
+                
+                console.log('代理响应状态:', response.status);
+                console.log('代理响应头:', response.headers.get('content-type'));
+                
+                // 检查响应状态
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('代理响应错误:', errorText);
+                    throw new Error(`代理请求失败: ${response.status} ${response.statusText}`);
+                }
                 
                 return response;
             } catch (error) {
