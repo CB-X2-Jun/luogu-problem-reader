@@ -110,13 +110,36 @@
                 
                 if (response.ok) {
                     const html = await response.text();
-                    const match = html.match(/name="csrf-token"\s+content="([^"]+)"/);
+                    console.log('完整HTML响应:', html);
+                    
+                    // 尝试多种CSRF Token匹配模式
+                    const patterns = [
+                        /name="csrf-token"\s+content="([^"]+)"/,
+                        /content="([^"]+)"\s+name="csrf-token"/,
+                        /_token"\s*value="([^"]+)"/,
+                        /csrf[_-]?token['"]\s*:\s*['"]([^'"]+)['"]/i
+                    ];
+                    
+                    let match = null;
+                    let matchedPattern = '';
+                    
+                    for (let i = 0; i < patterns.length; i++) {
+                        match = html.match(patterns[i]);
+                        if (match) {
+                            matchedPattern = `模式${i + 1}`;
+                            break;
+                        }
+                    }
                     
                     if (match) {
-                        resultDiv.textContent = `✅ 成功获取CSRF Token: ${match[1].substring(0, 20)}...`;
+                        resultDiv.textContent = `✅ 成功获取CSRF Token (${matchedPattern}): ${match[1].substring(0, 20)}...\n完整Token: ${match[1]}`;
                         resultDiv.className = 'result success';
                     } else {
-                        resultDiv.textContent = `❌ 未找到CSRF Token\n响应长度: ${html.length}\n响应开头: ${html.substring(0, 200)}`;
+                        // 搜索包含csrf的所有内容
+                        const csrfMatches = html.match(/csrf[^>]*>/gi) || [];
+                        const metaMatches = html.match(/<meta[^>]*>/gi) || [];
+                        
+                        resultDiv.textContent = `❌ 未找到CSRF Token\n响应长度: ${html.length}\n响应开头: ${html.substring(0, 300)}\n\n包含csrf的标签: ${csrfMatches.join('\n')}\n\n所有meta标签: ${metaMatches.slice(0, 5).join('\n')}`;
                         resultDiv.className = 'result error';
                     }
                 } else {

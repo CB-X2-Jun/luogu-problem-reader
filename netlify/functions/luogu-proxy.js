@@ -47,15 +47,26 @@ exports.handler = async (event, context) => {
         // 设置请求头
         const requestHeaders = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': '*/*',
+            'Accept': path.includes('/api/') ? 'application/json, text/plain, */*' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
             'Accept-Encoding': 'gzip, deflate, br',
             'Connection': 'keep-alive',
-            'Sec-Fetch-Dest': 'empty',
-            'Sec-Fetch-Mode': 'cors',
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'Sec-Fetch-Dest': path.includes('/api/') ? 'empty' : 'document',
+            'Sec-Fetch-Mode': path.includes('/api/') ? 'cors' : 'navigate',
             'Sec-Fetch-Site': 'same-origin',
+            'Sec-Fetch-User': path.includes('/auth/') ? '?1' : undefined,
+            'Upgrade-Insecure-Requests': path.includes('/auth/') ? '1' : undefined,
             ...headers
         };
+
+        // 移除undefined值
+        Object.keys(requestHeaders).forEach(key => {
+            if (requestHeaders[key] === undefined) {
+                delete requestHeaders[key];
+            }
+        });
 
         // 如果是POST请求，添加必要的头部
         if (method === 'POST') {
