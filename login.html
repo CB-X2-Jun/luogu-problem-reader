@@ -452,7 +452,12 @@
         // 刷新验证码
         async function refreshCaptcha() {
             try {
+                console.log('开始获取验证码，当前sessionId:', sessionId);
+                
                 const response = await proxyLuoguAPI('/api/verify/captcha');
+                
+                console.log('验证码响应状态:', response.status);
+                console.log('验证码响应头:', response.headers.get('content-type'));
                 
                 if (response.ok) {
                     const blob = await response.blob();
@@ -464,9 +469,14 @@
                     // 显示验证码输入框
                     document.getElementById('captchaGroup').style.display = 'block';
                     
-                    showStatus('验证码已刷新', 'success');
+                    // 清空之前的验证码输入
+                    document.getElementById('captcha').value = '';
+                    
+                    showStatus('验证码已刷新 (会话ID: ' + sessionId.substring(0, 10) + '...)', 'success');
+                    
+                    console.log('验证码获取成功，图片大小:', blob.size, 'bytes');
                 } else {
-                    throw new Error('获取验证码失败');
+                    throw new Error('获取验证码失败: ' + response.status);
                 }
             } catch (error) {
                 console.error('刷新验证码失败:', error);
@@ -501,6 +511,14 @@
                 }
                 
                 // 发送登录请求
+                console.log('发送登录请求，参数:', {
+                    username: username,
+                    password: '***',
+                    captcha: captcha,
+                    sessionId: sessionId.substring(0, 10) + '...',
+                    csrfToken: csrfToken ? csrfToken.substring(0, 10) + '...' : 'null'
+                });
+                
                 const response = await proxyLuoguAPI('/do-auth/password', {
                     method: 'POST',
                     body: {
@@ -512,9 +530,13 @@
                 
                 console.log('登录响应状态:', response.status);
                 
+                // 处理响应
+                const data = await response.json();
+                console.log('登录响应数据:', data);
+                
                 if (response.status === 200) {
-                    const data = await response.json();
-                    if (data.success) {
+                    // 200状态码，检查success字段
+                    if (data.success === true) {
                         showStatus('登录成功！正在跳转...', 'success');
                         
                         // 检查登录状态并获取用户信息
@@ -527,26 +549,29 @@
                             window.location.href = returnUrl;
                         }, 1500);
                     } else {
-                        throw new Error(data.message || '登录失败');
+                        // 200状态码但success为false，通常是用户名密码错误
+                        const errorMsg = data.message || data.errorMessage || '用户名或密码错误';
+                        showStatus('登录失败: ' + errorMsg, 'error');
                     }
                 } else if (response.status === 400) {
-                    const data = await response.json();
-                    const errorMsg = data.errorMessage || data.message || '登录失败';
+                    // 400状态码，通常是验证码错误或参数错误
+                    const errorMsg = data.errorMessage || data.message || '请求参数错误';
+                    console.log('400错误详情:', data);
                     
-                    // 检查是否需要验证码
-                    if (errorMsg.includes('验证码') || errorMsg.includes('captcha')) {
-                        showStatus('请输入正确的验证码', 'warning');
+                    // 检查是否是验证码错误
+                    if (errorMsg.includes('验证码') || errorMsg.includes('captcha') || 
+                        data.errorType && data.errorType.includes('CaptchaNotMatchException')) {
+                        showStatus('验证码错误，请重新输入', 'warning');
                         await refreshCaptcha();
                         // 清空验证码输入框
                         document.getElementById('captcha').value = '';
                     } else {
                         showStatus('登录失败: ' + errorMsg, 'error');
                     }
-                } else if (response.status === 401) {
-                    const data = await response.json();
-                    showStatus('用户名或密码错误', 'error');
                 } else {
-                    throw new Error(`登录请求失败 (${response.status})`);
+                    // 其他状态码
+                    const errorMsg = data.errorMessage || data.message || `请求失败 (${response.status})`;
+                    showStatus('登录失败: ' + errorMsg, 'error');
                 }
                 
             } catch (error) {
