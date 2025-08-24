@@ -366,8 +366,8 @@
                 console.log('代理响应状态:', response.status);
                 console.log('代理响应头:', response.headers.get('content-type'));
                 
-                // 检查响应状态
-                if (!response.ok) {
+                // 检查响应状态 - 但400状态码可能是正常的验证码错误
+                if (!response.ok && response.status !== 400) {
                     const errorText = await response.text();
                     console.error('代理响应错误:', errorText);
                     throw new Error(`代理请求失败: ${response.status} ${response.statusText}`);
