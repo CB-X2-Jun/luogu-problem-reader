@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="洛谷题目浏览站题目详情">
+    <meta name="author" content="CB_X2_Jun">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P4029/">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-material">
+    <title>P4029 [Code+#2] 化学狂暴</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* 美化题目页面样式 */
+      .md-content__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 3px solid #3498db;
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: #f8f9fa;
+        color: #2c3e50;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: #2c3e50;
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+      }
+      
+      .md-content__inner code {
+        background: #e9ecef;
+        color: #495057;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3:contains("样例") {
+        background: #f0f8ff;
+        color: #2c3e50;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        border-left: 4px solid #17a2b8;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: #444;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        margin: 1.5rem 0;
+      }
+      
+      .md-content__inner th {
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* 返回按钮美化 */
+      .back-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 2rem 0;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .back-button:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Giscus评论区域样式 */
+      .comments-section {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .comments-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* 自定义Giscus样式 */
+      .giscus {
+        margin-top: 1rem;
+      }
+      
+      .giscus-frame {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      <a href="#题目内容" class="md-skip">跳转至</a>
+    </div>
+    <div data-md-component="announce"></div>
+    
+    <div id="__config" data-md-config="{&quot;base&quot;:&quot;../..&quot;,&quot;features&quot;:[],&quot;search&quot;:{&quot;worker&quot;:&quot;assets/javascripts/workers/search.b8dbb3d2.min.js&quot;}}"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="页眉">
+        <a href="/" title="洛谷题目浏览站" class="md-header__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">洛谷题目浏览站</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">P4029 [Code+#2] 化学狂暴</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- 侧边栏导航 -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+                  <label class="md-nav__title" for="__drawer">
+                    <a href="/" title="洛谷题目浏览站" class="md-nav__button md-logo" aria-label="洛谷题目浏览站" data-md-component="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+                    </a>
+                    洛谷题目浏览站
+                  </label>
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="/" class="md-nav__link">
+                        <span class="md-ellipsis">🏠 首页</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/problem/list/" class="md-nav__link">
+                        <span class="md-ellipsis">📋 题目列表</span>
+                      </a>
+                    </li>
+                    <li class="md-nav__item">
+                      <a href="/about/" class="md-nav__link">
+                        <span class="md-ellipsis">ℹ️ 关于</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              <h2 id="_1">题目背景</h2>
+<p>在那遥远的钦钦草原，住着 Yazid 和 YJQQQAQ，他们都是炼金术士。</p>
+<p>一般而言，题目背景总是没有用的，但这道题是个例外。在这里，我们将严谨地介绍钦钦草原世界化学学科的一些基本知识。如果你对这些内容感到枯燥乏味，你也可以跳过这个部分，直接阅读题目描述中的简述并结合样例来帮助你更快地理解题目。</p>
+<p>钦钦草原的世界里共有 $26$ 种元素，分别用大写字母A至Z表示。</p>
+<p>钦钦草原世界中的物质由元素构成，对于任意的物质，每种元素的出现次数都是非负整数，且至少有 $1$ 种物质的出现次数为正整数，我们把每种元素在物质中的出现次数称作该元素在该物质中的下标。我们可以按A到Z的顺序写下每种元素及其下标来描述一个物质。这是一个例子：<code>A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0</code>。这个例子描述了一种 J、Q 各出现 $1$ 次，Y 出现 $2$ 次的物质。</p>
+<p>然而，这种描述方法实在是太麻烦了，于是钦钦草原世界中的炼金术士们便尝试简化物质的描述。对于某种物质，我们定义“虚无元素”表示在该物质中下标为 $0$ 的元素，“单一元素”表示在该物质中下标为 $1$ 的元素。针对这两个定义，炼金术士们提出了两种化简方式：</p>
+<p>省略“虚无元素”：将“虚无元素”的字母和下标省略。如上面的物质可以通过该操作化简为：<code>J1Q1Y2</code>。</p>
+<p>省略“单一元素”的下标：将“单一元素”的下标省略。如上面的物质可以通过该操作化简为：<code>A0B0C0D0E0F0G0H0I0JK0L0M0N0O0P0QR0S0T0U0V0W0X0Y2Z0</code>。</p>
+<p>特别地，对于同时省略了“虚无元素”和“单一元素”下标的表示，我们把它叫做该物质的“最简式”。如上面物质的“最简式”即为：<code>JQY2</code>。</p>
+<p>由于钦钦草原世界的化学研究仍处于起步阶段，因此对于任意的物质，所有元素下标均为不超过 $9$ 的非负整数。</p>
+<p>化学方程式是描述化学反应的式子。一个化学方程式包含恰好一个等号（=），等号两边是由加号（+）连接的若干物质。形象地说，它的形式是这样的：</p>
+<pre class="codehilite"><code>物质+物质+…+物质=物质+物质+…+物质
+</code></pre>
+
+<p>除了需要满足上述格式外，元素守恒也是不可忽视的。这表示等号两边所有元素在各物质中的出现次数总和必须相等。比如，这就是一个合法的（格式正确、元素守恒的）化学方程式：</p>
+<pre class="codehilite"><code>JQY2+J2=J3QY2
+</code></pre>
+
+<p>需要特别注意的是，在化学方程式的书写中，未被化至“最简式”的元素也是可以被接受的。例如，下面的化学方程式也是合法的：</p>
+<pre class="codehilite"><code>J1Q1Y2+J2=J3Q1Y2
+</code></pre>
+
+<p>而下面这个化学方程式就不是合法的了，因为它并没有满足元素守恒。</p>
+<pre class="codehilite"><code>JQY2+J2=JQY
+</code></pre>
+
+<p>钦钦草原化学学科的基本知识就介绍到这。祝各位选手武运昌隆！</p>
+<h2 id="_2">题目描述</h2>
+<p>所谓化学方程式，即是用加号（+）和等号（=）连接一些化学物质的式子。保证一个化学方程式中含有恰好一个等号（=）。化学物质由一些元素（用大写字母A至Z表示）加上下标（保证下标为不超过 $9$ 的非负整数）连接而成的。例如：<code>JQY2</code>、<code>A0J1QY2</code> 等。书写时需要保证字典序越小的字母排在越前面。</p>
+<p>需要注意的是，像 <code>A0J1QY2</code> 这样的物质书写同样是合法的，虽然事实上它和 <code>JQY2</code> 是等价的。我们把下标为 $1$ 的元素称为“单一元素”，把下标为 $0$ 的元素称为“虚无元素”。在书写一种物质时，我们既可以省去“单一元素”的下标，又可以直接省去“虚无元素”。特别地，我们把用这两种规则省略至最简的书写称为该物质的“最简式”。例如，<code>JQY2</code> 就是 <code>A0J1Q1Y2</code> 的最简式。</p>
+<p>既然称之为“方程式”，元素守恒就是必须的了。对于一个化学方程式，元素守恒指的是指等号两边所有元素的下标之和相等。比如，这个化学方程式就是元素守恒的：</p>
+<pre class="codehilite"><code>JQY2+J2=J3QY2
+</code></pre>
+
+<p>而这个化学方程式就是不合法的，因为它不满足元素守恒：</p>
+<pre class="codehilite"><code>JQY2+J2=JQY
+</code></pre>
+
+<p>作为一名资深炼金术士，Yazid 自然是整日沉迷在化学狂暴中。某一天，Yazid 写下了 $n$ 个化学方程式，并把它们放在一边，为后续的研究做着准备。</p>
+<p>然而，见习炼金术士 YJQQQAQ 不慎打翻了一瓶绿色的试剂，导致 Yazid 写下的所有化学方程式中，都有恰好 $1$ 个物质被绿色液体弄得模糊不清了。</p>
+<p>暴怒的 Yazid 狠狠地把 YJQQQAQ 批判了一番，并要求他将所有模糊不清的物质重新写出来。除此之外，作为惩罚，无论原来 Yazid 如何书写这些物质，YJQQQAQ 都必须将它们以“最简式”的形式写出。</p>
+<p>如果不能完成这些任务，Yazid 就会把他从钦钦草原放逐。面对这么多的化学方程式，弱小、无助的 YJQQQAQ 手足无措，于是他找到了钦钦草原最擅长编程的你，请你帮他完成任务。</p>
+<h2 id="_3">输入格式</h2>
+<p>从标准输入读入数据。</p>
+<p>第一行 $2$ 个整数 $n,m$，分别表示化学方程式的数目和Yazid的书写习惯。其中，书写习惯 $m$ 是 $0$ 到 $3$ 之间的整数，对于不同的 $m$，Yazid 书写物质的方式不同（这一信息可能对你解决部分测试点有帮助）：</p>
+<p>如果 $m=0$，则 Yazid 在书写方程式时一定会将所有物质化为“最简式”；</p>
+<p>如果 $m=1$，则 Yazid 在书写方程式时一定会将所有物质的“虚无元素”省略，且不会存在“单一元素”的下标被省略；</p>
+<p>如果 $m=2$，则 Yazid 在书写方程式时一定会将所有物质“单一元素”的下标省略，且不会存在“虚无元素”被省略；</p>
+<p>如果 $m=3$，则 Yazid 在书写方程式时一定不会省略“单一元素”的下标，也一定不会省略“虚无元素”。</p>
+<p>接下来 $n$ 行，每行一个字符串，描述一个被污染的化学方程式。其中，被污染的物质用?表示，保证对于每一个方程式都会存在恰好 $1$ 个?。</p>
+<p>数据保证化学方程式严格按照题目背景和题目描述中的格式，且不存在多余的空格或其他字符。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出到标准输出。</p>
+<p>输出 $n$ 行，每行一个字符串，表示化为“最简式”的?所表示的物质。特别地，对于无解的情况（即?表示的物质超出钦钦草原世界化学学科的研究范围），请输出 <code>No Solution</code>。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>3 0
+A=?
+?=A+B
+C+O2=?
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>A
+AB
+CO2
+</code></pre>
+
+<h3 id="2">样例 #2</h3>
+<h4 id="2_1">样例输入 #2</h4>
+<pre class="codehilite"><code>3 1
+A1=?
+A1+?=B1
+C1+O2=?
+</code></pre>
+
+<h4 id="2_2">样例输出 #2</h4>
+<pre class="codehilite"><code>A
+No Solution
+CO2
+</code></pre>
+
+<h3 id="3">样例 #3</h3>
+<h4 id="3_1">样例输入 #3</h4>
+<pre class="codehilite"><code>1 2
+A0B0C0D0E0F0G0H0I0JK0L0M0N0O0P0QR0S0T0U0V0W0X0Y2Z0=?
+</code></pre>
+
+<h4 id="3_2">样例输出 #3</h4>
+<pre class="codehilite"><code>JQY2
+</code></pre>
+
+<h3 id="4">样例 #4</h3>
+<h4 id="4_1">样例输入 #4</h4>
+<pre class="codehilite"><code>2 3
+?=A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0
+A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0+A0B0C0D0E0F0G0H0I0J1K0L0M0N0O0P0Q1R0S0T0U0V0W0X0Y2Z0=?
+</code></pre>
+
+<h4 id="4_2">样例输出 #4</h4>
+<pre class="codehilite"><code>JQY2
+J2Q2Y4
+</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;">m</th>
+<th style="text-align: center;">?在方程式最左端</th>
+<th style="text-align: center;">等号左边不含+</th>
+<th style="text-align: center;">等号右边不含+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>如表格中“?在方程式的最左端”为 <code>Yes</code>，则表示该测试点保证每个字符串的第一个字符均为?；否则无特殊保证。</p>
+<p>如表格中“等号左边不含+”为 <code>Yes</code>，则表示该测试点保证等号左边没有加号（+），即等号左边只有一种物质；否则无特殊保证。</p>
+<p>如表格中“等号右边不含+”为 <code>Yes</code>，则表示该测试点保证等号右边没有加号（+），即等号右边只有一种物质；否则无特殊保证。</p>
+<p>对于所有的测试点，保证 $n\leq 100$，保证每个方程式中等式两边的加号+都不超过 $5$ 个，这也意味着每行字符串（每个化学方程式）的长度不超过 $635$。</p>
+<p>来自 CodePlus 2017 12 月赛，清华大学计算机科学与技术系学生算法与竞赛协会 荣誉出品。</p>
+<p>Credit：idea/王聿中 命题/王聿中 验题/陈宇</p>
+<p>Git Repo：<a href="https://git.thusaac.org/publish/CodePlus201712">https://git.thusaac.org/publish/CodePlus201712</a></p>
+<p>感谢腾讯公司对此次比赛的支持。</p>
+<p>感谢 @<a href="https://www.luogu.com.cn/user/1036180">ChampionCyan</a> 提供了修复后的题面。</p>
+              
+              <!-- Giscus评论系统 -->
+              <div class="comments-section">
+                <div class="comments-title">
+                  💬 讨论交流
+                </div>
+                <script src="https://giscus.app/client.js"
+                        data-repo="Eternity-Sky/luogu-problem-reader"
+                        data-repo-id="R_kgDOPiP5uw"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOPiP5u84CugHo"
+                        data-mapping="url"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">© 2025 洛谷题目浏览站</div>
+              Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, { 
+          delimiters: [
+            {"left":"$$","right":"$$","display":true},
+            {"left":"$","right":"$","display":false},
+            {"left":"\\(","right":"\\)","display":false},
+            {"left":"\\[","right":"\\]","display":true}
+          ],
+          throwOnError: false,
+          strict: false,
+          trust: true
+        });
+      });
+    </script>
+  </body>
+</html>
