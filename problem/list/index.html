@@ -117,6 +117,78 @@
         box-shadow: var(--shadow);
       }
       
+      /* 搜索和统计区域 */
+      .search-stats-section {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow);
+      }
+      
+      .search-container {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+        position: relative;
+      }
+      
+      .search-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        color: var(--gray-400);
+        z-index: 2;
+      }
+      
+      .search-input {
+        width: 100%;
+        padding: 1rem 1rem 1rem 3rem;
+        border: 2px solid var(--gray-200);
+        border-radius: 50px;
+        font-size: 1rem;
+        transition: var(--transition);
+        outline: none;
+        box-sizing: border-box;
+      }
+      
+      .search-input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+      
+      .stats-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      
+      .stat-item {
+        text-align: center;
+        padding: 1rem;
+        background: var(--gray-50);
+        border-radius: 8px;
+        min-width: 120px;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        display: block;
+      }
+      
+      .stat-label {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
       /* 页脚 */
       .lgoj-footer {
         background: var(--gray-50);
