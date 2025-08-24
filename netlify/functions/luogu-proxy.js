@@ -100,6 +100,8 @@ exports.handler = async (event, context) => {
         console.log('洛谷API响应状态:', response.statusCode);
         console.log('响应内容类型:', response.headers['content-type']);
         console.log('响应内容长度:', response.body ? response.body.length : 0);
+        console.log('请求路径:', path);
+        console.log('请求方法:', method);
 
         // 保存Cookie（如果有Set-Cookie头部）
         if (response.headers['set-cookie']) {
