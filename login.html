@@ -768,8 +768,8 @@
 
         // 手动处理Cookie
         function processManualCookie() {
-            const manualCookieTextarea = document.getElementById('manualCookieTextarea');
-            const cookieText = manualCookieTextarea.value.trim();
+            const manualCookieTextarea = document.getElementById('manualCookie');
+            const cookieText = manualCookieTextarea ? manualCookieTextarea.value.trim() : '';
             
             console.log('\n🔧 ===== 手动Cookie处理开始 =====');
             console.log('🔍 输入的Cookie文本:', cookieText);
