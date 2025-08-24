@@ -1,33 +1,33 @@
 {
-  "date": "2025-08-23",
+  "date": "2025-08-24",
   "problems": [
     {
-      "id": "P1442",
-      "title": "P1442 P1442 铁球落地",
+      "id": "P1854",
+      "title": "P1854 P1854 [IOI 1999] 花店橱窗布置",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 1112,
+      "length": 1258,
       "difficulty_hints": []
     },
     {
-      "id": "P2172",
-      "title": "P2172 P2172 [国家集训队] 部落战争",
+      "id": "P1884",
+      "title": "P1884 P1884 [USACO12FEB] Overplanting S",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 860,
+      "length": 465,
       "difficulty_hints": []
     },
     {
-      "id": "P1840",
-      "title": "P1840 P1840 Color the Axis",
+      "id": "P1962",
+      "title": "P1962 P1962 斐波那契数列",
       "has_samples": true,
       "has_math": true,
       "is_interactive": false,
-      "length": 477,
+      "length": 471,
       "difficulty_hints": []
     }
   ],
-  "generated_at": "2025-08-23 08:03:47"
+  "generated_at": "2025-08-24 01:47:15"
 }
