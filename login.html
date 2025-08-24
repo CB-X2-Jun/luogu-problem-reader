@@ -495,8 +495,17 @@
                 if (response.status === 200) {
                     const data = await response.json();
                     if (data.success) {
-                        showStatus('登录成功！', 'success');
+                        showStatus('登录成功！正在跳转...', 'success');
+                        
+                        // 检查登录状态并获取用户信息
                         await checkLoginStatus();
+                        
+                        // 延迟跳转，让用户看到成功消息
+                        setTimeout(() => {
+                            // 跳转到主页或来源页面
+                            const returnUrl = new URLSearchParams(window.location.search).get('return') || '/';
+                            window.location.href = returnUrl;
+                        }, 1500);
                     } else {
                         throw new Error(data.message || '登录失败');
                     }
@@ -508,6 +517,8 @@
                     if (errorMsg.includes('验证码') || errorMsg.includes('captcha')) {
                         showStatus('请输入正确的验证码', 'warning');
                         await refreshCaptcha();
+                        // 清空验证码输入框
+                        document.getElementById('captcha').value = '';
                     } else {
                         showStatus('登录失败: ' + errorMsg, 'error');
                     }
