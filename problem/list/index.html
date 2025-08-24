@@ -117,78 +117,6 @@
         box-shadow: var(--shadow);
       }
       
-      /* 搜索和统计区域 */
-      .search-stats-section {
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: var(--shadow);
-      }
-      
-      .search-container {
-        max-width: 600px;
-        margin: 0 auto 1.5rem auto;
-        position: relative;
-      }
-      
-      .search-box {
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-      
-      .search-icon {
-        position: absolute;
-        left: 1rem;
-        color: var(--gray-400);
-        z-index: 2;
-      }
-      
-      .search-input {
-        width: 100%;
-        padding: 1rem 1rem 1rem 3rem;
-        border: 2px solid var(--gray-200);
-        border-radius: 50px;
-        font-size: 1rem;
-        transition: var(--transition);
-        outline: none;
-        box-sizing: border-box;
-      }
-      
-      .search-input:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-      }
-      
-      .stats-container {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-      
-      .stat-item {
-        text-align: center;
-        padding: 1rem;
-        background: var(--gray-50);
-        border-radius: 8px;
-        min-width: 120px;
-      }
-      
-      .stat-number {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        display: block;
-      }
-      
-      .stat-label {
-        color: var(--gray-600);
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-      }
-
       /* 页脚 */
       .lgoj-footer {
         background: var(--gray-50);
@@ -273,6 +201,31 @@
         margin: 1rem 0;
         color: var(--gray-700);
         font-size: 1rem;
+      }
+      
+      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
+      .md-content__inner img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        margin: 1rem 0;
+        display: block;
+      }
+      
+      /* 确保题目标题始终在最上方 */
+      .md-content__inner > h1:first-child {
+        margin-top: 0;
+        order: -1;
+      }
+      
+      /* 防止图片过大影响布局 */
+      .md-content__inner img[src*="latex"] {
+        display: inline;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        vertical-align: middle;
       }
       
       /* 列表美化 */
@@ -554,7 +507,7 @@
     <!-- 页脚 -->
     <footer class="lgoj-footer">
       <div class="container">
-        <p>© 2024 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+        <p>© 2025 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
       </div>
     </footer>
 

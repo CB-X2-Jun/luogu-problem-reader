@@ -203,6 +203,31 @@
         font-size: 1rem;
       }
       
+      /* 图片样式修复 - 确保图片大小合适，不影响题目标题显示 */
+      .md-content__inner img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        margin: 1rem 0;
+        display: block;
+      }
+      
+      /* 确保题目标题始终在最上方 */
+      .md-content__inner > h1:first-child {
+        margin-top: 0;
+        order: -1;
+      }
+      
+      /* 防止图片过大影响布局 */
+      .md-content__inner img[src*="latex"] {
+        display: inline;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        vertical-align: middle;
+      }
+      
       /* 列表美化 */
       .md-content__inner ul, .md-content__inner ol {
         padding-left: 2rem;
@@ -445,7 +470,7 @@ $\dfrac{|a-b|}{\max(1,b)} \leq 10^{-4}$ 的时候，你能得到本测试点的�
     <!-- 页脚 -->
     <footer class="lgoj-footer">
       <div class="container">
-        <p>© 2024 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+        <p>© 2025 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
       </div>
     </footer>
 
