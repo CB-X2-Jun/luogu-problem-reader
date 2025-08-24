@@ -80,6 +80,51 @@
             align-items: center;
         }
         
+        /* 用户登录状态样式 */
+        .user-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .user-name {
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .btn-logout {
+            background: rgba(239, 68, 68, 0.8);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-logout:hover {
+            background: rgba(239, 68, 68, 1);
+            transform: translateY(-1px);
+        }
+        
         .logo {
             display: flex;
             align-items: center;
@@ -400,6 +445,21 @@
                     <li><a href="/about">关于</a></li>
                 </ul>
             </nav>
+            
+            <!-- 用户登录状态 -->
+            <div class="user-section">
+                <div id="userInfo" class="user-info" style="display: none;">
+                    <img id="userAvatar" class="user-avatar" src="" alt="用户头像">
+                    <span id="userName" class="user-name"></span>
+                    <button id="logoutBtn" class="btn-logout" onclick="logout()">退出</button>
+                </div>
+                <div id="loginSection" class="login-section">
+                    <a href="/login.html" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i>
+                        登录
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -494,5 +554,134 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // 生成会话ID（用于在代理中识别用户会话）
+        let sessionId = localStorage.getItem('luogu_session_id');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('luogu_session_id', sessionId);
+        }
+
+        // 代理函数 - 通过Netlify Functions调用洛谷API
+        async function proxyLuoguAPI(path, options = {}) {
+            const { method = 'GET', body, headers = {} } = options;
+            
+            try {
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        path: path,
+                        method: method,
+                        body: body,
+                        headers: headers,
+                        sessionId: sessionId
+                    })
+                });
+                
+                // 400状态码可能是正常的业务逻辑响应
+                if (!response.ok && response.status !== 400) {
+                    throw new Error(`代理请求失败: ${response.status} ${response.statusText}`);
+                }
+                
+                return response;
+            } catch (error) {
+                console.error('代理请求失败:', error);
+                throw error;
+            }
+        }
+
+        // 检查登录状态
+        async function checkLoginStatus() {
+            try {
+                const response = await proxyLuoguAPI('/_lfe/config');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.currentUser) {
+                        // 用户已登录，显示用户信息
+                        showUserInfo(data.currentUser);
+                    } else {
+                        // 用户未登录，显示登录按钮
+                        showLoginButton();
+                    }
+                } else {
+                    showLoginButton();
+                }
+            } catch (error) {
+                console.error('检查登录状态失败:', error);
+                showLoginButton();
+            }
+        }
+
+        // 显示用户信息
+        function showUserInfo(user) {
+            const userInfo = document.getElementById('userInfo');
+            const loginSection = document.getElementById('loginSection');
+            const userAvatar = document.getElementById('userAvatar');
+            const userName = document.getElementById('userName');
+            
+            // 设置用户头像
+            const avatarUrl = user.avatar ? 
+                `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png` : 
+                'https://cdn.luogu.com.cn/upload/usericon/default.png';
+            userAvatar.src = avatarUrl;
+            userAvatar.onerror = function() {
+                this.src = 'https://cdn.luogu.com.cn/upload/usericon/default.png';
+            };
+            
+            // 设置用户名
+            userName.textContent = user.name || user.username || '用户';
+            
+            // 显示用户信息，隐藏登录按钮
+            userInfo.style.display = 'flex';
+            loginSection.style.display = 'none';
+        }
+
+        // 显示登录按钮
+        function showLoginButton() {
+            const userInfo = document.getElementById('userInfo');
+            const loginSection = document.getElementById('loginSection');
+            
+            userInfo.style.display = 'none';
+            loginSection.style.display = 'block';
+        }
+
+        // 退出登录
+        async function logout() {
+            try {
+                // 清除本地会话ID
+                localStorage.removeItem('luogu_session_id');
+                
+                // 重新生成新的会话ID
+                sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('luogu_session_id', sessionId);
+                
+                // 显示登录按钮
+                showLoginButton();
+                
+                // 可选：调用洛谷退出API
+                try {
+                    await proxyLuoguAPI('/auth/logout', { method: 'POST' });
+                } catch (e) {
+                    // 忽略退出API错误
+                }
+                
+                alert('已成功退出登录');
+            } catch (error) {
+                console.error('退出登录失败:', error);
+                alert('退出登录失败');
+            }
+        }
+
+        // 页面加载时检查登录状态
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+        });
+    </script>
 </body>
 </html>
