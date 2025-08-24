@@ -849,9 +849,14 @@
                 
                 // 作为普通文本处理
                 processedCookie = cookieText;
-                cookieContent.textContent = processedCookie;
-                cookieDisplay.style.display = 'block';
-                showStatus('Cookie已添加（未验证格式）', 'info');
+                // 直接使用processCookies处理原始文本
+                try {
+                    processCookies(processedCookie);
+                    showStatus('已处理Cookie（未验证格式）', 'info');
+                } catch (e) {
+                    console.error('处理Cookie时出错:', e);
+                    showStatus(`处理Cookie时出错: ${e.message}`, 'error');
+                }
             }
             
             console.log('🔧 ===== 手动Cookie处理结束 =====\n');
