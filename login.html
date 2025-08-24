@@ -480,11 +480,16 @@
                     console.log('验证码图片大小:', blob.size, 'bytes');
                     
                     const captchaUrl = URL.createObjectURL(blob);
-                    document.getElementById('captchaImg').src = captchaUrl;
+                    const captchaContainer = document.getElementById('captchaImage');
+                    captchaContainer.innerHTML = `<img src="${captchaUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
+                    
+                    // 显示验证码输入组
+                    document.getElementById('captchaGroup').style.display = 'block';
                     document.getElementById('captcha').value = '';
+                    
+                    console.log('验证码图片已更新');
                 } else {
                     throw new Error(`获取验证码失败: ${response.status}`);
-                    throw new Error('获取验证码失败: ' + response.status);
                 }
             } catch (error) {
                 console.error('刷新验证码失败:', error);
@@ -525,7 +530,7 @@
                     captcha: captcha,
                     sessionId: sessionId.substring(0, 10) + '...',
                     csrfToken: csrfToken ? csrfToken.substring(0, 10) + '...' : 'null'
-                });
+                });z
                 
                 const response = await proxyLuoguAPI('/do-auth/password', {
                     method: 'POST',
