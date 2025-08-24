@@ -431,13 +431,26 @@
                 
                 if (response.status === 200) {
                     const html = await response.text();
-                    const match = html.match(/window\._feInjection\s*=\s*JSON\.parse\("([^"]+)"\)/);
-                    if (match) {
-                        const data = JSON.parse(match[1].replace(/\\"/g, '"'));
-                        csrfToken = data.csrfToken;
-                        console.log('CSRF Token获取成功，会话已初始化');
+                    console.log('登录页面HTML长度:', html.length);
+                    
+                    // 尝试从meta标签提取CSRF Token
+                    const metaMatch = html.match(/<meta\s+name="csrf-token"\s+content="([^"]+)"/);
+                    if (metaMatch) {
+                        csrfToken = metaMatch[1];
+                        console.log('CSRF Token获取成功 (meta标签):', csrfToken.substring(0, 20) + '...');
                         return csrfToken;
                     }
+                    
+                    // 备用方案：尝试从_feInjection提取
+                    const feMatch = html.match(/window\._feInjection\s*=\s*JSON\.parse\("([^"]+)"\)/);
+                    if (feMatch) {
+                        const data = JSON.parse(feMatch[1].replace(/\\"/g, '"'));
+                        csrfToken = data.csrfToken;
+                        console.log('CSRF Token获取成功 (_feInjection):', csrfToken.substring(0, 20) + '...');
+                        return csrfToken;
+                    }
+                    
+                    console.log('HTML内容预览:', html.substring(0, 500));
                 }
                 throw new Error('无法获取CSRF Token');
             } catch (error) {
