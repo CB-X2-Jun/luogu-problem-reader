@@ -596,41 +596,110 @@
 
         // 检查登录状态
         async function checkLoginStatus() {
-            try {
-                console.log('🔍 [主页] 开始检查登录状态...');
-                console.log('🔍 [主页] 当前sessionId:', sessionId);
-                
-                const response = await proxyLuoguAPI('/_lfe/config');
-                
-                console.log('🔍 [主页] 登录状态检查响应状态:', response.status);
-                console.log('🔍 [主页] 登录状态检查响应头:', response.headers.get('content-type'));
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('🔍 [主页] 登录状态检查完整响应:', data);
+            console.log('🔍 开始检查登录状态...');
+            
+            // 首先检查localStorage中是否有用户信息
+            const savedUserInfo = localStorage.getItem('luogu_user_info');
+            if (savedUserInfo) {
+                try {
+                    const userInfo = JSON.parse(savedUserInfo);
+                    console.log('✅ 从localStorage找到用户信息:', userInfo);
                     
-                    if (data.currentUser) {
-                        console.log('✅ [主页] 检测到登录用户:', data.currentUser);
-                        // 用户已登录，显示用户信息
-                        showUserInfo(data.currentUser);
+                    // 检查登录时间是否过期（24小时）
+                    const loginTime = new Date(userInfo.loginTime);
+                    const now = new Date();
+                    const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+                    
+                    if (hoursDiff < 24) {
+                        console.log(`✅ 用户信息有效（${hoursDiff.toFixed(1)}小时前登录）`);
+                        showUserInfo({
+                            name: userInfo.username,
+                            uid: 'N/A'
+                        });
+                        return true;
                     } else {
-                        console.log('❌ [主页] 响应中没有currentUser字段');
-                        console.log('🔍 [主页] 响应数据结构:', Object.keys(data));
-                        // 用户未登录，显示登录按钮
-                        showLoginButton();
+                        console.log('⚠️ 用户信息已过期，清除localStorage');
+                        localStorage.removeItem('luogu_user_info');
+                    }
+                } catch (error) {
+                    console.error('解析localStorage用户信息失败:', error);
+                    localStorage.removeItem('luogu_user_info');
+                }
+            }
+            
+            const sessionId = localStorage.getItem('luogu_session_id');
+            if (!sessionId) {
+                console.log('❌ 没有找到sessionId');
+                showLoginButton();
+                return false;
+            }
+
+            try {
+                const response = await proxyLuoguAPI('/_lfe/config', {
+                    method: 'GET'
+                });
+
+                console.log('登录状态检查响应状态:', response.status);
+                console.log('登录状态检查响应头:', response.headers.get('content-type'));
+
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log('登录状态检查完整响应:', data);
+                    
+                    // 检查是否有currentUser字段
+                    if (data.currentUser && data.currentUser.name) {
+                        console.log('✅ 找到用户信息:', data.currentUser);
+                        showUserInfo(data.currentUser);
+                        return true;
+                    } else {
+                        console.log('❌ 响应中没有currentUser字段');
+                        console.log('响应数据结构:', Object.keys(data));
+                        
+                        // 智能检测用户字段
+                        const possibleUserFields = ['user', 'loginUser', 'userInfo', 'me', 'profile'];
+                        console.log('可能的用户字段:', possibleUserFields.filter(field => data.hasOwnProperty(field)));
+                        
+                        // 查找包含用户相关信息的字段
+                        const userRelatedFields = Object.keys(data).filter(key => 
+                            key.toLowerCase().includes('user') || 
+                            key.toLowerCase().includes('login') || 
+                            key.toLowerCase().includes('auth')
+                        );
+                        console.log('用户相关的字段:', userRelatedFields);
+                        
+                        // 尝试找到可能的用户对象
+                        let foundUser = null;
+                        for (const field of possibleUserFields) {
+                            if (data[field] && typeof data[field] === 'object' && (data[field].name || data[field].username)) {
+                                console.log(`发现可能的用户字段 ${field}:`, data[field]);
+                                foundUser = data[field];
+                                break;
+                            }
+                        }
+                        
+                        if (foundUser) {
+                            console.log('✅ 找到用户信息:', foundUser);
+                            showUserInfo(foundUser);
+                            return true;
+                        } else {
+                            console.log('❌ 未找到用户信息，显示登录按钮');
+                            showLoginButton();
+                            return false;
+                        }
                     }
                 } else if (response.status === 302) {
-                    console.log('⚠️ [主页] 收到302重定向，可能需要重新登录');
+                    console.log('⚠️ 收到302重定向，可能需要重新登录');
                     showLoginButton();
+                    return false;
                 } else {
-                    console.log('❌ [主页] 登录状态检查请求失败:', response.status);
-                    const errorText = await response.text();
-                    console.log('🔍 [主页] 错误响应内容:', errorText);
+                    console.log('❌ 登录状态检查请求失败:', response.status);
                     showLoginButton();
+                    return false;
                 }
             } catch (error) {
-                console.error('❌ [主页] 检查登录状态失败:', error);
+                console.error('检查登录状态失败:', error);
                 showLoginButton();
+                return false;
             }
         }
 
@@ -670,14 +739,11 @@
         // 退出登录
         async function logout() {
             try {
-                // 清除本地会话ID
+                // 清除localStorage中的用户信息和会话ID
+                localStorage.removeItem('luogu_user_info');
                 localStorage.removeItem('luogu_session_id');
+                console.log('🚪 已清除用户信息和会话ID');
                 
-                // 重新生成新的会话ID
-                sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('luogu_session_id', sessionId);
-                
-                // 显示登录按钮
                 showLoginButton();
                 
                 // 可选：调用洛谷退出API
@@ -685,12 +751,12 @@
                     await proxyLuoguAPI('/auth/logout', { method: 'POST' });
                 } catch (e) {
                     // 忽略退出API错误
+                    console.log('退出API调用失败，但本地清理已完成');
                 }
                 
-                alert('已成功退出登录');
+                console.log('✅ 已成功退出登录');
             } catch (error) {
                 console.error('退出登录失败:', error);
-                alert('退出登录失败');
             }
         }
 

@@ -557,14 +557,26 @@
                     if (data.username && data.syncToken) {
                         // 有用户名和同步令牌，说明登录成功
                         console.log('✅ 登录成功判断通过');
-                        showStatus('登录成功！正在跳转...', 'success');
+                        showStatus('登录成功！', 'success');
                         
-                        // 检查登录状态并获取用户信息
-                        await checkLoginStatus();
+                        // 直接使用登录响应中的用户信息，不再依赖状态检查接口
+                        const userInfo = {
+                            username: data.username,
+                            syncToken: data.syncToken,
+                            locked: data.locked || false,
+                            loginTime: new Date().toISOString()
+                        };
+                        
+                        // 保存用户信息到localStorage
+                        localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                        console.log('💾 用户信息已保存到localStorage:', userInfo);
+                        
+                        // 显示用户信息
+                        displayUserInfo(userInfo);
                         
                         // 暂时取消自动跳转，方便查看调试信息
                         console.log('🎉 登录成功！已取消自动跳转，方便查看调试信息');
-                        showStatus('登录成功！请查看控制台调试信息', 'success');
+                        showStatus('登录成功！用户信息已保存，请查看控制台调试信息', 'success');
                         
                         // 如果需要跳转，可以手动取消下面的注释
                         // setTimeout(() => {
@@ -696,7 +708,7 @@
             }
         }
 
-        // 显示用户信息
+        // 显示用户信息（来自状态检查接口的完整用户数据）
         function showUserInfo(user) {
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('userInfo').style.display = 'block';
@@ -710,6 +722,22 @@
             avatar.onerror = function() {
                 this.src = 'https://cdn.luogu.com.cn/upload/usericon/default.png';
             };
+        }
+
+        // 显示用户信息（来自登录响应的简化用户数据）
+        function displayUserInfo(userInfo) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('userInfo').style.display = 'block';
+            
+            // 登录响应只有username，没有name和uid
+            document.getElementById('userName').textContent = userInfo.username;
+            document.getElementById('userUid').textContent = `登录时间: ${new Date(userInfo.loginTime).toLocaleString()}`;
+            
+            // 设置默认头像，因为没有uid
+            const avatar = document.getElementById('userAvatar');
+            avatar.src = 'https://cdn.luogu.com.cn/upload/usericon/default.png';
+            
+            console.log('✅ 用户信息已显示:', userInfo);
         }
 
         // 前往主站
