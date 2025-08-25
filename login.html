@@ -470,7 +470,7 @@
                     await getCSRFToken();
                 }
                 
-                const response = await proxyLuoguAPI('/api/verify/captcha', { method: 'GET' });
+                const response = await proxyLuoguAPI('/lg4/captcha', { method: 'GET' });
                 
                 console.log('代理响应状态:', response.status);
                 console.log('代理响应头:', response.headers.get('content-type'));

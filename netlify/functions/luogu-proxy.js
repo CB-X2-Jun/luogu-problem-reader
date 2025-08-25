@@ -62,7 +62,7 @@ exports.handler = async (event, context) => {
         };
 
         // 对于验证码请求，设置特定的Accept头
-        if (path === '/api/verify/captcha') {
+        if (path === '/lg4/captcha') {
             requestHeaders['Accept'] = 'image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8';
         }
 
