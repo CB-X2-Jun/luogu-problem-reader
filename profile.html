@@ -1304,21 +1304,22 @@
                         
                         ratings.slice(0, 10).forEach((rating, index) => {
                             const date = new Date(rating.time * 1000).toLocaleDateString('zh-CN');
-                            const change = rating.newRating - rating.oldRating;
+                            const currentRating = rating.rating || 0;
+                            const prevRating = index < ratings.length - 1 ? (ratings[index + 1].rating || 0) : 0;
+                            const change = currentRating - prevRating;
                             const changeClass = change > 0 ? 'rating-up' : (change < 0 ? 'rating-down' : 'rating-same');
                             const changeText = change > 0 ? `+${change}` : change.toString();
                             
                             html += `
                                 <div class="rating-item">
                                     <div class="rating-info">
-                                        <span class="rating-contest">${rating.contestName || '未知比赛'}</span>
+                                        <span class="rating-contest">${rating.contestName || '比赛记录'}</span>
                                         <span class="rating-date">${date}</span>
                                     </div>
                                     <div class="rating-change">
-                                        <span class="rating-old">${rating.oldRating}</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="rating-new">${rating.newRating}</span>
-                                        <span class="rating-delta ${changeClass}">${changeText}</span>
+                                        <span class="rating-current">当前: ${currentRating}</span>
+                                        ${change !== 0 ? `<span class="rating-delta ${changeClass}">${changeText}</span>` : ''}
+                                        ${rating.latest ? '<span class="rating-latest">最新</span>' : ''}
                                     </div>
                                 </div>
                             `;
