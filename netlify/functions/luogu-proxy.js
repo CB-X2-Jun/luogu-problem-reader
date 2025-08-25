@@ -32,9 +32,18 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId } = JSON.parse(event.body);
+        console.log('🔍 代理函数收到请求:');
+        console.log('  - HTTP方法:', event.httpMethod);
+        console.log('  - 请求体:', event.body);
+        console.log('  - 请求头:', JSON.stringify(event.headers, null, 2));
+        
+        const requestData = JSON.parse(event.body);
+        console.log('  - 解析后的请求数据:', JSON.stringify(requestData, null, 2));
+        
+        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId } = requestData;
         
         if (!path) {
+            console.log('❌ 缺少path参数');
             return {
                 statusCode: 400,
                 headers: {
@@ -43,6 +52,8 @@ exports.handler = async (event, context) => {
                 body: JSON.stringify({ error: 'Path is required' })
             };
         }
+        
+        console.log('✅ 请求参数验证通过:', { path, method, sessionId });
 
         // 构建完整URL
         const url = `https://www.luogu.com.cn${path}`;
