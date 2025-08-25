@@ -97,11 +97,21 @@ exports.handler = async (event, context) => {
             body: body ? JSON.stringify(body) : undefined
         });
 
-        console.log('洛谷API响应状态:', response.statusCode);
-        console.log('响应内容类型:', response.headers['content-type']);
-        console.log('响应内容长度:', response.body ? response.body.length : 0);
-        console.log('请求路径:', path);
-        console.log('请求方法:', method);
+        console.log('🔍 洛谷API详细响应信息:');
+        console.log('  - 请求URL:', url);
+        console.log('  - 请求方法:', method);
+        console.log('  - 响应状态:', response.statusCode);
+        console.log('  - 响应内容类型:', response.headers['content-type']);
+        console.log('  - 响应内容长度:', response.body ? response.body.length : 0);
+        console.log('  - 响应头:', JSON.stringify(response.headers, null, 2));
+        
+        // 如果是404错误，输出更多调试信息
+        if (response.statusCode === 404) {
+            console.log('❌ 洛谷API返回404错误:');
+            console.log('  - 完整URL:', url);
+            console.log('  - 请求头:', JSON.stringify(requestHeaders, null, 2));
+            console.log('  - 响应体前500字符:', response.body ? response.body.substring(0, 500) : 'empty');
+        }
 
         // 保存Cookie（如果有Set-Cookie头部）
         if (response.headers['set-cookie']) {

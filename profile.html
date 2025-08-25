@@ -985,6 +985,13 @@
                 requestData.body = body;
             }
             
+            console.log('🔧 API调用调试信息:');
+            console.log('  - 路径:', path);
+            console.log('  - 方法:', method);
+            console.log('  - 请求头:', headers);
+            console.log('  - SessionID:', requestData.sessionId ? '已设置' : '未设置');
+            console.log('  - 完整请求数据:', requestData);
+            
             try {
                 const response = await fetch('/netlify/functions/luogu-proxy', {
                     method: 'POST',
@@ -994,9 +1001,11 @@
                     body: JSON.stringify(requestData)
                 });
                 
+                console.log('📡 代理响应状态:', response.status, response.statusText);
+                
                 return response;
             } catch (error) {
-                console.error('代理请求失败:', error);
+                console.error('❌ 代理请求失败:', error);
                 throw error;
             }
         }
@@ -1630,8 +1639,44 @@
             }
         }
 
+        // 测试代理函数是否工作
+        async function testProxyFunction() {
+            console.log('🧪 测试代理函数是否工作...');
+            try {
+                const response = await fetch('/netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        path: '/api/verify/captcha',
+                        method: 'GET'
+                    })
+                });
+                
+                console.log('🧪 代理函数测试响应:', response.status, response.statusText);
+                
+                if (response.status === 404) {
+                    console.error('❌ 代理函数返回404，可能未正确部署');
+                    alert('检测到Netlify Functions代理未正确部署，某些功能可能无法使用。');
+                } else {
+                    console.log('✅ 代理函数工作正常');
+                }
+                
+                const text = await response.text();
+                console.log('🧪 代理函数响应内容:', text.substring(0, 200));
+                
+            } catch (error) {
+                console.error('❌ 代理函数测试失败:', error);
+                alert('代理函数测试失败，网络连接可能有问题。');
+            }
+        }
+
         // 页面加载时初始化
         document.addEventListener('DOMContentLoaded', function() {
+            // 先测试代理函数
+            testProxyFunction();
+            // 然后加载用户资料
             loadUserProfile();
         });
     </script>
