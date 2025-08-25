@@ -1298,8 +1298,8 @@
                     const data = await response.json();
                     console.log('✅ 等级分历史:', data);
                     
-                    if (data.records && data.records.length > 0) {
-                        const ratings = data.records;
+                    if (data.records && data.records.result && data.records.result.length > 0) {
+                        const ratings = data.records.result;
                         let html = '';
                         
                         ratings.slice(0, 10).forEach((rating, index) => {
