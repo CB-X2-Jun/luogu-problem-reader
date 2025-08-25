@@ -633,7 +633,7 @@
       .submit-toggle-btn {
         position: fixed;
         bottom: 2rem;
-        right: 2rem;
+        left: 2rem;
         background: var(--primary-color);
         color: white;
         border: none;
@@ -688,7 +688,7 @@
         
         .submit-toggle-btn {
           bottom: 1rem;
-          right: 1rem;
+          left: 1rem;
           width: 50px;
           height: 50px;
           font-size: 1rem;
@@ -895,15 +895,31 @@ appears twice.</p>
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
-      // 洛谷API代理函数
+      // 统一的SessionID管理
+      function getOrCreateSessionId() {
+        let sessionId = localStorage.getItem('luogu_session_id');
+        if (!sessionId) {
+          sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+          localStorage.setItem('luogu_session_id', sessionId);
+          console.log('🆕 生成新的SessionID:', sessionId);
+        } else {
+          console.log('📖 使用现有SessionID:', sessionId.substring(0, 15) + '...');
+        }
+        return sessionId;
+      }
+
+      // 洛谷API代理函数 - 确保使用统一的sessionId
       async function proxyLuoguAPI(path, options = {}) {
-        const { method = 'GET', body, headers = {}, sessionId } = options;
+        const { method = 'GET', body, headers = {} } = options;
+        
+        // 确保使用统一的sessionId
+        const sessionId = getOrCreateSessionId();
         
         const requestData = {
           path,
           method,
           headers,
-          sessionId: sessionId || localStorage.getItem('luogu_session_id')
+          sessionId: sessionId // 使用统一生成的sessionId
         };
         
         if (body) {
@@ -911,6 +927,12 @@ appears twice.</p>
         }
         
         try {
+          console.log('🌐 发起API代理请求:', {
+            path,
+            method,
+            sessionId: sessionId.substring(0, 15) + '...'
+          });
+          
           const response = await fetch('/.netlify/functions/luogu-proxy', {
             method: 'POST',
             headers: {
@@ -919,9 +941,10 @@ appears twice.</p>
             body: JSON.stringify(requestData)
           });
           
+          console.log('📡 API代理响应:', response.status, response.statusText);
           return response;
         } catch (error) {
-          console.error('代理请求失败:', error);
+          console.error('❌ API代理请求失败:', error);
           throw error;
         }
       }

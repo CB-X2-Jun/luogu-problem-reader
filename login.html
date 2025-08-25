@@ -387,19 +387,35 @@
         let csrfToken = null;
         let pendingLoginData = null; // 存储待验证的登录数据
         
-        // 生成会话ID（用于在代理中识别用户会话）
-        let sessionId = localStorage.getItem('luogu_session_id');
-        if (!sessionId) {
-            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('luogu_session_id', sessionId);
+        // 统一的SessionID管理 - 与题目页面保持一致
+        function getOrCreateSessionId() {
+            let sessionId = localStorage.getItem('luogu_session_id');
+            if (!sessionId) {
+                sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('luogu_session_id', sessionId);
+                console.log('🆕 生成新的SessionID:', sessionId);
+            } else {
+                console.log('📖 使用现有SessionID:', sessionId.substring(0, 15) + '...');
+            }
+            return sessionId;
         }
+
+        // 获取统一的sessionId
+        const sessionId = getOrCreateSessionId();
 
         // 代理函数 - 通过Netlify Functions调用洛谷API
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
             
+            // 确保使用统一的sessionId
+            const currentSessionId = getOrCreateSessionId();
+            
             try {
-                console.log('发起代理请求:', path, method);
+                console.log('🌐 发起API代理请求:', {
+                    path,
+                    method,
+                    sessionId: currentSessionId.substring(0, 15) + '...'
+                });
                 
                 const response = await fetch('/.netlify/functions/luogu-proxy', {
                     method: 'POST',
@@ -412,7 +428,7 @@
                         body: body,
                         csrfToken: csrfToken,
                         headers: headers,
-                        sessionId: sessionId
+                        sessionId: currentSessionId // 使用统一获取的sessionId
                     })
                 });
                 

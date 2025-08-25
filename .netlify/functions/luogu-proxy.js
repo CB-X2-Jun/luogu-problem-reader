@@ -71,8 +71,17 @@ exports.handler = async (event, context) => {
         // 构建完整URL
         const url = `https://www.luogu.com.cn${path}`;
         
-        // 获取会话ID（使用客户端IP作为简单的会话标识）
-        const clientSessionId = sessionId || event.headers['x-forwarded-for'] || 'default';
+        // 获取会话ID - 优先使用客户端提供的sessionId，确保一致性
+        let clientSessionId = sessionId;
+        
+        // 如果没有提供sessionId，尝试从其他来源获取
+        if (!clientSessionId) {
+            // 使用客户端IP作为备用标识
+            clientSessionId = event.headers['x-forwarded-for'] || event.headers['x-real-ip'] || 'default';
+            console.log('⚠️ 未提供sessionId，使用备用标识:', clientSessionId);
+        } else {
+            console.log('✅ 使用客户端提供的sessionId:', clientSessionId.substring(0, 15) + '...');
+        }
         
         // 设置请求头
         const requestHeaders = {
@@ -99,9 +108,18 @@ exports.handler = async (event, context) => {
         // 添加保存的Cookie
         if (globalCookies[clientSessionId]) {
             requestHeaders['Cookie'] = globalCookies[clientSessionId];
-            console.log(`🍪 [${clientSessionId}] 使用保存的Cookie:`, globalCookies[clientSessionId]);
+            console.log(`🍪 [${clientSessionId}] 使用保存的Cookie:`, globalCookies[clientSessionId].substring(0, 100) + '...');
         } else {
-            console.log(`❌ [${clientSessionId}] 没有找到保存的Cookie，当前所有会话:`, Object.keys(globalCookies));
+            console.log(`❌ [${clientSessionId}] 没有找到保存的Cookie`);
+            console.log(`📊 当前所有会话Cookie:`, Object.keys(globalCookies).map(key => ({
+                sessionId: key.substring(0, 15) + '...',
+                cookieLength: globalCookies[key] ? globalCookies[key].length : 0
+            })));
+            
+            // 如果是提交相关的请求且没有Cookie，给出明确提示
+            if (path.includes('/fe/api/problem/submit/')) {
+                console.log('🚨 提交请求但没有登录Cookie，这可能导致"未登录"错误');
+            }
         }
 
         // 如果是POST请求，添加必要的头部
