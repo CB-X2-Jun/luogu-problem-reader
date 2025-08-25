@@ -1225,6 +1225,8 @@
                     }
                 });
 
+                console.log('📊 用户详细信息响应状态:', response.status);
+                
                 if (response.ok) {
                     const data = await response.json();
                     console.log('✅ 用户详细信息:', data);
@@ -1243,10 +1245,17 @@
                         document.getElementById('detailUid').textContent = user.uid || '未知';
                         document.getElementById('detailAccountStatus').textContent = user.isLocked ? '已锁定' : '正常';
                         
+                        // 更新签名和介绍
+                        document.getElementById('detailSlogan').textContent = user.slogan || '暂无';
+                        document.getElementById('detailIntroduction').textContent = user.introduction || '暂无';
+                        
                         // 保存更新的用户信息
                         const updatedUserInfo = { ...userInfo, ...user };
                         localStorage.setItem('luogu_user_info', JSON.stringify(updatedUserInfo));
                     }
+                } else {
+                    const errorText = await response.text();
+                    console.error('❌ 用户详细信息API响应错误:', response.status, errorText);
                 }
             } catch (error) {
                 console.error('❌ 获取用户详细信息失败:', error);
@@ -1268,6 +1277,8 @@
                     }
                 });
 
+                console.log('📊 等级分历史响应状态:', response.status);
+                
                 if (response.ok) {
                     const data = await response.json();
                     console.log('✅ 等级分历史:', data);
@@ -1303,7 +1314,9 @@
                         ratingList.innerHTML = '<div class="empty-state">暂无等级分历史记录</div>';
                     }
                 } else {
-                    throw new Error('获取等级分历史失败');
+                    const errorText = await response.text();
+                    console.error('❌ 等级分历史API响应错误:', response.status, errorText);
+                    ratingList.innerHTML = '<div class="error-state">获取等级分历史失败，可能需要登录或权限不足</div>';
                 }
             } catch (error) {
                 console.error('❌ 获取等级分历史失败:', error);
@@ -1331,6 +1344,8 @@
                         'x-luogu-type': 'content-only'
                     }
                 });
+
+                console.log('📊 关注列表响应状态:', response.status);
 
                 if (response.ok) {
                     const data = await response.json();
@@ -1360,7 +1375,9 @@
                         followingList.innerHTML = '<div class="empty-state">暂无关注用户</div>';
                     }
                 } else {
-                    throw new Error('获取关注列表失败');
+                    const errorText = await response.text();
+                    console.error('❌ 关注列表API响应错误:', response.status, errorText);
+                    followingList.innerHTML = '<div class="error-state">获取关注列表失败，可能需要登录或权限不足</div>';
                 }
             } catch (error) {
                 console.error('❌ 获取关注列表失败:', error);
@@ -1480,6 +1497,8 @@
                     }
                 });
 
+                console.log('📊 用户设置响应状态:', response.status);
+
                 if (response.ok) {
                     const data = await response.json();
                     console.log('✅ 用户设置:', data);
@@ -1492,11 +1511,13 @@
                         document.getElementById('settingIntroduction').value = user.introduction || '';
                     }
                 } else {
-                    throw new Error('获取用户设置失败');
+                    const errorText = await response.text();
+                    console.error('❌ 用户设置API响应错误:', response.status, errorText);
+                    console.log('⚠️ 用户设置获取失败，可能需要特殊权限');
                 }
             } catch (error) {
                 console.error('❌ 获取用户设置失败:', error);
-                alert('获取用户设置失败，请重试');
+                console.log('⚠️ 用户设置API调用异常');
             }
         }
 
