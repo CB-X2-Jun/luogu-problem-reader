@@ -523,24 +523,8 @@
                 const captchaUrl = getCaptchaImageUrl();
                 console.log('尝试验证码URL:', captchaUrl);
                 
-                // 先测试URL是否可访问
-                try {
-                    const testResponse = await fetch(captchaUrl);
-                    console.log('验证码URL测试:', testResponse.status, testResponse.headers.get('content-type'));
-                    
-                    if (testResponse.ok && testResponse.headers.get('content-type')?.includes('image')) {
-                        // URL可用，直接显示
-                        captchaContainer.innerHTML = `
-                            <img src="${captchaUrl}" alt="验证码" 
-                                 style="width: 100%; height: 100%; object-fit: cover;"
-                                 onload="console.log('✅ 验证码加载成功')"
-                                 onerror="handleCaptchaError()">
-                        `;
-                    } else {
-                        throw new Error('URL方式失败，尝试POST方式');
-                    }
-                } catch (urlError) {
-                    console.log('URL方式失败，使用POST备用方案:', urlError.message);
+                // 直接使用POST方式，避免GET方式的复杂性
+                console.log('直接使用POST方式获取验证码...');
                     
                     // 方案2: 备用POST方式
                     const response = await fetch('/.netlify/functions/luogu-proxy', {
