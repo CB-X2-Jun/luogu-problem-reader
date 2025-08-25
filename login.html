@@ -511,7 +511,7 @@
             }
         }
 
-        // 最简化的验证码刷新 - 使用通用代理函数
+        // 验证码获取 - 使用与登录完全相同的POST方式确保session一致
         async function refreshCaptcha() {
             try {
                 console.log('🖼️ 刷新验证码...');
@@ -519,9 +519,9 @@
                 const captchaContainer = document.getElementById('captchaImage');
                 captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
                 
-                console.log('使用通用代理函数获取验证码...');
+                console.log('使用与登录相同的POST方式获取验证码，确保session一致...');
                 
-                // 使用通用代理函数获取验证码
+                // 使用与登录完全相同的proxyLuoguAPI函数
                 const response = await proxyLuoguAPI('/lg4/captcha', {
                     method: 'GET'
                 });
