@@ -564,7 +564,8 @@
                         
                         try {
                             // 尝试调用用户信息接口获取UID等完整信息
-                            const userInfoResponse = await proxyLuoguAPI('/_lfe/config', {
+                            // 根据API文档，应该调用返回DataResponse格式的接口
+                            const userInfoResponse = await proxyLuoguAPI('/user/setting', {
                                 method: 'GET'
                             });
                             
