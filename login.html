@@ -489,64 +489,38 @@
             }
         }
 
-        // 简洁的验证码获取函数 - 避免复杂操作
-        async function getCaptchaImage() {
-            try {
-                console.log('获取验证码图片...');
-                
-                // 直接调用代理，不涉及复杂的session管理
-                const response = await fetch('/.netlify/functions/luogu-proxy', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        path: '/lg4/captcha',
-                        method: 'GET'
-                    })
-                });
-                
-                if (response.ok) {
-                    const blob = await response.blob();
-                    console.log('验证码获取成功，大小:', blob.size, 'bytes');
-                    return URL.createObjectURL(blob);
-                } else {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-            } catch (error) {
-                console.error('验证码获取失败:', error);
-                throw error;
-            }
+        // 最简单的验证码获取 - 直接返回代理URL
+        function getCaptchaImageUrl() {
+            const timestamp = Date.now();
+            const sessionId = getOrCreateSessionId();
+            // 直接返回代理URL，让浏览器自己处理图片加载
+            return `/.netlify/functions/luogu-proxy?path=${encodeURIComponent('/lg4/captcha')}&method=GET&sessionId=${sessionId}&t=${timestamp}`;
         }
 
-        // 刷新验证码 - 使用独立函数
-        async function refreshCaptcha() {
+        // 刷新验证码 - 最简单直接的方式
+        function refreshCaptcha() {
             try {
+                console.log('刷新验证码...');
+                
                 const captchaContainer = document.getElementById('captchaImage');
                 
-                // 显示加载状态
-                captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
+                // 直接使用代理URL，避免blob问题
+                const captchaUrl = getCaptchaImageUrl();
                 
-                // 获取验证码图片
-                const captchaUrl = await getCaptchaImage();
-                
-                // 显示验证码
-                captchaContainer.innerHTML = `<img src="${captchaUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
+                captchaContainer.innerHTML = `
+                    <img src="${captchaUrl}" alt="验证码" 
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         onload="console.log('✅ 验证码加载成功')"
+                         onerror="console.error('❌ 验证码加载失败'); this.parentElement.innerHTML='<div style=\\'text-align: center; padding: 20px; color: #666;\\'>验证码加载失败<br><button onclick=\\'refreshCaptcha()\\' style=\\'margin-top: 10px; padding: 5px 10px; border: 1px solid #ddd; background: #f5f5f5; cursor: pointer;\\'>重新获取</button></div>';">
+                `;
                 
                 // 显示验证码输入组
                 document.getElementById('captchaGroup').style.display = 'block';
                 document.getElementById('captcha').value = '';
                 
-                console.log('验证码显示成功');
+                console.log('验证码URL:', captchaUrl);
             } catch (error) {
                 console.error('刷新验证码失败:', error);
-                const captchaContainer = document.getElementById('captchaImage');
-                captchaContainer.innerHTML = `
-                    <div style="text-align: center; padding: 20px; color: #666;">
-                        验证码加载失败<br>
-                        <button onclick="refreshCaptcha()" style="margin-top: 10px; padding: 5px 10px; border: 1px solid #ddd; background: #f5f5f5; cursor: pointer;">重新获取</button>
-                    </div>
-                `;
                 showStatus('获取验证码失败，请重试', 'error');
             }
         }
