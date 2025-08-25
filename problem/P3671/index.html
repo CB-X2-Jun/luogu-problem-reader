@@ -287,6 +287,95 @@
         border-bottom-color: var(--primary-dark);
       }
       
+      /* 洛谷登录功能样式 */
+      .luogu-auth-section {
+        margin-left: auto;
+      }
+      
+      .login-btn {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .login-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+      }
+      
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem;
+        background: var(--gray-50);
+        border-radius: 8px;
+        border: 1px solid var(--gray-200);
+      }
+      
+      .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--gray-300);
+      }
+      
+      .user-name {
+        font-weight: 500;
+        color: var(--gray-700);
+        font-size: 0.9rem;
+      }
+      
+      .logout-btn {
+        background: none;
+        border: none;
+        color: var(--gray-500);
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 4px;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .logout-btn:hover {
+        background: var(--gray-200);
+        color: var(--danger-color);
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .luogu-auth-section {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        
+        .user-info {
+          padding: 0.4rem;
+          gap: 0.5rem;
+        }
+        
+        .user-avatar {
+          width: 28px;
+          height: 28px;
+        }
+        
+        .user-name {
+          font-size: 0.8rem;
+        }
+      }
+      
       /* 引用块美化 */
       .md-content__inner blockquote {
         border-left: 4px solid var(--warning-color);
@@ -378,6 +467,26 @@
           <a href="/">首页</a>
           <a href="/problem/list">题库</a>
           <a href="/about">关于</a>
+          
+          <!-- 洛谷登录状态区域 -->
+          <div class="luogu-auth-section">
+            <!-- 未登录状态 -->
+            <div id="loginSection" class="login-section">
+              <a href="/login.html" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                洛谷登录
+              </a>
+            </div>
+            
+            <!-- 已登录状态 -->
+            <div id="userInfo" class="user-info" style="display: none;">
+              <img id="userAvatar" class="user-avatar" alt="用户头像">
+              <span id="userName" class="user-name">用户</span>
+              <button onclick="logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -479,8 +588,150 @@ BC
     <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
     <script>
+      // 洛谷API代理函数
+      async function proxyLuoguAPI(path, options = {}) {
+        const { method = 'GET', body, headers = {}, sessionId } = options;
+        
+        const requestData = {
+          path,
+          method,
+          headers,
+          sessionId: sessionId || localStorage.getItem('luogu_session_id')
+        };
+        
+        if (body) {
+          requestData.body = body;
+        }
+        
+        try {
+          const response = await fetch('/netlify/functions/luogu-proxy', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+          });
+          
+          return response;
+        } catch (error) {
+          console.error('代理请求失败:', error);
+          throw error;
+        }
+      }
+      
+      // 检查登录状态
+      async function checkLoginStatus() {
+        console.log('🔍 检查洛谷登录状态...');
+        
+        // 首先检查localStorage中是否有用户信息
+        const savedUserInfo = localStorage.getItem('luogu_user_info');
+        if (savedUserInfo) {
+          try {
+            const userInfo = JSON.parse(savedUserInfo);
+            console.log('✅ 从localStorage找到用户信息:', userInfo);
+            
+            // 检查登录时间是否过期（24小时）
+            const loginTime = new Date(userInfo.loginTime);
+            const now = new Date();
+            const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+            
+            if (hoursDiff < 24) {
+              console.log(`✅ 用户信息有效（${hoursDiff.toFixed(1)}小时前登录）`);
+              showUserInfo({
+                name: userInfo.name || userInfo.username,
+                uid: userInfo.uid,
+                username: userInfo.username,
+                avatar: userInfo.avatar
+              });
+              return true;
+            } else {
+              console.log('⚠️ 用户信息已过期，清除localStorage');
+              localStorage.removeItem('luogu_user_info');
+            }
+          } catch (error) {
+            console.error('解析localStorage用户信息失败:', error);
+            localStorage.removeItem('luogu_user_info');
+          }
+        }
+        
+        showLoginButton();
+        return false;
+      }
+      
+      // 显示用户信息
+      function showUserInfo(user) {
+        const userInfo = document.getElementById('userInfo');
+        const loginSection = document.getElementById('loginSection');
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        
+        if (!userInfo || !loginSection || !userAvatar || !userName) {
+          console.log('⚠️ 用户信息元素未找到，跳过显示');
+          return;
+        }
+        
+        // 设置用户头像
+        const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K';
+        
+        if (user.uid) {
+          // 有UID，尝试加载真实头像
+          userAvatar.src = `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png`;
+          userAvatar.onerror = function() {
+            console.log('真实头像加载失败，使用默认头像');
+            this.src = defaultAvatar;
+            this.onerror = null; // 防止无限循环
+          };
+        } else {
+          // 没有UID，直接使用默认头像
+          userAvatar.src = defaultAvatar;
+        }
+        
+        // 设置用户名
+        userName.textContent = user.name || user.username || '用户';
+        
+        // 显示用户信息，隐藏登录按钮
+        userInfo.style.display = 'flex';
+        loginSection.style.display = 'none';
+      }
+      
+      // 显示登录按钮
+      function showLoginButton() {
+        const userInfo = document.getElementById('userInfo');
+        const loginSection = document.getElementById('loginSection');
+        
+        if (userInfo && loginSection) {
+          userInfo.style.display = 'none';
+          loginSection.style.display = 'block';
+        }
+      }
+      
+      // 退出登录
+      async function logout() {
+        try {
+          // 清除localStorage中的用户信息和会话ID
+          localStorage.removeItem('luogu_user_info');
+          localStorage.removeItem('luogu_session_id');
+          console.log('🚪 已清除用户信息和会话ID');
+          
+          showLoginButton();
+          
+          // 可选：调用洛谷退出API
+          try {
+            await proxyLuoguAPI('/api/auth/logout', { method: 'POST' });
+          } catch (e) {
+            // 忽略退出API错误
+            console.log('退出API调用失败，但本地清理已完成');
+          }
+          
+          console.log('✅ 已成功退出登录');
+        } catch (error) {
+          console.error('退出登录失败:', error);
+        }
+      }
+      
       document.addEventListener("DOMContentLoaded", function() {
-
+        // 检查洛谷登录状态
+        checkLoginStatus();
         
         // 渲染数学公式
         renderMathInElement(document.body, {
