@@ -872,18 +872,89 @@
         return sessionId;
       }
 
-      // 洛谷API代理函数 - 确保使用统一的sessionId
+      // 获取保存的用户Cookie作为备用
+      function getSavedUserCookies() {
+        try {
+          const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+          return userInfo.cookies || null;
+        } catch (error) {
+          console.warn('⚠️ 获取保存的Cookie失败:', error);
+          return null;
+        }
+      }
+
+      // 强制检查登录状态和cookie有效性
+      async function forceCheckLoginStatus() {
+        try {
+          console.log('🔍 开始强制登录状态检查...');
+          
+          // 1. 检查localStorage中是否有用户信息
+          const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+          if (!userInfo.uid || !userInfo.username) {
+            console.log('❌ localStorage中没有有效的用户信息');
+            return false;
+          }
+          
+          // 2. 检查是否有保存的cookie
+          const savedCookies = getSavedUserCookies();
+          if (!savedCookies) {
+            console.log('❌ 没有保存的登录Cookie');
+            return false;
+          }
+          
+          console.log('✅ 找到保存的Cookie:', savedCookies.substring(0, 100) + '...');
+          
+          // 3. 验证cookie是否包含关键的登录标识
+          const hasUidCookie = savedCookies.includes('_uid');
+          const hasClientIdCookie = savedCookies.includes('__client_id');
+          
+          if (!hasUidCookie || !hasClientIdCookie) {
+            console.log('❌ Cookie缺少关键的登录标识 (_uid 或 __client_id)');
+            return false;
+          }
+          
+          // 4. 通过API验证登录状态
+          console.log('🌐 通过API验证登录状态...');
+          const response = await proxyLuoguAPI(`/user/${userInfo.uid}`, {
+            method: 'GET',
+            headers: {
+              'x-luogu-type': 'content-only'
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            if (data.currentData && data.currentData.user) {
+              console.log('✅ 登录状态验证成功:', data.currentData.user.name);
+              return true;
+            }
+          }
+          
+          console.log('❌ API验证登录状态失败:', response.status);
+          return false;
+          
+        } catch (error) {
+          console.error('❌ 登录状态检查失败:', error);
+          return false;
+        }
+      }
+
+      // 洛谷API代理函数 - 确保使用统一的sessionId和cookie备份
       async function proxyLuoguAPI(path, options = {}) {
         const { method = 'GET', body, headers = {} } = options;
         
         // 确保使用统一的sessionId
         const sessionId = getOrCreateSessionId();
         
+        // 获取保存的cookie作为备用
+        const clientCookies = getSavedUserCookies();
+        
         const requestData = {
           path,
           method,
           headers,
-          sessionId: sessionId // 使用统一生成的sessionId
+          sessionId: sessionId, // 使用统一生成的sessionId
+          clientCookies: clientCookies // 传递客户端cookie作为备用
         };
         
         if (body) {
@@ -894,7 +965,8 @@
           console.log('🌐 发起API代理请求:', {
             path,
             method,
-            sessionId: sessionId.substring(0, 15) + '...'
+            sessionId: sessionId.substring(0, 15) + '...',
+            hasCookieBackup: !!clientCookies
           });
           
           const response = await fetch('/.netlify/functions/luogu-proxy', {
@@ -1200,6 +1272,19 @@
           // 确保题目ID为大写格式（洛谷要求）
           const upperProblemId = problemId.toUpperCase();
           console.log('🔄 提交时题目ID转换:', problemId, '->', upperProblemId);
+          
+          // 强制检查登录状态和cookie
+          showSubmitResult('正在验证登录状态...', 'info');
+          const loginValid = await forceCheckLoginStatus();
+          
+          if (!loginValid) {
+            // 如果登录无效，强制跳转到登录页面
+            showSubmitResult('登录状态无效，正在跳转到登录页面...', 'warning');
+            setTimeout(() => {
+              window.location.href = '/login.html';
+            }, 2000);
+            return;
+          }
           
           // 获取题目页面的CSRF令牌
           showSubmitResult('正在获取题目页面令牌...', 'info');

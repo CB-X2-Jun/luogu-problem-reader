@@ -417,9 +417,14 @@
         // 从响应中提取Cookie并保存到用户信息
         function extractAndSaveCookies(response) {
             try {
+                // 注意：由于CORS限制，前端可能无法直接访问set-cookie头
+                // 我们需要依赖后端代理来处理cookie
+                console.log('🍪 尝试从登录响应中提取Cookie...');
+                
+                // 检查响应头
                 const setCookieHeader = response.headers.get('set-cookie');
                 if (setCookieHeader) {
-                    console.log('🍪 从登录响应中提取到Cookie:', setCookieHeader.substring(0, 100) + '...');
+                    console.log('✅ 找到Set-Cookie头:', setCookieHeader.substring(0, 100) + '...');
                     
                     // 解析Cookie
                     const cookies = setCookieHeader.split(',').map(cookie => {
@@ -433,11 +438,26 @@
                     
                     console.log('💾 Cookie已保存到用户信息中');
                     return cookies;
+                } else {
+                    console.log('⚠️ 响应中没有找到Set-Cookie头，这可能是由于CORS限制');
+                    console.log('🔄 Cookie应该已经通过后端代理自动保存');
+                    return null;
                 }
-                return null;
             } catch (error) {
                 console.warn('⚠️ 提取Cookie失败:', error);
                 return null;
+            }
+        }
+
+        // 验证cookie是否正确保存
+        function verifyCookieSaved() {
+            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+            if (userInfo.cookies) {
+                console.log('✅ Cookie验证成功，已保存到localStorage');
+                return true;
+            } else {
+                console.log('⚠️ Cookie未保存到localStorage，可能需要手动处理');
+                return false;
             }
         }
 
@@ -646,6 +666,15 @@
                         
                         // 提取并保存登录响应中的Cookie
                         extractAndSaveCookies(response);
+                        
+                        // 检查响应数据中是否包含cookie信息
+                        if (data._cookies) {
+                            console.log('✅ 从响应数据中获取到Cookie:', data._cookies.substring(0, 100) + '...');
+                            const existingUserInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+                            existingUserInfo.cookies = data._cookies;
+                            localStorage.setItem('luogu_user_info', JSON.stringify(existingUserInfo));
+                            console.log('💾 Cookie已从响应数据保存到localStorage');
+                        }
                         
                         // 登录成功后，尝试获取完整的用户信息（包括UID）
                         console.log('🔍 登录成功，尝试获取完整用户信息...');

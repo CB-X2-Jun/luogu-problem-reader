@@ -198,6 +198,7 @@ exports.handler = async (event, context) => {
         }
 
         // 保存Cookie（如果有Set-Cookie头部）
+        let savedCookies = null;
         if (response.headers['set-cookie']) {
             const cookies = Array.isArray(response.headers['set-cookie']) 
                 ? response.headers['set-cookie'] 
@@ -212,6 +213,7 @@ exports.handler = async (event, context) => {
             if (cookieStrings.length > 0) {
                 const cookieValue = cookieStrings.join('; ');
                 saveCookieToEnv(clientSessionId, cookieValue);
+                savedCookies = cookieValue; // 保存用于返回给客户端
                 console.log(`🍪 [${clientSessionId}] 保存Cookie:`, cookieValue.substring(0, 100) + '...');
                 console.log(`📊 [${clientSessionId}] 当前所有会话Cookie:`, Object.keys(globalCookies));
                 
@@ -225,17 +227,32 @@ exports.handler = async (event, context) => {
             }
         }
 
+        // 准备响应体，如果有新的cookie，添加到响应中
+        let responseBody = response.body;
+        if (savedCookies && response.headers['content-type']?.includes('application/json')) {
+            try {
+                const jsonBody = JSON.parse(responseBody);
+                // 添加cookie信息到响应中，供客户端保存
+                jsonBody._cookies = savedCookies;
+                responseBody = JSON.stringify(jsonBody);
+                console.log(`📤 [${clientSessionId}] 在响应中添加Cookie信息供客户端保存`);
+            } catch (error) {
+                console.log(`⚠️ [${clientSessionId}] 无法解析JSON响应，跳过Cookie添加`);
+            }
+        }
+
         // 返回响应
         return {
             statusCode: response.statusCode,
             headers: {
+                'Content-Type': response.headers['content-type'] || 'application/json',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS',
-                'Content-Type': response.headers['content-type'] || 'text/html'
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                // 如果有cookie，也通过自定义头返回（作为备用方案）
+                ...(savedCookies && { 'X-Saved-Cookies': savedCookies })
             },
-            body: response.body,
-            isBase64Encoded: response.isBase64Encoded || false
+            body: responseBody
         };
 
     } catch (error) {
