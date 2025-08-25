@@ -526,25 +526,24 @@
                 // 直接使用POST方式，避免GET方式的复杂性
                 console.log('直接使用POST方式获取验证码...');
                     
-                    // 方案2: 备用POST方式
-                    const response = await fetch('/.netlify/functions/luogu-proxy', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            path: '/lg4/captcha',
-                            method: 'GET',
-                            sessionId: getOrCreateSessionId()
-                        })
-                    });
-                    
-                    if (response.ok) {
-                        const blob = await response.blob();
-                        const blobUrl = URL.createObjectURL(blob);
-                        captchaContainer.innerHTML = `<img src="${blobUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
-                        console.log('✅ POST方式验证码加载成功');
-                    } else {
-                        throw new Error(`POST方式也失败: ${response.status}`);
-                    }
+                // 方案2: 备用POST方式
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        path: '/lg4/captcha',
+                        method: 'GET',
+                        sessionId: getOrCreateSessionId()
+                    })
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const blobUrl = URL.createObjectURL(blob);
+                    captchaContainer.innerHTML = `<img src="${blobUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
+                    console.log('✅ POST方式验证码加载成功');
+                } else {
+                    throw new Error(`POST方式也失败: ${response.status}`);
                 }
                 
                 // 显示验证码输入组
