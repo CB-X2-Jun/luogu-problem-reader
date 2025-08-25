@@ -413,13 +413,9 @@
             }
         }
 
-        // 简化的洛谷API代理函数 - 确保与验证码使用相同的cookie
+        // 最简化的洛谷API代理函数 - 只保留基础功能
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
-            
-            // 获取与验证码请求相同的session和cookie信息
-            const sessionId = getOrCreateSessionId();
-            const clientCookies = localStorage.getItem('luogu_cookies') || '';
             
             const requestData = {
                 path: path,
@@ -427,16 +423,10 @@
                 body: body,
                 csrfToken: csrfToken,
                 headers: headers,
-                sessionId: sessionId,
-                clientCookies: clientCookies  // 添加客户端cookie，确保与验证码一致
+                sessionId: getOrCreateSessionId()
             };
 
             console.log('🌐 API代理请求:', path, method);
-            console.log('🔍 登录请求参数:', {
-                sessionId: sessionId.substring(0, 10) + '...',
-                hasCookies: !!clientCookies,
-                hasCSRF: !!csrfToken
-            });
 
             const response = await fetch('/.netlify/functions/luogu-proxy', {
                 method: 'POST',
@@ -521,7 +511,7 @@
             }
         }
 
-        // 刷新验证码 - 使用与登录相同的代理函数，确保session完全一致
+        // 最简化的验证码刷新 - 直接使用URL方式
         async function refreshCaptcha() {
             try {
                 console.log('🖼️ 刷新验证码...');
@@ -529,23 +519,15 @@
                 const captchaContainer = document.getElementById('captchaImage');
                 captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
                 
-                // 使用与登录请求完全相同的代理函数，确保session和cookie完全一致
-                console.log('使用通用代理函数获取验证码，确保与登录请求session一致...');
+                // 最简单的方式：直接使用代理URL
+                const timestamp = Date.now();
+                const sessionId = getOrCreateSessionId();
+                const captchaUrl = `/.netlify/functions/luogu-proxy?path=${encodeURIComponent('/lg4/captcha')}&method=GET&sessionId=${sessionId}&t=${timestamp}`;
                 
-                const response = await proxyLuoguAPI('/lg4/captcha', {
-                    method: 'GET'
-                });
+                console.log('使用最简单的URL方式获取验证码...');
                 
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const blobUrl = URL.createObjectURL(blob);
-                    captchaContainer.innerHTML = `<img src="${blobUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
-                    console.log('✅ 通用代理验证码加载成功');
-                } else {
-                    const errorData = await response.text();
-                    console.error('通用代理验证码失败:', response.status, errorData);
-                    throw new Error(`验证码获取失败: ${response.status}`);
-                }
+                // 直接设置img src，让浏览器处理
+                captchaContainer.innerHTML = `<img src="${captchaUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;" onload="console.log('✅ 验证码加载成功')" onerror="handleCaptchaError()">`;
                 
                 // 显示验证码输入组
                 document.getElementById('captchaGroup').style.display = 'block';

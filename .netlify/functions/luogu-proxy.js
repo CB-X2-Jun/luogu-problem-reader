@@ -1,35 +1,7 @@
 const https = require('https');
 const http = require('http');
 
-// Cookie存储 - 使用环境变量和内存组合存储
-let globalCookies = {};
-
-// 尝试从环境变量恢复cookie（简单的持久化方案）
-function getCookieKey(sessionId) {
-    return `COOKIE_${sessionId.replace(/[^a-zA-Z0-9]/g, '_')}`;
-}
-
-function saveCookieToEnv(sessionId, cookieValue) {
-    try {
-        // 注意：Netlify Functions的环境变量是只读的，这里只是演示
-        // 实际生产环境应该使用外部存储（如Redis、数据库等）
-        globalCookies[sessionId] = cookieValue;
-        console.log(`💾 Cookie已保存到内存 [${sessionId.substring(0, 15)}...]`);
-    } catch (error) {
-        console.warn('⚠️ Cookie保存失败:', error.message);
-    }
-}
-
-function getCookieFromStorage(sessionId) {
-    // 首先从内存中获取
-    if (globalCookies[sessionId]) {
-        console.log(`📖 从内存获取Cookie [${sessionId.substring(0, 15)}...]`);
-        return globalCookies[sessionId];
-    }
-    
-    console.log(`❌ 内存中未找到Cookie [${sessionId.substring(0, 15)}...]`);
-    return null;
-}
+// 最简化版本 - 移除所有复杂的cookie管理
 
 exports.handler = async (event, context) => {
     console.log('🚀 代理请求开始');
@@ -76,7 +48,7 @@ exports.handler = async (event, context) => {
         
         console.log('  - 解析后的请求数据:', JSON.stringify(requestData, null, 2));
         
-        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId, clientCookies } = requestData;
+        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId } = requestData;
         
         if (!path) {
             console.log('❌ 缺少path参数');
@@ -85,16 +57,16 @@ exports.handler = async (event, context) => {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 },
-                body: JSON.stringify({ error: 'Path is required' })
+                body: JSON.stringify({ error: 'Missing path parameter' })
             };
         }
-        
-        console.log('✅ 请求参数验证通过:', { path, method, sessionId });
 
-        // 构建完整URL
+        // 构建完整的洛谷API URL
         const url = `https://www.luogu.com.cn${path}`;
+        console.log('🎯 目标URL:', url);
+        console.log('🔧 请求方法:', method);
+        console.log('📦 请求体:', body ? JSON.stringify(body) : 'null');
         
-        // 获取会话ID - 优先使用客户端提供的sessionId，确保一致性
         let clientSessionId = sessionId;
         
         // 如果没有提供sessionId，尝试从其他来源获取
@@ -140,36 +112,10 @@ exports.handler = async (event, context) => {
         // 调试：输出最终的请求头
         console.log(`🔍 [${clientSessionId}] 最终请求头:`, JSON.stringify(requestHeaders, null, 2));
 
-        // 添加Cookie - 优先使用服务端保存的，备用客户端传递的
-        const savedCookie = getCookieFromStorage(clientSessionId);
-        const cookieToUse = savedCookie || clientCookies;
-        
-        if (cookieToUse) {
-            requestHeaders['Cookie'] = cookieToUse;
-            const cookieSource = savedCookie ? '服务端保存' : '客户端传递';
-            console.log(`🍪 [${clientSessionId}] 使用${cookieSource}的Cookie:`, cookieToUse.substring(0, 100) + '...');
-            
-            // 如果使用的是客户端传递的cookie，同时保存到服务端
-            if (!savedCookie && clientCookies) {
-                saveCookieToEnv(clientSessionId, clientCookies);
-                console.log(`💾 [${clientSessionId}] 客户端Cookie已同步到服务端`);
-            }
-        } else {
-            console.log(`❌ [${clientSessionId}] 没有找到任何Cookie（服务端或客户端）`);
-            console.log(`📊 当前所有会话Cookie:`, Object.keys(globalCookies).map(key => ({
-                sessionId: key.substring(0, 15) + '...',
-                cookieLength: globalCookies[key] ? globalCookies[key].length : 0
-            })));
-            
-            // 如果是提交相关的请求且没有Cookie，给出明确提示
-            if (path.includes('/fe/api/problem/submit/')) {
-                console.log('🚨 提交请求但没有登录Cookie，这可能导致"未登录"错误');
-                console.log('🔍 建议检查：');
-                console.log('  1. 是否在同一个sessionId下登录？');
-                console.log('  2. 登录后是否成功保存了Cookie？');
-                console.log('  3. Netlify Functions实例是否发生了重启？');
-                console.log('  4. 客户端是否传递了cookie备份？');
-            }
+        // 最简化的Cookie处理 - 只使用基础sessionId
+        if (clientSessionId) {
+            requestHeaders['Cookie'] = `__client_id=${clientSessionId}`;
+            console.log(`🍪 使用基础sessionId作为Cookie`);
         }
 
         // 如果是非GET请求，添加必要的头部（按洛谷API规范）
@@ -210,62 +156,16 @@ exports.handler = async (event, context) => {
             console.log('  - 响应体前500字符:', response.body ? response.body.substring(0, 500) : 'empty');
         }
 
-        // 保存Cookie（如果有Set-Cookie头部）
-        let savedCookies = null;
-        if (response.headers['set-cookie']) {
-            const cookies = Array.isArray(response.headers['set-cookie']) 
-                ? response.headers['set-cookie'] 
-                : [response.headers['set-cookie']];
-            
-            // 解析并保存Cookie
-            const cookieStrings = cookies.map(cookie => {
-                // 只保留cookie的name=value部分，去掉Path、Domain等属性
-                return cookie.split(';')[0];
-            }).filter(Boolean);
-            
-            if (cookieStrings.length > 0) {
-                const cookieValue = cookieStrings.join('; ');
-                saveCookieToEnv(clientSessionId, cookieValue);
-                savedCookies = cookieValue; // 保存用于返回给客户端
-                console.log(`🍪 [${clientSessionId}] 保存Cookie:`, cookieValue.substring(0, 100) + '...');
-                console.log(`📊 [${clientSessionId}] 当前所有会话Cookie:`, Object.keys(globalCookies));
-                
-                // 检查是否包含重要的登录相关cookie
-                const hasLoginCookies = cookieValue.includes('_uid') || cookieValue.includes('__client_id');
-                if (hasLoginCookies) {
-                    console.log(`✅ [${clientSessionId}] 检测到登录相关Cookie (_uid 或 __client_id)`);
-                } else {
-                    console.log(`⚠️ [${clientSessionId}] 未检测到登录相关Cookie，可能影响后续请求`);
-                }
-            }
-        }
-
-        // 准备响应体，如果有新的cookie，添加到响应中
-        let responseBody = response.body;
-        if (savedCookies && response.headers['content-type']?.includes('application/json')) {
-            try {
-                const jsonBody = JSON.parse(responseBody);
-                // 添加cookie信息到响应中，供客户端保存
-                jsonBody._cookies = savedCookies;
-                responseBody = JSON.stringify(jsonBody);
-                console.log(`📤 [${clientSessionId}] 在响应中添加Cookie信息供客户端保存`);
-            } catch (error) {
-                console.log(`⚠️ [${clientSessionId}] 无法解析JSON响应，跳过Cookie添加`);
-            }
-        }
-
-        // 返回响应
+        // 最简化的响应处理 - 直接返回，不处理cookie
         return {
             statusCode: response.statusCode,
             headers: {
                 'Content-Type': response.headers['content-type'] || 'application/json',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                // 如果有cookie，也通过自定义头返回（作为备用方案）
-                ...(savedCookies && { 'X-Saved-Cookies': savedCookies })
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
             },
-            body: responseBody
+            body: response.body
         };
 
     } catch (error) {
