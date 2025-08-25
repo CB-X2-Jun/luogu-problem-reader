@@ -812,10 +812,22 @@
             document.getElementById('userName').textContent = user.name;
             document.getElementById('userUid').textContent = `UID: ${user.uid}`;
             
-            // 设置头像，使用本地SVG避免CORS问题
+            // 设置头像，优先使用真实头像，失败时回退到本地SVG
             const avatar = document.getElementById('userAvatar');
             const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K';
-            avatar.src = defaultAvatar;
+            
+            if (user.uid) {
+                // 有UID，尝试加载真实头像
+                avatar.src = `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png`;
+                avatar.onerror = function() {
+                    console.log('登录页面真实头像加载失败，使用默认头像');
+                    this.src = defaultAvatar;
+                    this.onerror = null; // 防止无限循环
+                };
+            } else {
+                // 没有UID，直接使用默认头像
+                avatar.src = defaultAvatar;
+            }
         }
 
         // 显示用户信息（来自登录响应的简化用户数据）
