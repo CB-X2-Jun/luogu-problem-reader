@@ -616,21 +616,42 @@
                                 throw new Error(`用户信息请求失败: ${userInfoResponse.status}`);
                             }
                         } catch (error) {
-                            console.warn('获取完整用户信息失败，使用基本信息:', error);
+                            console.warn('获取完整用户信息失败，尝试从syncToken提取UID:', error);
                             
-                            // 回退到基本用户信息
+                            // 尝试从syncToken中提取UID
+                            let extractedUid = null;
+                            if (data.syncToken) {
+                                // syncToken格式通常是: "token+uid"，尝试提取最后的数字
+                                const match = data.syncToken.match(/\+(\d+)$/);
+                                if (match) {
+                                    extractedUid = parseInt(match[1]);
+                                    console.log('🔍 从syncToken中提取到UID:', extractedUid);
+                                }
+                            }
+                            
+                            // 构建用户信息，包含提取的UID
                             const userInfo = {
                                 username: data.username,
                                 syncToken: data.syncToken,
                                 locked: data.locked || false,
-                                loginTime: new Date().toISOString()
+                                loginTime: new Date().toISOString(),
+                                // 添加提取的UID和推测的用户信息
+                                uid: extractedUid,
+                                name: data.username, // 使用username作为显示名称
+                                avatar: extractedUid ? `https://cdn.luogu.com.cn/upload/usericon/${extractedUid}.png` : null
                             };
                             
                             localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
-                            console.log('💾 基本用户信息已保存到localStorage:', userInfo);
+                            console.log('💾 增强用户信息已保存到localStorage:', userInfo);
                             
-                            // 显示基本用户信息
-                            displayUserInfo(userInfo);
+                            // 如果有UID，显示完整用户信息；否则显示基本信息
+                            if (extractedUid) {
+                                console.log('✅ 使用提取的UID显示完整用户信息');
+                                showUserInfo(userInfo);
+                            } else {
+                                console.log('⚠️ 无法提取UID，显示基本用户信息');
+                                displayUserInfo(userInfo);
+                            }
                         }
                         
                         // 暂时取消自动跳转，方便查看调试信息
