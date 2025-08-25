@@ -841,9 +841,9 @@
                         <div class="info-item">
                             <span class="info-label">
                                 <i class="fas fa-calendar-alt"></i>
-                                注册时间
+                                登录时间
                             </span>
-                            <span id="detailRegisterTime" class="info-value">加载中...</span>
+                            <span id="detailLoginTime" class="info-value">加载中...</span>
                         </div>
 
                         <div class="info-item">
@@ -868,6 +868,14 @@
                                 个人介绍
                             </span>
                             <span id="detailIntroduction" class="info-value">暂无</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-sync-alt"></i>
+                                最后更新
+                            </span>
+                            <span id="lastUpdate" class="info-value">刚刚</span>
                         </div>
                     </div>
                 </div>
@@ -1024,7 +1032,6 @@
             if (userInfo.loginTime) {
                 const loginDate = new Date(userInfo.loginTime);
                 const timeStr = loginDate.toLocaleString('zh-CN');
-                document.getElementById('loginTime').textContent = timeStr.split(' ')[1] || timeStr;
                 document.getElementById('detailLoginTime').textContent = timeStr;
             }
 
