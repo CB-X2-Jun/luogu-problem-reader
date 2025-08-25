@@ -272,6 +272,81 @@
             margin: 0;
         }
 
+        .user-item-followers {
+            color: var(--gray-600);
+            font-size: 0.8rem;
+        }
+
+        /* 分页控制样式 */
+        .pagination-controls {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .pagination-info {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-pagination {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gray-300);
+            background: white;
+            color: var(--gray-700);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-pagination:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .btn-pagination:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-load-more {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .btn-load-more:hover {
+            background: #059669;
+            border-color: #059669;
+        }
+
+        .loading-more {
+            text-align: center;
+            padding: 1rem;
+            color: var(--gray-600);
+            font-style: italic;
+        }
+
+        .no-more-data {
+            text-align: center;
+            padding: 1rem;
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
         /* 表单样式 */
         .form-group {
             margin-bottom: 1.5rem;
@@ -1346,8 +1421,14 @@
             switchSocialTab('following');
         }
 
+        // 分页相关变量
+        let followingPage = 1;
+        let followersPage = 1;
+        let blacklistPage = 1;
+        const pageSize = 20; // 每页显示数量
+        
         // 加载关注列表
-        async function loadFollowingList() {
+        async function loadFollowingList(page = 1, append = false) {
             const followingList = document.getElementById('social-following');
             if (!followingList) return;
             
@@ -1357,11 +1438,20 @@
                 return;
             }
             
-            followingList.innerHTML = '<div class="loading-text">正在加载关注列表...</div>';
+            if (!append) {
+                followingList.innerHTML = '<div class="loading-text">正在加载关注列表...</div>';
+                followingPage = page;
+            } else {
+                // 添加加载更多指示器
+                const loadingMore = document.createElement('div');
+                loadingMore.className = 'loading-more';
+                loadingMore.innerHTML = '<div class="loading-text">正在加载更多...</div>';
+                followingList.appendChild(loadingMore);
+            }
             
             try {
-                console.log('🔍 获取关注列表...', 'UID:', userInfo.uid);
-                const response = await proxyLuoguAPI(`/api/user/followings?user=${userInfo.uid}`, {
+                console.log('🔍 获取关注列表...', 'UID:', userInfo.uid, 'Page:', page);
+                const response = await proxyLuoguAPI(`/api/user/followings?user=${userInfo.uid}&page=${page}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
@@ -1406,15 +1496,58 @@
                             `;
                         });
                         
-                        console.log('🔧 生成的HTML长度:', html.length);
-                        console.log('🔧 HTML前100字符:', html.substring(0, 100));
-                        console.log('🔧 关注列表容器:', followingList);
+                        // 添加分页控制
+                        const hasMore = users.length === pageSize; // 如果返回的数量等于页面大小，可能还有更多
+                        html += `
+                            <div class="pagination-controls">
+                                <div class="pagination-info">
+                                    第 ${page} 页，显示 ${users.length} 个用户
+                                </div>
+                                <div class="pagination-buttons">
+                                    ${page > 1 ? `<button class="btn-pagination" onclick="loadFollowingList(${page - 1})">上一页</button>` : ''}
+                                    ${hasMore ? `<button class="btn-pagination" onclick="loadFollowingList(${page + 1})">下一页</button>` : ''}
+                                    ${hasMore ? `<button class="btn-pagination btn-load-more" onclick="loadFollowingList(${page + 1}, true)">加载更多</button>` : ''}
+                                </div>
+                            </div>
+                        `;
                         
-                        followingList.innerHTML = html;
+                        console.log('🔧 生成的HTML长度:', html.length);
+                        console.log('🔧 关注列表分页信息:', { page, count: users.length, hasMore });
+                        
+                        if (append) {
+                            // 移除加载更多指示器
+                            const loadingMore = followingList.querySelector('.loading-more');
+                            if (loadingMore) {
+                                loadingMore.remove();
+                            }
+                            
+                            // 移除旧的分页控制
+                            const oldPagination = followingList.querySelector('.pagination-controls');
+                            if (oldPagination) {
+                                oldPagination.remove();
+                            }
+                            
+                            // 添加新内容（不包括分页控制）
+                            const userItemsHtml = html.substring(0, html.lastIndexOf('<div class="pagination-controls">'));
+                            const paginationHtml = html.substring(html.lastIndexOf('<div class="pagination-controls">'));
+                            
+                            followingList.insertAdjacentHTML('beforeend', userItemsHtml);
+                            followingList.insertAdjacentHTML('beforeend', paginationHtml);
+                            
+                            followingPage = page;
+                        } else {
+                            followingList.innerHTML = html;
+                        }
                         
                         console.log('🔧 设置innerHTML后，容器子元素数量:', followingList.children.length);
-                    } else {
+                    } else if (page === 1) {
                         followingList.innerHTML = '<div class="empty-state">暂无关注用户</div>';
+                    } else {
+                        // 没有更多数据了
+                        const loadingMore = followingList.querySelector('.loading-more');
+                        if (loadingMore) {
+                            loadingMore.innerHTML = '<div class="no-more-data">没有更多数据了</div>';
+                        }
                     }
                 } else {
                     const errorText = await response.text();
@@ -1471,7 +1604,7 @@
         }
 
         // 加载粉丝列表
-        async function loadFollowersList() {
+        async function loadFollowersList(page = 1, append = false) {
             const followersList = document.getElementById('social-followers');
             if (!followersList) return;
             
@@ -1481,11 +1614,20 @@
                 return;
             }
             
-            followersList.innerHTML = '<div class="loading-text">正在加载粉丝列表...</div>';
+            if (!append) {
+                followersList.innerHTML = '<div class="loading-text">正在加载粉丝列表...</div>';
+                followersPage = page;
+            } else {
+                // 添加加载更多指示器
+                const loadingMore = document.createElement('div');
+                loadingMore.className = 'loading-more';
+                loadingMore.innerHTML = '<div class="loading-text">正在加载更多...</div>';
+                followersList.appendChild(loadingMore);
+            }
             
             try {
-                console.log('🔍 获取粉丝列表...', 'UID:', userInfo.uid);
-                const response = await proxyLuoguAPI(`/api/user/followers?user=${userInfo.uid}`, {
+                console.log('🔍 获取粉丝列表...', 'UID:', userInfo.uid, 'Page:', page);
+                const response = await proxyLuoguAPI(`/api/user/followers?user=${userInfo.uid}&page=${page}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
@@ -1521,9 +1663,53 @@
                             `;
                         });
                         
-                        followersList.innerHTML = html;
-                    } else {
+                        // 添加分页控制
+                        const hasMore = users.length === pageSize;
+                        html += `
+                            <div class="pagination-controls">
+                                <div class="pagination-info">
+                                    第 ${page} 页，显示 ${users.length} 个粉丝
+                                </div>
+                                <div class="pagination-buttons">
+                                    ${page > 1 ? `<button class="btn-pagination" onclick="loadFollowersList(${page - 1})">上一页</button>` : ''}
+                                    ${hasMore ? `<button class="btn-pagination" onclick="loadFollowersList(${page + 1})">下一页</button>` : ''}
+                                    ${hasMore ? `<button class="btn-pagination btn-load-more" onclick="loadFollowersList(${page + 1}, true)">加载更多</button>` : ''}
+                                </div>
+                            </div>
+                        `;
+                        
+                        if (append) {
+                            // 移除加载更多指示器
+                            const loadingMore = followersList.querySelector('.loading-more');
+                            if (loadingMore) {
+                                loadingMore.remove();
+                            }
+                            
+                            // 移除旧的分页控制
+                            const oldPagination = followersList.querySelector('.pagination-controls');
+                            if (oldPagination) {
+                                oldPagination.remove();
+                            }
+                            
+                            // 添加新内容
+                            const userItemsHtml = html.substring(0, html.lastIndexOf('<div class="pagination-controls">'));
+                            const paginationHtml = html.substring(html.lastIndexOf('<div class="pagination-controls">'));
+                            
+                            followersList.insertAdjacentHTML('beforeend', userItemsHtml);
+                            followersList.insertAdjacentHTML('beforeend', paginationHtml);
+                            
+                            followersPage = page;
+                        } else {
+                            followersList.innerHTML = html;
+                        }
+                    } else if (page === 1) {
                         followersList.innerHTML = '<div class="empty-state">暂无粉丝用户</div>';
+                    } else {
+                        // 没有更多数据了
+                        const loadingMore = followersList.querySelector('.loading-more');
+                        if (loadingMore) {
+                            loadingMore.innerHTML = '<div class="no-more-data">没有更多数据了</div>';
+                        }
                     }
                 } else {
                     const errorText = await response.text();
@@ -1563,7 +1749,7 @@
         }
 
         // 加载黑名单
-        async function loadBlacklist() {
+        async function loadBlacklist(page = 1, append = false) {
             const blacklist = document.getElementById('social-blacklist');
             if (!blacklist) return;
             
@@ -1573,11 +1759,20 @@
                 return;
             }
             
-            blacklist.innerHTML = '<div class="loading-text">正在加载黑名单...</div>';
+            if (!append) {
+                blacklist.innerHTML = '<div class="loading-text">正在加载黑名单...</div>';
+                blacklistPage = page;
+            } else {
+                // 添加加载更多指示器
+                const loadingMore = document.createElement('div');
+                loadingMore.className = 'loading-more';
+                loadingMore.innerHTML = '<div class="loading-text">正在加载更多...</div>';
+                blacklist.appendChild(loadingMore);
+            }
             
             try {
-                console.log('🔍 获取黑名单...', 'UID:', userInfo.uid);
-                const response = await proxyLuoguAPI(`/api/user/blacklist?user=${userInfo.uid}`, {
+                console.log('🔍 获取黑名单...', 'UID:', userInfo.uid, 'Page:', page);
+                const response = await proxyLuoguAPI(`/api/user/blacklist?user=${userInfo.uid}&page=${page}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
@@ -1613,9 +1808,53 @@
                             `;
                         });
                         
-                        blacklist.innerHTML = html;
-                    } else {
+                        // 添加分页控制
+                        const hasMore = users.length === pageSize;
+                        html += `
+                            <div class="pagination-controls">
+                                <div class="pagination-info">
+                                    第 ${page} 页，显示 ${users.length} 个用户
+                                </div>
+                                <div class="pagination-buttons">
+                                    ${page > 1 ? `<button class="btn-pagination" onclick="loadBlacklist(${page - 1})">上一页</button>` : ''}
+                                    ${hasMore ? `<button class="btn-pagination" onclick="loadBlacklist(${page + 1})">下一页</button>` : ''}
+                                    ${hasMore ? `<button class="btn-pagination btn-load-more" onclick="loadBlacklist(${page + 1}, true)">加载更多</button>` : ''}
+                                </div>
+                            </div>
+                        `;
+                        
+                        if (append) {
+                            // 移除加载更多指示器
+                            const loadingMore = blacklist.querySelector('.loading-more');
+                            if (loadingMore) {
+                                loadingMore.remove();
+                            }
+                            
+                            // 移除旧的分页控制
+                            const oldPagination = blacklist.querySelector('.pagination-controls');
+                            if (oldPagination) {
+                                oldPagination.remove();
+                            }
+                            
+                            // 添加新内容
+                            const userItemsHtml = html.substring(0, html.lastIndexOf('<div class="pagination-controls">'));
+                            const paginationHtml = html.substring(html.lastIndexOf('<div class="pagination-controls">'));
+                            
+                            blacklist.insertAdjacentHTML('beforeend', userItemsHtml);
+                            blacklist.insertAdjacentHTML('beforeend', paginationHtml);
+                            
+                            blacklistPage = page;
+                        } else {
+                            blacklist.innerHTML = html;
+                        }
+                    } else if (page === 1) {
                         blacklist.innerHTML = '<div class="empty-state">黑名单为空</div>';
+                    } else {
+                        // 没有更多数据了
+                        const loadingMore = blacklist.querySelector('.loading-more');
+                        if (loadingMore) {
+                            loadingMore.innerHTML = '<div class="no-more-data">没有更多数据了</div>';
+                        }
                     }
                 } else {
                     const errorText = await response.text();
