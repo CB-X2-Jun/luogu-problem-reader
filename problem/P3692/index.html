@@ -480,7 +480,7 @@
             
             <!-- 已登录状态 -->
             <div id="userInfo" class="user-info" style="display: none;">
-              <img id="userAvatar" class="user-avatar" alt="用户头像">
+              <img id="userAvatar" class="user-avatar" alt="用户头像" onclick="goToProfile()" title="点击查看个人中心" style="cursor: pointer;">
               <span id="userName" class="user-name">用户</span>
               <button onclick="logout()" class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i>
@@ -973,6 +973,11 @@ Type Incorrect
         } catch (error) {
           console.error('退出登录失败:', error);
         }
+      }
+      
+      // 跳转到个人中心
+      function goToProfile() {
+        window.location.href = '/profile.html';
       }
       
       document.addEventListener("DOMContentLoaded", function() {

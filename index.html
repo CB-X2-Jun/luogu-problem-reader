@@ -449,7 +449,7 @@
             <!-- 用户登录状态 -->
             <div class="user-section">
                 <div id="userInfo" class="user-info" style="display: none;">
-                    <img id="userAvatar" class="user-avatar" src="" alt="用户头像">
+                    <img id="userAvatar" class="user-avatar" src="" alt="用户头像" onclick="goToProfile()" title="点击查看个人中心" style="cursor: pointer;">
                     <span id="userName" class="user-name"></span>
                     <button id="logoutBtn" class="btn-logout" onclick="logout()">退出</button>
                 </div>
@@ -768,6 +768,11 @@
             } catch (error) {
                 console.error('退出登录失败:', error);
             }
+        }
+
+        // 跳转到个人中心
+        function goToProfile() {
+            window.location.href = '/profile.html';
         }
 
         // 页面加载时检查登录状态
