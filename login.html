@@ -549,8 +549,14 @@
                 
                 if (response.status === 200) {
                     // 200状态码，检查是否有用户信息（表示登录成功）
+                    console.log('检查登录成功条件:');
+                    console.log('- data.username:', data.username);
+                    console.log('- data.syncToken:', data.syncToken);
+                    console.log('- 条件结果:', !!(data.username && data.syncToken));
+                    
                     if (data.username && data.syncToken) {
                         // 有用户名和同步令牌，说明登录成功
+                        console.log('✅ 登录成功判断通过');
                         showStatus('登录成功！正在跳转...', 'success');
                         
                         // 检查登录状态并获取用户信息
