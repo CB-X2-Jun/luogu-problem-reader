@@ -993,7 +993,7 @@
             console.log('  - 完整请求数据:', requestData);
             
             try {
-                const response = await fetch('/netlify/functions/luogu-proxy', {
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1651,7 +1651,7 @@
                 
                 console.log('🧪 发送测试请求:', testData);
                 
-                const response = await fetch('/netlify/functions/luogu-proxy', {
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1671,7 +1671,7 @@
                     
                     // 尝试测试根路径
                     console.log('🧪 尝试测试根路径...');
-                    const rootResponse = await fetch('/netlify/functions/luogu-proxy', {
+                    const rootResponse = await fetch('/.netlify/functions/luogu-proxy', {
                         method: 'GET'
                     });
                     console.log('🧪 根路径响应:', rootResponse.status, rootResponse.statusText);
