@@ -276,11 +276,11 @@
                 return;
             }
             
-            const avatarUrl = currentUser.avatar ? `https://cdn.luogu.com.cn/upload/usericon/${currentUser.uid}.png` : 'https://cdn.luogu.com.cn/upload/usericon/default.png';
+            const avatarUrl = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K';
             
             cardDiv.innerHTML = `
                 <div class="user-card">
-                    <img src="${avatarUrl}" alt="用户头像" class="user-avatar" onerror="this.src='https://cdn.luogu.com.cn/upload/usericon/default.png'">
+                    <img src="${avatarUrl}" alt="用户头像" class="user-avatar">
                     <div class="user-info">
                         <h4>${currentUser.name || currentUser.username || '未知用户'}</h4>
                         <p><strong>UID:</strong> ${currentUser.uid || 'N/A'}</p>

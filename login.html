@@ -559,20 +559,78 @@
                         console.log('✅ 登录成功判断通过');
                         showStatus('登录成功！', 'success');
                         
-                        // 直接使用登录响应中的用户信息，不再依赖状态检查接口
-                        const userInfo = {
-                            username: data.username,
-                            syncToken: data.syncToken,
-                            locked: data.locked || false,
-                            loginTime: new Date().toISOString()
-                        };
+                        // 登录成功后，尝试获取完整的用户信息（包括UID）
+                        console.log('🔍 登录成功，尝试获取完整用户信息...');
                         
-                        // 保存用户信息到localStorage
-                        localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
-                        console.log('💾 用户信息已保存到localStorage:', userInfo);
-                        
-                        // 显示用户信息
-                        displayUserInfo(userInfo);
+                        try {
+                            // 尝试调用用户信息接口获取UID等完整信息
+                            const userInfoResponse = await proxyLuoguAPI('/_lfe/config', {
+                                method: 'GET'
+                            });
+                            
+                            if (userInfoResponse.status === 200) {
+                                const configData = await userInfoResponse.json();
+                                console.log('🔍 获取到配置数据:', configData);
+                                
+                                // 查找用户信息
+                                let fullUserInfo = null;
+                                if (configData.currentUser) {
+                                    fullUserInfo = configData.currentUser;
+                                } else {
+                                    // 智能查找用户信息字段
+                                    const possibleUserFields = ['user', 'loginUser', 'userInfo', 'me', 'profile'];
+                                    for (const field of possibleUserFields) {
+                                        if (configData[field] && typeof configData[field] === 'object' && 
+                                            (configData[field].name || configData[field].username || configData[field].uid)) {
+                                            fullUserInfo = configData[field];
+                                            console.log(`✅ 在${field}字段找到用户信息:`, fullUserInfo);
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if (fullUserInfo) {
+                                    // 合并登录响应和用户信息
+                                    const userInfo = {
+                                        username: data.username,
+                                        syncToken: data.syncToken,
+                                        locked: data.locked || false,
+                                        loginTime: new Date().toISOString(),
+                                        // 添加完整用户信息
+                                        name: fullUserInfo.name || data.username,
+                                        uid: fullUserInfo.uid,
+                                        avatar: fullUserInfo.avatar,
+                                        ...fullUserInfo
+                                    };
+                                    
+                                    localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                                    console.log('💾 完整用户信息已保存到localStorage:', userInfo);
+                                    
+                                    // 显示完整用户信息
+                                    showUserInfo(userInfo);
+                                } else {
+                                    throw new Error('未找到用户信息字段');
+                                }
+                            } else {
+                                throw new Error(`用户信息请求失败: ${userInfoResponse.status}`);
+                            }
+                        } catch (error) {
+                            console.warn('获取完整用户信息失败，使用基本信息:', error);
+                            
+                            // 回退到基本用户信息
+                            const userInfo = {
+                                username: data.username,
+                                syncToken: data.syncToken,
+                                locked: data.locked || false,
+                                loginTime: new Date().toISOString()
+                            };
+                            
+                            localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                            console.log('💾 基本用户信息已保存到localStorage:', userInfo);
+                            
+                            // 显示基本用户信息
+                            displayUserInfo(userInfo);
+                        }
                         
                         // 暂时取消自动跳转，方便查看调试信息
                         console.log('🎉 登录成功！已取消自动跳转，方便查看调试信息');
@@ -716,12 +774,10 @@
             document.getElementById('userName').textContent = user.name;
             document.getElementById('userUid').textContent = `UID: ${user.uid}`;
             
-            // 设置头像
+            // 设置头像，使用本地SVG避免CORS问题
             const avatar = document.getElementById('userAvatar');
-            avatar.src = `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png`;
-            avatar.onerror = function() {
-                this.src = 'https://cdn.luogu.com.cn/upload/usericon/default.png';
-            };
+            const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K';
+            avatar.src = defaultAvatar;
         }
 
         // 显示用户信息（来自登录响应的简化用户数据）
@@ -733,9 +789,9 @@
             document.getElementById('userName').textContent = userInfo.username;
             document.getElementById('userUid').textContent = `登录时间: ${new Date(userInfo.loginTime).toLocaleString()}`;
             
-            // 设置默认头像，因为没有uid
+            // 设置默认头像，使用本地图片避免CORS问题
             const avatar = document.getElementById('userAvatar');
-            avatar.src = 'https://cdn.luogu.com.cn/upload/usericon/default.png';
+            avatar.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K';
             
             console.log('✅ 用户信息已显示:', userInfo);
         }
