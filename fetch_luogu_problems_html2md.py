@@ -687,6 +687,14 @@ def generate_problem_list():
     # 移除提交按钮
     list_html = re.sub(r'<button class="submit-toggle-btn".*?</button>', '', list_html, flags=re.DOTALL)
     
+    # 移除提交和清空代码按钮
+    list_html = re.sub(r'<div class="submit-actions">.*?</div>', '', list_html, flags=re.DOTALL)
+    list_html = re.sub(r'<button[^>]*onclick="submitCode\(\)"[^>]*>.*?</button>', '', list_html, flags=re.DOTALL)
+    list_html = re.sub(r'<button[^>]*onclick="clearCode\(\)"[^>]*>.*?</button>', '', list_html, flags=re.DOTALL)
+    
+    # 移除提交结果显示区域
+    list_html = re.sub(r'<div id="submitResult".*?</div>', '', list_html, flags=re.DOTALL)
+    
     # 移除提交相关的JavaScript函数
     submit_functions = [
         'toggleSubmitSection', 'showSubmitResult', 'submitCode', 
