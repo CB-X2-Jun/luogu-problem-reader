@@ -511,30 +511,65 @@
             }
         }
 
-        // 刷新验证码 - 最简单直接的方式
-        function refreshCaptcha() {
+        // 刷新验证码 - 带备用方案
+        async function refreshCaptcha() {
             try {
                 console.log('刷新验证码...');
                 
                 const captchaContainer = document.getElementById('captchaImage');
+                captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
                 
-                // 直接使用代理URL，避免blob问题
+                // 方案1: 尝试直接URL方式
                 const captchaUrl = getCaptchaImageUrl();
+                console.log('尝试验证码URL:', captchaUrl);
                 
-                captchaContainer.innerHTML = `
-                    <img src="${captchaUrl}" alt="验证码" 
-                         style="width: 100%; height: 100%; object-fit: cover;"
-                         onload="console.log('✅ 验证码加载成功')"
-                         onerror="handleCaptchaError()">
-                `;
+                // 先测试URL是否可访问
+                try {
+                    const testResponse = await fetch(captchaUrl);
+                    console.log('验证码URL测试:', testResponse.status, testResponse.headers.get('content-type'));
+                    
+                    if (testResponse.ok && testResponse.headers.get('content-type')?.includes('image')) {
+                        // URL可用，直接显示
+                        captchaContainer.innerHTML = `
+                            <img src="${captchaUrl}" alt="验证码" 
+                                 style="width: 100%; height: 100%; object-fit: cover;"
+                                 onload="console.log('✅ 验证码加载成功')"
+                                 onerror="handleCaptchaError()">
+                        `;
+                    } else {
+                        throw new Error('URL方式失败，尝试POST方式');
+                    }
+                } catch (urlError) {
+                    console.log('URL方式失败，使用POST备用方案:', urlError.message);
+                    
+                    // 方案2: 备用POST方式
+                    const response = await fetch('/.netlify/functions/luogu-proxy', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            path: '/lg4/captcha',
+                            method: 'GET',
+                            sessionId: getOrCreateSessionId()
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const blobUrl = URL.createObjectURL(blob);
+                        captchaContainer.innerHTML = `<img src="${blobUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
+                        console.log('✅ POST方式验证码加载成功');
+                    } else {
+                        throw new Error(`POST方式也失败: ${response.status}`);
+                    }
+                }
                 
                 // 显示验证码输入组
                 document.getElementById('captchaGroup').style.display = 'block';
                 document.getElementById('captcha').value = '';
                 
-                console.log('验证码URL:', captchaUrl);
             } catch (error) {
                 console.error('刷新验证码失败:', error);
+                handleCaptchaError();
                 showStatus('获取验证码失败，请重试', 'error');
             }
         }
