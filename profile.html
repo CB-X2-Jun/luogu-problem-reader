@@ -916,15 +916,15 @@
                         </button>
                     </div>
 
-                    <div id="followingList" class="social-content" style="display: block;">
+                    <div id="social-following" class="social-content" style="display: block;">
                         <div class="loading-text">加载关注列表中...</div>
                     </div>
 
-                    <div id="followersList" class="social-content" style="display: none;">
+                    <div id="social-followers" class="social-content" style="display: none;">
                         <div class="loading-text">加载粉丝列表中...</div>
                     </div>
 
-                    <div id="blacklist" class="social-content" style="display: none;">
+                    <div id="social-blacklist" class="social-content" style="display: none;">
                         <div class="loading-text">加载黑名单中...</div>
                     </div>
                 </div>
@@ -1348,7 +1348,7 @@
 
         // 加载关注列表
         async function loadFollowingList() {
-            const followingList = document.getElementById('followingList');
+            const followingList = document.getElementById('social-following');
             if (!followingList) return;
             
             const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
@@ -1472,7 +1472,7 @@
 
         // 加载粉丝列表
         async function loadFollowersList() {
-            const followersList = document.getElementById('followersList');
+            const followersList = document.getElementById('social-followers');
             if (!followersList) return;
             
             const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
@@ -1564,7 +1564,7 @@
 
         // 加载黑名单
         async function loadBlacklist() {
-            const blacklist = document.getElementById('blacklist');
+            const blacklist = document.getElementById('social-blacklist');
             if (!blacklist) return;
             
             const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
