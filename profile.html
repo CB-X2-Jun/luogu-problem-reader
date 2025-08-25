@@ -1676,6 +1676,17 @@
                     });
                     console.log('🧪 根路径响应:', rootResponse.status, rootResponse.statusText);
                     
+                    // 尝试测试简单的test函数
+                    console.log('🧪 尝试测试简单的test函数...');
+                    const testResponse = await fetch('/netlify/functions/test', {
+                        method: 'GET'
+                    });
+                    console.log('🧪 test函数响应:', testResponse.status, testResponse.statusText);
+                    if (testResponse.ok) {
+                        const testData = await testResponse.text();
+                        console.log('🧪 test函数响应内容:', testData);
+                    }
+                    
                 } else if (response.status >= 200 && response.status < 300) {
                     console.log('✅ 代理函数工作正常');
                 } else {
