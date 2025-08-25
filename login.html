@@ -564,42 +564,62 @@
             }
         }
 
-        // 刷新验证码
+        // 刷新验证码 - 最简单的方式，直接从洛谷获取
         async function refreshCaptcha() {
             try {
-                console.log('开始获取验证码，当前sessionId:', sessionId);
+                console.log('开始获取验证码...');
                 
-                // 确保会话已初始化（获取CSRF Token）
-                if (!csrfToken) {
-                    console.log('会话未初始化，先获取CSRF Token...');
-                    await getCSRFToken();
-                }
+                // 直接使用洛谷的验证码URL，不通过代理
+                const captchaContainer = document.getElementById('captchaImage');
+                const timestamp = Date.now(); // 避免缓存
+                const captchaUrl = `https://www.luogu.com.cn/lg4/captcha?t=${timestamp}`;
                 
-                const response = await proxyLuoguAPI('/lg4/captcha', { method: 'GET' });
+                captchaContainer.innerHTML = `
+                    <img src="${captchaUrl}" alt="验证码" 
+                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"
+                         onload="console.log('✅ 验证码加载成功')"
+                         onerror="console.error('❌ 验证码加载失败，尝试代理方式'); refreshCaptchaViaProxy();">
+                `;
                 
-                console.log('代理响应状态:', response.status);
-                console.log('代理响应头:', response.headers.get('content-type'));
+                // 显示验证码输入组
+                document.getElementById('captchaGroup').style.display = 'block';
+                document.getElementById('captcha').value = '';
+                
+                console.log('验证码URL:', captchaUrl);
+            } catch (error) {
+                console.error('获取验证码失败:', error);
+                showStatus('获取验证码失败，请重试', 'error');
+            }
+        }
+
+        // 备用方案：通过代理获取验证码
+        async function refreshCaptchaViaProxy() {
+            try {
+                console.log('使用代理方式获取验证码...');
+                
+                const response = await fetch('/.netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        path: '/lg4/captcha',
+                        method: 'GET',
+                        sessionId: getOrCreateSessionId()
+                    })
+                });
                 
                 if (response.status === 200) {
                     const blob = await response.blob();
-                    console.log('验证码图片大小:', blob.size, 'bytes');
-                    
-                    // 使用最简单的blob URL方式（以前能工作的方法）
                     const captchaUrl = URL.createObjectURL(blob);
                     const captchaContainer = document.getElementById('captchaImage');
                     captchaContainer.innerHTML = `<img src="${captchaUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
-                    
-                    console.log('验证码图片已更新');
-                    
-                    // 显示验证码输入组
-                    document.getElementById('captchaGroup').style.display = 'block';
-                    document.getElementById('captcha').value = '';
+                    console.log('✅ 代理验证码加载成功');
                 } else {
-                    throw new Error(`获取验证码失败: ${response.status}`);
+                    throw new Error(`代理获取验证码失败: ${response.status}`);
                 }
             } catch (error) {
-                console.error('刷新验证码失败:', error);
-                showStatus('获取验证码失败: ' + error.message, 'error');
+                console.error('代理获取验证码失败:', error);
+                const captchaContainer = document.getElementById('captchaImage');
+                captchaContainer.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">验证码加载失败<br><button onclick="refreshCaptcha()" style="margin-top: 10px;">重新获取</button></div>';
             }
         }
 
