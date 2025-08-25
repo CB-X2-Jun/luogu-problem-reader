@@ -497,6 +497,20 @@
             return `/.netlify/functions/luogu-proxy?path=${encodeURIComponent('/lg4/captcha')}&method=GET&sessionId=${sessionId}&t=${timestamp}`;
         }
 
+        // 安全的验证码错误处理
+        function handleCaptchaError() {
+            console.error('❌ 验证码加载失败');
+            const captchaContainer = document.getElementById('captchaImage');
+            if (captchaContainer) {
+                captchaContainer.innerHTML = `
+                    <div style="text-align: center; padding: 20px; color: #666;">
+                        验证码加载失败<br>
+                        <button onclick="refreshCaptcha()" style="margin-top: 10px; padding: 5px 10px; border: 1px solid #ddd; background: #f5f5f5; cursor: pointer; border-radius: 4px;">重新获取</button>
+                    </div>
+                `;
+            }
+        }
+
         // 刷新验证码 - 最简单直接的方式
         function refreshCaptcha() {
             try {
@@ -511,7 +525,7 @@
                     <img src="${captchaUrl}" alt="验证码" 
                          style="width: 100%; height: 100%; object-fit: cover;"
                          onload="console.log('✅ 验证码加载成功')"
-                         onerror="console.error('❌ 验证码加载失败'); this.parentElement.innerHTML='<div style=\\'text-align: center; padding: 20px; color: #666;\\'>验证码加载失败<br><button onclick=\\'refreshCaptcha()\\' style=\\'margin-top: 10px; padding: 5px 10px; border: 1px solid #ddd; background: #f5f5f5; cursor: pointer;\\'>重新获取</button></div>';">
+                         onerror="handleCaptchaError()">
                 `;
                 
                 // 显示验证码输入组
