@@ -150,6 +150,198 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* 标签页样式 */
+        .tab-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .tab-nav {
+            display: flex;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .tab-btn:hover {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+        }
+
+        .tab-content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 数据列表样式 */
+        .data-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .data-item {
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .data-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-item-title {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .data-item-value {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .data-item-desc {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* 用户卡片样式 */
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .user-item:hover {
+            background: var(--gray-100);
+        }
+
+        .user-item-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-item-info {
+            flex: 1;
+        }
+
+        .user-item-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .user-item-uid {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-secondary {
+            background: var(--gray-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-600);
+        }
+
+        /* 加载状态 */
+        .loading-inline {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-500);
+        }
+
+        .loading-spinner-small {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray-300);
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 0.5rem auto;
+        }
+
         .section-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -339,70 +531,20 @@
 
                 <div class="user-stats">
                     <div class="stat-item">
-                        <p class="stat-value" id="loginTime">--</p>
-                        <p class="stat-label">登录时间</p>
+                        <p class="stat-value" id="userRating">--</p>
+                        <p class="stat-label">当前等级分</p>
                     </div>
                     <div class="stat-item">
-                        <p class="stat-value" id="sessionStatus">活跃</p>
-                        <p class="stat-label">会话状态</p>
+                        <p class="stat-value" id="userProblemCount">--</p>
+                        <p class="stat-label">通过题目</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- 详细信息区域 -->
-            <div class="details-section">
-                <h3 class="section-title">
-                    <i class="fas fa-info-circle"></i>
-                    账户详情
-                </h3>
-
-                <div class="info-grid">
-                    <div class="info-item">
-                        <span class="info-label">
-                            <i class="fas fa-user"></i>
-                            用户名
-                        </span>
-                        <span id="detailUsername" class="info-value">加载中...</span>
+                    <div class="stat-item">
+                        <p class="stat-value" id="userFollowingCount">--</p>
+                        <p class="stat-label">关注数</p>
                     </div>
-
-                    <div class="info-item">
-                        <span class="info-label">
-                            <i class="fas fa-id-card"></i>
-                            用户ID
-                        </span>
-                        <span id="detailUid" class="info-value">加载中...</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">
-                            <i class="fas fa-clock"></i>
-                            登录时间
-                        </span>
-                        <span id="detailLoginTime" class="info-value">加载中...</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">
-                            <i class="fas fa-shield-alt"></i>
-                            账户状态
-                        </span>
-                        <span id="detailAccountStatus" class="info-value">正常</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">
-                            <i class="fas fa-database"></i>
-                            数据来源
-                        </span>
-                        <span class="info-value">洛谷 API</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">
-                            <i class="fas fa-sync-alt"></i>
-                            最后更新
-                        </span>
-                        <span id="lastUpdate" class="info-value">刚刚</span>
+                    <div class="stat-item">
+                        <p class="stat-value" id="userFollowerCount">--</p>
+                        <p class="stat-label">粉丝数</p>
                     </div>
                 </div>
 
@@ -416,6 +558,183 @@
                         <i class="fas fa-sign-out-alt"></i>
                         退出登录
                     </button>
+                </div>
+            </div>
+
+            <!-- 标签页区域 -->
+            <div class="tab-container">
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab('basic')">
+                        <i class="fas fa-info-circle"></i>
+                        基本信息
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('rating')">
+                        <i class="fas fa-chart-line"></i>
+                        等级分历史
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('social')">
+                        <i class="fas fa-users"></i>
+                        社交关系
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('settings')">
+                        <i class="fas fa-cog"></i>
+                        个人设置
+                    </button>
+                </div>
+
+                <!-- 基本信息标签页 -->
+                <div id="tab-basic" class="tab-content active">
+                    <h3 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        账户详情
+                    </h3>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-user"></i>
+                                用户名
+                            </span>
+                            <span id="detailUsername" class="info-value">加载中...</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-id-card"></i>
+                                用户ID
+                            </span>
+                            <span id="detailUid" class="info-value">加载中...</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                注册时间
+                            </span>
+                            <span id="detailRegisterTime" class="info-value">加载中...</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-shield-alt"></i>
+                                账户状态
+                            </span>
+                            <span id="detailAccountStatus" class="info-value">正常</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-quote-right"></i>
+                                个人签名
+                            </span>
+                            <span id="detailSlogan" class="info-value">暂无</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">
+                                <i class="fas fa-file-alt"></i>
+                                个人介绍
+                            </span>
+                            <span id="detailIntroduction" class="info-value">暂无</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 等级分历史标签页 -->
+                <div id="tab-rating" class="tab-content">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        历史等级分
+                    </h3>
+                    <div id="ratingList" class="data-list">
+                        <div class="loading-inline">
+                            <div class="loading-spinner-small"></div>
+                            <p>加载等级分历史中...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 社交关系标签页 -->
+                <div id="tab-social" class="tab-content">
+                    <h3 class="section-title">
+                        <i class="fas fa-users"></i>
+                        社交关系
+                    </h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <div class="tab-nav" style="background: var(--gray-100); border-radius: 8px;">
+                            <button class="tab-btn active" onclick="switchSocialTab('following')">
+                                <i class="fas fa-user-plus"></i>
+                                关注列表
+                            </button>
+                            <button class="tab-btn" onclick="switchSocialTab('followers')">
+                                <i class="fas fa-user-friends"></i>
+                                粉丝列表
+                            </button>
+                            <button class="tab-btn" onclick="switchSocialTab('blacklist')">
+                                <i class="fas fa-user-slash"></i>
+                                黑名单
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="social-following" class="data-list">
+                        <div class="loading-inline">
+                            <div class="loading-spinner-small"></div>
+                            <p>加载关注列表中...</p>
+                        </div>
+                    </div>
+
+                    <div id="social-followers" class="data-list" style="display: none;">
+                        <div class="loading-inline">
+                            <div class="loading-spinner-small"></div>
+                            <p>加载粉丝列表中...</p>
+                        </div>
+                    </div>
+
+                    <div id="social-blacklist" class="data-list" style="display: none;">
+                        <div class="loading-inline">
+                            <div class="loading-spinner-small"></div>
+                            <p>加载黑名单中...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 个人设置标签页 -->
+                <div id="tab-settings" class="tab-content">
+                    <h3 class="section-title">
+                        <i class="fas fa-cog"></i>
+                        个人设置
+                    </h3>
+                    
+                    <form id="settingsForm">
+                        <div class="form-group">
+                            <label class="form-label" for="settingSlogan">
+                                <i class="fas fa-quote-right"></i>
+                                个人签名
+                            </label>
+                            <input type="text" id="settingSlogan" class="form-input" placeholder="输入您的个人签名...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="settingIntroduction">
+                                <i class="fas fa-file-alt"></i>
+                                个人介绍
+                            </label>
+                            <textarea id="settingIntroduction" class="form-input form-textarea" placeholder="介绍一下自己吧..."></textarea>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" onclick="saveSettings()" class="login-btn">
+                                <i class="fas fa-save"></i>
+                                保存设置
+                            </button>
+                            <button type="button" onclick="loadUserSettings()" class="btn-secondary">
+                                <i class="fas fa-undo"></i>
+                                重置
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
