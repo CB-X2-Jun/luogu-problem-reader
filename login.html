@@ -321,13 +321,37 @@
             </div>
 
             <button type="button" class="btn btn-secondary" onclick="refreshCaptcha()">
-                <i class="fas fa-image"></i>
+                <i class="fas fa-sync-alt"></i>
                 获取验证码
             </button>
 
             <button type="button" class="btn btn-primary" id="loginBtn" onclick="login()">
                 <i class="fas fa-sign-in-alt"></i>
                 登录
+            </button>
+        </div>
+
+        <!-- 双重验证表单 -->
+        <div id="twoFactorForm" style="display: none;">
+            <div class="form-group">
+                <label for="verificationCode">双重验证码</label>
+                <input type="text" id="verificationCode" placeholder="请输入6位验证码" maxlength="6" required>
+                <small style="color: var(--gray-600); font-size: 0.875rem;">请输入您手机或邮箱收到的6位验证码</small>
+            </div>
+
+            <button type="button" class="btn btn-secondary" id="sendCodeBtn" onclick="sendVerificationCode()">
+                <i class="fas fa-paper-plane"></i>
+                发送验证码
+            </button>
+
+            <button type="button" class="btn btn-primary" id="verifyBtn" onclick="verifyTwoFactor()">
+                <i class="fas fa-check"></i>
+                验证并登录
+            </button>
+
+            <button type="button" class="btn btn-secondary" onclick="backToLogin()">
+                <i class="fas fa-arrow-left"></i>
+                返回登录
             </button>
         </div>
 
@@ -361,6 +385,7 @@
         let loginCookies = '';
         let currentUser = null;
         let csrfToken = null;
+        let pendingLoginData = null; // 存储待验证的登录数据
         
         // 生成会话ID（用于在代理中识别用户会话）
         let sessionId = localStorage.getItem('luogu_session_id');
@@ -680,9 +705,24 @@
                         //     window.location.href = returnUrl;
                         // }, 1500);
                     } else if (data.success === false || data.message || data.errorMessage) {
-                        // 有错误信息，说明登录失败
+                        // 检查是否需要双重验证
                         const errorMsg = data.message || data.errorMessage || '登录失败';
-                        showStatus('登录失败: ' + errorMsg, 'error');
+                        
+                        if (errorMsg.includes('双重验证') || errorMsg.includes('验证码') || 
+                            errorMsg.includes('two-factor') || errorMsg.includes('2FA') ||
+                            data.requireTwoFactor || data.needVerification) {
+                            // 需要双重验证
+                            console.log('🔐 检测到需要双重验证');
+                            const loginData = {
+                                username: username,
+                                password: password,
+                                captcha: captcha
+                            };
+                            showTwoFactorForm(loginData);
+                        } else {
+                            // 普通登录失败
+                            showStatus('登录失败: ' + errorMsg, 'error');
+                        }
                     } else {
                         // 其他情况，尝试检查登录状态
                         console.log('未知的200响应格式，尝试检查登录状态...');
@@ -855,17 +895,245 @@
         function logout() {
             currentUser = null;
             csrfToken = null;
+            pendingLoginData = null;
             
             document.getElementById('userInfo').style.display = 'none';
             document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('twoFactorForm').style.display = 'none';
             document.getElementById('captchaGroup').style.display = 'none';
             
             // 清空表单
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
             document.getElementById('captcha').value = '';
+            document.getElementById('verificationCode').value = '';
             
             showStatus('已退出登录', 'success');
+        }
+
+        // 显示双重验证表单
+        function showTwoFactorForm(loginData) {
+            pendingLoginData = loginData;
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('twoFactorForm').style.display = 'block';
+            showStatus('需要双重验证，请输入验证码', 'info');
+        }
+
+        // 返回登录表单
+        function backToLogin() {
+            pendingLoginData = null;
+            document.getElementById('twoFactorForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('verificationCode').value = '';
+            showStatus('已返回登录页面', 'info');
+        }
+
+        // 发送双重验证码
+        async function sendVerificationCode() {
+            if (!pendingLoginData) {
+                showStatus('请先完成基本登录验证', 'error');
+                return;
+            }
+
+            const sendBtn = document.getElementById('sendCodeBtn');
+            const originalText = sendBtn.innerHTML;
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 发送中...';
+
+            try {
+                console.log('🔍 发送双重验证码...');
+                
+                const response = await proxyLuoguAPI('/api/verify/sendVerificationCode', {
+                    method: 'POST',
+                    body: {
+                        // 根据API文档，可能需要的参数
+                        username: pendingLoginData.username,
+                        type: 'login' // 或其他类型
+                    }
+                });
+
+                console.log('📊 发送验证码响应状态:', response.status);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 验证码发送成功:', data);
+                    showStatus('验证码已发送，请查收短信或邮箱', 'success');
+                    
+                    // 开始倒计时
+                    startCountdown(sendBtn, originalText, 60);
+                } else {
+                    const errorText = await response.text();
+                    console.error('❌ 发送验证码失败:', response.status, errorText);
+                    showStatus(`发送验证码失败: ${response.status}`, 'error');
+                    sendBtn.disabled = false;
+                    sendBtn.innerHTML = originalText;
+                }
+            } catch (error) {
+                console.error('❌ 发送验证码异常:', error);
+                showStatus('发送验证码失败，请重试', 'error');
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = originalText;
+            }
+        }
+
+        // 验证双重验证码并完成登录
+        async function verifyTwoFactor() {
+            const verificationCode = document.getElementById('verificationCode').value.trim();
+            
+            if (!verificationCode) {
+                showStatus('请输入验证码', 'error');
+                return;
+            }
+
+            if (!pendingLoginData) {
+                showStatus('登录会话已过期，请重新登录', 'error');
+                backToLogin();
+                return;
+            }
+
+            const verifyBtn = document.getElementById('verifyBtn');
+            const originalText = verifyBtn.innerHTML;
+            verifyBtn.disabled = true;
+            verifyBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 验证中...';
+
+            try {
+                console.log('🔍 验证双重验证码...');
+                
+                // 重新发送登录请求，这次包含验证码
+                const response = await proxyLuoguAPI('/do-auth/password', {
+                    method: 'POST',
+                    body: {
+                        username: pendingLoginData.username,
+                        password: pendingLoginData.password,
+                        captcha: pendingLoginData.captcha,
+                        verificationCode: verificationCode // 添加验证码
+                    }
+                });
+
+                console.log('📊 双重验证登录响应状态:', response.status);
+
+                const data = await response.json();
+                console.log('📊 双重验证登录响应数据:', data);
+
+                if (response.status === 200 && data.username && data.syncToken) {
+                    // 登录成功，处理用户信息
+                    console.log('✅ 双重验证登录成功');
+                    showStatus('双重验证成功，登录完成！', 'success');
+                    
+                    // 清理待验证数据
+                    pendingLoginData = null;
+                    
+                    // 隐藏双重验证表单
+                    document.getElementById('twoFactorForm').style.display = 'none';
+                    
+                    // 处理登录成功后的用户信息（复用现有逻辑）
+                    await handleLoginSuccess(data);
+                } else {
+                    console.error('❌ 双重验证失败:', data);
+                    showStatus(data.errorMessage || '验证码错误，请重试', 'error');
+                    verifyBtn.disabled = false;
+                    verifyBtn.innerHTML = originalText;
+                }
+            } catch (error) {
+                console.error('❌ 双重验证异常:', error);
+                showStatus('验证失败，请重试', 'error');
+                verifyBtn.disabled = false;
+                verifyBtn.innerHTML = originalText;
+            }
+        }
+
+        // 倒计时功能
+        function startCountdown(button, originalText, seconds) {
+            let remaining = seconds;
+            const interval = setInterval(() => {
+                button.innerHTML = `<i class="fas fa-clock"></i> ${remaining}秒后重新发送`;
+                remaining--;
+                
+                if (remaining < 0) {
+                    clearInterval(interval);
+                    button.disabled = false;
+                    button.innerHTML = originalText;
+                }
+            }, 1000);
+        }
+
+        // 处理登录成功的逻辑（提取为独立函数）
+        async function handleLoginSuccess(data) {
+            try {
+                // 先从syncToken中提取UID
+                let extractedUid = null;
+                if (data.syncToken) {
+                    const match = data.syncToken.match(/\+(\d+)$/);
+                    if (match) {
+                        extractedUid = parseInt(match[1]);
+                        console.log('🔍 从syncToken中提取到UID:', extractedUid);
+                    }
+                }
+                
+                if (!extractedUid) {
+                    throw new Error('无法从syncToken中提取UID');
+                }
+                
+                // 使用提取的UID调用正确的用户信息接口
+                const userInfoResponse = await proxyLuoguAPI(`/user/${extractedUid}`, {
+                    method: 'GET',
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+                
+                if (userInfoResponse.status === 200) {
+                    const responseData = await userInfoResponse.json();
+                    console.log('🔍 获取到用户数据响应:', responseData);
+                    
+                    let fullUserInfo = null;
+                    if (responseData.currentData && responseData.currentData.user) {
+                        fullUserInfo = responseData.currentData.user;
+                        console.log('✅ 从API响应中找到用户信息:', fullUserInfo);
+                    }
+                    
+                    if (fullUserInfo) {
+                        const userInfo = {
+                            ...fullUserInfo,
+                            username: data.username,
+                            syncToken: data.syncToken,
+                            locked: data.locked || false,
+                            loginTime: new Date().toISOString()
+                        };
+                        
+                        localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                        console.log('💾 完整用户信息已保存到localStorage:', userInfo);
+                        
+                        showUserInfo(userInfo);
+                    } else {
+                        throw new Error('无法获取完整用户信息');
+                    }
+                } else {
+                    throw new Error(`用户信息请求失败: ${userInfoResponse.status}`);
+                }
+            } catch (error) {
+                console.warn('获取完整用户信息失败，使用基本信息:', error);
+                
+                // 构建基本用户信息
+                const userInfo = {
+                    username: data.username,
+                    syncToken: data.syncToken,
+                    locked: data.locked || false,
+                    loginTime: new Date().toISOString(),
+                    uid: extractedUid,
+                    name: data.username,
+                    avatar: extractedUid ? `https://cdn.luogu.com.cn/upload/usericon/${extractedUid}.png` : null
+                };
+                
+                localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                console.log('💾 基本用户信息已保存到localStorage:', userInfo);
+                
+                if (extractedUid) {
+                    showUserInfo(userInfo);
+                } else {
+                    displayUserInfo(userInfo);
+                }
+            }
         }
 
         // 页面加载时初始化
