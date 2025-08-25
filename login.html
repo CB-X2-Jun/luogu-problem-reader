@@ -521,6 +521,10 @@
                 
                 console.log('使用与登录相同的POST方式获取验证码，确保session一致...');
                 
+                // 调试输出：验证码请求的sessionId
+                const captchaSessionId = getOrCreateSessionId();
+                console.log('🔍 验证码请求SessionId:', captchaSessionId);
+                
                 // 使用与登录完全相同的proxyLuoguAPI函数
                 const response = await proxyLuoguAPI('/lg4/captcha', {
                     method: 'GET'
@@ -573,12 +577,16 @@
                     throw new Error('无法获取CSRF Token');
                 }
                 
+                // 调试输出：登录请求的sessionId
+                const loginSessionId = getOrCreateSessionId();
+                console.log('🔍 登录请求SessionId:', loginSessionId);
+                
                 // 发送登录请求
                 console.log('登录请求参数:', {
                     username: username,
                     password: '***',
                     captcha: captcha,
-                    sessionId: sessionId.substring(0, 10) + '...',
+                    sessionId: loginSessionId.substring(0, 10) + '...',
                     csrfToken: csrfToken ? csrfToken.substring(0, 10) + '...' : 'null'
                 });
                 
