@@ -5,19 +5,6 @@ const http = require('http');
 let globalCookies = {};
 
 exports.handler = async (event, context) => {
-    // 只允许POST请求
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS'
-            },
-            body: JSON.stringify({ error: 'Method not allowed' })
-        };
-    }
-
     // 处理CORS预检请求
     if (event.httpMethod === 'OPTIONS') {
         return {
@@ -31,13 +18,39 @@ exports.handler = async (event, context) => {
         };
     }
 
+    // 只允许POST请求
+    if (event.httpMethod !== 'POST') {
+        return {
+            statusCode: 405,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+            },
+            body: JSON.stringify({ error: 'Method not allowed' })
+        };
+    }
+
     try {
         console.log('🔍 代理函数收到请求:');
         console.log('  - HTTP方法:', event.httpMethod);
-        console.log('  - 请求体:', event.body);
-        console.log('  - 请求头:', JSON.stringify(event.headers, null, 2));
+        console.log('  - 请求体长度:', event.body ? event.body.length : 0);
         
-        const requestData = JSON.parse(event.body);
+        // 简化的JSON解析，增加错误处理
+        let requestData;
+        try {
+            requestData = JSON.parse(event.body || '{}');
+        } catch (parseError) {
+            console.error('❌ JSON解析失败:', parseError.message);
+            return {
+                statusCode: 400,
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({ error: 'Invalid JSON in request body' })
+            };
+        }
+        
         console.log('  - 解析后的请求数据:', JSON.stringify(requestData, null, 2));
         
         const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId } = requestData;
