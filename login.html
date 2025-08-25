@@ -626,16 +626,30 @@
         // 检查登录状态
         async function checkLoginStatus() {
             try {
+                console.log('🔍 开始检查登录状态...');
                 const response = await proxyLuoguAPI('/_lfe/config');
+                
+                console.log('登录状态检查响应状态:', response.status);
+                console.log('登录状态检查响应头:', response.headers.get('content-type'));
                 
                 if (response.ok) {
                     const data = await response.json();
+                    console.log('登录状态检查完整响应:', data);
+                    
                     if (data.currentUser) {
+                        console.log('✅ 检测到登录用户:', data.currentUser);
                         currentUser = data.currentUser;
                         showUserInfo(currentUser);
+                        return true;
                     } else {
+                        console.log('❌ 响应中没有currentUser字段');
+                        console.log('响应数据结构:', Object.keys(data));
                         showStatus('未检测到登录状态', 'warning');
+                        return false;
                     }
+                } else {
+                    console.log('❌ 登录状态检查请求失败:', response.status);
+                    return false;
                 }
             } catch (error) {
                 console.error('检查登录状态失败:', error);
