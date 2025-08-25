@@ -562,12 +562,15 @@
                         // 检查登录状态并获取用户信息
                         await checkLoginStatus();
                         
-                        // 延迟跳转，让用户看到成功消息
-                        setTimeout(() => {
-                            // 使用服务器返回的重定向路径或默认路径
-                            const returnUrl = data.redirectTo || new URLSearchParams(window.location.search).get('return') || '/';
-                            window.location.href = returnUrl;
-                        }, 1500);
+                        // 暂时取消自动跳转，方便查看调试信息
+                        console.log('🎉 登录成功！已取消自动跳转，方便查看调试信息');
+                        showStatus('登录成功！请查看控制台调试信息', 'success');
+                        
+                        // 如果需要跳转，可以手动取消下面的注释
+                        // setTimeout(() => {
+                        //     const returnUrl = data.redirectTo || new URLSearchParams(window.location.search).get('return') || '/';
+                        //     window.location.href = returnUrl;
+                        // }, 1500);
                     } else if (data.success === false || data.message || data.errorMessage) {
                         // 有错误信息，说明登录失败
                         const errorMsg = data.message || data.errorMessage || '登录失败';
