@@ -1380,7 +1380,7 @@
                         users.forEach(user => {
                             html += `
                                 <div class="user-item">
-                                    <img src="https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png" 
+                                    <img src="${user.avatar || `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png`}" 
                                          alt="${user.name}" class="user-item-avatar"
                                          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K'">
                                     <div class="user-item-info">
@@ -1397,21 +1397,50 @@
                             `;
                         });
                         
+                        console.log('🔧 生成的HTML长度:', html.length);
+                        console.log('🔧 HTML前100字符:', html.substring(0, 100));
+                        console.log('🔧 关注列表容器:', followingList);
+                        
                         followingList.innerHTML = html;
+                        
+                        console.log('🔧 设置innerHTML后，容器子元素数量:', followingList.children.length);
                     } else {
                         followingList.innerHTML = '<div class="empty-state">暂无关注用户</div>';
                     }
                 } else {
                     const errorText = await response.text();
-                    if (response.status === 403) {
+                    if (response.status === 403 || response.status === 401) {
                         console.log('❌ 关注列表API权限不足:', response.status, errorText);
-                        followingList.innerHTML = '<div class="error-text">该用户的关注列表不公开或需要特殊权限</div>';
-                    } else if (response.status === 401) {
-                        console.log('❌ 用户设置API需要登录权限:', response.status);
-                        settings.innerHTML = '<div class="error-text">用户设置需要登录后才能查看</div>';
+                        followingList.innerHTML = `
+                            <div class="error-state">
+                                <div class="error-message">权限不足或需要重新验证</div>
+                                <button class="retry-btn" onclick="loadFollowingList()" style="
+                                    background: #4CAF50; 
+                                    color: white; 
+                                    border: none; 
+                                    padding: 8px 16px; 
+                                    border-radius: 4px; 
+                                    cursor: pointer; 
+                                    margin-top: 10px;
+                                ">🔄 重试</button>
+                            </div>
+                        `;
                     } else {
-                        console.log('❌ 用户设置API响应错误:', response.status);
-                        settings.innerHTML = '<div class="error-text">获取用户设置失败</div>';
+                        console.log('❌ 关注列表API响应错误:', response.status);
+                        followingList.innerHTML = `
+                            <div class="error-state">
+                                <div class="error-message">获取关注列表失败 (${response.status})</div>
+                                <button class="retry-btn" onclick="loadFollowingList()" style="
+                                    background: #4CAF50; 
+                                    color: white; 
+                                    border: none; 
+                                    padding: 8px 16px; 
+                                    border-radius: 4px; 
+                                    cursor: pointer; 
+                                    margin-top: 10px;
+                                ">🔄 重试</button>
+                            </div>
+                        `;
                     }
                 }
             } catch (error) {
@@ -1454,7 +1483,7 @@
                         users.forEach(user => {
                             html += `
                                 <div class="user-item">
-                                    <img src="https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png" 
+                                    <img src="${user.avatar || `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png`}" 
                                          alt="${user.name}" class="user-item-avatar"
                                          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K'">
                                     <div class="user-item-info">
@@ -1476,11 +1505,39 @@
                         followersList.innerHTML = '<div class="empty-state">暂无粉丝用户</div>';
                     }
                 } else {
-                    throw new Error('获取粉丝列表失败');
+                    const errorText = await response.text();
+                    console.error('❌ 获取粉丝列表失败:', response.status, errorText);
+                    followersList.innerHTML = `
+                        <div class="error-state">
+                            <div class="error-message">获取粉丝列表失败 (${response.status})</div>
+                            <button class="retry-btn" onclick="loadFollowersList()" style="
+                                background: #4CAF50; 
+                                color: white; 
+                                border: none; 
+                                padding: 8px 16px; 
+                                border-radius: 4px; 
+                                cursor: pointer; 
+                                margin-top: 10px;
+                            ">🔄 重试</button>
+                        </div>
+                    `;
                 }
             } catch (error) {
                 console.error('❌ 获取粉丝列表失败:', error);
-                followersList.innerHTML = '<div class="error-state">获取粉丝列表失败，请重试</div>';
+                followersList.innerHTML = `
+                    <div class="error-state">
+                        <div class="error-message">获取粉丝列表失败，请重试</div>
+                        <button class="retry-btn" onclick="loadFollowersList()" style="
+                            background: #4CAF50; 
+                            color: white; 
+                            border: none; 
+                            padding: 8px 16px; 
+                            border-radius: 4px; 
+                            cursor: pointer; 
+                            margin-top: 10px;
+                        ">🔄 重试</button>
+                    </div>
+                `;
             }
         }
 
@@ -1518,7 +1575,7 @@
                         users.forEach(user => {
                             html += `
                                 <div class="user-item">
-                                    <img src="https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png" 
+                                    <img src="${user.avatar || `https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png`}" 
                                          alt="${user.name}" class="user-item-avatar"
                                          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K'">
                                     <div class="user-item-info">
@@ -1540,11 +1597,39 @@
                         blacklist.innerHTML = '<div class="empty-state">黑名单为空</div>';
                     }
                 } else {
-                    throw new Error('获取黑名单失败');
+                    const errorText = await response.text();
+                    console.error('❌ 获取黑名单失败:', response.status, errorText);
+                    blacklist.innerHTML = `
+                        <div class="error-state">
+                            <div class="error-message">获取黑名单失败 (${response.status})</div>
+                            <button class="retry-btn" onclick="loadBlacklist()" style="
+                                background: #4CAF50; 
+                                color: white; 
+                                border: none; 
+                                padding: 8px 16px; 
+                                border-radius: 4px; 
+                                cursor: pointer; 
+                                margin-top: 10px;
+                            ">🔄 重试</button>
+                        </div>
+                    `;
                 }
             } catch (error) {
                 console.error('❌ 获取黑名单失败:', error);
-                blacklist.innerHTML = '<div class="error-state">获取黑名单失败，请重试</div>';
+                blacklist.innerHTML = `
+                    <div class="error-state">
+                        <div class="error-message">获取黑名单失败，请重试</div>
+                        <button class="retry-btn" onclick="loadBlacklist()" style="
+                            background: #4CAF50; 
+                            color: white; 
+                            border: none; 
+                            padding: 8px 16px; 
+                            border-radius: 4px; 
+                            cursor: pointer; 
+                            margin-top: 10px;
+                        ">🔄 重试</button>
+                    </div>
+                `;
             }
         }
 
