@@ -72,7 +72,9 @@ exports.handler = async (event, context) => {
         // 添加保存的Cookie
         if (globalCookies[clientSessionId]) {
             requestHeaders['Cookie'] = globalCookies[clientSessionId];
-            console.log('使用保存的Cookie:', globalCookies[clientSessionId]);
+            console.log(`🍪 [${clientSessionId}] 使用保存的Cookie:`, globalCookies[clientSessionId]);
+        } else {
+            console.log(`❌ [${clientSessionId}] 没有找到保存的Cookie，当前所有会话:`, Object.keys(globalCookies));
         }
 
         // 如果是POST请求，添加必要的头部
@@ -112,7 +114,8 @@ exports.handler = async (event, context) => {
             
             if (cookieStrings.length > 0) {
                 globalCookies[clientSessionId] = cookieStrings.join('; ');
-                console.log('保存Cookie:', globalCookies[clientSessionId]);
+                console.log(`🍪 [${clientSessionId}] 保存Cookie:`, globalCookies[clientSessionId]);
+                console.log(`📊 [${clientSessionId}] 当前所有会话Cookie:`, Object.keys(globalCookies));
             }
         }
 
