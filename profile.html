@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="LGOJ 题目浏览站 - 个人中心">
+    <meta name="author" content="LGOJ Team">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" type="image/png">
+    <title>个人中心 - LGOJ 题目浏览站</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --accent-color: #8b5cf6;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --transition: all 0.2s ease-in-out;
+        }
+
+        body {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: var(--gray-900);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* 页面头部 */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* 主要内容区域 */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 用户信息卡片 */
+        .user-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            height: fit-content;
+        }
+
+        .user-avatar-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .user-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gray-200);
+            margin-bottom: 1rem;
+        }
+
+        .user-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .user-uid {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .user-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        /* 详细信息区域 */
+        .details-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-value {
+            color: var(--gray-900);
+            font-weight: 500;
+        }
+
+        /* 未登录状态 */
+        .not-logged-in {
+            text-align: center;
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .not-logged-icon {
+            font-size: 4rem;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+
+        .login-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .login-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* 加载状态 */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .user-card, .details-section {
+                padding: 1.5rem;
+            }
+
+            .user-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255,255,255,0.9);
+            color: var(--gray-700);
+            padding: 0.75rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .back-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <a href="/" class="back-btn" title="返回首页">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="container">
+        <!-- 页面头部 -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-user-circle"></i>
+                个人中心
+            </h1>
+            <p class="page-subtitle">查看和管理您的洛谷账户信息</p>
+        </div>
+
+        <!-- 加载状态 -->
+        <div id="loadingSection" class="loading">
+            <div class="loading-spinner"></div>
+            <p>正在加载用户信息...</p>
+        </div>
+
+        <!-- 未登录状态 -->
+        <div id="notLoggedIn" class="not-logged-in" style="display: none;">
+            <div class="not-logged-icon">
+                <i class="fas fa-user-slash"></i>
+            </div>
+            <h2>您还未登录</h2>
+            <p>请先登录洛谷账户以查看个人信息</p>
+            <a href="/login.html" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                立即登录
+            </a>
+        </div>
+
+        <!-- 用户信息内容 -->
+        <div id="profileContent" class="profile-container" style="display: none;">
+            <!-- 用户信息卡片 -->
+            <div class="user-card">
+                <div class="user-avatar-section">
+                    <img id="userAvatarLarge" class="user-avatar-large" alt="用户头像">
+                    <h2 id="userNameLarge" class="user-name">用户名</h2>
+                    <p id="userUidLarge" class="user-uid">UID: 加载中...</p>
+                </div>
+
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <p class="stat-value" id="loginTime">--</p>
+                        <p class="stat-label">登录时间</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-value" id="sessionStatus">活跃</p>
+                        <p class="stat-label">会话状态</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 详细信息区域 -->
+            <div class="details-section">
+                <h3 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    账户详情
+                </h3>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-user"></i>
+                            用户名
+                        </span>
+                        <span id="detailUsername" class="info-value">加载中...</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-id-card"></i>
+                            用户ID
+                        </span>
+                        <span id="detailUid" class="info-value">加载中...</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-clock"></i>
+                            登录时间
+                        </span>
+                        <span id="detailLoginTime" class="info-value">加载中...</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-shield-alt"></i>
+                            账户状态
+                        </span>
+                        <span id="detailAccountStatus" class="info-value">正常</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-database"></i>
+                            数据来源
+                        </span>
+                        <span class="info-value">洛谷 API</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-sync-alt"></i>
+                            最后更新
+                        </span>
+                        <span id="lastUpdate" class="info-value">刚刚</span>
+                    </div>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button onclick="refreshUserInfo()" class="login-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        刷新信息
+                    </button>
+                    <button onclick="logout()" class="login-btn" style="background: var(--danger-color);">
+                        <i class="fas fa-sign-out-alt"></i>
+                        退出登录
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 洛谷API代理函数
+        async function proxyLuoguAPI(path, options = {}) {
+            const { method = 'GET', body, headers = {}, sessionId } = options;
+            
+            const requestData = {
+                path,
+                method,
+                headers,
+                sessionId: sessionId || localStorage.getItem('luogu_session_id')
+            };
+            
+            if (body) {
+                requestData.body = body;
+            }
+            
+            try {
+                const response = await fetch('/netlify/functions/luogu-proxy', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+                
+                return response;
+            } catch (error) {
+                console.error('代理请求失败:', error);
+                throw error;
+            }
+        }
+
+        // 显示用户信息
+        function displayUserInfo(userInfo) {
+            console.log('显示用户信息:', userInfo);
+            
+            // 隐藏加载和未登录状态
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('notLoggedIn').style.display = 'none';
+            document.getElementById('profileContent').style.display = 'grid';
+
+            // 设置头像
+            const avatarLarge = document.getElementById('userAvatarLarge');
+            const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIiBmaWxsPSIjZjBmMGYwIi8+Cjxzdmcgd2lkdGg9IjcyIiBoZWlnaHQ9IjcyIiB2aWV3Qm94PSIwIDAgNzIgNzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0iMjQiIHk9IjI0Ij4KPHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM2IDM2QzQyLjYyNzMgMzYgNDggMzAuNjI3MyA0OCAyNEM0OCAxNy4zNzI3IDQyLjYyNzMgMTIgMzYgMTJDMjkuMzcyNyAxMiAyNCAxNy4zNzI3IDI0IDI0QzI0IDMwLjYyNzMgMjkuMzcyNyAzNiAzNiAzNloiIGZpbGw9IiM5OTkiLz4KPHBhdGggZD0iTTM2IDQyQzI3Ljk5IDQxLjk3IDIxIDQ5LjA4IDIxIDU3LjI3VjYwSDUxVjU3LjI3QzUxIDQ5LjA4IDQ0LjAxIDQxLjk3IDM2IDQyWiIgZmlsbD0iIzk5OSIvPgo8L3N2Zz4KPC9zdmc+Cjwvc3ZnPgo=';
+            
+            if (userInfo.uid) {
+                avatarLarge.src = `https://cdn.luogu.com.cn/upload/usericon/${userInfo.uid}.png`;
+                avatarLarge.onerror = function() {
+                    this.src = defaultAvatar;
+                    this.onerror = null;
+                };
+            } else {
+                avatarLarge.src = defaultAvatar;
+            }
+
+            // 设置用户基本信息
+            document.getElementById('userNameLarge').textContent = userInfo.name || userInfo.username || '未知用户';
+            document.getElementById('userUidLarge').textContent = `UID: ${userInfo.uid || '未知'}`;
+            
+            // 设置登录时间
+            if (userInfo.loginTime) {
+                const loginDate = new Date(userInfo.loginTime);
+                const timeStr = loginDate.toLocaleString('zh-CN');
+                document.getElementById('loginTime').textContent = timeStr.split(' ')[1] || timeStr;
+                document.getElementById('detailLoginTime').textContent = timeStr;
+            }
+
+            // 设置详细信息
+            document.getElementById('detailUsername').textContent = userInfo.username || '未知';
+            document.getElementById('detailUid').textContent = userInfo.uid || '未知';
+            document.getElementById('detailAccountStatus').textContent = userInfo.locked ? '已锁定' : '正常';
+            
+            // 设置最后更新时间
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleString('zh-CN');
+        }
+
+        // 显示未登录状态
+        function showNotLoggedIn() {
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('profileContent').style.display = 'none';
+            document.getElementById('notLoggedIn').style.display = 'block';
+        }
+
+        // 刷新用户信息
+        async function refreshUserInfo() {
+            const refreshBtn = event.target;
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.disabled = true;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 刷新中...';
+
+            try {
+                await loadUserProfile();
+            } catch (error) {
+                console.error('刷新用户信息失败:', error);
+            } finally {
+                refreshBtn.disabled = false;
+                refreshBtn.innerHTML = originalText;
+            }
+        }
+
+        // 退出登录
+        async function logout() {
+            if (!confirm('确定要退出登录吗？')) {
+                return;
+            }
+
+            try {
+                // 清除本地存储
+                localStorage.removeItem('luogu_user_info');
+                localStorage.removeItem('luogu_session_id');
+                
+                // 调用洛谷退出API
+                try {
+                    await proxyLuoguAPI('/api/auth/logout', { method: 'POST' });
+                } catch (e) {
+                    console.log('退出API调用失败，但本地清理已完成');
+                }
+                
+                // 跳转到首页
+                window.location.href = '/';
+            } catch (error) {
+                console.error('退出登录失败:', error);
+                alert('退出登录失败，请重试');
+            }
+        }
+
+        // 加载用户资料
+        async function loadUserProfile() {
+            console.log('🔍 开始加载用户资料...');
+            
+            // 检查localStorage中的用户信息
+            const savedUserInfo = localStorage.getItem('luogu_user_info');
+            if (!savedUserInfo) {
+                console.log('❌ 未找到用户信息');
+                showNotLoggedIn();
+                return;
+            }
+
+            try {
+                const userInfo = JSON.parse(savedUserInfo);
+                console.log('✅ 找到用户信息:', userInfo);
+                
+                // 检查登录时间是否过期（24小时）
+                const loginTime = new Date(userInfo.loginTime);
+                const now = new Date();
+                const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+                
+                if (hoursDiff >= 24) {
+                    console.log('⚠️ 用户信息已过期');
+                    localStorage.removeItem('luogu_user_info');
+                    showNotLoggedIn();
+                    return;
+                }
+
+                // 显示用户信息
+                displayUserInfo(userInfo);
+                
+            } catch (error) {
+                console.error('解析用户信息失败:', error);
+                localStorage.removeItem('luogu_user_info');
+                showNotLoggedIn();
+            }
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserProfile();
+        });
+    </script>
+</body>
+</html>
