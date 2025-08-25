@@ -644,11 +644,48 @@
                     } else {
                         console.log('❌ 响应中没有currentUser字段');
                         console.log('响应数据结构:', Object.keys(data));
-                        showStatus('未检测到登录状态', 'warning');
-                        return false;
+                        
+                        // 查找可能包含用户信息的字段
+                        const possibleUserFields = ['user', 'currentUser', 'loginUser', 'userInfo', 'me', 'profile'];
+                        const foundUserFields = possibleUserFields.filter(field => data.hasOwnProperty(field));
+                        console.log('可能的用户字段:', foundUserFields);
+                        
+                        // 检查是否有其他可能的用户相关字段
+                        const userRelatedKeys = Object.keys(data).filter(key => 
+                            key.toLowerCase().includes('user') || 
+                            key.toLowerCase().includes('login') ||
+                            key.toLowerCase().includes('auth')
+                        );
+                        console.log('用户相关的字段:', userRelatedKeys);
+                        
+                        // 尝试查找用户信息
+                        let foundUser = null;
+                        for (const field of possibleUserFields) {
+                            if (data[field] && typeof data[field] === 'object') {
+                                console.log(`发现可能的用户字段 ${field}:`, data[field]);
+                                foundUser = data[field];
+                                break;
+                            }
+                        }
+                        
+                        if (foundUser) {
+                            console.log('✅ 找到用户信息:', foundUser);
+                            currentUser = foundUser;
+                            showUserInfo(foundUser);
+                            return true;
+                        } else {
+                            showStatus('未检测到登录状态', 'warning');
+                            return false;
+                        }
                     }
+                } else if (response.status === 302) {
+                    console.log('⚠️ 收到302重定向，可能需要重新登录');
+                    showStatus('登录状态已过期，请重新登录', 'warning');
+                    return false;
                 } else {
                     console.log('❌ 登录状态检查请求失败:', response.status);
+                    const errorText = await response.text();
+                    console.log('错误响应内容:', errorText);
                     return false;
                 }
             } catch (error) {

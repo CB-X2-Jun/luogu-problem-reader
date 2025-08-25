@@ -597,23 +597,39 @@
         // 检查登录状态
         async function checkLoginStatus() {
             try {
+                console.log('🔍 [主页] 开始检查登录状态...');
+                console.log('🔍 [主页] 当前sessionId:', sessionId);
+                
                 const response = await proxyLuoguAPI('/_lfe/config');
+                
+                console.log('🔍 [主页] 登录状态检查响应状态:', response.status);
+                console.log('🔍 [主页] 登录状态检查响应头:', response.headers.get('content-type'));
                 
                 if (response.ok) {
                     const data = await response.json();
+                    console.log('🔍 [主页] 登录状态检查完整响应:', data);
                     
                     if (data.currentUser) {
+                        console.log('✅ [主页] 检测到登录用户:', data.currentUser);
                         // 用户已登录，显示用户信息
                         showUserInfo(data.currentUser);
                     } else {
+                        console.log('❌ [主页] 响应中没有currentUser字段');
+                        console.log('🔍 [主页] 响应数据结构:', Object.keys(data));
                         // 用户未登录，显示登录按钮
                         showLoginButton();
                     }
+                } else if (response.status === 302) {
+                    console.log('⚠️ [主页] 收到302重定向，可能需要重新登录');
+                    showLoginButton();
                 } else {
+                    console.log('❌ [主页] 登录状态检查请求失败:', response.status);
+                    const errorText = await response.text();
+                    console.log('🔍 [主页] 错误响应内容:', errorText);
                     showLoginButton();
                 }
             } catch (error) {
-                console.error('检查登录状态失败:', error);
+                console.error('❌ [主页] 检查登录状态失败:', error);
                 showLoginButton();
             }
         }
