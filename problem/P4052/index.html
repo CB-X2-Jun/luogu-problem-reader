@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="LGOJ 题目浏览站 - 洛谷题目详情">
+    <meta name="author" content="LGOJ Team">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P4052/">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" type="image/png">
+    <meta name="generator" content="LGOJ 题目浏览站">
+    <title>P4052 [JSOI2007] 文本生成器 - LGOJ 题目浏览站</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary-color: #10b981;
+        --accent-color: #8b5cf6;
+        --danger-color: #ef4444;
+        --warning-color: #f59e0b;
+        --dark-color: #1f2937;
+        --light-color: #f9fafb;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --transition: all 0.2s ease-in-out;
+      }
+      { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* LGOJ 题目页面样式 */
+      body {
+        font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background-color: #fff;
+        color: var(--gray-900);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* 页面头部 */
+      .lgoj-header {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .lgoj-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .lgoj-header .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .lgoj-header .logo:hover {
+        color: var(--primary-dark);
+      }
+      
+      .lgoj-header nav {
+        display: flex;
+        gap: 2rem;
+      }
+      
+      .lgoj-header nav a {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      
+      .lgoj-header nav a:hover {
+        color: var(--primary-color);
+      }
+      
+      /* 主要内容区域 */
+      .main-content {
+        min-height: calc(100vh - 200px);
+        padding: 2rem 0;
+      }
+      
+      .problem-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      
+      /* 页脚 */
+      .lgoj-footer {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--gray-600);
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: var(--gray-900);
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        border-bottom: 2px solid var(--gray-200);
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: var(--gray-50);
+        color: var(--gray-900);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary-color);
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: var(--shadow);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin: 1.5rem 0;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: var(--gray-800);
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+      }
+      
+      .md-content__inner code {
+        background: var(--gray-100);
+        color: var(--gray-800);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3 {
+        background: linear-gradient(135deg, var(--secondary-color), #059669);
+        color: white;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: var(--gray-700);
+        font-size: 1rem;
+      }
+      
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
+      }
+      
+
+      
+      /* 防止图片过大影响布局 */
+      .md-content__inner img[src*="latex"] {
+        display: inline;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        vertical-align: middle;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.7;
+        color: var(--gray-600);
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
+      }
+      
+      .md-content__inner th {
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+      }
+      
+      .md-content__inner td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      
+      .md-content__inner tr:nth-child(even) {
+        background: var(--gray-50);
+      }
+      
+      /* 强调文本美化 */
+      .md-content__inner strong {
+        color: var(--gray-900);
+        font-weight: 600;
+      }
+      
+      .md-content__inner em {
+        color: var(--gray-600);
+        font-style: italic;
+      }
+      
+      /* 链接美化 */
+      .md-content__inner a {
+        color: var(--primary-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+      
+      .md-content__inner a:hover {
+        color: var(--primary-dark);
+        border-bottom-color: var(--primary-dark);
+      }
+      
+      /* 引用块美化 */
+      .md-content__inner blockquote {
+        border-left: 4px solid var(--warning-color);
+        background: #fefbf3;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+        color: var(--gray-700);
+        font-style: italic;
+      }
+      
+      /* 水平分割线美化 */
+      .md-content__inner hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        margin: 2rem 0;
+      }
+      
+      /* 导航栏品牌更新 */
+      .md-header__title .md-header__ellipsis .md-ellipsis {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+      
+      /* 返回首页按钮 */
+      .return-home-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+      
+      .return-home-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .md-content__inner {
+          padding: 1rem;
+        }
+        
+        .md-content__inner h1 {
+          font-size: 2rem;
+        }
+        
+        .md-content__inner h2 {
+          font-size: 1.2rem;
+          padding: 0.8rem 1rem;
+        }
+        
+        .md-content__inner pre {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+        
+        .lgoj-home-btn {
+          position: static;
+          margin: 1rem 0;
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body>
+    <!-- 简洁的页面头部 -->
+    <header class="lgoj-header">
+      <div class="container">
+        <a href="/" class="logo">
+          <i class="fas fa-book"></i>
+          LGOJ 题目浏览站
+        </a>
+        <nav>
+          <a href="/">首页</a>
+          <a href="/problem/list">题库</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+      <div class="container">
+        <div class="problem-content">
+          <h2 id="_1">题目描述</h2>
+<p>JSOI 交给队员 ZYX 一个任务，编制一个称之为“文本生成器”的电脑软件：该软件的使用者是一些低幼人群，他们现在使用的是 GW 文本生成器 v6 版。</p>
+<p>该软件可以随机生成一些文章——总是生成一篇长度固定且完全随机的文章。 也就是说，生成的文章中每个字符都是完全随机的。如果一篇文章中至少包含使用者们了解的一个单词，那么我们说这篇文章是可读的（我们称文章 $s$ 包含单词 $t$，当且仅当单词 $t$ 是文章 $s$ 的子串）。但是，即使按照这样的标准，使用者现在使用的 GW 文本生成器 v6 版所生成的文章也是几乎完全不可读的。ZYX 需要指出 GW 文本生成器 v6 生成的所有文本中，可读文本的数量，以便能够成功获得 v7 更新版。你能帮助他吗？</p>
+<p>答案对 $10^4 + 7$ 取模。</p>
+<h2 id="_2">输入格式</h2>
+<p>第一行有两个整数，分别表示使用者了解的单词总数 $n$ 和生成的文章长度 $m$。</p>
+<p>接下来 $n$ 行，每行一个字符串 $s_i$，表示一个使用者了解的单词。</p>
+<h2 id="_3">输出格式</h2>
+<p>输出一行一个整数表示答案对 $10^4 + 7$ 取模的结果。</p>
+<h2 id="_4">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>2 2
+A
+B
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>100
+</code></pre>
+
+<h2 id="_5">说明/提示</h2>
+<h4 id="_6">数据规模与约定</h4>
+<p>对于全部的测试点，保证：</p>
+<ul>
+<li>$1 \leq n \leq 60$，$1 \leq m \leq 100$。</li>
+<li>$1 \leq |s_i| \leq 100$，其中 $|s_i|$ 表示字符串 $s_i$ 的长度。</li>
+<li>$s_i$ 中只含大写英文字母。</li>
+</ul>
+        </div>
+        
+        <!-- 评论区域 -->
+        <div class="comments-section">
+          <div class="comments-title">
+            💬 讨论交流
+          </div>
+          <script src="https://giscus.app/client.js"
+                  data-repo="Eternity-Sky/luogu-problem-reader"
+                  data-repo-id="R_kgDOPiP5uw"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPiP5u84CugHo"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="zh-CN"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="lgoj-footer">
+      <div class="container">
+        <p>© 2025 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+      </div>
+    </footer>
+
+    <!-- 返回首页按钮 -->
+    <a href="/" class="return-home-btn">
+      <i class="fas fa-home"></i>
+      返回首页
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>

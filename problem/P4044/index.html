@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="LGOJ 题目浏览站 - 洛谷题目详情">
+    <meta name="author" content="LGOJ Team">
+    <link rel="canonical" href="https://lglg.netlify.app/problem/P4044/">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" type="image/png">
+    <meta name="generator" content="LGOJ 题目浏览站">
+    <title>P4044 [AHOI2014/JSOI2014] 保龄球 - LGOJ 题目浏览站</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary-color: #10b981;
+        --accent-color: #8b5cf6;
+        --danger-color: #ef4444;
+        --warning-color: #f59e0b;
+        --dark-color: #1f2937;
+        --light-color: #f9fafb;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --transition: all 0.2s ease-in-out;
+      }
+      { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono" }
+      
+      /* LGOJ 题目页面样式 */
+      body {
+        font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background-color: #fff;
+        color: var(--gray-900);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* 页面头部 */
+      .lgoj-header {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .lgoj-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .lgoj-header .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .lgoj-header .logo:hover {
+        color: var(--primary-dark);
+      }
+      
+      .lgoj-header nav {
+        display: flex;
+        gap: 2rem;
+      }
+      
+      .lgoj-header nav a {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      
+      .lgoj-header nav a:hover {
+        color: var(--primary-color);
+      }
+      
+      /* 主要内容区域 */
+      .main-content {
+        min-height: calc(100vh - 200px);
+        padding: 2rem 0;
+      }
+      
+      .problem-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      
+      /* 页脚 */
+      .lgoj-footer {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--gray-600);
+      }
+      
+      /* 题目标题美化 */
+      .md-content__inner h1 {
+        color: var(--gray-900);
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        border-bottom: 2px solid var(--gray-200);
+      }
+      
+      /* 题目内容区块美化 */
+      .md-content__inner h2 {
+        background: var(--gray-50);
+        color: var(--gray-900);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary-color);
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+        box-shadow: var(--shadow);
+        font-weight: 600;
+      }
+      
+      /* 代码块美化 */
+      .md-content__inner pre {
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin: 1.5rem 0;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+      }
+      
+      .md-content__inner pre code {
+        background: transparent;
+        color: var(--gray-800);
+        padding: 0;
+        border-radius: 0;
+        font-weight: 400;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+      }
+      
+      .md-content__inner code {
+        background: var(--gray-100);
+        color: var(--gray-800);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+      }
+      
+      /* 样例区块特殊美化 */
+      .md-content__inner h3 {
+        background: linear-gradient(135deg, var(--secondary-color), #059669);
+        color: white;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        margin: 1.5rem 0 0.8rem 0;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow);
+        font-weight: 600;
+      }
+      
+      /* 普通段落美化 */
+      .md-content__inner p {
+        line-height: 1.8;
+        margin: 1rem 0;
+        color: var(--gray-700);
+        font-size: 1rem;
+      }
+      
+      /* 主要内容容器 - 确保不超出页面边界 */
+      .md-content__inner {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding: 0 1rem;
+      }
+      
+
+      
+      /* 防止图片过大影响布局 */
+      .md-content__inner img[src*="latex"] {
+        display: inline;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        vertical-align: middle;
+      }
+      
+      /* 列表美化 */
+      .md-content__inner ul, .md-content__inner ol {
+        padding-left: 2rem;
+        margin: 1rem 0;
+      }
+      
+      .md-content__inner li {
+        margin: 0.5rem 0;
+        line-height: 1.7;
+        color: var(--gray-600);
+      }
+      
+      /* 表格美化 */
+      .md-content__inner table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
+      }
+      
+      .md-content__inner th {
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+      }
+      
+      .md-content__inner td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      
+      .md-content__inner tr:nth-child(even) {
+        background: var(--gray-50);
+      }
+      
+      /* 强调文本美化 */
+      .md-content__inner strong {
+        color: var(--gray-900);
+        font-weight: 600;
+      }
+      
+      .md-content__inner em {
+        color: var(--gray-600);
+        font-style: italic;
+      }
+      
+      /* 链接美化 */
+      .md-content__inner a {
+        color: var(--primary-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+      
+      .md-content__inner a:hover {
+        color: var(--primary-dark);
+        border-bottom-color: var(--primary-dark);
+      }
+      
+      /* 引用块美化 */
+      .md-content__inner blockquote {
+        border-left: 4px solid var(--warning-color);
+        background: #fefbf3;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+        color: var(--gray-700);
+        font-style: italic;
+      }
+      
+      /* 水平分割线美化 */
+      .md-content__inner hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        margin: 2rem 0;
+      }
+      
+      /* 导航栏品牌更新 */
+      .md-header__title .md-header__ellipsis .md-ellipsis {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+      
+      /* 返回首页按钮 */
+      .return-home-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+      
+      .return-home-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .md-content__inner {
+          padding: 1rem;
+        }
+        
+        .md-content__inner h1 {
+          font-size: 2rem;
+        }
+        
+        .md-content__inner h2 {
+          font-size: 1.2rem;
+          padding: 0.8rem 1rem;
+        }
+        
+        .md-content__inner pre {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+        
+        .lgoj-home-btn {
+          position: static;
+          margin: 1rem 0;
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  </head>
+  <body>
+    <!-- 简洁的页面头部 -->
+    <header class="lgoj-header">
+      <div class="container">
+        <a href="/" class="logo">
+          <i class="fas fa-book"></i>
+          LGOJ 题目浏览站
+        </a>
+        <nav>
+          <a href="/">首页</a>
+          <a href="/problem/list">题库</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+      <div class="container">
+        <div class="problem-content">
+          <h2 id="_1">题目背景</h2>
+<p>JYY 很喜欢打保龄球，虽然技术不高，但是还是总想着的高分。这里 JYY 将向你介绍他所参加的特殊保龄球比赛的规则，然后请你帮他得到尽量多的分数。</p>
+<h2 id="_2">题目描述</h2>
+<p>一场保龄球比赛一共有 $n$ 个轮次，每一轮都会有十个木瓶放置在木板道的另一端。每一轮中，选手都有两次投球的机会来尝试击倒全部的十个木瓶。对于每一次投球机会，选手投球的得分等于这一次投球所击倒的木瓶数量。选手每一轮的得分是他两次机会击倒全部木瓶的数量。</p>
+<p>对于每一个轮次，有如下三种情况：</p>
+<p>1、 “全中”：如果选手第一次尝试就击倒了全部十个木瓶，那么这一轮就为“全中”。在一个“全中”轮中，由于所有木瓶在第一次尝试中都已经被击倒，所以选手不需要再进行第二次投球尝试。同时，在计算总分时，选手在下一轮的得分将会被乘2计入总分。</p>
+<p>2、“补中”：如果选手使用两次尝试击倒了十个木瓶，那么这一轮就称为“补中”。同时，在计算总分时，选手在下一轮中的第一次尝试的得分将会以双倍计入总分。</p>
+<p>3、“失误”：如果选手未能通过两次尝试击倒全部的木瓶，那么这一轮就被称为“失误”。同时，在计算总分时，选手在下一轮的得分会被计入总分，没有分数被翻倍。此外，如果第 $n$ 轮是“全中”，那么选手可以进行一次附加轮：也就是，如果第 $n$ 轮是“全中”，那么选手将一共进行 $n+1$ 轮比赛。显然，在这种情况下，第 $n+1$ 轮的分数一定会被加倍。</p>
+<p>附加轮的规则只执行一次。也就是说，即使第 $n+1$ 轮选手又打出了“全中”，也不会进行第 $n+2$ 轮比赛。因而，附加轮的成绩不会使得其他轮的分数翻番。最后，选手的总得分就是附加轮规则执行过，并且分数按上述规则加倍后的每一轮分数之和。</p>
+<p>JYY 刚刚进行了一场 $n$ 个轮次的保龄球比赛，但是，JYY非常不满意他的得分。JYY想出了一个办法：他可以把记分表上，他所打出的所有轮次的顺序重新排列，这样重新排列之后，由于翻倍规则的存在，JYY就可以得到更高的分数了！</p>
+<p>当然了，JYY不希望做的太假，他希望保证重新排列之后，所需要进行的轮数和重排前所进行的轮数是一致的：比如如果重排前JYY在第 $n$ 轮打出了“全中”，那么重排之后，第 $n$ 轮还得是“全中”以保证比赛一共进行 $n+1$ 轮；同样的，如果 JYY 第 $n$ 轮没有打出“全中”，那么重排过后第 $n$ 轮也不能是全中。请你帮助 JYY 计算一下，他可以得到的最高的分数。</p>
+<h2 id="_3">输入格式</h2>
+<p>第一行包含一个整数 $n$，表示保龄球比赛所需要进行的轮数。</p>
+<p>接下来包含 $n$ 或 $n+1$ 行，第i行包含两个非负整数 $x_i,y_i$，表示 JYY 在这一轮两次投球尝试所得到的分数，$x_i$ 表示第一次尝试，$y_i$ 表示第二次尝试。</p>
+<p>特别地，<code>10 0</code> 表示一轮“全中”。</p>
+<p>读入数据存在 $n+1$ 行，当且仅当 $x_n=10$ 且 $y_n=0$。</p>
+<h2 id="_4">输出格式</h2>
+<p>输出一行一个整数，表示 JYY 最大可能得到的分数。</p>
+<h2 id="_5">输入输出样例</h2>
+<h3 id="1">样例 #1</h3>
+<h4 id="1_1">样例输入 #1</h4>
+<pre class="codehilite"><code>2
+5 2
+10 0
+3 7
+</code></pre>
+
+<h4 id="1_2">样例输出 #1</h4>
+<pre class="codehilite"><code>44
+</code></pre>
+
+<h2 id="_6">说明/提示</h2>
+<p>【样例说明】<br />
+按照输入顺序，JYY 将得到 $37$ 分。
+最佳方案是排列成如下顺序：</p>
+<pre class="codehilite"><code class="language-plain">3 7
+10 0
+5 2
+</code></pre>
+
+<p>【数据范围】
+对于 $100\%$ 的数据，$1\le n \le 50$。</p>
+        </div>
+        
+        <!-- 评论区域 -->
+        <div class="comments-section">
+          <div class="comments-title">
+            💬 讨论交流
+          </div>
+          <script src="https://giscus.app/client.js"
+                  data-repo="Eternity-Sky/luogu-problem-reader"
+                  data-repo-id="R_kgDOPiP5uw"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPiP5u84CugHo"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="zh-CN"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="lgoj-footer">
+      <div class="container">
+        <p>© 2025 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+      </div>
+    </footer>
+
+    <!-- 返回首页按钮 -->
+    <a href="/" class="return-home-btn">
+      <i class="fas fa-home"></i>
+      返回首页
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    </script>
+    <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        
+        // 渲染数学公式
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      });
+    </script>
+  </body>
+</html>
