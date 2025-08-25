@@ -511,29 +511,23 @@
             }
         }
 
-        // 刷新验证码 - 带备用方案
+        // 刷新验证码 - 使用专用验证码函数
         async function refreshCaptcha() {
             try {
-                console.log('刷新验证码...');
+                console.log('🖼️ 刷新验证码...');
                 
                 const captchaContainer = document.getElementById('captchaImage');
                 captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
                 
-                // 方案1: 尝试直接URL方式
-                const captchaUrl = getCaptchaImageUrl();
-                console.log('尝试验证码URL:', captchaUrl);
+                // 使用专用的验证码函数
+                const sessionId = getOrCreateSessionId();
+                console.log('使用专用验证码函数获取验证码...');
                 
-                // 直接使用POST方式，避免GET方式的复杂性
-                console.log('直接使用POST方式获取验证码...');
-                    
-                // 方案2: 备用POST方式
-                const response = await fetch('/.netlify/functions/luogu-proxy', {
+                const response = await fetch('/.netlify/functions/captcha', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        path: '/lg4/captcha',
-                        method: 'GET',
-                        sessionId: getOrCreateSessionId()
+                        sessionId: sessionId
                     })
                 });
                 
@@ -541,9 +535,11 @@
                     const blob = await response.blob();
                     const blobUrl = URL.createObjectURL(blob);
                     captchaContainer.innerHTML = `<img src="${blobUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
-                    console.log('✅ POST方式验证码加载成功');
+                    console.log('✅ 专用验证码函数加载成功');
                 } else {
-                    throw new Error(`POST方式也失败: ${response.status}`);
+                    const errorData = await response.text();
+                    console.error('专用验证码函数失败:', response.status, errorData);
+                    throw new Error(`验证码获取失败: ${response.status}`);
                 }
                 
                 // 显示验证码输入组
@@ -551,7 +547,7 @@
                 document.getElementById('captcha').value = '';
                 
             } catch (error) {
-                console.error('刷新验证码失败:', error);
+                console.error('❌ 刷新验证码失败:', error);
                 handleCaptchaError();
                 showStatus('获取验证码失败，请重试', 'error');
             }
