@@ -34,21 +34,28 @@ exports.handler = async (event, context) => {
 
         console.log('SessionId:', sessionId ? sessionId.substring(0, 10) + '...' : 'empty');
 
-        // 构建请求选项
+        // 构建请求选项 - 严格按照洛谷API规范
         const options = {
             hostname: 'www.luogu.com.cn',
             path: '/lg4/captcha',
             method: 'GET',
             headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                // 必须：User-Agent不能包含python-requests
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                // 图片请求专用Accept头
                 'Accept': 'image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
                 'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
                 'Accept-Encoding': 'gzip, deflate, br',
                 'Connection': 'keep-alive',
+                // 必须：Referer为洛谷主站
                 'Referer': 'https://www.luogu.com.cn/',
+                // 浏览器安全相关头
                 'Sec-Fetch-Dest': 'image',
                 'Sec-Fetch-Mode': 'no-cors',
-                'Sec-Fetch-Site': 'same-origin'
+                'Sec-Fetch-Site': 'same-origin',
+                'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+                'Sec-Ch-Ua-Mobile': '?0',
+                'Sec-Ch-Ua-Platform': '"Windows"'
             }
         };
 
