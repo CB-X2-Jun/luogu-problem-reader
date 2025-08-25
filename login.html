@@ -578,8 +578,12 @@
                             }
                             
                             // 使用提取的UID调用正确的用户信息接口
+                            // 根据API文档，DataResponse格式的请求需要特殊头字段
                             const userInfoResponse = await proxyLuoguAPI(`/user/${extractedUid}`, {
-                                method: 'GET'
+                                method: 'GET',
+                                headers: {
+                                    'x-luogu-type': 'content-only'
+                                }
                             });
                             
                             if (userInfoResponse.status === 200) {

@@ -613,8 +613,10 @@
                     if (hoursDiff < 24) {
                         console.log(`✅ 用户信息有效（${hoursDiff.toFixed(1)}小时前登录）`);
                         showUserInfo({
-                            name: userInfo.username,
-                            uid: 'N/A'
+                            name: userInfo.name || userInfo.username,
+                            uid: userInfo.uid,
+                            username: userInfo.username,
+                            avatar: userInfo.avatar
                         });
                         return true;
                     } else {

@@ -68,6 +68,9 @@ exports.handler = async (event, context) => {
 
         // 添加客户端传递的头部
         Object.assign(requestHeaders, clientHeaders);
+        
+        // 调试：输出最终的请求头
+        console.log(`🔍 [${clientSessionId}] 最终请求头:`, JSON.stringify(requestHeaders, null, 2));
 
         // 添加保存的Cookie
         if (globalCookies[clientSessionId]) {
