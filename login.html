@@ -563,55 +563,67 @@
                         console.log('🔍 登录成功，尝试获取完整用户信息...');
                         
                         try {
-                            // 尝试调用用户信息接口获取UID等完整信息
-                            // 根据API文档，应该调用返回DataResponse格式的接口
-                            const userInfoResponse = await proxyLuoguAPI('/user/setting', {
+                            // 先从syncToken中提取UID
+                            let extractedUid = null;
+                            if (data.syncToken) {
+                                const match = data.syncToken.match(/\+(\d+)$/);
+                                if (match) {
+                                    extractedUid = parseInt(match[1]);
+                                    console.log('🔍 从syncToken中提取到UID:', extractedUid);
+                                }
+                            }
+                            
+                            if (!extractedUid) {
+                                throw new Error('无法从syncToken中提取UID');
+                            }
+                            
+                            // 使用提取的UID调用正确的用户信息接口
+                            const userInfoResponse = await proxyLuoguAPI(`/user/${extractedUid}`, {
                                 method: 'GET'
                             });
                             
                             if (userInfoResponse.status === 200) {
-                                const configData = await userInfoResponse.json();
-                                console.log('🔍 获取到配置数据:', configData);
+                                const responseData = await userInfoResponse.json();
+                                console.log('🔍 获取到用户数据响应:', responseData);
                                 
-                                // 查找用户信息
+                                // 根据API文档，响应格式为 DataResponse<UserData>
+                                // 用户信息在 currentData.user 中
                                 let fullUserInfo = null;
-                                if (configData.currentUser) {
-                                    fullUserInfo = configData.currentUser;
+                                if (responseData.currentData && responseData.currentData.user) {
+                                    fullUserInfo = responseData.currentData.user;
+                                    console.log('✅ 从API响应中找到用户信息:', fullUserInfo);
+                                } else if (responseData.currentUser) {
+                                    // 备用方案：检查 currentUser 字段
+                                    fullUserInfo = responseData.currentUser;
+                                    console.log('✅ 从currentUser字段找到用户信息:', fullUserInfo);
                                 } else {
-                                    // 智能查找用户信息字段
-                                    const possibleUserFields = ['user', 'loginUser', 'userInfo', 'me', 'profile'];
-                                    for (const field of possibleUserFields) {
-                                        if (configData[field] && typeof configData[field] === 'object' && 
-                                            (configData[field].name || configData[field].username || configData[field].uid)) {
-                                            fullUserInfo = configData[field];
-                                            console.log(`✅ 在${field}字段找到用户信息:`, fullUserInfo);
-                                            break;
-                                        }
-                                    }
+                                    console.warn('⚠️ 响应格式不符合预期:', Object.keys(responseData));
+                                    throw new Error('响应中未找到用户信息');
                                 }
                                 
-                                if (fullUserInfo) {
-                                    // 合并登录响应和用户信息
-                                    const userInfo = {
-                                        username: data.username,
-                                        syncToken: data.syncToken,
-                                        locked: data.locked || false,
-                                        loginTime: new Date().toISOString(),
-                                        // 添加完整用户信息
-                                        name: fullUserInfo.name || data.username,
-                                        uid: fullUserInfo.uid,
-                                        avatar: fullUserInfo.avatar,
-                                        ...fullUserInfo
-                                    };
-                                    
-                                    localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
-                                    console.log('💾 完整用户信息已保存到localStorage:', userInfo);
-                                    
-                                    // 显示完整用户信息
-                                    showUserInfo(userInfo);
-                                } else {
-                                    throw new Error('未找到用户信息字段');
-                                }
+                                // 合并登录响应和完整用户信息
+                                const userInfo = {
+                                    username: data.username,
+                                    syncToken: data.syncToken,
+                                    locked: data.locked || false,
+                                    loginTime: new Date().toISOString(),
+                                    // 添加完整用户信息
+                                    uid: fullUserInfo.uid || extractedUid,
+                                    name: fullUserInfo.name || data.username,
+                                    avatar: fullUserInfo.avatar,
+                                    slogan: fullUserInfo.slogan,
+                                    badge: fullUserInfo.badge,
+                                    color: fullUserInfo.color,
+                                    ccfLevel: fullUserInfo.ccfLevel,
+                                    ranking: fullUserInfo.ranking,
+                                    ...fullUserInfo
+                                };
+                                
+                                localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                                console.log('💾 完整用户信息已保存到localStorage:', userInfo);
+                                
+                                // 显示完整用户信息
+                                showUserInfo(userInfo);
                             } else {
                                 throw new Error(`用户信息请求失败: ${userInfoResponse.status}`);
                             }
