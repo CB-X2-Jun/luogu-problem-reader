@@ -482,6 +482,238 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
+
+        /* 等级分历史样式 */
+        .rating-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .rating-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .rating-contest {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .rating-date {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .rating-change {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .rating-old, .rating-new {
+            color: var(--text-color);
+        }
+
+        .rating-delta {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .rating-up {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .rating-down {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .rating-same {
+            background: rgba(156, 163, 175, 0.1);
+            color: #9ca3af;
+        }
+
+        /* 用户列表样式 */
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .user-item:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .user-item-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-item-info {
+            flex: 1;
+        }
+
+        .user-item-name {
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .user-item-uid {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .user-item-rating {
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        /* 状态样式 */
+        .loading-text {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-600);
+            font-style: italic;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--gray-600);
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .error-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--danger-color);
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* 社交标签页样式 */
+        .social-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .social-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .social-tab:hover {
+            color: var(--primary-color);
+        }
+
+        .social-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .social-content {
+            display: none;
+        }
+
+        .social-content.active {
+            display: block;
+        }
+
+        /* 按钮组样式 */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: var(--gray-200);
+            color: var(--gray-700);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-300);
+            transform: translateY(-1px);
+        }
+
+        /* 表单样式增强 */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
     </style>
 </head>
 <body>
@@ -646,7 +878,7 @@
                         <i class="fas fa-chart-line"></i>
                         历史等级分
                     </h3>
-                    <div id="ratingList" class="data-list">
+                    <div id="ratingHistoryList" class="data-list">
                         <div class="loading-inline">
                             <div class="loading-spinner-small"></div>
                             <p>加载等级分历史中...</p>
@@ -661,42 +893,31 @@
                         社交关系
                     </h3>
                     
-                    <div style="margin-bottom: 2rem;">
-                        <div class="tab-nav" style="background: var(--gray-100); border-radius: 8px;">
-                            <button class="tab-btn active" onclick="switchSocialTab('following')">
-                                <i class="fas fa-user-plus"></i>
-                                关注列表
-                            </button>
-                            <button class="tab-btn" onclick="switchSocialTab('followers')">
-                                <i class="fas fa-user-friends"></i>
-                                粉丝列表
-                            </button>
-                            <button class="tab-btn" onclick="switchSocialTab('blacklist')">
-                                <i class="fas fa-user-slash"></i>
-                                黑名单
-                            </button>
-                        </div>
+                    <div class="social-tabs">
+                        <button class="social-tab active" onclick="switchSocialTab('following')">
+                            <i class="fas fa-user-plus"></i>
+                            关注列表
+                        </button>
+                        <button class="social-tab" onclick="switchSocialTab('followers')">
+                            <i class="fas fa-user-friends"></i>
+                            粉丝列表
+                        </button>
+                        <button class="social-tab" onclick="switchSocialTab('blacklist')">
+                            <i class="fas fa-user-slash"></i>
+                            黑名单
+                        </button>
                     </div>
 
-                    <div id="social-following" class="data-list">
-                        <div class="loading-inline">
-                            <div class="loading-spinner-small"></div>
-                            <p>加载关注列表中...</p>
-                        </div>
+                    <div id="followingList" class="social-content" style="display: block;">
+                        <div class="loading-text">加载关注列表中...</div>
                     </div>
 
-                    <div id="social-followers" class="data-list" style="display: none;">
-                        <div class="loading-inline">
-                            <div class="loading-spinner-small"></div>
-                            <p>加载粉丝列表中...</p>
-                        </div>
+                    <div id="followersList" class="social-content" style="display: none;">
+                        <div class="loading-text">加载粉丝列表中...</div>
                     </div>
 
-                    <div id="social-blacklist" class="data-list" style="display: none;">
-                        <div class="loading-inline">
-                            <div class="loading-spinner-small"></div>
-                            <p>加载黑名单中...</p>
-                        </div>
+                    <div id="blacklist" class="social-content" style="display: none;">
+                        <div class="loading-text">加载黑名单中...</div>
                     </div>
                 </div>
 
@@ -896,6 +1117,455 @@
 
                 // 显示用户信息
                 displayUserInfo(userInfo);
+                
+            } catch (error) {
+                console.error('解析用户信息失败:', error);
+                localStorage.removeItem('luogu_user_info');
+                showNotLoggedIn();
+            }
+        }
+
+        // 标签页切换功能
+        function switchTab(tabName) {
+            // 隐藏所有标签页内容
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 移除所有标签按钮的active状态
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的标签页内容
+            const selectedTab = document.getElementById(`tab-${tabName}`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // 激活对应的标签按钮
+            const selectedBtn = document.querySelector(`[onclick="switchTab('${tabName}')"]`);
+            if (selectedBtn) {
+                selectedBtn.classList.add('active');
+            }
+            
+            // 根据标签页加载对应数据
+            switch(tabName) {
+                case 'rating':
+                    loadRatingHistory();
+                    break;
+                case 'social':
+                    loadSocialData();
+                    break;
+                case 'settings':
+                    loadUserSettings();
+                    break;
+            }
+        }
+
+        // 社交关系子标签切换
+        function switchSocialTab(tabName) {
+            // 移除所有子标签的active状态
+            const socialTabs = document.querySelectorAll('.social-tab');
+            socialTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 隐藏所有社交内容
+            const socialContents = document.querySelectorAll('.social-content');
+            socialContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // 激活选中的子标签
+            const selectedTab = document.querySelector(`[onclick="switchSocialTab('${tabName}')"]`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // 显示对应的社交内容
+            const selectedContent = document.getElementById(`social-${tabName}`);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            
+            // 加载对应数据
+            switch(tabName) {
+                case 'following':
+                    loadFollowingList();
+                    break;
+                case 'followers':
+                    loadFollowersList();
+                    break;
+                case 'blacklist':
+                    loadBlacklist();
+                    break;
+            }
+        }
+
+        // 加载用户详细信息
+        async function loadUserDetails() {
+            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+            if (!userInfo.uid) return;
+
+            try {
+                console.log('🔍 获取用户详细信息...');
+                const response = await proxyLuoguAPI(`/user/${userInfo.uid}`, {
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 用户详细信息:', data);
+                    
+                    if (data.currentData && data.currentData.user) {
+                        const user = data.currentData.user;
+                        
+                        // 更新统计信息
+                        document.getElementById('userRating').textContent = user.rating || '--';
+                        document.getElementById('userProblemCount').textContent = user.passedProblemCount || '--';
+                        document.getElementById('userFollowingCount').textContent = user.followingCount || '--';
+                        document.getElementById('userFollowerCount').textContent = user.followerCount || '--';
+                        
+                        // 更新详细信息
+                        document.getElementById('detailUsername').textContent = user.name || user.username || '未知';
+                        document.getElementById('detailUid').textContent = user.uid || '未知';
+                        document.getElementById('detailAccountStatus').textContent = user.isLocked ? '已锁定' : '正常';
+                        
+                        // 保存更新的用户信息
+                        const updatedUserInfo = { ...userInfo, ...user };
+                        localStorage.setItem('luogu_user_info', JSON.stringify(updatedUserInfo));
+                    }
+                }
+            } catch (error) {
+                console.error('❌ 获取用户详细信息失败:', error);
+            }
+        }
+
+        // 加载等级分历史
+        async function loadRatingHistory() {
+            const ratingList = document.getElementById('ratingHistoryList');
+            if (!ratingList) return;
+            
+            ratingList.innerHTML = '<div class="loading-text">正在加载等级分历史...</div>';
+            
+            try {
+                console.log('🔍 获取等级分历史...');
+                const response = await proxyLuoguAPI('/api/rating/elo', {
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 等级分历史:', data);
+                    
+                    if (data.currentData && data.currentData.length > 0) {
+                        const ratings = data.currentData;
+                        let html = '';
+                        
+                        ratings.slice(0, 10).forEach((rating, index) => {
+                            const date = new Date(rating.time * 1000).toLocaleDateString('zh-CN');
+                            const change = rating.newRating - rating.oldRating;
+                            const changeClass = change > 0 ? 'rating-up' : (change < 0 ? 'rating-down' : 'rating-same');
+                            const changeText = change > 0 ? `+${change}` : change.toString();
+                            
+                            html += `
+                                <div class="rating-item">
+                                    <div class="rating-info">
+                                        <span class="rating-contest">${rating.contestName || '未知比赛'}</span>
+                                        <span class="rating-date">${date}</span>
+                                    </div>
+                                    <div class="rating-change">
+                                        <span class="rating-old">${rating.oldRating}</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="rating-new">${rating.newRating}</span>
+                                        <span class="rating-delta ${changeClass}">${changeText}</span>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        
+                        ratingList.innerHTML = html;
+                    } else {
+                        ratingList.innerHTML = '<div class="empty-state">暂无等级分历史记录</div>';
+                    }
+                } else {
+                    throw new Error('获取等级分历史失败');
+                }
+            } catch (error) {
+                console.error('❌ 获取等级分历史失败:', error);
+                ratingList.innerHTML = '<div class="error-state">获取等级分历史失败，请重试</div>';
+            }
+        }
+
+        // 加载社交数据
+        async function loadSocialData() {
+            // 默认显示关注列表
+            switchSocialTab('following');
+        }
+
+        // 加载关注列表
+        async function loadFollowingList() {
+            const followingList = document.getElementById('followingList');
+            if (!followingList) return;
+            
+            followingList.innerHTML = '<div class="loading-text">正在加载关注列表...</div>';
+            
+            try {
+                console.log('🔍 获取关注列表...');
+                const response = await proxyLuoguAPI('/api/user/followings', {
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 关注列表:', data);
+                    
+                    if (data.currentData && data.currentData.users && data.currentData.users.length > 0) {
+                        const users = data.currentData.users;
+                        let html = '';
+                        
+                        users.forEach(user => {
+                            html += `
+                                <div class="user-item">
+                                    <img src="https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png" 
+                                         alt="${user.name}" class="user-item-avatar"
+                                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K'">
+                                    <div class="user-item-info">
+                                        <div class="user-item-name">${user.name}</div>
+                                        <div class="user-item-uid">UID: ${user.uid}</div>
+                                    </div>
+                                    <div class="user-item-rating">${user.rating || '--'}</div>
+                                </div>
+                            `;
+                        });
+                        
+                        followingList.innerHTML = html;
+                    } else {
+                        followingList.innerHTML = '<div class="empty-state">暂无关注用户</div>';
+                    }
+                } else {
+                    throw new Error('获取关注列表失败');
+                }
+            } catch (error) {
+                console.error('❌ 获取关注列表失败:', error);
+                followingList.innerHTML = '<div class="error-state">获取关注列表失败，请重试</div>';
+            }
+        }
+
+        // 加载粉丝列表
+        async function loadFollowersList() {
+            const followersList = document.getElementById('followersList');
+            if (!followersList) return;
+            
+            followersList.innerHTML = '<div class="loading-text">正在加载粉丝列表...</div>';
+            
+            try {
+                console.log('🔍 获取粉丝列表...');
+                const response = await proxyLuoguAPI('/api/user/followers', {
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 粉丝列表:', data);
+                    
+                    if (data.currentData && data.currentData.users && data.currentData.users.length > 0) {
+                        const users = data.currentData.users;
+                        let html = '';
+                        
+                        users.forEach(user => {
+                            html += `
+                                <div class="user-item">
+                                    <img src="https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png" 
+                                         alt="${user.name}" class="user-item-avatar"
+                                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K'">
+                                    <div class="user-item-info">
+                                        <div class="user-item-name">${user.name}</div>
+                                        <div class="user-item-uid">UID: ${user.uid}</div>
+                                    </div>
+                                    <div class="user-item-rating">${user.rating || '--'}</div>
+                                </div>
+                            `;
+                        });
+                        
+                        followersList.innerHTML = html;
+                    } else {
+                        followersList.innerHTML = '<div class="empty-state">暂无粉丝用户</div>';
+                    }
+                } else {
+                    throw new Error('获取粉丝列表失败');
+                }
+            } catch (error) {
+                console.error('❌ 获取粉丝列表失败:', error);
+                followersList.innerHTML = '<div class="error-state">获取粉丝列表失败，请重试</div>';
+            }
+        }
+
+        // 加载黑名单
+        async function loadBlacklist() {
+            const blacklist = document.getElementById('blacklist');
+            if (!blacklist) return;
+            
+            blacklist.innerHTML = '<div class="loading-text">正在加载黑名单...</div>';
+            
+            try {
+                console.log('🔍 获取黑名单...');
+                const response = await proxyLuoguAPI('/api/user/blacklist', {
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 黑名单:', data);
+                    
+                    if (data.currentData && data.currentData.users && data.currentData.users.length > 0) {
+                        const users = data.currentData.users;
+                        let html = '';
+                        
+                        users.forEach(user => {
+                            html += `
+                                <div class="user-item">
+                                    <img src="https://cdn.luogu.com.cn/upload/usericon/${user.uid}.png" 
+                                         alt="${user.name}" class="user-item-avatar"
+                                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjMzIDEzLjk5IDcgMTYuMzYgNyAxOS4wOVYyMEgxN1YxOS4wOUMxNyAxNi4zNiAxNC42NyAxMy45OSAxMiAxNFoiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjwvc3ZnPgo8L3N2Zz4K'">
+                                    <div class="user-item-info">
+                                        <div class="user-item-name">${user.name}</div>
+                                        <div class="user-item-uid">UID: ${user.uid}</div>
+                                    </div>
+                                    <div class="user-item-rating">${user.rating || '--'}</div>
+                                </div>
+                            `;
+                        });
+                        
+                        blacklist.innerHTML = html;
+                    } else {
+                        blacklist.innerHTML = '<div class="empty-state">黑名单为空</div>';
+                    }
+                } else {
+                    throw new Error('获取黑名单失败');
+                }
+            } catch (error) {
+                console.error('❌ 获取黑名单失败:', error);
+                blacklist.innerHTML = '<div class="error-state">获取黑名单失败，请重试</div>';
+            }
+        }
+
+        // 加载用户设置
+        async function loadUserSettings() {
+            try {
+                console.log('🔍 获取用户设置...');
+                const response = await proxyLuoguAPI('/user/setting', {
+                    headers: {
+                        'x-luogu-type': 'content-only'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 用户设置:', data);
+                    
+                    if (data.currentData && data.currentData.user) {
+                        const user = data.currentData.user;
+                        
+                        // 填充设置表单
+                        document.getElementById('settingSlogan').value = user.slogan || '';
+                        document.getElementById('settingIntroduction').value = user.introduction || '';
+                    }
+                } else {
+                    throw new Error('获取用户设置失败');
+                }
+            } catch (error) {
+                console.error('❌ 获取用户设置失败:', error);
+                alert('获取用户设置失败，请重试');
+            }
+        }
+
+        // 保存用户设置
+        async function saveSettings() {
+            const saveBtn = event.target;
+            const originalText = saveBtn.innerHTML;
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 保存中...';
+
+            try {
+                const slogan = document.getElementById('settingSlogan').value;
+                const introduction = document.getElementById('settingIntroduction').value;
+                
+                console.log('💾 保存用户设置...');
+                const response = await proxyLuoguAPI('/api/user/updateSetting', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-luogu-type': 'content-only'
+                    },
+                    body: JSON.stringify({
+                        slogan: slogan,
+                        introduction: introduction
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ 设置保存成功:', data);
+                    alert('设置保存成功！');
+                } else {
+                    throw new Error('保存设置失败');
+                }
+            } catch (error) {
+                console.error('❌ 保存用户设置失败:', error);
+                alert('保存设置失败，请重试');
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = originalText;
+            }
+        }
+
+        // 修改加载用户资料函数，添加详细信息加载
+        async function loadUserProfile() {
+            console.log('🔍 开始加载用户资料...');
+            
+            // 检查localStorage中的用户信息
+            const savedUserInfo = localStorage.getItem('luogu_user_info');
+            if (!savedUserInfo) {
+                console.log('❌ 未找到用户信息');
+                showNotLoggedIn();
+                return;
+            }
+
+            try {
+                const userInfo = JSON.parse(savedUserInfo);
+                console.log('✅ 找到用户信息:', userInfo);
+                
+                // 检查登录时间是否过期（24小时）
+                const loginTime = new Date(userInfo.loginTime);
+                const now = new Date();
+                const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+                
+                if (hoursDiff >= 24) {
+                    console.log('⚠️ 用户信息已过期');
+                    localStorage.removeItem('luogu_user_info');
+                    showNotLoggedIn();
+                    return;
+                }
+
+                // 显示用户信息
+                displayUserInfo(userInfo);
+                
+                // 加载用户详细信息
+                await loadUserDetails();
                 
             } catch (error) {
                 console.error('解析用户信息失败:', error);
