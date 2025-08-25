@@ -519,15 +519,21 @@
                 const captchaContainer = document.getElementById('captchaImage');
                 captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
                 
-                // 使用专用的验证码函数
+                // 使用专用的验证码函数，传递与登录请求相同的session和cookie信息
                 const sessionId = getOrCreateSessionId();
+                const clientCookies = localStorage.getItem('luogu_cookies') || '';
                 console.log('使用专用验证码函数获取验证码...');
+                console.log('🔍 验证码请求参数:', {
+                    sessionId: sessionId.substring(0, 10) + '...',
+                    hasCookies: !!clientCookies
+                });
                 
                 const response = await fetch('/.netlify/functions/captcha', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        sessionId: sessionId
+                        sessionId: sessionId,
+                        clientCookies: clientCookies
                     })
                 });
                 
