@@ -423,10 +423,11 @@
                 body: body,
                 csrfToken: csrfToken,
                 headers: headers,
-                sessionId: getOrCreateSessionId()
+                sessionId: sessionId  // 使用全局sessionId确保一致性
             };
 
             console.log('🌐 API代理请求:', path, method);
+            console.log('🔑 API代理使用SessionId:', sessionId);
 
             const response = await fetch('/.netlify/functions/luogu-proxy', {
                 method: 'POST',
