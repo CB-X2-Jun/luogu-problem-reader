@@ -676,6 +676,39 @@ def generate_problem_list():
     # 移除错误的katex.js引用
     list_html = list_html.replace('<script src="/javascripts/katex.js"></script>', '')
     
+    # 清理list页面中不需要的代码提交相关内容
+    
+    # 移除提交相关的CSS样式
+    list_html = re.sub(r'\.submit-[^}]*}', '', list_html, flags=re.DOTALL)
+    
+    # 移除提交相关的HTML结构
+    list_html = re.sub(r'<div class="submit-section".*?</div>\s*</div>', '', list_html, flags=re.DOTALL)
+    
+    # 移除提交按钮
+    list_html = re.sub(r'<button class="submit-toggle-btn".*?</button>', '', list_html, flags=re.DOTALL)
+    
+    # 移除提交相关的JavaScript函数
+    submit_functions = [
+        'toggleSubmitSection', 'showSubmitResult', 'submitCode', 
+        'clearCode', 'getProblemCsrfToken', 'checkLoginStatus', 
+        'showUserInfo', 'logout', 'proxyLuoguAPI'
+    ]
+    
+    for func_name in submit_functions:
+        # 移除普通函数
+        list_html = re.sub(rf'function {func_name}\([^)]*\)[^{{]*{{[^{{}}]*(?:{{[^{{}}]*}}[^{{}}]*)*}}', '', list_html, flags=re.DOTALL)
+        # 移除异步函数
+        list_html = re.sub(rf'async function {func_name}\([^)]*\)[^{{]*{{[^{{}}]*(?:{{[^{{}}]*}}[^{{}}]*)*}}', '', list_html, flags=re.DOTALL)
+    
+    # 移除登录状态检查相关的代码
+    list_html = re.sub(r'checkLoginStatus\(\)\.then.*?}\);', '', list_html, flags=re.DOTALL)
+    
+    # 移除用户信息显示相关的HTML
+    list_html = re.sub(r'<div class="user-info".*?</div>', '', list_html, flags=re.DOTALL)
+    list_html = re.sub(r'<div id="loginSection".*?</div>', '', list_html, flags=re.DOTALL)
+    
+    print("已清理list页面中的代码提交相关内容")
+    
     # 保存HTML文件（list_dir已在前面创建）
     with open(list_dir / 'index.html', 'w', encoding='utf-8') as f:
         f.write(list_html)

@@ -453,38 +453,15 @@
       }
       
       /* 代码提交区域样式 */
-      .submit-section {
-        max-width: 1000px;
-        margin: 2rem auto;
-        background: white;
-        border-radius: 12px;
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
       
-      .submit-container {
-        padding: 2rem;
-      }
       
-      .submit-title {
-        color: var(--gray-900);
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
       
-      .submit-title i {
-        color: var(--primary-color);
-      }
       
-      .submit-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
+      
+      
+      
+      
+      
       
       .form-group {
         display: flex;
@@ -558,12 +535,7 @@
         margin-top: 0.5rem;
       }
       
-      .submit-actions {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-start;
-        margin-top: 1rem;
-      }
+      
       
       .btn {
         padding: 0.75rem 1.5rem;
@@ -604,53 +576,18 @@
         transform: none;
       }
       
-      .submit-result {
-        margin-top: 1.5rem;
-        padding: 1rem;
-        border-radius: 8px;
-        font-weight: 500;
-      }
       
-      .submit-result.success {
-        background: #dcfce7;
-        color: #166534;
-        border: 1px solid #bbf7d0;
-      }
       
-      .submit-result.error {
-        background: #fef2f2;
-        color: #dc2626;
-        border: 1px solid #fecaca;
-      }
       
-      .submit-result.info {
-        background: #dbeafe;
-        color: #1d4ed8;
-        border: 1px solid #bfdbfe;
-      }
+      
+      
+      
+      
       
       /* 提交按钮显示控制 */
-      .submit-toggle-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        box-shadow: var(--shadow-lg);
-        transition: var(--transition);
-        z-index: 1000;
-      }
       
-      .submit-toggle-btn:hover {
-        background: var(--primary-dark);
-        transform: scale(1.1);
-      }
+      
+      
       
       /* 响应式设计 */
       @media (max-width: 768px) {
@@ -678,21 +615,11 @@
           justify-content: center;
         }
         
-        .submit-container {
-          padding: 1rem;
-        }
         
-        .submit-actions {
-          flex-direction: column;
-        }
         
-        .submit-toggle-btn {
-          bottom: 1rem;
-          right: 1rem;
-          width: 50px;
-          height: 50px;
-          font-size: 1rem;
-        }
+        
+        
+        
       }
     
       /* 题目统计信息美化 */
@@ -791,12 +718,7 @@
           <!-- 洛谷登录状态区域 -->
           <div class="luogu-auth-section">
             <!-- 未登录状态 -->
-            <div id="loginSection" class="login-section">
-              <a href="/login.html" class="login-btn">
-                <i class="fas fa-sign-in-alt"></i>
-                洛谷登录
-              </a>
-            </div>
+            
             
             <!-- 已登录状态 -->
             <div id="userInfo" class="user-info" style="display: none;">
@@ -828,39 +750,7 @@
         </div>
         
         <!-- 代码提交区域 -->
-        <div class="submit-section" id="submitSection" style="display: none;">
-          <div class="submit-container">
-            <h3 class="submit-title">
-              <i class="fas fa-code"></i>
-              代码提交
-            </h3>
-            
-            <div class="submit-form">
-              <div class="form-group">
-                <label for="language">编程语言</label>
-                <select id="language" class="form-select">
-                  <option value="cpp">C++</option>
-                  <option value="c">C</option>
-                  <option value="java">Java</option>
-                  <option value="python3">Python 3</option>
-                  <option value="python2">Python 2</option>
-                  <option value="pascal">Pascal</option>
-                  <option value="go">Go</option>
-                  <option value="rust">Rust</option>
-                  <option value="javascript">JavaScript</option>
-                </select>
-              </div>
-              
-              <div class="form-group">
-                <label for="codeInput">代码内容</label>
-                <textarea id="codeInput" class="code-textarea" placeholder="请输入您的代码..." rows="20"></textarea>
-              </div>
-              
-              <div class="form-group file-upload-group">
-                <label for="codeFile">或上传代码文件</label>
-                <input type="file" id="codeFile" class="file-input" accept=".cpp,.c,.java,.py,.pas,.go,.rs,.js,.txt">
-                <div class="file-upload-hint">支持 .cpp, .c, .java, .py, .pas, .go, .rs, .js, .txt 等格式</div>
-              </div>
+        
               
               <div class="submit-actions">
                 <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitCode()">
@@ -903,9 +793,7 @@
     </main>
 
     <!-- 提交代码悬浮按钮 -->
-    <button class="submit-toggle-btn" id="submitToggleBtn" onclick="toggleSubmitSection()" title="提交代码" style="display: none;">
-      <i class="fas fa-code"></i>
-    </button>
+    
 
     <!-- 页脚 -->
     <footer class="lgoj-footer">
@@ -1196,22 +1084,10 @@
       });
       
       // 清空代码
-      function clearCode() {
-        document.getElementById('codeInput').value = '';
-        document.getElementById('codeFile').value = '';
-        showSubmitResult('代码已清空', 'info');
-      }
+      
       
       // 显示提交结果
-      function showSubmitResult(message, type = 'info') {
-        const resultDiv = document.getElementById('submitResult');
-        resultDiv.className = `submit-result ${type}`;
-        resultDiv.innerHTML = message;
-        resultDiv.style.display = 'block';
-        
-        // 滚动到结果区域
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+      
       
       // 提交代码
       async function submitCode() {
@@ -1329,15 +1205,7 @@
       
       document.addEventListener("DOMContentLoaded", function() {
         // 检查洛谷登录状态
-        checkLoginStatus().then(isLoggedIn => {
-          // 只有登录用户才显示提交按钮
-          if (isLoggedIn) {
-            const submitToggleBtn = document.getElementById('submitToggleBtn');
-            if (submitToggleBtn) {
-              submitToggleBtn.style.display = 'block';
-            }
-          }
-        });
+        
         
         // 渲染数学公式
         renderMathInElement(document.body, {
