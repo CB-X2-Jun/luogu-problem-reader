@@ -1373,10 +1373,17 @@
                     const data = await response.json();
                     console.log('✅ 关注列表:', data);
                     
-                    // 根据API文档，用户列表可能在data.users或data.currentData.users中
-                    const users = data.users || (data.currentData && data.currentData.users);
-                    
-                    if (users && users.length > 0) {
+                    // 正确处理洛谷API返回的{"users": {"result": [...]}}
+                    let users = [];
+                    if (data.users && Array.isArray(data.users.result)) {
+                        users = data.users.result;
+                    } else if (Array.isArray(data.users)) {
+                        users = data.users;
+                    } else if (data.currentData && Array.isArray(data.currentData.users)) {
+                        users = data.currentData.users;
+                    }
+
+                    if (users.length > 0) {
                         let html = '';
                         
                         users.forEach(user => {
