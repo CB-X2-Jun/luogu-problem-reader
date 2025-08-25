@@ -451,6 +451,249 @@
           justify-content: center;
         }
       }
+      
+      /* 代码提交区域样式 */
+      .submit-section {
+        max-width: 1000px;
+        margin: 2rem auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      
+      .submit-container {
+        padding: 2rem;
+      }
+      
+      .submit-title {
+        color: var(--gray-900);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .submit-title i {
+        color: var(--primary-color);
+      }
+      
+      .submit-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .form-group label {
+        font-weight: 500;
+        color: var(--gray-700);
+        font-size: 0.9rem;
+      }
+      
+      .form-select {
+        padding: 0.75rem;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: white;
+        transition: var(--transition);
+      }
+      
+      .form-select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+      }
+      
+      .code-textarea {
+        padding: 1rem;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        resize: vertical;
+        min-height: 300px;
+        transition: var(--transition);
+      }
+      
+      .code-textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+      }
+      
+      .file-upload-group {
+        border: 2px dashed var(--gray-300);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: var(--transition);
+      }
+      
+      .file-upload-group:hover {
+        border-color: var(--primary-color);
+        background: var(--gray-50);
+      }
+      
+      .file-input {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        border: 1px solid var(--gray-300);
+        border-radius: 4px;
+        background: white;
+      }
+      
+      .file-upload-hint {
+        font-size: 0.8rem;
+        color: var(--gray-500);
+        margin-top: 0.5rem;
+      }
+      
+      .submit-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-start;
+        margin-top: 1rem;
+      }
+      
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .btn-primary {
+        background: var(--primary-color);
+        color: white;
+      }
+      
+      .btn-primary:hover:not(:disabled) {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+      
+      .btn-secondary {
+        background: var(--gray-100);
+        color: var(--gray-700);
+        border: 1px solid var(--gray-300);
+      }
+      
+      .btn-secondary:hover:not(:disabled) {
+        background: var(--gray-200);
+      }
+      
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .submit-result {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 8px;
+        font-weight: 500;
+      }
+      
+      .submit-result.success {
+        background: #dcfce7;
+        color: #166534;
+        border: 1px solid #bbf7d0;
+      }
+      
+      .submit-result.error {
+        background: #fef2f2;
+        color: #dc2626;
+        border: 1px solid #fecaca;
+      }
+      
+      .submit-result.info {
+        background: #dbeafe;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+      }
+      
+      /* 提交按钮显示控制 */
+      .submit-toggle-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+      
+      .submit-toggle-btn:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .md-content__inner {
+          padding: 1rem;
+        }
+        
+        .md-content__inner h1 {
+          font-size: 2rem;
+        }
+        
+        .md-content__inner h2 {
+          font-size: 1.2rem;
+        }
+        
+        .md-content__inner pre {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+        
+        .lgoj-home-btn {
+          position: static;
+          margin: 1rem 0;
+          width: 100%;
+          justify-content: center;
+        }
+        
+        .submit-container {
+          padding: 1rem;
+        }
+        
+        .submit-actions {
+          flex-direction: column;
+        }
+        
+        .submit-toggle-btn {
+          bottom: 1rem;
+          right: 1rem;
+          width: 50px;
+          height: 50px;
+          font-size: 1rem;
+        }
+      }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
@@ -524,6 +767,57 @@
 <p>70%-100%：时限10ms</p>
         </div>
         
+        <!-- 代码提交区域 -->
+        <div class="submit-section" id="submitSection" style="display: none;">
+          <div class="submit-container">
+            <h3 class="submit-title">
+              <i class="fas fa-code"></i>
+              代码提交
+            </h3>
+            
+            <div class="submit-form">
+              <div class="form-group">
+                <label for="language">编程语言</label>
+                <select id="language" class="form-select">
+                  <option value="cpp">C++</option>
+                  <option value="c">C</option>
+                  <option value="java">Java</option>
+                  <option value="python3">Python 3</option>
+                  <option value="python2">Python 2</option>
+                  <option value="pascal">Pascal</option>
+                  <option value="go">Go</option>
+                  <option value="rust">Rust</option>
+                  <option value="javascript">JavaScript</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="codeInput">代码内容</label>
+                <textarea id="codeInput" class="code-textarea" placeholder="请输入您的代码..." rows="20"></textarea>
+              </div>
+              
+              <div class="form-group file-upload-group">
+                <label for="codeFile">或上传代码文件</label>
+                <input type="file" id="codeFile" class="file-input" accept=".cpp,.c,.java,.py,.pas,.go,.rs,.js,.txt">
+                <div class="file-upload-hint">支持 .cpp, .c, .java, .py, .pas, .go, .rs, .js, .txt 等格式</div>
+              </div>
+              
+              <div class="submit-actions">
+                <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitCode()">
+                  <i class="fas fa-paper-plane"></i>
+                  提交代码
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="clearCode()">
+                  <i class="fas fa-trash"></i>
+                  清空代码
+                </button>
+              </div>
+            </div>
+            
+            <div id="submitResult" class="submit-result" style="display: none;"></div>
+          </div>
+        </div>
+        
         <!-- 评论区域 -->
         <div class="comments-section">
           <div class="comments-title">
@@ -548,10 +842,15 @@
       </div>
     </main>
 
+    <!-- 提交代码悬浮按钮 -->
+    <button class="submit-toggle-btn" id="submitToggleBtn" onclick="toggleSubmitSection()" title="提交代码" style="display: none;">
+      <i class="fas fa-code"></i>
+    </button>
+
     <!-- 页脚 -->
     <footer class="lgoj-footer">
       <div class="container">
-        <p>© 2025 LGOJ 题目浏览站 | 洛谷题目静态浏览平台</p>
+        <p>&copy; 2025 LGOJ 题目浏览站. 基于洛谷题目数据构建.</p>
       </div>
     </footer>
 
@@ -717,9 +1016,260 @@
         window.location.href = '/profile.html';
       }
       
+      // 代码提交相关变量
+      let problemId = null;
+      let problemCsrfToken = null;
+      
+      // 获取题目ID（从URL中提取）
+      function getProblemId() {
+        const path = window.location.pathname;
+        const match = path.match(/\/problem\/([^\/]+)/);
+        return match ? match[1] : null;
+      }
+      
+      // 获取题目页面的CSRF令牌
+      async function getProblemCsrfToken(pid) {
+        try {
+          console.log('🔍 获取题目页面CSRF令牌...', pid);
+          
+          // 请求题目页面HTML以获取CSRF令牌
+          const response = await proxyLuoguAPI(`/problem/${pid}`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+            }
+          });
+          
+          if (response.ok) {
+            const html = await response.text();
+            console.log('📄 题目页面HTML长度:', html.length);
+            
+            // 从HTML中提取CSRF令牌
+            const csrfMatch = html.match(/window\._feInjection\s*=\s*JSON\.parse\("([^"]+)"\)/);
+            if (csrfMatch) {
+              try {
+                const feInjection = JSON.parse(csrfMatch[1].replace(/\\"/g, '"'));
+                const token = feInjection.csrfToken;
+                console.log('✅ 成功提取题目页面CSRF令牌:', token ? token.substring(0, 10) + '...' : 'null');
+                return token;
+              } catch (e) {
+                console.error('❌ 解析feInjection失败:', e);
+              }
+            }
+            
+            // 备用方案：查找meta标签中的CSRF令牌
+            const metaMatch = html.match(/<meta name="csrf-token" content="([^"]+)"/);
+            if (metaMatch) {
+              console.log('✅ 从meta标签提取CSRF令牌:', metaMatch[1].substring(0, 10) + '...');
+              return metaMatch[1];
+            }
+            
+            console.warn('⚠️ 未找到CSRF令牌');
+            return null;
+          } else {
+            console.error('❌ 获取题目页面失败:', response.status);
+            return null;
+          }
+        } catch (error) {
+          console.error('❌ 获取题目页面CSRF令牌异常:', error);
+          return null;
+        }
+      }
+      
+      // 切换提交区域显示/隐藏
+      function toggleSubmitSection() {
+        const submitSection = document.getElementById('submitSection');
+        const toggleBtn = document.getElementById('submitToggleBtn');
+        
+        if (submitSection.style.display === 'none') {
+          submitSection.style.display = 'block';
+          toggleBtn.innerHTML = '<i class="fas fa-times"></i>';
+          toggleBtn.title = '关闭提交';
+          
+          // 滚动到提交区域
+          submitSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          submitSection.style.display = 'none';
+          toggleBtn.innerHTML = '<i class="fas fa-code"></i>';
+          toggleBtn.title = '提交代码';
+        }
+      }
+      
+      // 文件上传处理
+      document.addEventListener('change', function(e) {
+        if (e.target.id === 'codeFile') {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              document.getElementById('codeInput').value = e.target.result;
+              
+              // 根据文件扩展名自动选择语言
+              const fileName = file.name.toLowerCase();
+              const languageSelect = document.getElementById('language');
+              
+              if (fileName.endsWith('.cpp') || fileName.endsWith('.cc') || fileName.endsWith('.cxx')) {
+                languageSelect.value = 'cpp';
+              } else if (fileName.endsWith('.c')) {
+                languageSelect.value = 'c';
+              } else if (fileName.endsWith('.java')) {
+                languageSelect.value = 'java';
+              } else if (fileName.endsWith('.py')) {
+                languageSelect.value = 'python3';
+              } else if (fileName.endsWith('.pas')) {
+                languageSelect.value = 'pascal';
+              } else if (fileName.endsWith('.go')) {
+                languageSelect.value = 'go';
+              } else if (fileName.endsWith('.rs')) {
+                languageSelect.value = 'rust';
+              } else if (fileName.endsWith('.js')) {
+                languageSelect.value = 'javascript';
+              }
+            };
+            reader.readAsText(file);
+          }
+        }
+      });
+      
+      // 清空代码
+      function clearCode() {
+        document.getElementById('codeInput').value = '';
+        document.getElementById('codeFile').value = '';
+        showSubmitResult('代码已清空', 'info');
+      }
+      
+      // 显示提交结果
+      function showSubmitResult(message, type = 'info') {
+        const resultDiv = document.getElementById('submitResult');
+        resultDiv.className = `submit-result ${type}`;
+        resultDiv.innerHTML = message;
+        resultDiv.style.display = 'block';
+        
+        // 滚动到结果区域
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      
+      // 提交代码
+      async function submitCode() {
+        // 检查登录状态
+        const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+        if (!userInfo.username) {
+          showSubmitResult('请先登录洛谷账号', 'error');
+          return;
+        }
+        
+        // 获取题目ID
+        problemId = getProblemId();
+        if (!problemId) {
+          showSubmitResult('无法获取题目ID', 'error');
+          return;
+        }
+        
+        // 获取代码内容
+        const code = document.getElementById('codeInput').value.trim();
+        if (!code) {
+          showSubmitResult('请输入代码内容', 'error');
+          return;
+        }
+        
+        // 获取编程语言
+        const language = document.getElementById('language').value;
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
+        
+        try {
+          // 获取题目页面的CSRF令牌
+          showSubmitResult('正在获取题目页面令牌...', 'info');
+          problemCsrfToken = await getProblemCsrfToken(problemId);
+          
+          if (!problemCsrfToken) {
+            throw new Error('无法获取题目页面CSRF令牌');
+          }
+          
+          console.log('🚀 开始提交代码...', {
+            problemId: problemId,
+            language: language,
+            codeLength: code.length,
+            csrfToken: problemCsrfToken.substring(0, 10) + '...'
+          });
+          
+          // 构建提交请求
+          const submitData = {
+            code: code,
+            lang: language,
+            enableO2: false, // 可选：是否启用O2优化
+            verify: '' // 验证码（如果需要）
+          };
+          
+          showSubmitResult('正在提交代码到洛谷...', 'info');
+          
+          // 发送提交请求
+          const response = await proxyLuoguAPI(`/fe/api/problem/submit/${problemId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-csrf-token': problemCsrfToken,
+              'x-luogu-type': 'content-only'
+            },
+            body: submitData
+          });
+          
+          console.log('📊 提交响应状态:', response.status);
+          
+          if (response.ok) {
+            const result = await response.json();
+            console.log('✅ 提交成功:', result);
+            
+            if (result.rid) {
+              showSubmitResult(`
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-check-circle"></i>
+                  <span>代码提交成功！</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.9rem;">
+                  <strong>提交记录ID:</strong> ${result.rid}
+                </div>
+                <div style="margin-top: 0.5rem;">
+                  <a href="https://www.luogu.com.cn/record/${result.rid}" target="_blank" style="color: var(--primary-color); text-decoration: none;">
+                    <i class="fas fa-external-link-alt"></i> 查看提交记录
+                  </a>
+                </div>
+              `, 'success');
+              
+              // 清空代码（可选）
+              // clearCode();
+            } else {
+              showSubmitResult('提交成功，但未返回记录ID', 'info');
+            }
+          } else {
+            const errorData = await response.json().catch(() => ({}));
+            const errorMsg = errorData.errorMessage || errorData.message || `提交失败 (${response.status})`;
+            console.error('❌ 提交失败:', response.status, errorData);
+            showSubmitResult(`提交失败: ${errorMsg}`, 'error');
+          }
+        } catch (error) {
+          console.error('❌ 提交代码异常:', error);
+          showSubmitResult(`提交失败: ${error.message}`, 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }
+      
       document.addEventListener("DOMContentLoaded", function() {
         // 检查洛谷登录状态
-        checkLoginStatus();
+        checkLoginStatus().then(isLoggedIn => {
+          // 只有登录用户才显示提交按钮
+          if (isLoggedIn) {
+            const submitToggleBtn = document.getElementById('submitToggleBtn');
+            if (submitToggleBtn) {
+              submitToggleBtn.style.display = 'block';
+            }
+          }
+        });
         
         // 渲染数学公式
         renderMathInElement(document.body, {
