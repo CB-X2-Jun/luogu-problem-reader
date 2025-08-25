@@ -106,20 +106,32 @@ exports.handler = async (event, context) => {
             console.log('✅ 使用客户端提供的sessionId:', clientSessionId.substring(0, 15) + '...');
         }
         
-        // 设置请求头
+        // 设置请求头 - 严格按照洛谷API规范
         const requestHeaders = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            // 必须：User-Agent不能包含python-requests
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': '*/*',
             'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'identity', // 禁用压缩
+            'Accept-Encoding': 'gzip, deflate, br', // 支持压缩
             'Connection': 'keep-alive',
-            'Referer': 'https://www.luogu.com.cn/auth/login',
+            // 必须：对于非GET请求，Referer为洛谷主站
+            'Referer': 'https://www.luogu.com.cn/',
             'Origin': 'https://www.luogu.com.cn'
         };
 
         // 对于验证码请求，设置特定的Accept头
         if (path === '/lg4/captcha') {
             requestHeaders['Accept'] = 'image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8';
+        }
+
+        // 对于DataResponse类型的请求，添加必要的头
+        if (clientHeaders && clientHeaders['x-luogu-type']) {
+            requestHeaders['x-luogu-type'] = clientHeaders['x-luogu-type'];
+        }
+
+        // 对于LentilleDataResponse类型的请求，添加必要的头
+        if (clientHeaders && clientHeaders['x-lentille-request']) {
+            requestHeaders['x-lentille-request'] = clientHeaders['x-lentille-request'];
         }
 
         // 添加客户端传递的头部
@@ -160,13 +172,18 @@ exports.handler = async (event, context) => {
             }
         }
 
-        // 如果是POST请求，添加必要的头部
-        if (method === 'POST') {
+        // 如果是非GET请求，添加必要的头部（按洛谷API规范）
+        if (method !== 'GET') {
             requestHeaders['Content-Type'] = 'application/json';
-            requestHeaders['Referer'] = 'https://www.luogu.com.cn/auth/login';
+            // 必须：对于非GET请求，Referer为洛谷主站
+            requestHeaders['Referer'] = 'https://www.luogu.com.cn/';
             
+            // 必须：对于非GET请求，需要CSRF令牌（除非在请求主体中给出）
             if (csrfToken) {
                 requestHeaders['x-csrf-token'] = csrfToken;
+                console.log(`🔐 [${clientSessionId}] 添加CSRF令牌:`, csrfToken.substring(0, 10) + '...');
+            } else {
+                console.log(`⚠️ [${clientSessionId}] 非GET请求缺少CSRF令牌，可能导致请求失败`);
             }
         }
 
