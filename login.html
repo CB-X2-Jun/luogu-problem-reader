@@ -414,6 +414,33 @@
             }
         }
 
+        // 从响应中提取Cookie并保存到用户信息
+        function extractAndSaveCookies(response) {
+            try {
+                const setCookieHeader = response.headers.get('set-cookie');
+                if (setCookieHeader) {
+                    console.log('🍪 从登录响应中提取到Cookie:', setCookieHeader.substring(0, 100) + '...');
+                    
+                    // 解析Cookie
+                    const cookies = setCookieHeader.split(',').map(cookie => {
+                        return cookie.split(';')[0].trim();
+                    }).join('; ');
+                    
+                    // 更新localStorage中的用户信息，添加cookies字段
+                    const existingUserInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+                    existingUserInfo.cookies = cookies;
+                    localStorage.setItem('luogu_user_info', JSON.stringify(existingUserInfo));
+                    
+                    console.log('💾 Cookie已保存到用户信息中');
+                    return cookies;
+                }
+                return null;
+            } catch (error) {
+                console.warn('⚠️ 提取Cookie失败:', error);
+                return null;
+            }
+        }
+
         // 洛谷API代理函数 - 确保使用统一的sessionId和cookie备份
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
@@ -616,6 +643,9 @@
                         // 有用户名和同步令牌，说明登录成功
                         console.log('✅ 登录成功判断通过');
                         showStatus('登录成功！', 'success');
+                        
+                        // 提取并保存登录响应中的Cookie
+                        extractAndSaveCookies(response);
                         
                         // 登录成功后，尝试获取完整的用户信息（包括UID）
                         console.log('🔍 登录成功，尝试获取完整用户信息...');
