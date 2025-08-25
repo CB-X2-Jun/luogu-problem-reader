@@ -3,10 +3,8 @@
   command = ""
   # 发布根目录
   publish = "."
-
-[functions]
   # Functions目录
-  directory = "functions"
+  functions = "netlify/functions"
 
 # 安全头部设置
 [[headers]]
