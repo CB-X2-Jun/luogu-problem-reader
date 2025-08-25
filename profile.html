@@ -1267,11 +1267,17 @@
             const ratingList = document.getElementById('ratingHistoryList');
             if (!ratingList) return;
             
+            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+            if (!userInfo.uid) {
+                ratingList.innerHTML = '<div class="error-state">无法获取用户ID</div>';
+                return;
+            }
+            
             ratingList.innerHTML = '<div class="loading-text">正在加载等级分历史...</div>';
             
             try {
-                console.log('🔍 获取等级分历史...');
-                const response = await proxyLuoguAPI('/api/rating/elo', {
+                console.log('🔍 获取等级分历史...', 'UID:', userInfo.uid);
+                const response = await proxyLuoguAPI(`/api/rating/elo?user=${userInfo.uid}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
@@ -1283,8 +1289,8 @@
                     const data = await response.json();
                     console.log('✅ 等级分历史:', data);
                     
-                    if (data.currentData && data.currentData.length > 0) {
-                        const ratings = data.currentData;
+                    if (data.records && data.records.length > 0) {
+                        const ratings = data.records;
                         let html = '';
                         
                         ratings.slice(0, 10).forEach((rating, index) => {
@@ -1335,11 +1341,17 @@
             const followingList = document.getElementById('followingList');
             if (!followingList) return;
             
+            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+            if (!userInfo.uid) {
+                followingList.innerHTML = '<div class="error-state">无法获取用户ID</div>';
+                return;
+            }
+            
             followingList.innerHTML = '<div class="loading-text">正在加载关注列表...</div>';
             
             try {
-                console.log('🔍 获取关注列表...');
-                const response = await proxyLuoguAPI('/api/user/followings', {
+                console.log('🔍 获取关注列表...', 'UID:', userInfo.uid);
+                const response = await proxyLuoguAPI(`/api/user/followings?user=${userInfo.uid}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
@@ -1351,8 +1363,8 @@
                     const data = await response.json();
                     console.log('✅ 关注列表:', data);
                     
-                    if (data.currentData && data.currentData.users && data.currentData.users.length > 0) {
-                        const users = data.currentData.users;
+                    if (data.users && data.users.length > 0) {
+                        const users = data.users;
                         let html = '';
                         
                         users.forEach(user => {
@@ -1390,22 +1402,30 @@
             const followersList = document.getElementById('followersList');
             if (!followersList) return;
             
+            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+            if (!userInfo.uid) {
+                followersList.innerHTML = '<div class="error-state">无法获取用户ID</div>';
+                return;
+            }
+            
             followersList.innerHTML = '<div class="loading-text">正在加载粉丝列表...</div>';
             
             try {
-                console.log('🔍 获取粉丝列表...');
-                const response = await proxyLuoguAPI('/api/user/followers', {
+                console.log('🔍 获取粉丝列表...', 'UID:', userInfo.uid);
+                const response = await proxyLuoguAPI(`/api/user/followers?user=${userInfo.uid}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
                 });
 
+                console.log('📊 粉丝列表响应状态:', response.status);
+
                 if (response.ok) {
                     const data = await response.json();
                     console.log('✅ 粉丝列表:', data);
                     
-                    if (data.currentData && data.currentData.users && data.currentData.users.length > 0) {
-                        const users = data.currentData.users;
+                    if (data.users && data.users.length > 0) {
+                        const users = data.users;
                         let html = '';
                         
                         users.forEach(user => {
@@ -1441,22 +1461,30 @@
             const blacklist = document.getElementById('blacklist');
             if (!blacklist) return;
             
+            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+            if (!userInfo.uid) {
+                blacklist.innerHTML = '<div class="error-state">无法获取用户ID</div>';
+                return;
+            }
+            
             blacklist.innerHTML = '<div class="loading-text">正在加载黑名单...</div>';
             
             try {
-                console.log('🔍 获取黑名单...');
-                const response = await proxyLuoguAPI('/api/user/blacklist', {
+                console.log('🔍 获取黑名单...', 'UID:', userInfo.uid);
+                const response = await proxyLuoguAPI(`/api/user/blacklist?user=${userInfo.uid}`, {
                     headers: {
                         'x-luogu-type': 'content-only'
                     }
                 });
 
+                console.log('📊 黑名单响应状态:', response.status);
+
                 if (response.ok) {
                     const data = await response.json();
                     console.log('✅ 黑名单:', data);
                     
-                    if (data.currentData && data.currentData.users && data.currentData.users.length > 0) {
-                        const users = data.currentData.users;
+                    if (data.users && data.users.length > 0) {
+                        const users = data.users;
                         let html = '';
                         
                         users.forEach(user => {
