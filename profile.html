@@ -1397,8 +1397,16 @@
                     }
                 } else {
                     const errorText = await response.text();
-                    console.error('❌ 关注列表API响应错误:', response.status, errorText);
-                    followingList.innerHTML = '<div class="error-state">获取关注列表失败，可能需要登录或权限不足</div>';
+                    if (response.status === 403) {
+                        console.log('❌ 关注列表API权限不足:', response.status, errorText);
+                        followingList.innerHTML = '<div class="error-text">该用户的关注列表不公开或需要特殊权限</div>';
+                    } else if (response.status === 401) {
+                        console.log('❌ 用户设置API需要登录权限:', response.status);
+                        settings.innerHTML = '<div class="error-text">用户设置需要登录后才能查看</div>';
+                    } else {
+                        console.log('❌ 用户设置API响应错误:', response.status);
+                        settings.innerHTML = '<div class="error-text">获取用户设置失败</div>';
+                    }
                 }
             } catch (error) {
                 console.error('❌ 获取关注列表失败:', error);
