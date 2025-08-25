@@ -413,9 +413,13 @@
             }
         }
 
-        // 简化的洛谷API代理函数
+        // 简化的洛谷API代理函数 - 确保与验证码使用相同的cookie
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
+            
+            // 获取与验证码请求相同的session和cookie信息
+            const sessionId = getOrCreateSessionId();
+            const clientCookies = localStorage.getItem('luogu_cookies') || '';
             
             const requestData = {
                 path: path,
@@ -423,10 +427,16 @@
                 body: body,
                 csrfToken: csrfToken,
                 headers: headers,
-                sessionId: getOrCreateSessionId()
+                sessionId: sessionId,
+                clientCookies: clientCookies  // 添加客户端cookie，确保与验证码一致
             };
 
             console.log('🌐 API代理请求:', path, method);
+            console.log('🔍 登录请求参数:', {
+                sessionId: sessionId.substring(0, 10) + '...',
+                hasCookies: !!clientCookies,
+                hasCSRF: !!csrfToken
+            });
 
             const response = await fetch('/.netlify/functions/luogu-proxy', {
                 method: 'POST',
@@ -511,7 +521,7 @@
             }
         }
 
-        // 刷新验证码 - 使用专用验证码函数
+        // 刷新验证码 - 使用与登录相同的代理函数，确保session完全一致
         async function refreshCaptcha() {
             try {
                 console.log('🖼️ 刷新验证码...');
@@ -519,32 +529,21 @@
                 const captchaContainer = document.getElementById('captchaImage');
                 captchaContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">加载中...</div>';
                 
-                // 使用专用的验证码函数，传递与登录请求相同的session和cookie信息
-                const sessionId = getOrCreateSessionId();
-                const clientCookies = localStorage.getItem('luogu_cookies') || '';
-                console.log('使用专用验证码函数获取验证码...');
-                console.log('🔍 验证码请求参数:', {
-                    sessionId: sessionId.substring(0, 10) + '...',
-                    hasCookies: !!clientCookies
-                });
+                // 使用与登录请求完全相同的代理函数，确保session和cookie完全一致
+                console.log('使用通用代理函数获取验证码，确保与登录请求session一致...');
                 
-                const response = await fetch('/.netlify/functions/captcha', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        sessionId: sessionId,
-                        clientCookies: clientCookies
-                    })
+                const response = await proxyLuoguAPI('/lg4/captcha', {
+                    method: 'GET'
                 });
                 
                 if (response.ok) {
                     const blob = await response.blob();
                     const blobUrl = URL.createObjectURL(blob);
                     captchaContainer.innerHTML = `<img src="${blobUrl}" alt="验证码" style="width: 100%; height: 100%; object-fit: cover;">`;
-                    console.log('✅ 专用验证码函数加载成功');
+                    console.log('✅ 通用代理验证码加载成功');
                 } else {
                     const errorData = await response.text();
-                    console.error('专用验证码函数失败:', response.status, errorData);
+                    console.error('通用代理验证码失败:', response.status, errorData);
                     throw new Error(`验证码获取失败: ${response.status}`);
                 }
                 
