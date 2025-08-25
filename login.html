@@ -403,73 +403,19 @@
         // 获取统一的sessionId
         const sessionId = getOrCreateSessionId();
 
-        // 获取保存的用户Cookie作为备用
-        function getSavedUserCookies() {
+        // 简化的用户信息保存
+        function saveUserInfo(userInfo) {
             try {
-                const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
-                return userInfo.cookies || null;
+                localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
+                console.log('💾 用户信息已保存');
             } catch (error) {
-                console.warn('⚠️ 获取保存的Cookie失败:', error);
-                return null;
+                console.warn('⚠️ 保存用户信息失败:', error);
             }
         }
 
-        // 从响应中提取Cookie并保存到用户信息
-        function extractAndSaveCookies(response) {
-            try {
-                // 注意：由于CORS限制，前端可能无法直接访问set-cookie头
-                // 我们需要依赖后端代理来处理cookie
-                console.log('🍪 尝试从登录响应中提取Cookie...');
-                
-                // 检查响应头
-                const setCookieHeader = response.headers.get('set-cookie');
-                if (setCookieHeader) {
-                    console.log('✅ 找到Set-Cookie头:', setCookieHeader.substring(0, 100) + '...');
-                    
-                    // 解析Cookie
-                    const cookies = setCookieHeader.split(',').map(cookie => {
-                        return cookie.split(';')[0].trim();
-                    }).join('; ');
-                    
-                    // 更新localStorage中的用户信息，添加cookies字段
-                    const existingUserInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
-                    existingUserInfo.cookies = cookies;
-                    localStorage.setItem('luogu_user_info', JSON.stringify(existingUserInfo));
-                    
-                    console.log('💾 Cookie已保存到用户信息中');
-                    return cookies;
-                } else {
-                    console.log('⚠️ 响应中没有找到Set-Cookie头，这可能是由于CORS限制');
-                    console.log('🔄 Cookie应该已经通过后端代理自动保存');
-                    return null;
-                }
-            } catch (error) {
-                console.warn('⚠️ 提取Cookie失败:', error);
-                return null;
-            }
-        }
-
-        // 验证cookie是否正确保存
-        function verifyCookieSaved() {
-            const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
-            if (userInfo.cookies) {
-                console.log('✅ Cookie验证成功，已保存到localStorage');
-                return true;
-            } else {
-                console.log('⚠️ Cookie未保存到localStorage，可能需要手动处理');
-                return false;
-            }
-        }
-
-        // 洛谷API代理函数 - 确保使用统一的sessionId和cookie备份
+        // 简化的洛谷API代理函数
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
-            
-            // 确保使用统一的sessionId
-            const currentSessionId = getOrCreateSessionId();
-            
-            // 获取保存的cookie作为备用
-            const clientCookies = getSavedUserCookies();
             
             const requestData = {
                 path: path,
@@ -477,40 +423,19 @@
                 body: body,
                 csrfToken: csrfToken,
                 headers: headers,
-                sessionId: currentSessionId,
-                clientCookies: clientCookies // 传递客户端cookie作为备用
+                sessionId: getOrCreateSessionId()
             };
 
-            console.log('🌐 发起API代理请求:', {
-                path,
-                method,
-                sessionId: currentSessionId.substring(0, 15) + '...',
-                hasCookieBackup: !!clientCookies
+            console.log('🌐 API代理请求:', path, method);
+
+            const response = await fetch('/.netlify/functions/luogu-proxy', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestData)
             });
 
-            try {
-                const response = await fetch('/.netlify/functions/luogu-proxy', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                });
-
-                console.log('📡 API代理响应:', response.status, response.statusText);
-                
-                // 检查响应状态 - 但400状态码可能是正常的验证码错误
-                if (!response.ok && response.status !== 400) {
-                    const errorText = await response.text();
-                    console.error('代理响应错误:', errorText);
-                    throw new Error(`代理请求失败: ${response.status} ${response.statusText}`);
-                }
-                
-                return response;
-            } catch (error) {
-                console.error('代理请求失败:', error);
-                throw error;
-            }
+            console.log('📡 API响应:', response.status);
+            return response;
         }
 
         // 显示状态消息
@@ -688,17 +613,8 @@
                         console.log('✅ 登录成功判断通过');
                         showStatus('登录成功！', 'success');
                         
-                        // 提取并保存登录响应中的Cookie
-                        extractAndSaveCookies(response);
-                        
-                        // 检查响应数据中是否包含cookie信息
-                        if (data._cookies) {
-                            console.log('✅ 从响应数据中获取到Cookie:', data._cookies.substring(0, 100) + '...');
-                            const existingUserInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
-                            existingUserInfo.cookies = data._cookies;
-                            localStorage.setItem('luogu_user_info', JSON.stringify(existingUserInfo));
-                            console.log('💾 Cookie已从响应数据保存到localStorage');
-                        }
+                        // 简化：登录成功，不需要复杂的cookie操作
+                        console.log('✅ 登录成功，准备保存用户信息');
                         
                         // 登录成功后，尝试获取完整的用户信息（包括UID）
                         console.log('🔍 登录成功，尝试获取完整用户信息...');
@@ -764,8 +680,8 @@
                                     ...fullUserInfo
                                 };
                                 
-                                localStorage.setItem('luogu_user_info', JSON.stringify(userInfo));
-                                console.log('💾 完整用户信息已保存到localStorage:', userInfo);
+                                saveUserInfo(userInfo);
+                                console.log('💾 完整用户信息已保存:', userInfo);
                                 
                                 // 显示完整用户信息
                                 showUserInfo(userInfo);
