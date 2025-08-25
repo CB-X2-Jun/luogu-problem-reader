@@ -1373,8 +1373,8 @@
                     const data = await response.json();
                     console.log('✅ 关注列表:', data);
                     
-                    if (data.users && data.users.length > 0) {
-                        const users = data.users;
+                    if (data.users && data.users.result && data.users.result.length > 0) {
+                        const users = data.users.result;
                         let html = '';
                         
                         users.forEach(user => {
@@ -1442,8 +1442,8 @@
                     const data = await response.json();
                     console.log('✅ 粉丝列表:', data);
                     
-                    if (data.users && data.users.length > 0) {
-                        const users = data.users;
+                    if (data.users && data.users.result && data.users.result.length > 0) {
+                        const users = data.users.result;
                         let html = '';
                         
                         users.forEach(user => {
@@ -1501,8 +1501,8 @@
                     const data = await response.json();
                     console.log('✅ 黑名单:', data);
                     
-                    if (data.users && data.users.length > 0) {
-                        const users = data.users;
+                    if (data.users && data.users.result && data.users.result.length > 0) {
+                        const users = data.users.result;
                         let html = '';
                         
                         users.forEach(user => {
