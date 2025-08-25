@@ -1,23 +1,6 @@
 const https = require('https');
 
-// 全局Cookie存储（与luogu-proxy.js保持一致）
-let globalCookies = {};
-
-// Cookie管理函数（与luogu-proxy.js保持一致）
-function saveCookieToEnv(sessionId, cookieString) {
-    globalCookies[sessionId] = cookieString;
-    console.log(`💾 [验证码] Cookie已保存到全局存储:`, sessionId.substring(0, 15) + '...');
-}
-
-function getCookieFromStorage(sessionId) {
-    const cookie = globalCookies[sessionId];
-    if (cookie) {
-        console.log(`🍪 [验证码] 从全局存储获取Cookie:`, sessionId.substring(0, 15) + '...');
-        return cookie;
-    }
-    return null;
-}
-
+// 最简化的验证码函数 - 移除所有复杂的cookie管理
 exports.handler = async (event, context) => {
     // 设置CORS头
     const headers = {
@@ -39,23 +22,19 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        console.log('🖼️ 专用验证码函数被调用');
+        console.log('🖼️ 最简化验证码函数被调用');
         
-        // 获取sessionId和clientCookies（与luogu-proxy保持一致）
+        // 最简化的参数获取 - 只获取sessionId
         let sessionId = '';
-        let clientCookies = '';
         
         if (event.httpMethod === 'GET') {
             sessionId = event.queryStringParameters?.sessionId || '';
-            clientCookies = event.queryStringParameters?.clientCookies || '';
         } else if (event.httpMethod === 'POST') {
             const body = JSON.parse(event.body || '{}');
             sessionId = body.sessionId || '';
-            clientCookies = body.clientCookies || '';
         }
 
-        console.log('🔍 [验证码] SessionId:', sessionId ? sessionId.substring(0, 10) + '...' : 'empty');
-        console.log('🔍 [验证码] ClientCookies:', clientCookies ? 'provided' : 'empty');
+        console.log('🔍 SessionId:', sessionId ? sessionId.substring(0, 10) + '...' : 'empty');
 
         // 构建请求选项 - 严格按照洛谷API规范
         const options = {
@@ -82,27 +61,10 @@ exports.handler = async (event, context) => {
             }
         };
 
-        // 添加Cookie - 优先使用服务端保存的，备用客户端传递的（与luogu-proxy完全一致）
-        const savedCookie = getCookieFromStorage(sessionId);
-        const cookieToUse = savedCookie || clientCookies;
-        
-        if (cookieToUse) {
-            options.headers['Cookie'] = cookieToUse;
-            const cookieSource = savedCookie ? '服务端保存' : '客户端传递';
-            console.log(`🍪 [验证码] 使用${cookieSource}的Cookie:`, cookieToUse.substring(0, 100) + '...');
-            
-            // 如果使用的是客户端传递的cookie，同时保存到服务端
-            if (!savedCookie && clientCookies) {
-                saveCookieToEnv(sessionId, clientCookies);
-                console.log(`💾 [验证码] 客户端Cookie已同步到服务端`);
-            }
-        } else {
-            console.log(`❌ [验证码] 没有找到任何Cookie（服务端或客户端）`);
-            // 如果没有cookie，使用基本的sessionId作为fallback
-            if (sessionId) {
-                options.headers['Cookie'] = `__client_id=${sessionId}`;
-                console.log(`🔄 [验证码] 使用基本sessionId作为Cookie fallback`);
-            }
+        // 最简化的Cookie处理 - 只使用基础sessionId
+        if (sessionId) {
+            options.headers['Cookie'] = `__client_id=${sessionId}`;
+            console.log(`🍪 使用基础sessionId作为Cookie`);
         }
 
         console.log('发送验证码请求到:', options.hostname + options.path);
