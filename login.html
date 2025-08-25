@@ -590,6 +590,16 @@
                         const base64Data = reader.result;
                         const captchaContainer = document.getElementById('captchaImage');
                         
+                        console.log('🖼️ 验证码图片已转换为base64，长度:', base64Data.length);
+                        console.log('🔍 Base64数据前缀:', base64Data.substring(0, 50));
+                        
+                        // 验证base64数据格式
+                        if (!base64Data || !base64Data.startsWith('data:image/')) {
+                            console.error('❌ Base64数据格式无效');
+                            captchaContainer.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">验证码数据格式错误<br><button onclick="refreshCaptcha()" style="margin-top: 10px;">重新获取</button></div>';
+                            return;
+                        }
+                        
                         // 创建img元素并设置加载事件
                         const img = document.createElement('img');
                         img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; border-radius: 4px;';
@@ -601,16 +611,29 @@
                             captchaContainer.appendChild(img);
                         };
                         
-                        img.onerror = function() {
-                            console.error('❌ 验证码图片加载失败');
-                            captchaContainer.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">验证码图片加载失败<br><button onclick="refreshCaptcha()" style="margin-top: 10px;">重新获取</button></div>';
+                        img.onerror = function(e) {
+                            console.error('❌ 验证码图片加载失败，错误详情:', e);
+                            console.error('❌ 图片src长度:', img.src.length);
+                            console.error('❌ 图片src前缀:', img.src.substring(0, 100));
+                            
+                            // 尝试直接设置innerHTML作为备用方案
+                            console.log('🔄 尝试备用显示方案...');
+                            captchaContainer.innerHTML = `
+                                <div style="text-align: center; padding: 10px;">
+                                    <img src="${base64Data}" alt="验证码" style="max-width: 100%; height: auto; border-radius: 4px;" 
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <div style="display: none; color: #666; padding: 20px;">
+                                        验证码图片加载失败<br>
+                                        <button onclick="refreshCaptcha()" style="margin-top: 10px;">重新获取</button>
+                                    </div>
+                                </div>
+                            `;
                         };
                         
                         img.src = base64Data;
-                        console.log('🖼️ 验证码图片已转换为base64，长度:', base64Data.length);
                     };
-                    reader.onerror = function() {
-                        console.error('❌ 验证码图片转换失败');
+                    reader.onerror = function(e) {
+                        console.error('❌ 验证码图片转换失败，错误详情:', e);
                         const captchaContainer = document.getElementById('captchaImage');
                         captchaContainer.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">验证码转换失败<br><button onclick="refreshCaptcha()" style="margin-top: 10px;">重新获取</button></div>';
                     };
