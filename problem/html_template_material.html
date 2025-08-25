@@ -857,18 +857,33 @@
         return sessionId;
       }
 
-      // 洛谷API代理函数 - 确保使用统一的sessionId
+      // 获取保存的用户Cookie作为备用
+      function getSavedUserCookies() {
+        try {
+          const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+          return userInfo.cookies || null;
+        } catch (error) {
+          console.warn('⚠️ 获取保存的Cookie失败:', error);
+          return null;
+        }
+      }
+
+      // 洛谷API代理函数 - 确保使用统一的sessionId和cookie备份
       async function proxyLuoguAPI(path, options = {}) {
         const { method = 'GET', body, headers = {} } = options;
         
         // 确保使用统一的sessionId
         const sessionId = getOrCreateSessionId();
         
+        // 获取保存的cookie作为备用
+        const clientCookies = getSavedUserCookies();
+        
         const requestData = {
           path,
           method,
           headers,
-          sessionId: sessionId // 使用统一生成的sessionId
+          sessionId: sessionId, // 使用统一生成的sessionId
+          clientCookies: clientCookies // 传递客户端cookie作为备用
         };
         
         if (body) {
@@ -879,7 +894,8 @@
           console.log('🌐 发起API代理请求:', {
             path,
             method,
-            sessionId: sessionId.substring(0, 15) + '...'
+            sessionId: sessionId.substring(0, 15) + '...',
+            hasCookieBackup: !!clientCookies
           });
           
           const response = await fetch('/.netlify/functions/luogu-proxy', {

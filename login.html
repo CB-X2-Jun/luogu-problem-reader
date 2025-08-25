@@ -403,37 +403,54 @@
         // 获取统一的sessionId
         const sessionId = getOrCreateSessionId();
 
-        // 代理函数 - 通过Netlify Functions调用洛谷API
+        // 获取保存的用户Cookie作为备用
+        function getSavedUserCookies() {
+            try {
+                const userInfo = JSON.parse(localStorage.getItem('luogu_user_info') || '{}');
+                return userInfo.cookies || null;
+            } catch (error) {
+                console.warn('⚠️ 获取保存的Cookie失败:', error);
+                return null;
+            }
+        }
+
+        // 洛谷API代理函数 - 确保使用统一的sessionId和cookie备份
         async function proxyLuoguAPI(path, options = {}) {
             const { method = 'GET', body, headers = {} } = options;
             
             // 确保使用统一的sessionId
             const currentSessionId = getOrCreateSessionId();
             
+            // 获取保存的cookie作为备用
+            const clientCookies = getSavedUserCookies();
+            
+            const requestData = {
+                path: path,
+                method: method,
+                body: body,
+                csrfToken: csrfToken,
+                headers: headers,
+                sessionId: currentSessionId,
+                clientCookies: clientCookies // 传递客户端cookie作为备用
+            };
+
+            console.log('🌐 发起API代理请求:', {
+                path,
+                method,
+                sessionId: currentSessionId.substring(0, 15) + '...',
+                hasCookieBackup: !!clientCookies
+            });
+
             try {
-                console.log('🌐 发起API代理请求:', {
-                    path,
-                    method,
-                    sessionId: currentSessionId.substring(0, 15) + '...'
-                });
-                
                 const response = await fetch('/.netlify/functions/luogu-proxy', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        path: path,
-                        method: method,
-                        body: body,
-                        csrfToken: csrfToken,
-                        headers: headers,
-                        sessionId: currentSessionId // 使用统一获取的sessionId
-                    })
+                    body: JSON.stringify(requestData)
                 });
-                
-                console.log('代理响应状态:', response.status);
-                console.log('代理响应头:', response.headers.get('content-type'));
+
+                console.log('📡 API代理响应:', response.status, response.statusText);
                 
                 // 检查响应状态 - 但400状态码可能是正常的验证码错误
                 if (!response.ok && response.status !== 400) {

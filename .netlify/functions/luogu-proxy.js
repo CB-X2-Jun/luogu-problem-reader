@@ -1,8 +1,35 @@
 const https = require('https');
 const http = require('http');
 
-// 全局Cookie存储（在实际生产环境中应该使用数据库或缓存）
+// Cookie存储 - 使用环境变量和内存组合存储
 let globalCookies = {};
+
+// 尝试从环境变量恢复cookie（简单的持久化方案）
+function getCookieKey(sessionId) {
+    return `COOKIE_${sessionId.replace(/[^a-zA-Z0-9]/g, '_')}`;
+}
+
+function saveCookieToEnv(sessionId, cookieValue) {
+    try {
+        // 注意：Netlify Functions的环境变量是只读的，这里只是演示
+        // 实际生产环境应该使用外部存储（如Redis、数据库等）
+        globalCookies[sessionId] = cookieValue;
+        console.log(`💾 Cookie已保存到内存 [${sessionId.substring(0, 15)}...]`);
+    } catch (error) {
+        console.warn('⚠️ Cookie保存失败:', error.message);
+    }
+}
+
+function getCookieFromStorage(sessionId) {
+    // 首先从内存中获取
+    if (globalCookies[sessionId]) {
+        console.log(`📖 从内存获取Cookie [${sessionId.substring(0, 15)}...]`);
+        return globalCookies[sessionId];
+    }
+    
+    console.log(`❌ 内存中未找到Cookie [${sessionId.substring(0, 15)}...]`);
+    return null;
+}
 
 exports.handler = async (event, context) => {
     // 处理CORS预检请求
@@ -53,7 +80,7 @@ exports.handler = async (event, context) => {
         
         console.log('  - 解析后的请求数据:', JSON.stringify(requestData, null, 2));
         
-        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId } = requestData;
+        const { path, method = 'GET', body, csrfToken, headers: clientHeaders = {}, sessionId, clientCookies } = requestData;
         
         if (!path) {
             console.log('❌ 缺少path参数');
@@ -105,12 +132,22 @@ exports.handler = async (event, context) => {
         // 调试：输出最终的请求头
         console.log(`🔍 [${clientSessionId}] 最终请求头:`, JSON.stringify(requestHeaders, null, 2));
 
-        // 添加保存的Cookie
-        if (globalCookies[clientSessionId]) {
-            requestHeaders['Cookie'] = globalCookies[clientSessionId];
-            console.log(`🍪 [${clientSessionId}] 使用保存的Cookie:`, globalCookies[clientSessionId].substring(0, 100) + '...');
+        // 添加Cookie - 优先使用服务端保存的，备用客户端传递的
+        const savedCookie = getCookieFromStorage(clientSessionId);
+        const cookieToUse = savedCookie || clientCookies;
+        
+        if (cookieToUse) {
+            requestHeaders['Cookie'] = cookieToUse;
+            const cookieSource = savedCookie ? '服务端保存' : '客户端传递';
+            console.log(`🍪 [${clientSessionId}] 使用${cookieSource}的Cookie:`, cookieToUse.substring(0, 100) + '...');
+            
+            // 如果使用的是客户端传递的cookie，同时保存到服务端
+            if (!savedCookie && clientCookies) {
+                saveCookieToEnv(clientSessionId, clientCookies);
+                console.log(`💾 [${clientSessionId}] 客户端Cookie已同步到服务端`);
+            }
         } else {
-            console.log(`❌ [${clientSessionId}] 没有找到保存的Cookie`);
+            console.log(`❌ [${clientSessionId}] 没有找到任何Cookie（服务端或客户端）`);
             console.log(`📊 当前所有会话Cookie:`, Object.keys(globalCookies).map(key => ({
                 sessionId: key.substring(0, 15) + '...',
                 cookieLength: globalCookies[key] ? globalCookies[key].length : 0
@@ -119,6 +156,11 @@ exports.handler = async (event, context) => {
             // 如果是提交相关的请求且没有Cookie，给出明确提示
             if (path.includes('/fe/api/problem/submit/')) {
                 console.log('🚨 提交请求但没有登录Cookie，这可能导致"未登录"错误');
+                console.log('🔍 建议检查：');
+                console.log('  1. 是否在同一个sessionId下登录？');
+                console.log('  2. 登录后是否成功保存了Cookie？');
+                console.log('  3. Netlify Functions实例是否发生了重启？');
+                console.log('  4. 客户端是否传递了cookie备份？');
             }
         }
 
@@ -168,9 +210,18 @@ exports.handler = async (event, context) => {
             }).filter(Boolean);
             
             if (cookieStrings.length > 0) {
-                globalCookies[clientSessionId] = cookieStrings.join('; ');
-                console.log(`🍪 [${clientSessionId}] 保存Cookie:`, globalCookies[clientSessionId]);
+                const cookieValue = cookieStrings.join('; ');
+                saveCookieToEnv(clientSessionId, cookieValue);
+                console.log(`🍪 [${clientSessionId}] 保存Cookie:`, cookieValue.substring(0, 100) + '...');
                 console.log(`📊 [${clientSessionId}] 当前所有会话Cookie:`, Object.keys(globalCookies));
+                
+                // 检查是否包含重要的登录相关cookie
+                const hasLoginCookies = cookieValue.includes('_uid') || cookieValue.includes('__client_id');
+                if (hasLoginCookies) {
+                    console.log(`✅ [${clientSessionId}] 检测到登录相关Cookie (_uid 或 __client_id)`);
+                } else {
+                    console.log(`⚠️ [${clientSessionId}] 未检测到登录相关Cookie，可能影响后续请求`);
+                }
             }
         }
 
