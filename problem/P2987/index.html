@@ -1065,8 +1065,12 @@ U
         try {
           console.log('🔍 获取题目页面CSRF令牌...', pid);
           
+          // 确保题目ID为大写格式（洛谷要求）
+          const upperPid = pid.toUpperCase();
+          console.log('🔄 题目ID转换:', pid, '->', upperPid);
+          
           // 请求题目页面HTML以获取CSRF令牌
-          const response = await proxyLuoguAPI(`/problem/${pid}`, {
+          const response = await proxyLuoguAPI(`/problem/${upperPid}`, {
             method: 'GET',
             headers: {
               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
@@ -1214,6 +1218,10 @@ U
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
         
         try {
+          // 确保题目ID为大写格式（洛谷要求）
+          const upperProblemId = problemId.toUpperCase();
+          console.log('🔄 提交时题目ID转换:', problemId, '->', upperProblemId);
+          
           // 获取题目页面的CSRF令牌
           showSubmitResult('正在获取题目页面令牌...', 'info');
           problemCsrfToken = await getProblemCsrfToken(problemId);
@@ -1223,7 +1231,7 @@ U
           }
           
           console.log('🚀 开始提交代码...', {
-            problemId: problemId,
+            problemId: upperProblemId,
             language: language,
             codeLength: code.length,
             csrfToken: problemCsrfToken.substring(0, 10) + '...'
@@ -1240,7 +1248,7 @@ U
           showSubmitResult('正在提交代码到洛谷...', 'info');
           
           // 发送提交请求
-          const response = await proxyLuoguAPI(`/fe/api/problem/submit/${problemId}`, {
+          const response = await proxyLuoguAPI(`/fe/api/problem/submit/${upperProblemId}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
