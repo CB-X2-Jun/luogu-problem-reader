@@ -156,7 +156,7 @@ exports.handler = async (event, context) => {
             console.log('  - 响应体前500字符:', response.body ? response.body.substring(0, 500) : 'empty');
         }
 
-        // 最简化的响应处理 - 直接返回，不处理cookie
+        // 最简化的响应处理 - 正确处理图片的base64编码
         return {
             statusCode: response.statusCode,
             headers: {
@@ -165,7 +165,8 @@ exports.handler = async (event, context) => {
                 'Access-Control-Allow-Headers': 'Content-Type',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
             },
-            body: response.body
+            body: response.body,
+            isBase64Encoded: response.isBase64Encoded || false
         };
 
     } catch (error) {
