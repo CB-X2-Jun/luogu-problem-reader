@@ -903,7 +903,7 @@ $2$ 操作中 $1\le c &lt; 2^{63}$，第 $c$ 大的数存在</p>
         }
         
         try {
-          const response = await fetch('/netlify/functions/luogu-proxy', {
+          const response = await fetch('/.netlify/functions/luogu-proxy', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

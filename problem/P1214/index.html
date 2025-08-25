@@ -898,7 +898,7 @@ $${ x | x = p^2 + q^2 \wedge p,q \in \mathbb N \cap [0,m]}$$
         }
         
         try {
-          const response = await fetch('/netlify/functions/luogu-proxy', {
+          const response = await fetch('/.netlify/functions/luogu-proxy', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

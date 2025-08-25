@@ -579,49 +579,68 @@ def generate_problem_list():
     else:
         template = '<!doctype html><html><head><title>{title}</title></head><body>{article}</body></html>'
     
-    # 生成题目数据的JavaScript对象
-    problem_data_js = json.dumps(problem_data, ensure_ascii=False)
+    # 将题目数据保存到独立的JSON文件
+    list_dir = PROBLEM_DIR / 'list'
+    list_dir.mkdir(exist_ok=True)
     
-    additional_js = f'''
-        // 预加载的题目数据
-        const problemData = {problem_data_js};
+    # 保存题目数据到JSON文件
+    with open(list_dir / 'problems.json', 'w', encoding='utf-8') as f:
+        json.dump(problem_data, f, ensure_ascii=False, indent=2)
+    
+    additional_js = '''
+        // 异步加载题目数据
+        async function loadProblemData() {
+          try {
+            const response = await fetch('./problems.json');
+            const problemData = await response.json();
+            
+            // 动态生成题目网格
+            const problemGrid = document.getElementById('problem-grid');
+            const problemCountEl = document.getElementById('problem-count');
+            
+            if (problemGrid && problemData) {
+              const problemCount = problemData.length;
+              
+              // 更新统计信息
+              problemCountEl.textContent = `共收录 ${problemCount} 道洛谷题目，持续更新中...`;
+              
+              // 生成题目卡片
+              problemData.forEach((problem, index) => {
+                const card = document.createElement('a');
+                card.className = 'problem-card';
+                card.href = problem.url;
+                
+                // 创建题目ID元素
+                const idElement = document.createElement('div');
+                idElement.className = 'problem-id';
+                idElement.textContent = problem.id;
+                
+                // 创建题目标题元素
+                const titleElement = document.createElement('div');
+                titleElement.className = 'problem-title';
+                titleElement.textContent = problem.title;
+                
+                card.appendChild(idElement);
+                card.appendChild(titleElement);
+                
+                // 添加延迟动画效果
+                card.style.animationDelay = `${index * 0.02}s`;
+                card.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                
+                problemGrid.appendChild(card);
+              });
+            }
+          } catch (error) {
+            console.error('加载题目数据失败:', error);
+            const problemCountEl = document.getElementById('problem-count');
+            if (problemCountEl) {
+              problemCountEl.textContent = '题目数据加载失败，请刷新页面重试';
+            }
+          }
+        }
         
-        // 动态生成题目网格
-        const problemGrid = document.getElementById('problem-grid');
-        const problemCountEl = document.getElementById('problem-count');
-        
-        if (problemGrid) {{
-          const problemCount = problemData.length;
-          
-          // 更新统计信息
-          problemCountEl.textContent = `共收录 ${{problemCount}} 道洛谷题目，持续更新中...`;
-          
-          // 生成题目卡片
-          problemData.forEach((problem, index) => {{
-            const card = document.createElement('a');
-            card.className = 'problem-card';
-            card.href = problem.url;
-            
-            // 创建题目ID元素
-            const idElement = document.createElement('div');
-            idElement.className = 'problem-id';
-            idElement.textContent = problem.id;
-            
-            // 创建题目标题元素（使用预加载的数据）
-            const titleElement = document.createElement('div');
-            titleElement.className = 'problem-title';
-            titleElement.textContent = problem.title;
-            
-            card.appendChild(idElement);
-            card.appendChild(titleElement);
-            
-            // 添加延迟动画效果
-            card.style.animationDelay = `${{index * 0.02}}s`;
-            card.style.animation = 'fadeInUp 0.6s ease-out forwards';
-            
-            problemGrid.appendChild(card);
-          }});
-        }}
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', loadProblemData);
     '''
     
     # 生成列表页面
@@ -634,7 +653,13 @@ def generate_problem_list():
     
     # 在HTML中插入CSS和JavaScript
     list_html = list_html.replace('</style>', additional_css + '\n      </style>')
-    list_html = list_html.replace('});', '});\n        \n        ' + additional_js)
+    
+    # 更安全的JavaScript插入方式 - 只在</script>标签前插入一次
+    if '</script>' in list_html and additional_js not in list_html:
+        # 找到最后一个</script>标签，在其前面插入JavaScript
+        last_script_pos = list_html.rfind('</script>')
+        if last_script_pos != -1:
+            list_html = list_html[:last_script_pos] + '\n        ' + additional_js + '\n    ' + list_html[last_script_pos:]
     
     # 修复highlight.js CDN链接
     list_html = list_html.replace(
@@ -651,8 +676,7 @@ def generate_problem_list():
     # 移除错误的katex.js引用
     list_html = list_html.replace('<script src="/javascripts/katex.js"></script>', '')
     
-    list_dir = PROBLEM_DIR / 'list'
-    list_dir.mkdir(exist_ok=True)
+    # 保存HTML文件（list_dir已在前面创建）
     with open(list_dir / 'index.html', 'w', encoding='utf-8') as f:
         f.write(list_html)
 

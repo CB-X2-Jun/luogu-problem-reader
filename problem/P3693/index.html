@@ -1207,7 +1207,7 @@ $4\le N\le 16$，$5\le H_M\le 20$，$10\le M\le 10^3$，保证不属于冰屋范
         }
         
         try {
-          const response = await fetch('/netlify/functions/luogu-proxy', {
+          const response = await fetch('/.netlify/functions/luogu-proxy', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

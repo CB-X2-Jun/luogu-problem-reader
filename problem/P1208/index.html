@@ -890,7 +890,7 @@ $0 \le n,a_i \le 2 \times 10^6$，$0\le m \le 5000$，$0 \le p_i \le 1000$</p>
         }
         
         try {
-          const response = await fetch('/netlify/functions/luogu-proxy', {
+          const response = await fetch('/.netlify/functions/luogu-proxy', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

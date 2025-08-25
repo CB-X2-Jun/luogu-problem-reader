@@ -892,7 +892,7 @@ $5 \to 6 \to 1 \to 4$ 为最短路，长度为 $3+1+3 = 7$。</p>
         }
         
         try {
-          const response = await fetch('/netlify/functions/luogu-proxy', {
+          const response = await fetch('/.netlify/functions/luogu-proxy', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
