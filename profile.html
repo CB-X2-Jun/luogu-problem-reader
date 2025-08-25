@@ -1454,7 +1454,19 @@
                 }
             } catch (error) {
                 console.error('❌ 获取关注列表失败:', error);
-                followingList.innerHTML = '<div class="error-state">获取关注列表失败，请重试</div>';
+                followingList.innerHTML = `<div class="error-state">
+                    获取关注列表失败，请重试
+                    <button class="retry-btn" onclick="loadFollowingList()" style="
+                        background: #4CAF50;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        margin-top: 10px;">
+                        🔄 重试
+                    </button>
+                </div>`;
             }
         }
 
