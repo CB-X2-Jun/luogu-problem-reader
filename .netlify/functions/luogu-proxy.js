@@ -32,6 +32,11 @@ function getCookieFromStorage(sessionId) {
 }
 
 exports.handler = async (event, context) => {
+    console.log('🚀 代理请求开始');
+    console.log('  - HTTP方法:', event.httpMethod);
+    console.log('  - 请求头:', JSON.stringify(event.headers, null, 2));
+    console.log('  - 查询参数:', JSON.stringify(event.queryStringParameters, null, 2));
+    
     // 处理CORS预检请求
     if (event.httpMethod === 'OPTIONS') {
         return {
@@ -39,42 +44,33 @@ exports.handler = async (event, context) => {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
             },
             body: ''
         };
     }
 
-    // 只允许POST请求
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS'
-            },
-            body: JSON.stringify({ error: 'Method not allowed' })
-        };
-    }
-
     try {
-        console.log('🔍 代理函数收到请求:');
-        console.log('  - HTTP方法:', event.httpMethod);
-        console.log('  - 请求体长度:', event.body ? event.body.length : 0);
-        
-        // 简化的JSON解析，增加错误处理
+        // 解析请求数据 - 支持GET查询参数和POST请求体
         let requestData;
-        try {
-            requestData = JSON.parse(event.body || '{}');
-        } catch (parseError) {
-            console.error('❌ JSON解析失败:', parseError.message);
+        if (event.httpMethod === 'GET' && event.queryStringParameters) {
+            // GET请求，从查询参数获取数据
+            requestData = {
+                path: event.queryStringParameters.path,
+                method: event.queryStringParameters.method || 'GET',
+                sessionId: event.queryStringParameters.sessionId,
+                headers: {}
+            };
+        } else if (event.httpMethod === 'POST' && event.body) {
+            // POST请求，从请求体获取数据
+            requestData = JSON.parse(event.body);
+        } else {
             return {
                 statusCode: 400,
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 },
-                body: JSON.stringify({ error: 'Invalid JSON in request body' })
+                body: JSON.stringify({ error: 'Missing request data' })
             };
         }
         
